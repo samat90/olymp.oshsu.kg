@@ -1128,3 +1128,15 @@ msgstr "Сөздү ташуу"
 msgid "Auto save"
 msgstr "Автосактоо"
 
+msgid "Online programming olympiad platform"
+msgstr "Программалоо олимпиадаларынын онлайн платформасы"
+
+msgid "Osh State University"
+msgstr "Ош мамлекеттик университети"
+
+msgid "Change language"
+msgstr "Тилди өзгөртүү"
+
+msgid "Toggle theme"
+msgstr "Теманы которуу"
+

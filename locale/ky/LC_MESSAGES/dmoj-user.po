@@ -35,3 +35,15 @@ msgstr "Кайрылуулар"
 
 msgid "Home"
 msgstr "Башкы бет"
+
+msgid "Osh State University"
+msgstr "Ош мамлекеттик университети"
+
+msgid "Online programming olympiad platform"
+msgstr "Программалоо олимпиадаларынын онлайн платформасы"
+
+msgid "Change language"
+msgstr "Тилди өзгөртүү"
+
+msgid "Toggle theme"
+msgstr "Теманы которуу"
