@@ -5,60 +5,59 @@
 }
 
 .table {
+    border-collapse: separate;
     border-spacing: 0;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 0.5em;
-    background: rgba($color_primary100, 0.01);
+    background: $color_card_bg;
+    border: 1px solid $color_table_border;
+    border-radius: $table_header_rounding;
+    overflow: hidden;
+    box-shadow: $shadow_sm;
 
     th {
-        height: 2em;
-        color: $color_primary0;
-        background-color: $color_primary75;
-        border-color: $color_primary50;
-        border-width: 0 1px 1px 0;
-        border-style: solid;
-        padding: 4px 10px;
+        height: 2.4em;
+        color: $color_table_header_text;
+        background-color: $color_table_header_bg;
+        border-bottom: 1px solid $color_table_border;
+        padding: 8px 12px;
         vertical-align: middle;
         text-align: center;
         white-space: nowrap;
         font-weight: 600;
-        font-size: 1.1em;
+        font-size: 0.95em;
+        letter-spacing: 0.01em;
+
+        a, a:link, a:visited {
+            color: $color_table_header_text;
+        }
+        a:hover {
+            color: $brand_primary;
+        }
     }
 
     td {
-        border-color: $color_primary25;
-        border-width: 0 1px 1px 0;
-        border-style: solid;
-        padding: 7px 5px;
+        border-bottom: 1px solid $color_table_border;
+        padding: 10px 8px;
         vertical-align: middle;
         text-align: center;
     }
 
-    // Border fixes
-    th:first-child, td:first-child {
-        border-left-width: 1px;
-    }
+    tbody tr {
+        transition: background $transition_fast;
 
-    tr:first-child th, tr:first-child td {
-        border-top-width: 1px;
-    }
+        &:hover {
+            background: $color_table_row_hover;
+        }
 
-    // Rounded corners for <th>
-    tr:first-child th:first-child {
-        border-top-left-radius: $table_header_rounding;
-    }
-
-    tr:first-child th:last-child {
-        border-top-right-radius: $table_header_rounding;
-    }
-
-    tbody tr:last-child th:first-child {
-        border-bottom-left-radius: $table_header_rounding;
+        &:last-child td {
+            border-bottom: none;
+        }
     }
 }
 
 .striped tr:nth-child(even) {
-    background: rgba($color_primary100, 0.03);
+    background: rgba($color_primary100, 0.025);
 }

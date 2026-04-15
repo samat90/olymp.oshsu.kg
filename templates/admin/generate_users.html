@@ -1,0 +1,44 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block content %}
+<div id="content-main">
+    <h1>{{ title }}</h1>
+    <p style="max-width:60em">
+        {% trans "Форма создаёт N новых пользователей с логинами вида" %} <code>prefix001, prefix002, ...</code>
+        {% trans "и случайными паролями. После создания учётные данные можно скачать как CSV или скопировать в буфер." %}
+    </p>
+
+    <form method="post" style="max-width:40em; padding:1em; background:#fff; border:1px solid #ccc; border-radius:6px;">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <p style="margin-top:1em">
+            <button type="submit" name="action" value="create" class="default">{% trans "Создать" %}</button>
+            <button type="submit" name="download" value="1">{% trans "Создать и скачать CSV" %}</button>
+        </p>
+    </form>
+
+    {% if generated %}
+    <h2 style="margin-top:2em">{% trans "Созданные учётные записи" %} ({{ generated|length }})</h2>
+    <p>
+        <button type="button" onclick="copyCreds()" class="default">{% trans "Скопировать в буфер" %}</button>
+        <span id="copy-status" style="margin-left:1em; color:green; display:none;">{% trans "Скопировано!" %}</span>
+    </p>
+    <textarea id="creds" readonly rows="{{ generated|length|add:2 }}" style="width:100%; font-family:monospace; font-size:13px; padding:8px;">login	password
+{% for u in generated %}{{ u.login }}	{{ u.password }}
+{% endfor %}</textarea>
+    <script>
+        function copyCreds() {
+            var ta = document.getElementById('creds');
+            ta.select();
+            document.execCommand('copy');
+            var s = document.getElementById('copy-status');
+            s.style.display = 'inline';
+            setTimeout(function(){ s.style.display='none'; }, 2000);
+        }
+    </script>
+    {% endif %}
+</div>
+{% endblock %}

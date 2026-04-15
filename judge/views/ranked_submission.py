@@ -1,3 +1,4 @@
+from django.db import connection
 from django.urls import reverse
 from django.utils.html import escape, format_html
 from django.utils.safestring import mark_safe
@@ -35,6 +36,8 @@ class RankedSubmissions(ProblemSubmissions):
             self.selected_languages = set()
 
         queryset = super(RankedSubmissions, self).get_queryset().filter(user__is_unlisted=False)
+        # STRAIGHT_JOIN is MySQL-specific; use INNER JOIN on other backends.
+        join_kw = 'STRAIGHT_JOIN' if connection.vendor == 'mysql' else 'INNER JOIN'
         join_sql_subquery(
             queryset,
             subquery="""
@@ -44,17 +47,17 @@ class RankedSubmissions(ProblemSubmissions):
                     FROM judge_submission AS sub {contest_join}
                     WHERE sub.problem_id = %s AND NOT sub.is_archived AND {points} > 0 {constraint}
                     GROUP BY sub.user_id
-                ) AS highscore STRAIGHT_JOIN (
+                ) AS highscore {join_kw} (
                     SELECT sub.user_id AS uid, sub.points, MIN(sub.time) as time
                     FROM judge_submission AS sub {contest_join}
                     WHERE sub.problem_id = %s AND NOT sub.is_archived AND {points} > 0 {constraint}
                     GROUP BY sub.user_id, {points}
                 ) AS fastest ON (highscore.uid = fastest.uid AND highscore.points = fastest.points)
-                    STRAIGHT_JOIN judge_submission AS sub
+                    {join_kw} judge_submission AS sub
                         ON (sub.user_id = fastest.uid AND sub.time = fastest.time)
                 WHERE sub.problem_id = %s {constraint}
                 GROUP BY sub.user_id
-            """.format(points=points, contest_join=contest_join, constraint=constraint),
+            """.format(points=points, contest_join=contest_join, constraint=constraint, join_kw=join_kw),
             params=params * 3, alias='best_subs', join_fields=[('id', 'id')], related_model=Submission,
         )
 

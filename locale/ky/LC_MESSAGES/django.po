@@ -1,0 +1,1130 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: OshSU Olymp\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-04-15 00:00+0600\n"
+"Language-Team: Kyrgyz\n"
+"Language: ky\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+# --- OshSU Olymp brand & hero ---
+msgid "Osh State University"
+msgstr "Ош мамлекеттик университети"
+
+msgid "Online programming contest platform of Osh State University. Solve problems, participate in contests, compete with friends."
+msgstr "Ош мамлекеттик университетинин программалоо боюнча олимпиадаларынын онлайн-платформасы. Маселелерди чечкиле, мелдештерге катышкыла, досуңуздар менен мелдешкиле."
+
+# --- Navigation & primary actions ---
+msgid "Problems"
+msgstr "Маселелер"
+
+msgid "Contests"
+msgstr "Мелдештер"
+
+msgid "Users"
+msgstr "Колдонуучулар"
+
+msgid "Organizations"
+msgstr "Уюмдар"
+
+msgid "Home"
+msgstr "Башкы бет"
+
+msgid "About"
+msgstr "Биз жөнүндө"
+
+msgid "Submissions"
+msgstr "Жиберилгендер"
+
+msgid "Submit"
+msgstr "Жөнөтүү"
+
+msgid "Cancel"
+msgstr "Жокко чыгаруу"
+
+msgid "Search"
+msgstr "Издөө"
+
+msgid "Sign in"
+msgstr "Кирүү"
+
+msgid "Sign up"
+msgstr "Катталуу"
+
+msgid "Log out"
+msgstr "Чыгуу"
+
+msgid "Profile"
+msgstr "Профиль"
+
+msgid "Edit profile"
+msgstr "Профилди түзөтүү"
+
+msgid "Settings"
+msgstr "Жөндөөлөр"
+
+msgid "Password"
+msgstr "Сырсөз"
+
+msgid "Email"
+msgstr "Электрондук почта"
+
+msgid "Username"
+msgstr "Колдонуучунун аты"
+
+msgid "Name"
+msgstr "Аты"
+
+msgid "Save"
+msgstr "Сактоо"
+
+msgid "Delete"
+msgstr "Өчүрүү"
+
+msgid "Edit"
+msgstr "Түзөтүү"
+
+msgid "View"
+msgstr "Көрүү"
+
+msgid "Yes"
+msgstr "Ооба"
+
+msgid "No"
+msgstr "Жок"
+
+msgid "Error"
+msgstr "Ката"
+
+msgid "Success"
+msgstr "Ийгиликтүү"
+
+msgid "Loading..."
+msgstr "Жүктөлүүдө..."
+
+# --- Problem & submission UI ---
+msgid "Problem"
+msgstr "Маселе"
+
+msgid "Status"
+msgstr "Абалы"
+
+msgid "Language"
+msgstr "Тил"
+
+msgid "Code"
+msgstr "Код"
+
+msgid "Time"
+msgstr "Убакыт"
+
+msgid "Memory"
+msgstr "Эс тутум"
+
+msgid "Points"
+msgstr "Упайлар"
+
+msgid "Score"
+msgstr "Упай"
+
+msgid "Difficulty"
+msgstr "Кыйындык"
+
+msgid "Category"
+msgstr "Категория"
+
+msgid "Author"
+msgstr "Автор"
+
+msgid "Authors"
+msgstr "Авторлор"
+
+msgid "Description"
+msgstr "Сүрөттөмө"
+
+msgid "Input"
+msgstr "Кирүү"
+
+msgid "Output"
+msgstr "Чыгуу"
+
+msgid "Sample input"
+msgstr "Мисал кирүү"
+
+msgid "Sample output"
+msgstr "Мисал чыгуу"
+
+msgid "Time limit"
+msgstr "Убакыт чеги"
+
+msgid "Memory limit"
+msgstr "Эс тутум чеги"
+
+msgid "Submit solution"
+msgstr "Чыгарылышты жөнөтүү"
+
+msgid "Your submissions"
+msgstr "Сиздин жиберилгендериңиз"
+
+msgid "All submissions"
+msgstr "Бардык жиберилгендер"
+
+msgid "Accepted"
+msgstr "Кабыл алынды"
+
+msgid "Wrong Answer"
+msgstr "Туура эмес жооп"
+
+msgid "Time Limit Exceeded"
+msgstr "Убакыт чеги ашты"
+
+msgid "Memory Limit Exceeded"
+msgstr "Эс тутум чеги ашты"
+
+msgid "Compile Error"
+msgstr "Компиляция катасы"
+
+msgid "Runtime Error"
+msgstr "Иштетүү катасы"
+
+msgid "Judging"
+msgstr "Текшерилүүдө"
+
+# --- Contests ---
+msgid "Contest"
+msgstr "Мелдеш"
+
+msgid "Start time"
+msgstr "Башталыш убактысы"
+
+msgid "End time"
+msgstr "Аяктоо убактысы"
+
+msgid "Duration"
+msgstr "Узактыгы"
+
+msgid "Upcoming contests"
+msgstr "Болочоктогу мелдештер"
+
+msgid "Past contests"
+msgstr "Өткөн мелдештер"
+
+msgid "Active contests"
+msgstr "Жигердүү мелдештер"
+
+msgid "Join"
+msgstr "Катышуу"
+
+msgid "Leave"
+msgstr "Чыгуу"
+
+msgid "Participants"
+msgstr "Катышуучулар"
+
+msgid "Ranking"
+msgstr "Рейтинг"
+
+# --- Auth / forms ---
+msgid "Sign In"
+msgstr "Кирүү"
+
+msgid "Remember me"
+msgstr "Мени эстеп кал"
+
+msgid "Forgot password?"
+msgstr "Сырсөздү унуттуңузбу?"
+
+msgid "Create account"
+msgstr "Каттоо эсебин түзүү"
+
+msgid "Confirm password"
+msgstr "Сырсөздү ырастоо"
+
+msgid "I agree to the terms of service"
+msgstr "Кызмат көрсөтүү шарттары менен макулмун"
+
+# --- Misc UI ---
+msgid "News"
+msgstr "Жаңылыктар"
+
+msgid "Announcement"
+msgstr "Кулактандыруу"
+
+msgid "Comment stream"
+msgstr "Комментарий агымы"
+
+msgid "New problems"
+msgstr "Жаңы маселелер"
+
+msgid "Recent"
+msgstr "Акыркы"
+
+msgid "Page not found"
+msgstr "Барак табылган жок"
+
+msgid "You do not have permission to access this page."
+msgstr "Сизде бул баракка кирүү укугу жок."
+
+msgid "Yes, I am sure"
+msgstr "Ооба, мен ишенимдүүмүн"
+
+# --- Form validation & fields ---
+msgid "This field is required."
+msgstr "Бул талаа милдеттүү."
+
+msgid "Enter a valid email address."
+msgstr "Туура электрондук почта дарегин киргизиңиз."
+
+msgid "Enter your password"
+msgstr "Сырсөзүңүздү киргизиңиз"
+
+msgid "Enter your username"
+msgstr "Колдонуучунун атын киргизиңиз"
+
+msgid "Enter a valid username."
+msgstr "Туура колдонуучунун атын киргизиңиз."
+
+msgid "Passwords don't match"
+msgstr "Сырсөздөр дал келген жок"
+
+msgid "The two password fields didn't match."
+msgstr "Эки сырсөз талаалары дал келген жок."
+
+msgid "Your password can't be too similar to your other personal information."
+msgstr "Сырсөзүңүз башка жеке маалыматыңызга окшош болбоого тийиш."
+
+msgid "Your password must contain at least %(min_length)d characters."
+msgstr "Сырсөзүңүз кеминде %(min_length)d белгиден турушу керек."
+
+msgid "Your password can't be a commonly used password."
+msgstr "Сырсөзүңүз көп колдонулган сырсөз болбошу керек."
+
+msgid "Your password can't be entirely numeric."
+msgstr "Сырсөзүңүз толугу менен сандардан турбашы керек."
+
+msgid "Old password"
+msgstr "Эски сырсөз"
+
+msgid "New password"
+msgstr "Жаңы сырсөз"
+
+msgid "New password confirmation"
+msgstr "Жаңы сырсөздү ырастоо"
+
+msgid "Change password"
+msgstr "Сырсөздү өзгөртүү"
+
+msgid "Change email"
+msgstr "Электрондук почтаны өзгөртүү"
+
+msgid "Reset password"
+msgstr "Сырсөздү калыбына келтирүү"
+
+msgid "Password changed successfully."
+msgstr "Сырсөз ийгиликтүү өзгөртүлдү."
+
+msgid "Please correct the errors below."
+msgstr "Төмөндөгү каталарды оңдоңуз."
+
+msgid "Invalid username or password."
+msgstr "Колдонуучунун аты же сырсөз туура эмес."
+
+msgid "You are not logged in."
+msgstr "Сиз системага кирбедиңиз."
+
+msgid "You must be logged in to access this page."
+msgstr "Бул баракка кирүү үчүн системага кириш керек."
+
+# --- Common actions & buttons ---
+msgid "Add"
+msgstr "Кошуу"
+
+msgid "Remove"
+msgstr "Алып салуу"
+
+msgid "Confirm"
+msgstr "Ырастоо"
+
+msgid "Close"
+msgstr "Жабуу"
+
+msgid "Back"
+msgstr "Артка"
+
+msgid "Next"
+msgstr "Кийинки"
+
+msgid "Previous"
+msgstr "Мурунку"
+
+msgid "Continue"
+msgstr "Улантуу"
+
+msgid "Reset"
+msgstr "Баштапкыга кайтаруу"
+
+msgid "Apply"
+msgstr "Колдонуу"
+
+msgid "Update"
+msgstr "Жаңылоо"
+
+msgid "Create"
+msgstr "Түзүү"
+
+msgid "Download"
+msgstr "Жүктөп алуу"
+
+msgid "Upload"
+msgstr "Жүктөө"
+
+msgid "Preview"
+msgstr "Алдын ала көрүү"
+
+msgid "Show"
+msgstr "Көрсөтүү"
+
+msgid "Hide"
+msgstr "Жашыруу"
+
+msgid "Filter"
+msgstr "Чыпкалоо"
+
+msgid "Sort"
+msgstr "Иреттөө"
+
+msgid "Refresh"
+msgstr "Жаңыртуу"
+
+msgid "Copy"
+msgstr "Көчүрүү"
+
+msgid "Copied!"
+msgstr "Көчүрүлдү!"
+
+msgid "Share"
+msgstr "Бөлүшүү"
+
+msgid "Print"
+msgstr "Басып чыгаруу"
+
+msgid "Enable"
+msgstr "Иштетүү"
+
+msgid "Disable"
+msgstr "Өчүрүү"
+
+msgid "Enabled"
+msgstr "Иштетилди"
+
+msgid "Disabled"
+msgstr "Өчүрүлдү"
+
+# --- Profile pages ---
+msgid "My profile"
+msgstr "Менин профилим"
+
+msgid "User profile"
+msgstr "Колдонуучунун профили"
+
+msgid "About me"
+msgstr "Мен жөнүндө"
+
+msgid "Location"
+msgstr "Жайгашкан жер"
+
+msgid "Website"
+msgstr "Вебсайт"
+
+msgid "Date joined"
+msgstr "Катталган күнү"
+
+msgid "Last seen"
+msgstr "Акыркы жолу көрүлдү"
+
+msgid "Last login"
+msgstr "Акыркы кирүү"
+
+msgid "Timezone"
+msgstr "Убакыт алкагы"
+
+msgid "Preferred language"
+msgstr "Каалаган тили"
+
+msgid "Account"
+msgstr "Каттоо эсеби"
+
+msgid "Account settings"
+msgstr "Каттоо эсебинин жөндөөлөрү"
+
+msgid "Avatar"
+msgstr "Аватар"
+
+msgid "Full name"
+msgstr "Толук аты-жөнү"
+
+msgid "First name"
+msgstr "Аты"
+
+msgid "Last name"
+msgstr "Фамилиясы"
+
+msgid "Bio"
+msgstr "Биография"
+
+msgid "Statistics"
+msgstr "Статистика"
+
+msgid "Solved problems"
+msgstr "Чечилген маселелер"
+
+msgid "Attempted problems"
+msgstr "Чечүүгө аракет кылынган маселелер"
+
+msgid "Total submissions"
+msgstr "Жалпы жиберилгендер"
+
+msgid "Rating"
+msgstr "Рейтинг"
+
+msgid "Rank"
+msgstr "Орду"
+
+# --- Submission statuses ---
+msgid "Queued"
+msgstr "Кезекте"
+
+msgid "Compiling"
+msgstr "Компиляцияланууда"
+
+msgid "Processing"
+msgstr "Иштетилүүдө"
+
+msgid "Running"
+msgstr "Аткарылууда"
+
+msgid "Output Limit Exceeded"
+msgstr "Чыгуу чеги ашты"
+
+msgid "Internal Error"
+msgstr "Ички ката"
+
+msgid "Aborted"
+msgstr "Токтотулду"
+
+msgid "Partially Accepted"
+msgstr "Жарым-жартылай кабыл алынды"
+
+msgid "Short circuit"
+msgstr "Кыска туташуу"
+
+msgid "Submission"
+msgstr "Жиберилген"
+
+msgid "Source code"
+msgstr "Баштапкы код"
+
+msgid "Test case"
+msgstr "Тест"
+
+msgid "Test cases"
+msgstr "Тесттер"
+
+msgid "Result"
+msgstr "Натыйжа"
+
+msgid "Verdict"
+msgstr "Чечим"
+
+msgid "Total time"
+msgstr "Жалпы убакыт"
+
+msgid "Max memory"
+msgstr "Максималдуу эс тутум"
+
+msgid "Batch"
+msgstr "Партия"
+
+# --- Problems ---
+msgid "Problem list"
+msgstr "Маселелердин тизмеси"
+
+msgid "Problem name"
+msgstr "Маселенин аты"
+
+msgid "Problem type"
+msgstr "Маселенин түрү"
+
+msgid "Problem types"
+msgstr "Маселелердин түрлөрү"
+
+msgid "Allowed languages"
+msgstr "Уруксат берилген тилдер"
+
+msgid "No problems found."
+msgstr "Маселелер табылган жок."
+
+msgid "Show solved"
+msgstr "Чечилгендерди көрсөтүү"
+
+msgid "Hide solved"
+msgstr "Чечилгендерди жашыруу"
+
+msgid "Random problem"
+msgstr "Кокус маселе"
+
+msgid "Editorial"
+msgstr "Талдоо"
+
+msgid "Tutorial"
+msgstr "Окуу куралы"
+
+msgid "Hints"
+msgstr "Жардамдар"
+
+msgid "Solution"
+msgstr "Чечим"
+
+msgid "Solutions"
+msgstr "Чечимдер"
+
+msgid "Constraints"
+msgstr "Чектөөлөр"
+
+msgid "Examples"
+msgstr "Мисалдар"
+
+msgid "Notes"
+msgstr "Эскертүүлөр"
+
+msgid "Tags"
+msgstr "Тэгдер"
+
+msgid "Problem tags"
+msgstr "Маселенин тэгдери"
+
+msgid "Solved"
+msgstr "Чечилди"
+
+msgid "Unsolved"
+msgstr "Чечилген эмес"
+
+msgid "Attempted"
+msgstr "Аракет жасалды"
+
+# --- Contests ---
+msgid "Contest list"
+msgstr "Мелдештердин тизмеси"
+
+msgid "Contest name"
+msgstr "Мелдештин аты"
+
+msgid "Contest format"
+msgstr "Мелдештин форматы"
+
+msgid "Registration"
+msgstr "Каттоо"
+
+msgid "Register"
+msgstr "Катталуу"
+
+msgid "Registered"
+msgstr "Катталды"
+
+msgid "Not registered"
+msgstr "Катталган жок"
+
+msgid "Contest is running"
+msgstr "Мелдеш жүрүп жатат"
+
+msgid "Contest has ended"
+msgstr "Мелдеш аяктады"
+
+msgid "Contest starts in"
+msgstr "Мелдеш башталат"
+
+msgid "Contest ends in"
+msgstr "Мелдеш аяктайт"
+
+msgid "Time remaining"
+msgstr "Калган убакыт"
+
+msgid "Standings"
+msgstr "Турнир таблицасы"
+
+msgid "Scoreboard"
+msgstr "Упай таблицасы"
+
+msgid "Problems in contest"
+msgstr "Мелдештеги маселелер"
+
+msgid "Organizer"
+msgstr "Уюштуруучу"
+
+msgid "Organizers"
+msgstr "Уюштуруучулар"
+
+msgid "Virtual participation"
+msgstr "Виртуалдык катышуу"
+
+msgid "Private contest"
+msgstr "Жабык мелдеш"
+
+msgid "Public contest"
+msgstr "Ачык мелдеш"
+
+msgid "Visible"
+msgstr "Көрүнүктүү"
+
+msgid "Hidden"
+msgstr "Жашырылган"
+
+# --- Comments ---
+msgid "Comments"
+msgstr "Комментарийлер"
+
+msgid "Comment"
+msgstr "Комментарий"
+
+msgid "Post comment"
+msgstr "Комментарий калтыруу"
+
+msgid "Reply"
+msgstr "Жооп берүү"
+
+msgid "Replies"
+msgstr "Жооптор"
+
+msgid "Edit comment"
+msgstr "Комментарийди түзөтүү"
+
+msgid "Delete comment"
+msgstr "Комментарийди өчүрүү"
+
+msgid "Your comment"
+msgstr "Сиздин комментарийиңиз"
+
+msgid "Write a comment..."
+msgstr "Комментарий жазыңыз..."
+
+msgid "No comments yet."
+msgstr "Азырынча комментарийлер жок."
+
+msgid "Be the first to comment."
+msgstr "Биринчи болуп комментарий калтырыңыз."
+
+msgid "Reply to comment"
+msgstr "Комментарийге жооп берүү"
+
+msgid "Show replies"
+msgstr "Жоопторду көрсөтүү"
+
+msgid "Hide replies"
+msgstr "Жоопторду жашыруу"
+
+msgid "Posted by"
+msgstr "Тарабынан жарыяланды"
+
+msgid "Posted on"
+msgstr "Жарыяланган күн"
+
+msgid "Updated on"
+msgstr "Жаңыланган күн"
+
+# --- Auth ---
+msgid "Log in"
+msgstr "Кирүү"
+
+msgid "Logged in as"
+msgstr "Төмөнкү катары кирдиңиз"
+
+msgid "Logout successful"
+msgstr "Чыгуу ийгиликтүү болду"
+
+msgid "Registration successful"
+msgstr "Каттоо ийгиликтүү өттү"
+
+msgid "Already have an account?"
+msgstr "Каттоо эсебиңиз барбы?"
+
+msgid "Don't have an account?"
+msgstr "Каттоо эсебиңиз жокпу?"
+
+msgid "Create a new account"
+msgstr "Жаңы каттоо эсебин түзүү"
+
+msgid "Welcome"
+msgstr "Кош келиңиз"
+
+msgid "Welcome back"
+msgstr "Кайра кош келиңиз"
+
+msgid "Two-factor authentication"
+msgstr "Эки фактордук аутентификация"
+
+msgid "Verification code"
+msgstr "Ырастоо коду"
+
+msgid "Verify"
+msgstr "Ырастоо"
+
+msgid "Email address"
+msgstr "Электрондук почта дареги"
+
+msgid "Email verification"
+msgstr "Электрондук почтаны ырастоо"
+
+msgid "A verification email has been sent."
+msgstr "Ырастоо каты жөнөтүлдү."
+
+msgid "Email confirmed"
+msgstr "Электрондук почта ырасталды"
+
+# --- Pagination & lists ---
+msgid "Page"
+msgstr "Барак"
+
+msgid "First page"
+msgstr "Биринчи барак"
+
+msgid "Last page"
+msgstr "Акыркы барак"
+
+msgid "Next page"
+msgstr "Кийинки барак"
+
+msgid "Previous page"
+msgstr "Мурунку барак"
+
+msgid "Go to page"
+msgstr "Баракка өтүү"
+
+msgid "No results found."
+msgstr "Натыйжалар табылган жок."
+
+msgid "No data to display."
+msgstr "Көрсөтүүгө маалымат жок."
+
+msgid "Total"
+msgstr "Жалпы"
+
+msgid "Count"
+msgstr "Саны"
+
+# --- Time & dates ---
+msgid "Just now"
+msgstr "Жаңы эле"
+
+msgid "minutes ago"
+msgstr "мүнөт мурун"
+
+msgid "hours ago"
+msgstr "саат мурун"
+
+msgid "days ago"
+msgstr "күн мурун"
+
+msgid "Today"
+msgstr "Бүгүн"
+
+msgid "Yesterday"
+msgstr "Кечээ"
+
+msgid "Tomorrow"
+msgstr "Эртең"
+
+msgid "Date"
+msgstr "Күн"
+
+msgid "Time zone"
+msgstr "Убакыт алкагы"
+
+msgid "seconds"
+msgstr "секунд"
+
+msgid "minutes"
+msgstr "мүнөт"
+
+msgid "hours"
+msgstr "саат"
+
+msgid "days"
+msgstr "күн"
+
+msgid "weeks"
+msgstr "жума"
+
+msgid "months"
+msgstr "ай"
+
+msgid "years"
+msgstr "жыл"
+
+# --- Messages & notifications ---
+msgid "Notification"
+msgstr "Билдирүү"
+
+msgid "Notifications"
+msgstr "Билдирүүлөр"
+
+msgid "No new notifications."
+msgstr "Жаңы билдирүүлөр жок."
+
+msgid "Mark as read"
+msgstr "Окулду деп белгилөө"
+
+msgid "Mark all as read"
+msgstr "Баарын окулду деп белгилөө"
+
+msgid "Messages"
+msgstr "Кабарлар"
+
+msgid "Message"
+msgstr "Кабар"
+
+msgid "Send message"
+msgstr "Кабар жөнөтүү"
+
+msgid "Inbox"
+msgstr "Кирүүчү кабарлар"
+
+msgid "Outbox"
+msgstr "Жөнөтүлгөн кабарлар"
+
+msgid "Subject"
+msgstr "Тема"
+
+msgid "Body"
+msgstr "Текст"
+
+msgid "From"
+msgstr "Кимден"
+
+msgid "To"
+msgstr "Кимге"
+
+# --- Organizations ---
+msgid "Organization"
+msgstr "Уюм"
+
+msgid "My organizations"
+msgstr "Менин уюмдарым"
+
+msgid "All organizations"
+msgstr "Бардык уюмдар"
+
+msgid "Members"
+msgstr "Мүчөлөр"
+
+msgid "Member"
+msgstr "Мүчө"
+
+msgid "Join organization"
+msgstr "Уюмга кошулуу"
+
+msgid "Leave organization"
+msgstr "Уюмдан чыгуу"
+
+msgid "Organization name"
+msgstr "Уюмдун аты"
+
+msgid "Admins"
+msgstr "Администраторлор"
+
+msgid "Admin"
+msgstr "Администратор"
+
+msgid "Moderators"
+msgstr "Модераторлор"
+
+msgid "Moderator"
+msgstr "Модератор"
+
+# --- Ticket / support ---
+msgid "Tickets"
+msgstr "Тикеттер"
+
+msgid "Ticket"
+msgstr "Тикет"
+
+msgid "New ticket"
+msgstr "Жаңы тикет"
+
+msgid "Open"
+msgstr "Ачык"
+
+msgid "Closed"
+msgstr "Жабылды"
+
+msgid "Title"
+msgstr "Аталышы"
+
+msgid "Content"
+msgstr "Мазмуну"
+
+msgid "Created"
+msgstr "Түзүлдү"
+
+msgid "Updated"
+msgstr "Жаңыланды"
+
+# --- Misc feature labels ---
+msgid "Public"
+msgstr "Ачык"
+
+msgid "Private"
+msgstr "Жабык"
+
+msgid "Draft"
+msgstr "Черновик"
+
+msgid "Published"
+msgstr "Жарыяланды"
+
+msgid "Archive"
+msgstr "Архив"
+
+msgid "Archived"
+msgstr "Архивге салынды"
+
+msgid "Active"
+msgstr "Жигердүү"
+
+msgid "Inactive"
+msgstr "Жигерсиз"
+
+msgid "Online"
+msgstr "Онлайн"
+
+msgid "Offline"
+msgstr "Оффлайн"
+
+msgid "Admin panel"
+msgstr "Башкаруу панели"
+
+msgid "Dashboard"
+msgstr "Башкы такта"
+
+msgid "Help"
+msgstr "Жардам"
+
+msgid "Documentation"
+msgstr "Документтер"
+
+msgid "Support"
+msgstr "Колдоо"
+
+msgid "Contact"
+msgstr "Байланыш"
+
+msgid "Contact us"
+msgstr "Биз менен байланышыңыз"
+
+msgid "Feedback"
+msgstr "Пикир"
+
+msgid "Report"
+msgstr "Билдирүү"
+
+msgid "Report a bug"
+msgstr "Катаны билдирүү"
+
+msgid "Terms of service"
+msgstr "Кызмат көрсөтүү шарттары"
+
+msgid "Privacy policy"
+msgstr "Купуялык саясаты"
+
+msgid "Cookie policy"
+msgstr "Cookie саясаты"
+
+msgid "Copyright"
+msgstr "Автордук укук"
+
+msgid "All rights reserved"
+msgstr "Бардык укуктар корголгон"
+
+# --- Confirmation dialogs ---
+msgid "Are you sure?"
+msgstr "Чынбы?"
+
+msgid "Are you sure you want to delete this?"
+msgstr "Муну чын эле өчүрөсүзбү?"
+
+msgid "This action cannot be undone."
+msgstr "Бул аракетти артка кайтарууга болбойт."
+
+msgid "Changes saved successfully."
+msgstr "Өзгөртүүлөр ийгиликтүү сакталды."
+
+msgid "Changes discarded."
+msgstr "Өзгөртүүлөр жокко чыгарылды."
+
+msgid "Operation completed successfully."
+msgstr "Операция ийгиликтүү аткарылды."
+
+msgid "Operation failed."
+msgstr "Операция аткарылган жок."
+
+msgid "Something went wrong."
+msgstr "Бир нерсе туура эмес болду."
+
+msgid "Try again"
+msgstr "Кайра аракет кылуу"
+
+msgid "Retry"
+msgstr "Кайталоо"
+
+# --- Stats & counters ---
+msgid "Views"
+msgstr "Көрүүлөр"
+
+msgid "Likes"
+msgstr "Жакты"
+
+msgid "Downloads"
+msgstr "Жүктөлүп алуулар"
+
+msgid "Followers"
+msgstr "Жазылуучулар"
+
+msgid "Following"
+msgstr "Жазылуу"
+
+msgid "Follow"
+msgstr "Жазылуу"
+
+msgid "Unfollow"
+msgstr "Жазылуудан чыгуу"
+
+# --- Editor / code ---
+msgid "Editor"
+msgstr "Редактор"
+
+msgid "Theme"
+msgstr "Тема"
+
+msgid "Light"
+msgstr "Ачык"
+
+msgid "Dark"
+msgstr "Караңгы"
+
+msgid "Font size"
+msgstr "Шрифттин өлчөмү"
+
+msgid "Tab size"
+msgstr "Табдын өлчөмү"
+
+msgid "Line numbers"
+msgstr "Сап номерлери"
+
+msgid "Word wrap"
+msgstr "Сөздү ташуу"
+
+msgid "Auto save"
+msgstr "Автосактоо"
+

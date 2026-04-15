@@ -163,12 +163,9 @@
         {% csrf_token %}
         {{ form.non_field_errors() }}
         <div id="submit-wrapper">
-            <div id="editor">
-                {{ form.source.errors }}
-                {{ form.source }}
-            </div>
             {% if not no_judges %}
-                <div id="language">
+                <div id="language" class="language-row">
+                    <label for="id_language" class="language-label">{{ _('Язык') }}:</label>
                     {{ form.language.errors }}
                     <div id="language-select">
                         <select id="id_language" name="language">
@@ -182,16 +179,18 @@
                     </div>
                 </div>
             {% endif %}
+            <div id="editor">
+                {{ form.source.errors }}
+                {{ form.source }}
+            </div>
         </div>
 
-        <hr>
-
         {% if no_judges %}
-            <span style="color: red">{{ _('No judge is available for this problem.') }}</span>
+            <div class="submit-no-judge">{{ _('No judge is available for this problem.') }}</div>
         {% else %}
-            <div class="submit-bar">
+            <div class="submit-bar submit-bar-sticky">
                 {{ form.judge }}
-                <input type="submit" value="{{ _('Submit!') }}" class="button"
+                <input type="submit" value="{{ _('Отправить решение') }}" class="button submit-main-btn"
                        {% if request.in_contest and submission_limit and not submissions_left %}disabled{% endif %}>
             </div>
         {% endif %}

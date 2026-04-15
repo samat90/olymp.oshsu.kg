@@ -213,9 +213,11 @@ form.contest-join-pseudotab {
         display: block;
     }
 
-    /* Make problem table headers green on hover */
-    th a:hover {
-        color: #0F0;
+    th a {
+        color: $color_table_header_text;
+        &:hover {
+            color: $brand_primary;
+        }
     }
 
     .rank {

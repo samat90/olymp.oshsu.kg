@@ -1,6 +1,7 @@
 {
-  "name": "DMOJ",
-  "short_name": "DMOJ",
+  "name": "OshSU Olymp",
+  "short_name": "OshSU Olymp",
+  "description": "Онлайн-платформа олимпиад по программированию ОшГУ",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -15,7 +16,9 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#ffffff",
+  "theme_color": "#1e3a5f",
   "background_color": "#ffffff",
-  "display": "standalone"
+  "display": "standalone",
+  "start_url": "/",
+  "lang": "ru"
 }

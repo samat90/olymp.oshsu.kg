@@ -1,0 +1,143 @@
+"""
+Production settings example for olymp.oshsu.kg.
+
+Копия этого файла в dmoj/local_settings.py на проде. Конфиденциальные значения берутся из переменных окружения.
+"""
+import os
+
+# === SECURITY ===
+SECRET_KEY = os.environ['DMOJ_SECRET_KEY']  # обязательно установить; 50+ случайных символов
+DEBUG = False
+ALLOWED_HOSTS = ['olymp.oshsu.kg', 'www.olymp.oshsu.kg']
+
+# HTTPS enforcement
+SECURE_SSL_REDIRECT = True
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# === DATABASE: PostgreSQL ===
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DMOJ_DB_NAME', 'olymp_oshsu'),
+        'USER': os.environ.get('DMOJ_DB_USER', 'olymp'),
+        'PASSWORD': os.environ['DMOJ_DB_PASSWORD'],
+        'HOST': os.environ.get('DMOJ_DB_HOST', 'localhost'),
+        'PORT': os.environ.get('DMOJ_DB_PORT', '5432'),
+        'CONN_MAX_AGE': 60,
+    },
+}
+
+# === CACHE: Redis ===
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+        'LOCATION': os.environ.get('DMOJ_REDIS_URL', 'redis://localhost:6379/1'),
+    },
+}
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+SESSION_CACHE_ALIAS = 'default'
+
+# === STATIC & MEDIA ===
+STATIC_ROOT = '/var/www/olymp.oshsu.kg/static'
+MEDIA_ROOT = '/var/www/olymp.oshsu.kg/media'
+MEDIA_URL = '/media/'
+
+COMPRESS_OUTPUT_DIR = 'cache'
+STATICFILES_FINDERS += ('compressor.finders.CompressorFinder',)
+COMPRESS_ENABLED = True
+COMPRESS_OFFLINE = True  # precompile at deploy; nginx serves compressed files
+
+# Manifest static files — cache-busting hash in filename (избавляет от браузерного кеша при обновлениях).
+STORAGES = {
+    "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
+    "staticfiles": {"BACKEND": "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"},
+}
+
+# === EMAIL: SMTP ===
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = os.environ.get('DMOJ_SMTP_HOST', 'smtp.yandex.ru')
+EMAIL_PORT = int(os.environ.get('DMOJ_SMTP_PORT', 465))
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = os.environ.get('DMOJ_SMTP_USER', 'noreply@oshsu.kg')
+EMAIL_HOST_PASSWORD = os.environ.get('DMOJ_SMTP_PASSWORD', '')
+DEFAULT_FROM_EMAIL = 'OshSU Olymp <noreply@oshsu.kg>'
+SERVER_EMAIL = 'noreply@oshsu.kg'
+ADMINS = [('OshSU Olymp admin', 'olymp@oshsu.kg')]
+
+# === SITE ===
+SITE_NAME = 'OshSU Olymp'
+SITE_LONG_NAME = 'OshSU Olymp — Олимпиады по программированию ОшГУ'
+SITE_ADMIN_EMAIL = 'olymp@oshsu.kg'
+DMOJ_SCHEME = 'https'
+DMOJ_CANONICAL = 'olymp.oshsu.kg'
+
+# === AUTH ===
+REGISTRATION_OPEN = True
+DMOJ_REQUIRE_STAFF_2FA = False
+DMOJ_2FA_HARDCORE = False
+WEBAUTHN_RP_ID = None
+AUTH_PASSWORD_VALIDATORS = []  # no complex password requirements
+
+# === EVENT SERVER (websocket для live-обновлений) ===
+EVENT_DAEMON_USE = True
+EVENT_DAEMON_POST = 'ws://127.0.0.1:9997/'
+EVENT_DAEMON_GET = 'wss://olymp.oshsu.kg/event/'  # через nginx прокси к daemon
+EVENT_DAEMON_POLL = 'https://olymp.oshsu.kg/channels/'
+
+# === CELERY ===
+CELERY_BROKER_URL = os.environ.get('DMOJ_CELERY_BROKER', 'redis://localhost:6379/2')
+CELERY_TASK_ALWAYS_EAGER = False  # реальный worker
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/3'
+
+# === BRIDGE (судья подключается извне) ===
+BRIDGED_JUDGE_ADDRESS = [('127.0.0.1', 9999)]  # или внешний host для remote judges
+BRIDGED_DJANGO_ADDRESS = [('127.0.0.1', 9998)]
+
+# === PROBLEM DATA ===
+DMOJ_PROBLEM_DATA_ROOT = '/var/www/olymp.oshsu.kg/problems'
+
+# === LANGUAGES ===
+from django.utils.translation import gettext_lazy as _
+LANGUAGE_CODE = 'en'
+TIME_ZONE = 'Asia/Bishkek'
+DEFAULT_USER_TIME_ZONE = 'Asia/Bishkek'
+LANGUAGES = [
+    ('ru', _('Русский')),
+    ('en', _('English')),
+    ('ky', _('Кыргызча')),
+]
+
+# === LOGGING ===
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file_app': {
+            'level': 'INFO',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': '/var/log/olymp/django.log',
+            'maxBytes': 10 * 1024 * 1024,
+            'backupCount': 5,
+            'formatter': 'verbose',
+        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler',
+        },
+    },
+    'formatters': {
+        'verbose': {
+            'format': '{asctime} [{levelname}] {name}: {message}',
+            'style': '{',
+        },
+    },
+    'loggers': {
+        'django': {'handlers': ['file_app', 'mail_admins'], 'level': 'INFO'},
+        'judge':  {'handlers': ['file_app', 'mail_admins'], 'level': 'INFO'},
+    },
+}

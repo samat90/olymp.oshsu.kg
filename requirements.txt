@@ -20,7 +20,13 @@ ua-parser
 pyyaml
 jinja2
 django_jinja>=2.5.0
-llist
+pyllist
+# PostgreSQL driver for production
+psycopg[binary]>=3.1
+# Babel for compiling .po files without GNU gettext (Windows compatibility)
+Babel>=2.14
+# WebSocket client for Django -> event-daemon POST
+websocket-client>=1.7
 requests
 django-fernet-fields @ git+https://github.com/DMOJ/django-fernet-fields.git
 pyotp

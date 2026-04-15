@@ -1,147 +1,106 @@
-<h1 align="center">
-  <img src="https://github.com/DMOJ/online-judge/blob/master/logo.png?raw=true" width="120px">
-  <br>
-  DMOJ: Modern Online Judge
-</h1>
-<p align="center">
-  <a href="https://github.com/DMOJ/online-judge/actions?query=workflow%3Abuild">
-    <img alt="Build Status" src="https://img.shields.io/github/actions/workflow/status/DMOJ/online-judge/build.yml?branch=master"/>
-  </a>
-  <a href="LICENSE.md">
-    <img alt="License" src="https://img.shields.io/github/license/DMOJ/online-judge"/>
-  </a>
-  <a href="https://dmoj.ca/about/discord/">
-    <img src="https://img.shields.io/discord/677340492651954177?color=%237289DA&label=Discord"/>
-  </a>
-</p>
+# OshSU Olymp
 
-A modern open-source online judge and contest platform system. It has been used to host thousands of competitions, including several national olympiads.
+Онлайн-платформа для проведения олимпиад и тренировочных соревнований по программированию. Разработана в Ошском государственном университете (ОшГУ) на базе кафедры информационных систем и программирования (ИСП) МФТИТ.
 
-See it live at [dmoj.ca](https://dmoj.ca/)!
+Платформа построена на движке **[DMOJ](https://github.com/DMOJ/site)** (open source). Ребрендинг, дополнительная функциональность, локализация на три языка (ru/en/ky) — OshSU Olymp.
 
-## Features
+## Возможности
 
-* [Support for over **60 language runtimes**](https://github.com/DMOJ/online-judge#supported-languages)
-* Highly robust judging system:
-   * Supports **interactive** and **signature-graded** tasks
-   * Supports **runtime data generators** and **custom output validators**
-   * Specifying **per-language resource limits**
-   * Capable of scaling to hundreds of judging servers
-* Extremely configurable contest system:
-   * Supports ICPC/IOI/AtCoder/ECOO formats out-of-the-box
-   * **System testing** supported
-   * **Hidden scoreboards** and **virtual participation**
-   * [Elo-MMR](https://arxiv.org/abs/2101.00400)-style **rating**
-   * **Plagiarism detection** via [Stanford MOSS](https://theory.stanford.edu/~aiken/moss/)
-   * Restricting contest access to particular organizations or users
-* Rich problem statements, with support for **LaTeX math and diagrams**
-   * Automatic **PDF generation** for easy distribution
-   * Built-in support for **editorials**
-* **Live updates** for submissions
-* Internationalized site interface
-* Home page blog and activity stream
-* Fine-grained permission control for staff
-* OAuth login with Google, Facebook, and Github
-* Two-factor authentication support
+- Автоматическая проверка решений на **C, C++ (11–20), Java 8, Python 3**
+- Соревнования в форматах **IOI** (частичные баллы) и **ACM/ICPC** (бинарно + штрафы)
+- Живое табло результатов через WebSocket (event-daemon)
+- Массовая генерация учётных записей участников (`/admin/generate-users/`)
+- Тёмная тема с сохранением выбора пользователя
+- Три языка интерфейса: русский, кыргызский, английский
+- Адаптивный дизайн (десктоп + мобильные)
 
-## Installation
+## Стек
 
-Check out the install documentation at [docs.dmoj.ca](https://docs.dmoj.ca/#/site/installation). Feel free to reach out to us on [Discord](https://dmoj.ca/about/discord/) if you have any questions.
+- **Backend:** Django 4.2 + Python 3.12
+- **DB:** PostgreSQL (prod) / SQLite (dev)
+- **Cache + Celery broker:** Redis (prod)
+- **Бридж судей:** TCP-сокеты (`judge/bridge/`)
+- **Event-daemon:** Node.js websocket server (`websocket/daemon.js`)
+- **Судья:** [DMOJ judge-server](https://github.com/DMOJ/judge-server) — отдельный процесс (Linux/WSL)
+- **Frontend:** Jinja2 + SCSS → CSS (via `sass` + `postcss` + `autoprefixer`)
 
-## Screenshots
+## Быстрый старт (dev)
 
-### Sleek problem statements
-Problems are written in Markdown, with LaTeX-enabled math and figures, as well as syntax highlighting. Problem statements can be saved to PDF for ease of distribution to contestants.
+```bash
+# 1. Python окружение
+python3.12 -m venv venv
+venv\Scripts\activate  # Windows
+# source venv/bin/activate  # Linux/macOS
+pip install -r requirements.txt
 
-![](https://i.imgur.com/7KD7h5r.png)
+# 2. Локальные настройки
+cp dmoj/prod_settings.py.example dmoj/local_settings.py
+# Отредактируй local_settings.py (SECRET_KEY, DB и др.).
+# Либо оставь как есть — dev по умолчанию SQLite.
 
-### Submit in over 60 languages
-Contestants may submit in over 60 programming languages with syntax highlighting. Problem authors can restrict problems to specific languages, and set language-specific resource limits.
+# 3. База
+python manage.py migrate
+python manage.py loaddata navbar language_small
 
-![](https://i.imgur.com/8CjfHQb.png)
+# 4. Суперпользователь
+python manage.py createsuperuser
 
-### Live submission status
-Submission pages feature live updates, and submissions may be aborted by both submission authors and administrators. Compilation errors and warnings for a number of languages feature color highlighting.
+# 5. Статика
+sh make_style.sh          # нужны sass, postcss-cli, autoprefixer глобально (npm i -g)
+python manage.py collectstatic --noinput
+python manage.py compilejsi18n
 
-![](https://i.imgur.com/Hom0U3R.png)
+# 6. Переводы .po → .mo (без GNU gettext)
+pip install Babel
+python -c "from babel.messages.mofile import write_mo; from babel.messages.pofile import read_po; import os
+for lang in ('ru','en','ky'):
+    for po in ('django.po','djangojs.po','dmoj-user.po'):
+        p = f'locale/{lang}/LC_MESSAGES/{po}'
+        if os.path.isfile(p):
+            with open(p,'rb') as f: c = read_po(f)
+            with open(p[:-3]+'.mo','wb') as f: write_mo(f, c)"
 
-Global, per-problem, and per-contest submission lists are live-updating, and can be filtered by status and language.
+# 7. Запуск (3 процесса)
+python manage.py runbridged                   # окно 1 — bridge судей
+python manage.py runserver 127.0.0.1:8000     # окно 2 — web
+cd websocket && npm install ws simplesets qu  # разовая установка
+node websocket/daemon.js                      # окно 3 — event daemon
+```
 
-![](https://i.imgur.com/rc7orzj.png)
+## Судья (отдельная машина, Linux)
 
-### Extensible contest system
-Contests feature an optional rating system, and can be configured to run in any timeframe. Users are also able to participate virtually after the contest ends. ICPC, IOI, AtCoder, and ECOO contest formats are supported out-of-the-box, and new formats can be added with custom code.
+```bash
+git clone --recursive https://github.com/DMOJ/judge-server.git
+cd judge-server
+python3 -m venv venv && source venv/bin/activate
+pip install -e .
 
-![](https://i.imgur.com/0V1fzZi.png)
+# Настройте ~/judge-config/judge.yml
+# Запуск:
+dmoj -c ~/judge-config/judge.yml -p 9999 --skip-self-test <BRIDGE_HOST>
+```
 
-Contests may be limited to particular organizations, or require access codes to join. Hidden scoreboards are supported. The contest system integrates with [Stanford MOSS](https://theory.stanford.edu/~aiken/moss/) to provide plagiarism checking.
-Editorial support is built-in, and editorials are automatically published once a contest ends.
+## Админ-гайд
 
-### Home page blog and activity stream
+Для преподавателей/админов — пошаговая инструкция как провести олимпиаду: https://olymp.oshsu.kg/admin-guide/
 
-Announcements from administrators, ongoing contests, recent comments and new problems are easily accessible from the home page.
+## Полезные URL
 
-![](https://i.imgur.com/zpQAoDB.png)
+- `/admin/` — админка
+- `/admin/generate-users/` — массовая генерация учёток участников
+- `/admin-guide/` — гайд для админов
+- `/status/` — статус судей (не в меню, только по прямой ссылке)
+- `/contest/<key>/` — страница соревнования
+- `/contest/<key>/ranking/` — табло
+- `/problems/` — архив задач
+- `/problem/<code>/submit` — отправить решение
 
-### Internationalized interface
-Use the site in whatever language you're most comfortable in &mdash; visit [translate.dmoj.ca](https://translate.dmoj.ca/) to check the translation status of your preferred language. Problem authors can provide statements in multiple languages, and DMOJ will display the most relevant one to a reader.
+## Лицензия
 
-![](https://i.imgur.com/OeuI0o5.png)
+DMOJ распространяется под [AGPL-3.0](LICENSE). Наши модификации наследуют ту же лицензию.
 
-### Highly featured administration interface
-The DMOJ admin interface is highly versatile, and can be efficiently used for anything from managing users to authoring problem statements.
+## Контакты
 
-![](https://static.dmoj.ca/data/_other/readme/problem-admin.png)
-
-![](https://static.dmoj.ca/data/_other/readme/admin-dashboard.png)
-
-## Supported languages
-
-Check out [**DMOJ/judge-server**](https://github.com/DMOJ/judge-server) for more judging backend details.
-
-Supported languages include:
-* C++ 11/14/17/20 (GCC and Clang)
-* C 99/11
-* Java 8-22
-* Python 2/3
-* PyPy 2/3
-* Pascal
-* Mono C#/F#/VB
-
-The judge can also grade in the languages listed below:
-* Ada
-* Algol 68
-* AWK
-* COBOL
-* D
-* Dart
-* Fortran
-* Forth
-* Go
-* Groovy
-* GAS x86/x64/ARM
-* Haskell
-* INTERCAL
-* Kotlin
-* Lua
-* LLVM IR
-* NASM x86/x64
-* Objective-C
-* OCaml
-* Perl
-* PHP
-* Pike
-* Prolog
-* Racket
-* Ruby
-* Rust
-* Scala
-* Chicken Scheme
-* sed
-* Steel Bank Common Lisp
-* Swift
-* Tcl
-* Turing
-* V8 JavaScript
-* Brain\*\*\*\*
-* Zig
+- Руководитель: **Карабаев С. Э.**, кафедра ИСП МФТИТ ОшГУ
+- Email: <olymp@oshsu.kg>
+- Сайт университета: [oshsu.kg](https://oshsu.kg)

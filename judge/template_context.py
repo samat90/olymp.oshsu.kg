@@ -51,7 +51,19 @@ def comet_location(request):
 
 
 def __nav_tab(path):
-    result = list(NavigationBar.objects.extra(where=['%s REGEXP BINARY regex'], params=[path])[:1])
+    from django.db import connection
+    if connection.vendor == 'mysql':
+        result = list(NavigationBar.objects.extra(where=['%s REGEXP BINARY regex'], params=[path])[:1])
+    else:
+        import re
+        result = []
+        for nav in NavigationBar.objects.all():
+            try:
+                if re.search(nav.regex, path):
+                    result = [nav]
+                    break
+            except re.error:
+                continue
     return result[0].get_ancestors(include_self=True).values_list('key', flat=True) if result else []
 
 

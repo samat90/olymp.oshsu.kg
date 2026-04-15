@@ -22,44 +22,66 @@
     float: right;
 }
 
-// Bootstrap-y buttons
+// OshSU buttons — flat, modern, brand-aware
 .button, button, input[type=submit] {
-    color: white !important;
+    color: $color_button_primary_text !important;
     text-decoration: none !important;
     cursor: pointer;
     vertical-align: middle;
     white-space: nowrap;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 1.4;
-    background: rgb(51, 122, 183) none repeat scroll 0 (0% / auto) padding-box border-box;
-    background: -webkit-linear-gradient(top, #337ab7 0, #265a88 100%) repeat-x;
-    background: linear-gradient(to bottom, #337ab7 0, #265a88 100%) repeat-x;
+    background: $color_button_primary_bg;
     border-radius: $widget_border_radius;
-    padding: 6px 12px;
+    padding: 8px 14px;
     display: block;
-    border: 1px solid #245580;
+    border: 1px solid transparent;
     text-align: center;
-
-    // 4k hack
+    transition: background $transition_fast, box-shadow $transition_fast, transform $transition_fast;
     font-size: $base_font_size;
+    font-family: inherit;
 
     &:hover {
-        background: #265a88;
+        background: $color_button_primary_bg_hover;
+        box-shadow: $shadow_sm;
     }
 
     &:active {
-        border-color: #245580;
-        background: #265a88;
+        transform: translateY(1px);
+        box-shadow: none;
     }
 
     &.full {
-        padding: 6px 0;
+        padding: 8px 0;
     }
 
     &.disabled {
-        background: linear-gradient(to bottom, darkgray 0, gray 100%) repeat-x !important;
-        border-color: grey !important;
+        background: $color_primary33 !important;
+        color: $color_primary50 !important;
         cursor: not-allowed;
+        box-shadow: none;
+    }
+
+    // Accent variant (gold)
+    &.btn-accent, &.accent {
+        background: $color_button_accent_bg;
+        color: $color_button_accent_text !important;
+
+        &:hover {
+            background: $color_button_accent_bg_hover;
+        }
+    }
+
+    // Outline variant
+    &.btn-outline, &.outline {
+        background: transparent;
+        color: $color_button_primary_bg !important;
+        border-color: $color_button_primary_bg;
+
+        &:hover {
+            background: $color_button_primary_bg;
+            color: $color_button_primary_text !important;
+        }
     }
 }
 
@@ -71,27 +93,23 @@
 
 input {
     &[type=text], &[type=password], &[type=email], &[type=number] {
-        padding: 4px 8px;
-        color: $color_primary75;
-        background: $color_primary0 none;
-        border: 1px solid $color_primary25;
+        padding: 8px 12px;
+        color: $color_primary90;
+        background: $color_input_bg;
+        border: 1px solid $color_input_border;
         border-radius: $widget_border_radius;
-        box-shadow: 0 1px 1px rgba($color_primary100, 0.075) inset;
-        transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+        transition: border-color $transition_fast, box-shadow $transition_fast;
         box-sizing: border-box;
-
-        // Need this explicitly because UA stylesheet for Chrome on 4k makes
-        // everything look bad otherwise (forces it to 9.3px)
         font-size: $base_font_size;
+        font-family: inherit;
 
         &:hover {
-            border-color: rgba(82, 168, 236, 0.8);
-            box-shadow: inset 0 1px 1px rgba($color_primary100, 0.075), 0 0 4px rgba(82, 168, 236, 0.6);
+            border-color: $color_input_border_focus;
         }
 
         &:focus {
-            border-color: rgba(82, 168, 236, 0.8);
-            box-shadow: inset 0 1px 1px rgba($color_primary100, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+            border-color: $color_input_border_focus;
+            box-shadow: 0 0 0 3px $color_input_focus_ring;
             outline: 0;
         }
     }
