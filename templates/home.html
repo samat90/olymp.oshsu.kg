@@ -1,5 +1,13 @@
 {% extends "blog/list.html" %}
 {% block before_posts %}
+    <section class="oshsu-hero" aria-labelledby="hero-title">
+        <h1 id="hero-title" class="hero-title">OshSU Olymp</h1>
+        <p class="hero-subtitle">{{ _('Online programming contest platform of Osh State University. Solve problems, participate in contests, compete with friends.') }}</p>
+        <div class="hero-ctas">
+            <a class="hero-cta primary" href="{{ url('problem_list') }}">{{ _('Problems') }} &rarr;</a>
+            <a class="hero-cta secondary" href="{{ url('contest_list') }}">{{ _('Contests') }}</a>
+        </div>
+    </section>
     {% if misc_config.home_page_top %}
         {{ render_django(misc_config.home_page_top, request=request, user_count=user_count, problem_count=problem_count, submission_count=submission_count, language_count=language_count, perms=perms) }}
     {% endif %}

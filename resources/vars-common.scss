@@ -1,9 +1,35 @@
-$highlight_blue: #2980B9;
-$announcement_red: #ae0000;
+// OshSU Olymp — academic palette (placeholder, can be replaced with official brandbook later)
+$brand_primary: #1e3a5f;         // тёмно-синий академический
+$brand_primary_hover: #2a4f82;
+$brand_primary_active: #16294a;
+$brand_accent: #d4a24a;          // золото
+$brand_accent_hover: #c79138;
+$brand_danger: #b33a3a;          // бордо
+$brand_success: #3c8e63;
+$brand_warning: #d4a24a;
+$brand_info: #2a5a8a;
 
-$base_font_size: 14px;
-$widget_border_radius: 4px;
+// Legacy aliases (used in existing DMOJ code)
+$highlight_blue: $brand_primary;
+$announcement_red: $brand_danger;
 
-$table_header_rounding: 6px;
+// Typography
+$base_font_family: 'Inter', 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+$base_font_size: 15px;
+$base_line_height: 1.55;
 
-$monospace-fonts: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+$monospace-fonts: 'JetBrains Mono', Consolas, 'Menlo', 'DejaVu Sans Mono', 'Liberation Mono', 'Courier New', monospace;
+
+// Shape
+$widget_border_radius: 6px;
+$card_border_radius: 10px;
+$table_header_rounding: 8px;
+
+// Elevation (shadows)
+$shadow_sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+$shadow_md: 0 2px 8px rgba(0, 0, 0, 0.08);
+$shadow_lg: 0 4px 16px rgba(0, 0, 0, 0.12);
+
+// Transitions
+$transition_fast: 120ms ease-out;
+$transition_med: 200ms ease-out;

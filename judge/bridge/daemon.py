@@ -37,7 +37,8 @@ def judge_daemon():
         stop.set()
 
     signal.signal(signal.SIGINT, signal_handler)
-    signal.signal(signal.SIGQUIT, signal_handler)
+    if hasattr(signal, 'SIGQUIT'):
+        signal.signal(signal.SIGQUIT, signal_handler)
     signal.signal(signal.SIGTERM, signal_handler)
 
     try:

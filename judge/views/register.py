@@ -68,6 +68,10 @@ class RegistrationView(OldRegistrationView):
 
     def register(self, form):
         user = super(RegistrationView, self).register(form)
+        # OshSU: активируем сразу без email-подтверждения (пока SMTP не настроен).
+        if not user.is_active:
+            user.is_active = True
+            user.save(update_fields=['is_active'])
         profile, _ = Profile.objects.get_or_create(user=user, defaults={
             'language': Language.get_default_language(),
         })
@@ -87,6 +91,11 @@ class RegistrationView(OldRegistrationView):
         initial['timezone'] = settings.DEFAULT_USER_TIME_ZONE
         initial['language'] = Language.objects.get(key=settings.DEFAULT_USER_LANGUAGE)
         return initial
+
+    def get_success_url(self, user=None):
+        # После регистрации сразу на страницу логина (email-подтверждение отключено).
+        from django.urls import reverse
+        return reverse('auth_login')
 
 
 class ActivationView(OldActivationView):

@@ -1,11 +1,258 @@
-// Navbar should look the same in every theme, so vars-common should be enough.
-@use "vars-common" as *;
+// Navbar switches between light/dark tokens via theme-aware vars.
+@use "vars" as *;
+
+// --- OshSU brand lockup (logo + wordmark) ---
+.brand-lockup {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 14px;
+    height: 44px;
+    text-transform: none; // override uppercase from nav li
+
+    .brand-icon {
+        width: 40px;
+        height: 36px;
+        flex-shrink: 0;
+        // Logo is white-on-colored; keep as-is
+        background: #ffffff;
+        border-radius: 4px;
+        padding: 2px;
+        box-sizing: content-box;
+    }
+
+    .brand-wordmark {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 4px;
+        font-family: $base_font_family;
+        letter-spacing: -0.01em;
+        line-height: 1;
+        text-transform: none;
+    }
+
+    .brand-name {
+        font-weight: 700;
+        font-size: 18px;
+        color: $color_navbar_text;
+    }
+
+    .brand-name-accent {
+        font-weight: 500;
+        font-size: 16px;
+        color: $brand_accent;
+    }
+
+    @media (max-width: 600px) {
+        gap: 6px;
+        padding: 0 8px;
+        .brand-wordmark { display: none; }
+    }
+}
+
+// --- Theme toggle (sun/moon/auto icon) ---
+.theme-toggle {
+    position: absolute;
+    top: 0;
+    right: 130px;  // left of #nav-lang
+    height: 44px;
+    padding: 0 10px;
+    background: transparent;
+    border: none;
+    color: $color_navbar_text;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: none;
+    z-index: 600;
+    transition: background $transition_fast, color $transition_fast;
+    box-shadow: none;
+
+    &:hover, &:focus-visible {
+        background: rgba(255, 255, 255, 0.1);
+        color: $brand_accent;
+        outline: none;
+        box-shadow: none;
+    }
+
+    svg { display: none; }
+    .icon-auto { display: block; }  // default state
+}
+
+html[data-theme="light"] .theme-toggle {
+    .icon-auto { display: none; }
+    .icon-sun { display: block; }
+}
+
+html[data-theme="dark"] .theme-toggle {
+    .icon-auto { display: none; }
+    .icon-moon { display: block; }
+}
+
+// --- Language switcher in navbar (professional globe + dropdown) ---
+#nav-lang.lang-switch {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    padding-right: 12px;
+    text-transform: none;
+    z-index: 600;
+
+    .lang-switch-toggle {
+        background: transparent;
+        color: $color_navbar_text;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: $widget_border_radius;
+        padding: 6px 10px;
+        font-size: 0.82em;
+        font-family: inherit;
+        font-weight: 500;
+        height: auto;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        letter-spacing: 0.02em;
+        transition: background $transition_fast, border-color $transition_fast;
+        line-height: 1;
+        width: auto;
+        text-align: left;
+
+        &:hover, &:focus-visible {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.4);
+            outline: none;
+            color: $color_navbar_text;
+            box-shadow: none;
+        }
+
+        .lang-icon {
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+        }
+
+        .lang-code {
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .lang-caret {
+            width: 8px;
+            height: 5px;
+            transition: transform $transition_fast;
+            opacity: 0.8;
+        }
+    }
+
+    &.open .lang-switch-toggle {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: rgba(255, 255, 255, 0.5);
+
+        .lang-caret {
+            transform: rotate(180deg);
+        }
+    }
+
+    .lang-switch-menu {
+        position: absolute;
+        top: calc(100% + 4px);
+        right: 12px;
+        min-width: 180px;
+        background: $color_card_bg;
+        border: 1px solid $color_card_border;
+        border-radius: $widget_border_radius;
+        box-shadow: $shadow_lg;
+        padding: 4px;
+        margin: 0;
+        display: none;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    &.open .lang-switch-menu {
+        display: flex;
+    }
+
+    .lang-option {
+        background: transparent;
+        color: $color_primary90;
+        border: none;
+        border-radius: $widget_border_radius;
+        padding: 8px 12px;
+        text-align: left;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        font-size: 0.9em;
+        font-family: inherit;
+        font-weight: 400;
+        transition: background $transition_fast;
+        box-shadow: none;
+        text-transform: none;
+        height: auto;
+        line-height: 1.3;
+
+        &:hover {
+            background: $color_table_row_hover;
+            color: $color_primary90;
+            box-shadow: none;
+        }
+
+        .lang-option-code {
+            display: inline-block;
+            min-width: 28px;
+            font-weight: 600;
+            font-size: 0.85em;
+            color: $brand_primary;
+            letter-spacing: 0.03em;
+        }
+
+        .lang-option-name {
+            flex: 1;
+        }
+
+        &.active {
+            background: rgba($brand_primary, 0.08);
+            color: $brand_primary;
+            font-weight: 500;
+
+            .lang-option-code {
+                color: $brand_primary;
+            }
+
+            &::after {
+                content: '✓';
+                color: $brand_primary;
+                font-weight: 700;
+                margin-left: auto;
+            }
+        }
+    }
+
+    @media (max-width: 600px) {
+        padding-right: 6px;
+
+        .lang-switch-toggle {
+            padding: 5px 8px;
+            font-size: 0.78em;
+        }
+    }
+}
 
 #user-links {
     top: 0;
     right: 0;
     position: absolute;
     height: 100%;
+    // Make space for #nav-lang (~90px) + theme toggle (~40px)
+    padding-right: 170px;
 
     .anon {
         padding-right: 10px;
@@ -13,10 +260,14 @@
         min-height: 100%;
         align-items: center;
         white-space: nowrap;
-        color: #5c5954;
+        color: $color_navbar_text;
 
         a {
-            color: #FFF;
+            color: $color_navbar_text;
+
+            &:hover {
+                color: $brand_accent;
+            }
         }
     }
 
@@ -66,10 +317,9 @@
 }
 
 #nav-container {
-    background: #3b3b3b;
+    background: $color_navbar_bg;
+    box-shadow: $shadow_sm;
 
-    // opacity: 0.77
-    // filter: alpha(opacity=77)
     height: 100%;
 }
 
@@ -99,6 +349,7 @@ nav {
                     border-bottom: none;
                     padding-top: 0;
                     padding-bottom: 0;
+                    background: transparent;
                 }
             }
 
@@ -115,14 +366,16 @@ nav {
                 }
 
                 &:hover {
-                    color: #FFF;
-                    background: rgba(255, 255, 255, 0.25);
+                    color: $color_navbar_text;
+                    background: $color_navbar_hover_bg;
                     margin: 0;
+                    transition: background $transition_fast;
                 }
 
                 &.active {
-                    color: #FFF;
-                    background: $highlight_blue;
+                    color: $color_navbar_text;
+                    background: $color_navbar_hover_bg;
+                    box-shadow: inset 0 -3px 0 $color_navbar_active;
                 }
 
                 .nav-expand {
@@ -135,15 +388,17 @@ nav {
                 position: absolute;
                 left: 5px;
                 display: none;
-                color: #fff;
-                background: #3b3b3b;
+                color: $color_navbar_text;
+                background: $color_navbar_bg;
                 margin: 0 !important;
-                box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+                box-shadow: $shadow_md;
+                border-radius: 0 0 $widget_border_radius $widget_border_radius;
+                overflow: hidden;
 
                 li {
                     &:first-child {
                         a.active {
-                            border-top: 1px solid #3b3b3b;
+                            border-top: 1px solid $color_navbar_hover_bg;
                         }
                     }
                 }
@@ -153,10 +408,10 @@ nav {
 
                     a, button {
                         padding: 8px 20px 8px 8px !important;
-                        font-size: 0.8em;
+                        font-size: 0.85em;
                         line-height: 18px;
                         display: block;
-                        border-left: 4px solid $highlight_blue;
+                        border-left: 4px solid $color_navbar_active;
                         white-space: nowrap;
                     }
                 }
@@ -201,7 +456,29 @@ nav {
 
 @media (max-width: 760px) {
     #navigation {
-        height: 36px;
+        height: 44px;
+    }
+
+    .theme-toggle {
+        right: 80px;
+        height: 44px;
+    }
+
+    #nav-lang.lang-switch {
+        height: 44px;
+
+        .lang-switch-toggle {
+            padding: 5px 8px;
+            font-size: 0.78em;
+        }
+    }
+
+    #user-links {
+        padding-right: 130px;
+
+        > ul > li > a > span {
+            font-size: 12px;
+        }
     }
 
     #navicon {
@@ -227,14 +504,19 @@ nav {
         padding: 0;
         margin: 0;
         position: fixed;
-        top: 36px;
-        background: #3b3b3b;
+        top: 44px;
+        background: $color_navbar_bg;
         bottom: 0;
-        width: 8em;
+        width: 12em;
         left: 0;
+        box-shadow: $shadow_md;
 
         &.show-list {
             display: block;
+        }
+
+        li a, li a:link, li a:visited {
+            color: $color_navbar_text;
         }
 
         li {

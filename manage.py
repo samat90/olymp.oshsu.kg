@@ -5,7 +5,11 @@ import sys
 try:
     import MySQLdb  # noqa: F401, imported for side effect
 except ImportError:
-    import dmoj_install_pymysql  # noqa: F401, imported for side effect
+    try:
+        import dmoj_install_pymysql  # noqa: F401, imported for side effect
+    except ImportError:
+        # Neither MySQLdb nor pymysql installed — OK when using SQLite.
+        pass
 
 if __name__ == '__main__':
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'dmoj.settings')

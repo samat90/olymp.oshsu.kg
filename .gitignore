@@ -1,17 +1,58 @@
+# IDE / editor
 .idea
 .vscode
-.sass-cache
-*.sqlite3
-*.py[co]
-*.mo
-*~
 *.swp
-dmoj/local_settings.py
+*~
+
+# Python
+__pycache__/
+*.py[co]
+*.egg-info/
+
+# Venv (Python) / node
+venv/
+.venv/
+env/
+node_modules/
+
+# SASS compile artifacts
+.sass-cache
+sass_processed/
 resources/ace-dmoj.css
-resources/dark
+resources/dark/
 resources/featherlight.css
 resources/martor-description.css
 resources/select2-dmoj.css
 resources/style.css
+resources/task_status.css
 resources/vars.scss
-sass_processed
+
+# Compiled translations
+*.mo
+
+# Django
+*.sqlite3
+staticfiles/
+# collectstatic output (regenerated on deploy)
+/static/
+media/
+uploads/
+
+# Deploy secrets (never commit)
+dmoj/local_settings.py
+.env
+.env.local
+
+# OS / system
+Thumbs.db
+.DS_Store
+
+# Runtime / tests artifacts
+*.png
+problems/*/solutions/
+.claude/
+.playwright-mcp/
+
+# Logs
+*.log
+logs/

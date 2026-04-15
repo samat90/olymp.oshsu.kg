@@ -17,7 +17,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
     {# Chrome 39 for Android colour #}
-    <meta name="theme-color" content="#FFBB33">
+    <meta name="theme-color" content="#1e3a5f">
     {% if og_image %}
         <meta property="og:image" content="{{ request.build_absolute_uri(og_image) }}">
     {% endif %}
@@ -32,22 +32,29 @@
     {% if not INLINE_FONTAWESOME %}
         <link rel="stylesheet" href="{{ FONTAWESOME_CSS }}">
     {% endif %}
-    {% compress css %}
-        {# TODO: once dark mode support is better, enable for all users by deleting the else branch #}
-        {% if perms.judge.test_site %}
-            {% if PREFERRED_STYLE_CSS is not none %}
-                <link rel="stylesheet" href="{{ static(PREFERRED_STYLE_CSS) }}">
-            {% else %}
-                <link rel="stylesheet" href="{{ static(LIGHT_STYLE_CSS) }}">
-                <link rel="stylesheet" href="{{ static(DARK_STYLE_CSS) }}" media="(prefers-color-scheme: dark)">
-            {% endif %}
-        {% else %}
-            <link rel="stylesheet" href="{{ static(LIGHT_STYLE_CSS) }}">
-        {% endif %}
-        {% if INLINE_FONTAWESOME %}<link rel="stylesheet" href="{{ static('libs/fontawesome/font-awesome.css') }}">{% endif %}
-        <link rel="stylesheet" type="text/css" href="{{ static('libs/clipboard/tooltip.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ static('libs/select2/select2.css') }}">
-    {% endcompress %}
+    {# Theme preference: apply saved choice before CSS loads to avoid flash #}
+    <script>
+      (function() {
+        try {
+          var t = localStorage.getItem('oshsu-theme') || 'auto';
+          document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="{{ static(LIGHT_STYLE_CSS) }}">
+    <link id="theme-dark-css" rel="stylesheet" href="{{ static(DARK_STYLE_CSS) }}" media="(prefers-color-scheme: dark)">
+    <script>
+      (function() {
+        var link = document.getElementById('theme-dark-css');
+        var t = document.documentElement.getAttribute('data-theme') || 'auto';
+        if (t === 'dark') link.media = 'all';
+        else if (t === 'light') link.media = 'not all';
+        // 'auto' keeps default (prefers-color-scheme: dark)
+      })();
+    </script>
+    {% if INLINE_FONTAWESOME %}<link rel="stylesheet" href="{{ static('libs/fontawesome/font-awesome.css') }}">{% endif %}
+    <link rel="stylesheet" type="text/css" href="{{ static('libs/clipboard/tooltip.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ static('libs/select2/select2.css') }}">
     <link rel="canonical"
           href="{{ DMOJ_SCHEME }}://{{ DMOJ_CANONICAL|default(site.domain) }}{{ request.get_full_path() }}">
     {% if request.user.is_impersonate %}
@@ -195,6 +202,35 @@
             {% endfor %}
         </ul>
 
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-label="{{ _('Переключить тему') }}" title="{{ _('Переключить тему') }}">
+            <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v2"/><path d="M12 19v2"/><path d="M3 12h2"/><path d="M19 12h2"/><path d="M5.6 5.6l1.4 1.4"/><path d="M17 17l1.4 1.4"/><path d="M5.6 18.4l1.4-1.4"/><path d="M17 7l1.4-1.4"/></g></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z" fill="currentColor"/></svg>
+            <svg class="icon-auto" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3 a9 9 0 0 1 0 18 z" fill="currentColor"/></svg>
+        </button>
+
+        <div id="nav-lang" class="lang-switch">
+            <button type="button" class="lang-switch-toggle" aria-haspopup="true" aria-expanded="false" aria-label="{{ _('Change language') }}">
+                <svg class="lang-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M2 10h16M10 2c2.5 2.8 2.5 13.2 0 16M10 2c-2.5 2.8-2.5 13.2 0 16" stroke="currentColor" stroke-width="1.2" fill="none"/>
+                </svg>
+                <span class="lang-code">{{ LANGUAGE_CODE|upper }}</span>
+                <svg class="lang-caret" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+                    <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+            </button>
+            <form action="{{ url('set_language') }}" method="post" class="lang-switch-menu" role="menu">
+                {% csrf_token %}
+                <input name="next" type="hidden" value="{{ request.get_full_path() }}">
+                {% for language in language_info_list(LANGUAGES) %}
+                    <button type="submit" name="language" value="{{ language.code }}" class="lang-option {% if language.code == LANGUAGE_CODE %}active{% endif %}" role="menuitem">
+                        <span class="lang-option-code">{{ language.code|upper }}</span>
+                        <span class="lang-option-name">{{ language.name_local }}</span>
+                    </button>
+                {% endfor %}
+            </form>
+        </div>
+
         <span id="user-links">
             {% if request.user.is_authenticated %}
                 <ul>
@@ -236,6 +272,79 @@
     </div>
     <div id="nav-shadow"></div>
 </nav>
+<script>
+// Theme toggle: light → dark → auto → light
+(function () {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    var link = document.getElementById('theme-dark-css');
+    var html = document.documentElement;
+    function apply(t) {
+        html.setAttribute('data-theme', t);
+        if (t === 'dark') link.media = 'all';
+        else if (t === 'light') link.media = 'not all';
+        else link.media = '(prefers-color-scheme: dark)';
+        try { localStorage.setItem('oshsu-theme', t); } catch (e) {}
+    }
+    btn.addEventListener('click', function () {
+        var cur = html.getAttribute('data-theme') || 'auto';
+        var next = cur === 'light' ? 'dark' : (cur === 'dark' ? 'auto' : 'light');
+        apply(next);
+    });
+})();
+
+(function () {
+    var sw = document.getElementById('nav-lang');
+    if (!sw) return;
+    var toggle = sw.querySelector('.lang-switch-toggle');
+    var menu = sw.querySelector('.lang-switch-menu');
+    if (!toggle || !menu) return;
+
+    function close() {
+        sw.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    toggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var isOpen = sw.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    document.addEventListener('click', function (e) {
+        if (!sw.contains(e.target)) close();
+    });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') close();
+    });
+
+    // Intercept language option clicks for instant feedback.
+    var options = menu.querySelectorAll('.lang-option');
+    var csrfInput = menu.querySelector('input[name="csrfmiddlewaretoken"]');
+    var nextInput = menu.querySelector('input[name="next"]');
+    options.forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            var lang = btn.value;
+            var codeEl = toggle.querySelector('.lang-code');
+            if (codeEl) codeEl.textContent = lang.toUpperCase();
+            close();
+            document.documentElement.classList.add('lang-switching');
+            var body = new URLSearchParams();
+            body.append('csrfmiddlewaretoken', csrfInput.value);
+            body.append('language', lang);
+            body.append('next', nextInput.value);
+            fetch('{{ url("set_language") }}', {
+                method: 'POST',
+                credentials: 'same-origin',
+                headers: { 'X-CSRFToken': csrfInput.value },
+                body: body,
+            }).finally(function () {
+                window.location.reload();
+            });
+        });
+    });
+})();
+</script>
 {% if request.in_contest %}
     <div id="contest-info">
         <a href="{{ url('contest_view', request.participation.contest.key) }}" style="vertical-align: middle">
@@ -279,24 +388,20 @@
     {% block bodyend %}{% endblock %}
 
     <footer>
-        <span id="footer-content">
-            <br>
-            <a style="color: #808080" href="https://dmoj.ca">{{ _('proudly powered by **DMOJ**')|markdown('default', strip_paragraphs=True) }}</a> |
+        <div id="footer-content">
+            <a href="https://oshsu.kg" target="_blank" rel="noopener" class="footer-brand-block">
+                <img src="{{ static('icons/oshsu-badge.svg') }}" alt="" class="footer-badge" width="56" height="40">
+                <span class="footer-brand-text">
+                    <span class="footer-brand">{{ _('Osh State University') }}</span>
+                    <span class="footer-sub">{{ _('Online programming olympiad platform') }}</span>
+                </span>
+            </a>
             {% if misc_config.footer %}
-                {{ misc_config.footer|safe }} |
+                <div class="footer-links">{{ misc_config.footer|safe }}</div>
             {% endif %}
-            <form action="{{ url('set_language') }}" method="post" style="display: inline">
-                {% csrf_token %}
-            <input name="next" type="hidden" value="{{ request.get_full_path() }}">
-            <select name="language" onchange="form.submit()" style="height: 1.5em">
-                {% for language in language_info_list(LANGUAGES) %}
-                    <option value="{{ language.code }}" {% if language.code == LANGUAGE_CODE %}selected{% endif %}>
-                        {{ language.name_local }} ({{ language.code }})
-                    </option>
-                {% endfor %}
-            </select>
-          </form>
-        </span>
+            <div class="footer-credit">© <span class="footer-year">2026</span> ОшГУ · МФТИТ · Кафедра ИСП · Карабаев С. Э.</div>
+            <script>document.querySelector('.footer-year').textContent = new Date().getFullYear();</script>
+        </div>
     </footer>
 </div>
 </body>

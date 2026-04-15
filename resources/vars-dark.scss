@@ -1,4 +1,5 @@
 @forward "vars-common";
+@use "vars-common" as *;
 
 $is_light_theme: false;
 
@@ -13,10 +14,10 @@ $color_primary75: #ccc;     // widget
 $color_primary90: #eee;
 $color_primary100: #f8f8f8;
 
-$color_link50: #06d;    // default (title)
-$color_link75: #6bf;    // default
-$color_link100: #49e;   // hover
-$color_link200: #d83;   // active
+$color_link50: #8cb4e6;   // default (title) — light blue readable on dark bg
+$color_link75: #a7c6ed;   // default
+$color_link100: #d4a24a;  // hover (accent gold)
+$color_link200: #e8b960;  // active
 
 $color_pageBg: #222;    // #222 because some elements should be darker than pageBg
 
@@ -60,6 +61,37 @@ $color_danger100: #f99;
 $color_problem_submit_select2: #8a8a8a;
 
 $path_to_root: '..';    // relative path from style.css to STATIC_ROOT
+
+// --- OshSU component tokens (dark) ---
+$color_navbar_bg: #0f1e33;
+$color_navbar_text: #e6e9ee;
+$color_navbar_text_muted: rgba(230, 233, 238, 0.7);
+$color_navbar_active: $brand_accent;
+$color_navbar_hover_bg: #16294a;
+
+$color_button_primary_bg: $brand_primary_hover;
+$color_button_primary_bg_hover: #365a8e;
+$color_button_primary_text: #ffffff;
+
+$color_button_accent_bg: $brand_accent;
+$color_button_accent_bg_hover: $brand_accent_hover;
+$color_button_accent_text: #1a1a1a;
+
+$color_card_bg: #2a2a2a;
+$color_card_border: #3b3b3b;
+$color_card_shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+
+$color_table_header_bg: #2a2a2a;
+$color_table_header_text: #e6e9ee;
+$color_table_row_hover: #303030;
+$color_table_border: #3b3b3b;
+
+$color_input_bg: #1f1f1f;
+$color_input_border: #3b3b3b;
+$color_input_border_focus: $brand_accent;
+$color_input_focus_ring: rgba(212, 162, 74, 0.2);
+
+$color_muted_text: #9aa5b1;
 
 @mixin vars-img {
     filter: invert(1) hue-rotate(180deg);

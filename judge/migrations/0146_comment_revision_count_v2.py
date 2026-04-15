@@ -12,7 +12,8 @@ def populate_revisions(apps, schema_editor):
         # Therefore, it's safe to all revision counts as zero.
         pass
     else:
-        schema_editor.execute("""\
+        if schema_editor.connection.vendor == 'mysql':
+            schema_editor.execute("""\
 UPDATE `judge_comment` INNER JOIN (
     SELECT CAST(`reversion_version`.`object_id` AS INT) AS `id`, COUNT(*) AS `count`
     FROM `reversion_version`
@@ -22,6 +23,20 @@ UPDATE `judge_comment` INNER JOIN (
 ) `versions` ON (`judge_comment`.`id` = `versions`.`id`)
 SET `judge_comment`.`revisions` = `versions`.`count`;
 """, (content_type.id, db_alias))
+        else:
+            Comment = apps.get_model('judge', 'Comment')
+            Version = apps.get_model('reversion', 'Version')
+            from django.db.models import Count
+            counts = (Version.objects
+                      .filter(content_type_id=content_type.id, db=db_alias)
+                      .values('object_id')
+                      .annotate(count=Count('id')))
+            for row in counts:
+                try:
+                    pk = int(row['object_id'])
+                except (TypeError, ValueError):
+                    continue
+                Comment.objects.filter(pk=pk).update(revisions=row['count'])
 
 
 class Migration(migrations.Migration):

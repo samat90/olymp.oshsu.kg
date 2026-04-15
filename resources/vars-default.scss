@@ -1,4 +1,5 @@
 @forward "vars-common";
+@use "vars-common" as *;
 
 $is_light_theme: true;
 
@@ -13,10 +14,10 @@ $color_primary75: #3b3b3b;  // widget
 $color_primary90: #111;
 $color_primary100: #000;
 
-$color_link50: #5b80b9;     // default (title)
-$color_link75: #1958c1;     // default
-$color_link100: #0645ad;    // hover
-$color_link200: #faa700;    // active
+$color_link50: $brand_primary;         // default (title)
+$color_link75: $brand_primary;         // default
+$color_link100: $brand_primary_hover;  // hover
+$color_link200: $brand_accent;         // active
 
 $color_pageBg: #fff;
 
@@ -60,5 +61,36 @@ $color_danger100: #944;
 $color_problem_submit_select2: #757575;
 
 $path_to_root: '.';     // relative path from style.css to STATIC_ROOT
+
+// --- OshSU component tokens (light) ---
+$color_navbar_bg: $brand_primary;
+$color_navbar_text: #ffffff;
+$color_navbar_text_muted: rgba(255, 255, 255, 0.75);
+$color_navbar_active: $brand_accent;
+$color_navbar_hover_bg: $brand_primary_hover;
+
+$color_button_primary_bg: $brand_primary;
+$color_button_primary_bg_hover: $brand_primary_hover;
+$color_button_primary_text: #ffffff;
+
+$color_button_accent_bg: $brand_accent;
+$color_button_accent_bg_hover: $brand_accent_hover;
+$color_button_accent_text: #1a1a1a;
+
+$color_card_bg: #ffffff;
+$color_card_border: #e4e7eb;
+$color_card_shadow: $shadow_md;
+
+$color_table_header_bg: #f4f6f8;
+$color_table_header_text: #2a3441;
+$color_table_row_hover: #f0f4fa;
+$color_table_border: #e4e7eb;
+
+$color_input_bg: #ffffff;
+$color_input_border: #c9d1d9;
+$color_input_border_focus: $brand_primary;
+$color_input_focus_ring: rgba(30, 58, 95, 0.15);
+
+$color_muted_text: #6a737d;
 
 @mixin vars-img {}
