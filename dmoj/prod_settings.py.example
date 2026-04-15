@@ -10,14 +10,23 @@ SECRET_KEY = os.environ['DMOJ_SECRET_KEY']  # обязательно устан�
 DEBUG = False
 ALLOWED_HOSTS = ['olymp.oshsu.kg', 'www.olymp.oshsu.kg']
 
-# HTTPS enforcement
+# HTTPS + заголовки безопасности. Работают только если SecurityMiddleware
+# в MIDDLEWARE (в dmoj/settings.py он уже есть).
 SECURE_SSL_REDIRECT = True
 SECURE_HSTS_SECONDS = 31536000
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_REFERRER_POLICY = 'strict-origin-when-cross-origin'
+SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin'
 SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SAMESITE = 'Lax'
 CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_HTTPONLY = True
+CSRF_COOKIE_SAMESITE = 'Lax'
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+X_FRAME_OPTIONS = 'DENY'
 
 # === DATABASE: PostgreSQL ===
 DATABASES = {
@@ -81,7 +90,11 @@ REGISTRATION_OPEN = True
 DMOJ_REQUIRE_STAFF_2FA = False
 DMOJ_2FA_HARDCORE = False
 WEBAUTHN_RP_ID = None
-AUTH_PASSWORD_VALIDATORS = []  # no complex password requirements
+# Минимальная валидация: длина ≥ 6. Без сложности (cyfr/specsymb), но и не совсем пусто.
+AUTH_PASSWORD_VALIDATORS = [
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+     'OPTIONS': {'min_length': 6}},
+]
 
 # === EVENT SERVER (websocket для live-обновлений) ===
 EVENT_DAEMON_USE = True

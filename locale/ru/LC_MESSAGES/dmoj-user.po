@@ -35,3 +35,15 @@ msgstr "Обращения"
 
 msgid "Home"
 msgstr "Главная"
+
+msgid "Osh State University"
+msgstr "Ошский государственный университет"
+
+msgid "Online programming olympiad platform"
+msgstr "Онлайн-платформа олимпиад по программированию"
+
+msgid "Change language"
+msgstr "Сменить язык"
+
+msgid "Toggle theme"
+msgstr "Переключить тему"

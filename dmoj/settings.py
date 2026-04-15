@@ -288,6 +288,7 @@ INSTALLED_APPS += (
 
 MIDDLEWARE = (
     'judge.middleware.ShortCircuitMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
@@ -607,7 +608,7 @@ CELERY_WORKER_HIJACK_ROOT_LOGGER = False
 WEBAUTHN_RP_ID = None
 
 try:
-    with open(os.path.join(os.path.dirname(__file__), 'local_settings.py')) as f:
+    with open(os.path.join(os.path.dirname(__file__), 'local_settings.py'), encoding='utf-8') as f:
         exec(f.read(), globals())
 except IOError:
     pass

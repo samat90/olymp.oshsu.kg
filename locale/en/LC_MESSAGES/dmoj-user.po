@@ -35,3 +35,15 @@ msgstr "Tickets"
 
 msgid "Home"
 msgstr "Home"
+
+msgid "Osh State University"
+msgstr "Osh State University"
+
+msgid "Online programming olympiad platform"
+msgstr "Online programming olympiad platform"
+
+msgid "Change language"
+msgstr "Change language"
+
+msgid "Toggle theme"
+msgstr "Toggle theme"

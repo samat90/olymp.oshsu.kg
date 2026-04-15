@@ -5121,9 +5121,9 @@ msgstr "Ограничение по памяти:"
 msgid "Problem type"
 msgid_plural "Problem types"
 msgstr[0] "Тип задачи"
-msgstr[1] "Типы задачи"
-msgstr[2] "Типов задачи"
-msgstr[3] "Типов задачи"
+msgstr[1] "Типы задач"
+msgstr[2] "Типы задач"
+msgstr[3] "Типы задач"
 
 #: templates/problem/problem.html:259
 msgid "Allowed languages"
@@ -6368,4 +6368,16 @@ msgstr "Русский"
 
 msgid "Кыргызча"
 msgstr "Кыргызча"
+
+msgid "Online programming olympiad platform"
+msgstr "Онлайн-платформа олимпиад по программированию"
+
+msgid "Osh State University"
+msgstr "Ошский государственный университет"
+
+msgid "Change language"
+msgstr "Сменить язык"
+
+msgid "Toggle theme"
+msgstr "Переключить тему"
 
