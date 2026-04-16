@@ -693,7 +693,7 @@ class ProblemSubmit(LoginRequiredMixin, ProblemMixin, TitleMixin, SingleObjectFo
         return form
 
     def get_success_url(self):
-        return reverse('submission_status', args=(self.new_submission.id,))
+        return reverse('all_submissions')
 
     def form_valid(self, form):
         if not self.request.user.has_perm('judge.spam_submission'):
