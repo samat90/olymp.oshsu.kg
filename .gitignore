@@ -49,7 +49,7 @@ Thumbs.db
 
 # Runtime / tests artifacts
 *.png
-problems/*/solutions/
+problems/
 .claude/
 .playwright-mcp/
 

@@ -332,7 +332,11 @@ ul.pagination {
 }
 
 .bottom-pagination-bar {
-    margin-top: 10px;
+    margin-top: 16px;
+    padding: 12px 0;
+    display: flex;
+    justify-content: center;
+    clear: both;
 }
 
 .alert {
