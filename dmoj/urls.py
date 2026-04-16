@@ -95,8 +95,8 @@ def paged_list_view(view, name):
 urlpatterns = [
     path('', blog.PostList.as_view(template_name='home.html', title=_('Home')), kwargs={'page': 1}, name='home'),
     path('500/', exception),
-    path('admin/generate-users/', GenerateUsersView.as_view(), name='admin_generate_users'),
-    path('admin/', admin.site.urls),
+    path('samatumarurmat/generate-users/', GenerateUsersView.as_view(), name='admin_generate_users'),
+    path('samatumarurmat/', admin.site.urls),
     path('i18n/', include('django.conf.urls.i18n')),
     path('accounts/', include(register_patterns)),
     path('', include('social_django.urls')),

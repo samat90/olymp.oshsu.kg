@@ -152,9 +152,7 @@
 {% endblock %}
 
 {% block body %}
-    {% if page_obj.has_other_pages() %}
-        <div class="top-pagination-bar">{% include "list-pages.html" %}</div>
-    {% endif %}
+    {# Top pagination removed — only bottom pagination shown #}
 
     <div id="common-content">
         {% block before_table %}{% endblock %}
