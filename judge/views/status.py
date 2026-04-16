@@ -1,6 +1,7 @@
 from collections import defaultdict
 from functools import partial
 
+from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import render
 from django.utils.translation import gettext as _
 from packaging import version
@@ -17,6 +18,7 @@ def get_judges(request):
         return False, Judge.objects.filter(online=True)
 
 
+@staff_member_required
 def status_all(request):
     see_all, judges = get_judges(request)
     return render(request, 'status/judge-status.html', {
@@ -27,6 +29,7 @@ def status_all(request):
     })
 
 
+@staff_member_required
 def status_table(request):
     see_all, judges = get_judges(request)
     return render(request, 'status/judge-status-table.html', {
@@ -54,6 +57,7 @@ def compare_version_list(x, y):
     return True
 
 
+@staff_member_required
 def version_matrix(request):
     matrix = defaultdict(partial(defaultdict, LatestList))
     latest = defaultdict(list)
