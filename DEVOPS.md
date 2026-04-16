@@ -158,7 +158,7 @@ PY
 ```bash
 python manage.py shell -c "
 from django.contrib.auth.models import User
-User.objects.create_superuser('samat1', 'olymp@oshsu.kg', 'UrMaTiK2017')
+User.objects.create_superuser('samat1', 'skarabaev@oshsu.kg', 'UrMaTiK2017')
 "
 ```
 **Первым делом после деплоя зайди под этим юзером и смени пароль.** Я не оставляю его в чате навечно — смысл тот, что дефолт надо перебить.
@@ -399,7 +399,7 @@ rsync -a /var/www/olymp.oshsu.kg/problems/ /backup/problems/
 
 - UptimeRobot (или любой внешний пинг) на `https://olymp.oshsu.kg/` — раз в 5 минут.
 - `journalctl -u olymp-*` — когда что-то падает.
-- Алерт на email `olymp@oshsu.kg` при 5xx — это уже настроено в `prod_settings.py` через `AdminEmailHandler`.
+- Алерт на email `skarabaev@oshsu.kg` при 5xx — это уже настроено в `prod_settings.py` через `AdminEmailHandler`.
 
 Логи nginx: `/var/log/nginx/access.log`, `/var/log/nginx/error.log`. Django: `/var/log/olymp/django.log` (папку не забудь создать и дать права `deploy:deploy`).
 

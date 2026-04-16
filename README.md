@@ -102,5 +102,5 @@ DMOJ распространяется под [AGPL-3.0](LICENSE). Наши мо�
 ## Контакты
 
 - Руководитель: **Карабаев С. Э.**, кафедра ИСП МФТИТ ОшГУ
-- Email: <olymp@oshsu.kg>
+- Email: <skarabaev@oshsu.kg>
 - Сайт университета: [oshsu.kg](https://oshsu.kg)
