@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
         ),
         migrations.RunSQL(
             ["""INSERT INTO judge_submissionsource (source, submission_id)
-                SELECT source, id AS 'submission_id' FROM judge_submission;"""],
+                SELECT source, id AS submission_id FROM judge_submission;"""],
             migrations.RunSQL.noop,
             elidable=True,
         ),
