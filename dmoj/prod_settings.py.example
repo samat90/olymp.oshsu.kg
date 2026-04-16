@@ -76,12 +76,12 @@ EMAIL_HOST_USER = os.environ.get('DMOJ_SMTP_USER', 'noreply@oshsu.kg')
 EMAIL_HOST_PASSWORD = os.environ.get('DMOJ_SMTP_PASSWORD', '')
 DEFAULT_FROM_EMAIL = 'OshSU Olymp <noreply@oshsu.kg>'
 SERVER_EMAIL = 'noreply@oshsu.kg'
-ADMINS = [('OshSU Olymp admin', 'olymp@oshsu.kg')]
+ADMINS = [('OshSU Olymp admin', 'skarabaev@oshsu.kg')]
 
 # === SITE ===
 SITE_NAME = 'OshSU Olymp'
 SITE_LONG_NAME = 'OshSU Olymp — Олимпиады по программированию ОшГУ'
-SITE_ADMIN_EMAIL = 'olymp@oshsu.kg'
+SITE_ADMIN_EMAIL = 'skarabaev@oshsu.kg'
 DMOJ_SCHEME = 'https'
 DMOJ_CANONICAL = 'olymp.oshsu.kg'
 
