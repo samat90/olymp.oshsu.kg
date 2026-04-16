@@ -17,7 +17,7 @@
 ## Стек
 
 - **Backend:** Django 4.2 + Python 3.12
-- **DB:** PostgreSQL (prod) / SQLite (dev)
+- **DB:** PostgreSQL 16+
 - **Cache + Celery broker:** Redis (prod)
 - **Бридж судей:** TCP-сокеты (`judge/bridge/`)
 - **Event-daemon:** Node.js websocket server (`websocket/daemon.js`)
@@ -36,7 +36,7 @@ pip install -r requirements.txt
 # 2. Локальные настройки
 cp dmoj/prod_settings.py.example dmoj/local_settings.py
 # Отредактируй local_settings.py (SECRET_KEY, DB и др.).
-# Либо оставь как есть — dev по умолчанию SQLite.
+# PostgreSQL обязателен — создайте БД olymp_oshsu.
 
 # 3. База
 python manage.py migrate
