@@ -396,9 +396,12 @@
                     <span class="footer-sub">{{ _('Online programming olympiad platform') }}</span>
                 </span>
             </a>
-            {% if misc_config.footer %}
-                <div class="footer-links">{{ misc_config.footer|safe }}</div>
-            {% endif %}
+            <div class="footer-links">
+                <a href="mailto:skarabaev@oshsu.kg">{{ _('Contact') }}</a> ·
+                <a href="/about/">{{ _('About') }}</a> ·
+                <a href="/tos/">{{ _('Terms') }}</a> ·
+                <a href="/privacy/">{{ _('Privacy') }}</a>
+            </div>
             <div class="footer-credit">© <span class="footer-year">2026</span> ОшГУ · МФТИТ · Кафедра ИСП · Карабаев С. Э.</div>
             <script>document.querySelector('.footer-year').textContent = new Date().getFullYear();</script>
         </div>
