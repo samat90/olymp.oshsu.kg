@@ -119,6 +119,7 @@ class ProblemTranslationInline(admin.StackedInline):
 
 
 class ProblemAdmin(NoBatchDeleteMixin, VersionAdmin):
+    readonly_fields = ('test_data_link',)
     fieldsets = (
         (None, {
             'fields': (
@@ -127,6 +128,7 @@ class ProblemAdmin(NoBatchDeleteMixin, VersionAdmin):
                 'description', 'license',
             ),
         }),
+        (_('Test data'), {'fields': ('test_data_link',)}),
         (_('Social Media'), {'classes': ('collapse',), 'fields': ('og_image', 'summary')}),
         (_('Taxonomy'), {'fields': ('types', 'group')}),
         (_('Points'), {'fields': (('points', 'partial'), 'short_circuit')}),
@@ -135,6 +137,19 @@ class ProblemAdmin(NoBatchDeleteMixin, VersionAdmin):
         (_('Justice'), {'fields': ('banned_users',)}),
         (_('History'), {'fields': ('change_message',)}),
     )
+
+    def test_data_link(self, obj):
+        if not obj or not obj.pk:
+            return _('Сохраните задачу, затем вернитесь — появится ссылка на загрузку тестов.')
+        url = reverse('problem_data', args=[obj.code])
+        return format_html(
+            '<a href="{0}" target="_blank" style="display:inline-block;padding:8px 16px;background:#1e3a5f;'
+            'color:#fff;text-decoration:none;border-radius:6px;font-weight:500;">'
+            '📂 {1}</a>',
+            url,
+            _('Управление тестами задачи'),
+        )
+    test_data_link.short_description = _('Тесты')
     list_display = ['code', 'name', 'show_authors', 'points', 'is_public', 'show_public']
     ordering = ['code']
     search_fields = ('code', 'name', 'authors__user__username', 'curators__user__username')
