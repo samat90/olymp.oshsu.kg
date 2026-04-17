@@ -107,6 +107,7 @@ def create_problem(code, name, desc, difficulty, time_limit, memory_limit, ptype
         group=group_general,
         is_public=True,
         is_manually_managed=False,
+        short_circuit=True,
         date=timezone.now(),
     )
     p.save()

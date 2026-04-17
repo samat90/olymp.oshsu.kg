@@ -348,6 +348,7 @@ certbot --nginx -d olymp.oshsu.kg -d www.olymp.oshsu.kg
 ```bash
 # На judge-сервере, от sudo-юзера.
 apt install -y gcc g++ openjdk-8-jdk-headless python3 python3-dev \
+                mono-devel mono-complete \
                 libseccomp-dev build-essential git
 
 adduser --disabled-password --gecos '' judge
@@ -360,9 +361,25 @@ pip install -e .
 
 mkdir ~/judge-config
 cat > ~/judge-config/judge.yml <<YAML
-problem_storage_root:
-  - /home/judge/problems
-runtime: {}
+id: judge1
+key: <GENERATE_RANDOM_STRING_AND_PUT_IN_DB_TOO>
+
+runtime:
+  gcc: /usr/bin/gcc
+  g++: /usr/bin/g++
+  g++11: /usr/bin/g++
+  g++14: /usr/bin/g++
+  g++17: /usr/bin/g++
+  g++20: /usr/bin/g++
+  python3: /usr/bin/python3
+  java8: /usr/lib/jvm/java-8-openjdk-amd64/bin/java
+  javac8: /usr/lib/jvm/java-8-openjdk-amd64/bin/javac
+  mono-csc: /usr/bin/mono-csc
+  mono: /usr/bin/mono
+  mcs: /usr/bin/mcs
+
+problem_storage_globs:
+  - /home/judge/problems/*
 YAML
 
 # Проверь self-test:
