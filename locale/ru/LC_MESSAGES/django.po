@@ -3989,7 +3989,7 @@ msgstr "Поток комментариев"
 
 #: templates/blog/list.html:174
 msgid "New problems"
-msgstr "Новые проблемы"
+msgstr "Новые задачи"
 
 #: templates/blog/list.html:191
 msgid "My open tickets"
@@ -6380,4 +6380,13 @@ msgstr "Сменить язык"
 
 msgid "Toggle theme"
 msgstr "Переключить тему"
+
+msgid "Contact"
+msgstr "Связаться"
+
+msgid "Terms"
+msgstr "Правила"
+
+msgid "Privacy"
+msgstr "Конфиденциальность"
 
