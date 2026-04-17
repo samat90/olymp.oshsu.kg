@@ -105,6 +105,17 @@ SQL
 
 Пароль кидай в пароль-менеджер сразу — потом достать неоткуда.
 
+**Настройка PostgreSQL для нагрузки.** Дефолтный `max_connections = 100` маловат при 100+ участниках. В `/etc/postgresql/16/main/postgresql.conf`:
+
+```conf
+max_connections = 500
+shared_buffers = 2GB
+effective_cache_size = 6GB
+work_mem = 16MB
+```
+
+После правки: `systemctl restart postgresql`.
+
 ### 5.3 Конфиг
 
 ```bash
