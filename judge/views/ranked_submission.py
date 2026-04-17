@@ -41,7 +41,7 @@ class RankedSubmissions(ProblemSubmissions):
         join_sql_subquery(
             queryset,
             subquery="""
-                SELECT sub.id AS id
+                SELECT MIN(sub.id) AS id
                 FROM (
                     SELECT sub.user_id AS uid, MAX(sub.points) AS points
                     FROM judge_submission AS sub {contest_join}
