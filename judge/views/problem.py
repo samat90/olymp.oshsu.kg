@@ -706,6 +706,18 @@ class ProblemSubmit(LoginRequiredMixin, ProblemMixin, TitleMixin, SingleObjectFo
                     .exclude(status__in=['IE', 'CE']).count() >= settings.DMOJ_SUBMISSION_RATELIMIT
             ):
                 return HttpResponse(format_html('<h1>{0}</h1>', _('You submitted too many submissions.')), status=429)
+            # OshSU: 60-second cooldown on the SAME problem to prevent spam.
+            last = (Submission.objects.filter(user=self.request.profile, problem=self.object)
+                    .order_by('-date').values_list('date', flat=True).first())
+            if last is not None:
+                elapsed = (timezone.now() - last).total_seconds()
+                if elapsed < 60:
+                    wait = int(60 - elapsed)
+                    return generic_message(
+                        self.request, _('Too many submissions'),
+                        _('Подождите %(wait)d секунд перед повторной отправкой этой же задачи.') % {'wait': wait},
+                        status=429,
+                    )
         if not self.object.allowed_languages.filter(id=form.cleaned_data['language'].id).exists():
             raise PermissionDenied()
         if not self.request.user.is_superuser and self.object.banned_users.filter(id=self.request.profile.id).exists():
