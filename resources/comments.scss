@@ -179,3 +179,73 @@ a {
         transform: translatez(0);
     }
 }
+
+// --- Dark theme overrides for Martor comment editor ---
+// Martor renders with hardcoded white background; needs explicit dark styles.
+@mixin martor-dark {
+    .section-martor {
+        background: #1a1d24 !important;
+        color: #e0e0e0 !important;
+
+        .tab-martor-menu, .ui.menu, .ui.attached.tabular.menu {
+            background: #2a2f3a !important;
+            border-color: #3a3f4a !important;
+
+            a.item {
+                color: #cbd5e1 !important;
+                background: transparent !important;
+
+                &.active {
+                    background: #1e3a5f !important;
+                    color: #fff !important;
+                    border-color: #1e3a5f !important;
+                }
+
+                &:hover {
+                    background: #3a4256 !important;
+                    color: #fff !important;
+                }
+            }
+        }
+
+        .martor-toolbar {
+            background: #2a2f3a !important;
+            border-color: #3a3f4a !important;
+
+            .ui.button {
+                background: transparent !important;
+                color: #cbd5e1 !important;
+
+                &:hover {
+                    background: #3a4256 !important;
+                    color: #fff !important;
+                }
+            }
+        }
+
+        .ui.attached.segment, .ui.tab.segment, .martor-preview {
+            background: #1a1d24 !important;
+            color: #e0e0e0 !important;
+            border-color: #3a3f4a !important;
+        }
+
+        .martor-field {
+            background: #1a1d24 !important;
+        }
+    }
+
+    // Editor messages
+    .editor-msg, .preview-disabled {
+        color: #cbd5e1 !important;
+    }
+}
+
+html[data-theme="dark"] {
+    @include martor-dark;
+}
+
+@media (prefers-color-scheme: dark) {
+    html[data-theme="auto"] {
+        @include martor-dark;
+    }
+}
