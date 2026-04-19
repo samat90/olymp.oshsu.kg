@@ -144,7 +144,7 @@ class ProblemAdmin(NoBatchDeleteMixin, VersionAdmin):
         url = reverse('problem_data', args=[obj.code])
         return format_html(
             '<a href="{0}" target="_blank" style="display:inline-block;padding:8px 16px;background:#1e3a5f;'
-            'color:#fff;text-decoration:none;border-radius:6px;font-weight:500;">'
+            'color:#fff !important;text-decoration:none;border-radius:6px;font-weight:500;">'
             '📂 {1}</a>',
             url,
             _('Управление тестами задачи'),
