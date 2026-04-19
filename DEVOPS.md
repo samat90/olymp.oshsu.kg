@@ -402,7 +402,7 @@ dmoj -c ~/judge-config/judge.yml -p 9999 <WEB_HOST_IP>
 
 **Задачи** (`/home/judge/problems/*`) синхронизируй с веб-машины. Простой вариант — rsync по cron раз в минуту. Если хочется мгновенно — NFS-mount `/var/www/olymp.oshsu.kg/problems` read-only. Судья не должен писать в этот каталог.
 
-Перед первым запуском в админке веб-платформы создай запись Judge (`/samatumarurmat/judge/judge/add/`) и скопируй auth-key в judge.yml.
+Перед первым запуском в админке веб-платформы создай запись Judge (`/<ADMIN_URL>/judge/judge/add/`) и скопируй auth-key в judge.yml.
 
 ## 9. Бэкапы
 
@@ -443,7 +443,7 @@ rsync -a /var/www/olymp.oshsu.kg/problems/ /backup/problems/
 - [ ] Redis слушает только localhost (дефолт Ubuntu)
 - [ ] Порт 9999 только с IP judge-сервера (firewall)
 - [ ] `certbot renew --dry-run` проходит
-- [ ] На админке `/samatumarurmat/login/` нет дефолтных кредов — после первого логина поменяй пароль `samat1`
+- [ ] На админке `/<ADMIN_URL>/login/` нет дефолтных кредов — после первого логина поменяй пароль `samat1`
 - [ ] Nginx rate-limit на `/accounts/login/` и `/accounts/register/` активен (см. конфиг выше)
 
 Пароли участников валидируются только по длине (≥6 символов). Это компромисс: у нас олимпиада, а не банк — сложность отталкивает студентов. Если ситуация изменится — `AUTH_PASSWORD_VALIDATORS` в `prod_settings.py`.
