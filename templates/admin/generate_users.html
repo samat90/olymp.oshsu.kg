@@ -9,7 +9,7 @@
         {% trans "и случайными паролями. После создания учётные данные можно скачать как CSV или скопировать в буфер." %}
     </p>
 
-    <form method="post" style="max-width:40em; padding:1em; background:#fff; border:1px solid #ccc; border-radius:6px;">
+    <form method="post" style="max-width:40em; padding:1em; background:var(--body-bg, #fff); color:var(--body-fg, inherit); border:1px solid var(--border-color, #ccc); border-radius:6px;">
         {% csrf_token %}
         <table>
             {{ form.as_table }}

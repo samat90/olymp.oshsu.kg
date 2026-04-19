@@ -2,20 +2,20 @@
 {% load i18n %}
 
 {% block content %}
-<div class="module" style="background: #f0f4fa; border: 1px solid #c9d6e8; border-radius: 8px; padding: 16px; margin-bottom: 20px;">
-    <h2 style="margin-top: 0; color: #1e3a5f;">{% trans "Быстрые действия OshSU Olymp" %}</h2>
+<div class="module" style="background: var(--darkened-bg, #f0f4fa); border: 1px solid var(--border-color, #c9d6e8); border-radius: 8px; padding: 16px; margin-bottom: 20px;">
+    <h2 style="margin-top: 0; color: var(--body-loud-color, #1e3a5f); border: 0; padding: 0; background: transparent;">{% trans "Быстрые действия OshSU Olymp" %}</h2>
     <ul style="list-style: none; padding: 0; margin: 0;">
         <li style="margin: 8px 0;">
             <a href="{% url 'admin_generate_users' %}" style="display: inline-block; padding: 10px 16px; background: #d4a24a; color: #1a1a1a; text-decoration: none; border-radius: 6px; font-weight: 600;">
                 👥 {% trans "Генерация участников олимпиады" %}
             </a>
-            <span style="color: #6a737d; margin-left: 8px;">{% trans "— создать N пользователей со случайными логинами и паролями" %}</span>
+            <span style="color: var(--body-quiet-color, #6a737d); margin-left: 8px;">{% trans "— создать N пользователей со случайными логинами и паролями" %}</span>
         </li>
         <li style="margin: 8px 0;">
             <a href="/admin-guide/" target="_blank" style="display: inline-block; padding: 10px 16px; background: #1e3a5f; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight: 600;">
                 📖 {% trans "Админ-гайд: как провести олимпиаду" %}
             </a>
-            <span style="color: #6a737d; margin-left: 8px;">{% trans "— 5 шагов от создания задачи до финального табло" %}</span>
+            <span style="color: var(--body-quiet-color, #6a737d); margin-left: 8px;">{% trans "— 5 шагов от создания задачи до финального табло" %}</span>
         </li>
     </ul>
 </div>

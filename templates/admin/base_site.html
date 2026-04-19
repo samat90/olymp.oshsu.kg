@@ -1,5 +1,20 @@
 {% extends "admin/base_site.html" %}
 
+{% block extrahead %}{{ block.super }}
+    <script>
+        // Sync admin dark mode with main site preference (oshsu-theme localStorage).
+        (function() {
+            try {
+                var t = localStorage.getItem('oshsu-theme') || 'auto';
+                var html = document.documentElement;
+                if (t === 'dark') html.dataset.theme = 'dark';
+                else if (t === 'light') html.dataset.theme = 'light';
+                // 'auto' uses prefers-color-scheme via Django's dark_mode.css media query
+            } catch (e) {}
+        })();
+    </script>
+{% endblock %}
+
 {% block pretitle %}{{ block.super }}
     <form style="display: none" id="empty-action-form" method="post">
         {% csrf_token %}
