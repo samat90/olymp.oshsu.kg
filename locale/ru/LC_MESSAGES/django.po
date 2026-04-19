@@ -6390,3 +6390,6 @@ msgstr "Правила"
 msgid "Privacy"
 msgstr "Конфиденциальность"
 
+msgid "Please click on \"Preview\" before posting your comment."
+msgstr "Нажмите «Предпросмотр» перед отправкой комментария."
+
