@@ -279,12 +279,28 @@
     if (!btn) return;
     var link = document.getElementById('theme-dark-css');
     var html = document.documentElement;
+    function applyAceTheme(isDark) {
+        // Switch Ace editor theme live (used by Martor / submit forms).
+        if (typeof window.ace === 'undefined') return;
+        var lightTheme = 'ace/theme/github';
+        var darkTheme = 'ace/theme/tomorrow_night';
+        document.querySelectorAll('.ace_editor').forEach(function(el) {
+            var editor = window.ace.edit(el);
+            if (editor) editor.setTheme(isDark ? darkTheme : lightTheme);
+        });
+    }
+    function isCurrentlyDark(t) {
+        if (t === 'dark') return true;
+        if (t === 'light') return false;
+        return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
     function apply(t) {
         html.setAttribute('data-theme', t);
         if (t === 'dark') link.media = 'all';
         else if (t === 'light') link.media = 'not all';
         else link.media = '(prefers-color-scheme: dark)';
         try { localStorage.setItem('oshsu-theme', t); } catch (e) {}
+        applyAceTheme(isCurrentlyDark(t));
     }
     btn.addEventListener('click', function () {
         var cur = html.getAttribute('data-theme') || 'auto';

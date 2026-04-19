@@ -181,62 +181,82 @@ a {
 }
 
 // --- Dark theme overrides for Martor comment editor ---
-// Martor renders with hardcoded white background; needs explicit dark styles.
+// Martor uses Semantic UI which has hardcoded white backgrounds; override here.
 @mixin martor-dark {
-    .section-martor {
+    .main-martor, .section-martor, .main-martor-fullscreen {
         background: #1a1d24 !important;
         color: #e0e0e0 !important;
+    }
 
-        .tab-martor-menu, .ui.menu, .ui.attached.tabular.menu {
-            background: #2a2f3a !important;
-            border-color: #3a3f4a !important;
+    .section-martor .ui.menu,
+    .section-martor .ui.attached.tabular.menu,
+    .section-martor .tab-martor-menu,
+    .section-martor .ui.attached.menu {
+        background: #2a2f3a !important;
+        border-color: #3a3f4a !important;
+        color: #e0e0e0 !important;
+    }
 
-            a.item {
-                color: #cbd5e1 !important;
-                background: transparent !important;
+    .section-martor .ui.menu .item,
+    .section-martor .ui.attached.tabular.menu .item,
+    .section-martor .tab-martor-menu .item {
+        color: #cbd5e1 !important;
+        background: transparent !important;
 
-                &.active {
-                    background: #1e3a5f !important;
-                    color: #fff !important;
-                    border-color: #1e3a5f !important;
-                }
+        &.active {
+            background: #1e3a5f !important;
+            color: #fff !important;
+            border-color: #1e3a5f !important;
+        }
 
-                &:hover {
-                    background: #3a4256 !important;
-                    color: #fff !important;
-                }
+        &:hover {
+            background: #3a4256 !important;
+            color: #fff !important;
+        }
+    }
+
+    .section-martor .martor-toolbar {
+        background: #2a2f3a !important;
+        border-color: #3a3f4a !important;
+
+        .ui.button, .ui.basic.button {
+            background: transparent !important;
+            color: #cbd5e1 !important;
+            box-shadow: none !important;
+
+            &:hover {
+                background: #3a4256 !important;
+                color: #fff !important;
             }
         }
+    }
 
-        .martor-toolbar {
-            background: #2a2f3a !important;
-            border-color: #3a3f4a !important;
+    .section-martor .ui.segment,
+    .section-martor .ui.attached.segment,
+    .section-martor .ui.bottom.attached.segment,
+    .section-martor .ui.tab.segment,
+    .section-martor .martor-preview {
+        background: #1a1d24 !important;
+        color: #e0e0e0 !important;
+        border-color: #3a3f4a !important;
+    }
 
-            .ui.button {
-                background: transparent !important;
-                color: #cbd5e1 !important;
-
-                &:hover {
-                    background: #3a4256 !important;
-                    color: #fff !important;
-                }
-            }
-        }
-
-        .ui.attached.segment, .ui.tab.segment, .martor-preview {
-            background: #1a1d24 !important;
-            color: #e0e0e0 !important;
-            border-color: #3a3f4a !important;
-        }
-
-        .martor-field {
-            background: #1a1d24 !important;
-        }
+    .section-martor .martor-field {
+        background: #1a1d24 !important;
     }
 
     // Editor messages
     .editor-msg, .preview-disabled {
         color: #cbd5e1 !important;
+    }
+
+    // Preview rendered content
+    .martor-preview {
+        h1, h2, h3, h4, h5, h6, p, li, td, th { color: #e0e0e0 !important; }
+        code { background: #2a2f3a !important; color: #f0a060 !important; }
+        pre { background: #2a2f3a !important; }
+        a { color: #81d4fa !important; }
+        blockquote { border-left-color: #3a4256 !important; color: #cbd5e1 !important; }
     }
 }
 
