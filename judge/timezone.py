@@ -21,6 +21,11 @@ class TimezoneMiddleware(object):
 
 
 def from_database_time(datetime):
+    if datetime is None:
+        return datetime
+    # PostgreSQL backend returns timezone-aware datetimes already; SQLite/MySQL return naive.
+    if timezone.is_aware(datetime):
+        return datetime
     tz = connection.timezone
     if tz is None:
         return datetime
