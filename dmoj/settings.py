@@ -607,6 +607,9 @@ CELERY_WORKER_HIJACK_ROOT_LOGGER = False
 
 WEBAUTHN_RP_ID = None
 
+# Admin URL prefix — override in local_settings.py for security through obscurity.
+ADMIN_URL_PREFIX = 'admin'
+
 try:
     with open(os.path.join(os.path.dirname(__file__), 'local_settings.py'), encoding='utf-8') as f:
         exec(f.read(), globals())

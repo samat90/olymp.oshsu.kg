@@ -85,6 +85,10 @@ SITE_ADMIN_EMAIL = 'skarabaev@oshsu.kg'
 DMOJ_SCHEME = 'https'
 DMOJ_CANONICAL = 'olymp.oshsu.kg'
 
+# === ADMIN URL ===
+# Скрытый путь к админке вместо дефолтного /admin/. Замени на свой случайный.
+ADMIN_URL_PREFIX = 'CHANGE_ME_TO_RANDOM_STRING'
+
 # === AUTH ===
 REGISTRATION_OPEN = True
 DMOJ_REQUIRE_STAFF_2FA = False
