@@ -245,6 +245,15 @@ a {
         background: #1a1d24 !important;
     }
 
+    // Ace editor gutters and scrollbars fallback before JS swap kicks in.
+    .section-martor .ace_editor,
+    .section-martor .ace_gutter,
+    .section-martor .ace_scroller {
+        background-color: #1a1d24 !important;
+        color: #e0e0e0 !important;
+    }
+    .section-martor .ace_gutter { border-color: #2a2f3a !important; }
+
     // Editor messages
     .editor-msg, .preview-disabled {
         color: #cbd5e1 !important;
