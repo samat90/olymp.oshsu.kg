@@ -279,14 +279,20 @@
     if (!btn) return;
     var link = document.getElementById('theme-dark-css');
     var html = document.documentElement;
+    var LIGHT_ACE = 'ace/theme/github';
+    var DARK_ACE = 'ace/theme/tomorrow_night';
+
+    function getExistingEditor(el) {
+        // Ace stores the editor instance on el.env.editor after edit(el) is called once.
+        if (el && el.env && el.env.editor) return el.env.editor;
+        if (typeof window.ace === 'undefined') return null;
+        try { return window.ace.edit(el); } catch (e) { return null; }
+    }
     function applyAceTheme(isDark) {
-        // Switch Ace editor theme live (used by Martor / submit forms).
-        if (typeof window.ace === 'undefined') return;
-        var lightTheme = 'ace/theme/github';
-        var darkTheme = 'ace/theme/tomorrow_night';
+        var theme = isDark ? DARK_ACE : LIGHT_ACE;
         document.querySelectorAll('.ace_editor').forEach(function(el) {
-            var editor = window.ace.edit(el);
-            if (editor) editor.setTheme(isDark ? darkTheme : lightTheme);
+            var editor = getExistingEditor(el);
+            if (editor && typeof editor.setTheme === 'function') editor.setTheme(theme);
         });
     }
     function isCurrentlyDark(t) {
@@ -307,6 +313,41 @@
         var next = cur === 'light' ? 'dark' : (cur === 'dark' ? 'auto' : 'light');
         apply(next);
     });
+
+    // On page load + whenever a new Ace editor appears, sync its theme.
+    function syncAllAce() { applyAceTheme(isCurrentlyDark(html.getAttribute('data-theme') || 'auto')); }
+    if (document.readyState !== 'loading') setTimeout(syncAllAce, 100);
+    else document.addEventListener('DOMContentLoaded', function () { setTimeout(syncAllAce, 100); });
+
+    // Watch for dynamically created Ace editors (Martor initialization, etc.).
+    if (typeof MutationObserver !== 'undefined') {
+        var obs = new MutationObserver(function(mutations) {
+            var needSync = false;
+            mutations.forEach(function(m) {
+                m.addedNodes && m.addedNodes.forEach(function(n) {
+                    if (n.nodeType !== 1) return;
+                    if ((n.classList && n.classList.contains('ace_editor')) ||
+                        (n.querySelector && n.querySelector('.ace_editor'))) {
+                        needSync = true;
+                    }
+                });
+            });
+            if (needSync) setTimeout(syncAllAce, 50);
+        });
+        obs.observe(document.body, { childList: true, subtree: true });
+    }
+
+    // Also react to system theme changes when in 'auto' mode.
+    if (window.matchMedia) {
+        var mq = window.matchMedia('(prefers-color-scheme: dark)');
+        var handler = function() {
+            if ((html.getAttribute('data-theme') || 'auto') === 'auto') {
+                applyAceTheme(mq.matches);
+            }
+        };
+        if (mq.addEventListener) mq.addEventListener('change', handler);
+        else if (mq.addListener) mq.addListener(handler);
+    }
 })();
 
 (function () {
