@@ -137,14 +137,7 @@ class CustomLoginView(LoginView):
     redirect_authenticated_user = True
 
     def form_valid(self, form):
-        password = form.cleaned_data['password']
-        validator = PwnedPasswordsValidator()
-        try:
-            validator.validate(password)
-        except ValidationError:
-            self.request.session['password_pwned'] = True
-        else:
-            self.request.session['password_pwned'] = False
+        self.request.session['password_pwned'] = False
         return super().form_valid(form)
 
 
