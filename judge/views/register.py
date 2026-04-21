@@ -30,6 +30,11 @@ class CustomRegistrationForm(RegistrationForm):
                                               label=_('Organizations'), required=False,
                                               widget=Select2MultipleWidget(attrs={'style': 'width:100%'}))
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if not self.fields['organizations'].queryset.exists():
+            self.fields.pop('organizations')
+
     if newsletter_id is not None:
         newsletter = forms.BooleanField(label=_('Subscribe to newsletter?'), initial=True, required=False)
 
@@ -79,7 +84,7 @@ class RegistrationView(OldRegistrationView):
         cleaned_data = form.cleaned_data
         profile.timezone = cleaned_data['timezone']
         profile.language = cleaned_data['language']
-        profile.organizations.add(*cleaned_data['organizations'])
+        profile.organizations.add(*cleaned_data.get('organizations') or [])
         profile.save()
 
         if newsletter_id is not None and cleaned_data['newsletter']:
