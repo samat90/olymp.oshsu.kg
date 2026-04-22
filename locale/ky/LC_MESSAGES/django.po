@@ -11,8 +11,6 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 # --- OshSU Olymp brand & hero ---
-msgid "Osh State University"
-msgstr "Ош мамлекеттик университети"
 
 msgid "Online programming contest platform of Osh State University. Solve problems, participate in contests, compete with friends."
 msgstr "Ош мамлекеттик университетинин программалоо боюнча олимпиадаларынын онлайн-платформасы. Маселелерди чечкиле, мелдештерге катышкыла, досуңуздар менен мелдешкиле."
