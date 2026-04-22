@@ -261,11 +261,9 @@
                 </ul>
             {% else %}
                 <span class="anon">
+                    {# OshSU: only "Log in" in navbar — saves space on mobile.
+                     * "Sign up" link is rendered at the bottom of login page. #}
                     <a href="{{ url('auth_login') }}?next={{ LOGIN_RETURN_PATH|urlencode }}"><b>{{ _('Log in') }}</b></a>
-                    {% if REGISTRATION_OPEN %}
-                        &nbsp;{{ _('or') }}&nbsp;
-                        <a href="{{ url('registration_register') }}"><b>{{ _('Sign up') }}</b></a>
-                    {% endif %}
                 </span>
             {% endif %}
         </span>
