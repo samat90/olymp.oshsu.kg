@@ -93,6 +93,25 @@ def site_name(request):
             'SITE_ADMIN_EMAIL': settings.SITE_ADMIN_EMAIL}
 
 
+def _compute_static_version():
+    """OshSU: cache-buster для CSS/JS. nginx отдаёт static с max-age=30d,
+    поэтому без ?v= юзеры месяцами тащат закэшированный style.css.
+    Берём mtime style.css один раз на загрузку модуля; gunicorn restart
+    после каждого деплоя обновит значение."""
+    import os
+    candidates = [
+        os.path.join(settings.STATIC_ROOT or '', 'style.css'),
+        os.path.join(settings.BASE_DIR, 'sass_processed', 'style.css'),
+    ]
+    for path in candidates:
+        if path and os.path.isfile(path):
+            return str(int(os.path.getmtime(path)))
+    return '0'
+
+
+_STATIC_VERSION = _compute_static_version()
+
+
 def site_theme(request):
     # Middleware populating `profile` may not have loaded at this point if we're called from an error context.
     if hasattr(request.user, 'profile'):
@@ -106,6 +125,7 @@ def site_theme(request):
         'LIGHT_STYLE_CSS': settings.DMOJ_THEME_CSS['light'],
         'PREFERRED_STYLE_CSS': preferred_css,
         'SITE_THEME_NAME': site_theme,
+        'STATIC_VERSION': _STATIC_VERSION,
     }
 
 
