@@ -21,7 +21,9 @@ from django.utils import timezone, translation
 from django.utils.functional import cached_property
 from django.utils.html import escape, format_html
 from django.utils.safestring import mark_safe
+from django.utils.decorators import method_decorator
 from django.utils.translation import gettext as _, gettext_lazy
+from django.views.decorators.csrf import ensure_csrf_cookie
 from django.views.generic import DetailView, ListView, View
 from django.views.generic.detail import SingleObjectMixin
 from reversion import revisions
@@ -569,6 +571,7 @@ class ProblemList(QueryStringSortMixin, TitleMixin, SolvedProblemMixin, ListView
         self.point_start = safe_float_or_none(request.GET.get('point_start'))
         self.point_end = safe_float_or_none(request.GET.get('point_end'))
 
+    @method_decorator(ensure_csrf_cookie)
     def get(self, request, *args, **kwargs):
         self.setup_problem_list(request)
 
