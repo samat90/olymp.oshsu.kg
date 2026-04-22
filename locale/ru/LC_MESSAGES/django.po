@@ -153,7 +153,7 @@ msgstr "Включены конкурсы"
 #: templates/problem/list.html:204 templates/user/user-problems.html:58
 #: templates/user/user-problems.html:102
 msgid "Problem"
-msgstr "Проблема"
+msgstr "Задача"
 
 #: judge/admin/contest.py:68 judge/views/problem.py:355
 #: templates/contest/contest.html:191 templates/user/user-tabs.html:5
@@ -6357,8 +6357,6 @@ msgid "Check all"
 msgstr "Выбрать всё"
 
 # --- OshSU Olymp additions ---
-msgid "Osh State University"
-msgstr "Ошский государственный университет"
 
 msgid "Online programming contest platform of Osh State University. Solve problems, participate in contests, compete with friends."
 msgstr "Онлайн-платформа олимпиад по программированию Ошского государственного университета. Решайте задачи, участвуйте в соревнованиях, соревнуйтесь с друзьями."
@@ -6393,3 +6391,9 @@ msgstr "Конфиденциальность"
 msgid "Please click on \"Preview\" before posting your comment."
 msgstr "Нажмите «Предпросмотр» перед отправкой комментария."
 
+
+msgid "No account yet?"
+msgstr "Ещё нет аккаунта?"
+
+msgid "Memory"
+msgstr "Память"
