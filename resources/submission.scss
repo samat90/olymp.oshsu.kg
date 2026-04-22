@@ -123,6 +123,9 @@
                 font-weight: 600;
             }
 
+            /* Long form on desktop, short code (AC/WA/CE/RTE) on small screens. */
+            .verdict.short { display: none; }
+
             .score {
                 margin-left: 6px;
                 font-size: 0.85em;
@@ -224,14 +227,28 @@ label[for="language"], label[for="status"] {
 
 @media (max-width: 800px) {
     .submissions-list-table {
-        font-size: 0.86em;
+        /* Auto layout: visible columns size to content, no overflow. */
+        table-layout: auto;
+        font-size: 0.84em;
 
         thead th, tbody > tr > td {
-            padding: 6px 6px;
+            padding: 6px 8px;
         }
 
         .col-author, td.sub-author {
             display: none;
+        }
+
+        /* Mobile rows should be uniform height — score on its own line
+         * inflates rows where it appears. Hide score to keep consistency. */
+        td.sub-verdict .score {
+            display: none;
+        }
+
+        /* Allow long verdict text to wrap rather than ellipsis-cut. */
+        td.sub-verdict {
+            white-space: normal;
+            line-height: 1.25;
         }
     }
 
@@ -247,10 +264,15 @@ label[for="language"], label[for="status"] {
             display: none;
         }
 
-        .col-verdict { width: auto; }
+        .col-id, .col-verdict { width: auto; }
 
-        td.sub-problem {
-            max-width: 130px;
+        /* Swap long verdict text → compact code (AC/WA/RTE) для узких экранов.
+         * tbody сильнее специфичности default-правила .verdict.short {display:none}. */
+        tbody td.sub-verdict {
+            text-align: center;
+
+            .verdict.long  { display: none; }
+            .verdict.short { display: inline; font-family: $monospace-fonts; }
         }
     }
 }

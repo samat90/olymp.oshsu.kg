@@ -28,17 +28,20 @@
 <td class="sub-lang">{{ submission.language.short_display_name }}</td>
 <td class="sub-verdict v-{{ submission.result_class }}">
     {%- if submission.is_graded -%}
-        <span class="verdict" title="{{ submission.long_status }}">{{ submission.long_status }}</span>
+        <span class="verdict long" title="{{ submission.long_status }}">{{ submission.long_status }}</span>
+        <span class="verdict short" title="{{ submission.long_status }}">{{ submission.short_status }}</span>
         {%- if submission.status not in ('IE', 'CE', 'AB') and submission.result not in ('AC',) %}
             <span class="score">{{ submission.case_points|floatformat(0) }}/{{ submission.case_total|floatformat(0) }}</span>
         {%- endif -%}
     {%- elif submission.status == 'G' -%}
-        <span class="verdict"><i class="fa fa-spinner fa-pulse"></i> {{ _('Grading') }}</span>
+        <span class="verdict long"><i class="fa fa-spinner fa-pulse"></i> {{ _('Grading') }}</span>
+        <span class="verdict short"><i class="fa fa-spinner fa-pulse"></i></span>
         {%- if submission.current_testcase > 0 %}
             <span class="score">#{{ submission.current_testcase }}</span>
         {%- endif -%}
     {%- else -%}
-        <span class="verdict">{{ submission.long_status or _('Queued') }}</span>
+        <span class="verdict long">{{ submission.long_status or _('Queued') }}</span>
+        <span class="verdict short">{{ submission.short_status or '?' }}</span>
     {%- endif -%}
 </td>
 <td class="sub-time">
