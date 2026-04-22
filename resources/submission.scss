@@ -245,11 +245,26 @@ label[for="language"], label[for="status"] {
             display: none;
         }
 
-        /* Allow long verdict text to wrap rather than ellipsis-cut. */
-        td.sub-verdict {
+        /* Allow long verdict text and problem names to wrap rather than
+         * ellipsis-cut. Use tbody tr > td prefix to beat default desktop
+         * `> td { white-space: nowrap }` specificity. */
+        tbody tr > td.sub-verdict {
             white-space: normal;
             line-height: 1.25;
         }
+
+        /* Problem column should take remaining space and only break
+         * truly unbreakable strings. min-width keeps it readable. */
+        tbody tr > td.sub-problem {
+            white-space: normal;
+            overflow-wrap: anywhere;
+        }
+
+        /* Min-widths so columns don't get over-squeezed at narrow viewports. */
+        .col-id,      td.sub-id      { min-width: 32px; }
+        .col-problem, td.sub-problem { min-width: 100px; }
+        .col-verdict, td.sub-verdict { min-width: 46px; }
+        .col-time,    td.sub-time    { min-width: 60px; width: 60px; }
     }
 
     #content-right.submission {
@@ -274,6 +289,14 @@ label[for="language"], label[for="status"] {
             .verdict.long  { display: none; }
             .verdict.short { display: inline; font-family: $monospace-fonts; }
         }
+    }
+}
+
+/* На самых узких экранах (~iPhone SE/Android small ≤ 360) прячем ВРЕМЯ,
+ * чтоб ID/Задача/Результат поместились без обрезки. */
+@media (max-width: 359px) {
+    .submissions-list-table {
+        .col-time, td.sub-time { display: none; }
     }
 }
 

@@ -268,13 +268,16 @@ ul.pagination a:hover {
 }
 
 ul.pagination {
-    display: inline-block;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
     padding-left: 0;
     margin: 0;
+    max-width: 100%;
 
     > {
         li {
-            display: inline;
+            display: inline-flex;
 
             &:first-child > {
                 a, span {
@@ -294,7 +297,8 @@ ul.pagination {
             > {
                 a, span {
                     position: relative;
-                    float: left;
+                    /* OshSU: float was removed — flex-wrap handles wrapping
+                     * на узких экранах; float ломал перенос на новую строку. */
                     padding: 4px 12px;
                     line-height: 1.42857;
                     text-decoration: none;
@@ -336,7 +340,10 @@ ul.pagination {
     padding: 12px 0;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     clear: both;
+    width: 100%;
+    max-width: 100%;
 }
 
 .alert {

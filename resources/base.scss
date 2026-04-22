@@ -3,19 +3,14 @@
 // OshSU Olymp — typography via Google Fonts (Inter for UI, JetBrains Mono for code)
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
 
-@-ms-viewport {
-    min-width: 480px;
-    max-width: device-width;
-}
-
-@-o-viewport {
-    min-width: 480px;
-    max-width: device-width;
-}
-
-@viewport {
-    min-width: 480px;
-    max-width: device-width;
+/* OshSU: defensive — prevent any wide element (table, footer) from
+ * causing horizontal scroll on the whole page on narrow phones. The
+ * legacy @viewport / @-ms-viewport / @-o-viewport rules with
+ * min-width: 480px were removed because they forced 480px minimum
+ * rendering width on mobile browsers, breaking responsive layout. */
+html, body {
+    overflow-x: clip;
+    max-width: 100%;
 }
 
 a {
@@ -360,6 +355,9 @@ footer {
         .footer-brand-block {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 100%;
             gap: 12px;
             text-decoration: none;
             color: inherit;
@@ -377,6 +375,14 @@ footer {
             display: inline-flex;
             flex-direction: column;
             gap: 2px;
+            min-width: 0;        /* enable shrinking inside flex parent */
+            word-break: break-word;
+        }
+
+        @media (max-width: 480px) {
+            .footer-brand-text {
+                text-align: center;
+            }
         }
 
         .footer-brand {
