@@ -6,124 +6,187 @@
     width: 20%;
 }
 
-#submissions-table {
-    background: rgba($color_primary100, .01);
-}
+/* ============================================================
+ * OshSU submissions list — academic table layout.
+ * Compact rows, alternating bg, monospace ID, soft colored verdict.
+ * ============================================================ */
 
 .submissions-status-table {
     border-spacing: 0;
 }
 
-.submission-row {
-    display: flex;
-    border-top: $color_primary25 1px solid;
-    border-left: $color_primary25 1px solid;
-    border-right: $color_primary25 1px solid;
-    transition: background-color linear 0.2s;
+.submissions-list-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: $color_primary0;
+    border: 1px solid $color_primary25;
+    border-radius: 6px;
+    overflow: hidden;
+    font-size: 0.92em;
 
-    &:hover {
-        background: $color_primary10;
-    }
+    thead {
+        background: $brand_primary;
+        color: $color_navbar_text;
 
-    &:not(:empty) ~ & {
-        border-top: none;
-    }
-
-    &.submission-archived {
-        opacity: 0.6;
-
-        &:hover {
-            opacity: 1;
-        }
-    }
-
-    > div {
-        padding: 7px 5px;
-        vertical-align: middle;
-        border-bottom: $color_primary25 1px solid;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .sub-result {
-        min-width: 80px;
-        width: 80px;
-        text-align: center;
-        border-bottom-color: $color_primary0;
-        border-right: $color_primary25 1px solid;
-
-        .state {
-            font-size: 0.7em;
-            font-weight: bold;
-            padding-top: 0.5em;
-        }
-
-        .score {
-            font-size: 1.3em;
-            color: #000;
-
-            .grading-spinner {
-                color: $color_primary100;
-            }
-        }
-    }
-
-    .sub-main {
-        display: flex;
-        flex: 1;
-        flex-direction: row;
-        place-items: center;
-        justify-content: space-between;
-        padding-left: 20px;
-
-        .sub-info {
-            flex: 1;
-            word-break: break-word;
-
-            .name {
-                font-weight: 700;
-                font-size: 1.2em;
-            }
-        }
-
-        .sub-testcase {
-            color: $color_primary50;
+        th {
+            padding: 9px 10px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.88em;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            border-bottom: 2px solid $brand_primary_hover;
             white-space: nowrap;
-            padding-right: 5px;
         }
 
-        .sub-prop {
-            a {
+        .col-time, .col-mem { text-align: right; }
+        .col-actions       { width: 70px; text-align: center; }
+        .col-id            { width: 80px; }
+        .col-lang          { width: 90px; }
+        .col-verdict       { width: 160px; }
+    }
+
+    tbody {
+        tr.submission-row {
+            background: $color_primary0;
+            transition: background-color 0.12s linear;
+
+            &:nth-child(even) {
+                background: rgba($brand_primary, 0.035);
+            }
+
+            &:hover {
+                background: rgba($brand_accent, 0.10);
+            }
+
+            &.submission-archived {
+                opacity: 0.55;
+                &:hover { opacity: 1; }
+            }
+
+            > td {
+                padding: 7px 10px;
+                vertical-align: middle;
+                border-bottom: 1px solid $color_primary10;
                 white-space: nowrap;
             }
+
+            > td:last-child { border-right: none; }
+            &:last-child > td { border-bottom: none; }
+        }
+
+        td.sub-id {
+            font-family: $monospace-fonts;
+            font-weight: 600;
+            color: $brand_primary;
+
+            a {
+                color: $brand_primary;
+                text-decoration: none;
+
+                &:hover {
+                    color: $brand_accent_hover;
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        td.sub-date {
+            color: $color_primary75;
+            font-size: 0.92em;
+            font-variant-numeric: tabular-nums;
+        }
+
+        td.sub-author a {
+            font-weight: 500;
+        }
+
+        td.sub-problem {
+            max-width: 320px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            a {
+                font-weight: 500;
+            }
+        }
+
+        td.sub-lang {
+            color: $color_primary75;
+            font-family: $monospace-fonts;
+            font-size: 0.88em;
+        }
+
+        td.sub-verdict {
+            .verdict {
+                display: block;
+                font-weight: 600;
+                line-height: 1.15;
+            }
+
+            .score {
+                display: block;
+                font-size: 0.78em;
+                color: $color_primary50;
+                font-variant-numeric: tabular-nums;
+                margin-top: 1px;
+            }
+
+            /* Soft text colors per result, no chunky background. */
+            &.v-AC  .verdict { color: #2c8a3d; }
+            &.v-_AC .verdict { color: #b08a00; }   /* partial */
+            &.v-WA  .verdict { color: #c0303a; }
+            &.v-CE  .verdict { color: #c0303a; }
+            &.v-RTE .verdict, &.v-IR  .verdict { color: #d97706; }
+            &.v-MLE .verdict, &.v-OLE .verdict { color: #d97706; }
+            &.v-TLE .verdict { color: #6c757d; font-weight: 700; }
+            &.v-IE  .verdict { color: #b91c1c; }
+            &.v-AB  .verdict { color: #6c757d; }
+            &.v-G   .verdict, &.v-QU .verdict { color: #6c757d; font-weight: 500; }
+        }
+
+        td.sub-time, td.sub-mem {
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+            color: $color_primary75;
+        }
+
+        td.sub-time {
+            font-weight: 500;
+            color: $color_primary100;
+        }
+
+        td.sub-actions {
+            text-align: center;
+            white-space: nowrap;
+
+            a, i {
+                display: inline-block;
+                padding: 0 4px;
+                color: $color_primary50;
+                font-size: 1em;
+                transition: color 0.12s linear;
+            }
+
+            a:hover {
+                color: $brand_primary;
+            }
+
+            .grey-icon { opacity: 0.5; }
+        }
+
+        .submission-contest {
+            margin-left: 4px;
+            color: $brand_accent;
+        }
+
+        td.sub-author .fa-archive {
+            margin-left: 4px;
+            color: $color_primary50;
+            font-size: 0.85em;
         }
     }
-
-    .sub-usage {
-        min-width: 70px;
-        width: 70px;
-        white-space: nowrap;
-        text-align: center;
-        border-left: $color_primary25 1px solid;
-
-        .time {
-            font-weight: bold;
-        }
-    }
-}
-
-.sub-prop .fa {
-    display: none;
-}
-
-.sub-prop .grey-label {
-    color: $color_primary50;
-    font-style: italic;
-}
-
-.sub-prop .grey-icon {
-    color: $color_primary50;
 }
 
 label[for="language"], label[for="status"] {
@@ -153,25 +216,46 @@ label[for="language"], label[for="status"] {
     padding-top: 0;
 }
 
-@media(max-width: 700px) {
-    .sub-main {
-        padding-left: 10px !important;
-        flex-direction: column !important;
-        place-items: flex-start !important;
-    }
-
-    .sub-prop {
-        .label {
+/* Mobile: hide non-critical columns rather than wrap. */
+@media (max-width: 1100px) {
+    .submissions-list-table {
+        .col-mem, td.sub-mem,
+        .col-actions, td.sub-actions {
             display: none;
         }
+    }
+}
 
-        .fa {
-            display: inline-block;
+@media (max-width: 800px) {
+    .submissions-list-table {
+        font-size: 0.86em;
+
+        thead th, tbody > tr > td {
+            padding: 6px 6px;
+        }
+
+        .col-author, td.sub-author {
+            display: none;
         }
     }
 
     #content-right.submission {
         display: none;
+    }
+}
+
+@media (max-width: 560px) {
+    .submissions-list-table {
+        .col-date, td.sub-date,
+        .col-lang, td.sub-lang {
+            display: none;
+        }
+
+        .col-verdict { width: auto; }
+
+        td.sub-problem {
+            max-width: 130px;
+        }
     }
 }
 

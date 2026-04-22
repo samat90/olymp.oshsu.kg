@@ -139,7 +139,7 @@
                 var table = $('#submissions-table');
                 var statistics = $("#statistics-table");
                 var doing_ajax = false;
-                var first = parseInt(table.find('>div:first-child').attr('id'));
+                var first = parseInt(table.find('>tr:first-child').attr('id'));
 
                 var update_submission = function (message, force) {
                     if (language_filter.length && 'language' in message &&
@@ -150,14 +150,14 @@
                         return;
 
                     var id = message.id;
-                    var row = table.find('div#' + id);
+                    var row = table.find('tr#' + id);
                     if (row.length < 1) {
                         if (id < first)
                             return;
                         first = id;
-                        row = $('<div>', {id: id, 'class': 'submission-row'}).hide().prependTo(table);
-                        if (table.find('>div').length >= {{ paginator.per_page }})
-                            table.find('>div:last-child').slideUp('slow', function () {
+                        row = $('<tr>', {id: id, 'class': 'submission-row'}).hide().prependTo(table);
+                        if (table.find('>tr').length >= {{ paginator.per_page }})
+                            table.find('>tr:last-child').slideUp('slow', function () {
                                 $(this).remove();
                             });
                     }
@@ -350,16 +350,31 @@
                 <a href="javascript:void(0)">{{ _('You were disconnected. Refresh to show latest updates.') }}</a>
             </div>
 
-            <div id="submissions-table">
-                {% set profile_id = request.profile.id if request.user.is_authenticated else 0 %}
-                {% for submission in submissions %}
-                    <div class="submission-row{% if submission.is_archived %} submission-archived{% endif %}" id="{{ submission.id }}">
-                        {% with problem_name=show_problem and (submission.problem.i18n_name or submission.problem.name) %}
-                            {% include "submission/row.html" %}
-                        {% endwith %}
-                    </div>
-                {% endfor %}
-            </div>
+            <table class="submissions-list-table">
+                <thead>
+                    <tr>
+                        <th class="col-id">ID</th>
+                        <th class="col-date">{{ _('Date') }}</th>
+                        <th class="col-author">{{ _('User') }}</th>
+                        {% if show_problem %}<th class="col-problem">{{ _('Problem') }}</th>{% endif %}
+                        <th class="col-lang">{{ _('Language') }}</th>
+                        <th class="col-verdict">{{ _('Result') }}</th>
+                        <th class="col-time">{{ _('Time') }}</th>
+                        <th class="col-mem">{{ _('Memory') }}</th>
+                        {% if request.user.is_staff %}<th class="col-actions"></th>{% endif %}
+                    </tr>
+                </thead>
+                <tbody id="submissions-table">
+                    {% set profile_id = request.profile.id if request.user.is_authenticated else 0 %}
+                    {% for submission in submissions %}
+                        <tr class="submission-row{% if submission.is_archived %} submission-archived{% endif %}" id="{{ submission.id }}">
+                            {% with problem_name=show_problem and (submission.problem.i18n_name or submission.problem.name) %}
+                                {% include "submission/row.html" %}
+                            {% endwith %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
     {% if page_obj.has_other_pages() %}
