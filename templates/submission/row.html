@@ -29,7 +29,7 @@
 <td class="sub-verdict v-{{ submission.result_class }}">
     {%- if submission.is_graded -%}
         <span class="verdict" title="{{ submission.long_status }}">{{ submission.long_status }}</span>
-        {%- if submission.status not in ('IE', 'CE', 'AB') %}
+        {%- if submission.status not in ('IE', 'CE', 'AB') and submission.result not in ('AC',) %}
             <span class="score">{{ submission.case_points|floatformat(0) }}/{{ submission.case_total|floatformat(0) }}</span>
         {%- endif -%}
     {%- elif submission.status == 'G' -%}
