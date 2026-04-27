@@ -54,6 +54,9 @@ problems/
 .claude/
 .playwright-mcp/
 
+# Local contest prep — статья, тесты, эталоны хранятся вне git (4+ MB zip).
+contests/
+
 # Logs
 *.log
 logs/

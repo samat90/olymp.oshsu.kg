@@ -288,18 +288,20 @@ class ContestDetail(ContestMixin, TitleMixin, CommentedDetailView):
                 problem.is_public and problem.has_public_editorial for problem in context['contest_problems']
             ),
         }
+        # OshSU: Use IntegerField for the Case annotations because PostgreSQL
+        # does not allow SUM(boolean) — MySQL does, hence the upstream choice.
         context['metadata'].update(
             **self.object.contest_problems
             .annotate(
                 partials_enabled=Case(
-                    When(partial=True, problem__partial=True, then=Value(True)),
-                    default=Value(False),
-                    output_field=BooleanField(),
+                    When(partial=True, problem__partial=True, then=Value(1)),
+                    default=Value(0),
+                    output_field=IntegerField(),
                 ),
                 pretests_enabled=Case(
-                    When(is_pretested=True, contest__run_pretests_only=True, then=Value(True)),
-                    default=Value(False),
-                    output_field=BooleanField(),
+                    When(is_pretested=True, contest__run_pretests_only=True, then=Value(1)),
+                    default=Value(0),
+                    output_field=IntegerField(),
                 ),
             )
             .aggregate(
