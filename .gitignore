@@ -49,6 +49,7 @@ Thumbs.db
 
 # Runtime / tests artifacts
 *.png
+*.jar
 problems/
 .claude/
 .playwright-mcp/
