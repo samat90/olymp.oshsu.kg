@@ -23,6 +23,10 @@
         .github-icon i {
             color: black;
         }
+
+        .sign-up-link {
+            text-align: center;
+        }
     </style>
 {% endblock %}
 
@@ -54,6 +58,13 @@
             <input type="hidden" name="next" value="{{ next }}">
         </form>
         {# Password reset via email disabled (no SMTP). Contact admin to reset. #}
+
+        {% if REGISTRATION_OPEN %}
+            <p class="sign-up-link">
+                {{ _('No account?') }}
+                <a href="{{ url('registration_register') }}"><b>{{ _('Sign up') }}</b></a>
+            </p>
+        {% endif %}
 
         {% if form.has_google_auth or form.has_facebook_auth or form.has_github_auth %}
             <h4>{{ _('Or log in with...') }}</h4>
