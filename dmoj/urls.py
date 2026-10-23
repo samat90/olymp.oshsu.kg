@@ -14,7 +14,7 @@ from judge.sitemap import sitemaps
 from judge.views import TitledTemplateView, api, blog, comment, contests, language, license, mailgun, organization, \
     preview, problem, problem_manage, ranked_submission, register, stats, status, submission, tasks, ticket, \
     two_factor, user, widgets, workspace
-from judge.views import anticheat
+from judge.views import anticheat, contest_tools
 from judge.views.generate_users import GenerateUsersView
 from judge.views.problem_data import ProblemDataView, ProblemSubmissionDiff, \
     problem_data_file, problem_init_view
@@ -241,6 +241,8 @@ urlpatterns = [
              name='contest_participation_disqualify'),
         path('/anticheat', anticheat.report, name='contest_anticheat_report'),
         path('/violations', anticheat.ContestViolations.as_view(), name='contest_violations'),
+        path('/results.xlsx', contest_tools.contest_ranking_xlsx, name='contest_ranking_xlsx'),
+        path('/extend', contest_tools.contest_extend, name='contest_extend'),
 
         path('/', lambda _, contest: HttpResponsePermanentRedirect(reverse('contest_view', args=[contest]))),
     ])),

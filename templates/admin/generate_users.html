@@ -8,6 +8,9 @@
         {% trans "Форма создаёт N новых пользователей с логинами вида" %} <code>prefix001, prefix002, ...</code>
         {% trans "и случайными паролями. После создания учётные данные можно скачать как CSV или скопировать в буфер." %}
     </p>
+    <p style="max-width:60em">
+        {% trans "Вставьте список участников, чтобы сразу записать ФИО и университет. Университеты, которых ещё нет на сайте, создадутся сами и будут видны в рейтинге." %}
+    </p>
 
     <form method="post" style="max-width:40em; padding:1em; background:var(--body-bg, #fff); color:var(--body-fg, inherit); border:1px solid var(--border-color, #ccc); border-radius:6px;">
         {% csrf_token %}
@@ -26,8 +29,8 @@
         <button type="button" onclick="copyCreds()" class="default">{% trans "Скопировать в буфер" %}</button>
         <span id="copy-status" style="margin-left:1em; color:green; display:none;">{% trans "Скопировано!" %}</span>
     </p>
-    <textarea id="creds" readonly rows="{{ generated|length|add:2 }}" style="width:100%; font-family:monospace; font-size:13px; padding:8px;">login	password
-{% for u in generated %}{{ u.login }}	{{ u.password }}
+    <textarea id="creds" readonly rows="{{ generated|length|add:2 }}" style="width:100%; font-family:monospace; font-size:13px; padding:8px;">login	password	name	university
+{% for u in generated %}{{ u.login }}	{{ u.password }}	{{ u.name }}	{{ u.org }}
 {% endfor %}</textarea>
     <script>
         function copyCreds() {

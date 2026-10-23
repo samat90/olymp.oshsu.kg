@@ -21,6 +21,9 @@
 {% endblock %}
 
 {% block user_data %}
+    {% if user.user.first_name or user.user.last_name %}
+        <div class="full-name" style="font-size:0.85em;opacity:0.8">{{ user.user.last_name }} {{ user.user.first_name }}</div>
+    {% endif %}
     {% if not contest.ended %}
         {% if not user.participation.ended %}
             <div class="start-time active">

@@ -22,6 +22,16 @@
 
 {% block content_media %}
     {% include "comments/media-css.html" %}
+    <style>
+        .organizer-tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px;
+            margin: 12px 0 4px; }
+        .organizer-tools form { display: flex; align-items: center; gap: 6px; }
+        .organizer-tools select { padding: 6px 8px; border-radius: 6px; }
+        .organizer-tools .button { display: inline-block; padding: 6px 12px; font-size: 14px; }
+        ul.messages { list-style: none; padding: 0; margin: 8px 0; text-align: center; }
+        ul.messages li { display: inline-block; padding: 6px 12px; border-radius: 6px; background: #e7f5ec; color: #2f6b47; }
+        ul.messages li.error { background: #fbeaea; color: #b33a3a; }
+    </style>
 {% endblock %}
 
 {% block body %}
@@ -66,6 +76,24 @@
                 {% endif %}
             {% endwith %}
         </div>
+        {% if can_edit %}
+            {% include "messages.html" %}
+            <div class="organizer-tools">
+                <form method="post" action="{{ url('contest_extend', contest.key) }}">
+                    {% csrf_token %}
+                    <label for="extend-minutes">{{ _('Extend the contest by') }}</label>
+                    <select name="minutes" id="extend-minutes">
+                        {% for m in (5, 10, 15, 20, 30, 45, 60) %}
+                            <option value="{{ m }}"{% if m == 15 %} selected{% endif %}>{{ m }} {{ _('min') }}</option>
+                        {% endfor %}
+                        <option value="-5">−5 {{ _('min') }}</option>
+                    </select>
+                    <button type="submit" class="button">{{ _('Extend') }}</button>
+                </form>
+                <a class="button" href="{{ url('contest_ranking_xlsx', contest.key) }}"><i class="fa fa-file-excel-o"></i> {{ _('Results in Excel') }}</a>
+                <a class="button" href="{{ url('contest_violations', contest.key) }}"><i class="fa fa-eye"></i> {{ _('Violations') }}</a>
+            </div>
+        {% endif %}
         {% if contest.show_short_display %}
             <div id="details">
                 <ul>
