@@ -169,7 +169,7 @@ PY
 ```bash
 python manage.py shell -c "
 from django.contrib.auth.models import User
-User.objects.create_superuser('samat1', 'skarabaev@oshsu.kg', '***')
+User.objects.create_superuser('samat1', 'skarabaev@oshsu.kg', '<ПАРОЛЬ_ИЗ_МЕНЕДЖЕРА_ПАРОЛЕЙ>')
 "
 ```
 **Первым делом после деплоя зайди под этим юзером и смени пароль.** Я не оставляю его в чате навечно — смысл тот, что дефолт надо перебить.
