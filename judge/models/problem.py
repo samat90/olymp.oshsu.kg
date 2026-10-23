@@ -1,12 +1,14 @@
 from enum import IntEnum
 from operator import attrgetter
+import re
+from uuid import uuid4
 
 from django.conf import settings
 from django.contrib.contenttypes.fields import GenericRelation
 from django.core.cache import cache
 from django.core.exceptions import ValidationError
 from django.core.validators import MaxValueValidator, MinValueValidator, RegexValidator
-from django.db import models
+from django.db import models, router, transaction
 from django.db.models import CASCADE, Exists, F, FilteredRelation, OuterRef, Q, SET_NULL
 from django.db.models.functions import Coalesce
 from django.urls import reverse
@@ -28,6 +30,11 @@ def disallowed_characters_validator(text):
     if common_disallowed_characters:
         raise ValidationError(_('Disallowed characters: %(value)s'),
                               params={'value': ''.join(common_disallowed_characters)})
+
+
+def numeric_problem_code_validator(value):
+    if getattr(settings, 'DMOJ_NUMERIC_PROBLEM_CODES', False) and not re.fullmatch(r'[0-9]{6}', value):
+        raise ValidationError(_('Problem numbers must contain exactly six digits.'))
 
 
 class ProblemType(models.Model):
@@ -114,8 +121,9 @@ class Problem(models.Model):
         (SubmissionSourceAccess.ONLY_OWN, _('Only own submissions')),
     )
 
-    code = models.CharField(max_length=20, verbose_name=_('problem code'), unique=True,
-                            validators=[RegexValidator('^[a-z0-9]+$', _('Problem code must be ^[a-z0-9]+$'))],
+    code = models.CharField(max_length=20, verbose_name=_('problem code'), unique=True, blank=True,
+                            validators=[RegexValidator('^[a-z0-9]+$', _('Problem code must be ^[a-z0-9]+$')),
+                                        numeric_problem_code_validator],
                             help_text=_('A short, unique code for the problem, used in the URL after /problem/'))
     name = models.CharField(max_length=100, verbose_name=_('problem name'), db_index=True,
                             help_text=_('The full name of the problem, as shown in the problem list.'),
@@ -149,6 +157,11 @@ class Problem(models.Model):
                                help_text=_('Points awarded for problem completion. '
                                            "Points are displayed with a 'p' suffix if partial."),
                                validators=[MinValueValidator(settings.DMOJ_PROBLEM_MIN_PROBLEM_POINTS)])
+    difficulty = models.PositiveSmallIntegerField(
+        verbose_name=_('Difficulty'), null=True, blank=True, db_index=True,
+        validators=[MinValueValidator(1), MaxValueValidator(100)],
+        help_text=_('Difficulty from 1% to 100%. Independent of awarded points.'))
+    is_listed = models.BooleanField(default=True, db_index=True, verbose_name=_('Show in problem archive'))
     partial = models.BooleanField(verbose_name=_('allows partial points'), default=False)
     allowed_languages = models.ManyToManyField(Language, verbose_name=_('allowed languages'),
                                                help_text=_('List of allowed submission languages.'))
@@ -188,7 +201,7 @@ class Problem(models.Model):
 
     @cached_property
     def types_list(self):
-        return list(map(user_gettext, map(attrgetter('full_name'), self.types.all())))
+        return [user_gettext(problem_type.full_name or problem_type.name) for problem_type in self.types.all()]
 
     def languages_list(self):
         return self.allowed_languages.values_list('common_name', flat=True).distinct().order_by('common_name')
@@ -453,6 +466,27 @@ class Problem(models.Model):
         return 'problem-full' if self.is_full_markup else 'problem'
 
     def save(self, *args, **kwargs):
+        numeric = getattr(settings, 'DMOJ_NUMERIC_PROBLEM_CODES', False)
+        if numeric and (self._state.adding or self.pk is None):
+            using = kwargs.get('using') or router.db_for_write(type(self), instance=self)
+            # The database sequence allocates the primary key atomically. The
+            # temporary code never becomes visible outside this transaction.
+            with transaction.atomic(using=using):
+                self.code = 'new' + uuid4().hex[:17]
+                super(Problem, self).save(*args, **kwargs)
+                if not 1 <= self.pk <= 999999:
+                    raise ValidationError(_('The six-digit problem number range is exhausted.'))
+                self.code = '%06d' % self.pk
+                if ProblemCodeAlias.objects.using(using).filter(code=self.code).exists():
+                    raise ValidationError(_('This problem number is reserved by an old URL.'))
+                super(Problem, self).save(using=using, update_fields=['code'])
+            self.__original_code = self.code
+            self._state.fields_cache.pop('data_files', None)
+            return
+        if numeric and self.code != self.__original_code:
+            raise ValidationError(_('Problem numbers cannot be changed.'))
+        if numeric:
+            numeric_problem_code_validator(self.code)
         super(Problem, self).save(*args, **kwargs)
         if self.code != self.__original_code:
             try:
@@ -461,6 +495,7 @@ class Problem(models.Model):
                 pass
             else:
                 problem_data._update_code(self.__original_code, self.code)
+        self.__original_code = self.code
 
     save.alters_data = True
 
@@ -504,8 +539,16 @@ class Problem(models.Model):
             ('see_organization_problem', _('See organization-private problems')),
             ('create_private_problem', _('Create private problems')),
         )
+        constraints = [models.CheckConstraint(
+            check=Q(difficulty__isnull=True) | Q(difficulty__gte=1, difficulty__lte=100),
+            name='problem_difficulty_percent_range')]
         verbose_name = _('problem')
         verbose_name_plural = _('problems')
+
+
+class ProblemCodeAlias(models.Model):
+    code = models.CharField(max_length=20, unique=True)
+    problem = models.ForeignKey(Problem, on_delete=models.PROTECT, related_name='code_aliases')
 
 
 class ProblemTranslation(models.Model):

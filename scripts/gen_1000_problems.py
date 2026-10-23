@@ -17,6 +17,8 @@ Each problem gets:
 """
 
 import os, sys, json, math, random, shutil
+if '--allow-legacy-duplicates' not in sys.argv:
+    raise SystemExit('Legacy duplicate generator disabled. Use a reviewed problem archive with complete tests.')
 from pathlib import Path
 from itertools import combinations
 
@@ -59,7 +61,7 @@ types = {
 }
 
 group_general = get_group('Общие задачи')
-allowed_langs = list(Language.objects.filter(key__in=['PY3', 'CPP17', 'JAVA8', 'C']))
+allowed_langs = list(Language.objects.filter(key__in=['PY3', 'CPP17', 'JAVA8', 'C', 'CSHARP']))
 
 # ---------- HELPER ----------
 def write_test(prob_dir, idx, inp, out):
@@ -84,17 +86,9 @@ def write_init(prob_dir, n_tests):
 
 def create_problem(code, name, desc, difficulty, time_limit, memory_limit, ptype_key, tests_fn):
     """Create problem in DB + test files. Returns True if created, False if skipped."""
-    if Problem.objects.filter(code=code).exists():
+    from judge.models import ProblemCodeAlias
+    if Problem.objects.filter(code=code).exists() or ProblemCodeAlias.objects.filter(code=code).exists():
         return False
-
-    prob_dir = PROBLEMS_DIR / code
-    prob_dir.mkdir(parents=True, exist_ok=True)
-
-    # Generate tests
-    test_data = tests_fn()
-    for i, (inp, out) in enumerate(test_data, 1):
-        write_test(prob_dir, i, inp, out)
-    write_init(prob_dir, len(test_data))
 
     # Create in DB
     p = Problem(
@@ -111,6 +105,14 @@ def create_problem(code, name, desc, difficulty, time_limit, memory_limit, ptype
         date=timezone.now(),
     )
     p.save()
+    if code != p.code:
+        ProblemCodeAlias.objects.get_or_create(code=code, defaults={'problem': p})
+    prob_dir = PROBLEMS_DIR / p.code
+    prob_dir.mkdir(parents=True, exist_ok=True)
+    test_data = tests_fn()
+    for i, (inp, out) in enumerate(test_data, 1):
+        write_test(prob_dir, i, inp, out)
+    write_init(prob_dir, len(test_data))
     p.types.add(types[ptype_key])
     p.allowed_languages.set(allowed_langs)
     p.authors.add(author)

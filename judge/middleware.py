@@ -8,12 +8,12 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.sites.shortcuts import get_current_site
 from django.core.cache import cache
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponsePermanentRedirect, HttpResponseRedirect
 from django.urls import Resolver404, resolve, reverse
 from django.utils.encoding import force_bytes
 from requests.exceptions import HTTPError
 
-from judge.models import MiscConfig
+from judge.models import MiscConfig, ProblemCodeAlias
 
 try:
     import uwsgi
@@ -34,6 +34,36 @@ class ShortCircuitMiddleware:
         if getattr(callback, 'short_circuit_middleware', False):
             return callback(request, *args, **kwargs)
         return self.get_response(request)
+
+
+class ProblemCodeAliasMiddleware:
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        return self.get_response(request)
+
+    def process_view(self, request, view_func, view_args, view_kwargs):
+        old = view_kwargs.get('problem')
+        if old is None:
+            return None
+        alias = ProblemCodeAlias.objects.select_related('problem').filter(code=old).first()
+        if alias is None:
+            return None
+        if not alias.problem.is_accessible_by(request.user):
+            return HttpResponseNotFound()
+        canonical = alias.problem.code
+        if old == canonical:
+            return None
+        if request.method in ('GET', 'HEAD'):
+            prefix, separator, tail = request.path_info.partition('/problem/')
+            if not separator or not (tail == old or tail.startswith(old + '/')):
+                return None
+            path = prefix + separator + canonical + tail[len(old):]
+            query = request.META.get('QUERY_STRING', '')
+            return HttpResponsePermanentRedirect(path + ('?' + query if query else ''))
+        view_kwargs['problem'] = canonical
+        return None
 
 
 class DMOJLoginMiddleware(object):

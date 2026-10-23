@@ -167,7 +167,6 @@ class ProblemDetail(ProblemMixin, SolvedProblemMixin, CommentedDetailView):
                                                   get_contest_submission_count(self.object, user.profile,
                                                                                user.profile.current_contest.virtual), 0)
 
-        context['available_judges'] = Judge.objects.filter(online=True, problems=self.object)
         context['show_languages'] = self.object.allowed_languages.count() != Language.objects.count()
         context['has_pdf_render'] = PDF_RENDERING_ENABLED
         context['completed_problem_ids'] = self.get_completed_problems()
@@ -358,11 +357,11 @@ class ProblemList(QueryStringSortMixin, TitleMixin, SolvedProblemMixin, ListView
     context_object_name = 'problems'
     template_name = 'problem/list.html'
     paginate_by = 50
-    sql_sort = frozenset(('points', 'ac_rate', 'user_count', 'code'))
+    sql_sort = frozenset(('difficulty', 'points', 'ac_rate', 'user_count', 'code'))
     manual_sort = frozenset(('name', 'group', 'solved', 'type', 'editorial'))
     all_sorts = sql_sort | manual_sort
     default_desc = frozenset(('points', 'ac_rate', 'user_count'))
-    default_sort = 'code'
+    default_sort = 'difficulty'
 
     def get_paginator(self, queryset, per_page, orphans=0,
                       allow_empty_first_page=True, **kwargs):
@@ -372,7 +371,10 @@ class ProblemList(QueryStringSortMixin, TitleMixin, SolvedProblemMixin, ListView
         if not self.in_contest:
             queryset = queryset.add_i18n_name(self.request.LANGUAGE_CODE)
             sort_key = self.order.lstrip('-')
-            if sort_key in self.sql_sort:
+            if sort_key == 'difficulty':
+                direction = F('difficulty').desc(nulls_last=True) if self.order.startswith('-') else F('difficulty').asc(nulls_last=True)
+                queryset = queryset.order_by(direction, 'code', 'id')
+            elif sort_key in self.sql_sort:
                 queryset = queryset.order_by(self.order, 'id')
             elif sort_key == 'name':
                 queryset = queryset.order_by(self.order.replace('name', 'i18n_name'), 'id')
@@ -396,10 +398,9 @@ class ProblemList(QueryStringSortMixin, TitleMixin, SolvedProblemMixin, ListView
                     queryset = list(queryset)
                     queryset.sort(key=_solved_sort_order, reverse=self.order.startswith('-'))
             elif sort_key == 'type':
-                if self.show_types:
-                    queryset = list(queryset)
-                    queryset.sort(key=lambda problem: problem.types_list[0] if problem.types_list else '',
-                                  reverse=self.order.startswith('-'))
+                queryset = list(queryset)
+                queryset.sort(key=lambda problem: problem.types_list[0] if problem.types_list else '',
+                              reverse=self.order.startswith('-'))
             paginator.object_list = queryset
         return paginator
 
@@ -449,14 +450,13 @@ class ProblemList(QueryStringSortMixin, TitleMixin, SolvedProblemMixin, ListView
             filter &= org_filter
         if self.profile is not None:
             filter = Problem.q_add_author_curator_tester(filter, self.profile)
-        queryset = Problem.objects.filter(filter).select_related('group').defer('description', 'summary')
+        queryset = Problem.objects.filter(filter, is_listed=True).select_related('group').defer('description', 'summary')
         if self.profile is not None and self.hide_solved:
             queryset = queryset.exclude(id__in=Submission.objects
                                         .filter(user=self.profile, is_archived=False,
                                                 result='AC', case_points__gte=F('case_total'))
                                         .values_list('problem_id', flat=True))
-        if self.show_types:
-            queryset = queryset.prefetch_related('types')
+        queryset = queryset.prefetch_related('types')
         queryset = queryset.annotate(has_public_editorial=Case(
             When(solution__is_public=True, solution__publish_on__lte=timezone.now(), then=True),
             default=False,
@@ -482,7 +482,11 @@ class ProblemList(QueryStringSortMixin, TitleMixin, SolvedProblemMixin, ListView
             queryset = queryset.filter(points__gte=self.point_start)
         if self.point_end is not None:
             queryset = queryset.filter(points__lte=self.point_end)
-        return queryset.distinct()
+        if self.difficulty_start is not None:
+            queryset = queryset.filter(difficulty__gte=self.difficulty_start)
+        if self.difficulty_end is not None:
+            queryset = queryset.filter(difficulty__lte=self.difficulty_end)
+        return queryset.distinct().order_by('code')
 
     def get_queryset(self):
         if self.in_contest:
@@ -503,6 +507,8 @@ class ProblemList(QueryStringSortMixin, TitleMixin, SolvedProblemMixin, ListView
             context['problem_types'] = ProblemType.objects.all()
         context['has_fts'] = settings.ENABLE_FTS
         context['search_query'] = self.search_query
+        context['difficulty_start'] = self.difficulty_start or 1
+        context['difficulty_end'] = self.difficulty_end or 100
         context['completed_problem_ids'] = self.get_completed_problems()
         context['attempted_problems'] = self.get_attempted_problems()
 
@@ -558,8 +564,6 @@ class ProblemList(QueryStringSortMixin, TitleMixin, SolvedProblemMixin, ListView
 
         # This actually copies into the instance dictionary...
         self.all_sorts = set(self.all_sorts)
-        if not self.show_types:
-            self.all_sorts.discard('type')
 
         self.category = safe_int_or_none(request.GET.get('category'))
         if 'type' in request.GET:
@@ -570,6 +574,14 @@ class ProblemList(QueryStringSortMixin, TitleMixin, SolvedProblemMixin, ListView
 
         self.point_start = safe_float_or_none(request.GET.get('point_start'))
         self.point_end = safe_float_or_none(request.GET.get('point_end'))
+        self.difficulty_start = safe_int_or_none(request.GET.get('difficulty_start'))
+        self.difficulty_end = safe_int_or_none(request.GET.get('difficulty_end'))
+        if self.difficulty_start is not None:
+            self.difficulty_start = max(1, min(100, self.difficulty_start))
+        if self.difficulty_end is not None:
+            self.difficulty_end = max(1, min(100, self.difficulty_end))
+        if self.difficulty_start is not None and self.difficulty_end is not None and self.difficulty_start > self.difficulty_end:
+            self.difficulty_start, self.difficulty_end = self.difficulty_end, self.difficulty_start
 
     @method_decorator(ensure_csrf_cookie)
     def get(self, request, *args, **kwargs):
@@ -709,18 +721,9 @@ class ProblemSubmit(LoginRequiredMixin, ProblemMixin, TitleMixin, SingleObjectFo
                     .exclude(status__in=['IE', 'CE']).count() >= settings.DMOJ_SUBMISSION_RATELIMIT
             ):
                 return HttpResponse(format_html('<h1>{0}</h1>', _('You submitted too many submissions.')), status=429)
-            # OshSU: 60-second cooldown on the SAME problem to prevent spam.
-            last = (Submission.objects.filter(user=self.request.profile, problem=self.object)
-                    .order_by('-date').values_list('date', flat=True).first())
-            if last is not None:
-                elapsed = (timezone.now() - last).total_seconds()
-                if elapsed < 60:
-                    wait = int(60 - elapsed)
-                    return generic_message(
-                        self.request, _('Too many submissions'),
-                        _('Подождите %(wait)d секунд перед повторной отправкой этой же задачи.') % {'wait': wait},
-                        status=429,
-                    )
+            # OshSU: 60-second per-problem cooldown removed — students need to
+            # iterate quickly during contests. Global rate-limits above
+            # (DMOJ_SUBMISSION_RATELIMIT) still protect from spam.
         if not self.object.allowed_languages.filter(id=form.cleaned_data['language'].id).exists():
             raise PermissionDenied()
         if not self.request.user.is_superuser and self.object.banned_users.filter(id=self.request.profile.id).exists():

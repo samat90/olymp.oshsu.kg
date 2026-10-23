@@ -98,7 +98,9 @@
         if (mode) {
             editor.getSession().setMode('ace/mode/' + mode);
         }
-        if (theme) {
+        if (window.syncSiteEditorTheme) {
+            window.syncSiteEditorTheme(editor);
+        } else if (theme) {
             editor.setTheme("ace/theme/" + theme);
         } else {
             if (window.matchMedia) {

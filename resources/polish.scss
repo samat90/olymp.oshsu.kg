@@ -1,0 +1,93 @@
+@use "vars" as *;
+
+// Shared finishing touches use theme tokens in both generated stylesheets.
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible,
+textarea:focus-visible, [tabindex]:focus-visible {
+    outline: 3px solid $brand_accent;
+    outline-offset: 3px;
+}
+
+.blog-content, .blog-sidebar { min-width: 0; }
+#user-links > ul > li > a > span > span {
+    display: inline-block;
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+}
+.blog-content .post .title { font-size: 1.45em; line-height: 1.4; }
+.blog-content .post .summary { line-height: 1.75; }
+.blog-sidebox .problem-list { padding: 0 1em; }
+.blog-sidebox .problem-list li {
+    margin: 0;
+    border-bottom: 1px solid $color_card_border;
+    &:last-child { border-bottom: 0; }
+    a { display: block; padding: 0.8em 0; line-height: 1.45; }
+}
+
+#problem_submit {
+    padding: 16px;
+    background: $color_card_bg;
+    border-color: $color_card_border;
+    border-radius: $card_border_radius;
+    #submit-wrapper { margin-top: 0; }
+    #submit-wrapper .language-row {
+        box-sizing: border-box;
+        width: 100%;
+        margin-top: 0;
+        box-shadow: none;
+        .language-label { color: $color_primary75; }
+        #language-select { min-width: 0; }
+        .select2-container { width: 100% !important; }
+    }
+    #editor {
+        border: 1px solid $color_card_border;
+        border-radius: $widget_border_radius;
+        overflow: hidden;
+    }
+    .editor-toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 10px 14px;
+        border-bottom: 1px solid $color_card_border;
+        background: $color_primary5;
+        font-weight: 600;
+    }
+    .editor-save-hint { color: $color_primary75; font-size: 0.85em; font-weight: 400; }
+    kbd { font-family: inherit; }
+    #ace_source { border: 0; }
+    .submit-bar-sticky {
+        float: none;
+        width: 100%;
+        box-sizing: border-box;
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        padding-bottom: max(12px, env(safe-area-inset-bottom));
+    }
+    #editor-save-status { margin-right: auto; color: $color_primary75; font-size: 0.9em; }
+}
+
+@media (max-width: 600px) {
+    #user-links > ul > li > a > span > span { max-width: 135px; }
+    #problem_submit {
+        padding: 10px;
+        #submit-wrapper .language-row { padding: 10px; gap: 8px; }
+        .editor-toolbar { padding: 9px 10px; }
+        .submit-main-btn { width: 100%; min-height: 44px; }
+    }
+    .blog-content .post { margin-left: 1em; margin-right: 1em; }
+    .blog-content .post .title { font-size: 1.2em; }
+    .oshsu-hero .hero-cta { text-align: center; flex: 1 1 auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

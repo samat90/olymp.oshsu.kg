@@ -15,7 +15,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'dmoj.settings')
 django.setup()
 
 from django.conf import settings
-from judge.models import Problem, ProblemGroup, ProblemType, Language, Judge
+from judge.models import Problem, ProblemCodeAlias, ProblemGroup, ProblemType, Language, Judge
 from django.contrib.auth.models import User
 
 
@@ -44,7 +44,10 @@ def make_problem_files(code, tests):
 
 
 def upsert_problem(code, name, description, time_limit, memory_limit, points, tests, group, types_keys):
-    make_problem_files(code, tests)
+    source_code = code
+    alias = ProblemCodeAlias.objects.filter(code=code).first()
+    if alias:
+        code = alias.problem.code
     p, created = Problem.objects.update_or_create(
         code=code,
         defaults={
@@ -59,6 +62,9 @@ def upsert_problem(code, name, description, time_limit, memory_limit, points, te
             'is_manually_managed': False,
         },
     )
+    if source_code != p.code:
+        ProblemCodeAlias.objects.get_or_create(code=source_code, defaults={'problem': p})
+    make_problem_files(p.code, tests)
     if types_keys:
         types = ProblemType.objects.filter(name__in=types_keys)
         p.types.set(types)
@@ -255,7 +261,7 @@ def main():
     from django.db import transaction
     ensure_types()
     group, _ = ProblemGroup.objects.get_or_create(name='Общие', defaults={'full_name': 'Общие задачи'})
-    allowed_langs = Language.objects.filter(key__in=['C', 'CPP11', 'CPP14', 'CPP17', 'CPP20', 'PY3', 'JAVA8'])
+    allowed_langs = Language.objects.filter(key__in=['C', 'CPP11', 'CPP14', 'CPP17', 'CPP20', 'PY3', 'JAVA8', 'CSHARP'])
 
     created_count = 0
     updated_count = 0

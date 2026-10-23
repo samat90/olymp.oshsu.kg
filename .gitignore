@@ -42,6 +42,7 @@ uploads/
 dmoj/local_settings.py
 .env
 .env.local
+SSH доступ.md
 
 # OS / system
 Thumbs.db
@@ -60,3 +61,7 @@ contests/
 # Logs
 *.log
 logs/
+
+# Production content audit exports and local working copies
+artifacts/content-audit/
+artifacts/acmp-migration/

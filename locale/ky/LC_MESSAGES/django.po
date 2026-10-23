@@ -1138,3 +1138,46 @@ msgstr "Тилди өзгөртүү"
 msgid "Toggle theme"
 msgstr "Теманы которуу"
 
+
+#: templates/problem/submit.html
+msgid "Save draft"
+msgstr "Караламаны сактоо"
+
+#: templates/problem/submit.html
+msgid "Draft saved in this browser"
+msgstr "Каралама бул браузерде сакталды"
+
+#: templates/problem/submit.html
+msgid "Browser storage is unavailable"
+msgstr "Браузердин сактагычы жеткиликсиз"
+
+#: templates/base.html
+msgid "Menu"
+msgstr "Меню"
+
+msgid "Show in problem archive"
+msgstr "Маселелер архивинде көрсөтүү"
+
+msgid "Difficulty from 1% to 100%. Independent of awarded points."
+msgstr "Кыйындык 1%дан 100%га чейин. Чечимдин упайларынан көз каранды эмес."
+
+msgid "Topic"
+msgstr "Тема"
+
+msgid "Solvability"
+msgstr "Чечилиши"
+
+msgid "Solution analysis"
+msgstr "Талдоо"
+
+msgid "Solved by"
+msgstr "Чечкендер"
+
+msgid "Filter by topic"
+msgstr "Тема боюнча чыпкалоо"
+
+msgid "Publish problems after contest"
+msgstr "Олимпиададан кийин маселелерди жарыялоо"
+
+msgid "Automatically make contest problems available to everyone after the contest ends."
+msgstr "Олимпиада аяктагандан кийин маселелер автоматтык түрдө баарына жеткиликтүү болуп, архивде көрсөтүлөт."

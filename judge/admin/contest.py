@@ -119,7 +119,7 @@ class ContestAdmin(NoBatchDeleteMixin, SortableAdminBase, VersionAdmin):
         (_('Settings'), {'fields': ('is_visible', 'use_clarifications', 'hide_problem_tags', 'hide_problem_authors',
                                     'show_short_display', 'run_pretests_only', 'locked_after', 'scoreboard_visibility',
                                     'points_precision')}),
-        (_('Scheduling'), {'fields': ('start_time', 'end_time', 'time_limit')}),
+        (_('Scheduling'), {'fields': ('start_time', 'end_time', 'time_limit', 'publish_problems_after_end')}),
         (_('Details'), {'fields': ('description', 'og_image', 'logo_override_image', 'tags', 'summary')}),
         (_('Format'), {'fields': ('format_name', 'format_config', 'problem_label_script')}),
         (_('Rating'), {'fields': ('is_rated', 'rate_all', 'rating_floor', 'rating_ceiling',

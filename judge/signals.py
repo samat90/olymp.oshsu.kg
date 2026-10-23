@@ -86,6 +86,17 @@ def contest_problem_delete(sender, instance, **kwargs):
     Submission.objects.filter(contest_object=instance.contest, contest__isnull=True).update(contest_object=None)
 
 
+@receiver(post_save, sender=ContestProblem)
+def contest_problem_publication_pending(sender, instance, created=False, raw=False, **kwargs):
+    if raw:
+        return
+    if created or not Problem.objects.filter(pk=instance.problem_id, is_public=True, is_listed=True,
+                                             is_organization_private=False).exists():
+        # A problem added/replaced after the contest ends must also reach the archive.
+        Contest.objects.filter(pk=instance.contest_id, problems_published_at__isnull=False).update(
+            problems_published_at=None)
+
+
 @receiver(post_save, sender=License)
 def license_update(sender, instance, **kwargs):
     cache.delete(make_template_fragment_key('license_html', (instance.id,)))

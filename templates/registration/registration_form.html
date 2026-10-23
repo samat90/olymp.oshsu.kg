@@ -180,8 +180,14 @@
                 </div>
             </div>
 
+            {% if form.timezone.errors %}
+                <div class="form-field-error">{{ form.timezone.errors }}</div>
+            {% endif %}
             <div class="block-header">{{ _('Default language') }}</div>
             <span class="fullwidth">{{ form.language }}</span>
+            {% if form.language.errors %}
+                <div class="form-field-error">{{ form.language.errors }}</div>
+            {% endif %}
 
             {% if 'organizations' in form.fields %}
                 <div class="block-header">{{ _('Affiliated organizations') }}</div>

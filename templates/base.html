@@ -80,7 +80,7 @@
         <script src="{{ static('libs/moment.js') }}"></script>
         <script src="{{ static('libs/select2/select2.js') }}"></script>
         {% include "extra_js.html" %}
-        <script src="{{ static('common.js') }}"></script>
+        <script src="{{ static('common.js') }}?v={{ STATIC_VERSION }}"></script>
         <script>
             moment.locale('{{ LANGUAGE_CODE }}');
             set_date_locale('{{ LANGUAGE_CODE }}');
@@ -182,7 +182,7 @@
 </svg>
 <nav id="navigation" class="unselectable">
     <div id="nav-container">
-        <a id="navicon" href="javascript:void(0)"><i class="fa fa-bars"></i></a>
+        <button id="navicon" type="button" aria-label="{{ _('Menu') }}" aria-controls="nav-list" aria-expanded="false"><i class="fa fa-bars" aria-hidden="true"></i></button>
         <ul id="nav-list">
             <li class="home-nav-element"><a href="{{ url('home') }}">{% include "site-logo-fragment.html" %}</a></li>
             <li class="home-nav-element"><span class="nav-divider"></span></li>
@@ -284,13 +284,13 @@
         // Ace stores the editor instance on el.env.editor after edit(el) is called once.
         if (el && el.env && el.env.editor) return el.env.editor;
         if (typeof window.ace === 'undefined') return null;
-        try { return window.ace.edit(el); } catch (e) { return null; }
+        return null;
     }
     function applyAceTheme(isDark) {
         var theme = isDark ? DARK_ACE : LIGHT_ACE;
         document.querySelectorAll('.ace_editor').forEach(function(el) {
             var editor = getExistingEditor(el);
-            if (editor && typeof editor.setTheme === 'function') editor.setTheme(theme);
+            if (editor && editor.getTheme() !== theme) editor.setTheme(theme);
         });
     }
     function isCurrentlyDark(t) {
@@ -298,17 +298,24 @@
         if (t === 'light') return false;
         return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     }
-    function apply(t) {
+    window.syncSiteEditorTheme = function(editor) {
+        var theme = isCurrentlyDark(html.getAttribute('data-theme') || 'auto') ? DARK_ACE : LIGHT_ACE;
+        if (editor.getTheme() !== theme) editor.setTheme(theme);
+    };
+    function apply(t, persist) {
         html.setAttribute('data-theme', t);
         if (t === 'dark') link.media = 'all';
         else if (t === 'light') link.media = 'not all';
         else link.media = '(prefers-color-scheme: dark)';
-        try { localStorage.setItem('oshsu-theme', t); } catch (e) {}
+        if (persist !== false) {
+            try { localStorage.setItem('oshsu-theme', t); } catch (e) {}
+        }
         applyAceTheme(isCurrentlyDark(t));
+        btn.setAttribute('aria-pressed', String(isCurrentlyDark(t)));
     }
     btn.addEventListener('click', function () {
         var cur = html.getAttribute('data-theme') || 'auto';
-        var next = cur === 'light' ? 'dark' : (cur === 'dark' ? 'auto' : 'light');
+        var next = isCurrentlyDark(cur) ? 'light' : 'dark';
         apply(next);
     });
 
@@ -322,6 +329,7 @@
         var obs = new MutationObserver(function(mutations) {
             var needSync = false;
             mutations.forEach(function(m) {
+                if (m.type === 'attributes' && m.target.classList.contains('ace_editor')) needSync = true;
                 m.addedNodes && m.addedNodes.forEach(function(n) {
                     if (n.nodeType !== 1) return;
                     if ((n.classList && n.classList.contains('ace_editor')) ||
@@ -332,7 +340,7 @@
             });
             if (needSync) setTimeout(syncAllAce, 50);
         });
-        obs.observe(document.body, { childList: true, subtree: true });
+        obs.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] });
     }
 
     // Also react to system theme changes when in 'auto' mode.
@@ -341,11 +349,16 @@
         var handler = function() {
             if ((html.getAttribute('data-theme') || 'auto') === 'auto') {
                 applyAceTheme(mq.matches);
+                btn.setAttribute('aria-pressed', String(mq.matches));
             }
         };
         if (mq.addEventListener) mq.addEventListener('change', handler);
         else if (mq.addListener) mq.addListener(handler);
     }
+    btn.setAttribute('aria-pressed', String(isCurrentlyDark(html.getAttribute('data-theme') || 'auto')));
+    window.addEventListener('storage', function(event) {
+        if (event.key === 'oshsu-theme') apply(event.newValue || 'auto', false);
+    });
 })();
 
 (function () {

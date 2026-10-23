@@ -150,6 +150,7 @@
                 </div>
             {% endif %}
 
+            {% if comments %}
             <div class="blog-sidebox sidebox">
                 <h3>{{ _('Comment stream') }} <i class="fa fa-comments"></i></h3>
                 <div class="sidebox-content">
@@ -170,6 +171,7 @@
                     </span>
                 </div>
             </div>
+            {% endif %}
             <div class="blog-sidebox sidebox">
                 <h3>{{ _('New problems') }} <i class="fa fa-puzzle-piece"></i>
                 </h3>

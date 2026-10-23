@@ -3,6 +3,7 @@ from django import forms
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.auth.password_validation import get_default_password_validators
+from django.db import transaction
 from django.forms import ChoiceField, ModelChoiceField
 from django.shortcuts import render
 from django.utils.translation import gettext, gettext_lazy as _, ngettext
@@ -42,7 +43,7 @@ class CustomRegistrationForm(RegistrationForm):
         captcha = ReCaptchaField(widget=ReCaptchaWidget())
 
     def clean_email(self):
-        if User.objects.filter(email=self.cleaned_data['email']).exists():
+        if User.objects.filter(email__iexact=self.cleaned_data['email']).exists():
             raise forms.ValidationError(gettext('The email address "%s" is already taken. Only one registration '
                                                 'is allowed per address.') % self.cleaned_data['email'])
         validate_email_domain(self.cleaned_data['email'])
@@ -59,6 +60,8 @@ class CustomRegistrationForm(RegistrationForm):
 
 
 class RegistrationView(OldRegistrationView):
+    # Accounts are activated immediately; registration must not depend on SMTP.
+    SEND_ACTIVATION_EMAIL = False
     title = _('Register')
     form_class = CustomRegistrationForm
     template_name = 'registration/registration_form.html'
@@ -71,6 +74,7 @@ class RegistrationView(OldRegistrationView):
         kwargs['tos_url'] = settings.TERMS_OF_SERVICE_URL
         return super(RegistrationView, self).get_context_data(**kwargs)
 
+    @transaction.atomic
     def register(self, form):
         user = super(RegistrationView, self).register(form)
         # OshSU: активируем сразу без email-подтверждения (пока SMTP не настроен).
@@ -94,7 +98,7 @@ class RegistrationView(OldRegistrationView):
     def get_initial(self, *args, **kwargs):
         initial = super(RegistrationView, self).get_initial(*args, **kwargs)
         initial['timezone'] = settings.DEFAULT_USER_TIME_ZONE
-        initial['language'] = Language.objects.get(key=settings.DEFAULT_USER_LANGUAGE)
+        initial['language'] = Language.get_default_language()
         return initial
 
     def get_success_url(self, user=None):

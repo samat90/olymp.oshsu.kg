@@ -6397,3 +6397,53 @@ msgstr "Ещё нет аккаунта?"
 
 msgid "Memory"
 msgstr "Память"
+
+#: templates/problem/submit.html
+msgid "Save draft"
+msgstr "Сохранить черновик"
+
+#: templates/problem/submit.html
+msgid "Draft saved in this browser"
+msgstr "Черновик сохранён в этом браузере"
+
+#: templates/problem/submit.html
+msgid "Browser storage is unavailable"
+msgstr "Хранилище браузера недоступно"
+
+#: templates/problem/submit.html
+msgid "Source code"
+msgstr "Исходный код"
+
+#: templates/base.html
+msgid "Menu"
+msgstr "Меню"
+
+msgid "Difficulty"
+msgstr "Сложность"
+
+msgid "Show in problem archive"
+msgstr "Показывать в архиве задач"
+
+msgid "Difficulty from 1% to 100%. Independent of awarded points."
+msgstr "Сложность от 1% до 100%. Не зависит от баллов за решение."
+
+msgid "Topic"
+msgstr "Тема"
+
+msgid "Solvability"
+msgstr "Решаемость"
+
+msgid "Solution analysis"
+msgstr "Разбор"
+
+msgid "Solved by"
+msgstr "Решили"
+
+msgid "Filter by topic"
+msgstr "Фильтр по теме"
+
+msgid "Publish problems after contest"
+msgstr "Публиковать задачи после олимпиады"
+
+msgid "Automatically make contest problems available to everyone after the contest ends."
+msgstr "После окончания олимпиады задачи автоматически становятся общедоступными и появляются в архиве."

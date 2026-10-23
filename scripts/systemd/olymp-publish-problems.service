@@ -1,0 +1,11 @@
+[Unit]
+Description=Publish problems from finished OshSU Olymp contests
+After=network.target postgresql.service redis-server.service
+
+[Service]
+Type=oneshot
+User=admin
+Group=admin
+WorkingDirectory=/var/www/olymp.oshsu.kg
+Environment=DJANGO_SETTINGS_MODULE=dmoj.settings
+ExecStart=/var/www/olymp.oshsu.kg/venv/bin/python manage.py publish_contest_problems

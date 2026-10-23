@@ -7,6 +7,7 @@ from urllib.parse import urljoin
 from django import forms
 from django.conf import settings
 from django.forms.utils import flatatt
+from django.templatetags.static import static
 from django.utils.safestring import mark_safe
 
 
@@ -24,7 +25,7 @@ class AceWidget(forms.Textarea):
     @property
     def media(self):
         js = [urljoin(settings.ACE_URL, 'ace.js')] if self.ace_media else []
-        js.append('django_ace/widget.js')
+        js.append(static('django_ace/widget.js') + '?v=20260928-theme')
         return forms.Media(js=js)
 
     def render(self, name, value, attrs=None, renderer=None):

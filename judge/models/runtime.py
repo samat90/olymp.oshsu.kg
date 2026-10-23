@@ -15,7 +15,17 @@ from judge.judgeapi import disconnect_judge, update_disable_judge
 __all__ = ['Language', 'RuntimeVersion', 'Judge']
 
 
+class LanguageManager(models.Manager):
+    def get_by_natural_key(self, key):
+        return self.get(key=key)
+
+
 class Language(models.Model):
+    objects = LanguageManager()
+
+    def natural_key(self):
+        return (self.key,)
+
     key = models.CharField(max_length=6, verbose_name=_('short identifier'),
                            help_text=_('The identifier for this language; the same as its executor id for judges.'),
                            unique=True)

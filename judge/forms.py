@@ -283,8 +283,17 @@ class TwoFactorLoginForm(TOTPForm):
 class ProblemCloneForm(Form):
     code = CharField(max_length=20, validators=[RegexValidator('^[a-z0-9]+$', _('Problem code must be ^[a-z0-9]+$'))])
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if getattr(settings, 'DMOJ_NUMERIC_PROBLEM_CODES', False):
+            self.fields['code'].required = False
+            self.fields['code'].disabled = True
+            self.fields['code'].widget = forms.HiddenInput()
+
     def clean_code(self):
         code = self.cleaned_data['code']
+        if getattr(settings, 'DMOJ_NUMERIC_PROBLEM_CODES', False):
+            return ''
         if Problem.objects.filter(code=code).exists():
             raise ValidationError(_('Problem with code already exists.'))
         return code

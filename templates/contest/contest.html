@@ -211,7 +211,7 @@
                                 {{ problem.i18n_name or problem.name }}
                             {% endif %}
                         </td>
-                        <td>{{ problem.points|floatformat }}{% if problem.partial %}p{% endif %}</td>
+                        <td>{{ problem.contest_points|floatformat }}{% if problem.partial and problem.contest_partial %}p{% endif %}</td>
                         <td>{{ problem.ac_rate|floatformat(1) }}%</td>
                         <td>
                             {% if problem.is_public %}

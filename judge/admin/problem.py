@@ -1,6 +1,7 @@
 from operator import attrgetter
 
 from django import forms
+from django.conf import settings
 from django.contrib import admin
 from django.core.exceptions import PermissionDenied
 from django.db import transaction
@@ -120,6 +121,12 @@ class ProblemTranslationInline(admin.StackedInline):
 
 class ProblemAdmin(NoBatchDeleteMixin, VersionAdmin):
     readonly_fields = ('test_data_link',)
+
+    def get_readonly_fields(self, request, obj=None):
+        fields = super().get_readonly_fields(request, obj)
+        if getattr(settings, 'DMOJ_NUMERIC_PROBLEM_CODES', False):
+            return fields + ('code',)
+        return fields
     fieldsets = (
         (None, {
             'fields': (
@@ -130,7 +137,7 @@ class ProblemAdmin(NoBatchDeleteMixin, VersionAdmin):
         }),
         (_('Test data'), {'fields': ('test_data_link',)}),
         (_('Social Media'), {'classes': ('collapse',), 'fields': ('og_image', 'summary')}),
-        (_('Taxonomy'), {'fields': ('types', 'group')}),
+        (_('Taxonomy'), {'fields': ('types', 'group', 'difficulty', 'is_listed')}),
         (_('Points'), {'fields': (('points', 'partial'), 'short_circuit')}),
         (_('Limits'), {'fields': ('time_limit', 'memory_limit')}),
         (_('Language'), {'fields': ('allowed_languages',)}),
@@ -150,14 +157,14 @@ class ProblemAdmin(NoBatchDeleteMixin, VersionAdmin):
             _('Управление тестами задачи'),
         )
     test_data_link.short_description = _('Тесты')
-    list_display = ['code', 'name', 'show_authors', 'points', 'is_public', 'show_public']
+    list_display = ['code', 'name', 'show_authors', 'difficulty', 'points', 'is_listed', 'is_public', 'show_public']
     ordering = ['code']
     search_fields = ('code', 'name', 'authors__user__username', 'curators__user__username')
     inlines = [LanguageLimitInline, ProblemClarificationInline, ProblemSolutionInline, ProblemTranslationInline]
     list_max_show_all = 1000
     actions_on_top = True
     actions_on_bottom = True
-    list_filter = ('is_public', ProblemCreatorListFilter)
+    list_filter = ('is_public', 'is_listed', ProblemCreatorListFilter)
     form = ProblemForm
     date_hierarchy = 'date'
 

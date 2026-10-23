@@ -90,6 +90,10 @@ class Contest(models.Model):
     problems = models.ManyToManyField(Problem, verbose_name=_('problems'), through='ContestProblem')
     start_time = models.DateTimeField(verbose_name=_('start time'), db_index=True)
     end_time = models.DateTimeField(verbose_name=_('end time'), db_index=True)
+    publish_problems_after_end = models.BooleanField(
+        default=True, verbose_name=_('Publish problems after contest'),
+        help_text=_('Automatically make contest problems available to everyone after the contest ends.'))
+    problems_published_at = models.DateTimeField(null=True, blank=True, editable=False)
     time_limit = models.DurationField(verbose_name=_('time limit'), blank=True, null=True)
     is_visible = models.BooleanField(verbose_name=_('publicly visible'), default=False,
                                      help_text=_('Should be set even for organization-private contests, where it '

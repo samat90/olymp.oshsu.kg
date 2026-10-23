@@ -8,21 +8,30 @@
             $(function () {
                 function format(state) {
                     if (!state.id) return state.text; // optgroup
-                    return state.text;
+                    var row = $('<span class="language-option">');
+                    row.append($('<strong>').text(state.text));
+                    var details = makeDisplayData($(state.element));
+                    if (details) row.append($('<small>').text(details));
+                    return row;
                 }
 
                 window.previous_template = '';
+                var sourceEditor = null;
 
                 function update_language_template() {
+                    if (!sourceEditor || !$('#id_language').length) return;
                     var source = $('textarea#id_source');
                     if (source.val() == window.previous_template.replace(/\r/g, '') || source.val() == '') {
                         var lang_id = $('#id_language').val();
-                        var code = localStorage.getItem('submit:' + $('#id_language').val());
+                        var original_source = source.val();
+                        var code = null;
+                        try { code = localStorage.getItem('submit:' + lang_id); } catch (e) {}
 
                         function update_submit_area(code) {
+                            if ($('#id_language').val() !== lang_id || source.val() !== original_source) return;
                             window.previous_template = code;
                             source.val(code);
-                            window.ace_source.getSession().setValue(code);
+                            sourceEditor.getSession().setValue(code);
                         }
 
                         if (code != null) {
@@ -47,38 +56,21 @@
                 function formatSelection(state) {
                     if (!state.id) return state.text; // optgroup
                     var data = makeDisplayData($("option[data-id=" + state.id + "]"));
-                    return $('<span>').append($('<b>').text(state.text), ' (', data, ')');
+                    var label = $('<span>').append($('<b>').text(state.text));
+                    if (data) label.append(' · ', document.createTextNode(data));
+                    return label;
                 }
-
-                // Terrible hack, adapted from https://github.com/select2/select2/issues/4436
-                $.fn.select2.amd.define('select2/data/customAdapter', ['select2/results', 'select2/utils'], function (Result, Utils) {
-                    RefPresenter = function ($element, options, dataAdapter) {
-                        RefPresenter.__super__.constructor.call(this, $element, options, dataAdapter);
-                    };
-                    Utils.Extend(RefPresenter, Result);
-                    RefPresenter.prototype.bind = function (container, $container) {
-                        container.on('results:focus', function (params) {
-                            var data = makeDisplayData($("option[data-id=" + params.data.id + "]"));
-                            $("#result-version-info").text(data);
-                        });
-                        RefPresenter.__super__.bind.call(this, container, $container);
-                    };
-                    return RefPresenter;
-                });
-
-                var customAdapter = $.fn.select2.amd.require('select2/data/customAdapter');
 
                 $("#id_language").select2({
                     theme: '{{ DMOJ_SELECT2_THEME }}',
                     templateResult: format,
                     templateSelection: formatSelection,
-                    resultsAdapter: customAdapter
+                    width: '100%',
+                    minimumResultsForSearch: 10
                 });
 
                 $('#id_language').on('select2:open', function (evt) {
                     var dropdown = $('.select2-dropdown');
-                    if (!$('#result-version-info').length)
-                        dropdown.append($("<span id=\"result-version-info\">"));
                     dropdown.attr('id', 'language-select2');
                 });
 
@@ -90,27 +82,39 @@
 
                 $('#id_language').change(function () {
                     var lang = $("#id_language").find("option:selected").attr('data-ace');
-                    window.ace_source.getSession().setMode("ace/mode/" + lang);
+                    if (sourceEditor) sourceEditor.getSession().setMode("ace/mode/" + lang);
                     update_language_template();
                 });
 
                 $('#ace_source').on('ace_load', function (e, editor) {
+                    sourceEditor = editor;
+                    var lang = $('#id_language option:selected').attr('data-ace');
+                    if (lang) editor.getSession().setMode('ace/mode/' + lang);
                     update_language_template();
                     editor.commands.addCommand({
                         name: 'save',
                         bindKey: {win: 'Ctrl-S', mac: 'Command-S'},
                         exec: function () {
-                            localStorage.setItem('submit:' + $('#id_language').val(), editor.getSession().getValue());
+                            try {
+                                localStorage.setItem('submit:' + $('#id_language').val(), editor.getSession().getValue());
+                                $('#editor-save-status').text({{ _('Draft saved in this browser')|htmltojs }});
+                            } catch (e) {
+                                $('#editor-save-status').text({{ _('Browser storage is unavailable')|htmltojs }});
+                            }
                         }
                     });
                     editor.getSession().setUseWrapMode(true);
                     editor.setFontSize(14);
                     editor.setPrintMarginColumn(100);
+                    editor.getSession().on('change', function () {
+                        $('#editor-save-status').text('');
+                    });
                     editor.focus();
                 });
 
                 $(window).resize(function () {
-                    $('#ace_source').height(Math.max($(window).height() - 353, 100));
+                    $('#ace_source').height(Math.max($(window).height() - 390, 280));
+                    if (sourceEditor) sourceEditor.resize();
                 }).resize();
 
                 $('#problem_submit').submit(function (event) {
@@ -130,7 +134,6 @@
 {% endblock %}
 
 {% block body %}
-    <br>
     {% if not no_judges %}
         {% if default_lang not in form.fields.language.queryset %}
             <div class="alert alert-warning alert-dismissable">
@@ -165,7 +168,7 @@
         <div id="submit-wrapper">
             {% if not no_judges %}
                 <div id="language" class="language-row">
-                    <label for="id_language" class="language-label">{{ _('Язык') }}:</label>
+                    <label for="id_language" class="language-label">{{ _('Language') }}</label>
                     {{ form.language.errors }}
                     <div id="language-select">
                         <select id="id_language" name="language">
@@ -180,6 +183,10 @@
                 </div>
             {% endif %}
             <div id="editor">
+                <div class="editor-toolbar">
+                    <span>{{ _('Source code') }}</span>
+                    <span class="editor-save-hint"><kbd>Ctrl / ⌘ + S</kbd> · {{ _('Save draft') }}</span>
+                </div>
                 {{ form.source.errors }}
                 {{ form.source }}
             </div>
@@ -189,6 +196,7 @@
             <div class="submit-no-judge">{{ _('No judge is available for this problem.') }}</div>
         {% else %}
             <div class="submit-bar submit-bar-sticky">
+                <span id="editor-save-status" role="status" aria-live="polite"></span>
                 {{ form.judge }}
                 <input type="submit" value="{{ _('Отправить решение') }}" class="button submit-main-btn"
                        {% if request.in_contest and submission_limit and not submissions_left %}disabled{% endif %}>

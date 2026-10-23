@@ -34,7 +34,11 @@
             </div>
         {% endif %}
 
-        <div><label class="inline-header grayed">{{ _('Enter a new code for the cloned problem:') }}</label></div>
+        {% if form.code.field.disabled %}
+            <p>{{ _('A unique six-digit number will be assigned automatically.') }}</p>
+        {% else %}
+            <div><label class="inline-header grayed">{{ _('Enter a new code for the cloned problem:') }}</label></div>
+        {% endif %}
         <div id="problem-code-container"><span class="fullwidth">{{ form.code }}</span></div>
         <hr>
         <button style="float:right;" type="submit">{{ _('Clone!') }}</button>

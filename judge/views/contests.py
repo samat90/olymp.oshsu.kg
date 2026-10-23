@@ -277,6 +277,7 @@ class ContestDetail(ContestMixin, TitleMixin, CommentedDetailView):
         context = super(ContestDetail, self).get_context_data(**kwargs)
         context['contest_problems'] = Problem.objects.filter(contests__contest=self.object) \
             .order_by('contests__order').defer('description') \
+            .annotate(contest_points=F('contests__points'), contest_partial=F('contests__partial')) \
             .annotate(has_public_editorial=Case(
                 When(solution__is_public=True, solution__publish_on__lte=timezone.now(), then=True),
                 default=False,

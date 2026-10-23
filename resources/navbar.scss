@@ -447,9 +447,13 @@ nav {
 
 #navicon {
     display: none;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1150px) {
     #navigation {
         height: 44px;
     }
@@ -549,7 +553,7 @@ nav {
     }
 }
 
-@media not all and (max-width: 760px) {
+@media not all and (max-width: 1150px) {
     #nav-list {
         li {
             &.home-menu-item {

@@ -121,6 +121,7 @@ $(function () {
     $('#navicon').click(function (event) {
         event.stopPropagation();
         $nav_list.toggleClass('show-list');
+        $(this).attr('aria-expanded', $nav_list.hasClass('show-list') ? 'true' : 'false');
         if ($nav_list.is(':hidden'))
             $(this).blur().removeClass('hover');
         else {
@@ -153,6 +154,13 @@ $(function () {
 
     $('html').click(function () {
         $nav_list.removeClass('show-list');
+        $('#navicon').attr('aria-expanded', 'false');
+    });
+    $(document).on('keydown', function (event) {
+        if (event.key === 'Escape' && $nav_list.hasClass('show-list')) {
+            $nav_list.removeClass('show-list');
+            $('#navicon').attr('aria-expanded', 'false').trigger('focus');
+        }
     });
 
     $.ajaxSetup({
