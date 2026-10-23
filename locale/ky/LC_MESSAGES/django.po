@@ -1181,3 +1181,105 @@ msgstr "Олимпиададан кийин маселелерди жарыял�
 
 msgid "Automatically make contest problems available to everyone after the contest ends."
 msgstr "Олимпиада аяктагандан кийин маселелер автоматтык түрдө баарына жеткиликтүү болуп, архивде көрсөтүлөт."
+
+msgid "A file with this name already exists here."
+msgstr "Бул жерде мындай аттуу файл бар."
+
+msgid "A folder cannot be moved into itself."
+msgstr "Папканы өзүнүн ичине жылдырууга болбойт."
+
+msgid "Author:"
+msgstr "Автор:"
+
+msgid "Code runner is not configured."
+msgstr "Кодду иштетүү жөндөлгөн эмес."
+
+msgid "Copy to my files"
+msgstr "Өзүмө көчүрүү"
+
+msgid "Drag to resize"
+msgstr "Өлчөмүн өзгөртүү үчүн тартыңыз"
+
+msgid "During the contest you can only run code for contest problems."
+msgstr "Олимпиада учурунда кодду олимпиаданын маселелеринде гана иштетүүгө болот."
+
+msgid "Editor settings"
+msgstr "Редактордун жөндөөлөрү"
+
+msgid "Folders are nested too deep."
+msgstr "Папкалар өтө терең салынган."
+
+msgid "Input data for the Run button"
+msgstr "«Иштетүү» баскычы үчүн кирүүчү маалымат"
+
+msgid "Invalid name."
+msgstr "Ат туура эмес."
+
+msgid "Loading editor…"
+msgstr "Редактор жүктөлүүдө…"
+
+msgid "MB"
+msgstr "МБ"
+
+msgid "Memory limit:"
+msgstr "Эс тутум:"
+
+msgid "Time limit:"
+msgstr "Убакыт:"
+
+msgid "My files"
+msgstr "Менин файлдарым"
+
+msgid "New file"
+msgstr "Жаңы файл"
+
+msgid "New folder"
+msgstr "Жаңы папка"
+
+msgid "Press \"Test on samples\" to check your program on the examples from the statement."
+msgstr "Шарттагы мисалдарда текшерүү үчүн «Мисалдарда текшерүү» баскычын басыңыз."
+
+msgid "Press Run to see what your program prints."
+msgstr "Программа эмнени чыгарарын көрүү үчүн «Иштетүү» баскычын басыңыз."
+
+msgid "Problem not found."
+msgstr "Маселе табылган жок."
+
+msgid "Problem page"
+msgstr "Маселенин барагы"
+
+msgid "Run"
+msgstr "Иштетүү"
+
+msgid "Samples"
+msgstr "Мисалдар"
+
+msgid "Sandbox is unavailable"
+msgstr "Кумкана жеткиликсиз"
+
+msgid "Sandbox"
+msgstr "Кумкана"
+
+msgid "Test on samples"
+msgstr "Мисалдарда текшерүү"
+
+msgid "The file is larger than 64 KB."
+msgstr "Файл 64 КБдан чоң."
+
+msgid "The input is larger than 64 KB."
+msgstr "Кирүүчү маалымат 64 КБдан чоң."
+
+msgid "The sandbox is closed during the contest."
+msgstr "Олимпиада учурунда кумкана жабык."
+
+msgid "The sandbox is closed while you are taking part in a contest. Use the editor on the problem page."
+msgstr "Олимпиадага катышып жатканда кумкана жабык. Кодду маселенин барагындагы редактордо жазыңыз."
+
+msgid "Write and run code in any language available on the site. Files are saved to your account, so you can continue from any computer."
+msgstr "Сайттагы каалаган тилде код жазып, иштетиңиз. Файлдар аккаунтуңузда сакталат, ошондуктан каалаган компьютерден уланта аласыз."
+
+msgid "You have too many files. Delete some first."
+msgstr "Файлдарыңыз өтө көп. Адегенде керексиздерин өчүрүңүз."
+
+msgid "s"
+msgstr "с"

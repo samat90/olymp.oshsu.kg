@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block body_class %}oe-fullpage{% endblock %}
+{% block title_row %}{% endblock %}
+{% block title_ruler %}{% endblock %}
+
+{% block media %}
+    <link rel="stylesheet" href="{{ static('editor/olymp-editor.css') }}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
+{% block js_media %}
+    <script>
+        window.OLYMP_EDITOR = {
+            monacoBase: '{{ static('vendor/monaco/vs') }}',
+            tokenUrl: '{{ url('runner_token') }}',
+            csrf: '{{ csrf_token }}',
+            locale: '{{ LANGUAGE_CODE }}'
+        };
+        window.OLYMP_WORKSPACE = {
+            languages: {{ languages_json|safe }},
+            runnerEnabled: {{ 'true' if runner_enabled else 'false' }},
+            api: '{{ url('workspace_api_list') }}',
+            shareBase: '{{ request.build_absolute_uri('/sandbox/share/') }}',
+            maxFiles: {{ limits.files }}
+        };
+    </script>
+    <script src="{{ static('editor/olymp-editor.js') }}?v={{ STATIC_VERSION }}"></script>
+    <script src="{{ static('editor/workspace.js') }}?v={{ STATIC_VERSION }}"></script>
+{% endblock %}
+
+{% block body %}
+    <div class="ws" id="ws">
+        <aside class="ws-side">
+            <div class="ws-side-head">
+                <span class="ws-title">{{ _('My files') }}</span>
+                <button type="button" class="oe-btn oe-icon" id="ws-new-file" title="{{ _('New file') }}"><i class="fa fa-file-o"></i></button>
+                <button type="button" class="oe-btn oe-icon" id="ws-new-folder" title="{{ _('New folder') }}"><i class="fa fa-folder-o"></i></button>
+            </div>
+            <div class="ws-tree" id="ws-tree" role="tree"></div>
+            <div class="ws-side-foot" id="ws-foot"></div>
+        </aside>
+        <section class="ws-main oe-work">
+            <div class="oe-toolbar">
+                <span class="ws-filename" id="ws-filename">{{ _('Sandbox') }}</span>
+                <select class="oe-select" id="ws-language" aria-label="{{ _('Language') }}" disabled></select>
+                <button type="button" class="oe-btn oe-icon" id="ws-settings" title="{{ _('Editor settings') }}"><i class="fa fa-cog"></i></button>
+                <span class="oe-status" id="ws-status" role="status" aria-live="polite"></span>
+                <span class="oe-spacer"></span>
+                <button type="button" class="oe-btn" id="ws-share" disabled><i class="fa fa-link"></i> {{ _('Share') }}</button>
+                {% if runner_enabled %}
+                    <button type="button" class="oe-btn oe-run" id="ws-run" disabled>
+                        <i class="fa fa-play"></i> {{ _('Run') }} <kbd>Ctrl+Enter</kbd>
+                    </button>
+                {% endif %}
+            </div>
+            <div class="oe-editor" id="ws-editor">
+                <div class="ws-welcome" id="ws-welcome">
+                    <p>{{ _('Write and run code in any language available on the site. Files are saved to your account, so you can continue from any computer.') }}</p>
+                    <button type="button" class="oe-btn oe-primary" id="ws-welcome-file"><i class="fa fa-plus"></i> {{ _('New file') }}</button>
+                </div>
+            </div>
+            <div class="oe-hsplit" id="ws-hsplit"></div>
+            <div class="oe-panel" id="ws-panel">
+                <div class="oe-tabs">
+                    <button type="button" class="oe-tab oe-active" data-pane="input">{{ _('Input') }}</button>
+                    <button type="button" class="oe-tab" data-pane="result">{{ _('Result') }}</button>
+                </div>
+                <div class="oe-pane oe-active" data-pane="input">
+                    <textarea class="oe-stdin" id="ws-stdin" spellcheck="false" disabled
+                              placeholder="{{ _('Input data for the Run button') }}"></textarea>
+                </div>
+                <div class="oe-pane" data-pane="result" id="ws-result">
+                    <div class="oe-placeholder">{{ _('Press Run to see what your program prints.') }}</div>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}

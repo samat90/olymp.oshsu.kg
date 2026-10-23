@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block body_class %}oe-fullpage{% endblock %}
+{% block title_row %}{% endblock %}
+{% block title_ruler %}{% endblock %}
+
+{% block media %}
+    <link rel="stylesheet" href="{{ static('editor/olymp-editor.css') }}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
+{% block js_media %}
+    <script>
+        window.OLYMP_EDITOR = {
+            monacoBase: '{{ static('vendor/monaco/vs') }}',
+            csrf: '{{ csrf_token }}',
+            locale: '{{ LANGUAGE_CODE }}'
+        };
+    </script>
+    <script src="{{ static('editor/olymp-editor.js') }}?v={{ STATIC_VERSION }}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var file = {{ file_json|safe }};
+            var languages = {{ languages_json|safe }};
+            var lang = languages.filter(function (l) { return l.key === file.language; })[0];
+            OlympEditor.create(document.getElementById('ws-editor'), {
+                value: file.content, ace: lang ? lang.ace : 'text', readOnly: true
+            });
+            var fork = document.getElementById('ws-fork');
+            if (fork) fork.addEventListener('click', function () {
+                fetch('{{ url('workspace_api_fork', file.share_key) }}', {
+                    method: 'POST', credentials: 'same-origin',
+                    headers: {'X-CSRFToken': OLYMP_EDITOR.csrf, 'Content-Type': 'application/json'}, body: '{}'
+                }).then(function (r) { return r.json(); }).then(function (d) {
+                    if (!d.ok) throw new Error(d.error);
+                    try { localStorage.setItem('ws-open', d.file.id); } catch (e) {}
+                    location.href = '{{ url('workspace') }}';
+                }).catch(function (e) { alert(e.message); });
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block body %}
+    <div class="ws" style="grid-template-columns: 1fr">
+        <section class="ws-main oe-work">
+            <div class="oe-toolbar">
+                <span class="ws-filename">{{ file.name }}</span>
+                <span class="oe-status">{{ _('Author:') }} {{ link_user(file.owner) }}</span>
+                <span class="oe-spacer"></span>
+                {% if request.user.is_authenticated %}
+                    <button type="button" class="oe-btn oe-primary" id="ws-fork"><i class="fa fa-copy"></i> {{ _('Copy to my files') }}</button>
+                {% endif %}
+            </div>
+            <div class="oe-editor" id="ws-editor"></div>
+        </section>
+    </div>
+{% endblock %}

@@ -6447,3 +6447,105 @@ msgstr "Публиковать задачи после олимпиады"
 
 msgid "Automatically make contest problems available to everyone after the contest ends."
 msgstr "После окончания олимпиады задачи автоматически становятся общедоступными и появляются в архиве."
+
+msgid "A file with this name already exists here."
+msgstr "Здесь уже есть файл с таким именем."
+
+msgid "A folder cannot be moved into itself."
+msgstr "Папку нельзя переместить внутрь неё самой."
+
+msgid "Code runner is not configured."
+msgstr "Запуск кода не настроен."
+
+msgid "Copy to my files"
+msgstr "Скопировать к себе"
+
+msgid "Drag to resize"
+msgstr "Потяните, чтобы изменить ширину"
+
+msgid "During the contest you can only run code for contest problems."
+msgstr "Во время олимпиады запускать код можно только в задачах олимпиады."
+
+msgid "Editor settings"
+msgstr "Настройки редактора"
+
+msgid "Folders are nested too deep."
+msgstr "Слишком много вложенных папок."
+
+msgid "Input data for the Run button"
+msgstr "Входные данные для кнопки «Запустить»"
+
+msgid "Input"
+msgstr "Ввод"
+
+msgid "Invalid name."
+msgstr "Недопустимое имя."
+
+msgid "Loading editor…"
+msgstr "Загрузка редактора…"
+
+msgid "MB"
+msgstr "МБ"
+
+msgid "My files"
+msgstr "Мои файлы"
+
+msgid "New file"
+msgstr "Новый файл"
+
+msgid "New folder"
+msgstr "Новая папка"
+
+msgid "Press \"Test on samples\" to check your program on the examples from the statement."
+msgstr "Нажмите «Проверить на примерах», чтобы прогнать программу на примерах из условия."
+
+msgid "Press Run to see what your program prints."
+msgstr "Нажмите «Запустить», чтобы увидеть, что выводит программа."
+
+msgid "Problem not found."
+msgstr "Задача не найдена."
+
+msgid "Problem page"
+msgstr "Страница задачи"
+
+msgid "Run"
+msgstr "Запустить"
+
+msgid "Samples"
+msgstr "Примеры"
+
+msgid "Sandbox is unavailable"
+msgstr "Песочница недоступна"
+
+msgid "Sandbox"
+msgstr "Песочница"
+
+msgid "Share"
+msgstr "Поделиться"
+
+msgid "Submit"
+msgstr "Отправить"
+
+msgid "Test on samples"
+msgstr "Проверить на примерах"
+
+msgid "The file is larger than 64 KB."
+msgstr "Файл больше 64 КБ."
+
+msgid "The input is larger than 64 KB."
+msgstr "Входные данные больше 64 КБ."
+
+msgid "The sandbox is closed during the contest."
+msgstr "Во время олимпиады песочница закрыта."
+
+msgid "The sandbox is closed while you are taking part in a contest. Use the editor on the problem page."
+msgstr "Пока вы участвуете в олимпиаде, песочница закрыта. Пишите код в редакторе на странице задачи."
+
+msgid "Write and run code in any language available on the site. Files are saved to your account, so you can continue from any computer."
+msgstr "Пишите и запускайте код на любом языке сайта. Файлы хранятся в вашем аккаунте, так что продолжить можно с любого компьютера."
+
+msgid "You have too many files. Delete some first."
+msgstr "У вас слишком много файлов. Сначала удалите ненужные."
+
+msgid "s"
+msgstr "с"
