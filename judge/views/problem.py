@@ -1,3 +1,4 @@
+import json
 import logging
 import os
 import re
@@ -35,11 +36,14 @@ from judge.models import ContestSubmission, Judge, Language, Problem, ProblemGro
 from judge.utils.diggpaginator import DiggPaginator
 from judge.utils.opengraph import generate_opengraph
 from judge.utils.pdfoid import PDF_RENDERING_ENABLED, render_pdf
+from judge.utils.problem_samples import extract_samples
 from judge.utils.problems import contest_attempted_ids, contest_completed_ids, hot_problems, user_attempted_ids, \
     user_completed_ids
 from judge.utils.strings import safe_float_or_none, safe_int_or_none
 from judge.utils.tickets import own_ticket_filter
+from judge.utils.runner import runner_enabled
 from judge.utils.views import QueryStringSortMixin, SingleObjectFormView, TitleMixin, add_file_response, generic_message
+from judge.views.workspace import editor_language_info
 
 recjk = re.compile(r'[\u2E80-\u2E99\u2E9B-\u2EF3\u2F00-\u2FD5\u3005\u3007\u3021-\u3029\u3038-\u303A\u303B\u3400-\u4DB5'
                    r'\u4E00-\u9FC3\uF900-\uFA2D\uFA30-\uFA6A\uFA70-\uFAD9\U00020000-\U0002A6D6\U0002F800-\U0002FA1D]')
@@ -708,7 +712,7 @@ class ProblemSubmit(LoginRequiredMixin, ProblemMixin, TitleMixin, SingleObjectFo
         return form
 
     def get_success_url(self):
-        return reverse('all_submissions')
+        return reverse('submission_status', args=(self.new_submission.id,))
 
     def form_valid(self, form):
         if not self.request.user.has_perm('judge.spam_submission'):
@@ -771,6 +775,25 @@ class ProblemSubmit(LoginRequiredMixin, ProblemMixin, TitleMixin, SingleObjectFo
         context['submissions_left'] = self.remaining_submission_count
         context['ACE_URL'] = settings.ACE_URL
         context['default_lang'] = self.default_language
+
+        try:
+            translation = self.object.translations.get(language=self.request.LANGUAGE_CODE)
+        except ProblemTranslation.DoesNotExist:
+            context['statement_title'] = self.object.name
+            context['description'] = self.object.description
+        else:
+            context['statement_title'] = translation.name
+            context['description'] = translation.description
+        context['samples_json'] = json.dumps(extract_samples(context['description']))
+        context['contest_problem'] = self.contest_problem
+        context['editor_languages_json'] = json.dumps(editor_language_info(context['form'].fields['language'].queryset))
+        context['runner_enabled'] = runner_enabled()
+        if self.old_submission is not None:
+            context['initial_source'] = self.old_submission.source.source
+        elif 'source' in context['form'].data:
+            context['initial_source'] = context['form'].data['source']
+        else:
+            context['initial_source'] = None
         return context
 
     def post(self, request, *args, **kwargs):

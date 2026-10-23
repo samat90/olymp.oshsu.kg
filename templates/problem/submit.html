@@ -1,206 +1,139 @@
 {% extends "base.html" %}
 
-{% block js_media %}
-    <script type="text/javascript" src="{{ ACE_URL }}/ace.js"></script>
-    {{ form.media.js }}
-    {% compress js %}
-        <script type="text/javascript">
-            $(function () {
-                function format(state) {
-                    if (!state.id) return state.text; // optgroup
-                    var row = $('<span class="language-option">');
-                    row.append($('<strong>').text(state.text));
-                    var details = makeDisplayData($(state.element));
-                    if (details) row.append($('<small>').text(details));
-                    return row;
-                }
-
-                window.previous_template = '';
-                var sourceEditor = null;
-
-                function update_language_template() {
-                    if (!sourceEditor || !$('#id_language').length) return;
-                    var source = $('textarea#id_source');
-                    if (source.val() == window.previous_template.replace(/\r/g, '') || source.val() == '') {
-                        var lang_id = $('#id_language').val();
-                        var original_source = source.val();
-                        var code = null;
-                        try { code = localStorage.getItem('submit:' + lang_id); } catch (e) {}
-
-                        function update_submit_area(code) {
-                            if ($('#id_language').val() !== lang_id || source.val() !== original_source) return;
-                            window.previous_template = code;
-                            source.val(code);
-                            sourceEditor.getSession().setValue(code);
-                        }
-
-                        if (code != null) {
-                            update_submit_area(code);
-                        } else {
-                            $.get('{{ url('language_template_ajax') }}', {
-                                id: lang_id
-                            }).done(function (template) {
-                                update_submit_area(template);
-                            });
-                        }
-                    }
-                }
-
-                function makeDisplayData(data) {
-                    var site_data = data.attr('data-info');
-                    var judge_data = data.attr('data-judge-info');
-                    var display_data = site_data || judge_data;
-                    return display_data;
-                }
-
-                function formatSelection(state) {
-                    if (!state.id) return state.text; // optgroup
-                    var data = makeDisplayData($("option[data-id=" + state.id + "]"));
-                    var label = $('<span>').append($('<b>').text(state.text));
-                    if (data) label.append(' · ', document.createTextNode(data));
-                    return label;
-                }
-
-                $("#id_language").select2({
-                    theme: '{{ DMOJ_SELECT2_THEME }}',
-                    templateResult: format,
-                    templateSelection: formatSelection,
-                    width: '100%',
-                    minimumResultsForSearch: 10
-                });
-
-                $('#id_language').on('select2:open', function (evt) {
-                    var dropdown = $('.select2-dropdown');
-                    dropdown.attr('id', 'language-select2');
-                });
-
-                $('#id_judge').on('select2:open', function (evt) {
-                    var dropdown = $('.select2-dropdown');
-                    $('#result-version-info').remove();
-                    dropdown.attr('id', 'judge-select2');
-                });
-
-                $('#id_language').change(function () {
-                    var lang = $("#id_language").find("option:selected").attr('data-ace');
-                    if (sourceEditor) sourceEditor.getSession().setMode("ace/mode/" + lang);
-                    update_language_template();
-                });
-
-                $('#ace_source').on('ace_load', function (e, editor) {
-                    sourceEditor = editor;
-                    var lang = $('#id_language option:selected').attr('data-ace');
-                    if (lang) editor.getSession().setMode('ace/mode/' + lang);
-                    update_language_template();
-                    editor.commands.addCommand({
-                        name: 'save',
-                        bindKey: {win: 'Ctrl-S', mac: 'Command-S'},
-                        exec: function () {
-                            try {
-                                localStorage.setItem('submit:' + $('#id_language').val(), editor.getSession().getValue());
-                                $('#editor-save-status').text({{ _('Draft saved in this browser')|htmltojs }});
-                            } catch (e) {
-                                $('#editor-save-status').text({{ _('Browser storage is unavailable')|htmltojs }});
-                            }
-                        }
-                    });
-                    editor.getSession().setUseWrapMode(true);
-                    editor.setFontSize(14);
-                    editor.setPrintMarginColumn(100);
-                    editor.getSession().on('change', function () {
-                        $('#editor-save-status').text('');
-                    });
-                    editor.focus();
-                });
-
-                $(window).resize(function () {
-                    $('#ace_source').height(Math.max($(window).height() - 390, 280));
-                    if (sourceEditor) sourceEditor.resize();
-                }).resize();
-
-                $('#problem_submit').submit(function (event) {
-                    if ($('#id_source').val().length > 65536) {
-                        alert({{ _('Your source code must contain at most 65536 characters.')|htmltojs }});
-                        event.preventDefault();
-                        $('#problem_submit').find(':submit').attr('disabled', false);
-                    }
-                });
-            });
-        </script>
-    {% endcompress %}
-{% endblock %}
+{% block body_class %}oe-fullpage{% endblock %}
+{% block title_row %}{% endblock %}
 
 {% block media %}
-    {{ form.media.css }}
+    <link rel="stylesheet" href="{{ static('editor/olymp-editor.css') }}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
+{% block js_media %}
+    <script>
+        window.OLYMP_EDITOR = {
+            monacoBase: '{{ static('vendor/monaco/vs') }}',
+            tokenUrl: '{{ url('runner_token') }}',
+            csrf: '{{ csrf_token }}',
+            locale: '{{ LANGUAGE_CODE }}'
+        };
+        window.OLYMP_SOLVE = {
+            problem: '{{ problem.code }}',
+            languages: {{ editor_languages_json|safe }},
+            samples: {{ samples_json|safe }},
+            runnerEnabled: {{ 'true' if runner_enabled else 'false' }},
+            initialSource: {{ initial_source|tojson if initial_source is not none else 'null' }},
+            defaultLanguage: {{ default_lang.id if default_lang else 'null' }}
+        };
+    </script>
+    <script src="{{ static('editor/olymp-editor.js') }}?v={{ STATIC_VERSION }}"></script>
+    <script src="{{ static('editor/solve.js') }}?v={{ STATIC_VERSION }}"></script>
 {% endblock %}
 
 {% block body %}
-    {% if not no_judges %}
-        {% if default_lang not in form.fields.language.queryset %}
-            <div class="alert alert-warning alert-dismissable">
-                <a class="close">x</a>
-                <b>{{ _('Warning!') }}</b>
-                {{ _('Your default language, %(language)s, is unavailable for this problem and has been deselected.', language=bold(default_lang.name)) }}
+    {% if request.in_contest and submission_limit %}
+        {% if submissions_left > 0 %}
+            <div class="oe-alert">
+                {% trans left=submissions_left -%}
+                    You have {{ left }} submission left
+                    {%- pluralize -%}
+                    You have {{ left }} submissions left
+                {%- endtrans %}
             </div>
-        {% endif %}
-
-        {% if request.in_contest and submission_limit %}
-            {% if submissions_left > 0 %}
-                <div class="alert alert-warning alert-dismissable">
-                    <a class="close">x</a>
-                    {% trans left=submissions_left -%}
-                        You have {{ left }} submission left
-                        {%- pluralize -%}
-                        You have {{ left }} submissions left
-                    {%- endtrans %}
-                </div>
-            {% else %}
-                <div class="alert alert-warning alert-dismissable">
-                    <a class="close">x</a>
-                    {{ _('You have 0 submissions left') }}
-                </div>
-            {% endif %}
+        {% else %}
+            <div class="oe-alert">{{ _('You have 0 submissions left') }}</div>
         {% endif %}
     {% endif %}
+    {% if not no_judges and default_lang not in form.fields.language.queryset %}
+        <div class="oe-alert">
+            {{ _('Your default language, %(language)s, is unavailable for this problem and has been deselected.', language=bold(default_lang.name)) }}
+        </div>
+    {% endif %}
+    {{ form.non_field_errors() }}
+    {{ form.source.errors }}
+    {{ form.language.errors }}
 
-    <form id="problem_submit" action="" method="post" class="form-area">
+    <form id="problem_submit" action="" method="post">
         {% csrf_token %}
-        {{ form.non_field_errors() }}
-        <div id="submit-wrapper">
-            {% if not no_judges %}
-                <div id="language" class="language-row">
-                    <label for="id_language" class="language-label">{{ _('Language') }}</label>
-                    {{ form.language.errors }}
-                    <div id="language-select">
-                        <select id="id_language" name="language">
+        <div class="oe-solve" id="oe-solve">
+            <section class="oe-statement" id="oe-statement">
+                <h1>{{ statement_title }}</h1>
+                <div class="oe-limits">
+                    <span>{{ _('Time limit:') }} {{ problem.time_limit }} {{ _('s') }}</span>
+                    <span>{{ _('Memory limit:') }} {{ (problem.memory_limit / 1024)|round|int }} {{ _('MB') }}</span>
+                    {% if contest_problem %}
+                        <span>{{ _('Points:') }} {{ contest_problem.points }}</span>
+                    {% endif %}
+                    <span><a href="{{ url('problem_detail', problem.code) }}">{{ _('Problem page') }}</a></span>
+                </div>
+                <div class="content-description">
+                    {% cache 86400 'problem_html' problem.id MATH_ENGINE LANGUAGE_CODE %}
+                        {{ description|markdown(problem.markdown_style, MATH_ENGINE)|reference|str|safe }}
+                    {% endcache %}
+                </div>
+            </section>
+            <div class="oe-splitter" id="oe-splitter" title="{{ _('Drag to resize') }}"></div>
+            <section class="oe-work">
+                <div class="oe-toolbar">
+                    {% if no_judges %}
+                        <span class="oe-status">{{ _('No judge is available for this problem.') }}</span>
+                    {% else %}
+                        <select id="id_language" name="language" class="oe-select" aria-label="{{ _('Language') }}">
                             {% for lang in form.fields.language.queryset %}
-                                <option value="{{ lang.id }}" data-id="{{ lang.id }}" data-name="{{ lang.name }}"
-                                        data-info="{{ lang.info }}" data-ace="{{ lang.ace }}"
-                                        data-judge-info="{{ runtime_versions(lang.runtime_versions()) }}"
+                                <option value="{{ lang.id }}" data-key="{{ lang.key }}" data-ace="{{ lang.ace }}"
                                         {% if lang.id == default_lang.id %}selected{% endif %}>{{ lang.name }}</option>
                             {% endfor %}
                         </select>
+                    {% endif %}
+                    <button type="button" class="oe-btn oe-icon" id="oe-settings-btn" title="{{ _('Editor settings') }}">
+                        <i class="fa fa-cog"></i>
+                    </button>
+                    <span class="oe-status" id="oe-status" role="status" aria-live="polite"></span>
+                    <span class="oe-spacer"></span>
+                    {% if runner_enabled %}
+                        <button type="button" class="oe-btn" id="oe-samples-btn">{{ _('Test on samples') }}</button>
+                        <button type="button" class="oe-btn oe-run" id="oe-run-btn">
+                            <i class="fa fa-play"></i> {{ _('Run') }} <kbd>Ctrl+Enter</kbd>
+                        </button>
+                    {% endif %}
+                    {% if not no_judges %}
+                        <button type="submit" class="oe-btn oe-primary" id="oe-submit-btn"
+                                {% if request.in_contest and submission_limit and not submissions_left %}disabled{% endif %}>
+                            <i class="fa fa-paper-plane"></i> {{ _('Submit') }}
+                        </button>
+                    {% endif %}
+                </div>
+                <div class="oe-editor" id="oe-editor">
+                    <div class="oe-editor-loading">{{ _('Loading editor…') }}</div>
+                </div>
+                {% if runner_enabled %}
+                    <div class="oe-hsplit" id="oe-hsplit"></div>
+                    <div class="oe-panel" id="oe-panel">
+                        <div class="oe-tabs" role="tablist">
+                            <button type="button" class="oe-tab oe-active" data-pane="input">{{ _('Input') }}</button>
+                            <button type="button" class="oe-tab" data-pane="result">{{ _('Result') }}</button>
+                            <button type="button" class="oe-tab" data-pane="samples">{{ _('Samples') }}
+                                <span class="oe-badge" id="oe-samples-badge"></span></button>
+                        </div>
+                        <div class="oe-pane oe-active" data-pane="input">
+                            <textarea class="oe-stdin" id="oe-stdin" spellcheck="false"
+                                      placeholder="{{ _('Input data for the Run button') }}"></textarea>
+                        </div>
+                        <div class="oe-pane" data-pane="result" id="oe-result">
+                            <div class="oe-placeholder">{{ _('Press Run to see what your program prints.') }}</div>
+                        </div>
+                        <div class="oe-pane" data-pane="samples" id="oe-samples">
+                            <div class="oe-placeholder">{{ _('Press "Test on samples" to check your program on the examples from the statement.') }}</div>
+                        </div>
                     </div>
-                </div>
-            {% endif %}
-            <div id="editor">
-                <div class="editor-toolbar">
-                    <span>{{ _('Source code') }}</span>
-                    <span class="editor-save-hint"><kbd>Ctrl / ⌘ + S</kbd> · {{ _('Save draft') }}</span>
-                </div>
-                {{ form.source.errors }}
-                {{ form.source }}
-            </div>
+                {% endif %}
+            </section>
         </div>
-
-        {% if no_judges %}
-            <div class="submit-no-judge">{{ _('No judge is available for this problem.') }}</div>
-        {% else %}
-            <div class="submit-bar submit-bar-sticky">
-                <span id="editor-save-status" role="status" aria-live="polite"></span>
-                {{ form.judge }}
-                <input type="submit" value="{{ _('Отправить решение') }}" class="button submit-main-btn"
-                       {% if request.in_contest and submission_limit and not submissions_left %}disabled{% endif %}>
-            </div>
-        {% endif %}
+        <textarea name="source" id="id_source" hidden></textarea>
+        {{ form.judge }}
     </form>
+{% endblock %}
+
+{% block bodyend %}
+    {% if REQUIRE_JAX %}
+        {% include "mathjax-load.html" %}
+    {% endif %}
 {% endblock %}

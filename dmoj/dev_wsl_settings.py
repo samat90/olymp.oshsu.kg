@@ -33,4 +33,5 @@ CELERY_TASK_EAGER_PROPAGATES = True
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Code runner on the local judge (see runner/).
-DMOJ_RUNNER_URL = 'http://127.0.0.1:9910'
+DMOJ_RUNNER_PUBLIC_URL = 'http://127.0.0.1:9910'
+DMOJ_RUNNER_SECRET_FILE = '/opt/judge/runner.secret'

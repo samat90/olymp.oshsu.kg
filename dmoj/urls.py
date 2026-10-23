@@ -13,7 +13,7 @@ from judge.feed import AtomBlogFeed, AtomCommentFeed, AtomProblemFeed, BlogFeed,
 from judge.sitemap import sitemaps
 from judge.views import TitledTemplateView, api, blog, comment, contests, language, license, mailgun, organization, \
     preview, problem, problem_manage, ranked_submission, register, stats, status, submission, tasks, ticket, \
-    two_factor, user, widgets
+    two_factor, user, widgets, workspace
 from judge.views.generate_users import GenerateUsersView
 from judge.views.problem_data import ProblemDataView, ProblemSubmissionDiff, \
     problem_data_file, problem_init_view
@@ -100,6 +100,21 @@ urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
     path('accounts/', include(register_patterns)),
     path('', include('social_django.urls')),
+
+    path('runner/token/', workspace.runner_token, name='runner_token'),
+    path('sandbox/', include([
+        path('', workspace.workspace, name='workspace'),
+        path('share/<str:key>/', workspace.shared_file, name='workspace_shared'),
+        path('api/files/', workspace.api_list, name='workspace_api_list'),
+        path('api/files/new/', workspace.api_create, name='workspace_api_create'),
+        path('api/files/<int:file_id>/', workspace.api_get, name='workspace_api_get'),
+        path('api/files/<int:file_id>/save/', workspace.api_save, name='workspace_api_save'),
+        path('api/files/<int:file_id>/rename/', workspace.api_rename, name='workspace_api_rename'),
+        path('api/files/<int:file_id>/move/', workspace.api_move, name='workspace_api_move'),
+        path('api/files/<int:file_id>/delete/', workspace.api_delete, name='workspace_api_delete'),
+        path('api/files/<int:file_id>/share/', workspace.api_share, name='workspace_api_share'),
+        path('api/fork/<str:key>/', workspace.api_fork, name='workspace_api_fork'),
+    ])),
 
     path('problems/', problem.ProblemList.as_view(), name='problem_list'),
     path('problems/random/', problem.RandomProblem.as_view(), name='problem_random'),

@@ -608,6 +608,12 @@ CELERY_WORKER_HIJACK_ROOT_LOGGER = False
 
 WEBAUTHN_RP_ID = None
 
+# Code runner for the online editor (runner/server.py on the judge machine).
+# DMOJ_RUNNER_PUBLIC_URL is what the browser calls, e.g. '/runner' behind nginx.
+DMOJ_RUNNER_PUBLIC_URL = None
+DMOJ_RUNNER_SECRET = None
+DMOJ_RUNNER_SECRET_FILE = None
+
 # Admin URL prefix — override in local_settings.py for security through obscurity.
 ADMIN_URL_PREFIX = 'admin'
 

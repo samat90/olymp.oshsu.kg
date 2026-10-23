@@ -65,3 +65,6 @@ logs/
 # Production content audit exports and local working copies
 artifacts/content-audit/
 artifacts/acmp-migration/
+
+# Downloaded by scripts/fetch_vendor.sh
+resources/vendor/
