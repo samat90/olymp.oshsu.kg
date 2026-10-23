@@ -1,0 +1,79 @@
+{% extends "common-content.html" %}
+
+{% block title_ruler %}{% endblock %}
+
+{% block title_row %}
+    {% set tab = 'violations' %}
+    {% set title = contest.name %}
+    {% include "contest/contest-tabs.html" %}
+{% endblock %}
+
+{% block content_media %}
+    <style>
+        .violations-note { color: #6b7684; margin: 0 0 14px; }
+        .violations td { vertical-align: top; }
+        .violations .events { font-size: 13px; line-height: 1.6; }
+        .violations .events .muted { color: #8a94a3; }
+        .violations .dq { color: #b33a3a; font-weight: 600; }
+        .violations form { display: inline; }
+        .violations button { display: inline-block; padding: 4px 10px; font-size: 13px; }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <p class="violations-note">
+        {% if contest.anticheat_enabled %}
+            {{ _('Tab tracking is on. A participant is disqualified on the next violation after %(n)s warnings.', n=contest.anticheat_max_warnings) }}
+        {% else %}
+            {{ _('Tab tracking is off for this contest.') }}
+        {% endif %}
+        {{ _('Events less than a few seconds apart count as one warning.') }}
+    </p>
+    {% if rows %}
+        <table class="table striped violations">
+            <thead>
+            <tr>
+                <th>{{ _('Participant') }}</th>
+                <th>{{ _('Warnings') }}</th>
+                <th>{{ _('Events') }}</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for participation, events in rows %}
+                <tr>
+                    <td>
+                        {{ link_user(participation.user) }}
+                        {% if participation.user.user.first_name or participation.user.user.last_name %}
+                            <br><small>{{ participation.user.user.first_name }} {{ participation.user.user.last_name }}</small>
+                        {% endif %}
+                        {% if participation.is_disqualified %}<br><span class="dq">{{ _('Disqualified') }}</span>{% endif %}
+                    </td>
+                    <td>{{ participation.warnings }} / {{ contest.anticheat_max_warnings }}</td>
+                    <td class="events">
+                        {% for event in events %}
+                            <div{% if not event.counted %} class="muted"{% endif %}>
+                                {{ event.time|date('H:i:s') }} · {{ event.get_kind_display() }}
+                                {% if event.detail %}({{ event.detail }}){% endif %}
+                                {% if not event.counted %} · {{ _('merged with the previous one') }}{% endif %}
+                            </div>
+                        {% endfor %}
+                    </td>
+                    <td>
+                        <form method="post" action="{{ url('contest_participation_disqualify', contest.key) }}">
+                            {% csrf_token %}
+                            <input type="hidden" name="participation" value="{{ participation.id }}">
+                            <input type="hidden" name="next" value="violations">
+                            <button type="submit">
+                                {% if participation.is_disqualified %}{{ _('Undo disqualification') }}{% else %}{{ _('Disqualify') }}{% endif %}
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>{{ _('No violations so far.') }}</p>
+    {% endif %}
+{% endblock %}

@@ -17,7 +17,8 @@ from judge.models.profile import Class, Organization, Profile
 from judge.models.submission import Submission
 from judge.ratings import rate_contest
 
-__all__ = ['Contest', 'ContestTag', 'ContestParticipation', 'ContestProblem', 'ContestSubmission', 'Rating']
+__all__ = ['Contest', 'ContestTag', 'ContestParticipation', 'ContestProblem', 'ContestSubmission', 'Rating',
+           'ContestCheatEvent']
 
 
 class MinValueOrNoneValidator(MinValueValidator):
@@ -171,6 +172,16 @@ class Contest(models.Model):
                                                'to join the contest. Leave it blank to disable.'))
     banned_users = models.ManyToManyField(Profile, verbose_name=_('personae non gratae'), blank=True,
                                           help_text=_('Bans the selected users from joining this contest.'))
+    anticheat_enabled = models.BooleanField(
+        verbose_name=_('watch for leaving the contest tab'), default=True,
+        help_text=_('During the contest, warn participants who switch to another tab or window or paste code '
+                    'from outside, and disqualify them after the allowed number of warnings.'))
+    anticheat_max_warnings = models.PositiveSmallIntegerField(
+        verbose_name=_('allowed warnings'), default=3,
+        help_text=_('The participant is disqualified on the next violation after this many warnings.'))
+    results_public_after_end = models.BooleanField(
+        verbose_name=_('results open to everyone after the end'), default=True,
+        help_text=_('After the contest ends anyone can see the ranking, even if the contest is private.'))
     format_name = models.CharField(verbose_name=_('contest format'), default='default', max_length=32,
                                    choices=contest_format.choices(), help_text=_('The contest format module to use.'))
     format_config = JSONField(verbose_name=_('contest format configuration'), null=True, blank=True,
@@ -237,8 +248,14 @@ class Contest(models.Model):
             return False
         return True
 
+    @property
+    def results_are_public(self):
+        """After the end the ranking is open to everyone, private contest or not (unless hidden)."""
+        return (self.results_public_after_end and self.is_visible and self.ended and
+                self.scoreboard_visibility != self.SCOREBOARD_HIDDEN)
+
     def can_see_full_scoreboard(self, user):
-        if self.show_scoreboard:
+        if self.show_scoreboard or self.results_are_public:
             return True
         if not user.is_authenticated:
             return False
@@ -665,6 +682,30 @@ class Rating(models.Model):
         unique_together = ('user', 'contest')
         verbose_name = _('contest rating')
         verbose_name_plural = _('contest ratings')
+
+
+class ContestCheatEvent(models.Model):
+    TAB_HIDDEN = 'hidden'
+    WINDOW_BLUR = 'blur'
+    PASTE = 'paste'
+    KINDS = (
+        (TAB_HIDDEN, _('switched to another tab')),
+        (WINDOW_BLUR, _('switched to another window')),
+        (PASTE, _('pasted code from outside')),
+    )
+
+    participation = models.ForeignKey(ContestParticipation, verbose_name=_('participation'),
+                                      related_name='cheat_events', on_delete=CASCADE)
+    kind = models.CharField(verbose_name=_('event'), max_length=8, choices=KINDS)
+    time = models.DateTimeField(verbose_name=_('time'), auto_now_add=True, db_index=True)
+    counted = models.BooleanField(verbose_name=_('counted as a warning'), default=True)
+    detail = models.CharField(verbose_name=_('details'), max_length=200, blank=True)
+    ip = models.GenericIPAddressField(verbose_name=_('IP address'), null=True, blank=True)
+
+    class Meta:
+        verbose_name = _('contest violation')
+        verbose_name_plural = _('contest violations')
+        ordering = ['time']
 
 
 class ContestMoss(models.Model):

@@ -140,3 +140,8 @@ def math_setting(request):
     if engine == 'auto':
         engine = 'mml' if bool(settings.MATHOID_URL) and caniuse.mathml == SUPPORT else 'jax'
     return {'MATH_ENGINE': engine, 'REQUIRE_JAX': engine == 'jax', 'caniuse': caniuse}
+
+
+def anticheat(request):
+    from judge.views.anticheat import anticheat_state
+    return {'anticheat_config': partial(anticheat_state, request)}

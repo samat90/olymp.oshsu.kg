@@ -114,19 +114,23 @@ class ContestForm(ModelForm):
 
 class ContestAdmin(NoBatchDeleteMixin, SortableAdminBase, VersionAdmin):
     fieldsets = (
-        (None, {'fields': ('key', 'name', 'authors', 'curators', 'testers', 'tester_see_submissions',
-                           'tester_see_scoreboard', 'spectators')}),
-        (_('Settings'), {'fields': ('is_visible', 'use_clarifications', 'hide_problem_tags', 'hide_problem_authors',
-                                    'show_short_display', 'run_pretests_only', 'locked_after', 'scoreboard_visibility',
-                                    'points_precision')}),
-        (_('Scheduling'), {'fields': ('start_time', 'end_time', 'time_limit', 'publish_problems_after_end')}),
-        (_('Details'), {'fields': ('description', 'og_image', 'logo_override_image', 'tags', 'summary')}),
-        (_('Format'), {'fields': ('format_name', 'format_config', 'problem_label_script')}),
-        (_('Rating'), {'fields': ('is_rated', 'rate_all', 'rating_floor', 'rating_ceiling',
+        (None, {'fields': ('key', 'name', 'start_time', 'end_time', 'time_limit', 'format_name', 'description')}),
+        (_('Participants and access'), {'fields': ('is_visible', 'access_code', 'private_contestants',
+                                                   'organizations', 'banned_users')}),
+        (_('Integrity'), {'fields': ('anticheat_enabled', 'anticheat_max_warnings')}),
+        (_('Results'), {'fields': ('scoreboard_visibility', 'results_public_after_end', 'publish_problems_after_end',
+                                   'points_precision')}),
+        (_('Additional settings'), {
+            'classes': ('collapse',),
+            'fields': ('authors', 'curators', 'testers', 'tester_see_submissions', 'tester_see_scoreboard',
+                       'spectators', 'use_clarifications', 'hide_problem_tags', 'hide_problem_authors',
+                       'show_short_display', 'run_pretests_only', 'locked_after', 'format_config',
+                       'problem_label_script', 'og_image', 'logo_override_image', 'tags', 'summary', 'classes',
+                       'join_organizations', 'view_contest_scoreboard', 'view_contest_submissions'),
+        }),
+        (_('Rating'), {'classes': ('collapse',),
+                       'fields': ('is_rated', 'rate_all', 'rating_floor', 'rating_ceiling',
                                   'performance_ceiling_override', 'rate_exclude')}),
-        (_('Access'), {'fields': ('access_code', 'private_contestants', 'organizations', 'classes',
-                                  'join_organizations', 'view_contest_scoreboard', 'view_contest_submissions')}),
-        (_('Justice'), {'fields': ('banned_users',)}),
     )
     list_display = ('key', 'name', 'is_visible', 'is_rated', 'locked_after', 'start_time', 'end_time', 'time_limit',
                     'user_count')

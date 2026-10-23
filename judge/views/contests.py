@@ -719,7 +719,11 @@ def get_contest_ranking_list(request, contest, participation=None, ranking_list=
 
 
 def contest_ranking_ajax(request, contest, participation=None):
-    contest, exists = _find_contest(request, contest)
+    public = Contest.objects.filter(key=contest).first()
+    if public is not None and public.results_are_public:
+        contest, exists = public, True
+    else:
+        contest, exists = _find_contest(request, contest)
     if not exists:
         return HttpResponseBadRequest('Invalid contest', content_type='text/plain')
 
@@ -764,6 +768,15 @@ class ContestRankingBase(ContestMixin, TitleMixin, DetailView):
 
 class ContestRanking(ContestRankingBase):
     tab = 'ranking'
+
+    def get_object(self, queryset=None):
+        try:
+            return super().get_object(queryset)
+        except (PrivateContestError, Http404):
+            contest = Contest.objects.filter(key=self.kwargs.get(self.slug_url_kwarg)).first()
+            if contest is not None and contest.results_are_public:
+                return contest
+            raise
 
     def get_title(self):
         return _('%s Rankings') % self.object.name
@@ -838,7 +851,12 @@ class ContestParticipationDisqualify(ContestMixin, SingleObjectMixin, View):
         except ObjectDoesNotExist:
             pass
         else:
+            if participation.is_disqualified:
+                # Lifting a disqualification also forgives the tab-switch warnings that led to it.
+                participation.cheat_events.update(counted=False)
             participation.set_disqualified(not participation.is_disqualified)
+        if request.POST.get('next') == 'violations':
+            return HttpResponseRedirect(reverse('contest_violations', args=(self.object.key,)))
         return HttpResponseRedirect(reverse('contest_ranking', args=(self.object.key,)))
 
 

@@ -361,6 +361,7 @@ TEMPLATES = [
                 'judge.template_context.site_theme',
                 'judge.template_context.misc_config',
                 'judge.template_context.math_setting',
+                'judge.template_context.anticheat',
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
             ],

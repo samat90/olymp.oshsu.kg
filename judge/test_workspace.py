@@ -148,7 +148,8 @@ class SampleExtractionTest(TestCase):
     def test_headings_and_several_samples(self):
         md = ('### Пример 1\n#### Входные данные\n```\n1 2\n```\n#### Выходные данные:\n```\n3\n```\n'
               '### Пример 2\n**Sample Input**\n~~~\n4 5\n~~~\n**Sample Output**\n~~~\n9\n~~~\n')
-        self.assertEqual(extract_samples(md), [{'input': '1 2\n', 'output': '3\n'}, {'input': '4 5\n', 'output': '9\n'}])
+        self.assertEqual(extract_samples(md), [{'input': '1 2\n', 'output': '3\n'},
+                                               {'input': '4 5\n', 'output': '9\n'}])
 
     def test_code_blocks_without_labels_are_ignored(self):
         md = 'Пример кода:\n```\nint main() {}\n```\n'

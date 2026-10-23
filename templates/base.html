@@ -89,6 +89,20 @@
             });
         </script>
     {% endcompress %}
+    {% set anticheat = anticheat_config() if request.user.is_authenticated else None %}
+    {% if anticheat %}
+        <link rel="stylesheet" href="{{ static('editor/anticheat.css') }}?v={{ STATIC_VERSION }}">
+        <script>
+            window.OLYMP_ANTICHEAT = {
+                contest: {{ anticheat.contest|tojson }},
+                warnings: {{ anticheat.warnings }},
+                max: {{ anticheat.max }},
+                url: '{{ url('contest_anticheat_report', anticheat.contest) }}',
+                csrf: '{{ csrf_token }}'
+            };
+        </script>
+        <script src="{{ static('editor/anticheat.js') }}?v={{ STATIC_VERSION }}"></script>
+    {% endif %}
     {% block js_media %}{% endblock %}
     {% if request.in_contest %}
         <script>$(function () {

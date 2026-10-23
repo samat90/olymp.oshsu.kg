@@ -24,7 +24,8 @@ OUTPUT_LABELS = ('вывод', 'выходные данные', 'пример в
                  'чыгаруу', 'output', 'sample output', 'stdout')
 
 FENCE = re.compile(r'^(```|~~~)[^\n]*\n(.*?)^\1[ \t]*$', re.M | re.S)
-LABEL = re.compile(r'^[ \t]*(?:#{1,6}[ \t]*)?(?:\*\*|__)?[ \t]*([^\n*_#]{1,60}?)[ \t]*(?:\*\*|__)?[ \t]*:?[ \t]*$', re.M)
+LABEL = re.compile(r'^[ \t]*(?:#{1,6}[ \t]*)?(?:\*\*|__)?[ \t]*([^\n*_#]{1,60}?)'
+                   r'[ \t]*(?:\*\*|__)?[ \t]*:?[ \t]*$', re.M)
 
 
 def _label_kind(text):
