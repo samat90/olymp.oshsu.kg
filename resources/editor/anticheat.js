@@ -93,18 +93,27 @@
         btn.focus();
     }
 
+    // Going to another page of the site also hides this one for a moment; that is not a violation.
+    var leaving = false;
+    window.addEventListener('beforeunload', function () { leaving = true; });
+    window.addEventListener('pagehide', function () { leaving = true; });
+    window.addEventListener('pageshow', function () { leaving = false; });
+
     document.addEventListener('visibilitychange', function () {
-        if (document.visibilityState === 'hidden') report('hidden', 'вкладка скрыта');
+        if (document.visibilityState !== 'hidden') return;
+        setTimeout(function () {
+            if (!leaving && document.visibilityState === 'hidden') report('hidden', 'вкладка скрыта');
+        }, 400);
     });
 
     window.addEventListener('blur', function () {
-        // Focus moving into an iframe on our own page is not leaving the page.
         setTimeout(function () {
+            if (leaving || document.hasFocus()) return;
+            // Focus moving into an iframe on our own page is not leaving the page.
             var active = document.activeElement;
             if (active && active.tagName === 'IFRAME') return;
-            if (document.hasFocus()) return;
             report('blur', 'окно потеряло фокус');
-        }, 300);
+        }, 400);
     });
 
     var badge = document.createElement('div');
