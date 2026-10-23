@@ -7,14 +7,16 @@
 # or by hand. Every run first makes a backup; scripts/rollback.sh restores it.
 set -euo pipefail
 
-APP=/var/www/olymp.oshsu.kg
+APP=${OLYMP_APP:-/var/www/olymp.oshsu.kg}
 REPO=${OLYMP_REPO:-/home/admin/olymp.git}
 REF=${1:-main}
 STAMP=$(date +%Y%m%d-%H%M%S)
-BACKUP_ROOT=/var/backups/olymp/deploy
+BACKUP_ROOT=${OLYMP_BACKUPS:-/var/backups/olymp/deploy}
 BACKUP=$BACKUP_ROOT/$STAMP
 PY=$APP/venv/bin/python
 SERVICES="olymp-web olymp-bridge"
+RESTART=${OLYMP_RESTART:-sudo systemctl restart $SERVICES}
+SITE=${OLYMP_SITE:-http://127.0.0.1:8000/}
 
 log() { echo "[$(date +%H:%M:%S)] $*"; }
 
@@ -73,11 +75,11 @@ log "Static files"
 "$PY" manage.py compilejsi18n -v 0 || true
 
 log "Restart"
-sudo systemctl restart $SERVICES
+$RESTART
 
 log "Health check"
 for i in $(seq 1 30); do
-    code=$(curl -s -o /dev/null -w '%{http_code}' -H 'Host: olymp.oshsu.kg' http://127.0.0.1:8000/ || true)
+    code=$(curl -s -o /dev/null -w '%{http_code}' -H 'Host: olymp.oshsu.kg' "$SITE" || true)
     if [ "$code" = "200" ]; then
         log "OK: site answers 200. Backup: $BACKUP"
         exit 0
