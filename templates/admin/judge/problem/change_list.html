@@ -1,0 +1,11 @@
+{% extends "reversion/change_list.html" %}
+{% load i18n %}
+
+{% block object-tools-items %}
+    {% if not is_popup %}
+        <li>
+            <a href="{% url 'admin_import_problem' %}" class="action-link">{% trans "Импорт из файла" %}</a>
+        </li>
+    {% endif %}
+    {{ block.super }}
+{% endblock %}

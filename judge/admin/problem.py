@@ -12,8 +12,8 @@ from django.utils.html import format_html
 from django.utils.translation import gettext, gettext_lazy as _, ngettext
 from reversion.admin import VersionAdmin
 
-from judge.models import LanguageLimit, Problem, ProblemClarification, ProblemPointsVote, ProblemTranslation, Profile, \
-    Solution
+from judge.models import Language, LanguageLimit, Problem, ProblemClarification, ProblemGroup, ProblemPointsVote, \
+    ProblemTranslation, Profile, Solution
 from judge.utils.views import NoBatchDeleteMixin
 from judge.widgets import AdminHeavySelect2MultipleWidget, AdminMartorWidget, AdminSelect2MultipleWidget, \
     AdminSelect2Widget, CheckboxSelectMultipleWithSelectAll
@@ -65,6 +65,8 @@ class LanguageLimitInlineForm(ModelForm):
 
 class LanguageLimitInline(admin.TabularInline):
     model = LanguageLimit
+    classes = ('collapse',)
+    extra = 0
     fields = ('language', 'time_limit', 'memory_limit')
     form = LanguageLimitInlineForm
 
@@ -76,6 +78,7 @@ class ProblemClarificationForm(ModelForm):
 
 class ProblemClarificationInline(admin.StackedInline):
     model = ProblemClarification
+    classes = ('collapse',)
     fields = ('description',)
     form = ProblemClarificationForm
     extra = 0
@@ -95,6 +98,7 @@ class ProblemSolutionForm(ModelForm):
 
 class ProblemSolutionInline(admin.StackedInline):
     model = Solution
+    classes = ('collapse',)
     fields = ('is_public', 'publish_on', 'authors', 'content')
     form = ProblemSolutionForm
     extra = 0
@@ -107,6 +111,7 @@ class ProblemTranslationForm(ModelForm):
 
 class ProblemTranslationInline(admin.StackedInline):
     model = ProblemTranslation
+    classes = ('collapse',)
     fields = ('language', 'name', 'description')
     form = ProblemTranslationForm
     extra = 0
@@ -122,27 +127,20 @@ class ProblemTranslationInline(admin.StackedInline):
 class ProblemAdmin(NoBatchDeleteMixin, VersionAdmin):
     readonly_fields = ('test_data_link',)
 
-    def get_readonly_fields(self, request, obj=None):
-        fields = super().get_readonly_fields(request, obj)
-        if getattr(settings, 'DMOJ_NUMERIC_PROBLEM_CODES', False):
-            return fields + ('code',)
-        return fields
     fieldsets = (
         (None, {
-            'fields': (
-                'code', 'name', 'is_public', 'is_manually_managed', 'date', 'authors', 'curators', 'testers',
-                'organizations', 'submission_source_visibility_mode', 'is_full_markup',
-                'description', 'license',
-            ),
+            'fields': ('code', 'name', 'is_public', 'description'),
         }),
+        (_('Limits and points'), {'fields': (('time_limit', 'memory_limit'), ('points', 'partial'))}),
         (_('Test data'), {'fields': ('test_data_link',)}),
-        (_('Social Media'), {'classes': ('collapse',), 'fields': ('og_image', 'summary')}),
-        (_('Taxonomy'), {'fields': ('types', 'group', 'difficulty', 'is_listed')}),
-        (_('Points'), {'fields': (('points', 'partial'), 'short_circuit')}),
-        (_('Limits'), {'fields': ('time_limit', 'memory_limit')}),
-        (_('Language'), {'fields': ('allowed_languages',)}),
-        (_('Justice'), {'fields': ('banned_users',)}),
-        (_('History'), {'fields': ('change_message',)}),
+        (_('Language'), {'classes': ('collapse',), 'fields': ('allowed_languages',)}),
+        (_('Taxonomy'), {'classes': ('collapse',), 'fields': ('types', 'group', 'difficulty', 'is_listed')}),
+        (_('Additional settings'), {
+            'classes': ('collapse',),
+            'fields': ('authors', 'curators', 'testers', 'organizations', 'is_manually_managed', 'date',
+                       'submission_source_visibility_mode', 'is_full_markup', 'license', 'short_circuit',
+                       'og_image', 'summary', 'banned_users', 'change_message'),
+        }),
     )
 
     def test_data_link(self, obj):
@@ -186,6 +184,9 @@ class ProblemAdmin(NoBatchDeleteMixin, VersionAdmin):
 
     def get_readonly_fields(self, request, obj=None):
         fields = self.readonly_fields
+        if getattr(settings, 'DMOJ_NUMERIC_PROBLEM_CODES', False):
+            # Numbers are given automatically and never change.
+            fields += ('code',)
         if not request.user.has_perm('judge.create_private_problem'):
             fields += ('organizations',)
             if not request.user.has_perm('judge.change_public_visibility'):
@@ -252,10 +253,32 @@ class ProblemAdmin(NoBatchDeleteMixin, VersionAdmin):
             kwargs['widget'] = CheckboxSelectMultipleWithSelectAll()
         return super(ProblemAdmin, self).formfield_for_manytomany(db_field, request, **kwargs)
 
-    def get_form(self, *args, **kwargs):
-        form = super(ProblemAdmin, self).get_form(*args, **kwargs)
+    def get_form(self, request, obj=None, **kwargs):
+        form = super(ProblemAdmin, self).get_form(request, obj, **kwargs)
         form.base_fields['authors'].queryset = Profile.objects.all()
         return form
+
+    def get_fieldsets(self, request, obj=None):
+        fieldsets = super().get_fieldsets(request, obj)
+        if obj is None and getattr(settings, 'DMOJ_NUMERIC_PROBLEM_CODES', False):
+            # The number is given on save; there is nothing to fill in.
+            first = dict(fieldsets[0][1])
+            first['fields'] = tuple(f for f in first['fields'] if f != 'code')
+            fieldsets = ((fieldsets[0][0], first),) + tuple(fieldsets[1:])
+        return fieldsets
+
+    def get_changeform_initial_data(self, request):
+        initial = super().get_changeform_initial_data(request)
+        initial.setdefault('points', 100)
+        initial.setdefault('partial', True)
+        initial.setdefault('time_limit', 1)
+        initial.setdefault('memory_limit', 262144)
+        initial.setdefault('allowed_languages', list(Language.objects.values_list('id', flat=True)))
+        initial.setdefault('authors', [request.profile.id] if getattr(request, 'profile', None) else [])
+        group = ProblemGroup.objects.order_by('id').first()
+        if group is not None:
+            initial.setdefault('group', group.id)
+        return initial
 
     def save_model(self, request, obj, form, change):
         # `organizations` will not appear in `cleaned_data` if user cannot edit it

@@ -2,22 +2,51 @@
 {% load i18n %}
 
 {% block content %}
-<div class="module" style="background: var(--darkened-bg, #f0f4fa); border: 1px solid var(--border-color, #c9d6e8); border-radius: 8px; padding: 16px; margin-bottom: 20px;">
-    <h2 style="margin-top: 0; color: var(--body-loud-color, #1e3a5f); border: 0; padding: 0; background: transparent;">{% trans "Быстрые действия OshSU Olymp" %}</h2>
-    <ul style="list-style: none; padding: 0; margin: 0;">
-        <li style="margin: 8px 0;">
-            <a href="{% url 'admin_generate_users' %}" style="display: inline-block; padding: 10px 16px; background: #d4a24a; color: #1a1a1a; text-decoration: none; border-radius: 6px; font-weight: 600;">
-                👥 {% trans "Генерация участников олимпиады" %}
-            </a>
-            <span style="color: var(--body-quiet-color, #6a737d); margin-left: 8px;">{% trans "— создать N пользователей со случайными логинами и паролями" %}</span>
-        </li>
-        <li style="margin: 8px 0;">
-            <a href="/admin-guide/" target="_blank" style="display: inline-block; padding: 10px 16px; background: #1e3a5f; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight: 600;">
-                📖 {% trans "Админ-гайд: как провести олимпиаду" %}
-            </a>
-            <span style="color: var(--body-quiet-color, #6a737d); margin-left: 8px;">{% trans "— 5 шагов от создания задачи до финального табло" %}</span>
-        </li>
-    </ul>
+<style>
+    .oa-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; margin-bottom: 22px; }
+    .oa-card { border: 1px solid var(--border-color, #d7dee8); border-radius: 10px; padding: 14px 16px;
+        background: var(--body-bg, #fff); }
+    .oa-card h3 { margin: 0 0 10px; font-size: 15px; color: var(--body-loud-color, #1e3a5f); background: none;
+        padding: 0; text-transform: none; letter-spacing: 0; }
+    .oa-card a.oa-main { display: block; margin: 6px 0; padding: 9px 12px; border-radius: 7px; background: #1e3a5f;
+        color: #fff !important; font-weight: 600; text-decoration: none; }
+    .oa-card a.oa-main.oa-gold { background: #d4a24a; color: #1a1a1a !important; }
+    .oa-card a.oa-link { display: block; margin: 6px 2px; }
+    .oa-all > summary { cursor: pointer; font-weight: 600; margin: 8px 0 14px; color: var(--body-quiet-color, #6a737d); }
+</style>
+
+<div class="oa-grid">
+    <div class="oa-card">
+        <h3>{% trans "Олимпиады" %}</h3>
+        <a class="oa-main" href="{% url 'admin:judge_contest_add' %}">+ {% trans "Создать олимпиаду" %}</a>
+        <a class="oa-link" href="{% url 'admin:judge_contest_changelist' %}">{% trans "Все олимпиады" %}</a>
+        <a class="oa-link" href="/contests/">{% trans "Олимпиады на сайте" %}</a>
+    </div>
+    <div class="oa-card">
+        <h3>{% trans "Задачи" %}</h3>
+        <a class="oa-main oa-gold" href="{% url 'admin_import_problem' %}">⇪ {% trans "Импорт задачи из файла" %}</a>
+        <a class="oa-main" href="{% url 'admin:judge_problem_add' %}">+ {% trans "Создать задачу вручную" %}</a>
+        <a class="oa-link" href="{% url 'admin:judge_problem_changelist' %}">{% trans "Все задачи" %}</a>
+    </div>
+    <div class="oa-card">
+        <h3>{% trans "Участники" %}</h3>
+        <a class="oa-main" href="{% url 'admin_generate_users' %}">👥 {% trans "Создать участников" %}</a>
+        <a class="oa-link" href="{% url 'admin:auth_user_changelist' %}">{% trans "Пользователи" %}</a>
+        <a class="oa-link" href="{% url 'admin:judge_organization_changelist' %}">{% trans "Университеты и школы" %}</a>
+    </div>
+    <div class="oa-card">
+        <h3>{% trans "Проверка" %}</h3>
+        <a class="oa-link" href="/submissions/">{% trans "Все посылки" %}</a>
+        <a class="oa-link" href="{% url 'admin:judge_judge_changelist' %}">{% trans "Судьи (серверы проверки)" %}</a>
+        <a class="oa-link" href="{% url 'admin:judge_language_changelist' %}">{% trans "Языки программирования" %}</a>
+        <a class="oa-link" href="/admin-guide/" target="_blank">📖 {% trans "Инструкция для организатора" %}</a>
+    </div>
 </div>
-{{ block.super }}
+
+<details class="oa-all">
+    <summary>{% trans "Все разделы админки" %}</summary>
+    {{ block.super }}
+</details>
 {% endblock %}
+
+{% block sidebar %}{% endblock %}

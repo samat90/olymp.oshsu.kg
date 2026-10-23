@@ -254,6 +254,11 @@
 
 {% block media %}
     <style>
+        .autofill-box { margin: 0 0 14px; padding: 10px 14px; border: 1px solid #c9d8ea; border-radius: 8px; background: rgba(42, 90, 138, .06); }
+        .autofill-help { font-size: 13px; opacity: .8; margin-top: 4px; }
+        ul.messages { list-style: none; padding: 0; }
+        ul.messages li { padding: 8px 12px; border-radius: 6px; background: #e7f5ec; color: #2f6b47; margin-bottom: 8px; }
+        ul.messages li.error { background: #fbeaea; color: #b33a3a; }
         #case-table .select2 {
             text-align: initial;
         }
@@ -353,10 +358,18 @@
             <li>{{ data_form.instance.feedback }}</li>
         </ul>
     {% endif %}
+    {% include "messages.html" %}
     <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ cases_formset.management_form }}
         <table class="table">{{ data_form.as_table() }}</table>
+        <div class="autofill-box">
+            <label>
+                <input type="checkbox" name="autofill" value="1"{% if not problem.cases.exists() %} checked{% endif %}>
+                <b>{{ _('Fill the test list from the archive automatically') }}</b>
+            </label>
+            <div class="autofill-help">{{ _('Pairs like 1.in / 1.out, 01 / 01.a or input1.txt / output1.txt are found by name and sorted by number. Each test is worth 1 point. The current list below is replaced.') }}</div>
+        </div>
         <div id="column-visible" data-problem="{{ problem.code }}">
             <strong>{{ _('Show columns:') }}</strong>
             <label>

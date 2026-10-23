@@ -16,6 +16,7 @@ from judge.views import TitledTemplateView, api, blog, comment, contests, langua
     two_factor, user, widgets, workspace
 from judge.views import anticheat, contest_tools
 from judge.views.generate_users import GenerateUsersView
+from judge.views.problem_import import import_problem
 from judge.views.problem_data import ProblemDataView, ProblemSubmissionDiff, \
     problem_data_file, problem_init_view
 from judge.views.register import ActivationView, RegistrationView
@@ -97,6 +98,7 @@ urlpatterns = [
     path('', blog.PostList.as_view(template_name='home.html', title=_('Home')), kwargs={'page': 1}, name='home'),
     path('500/', exception),
     path(f'{settings.ADMIN_URL_PREFIX}/generate-users/', GenerateUsersView.as_view(), name='admin_generate_users'),
+    path(f'{settings.ADMIN_URL_PREFIX}/import-problem/', import_problem, name='admin_import_problem'),
     path(f'{settings.ADMIN_URL_PREFIX}/', admin.site.urls),
     path('i18n/', include('django.conf.urls.i18n')),
     path('accounts/', include(register_patterns)),

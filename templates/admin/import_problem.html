@@ -1,0 +1,80 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    <style>
+        .ip-box { max-width: 62em; padding: 16px 18px; margin-bottom: 16px; border: 1px solid var(--border-color, #ccc);
+            border-radius: 8px; background: var(--body-bg, #fff); }
+        .ip-box p { line-height: 1.6; }
+        .ip-box table { width: 100%; }
+        .ip-box th { width: 14em; text-align: left; vertical-align: top; padding-top: 10px; }
+        .ip-box .helptext { display: block; color: var(--body-quiet-color, #6a737d); font-size: 12px; }
+        .ip-warn { padding: 8px 12px; border-radius: 6px; background: #fbf3df; color: #7a5a10; margin: 6px 0; }
+        .ip-tests { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; }
+        .ip-tests pre { margin: 2px 0 0; padding: 6px 8px; max-height: 6em; overflow: auto; background: var(--darkened-bg, #f4f6f9);
+            border-radius: 6px; font-size: 12px; }
+        .ip-actions { margin-top: 14px; display: flex; gap: 10px; }
+        .ip-actions .button, .ip-actions input[type=submit] { padding: 10px 18px; }
+    </style>
+{% endblock %}
+
+{% block breadcrumbs %}
+    <div class="breadcrumbs">
+        <a href="{% url 'admin:index' %}">{% trans "Home" %}</a> ›
+        <a href="{% url 'admin:judge_problem_changelist' %}">{% trans "Задачи" %}</a> › {{ title }}
+    </div>
+{% endblock %}
+
+{% block content %}
+<div id="content-main">
+
+    {% if messages %}
+        {% for message in messages %}<div class="ip-warn">{{ message }}</div>{% endfor %}
+    {% endif %}
+
+    {% if review %}
+        <div class="ip-box">
+            <p><b>{% trans "Проверьте, что система поняла файл правильно, и нажмите «Создать задачу»." %}</b>
+                {% trans "Номер задачи присвоится автоматически." %}</p>
+            {% for warning in parsed.warnings %}<div class="ip-warn">{{ warning }}</div>{% endfor %}
+            <p>
+                {% trans "Тестов найдено" %}: <b>{{ tests_count }}</b>
+                {% if parsed.tests_source == 'archive' %}({% trans "из архива" %}){% elif parsed.tests_source == 'section' %}({% trans "из раздела «Тесты» в файле" %}){% elif parsed.tests_source == 'samples' %}({% trans "из примеров условия" %}){% endif %}.
+                {% if parsed %}{% trans "Примеров в условии" %}: <b>{{ parsed.samples|length }}</b>.{% endif %}
+            </p>
+            {% if tests_preview %}
+                <div class="ip-tests">
+                    {% for inp, out in tests_preview %}
+                        <div>{% trans "Тест" %} {{ forloop.counter }}
+                            <pre>{{ inp }}</pre><pre>{{ out }}</pre></div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        <form method="post" class="ip-box">
+            {% csrf_token %}
+            {{ review.non_field_errors }}
+            <table>{{ review.as_table }}</table>
+            <div class="ip-actions">
+                <input type="submit" class="default" value="{% trans 'Создать задачу' %}">
+                <a class="button" href="{% url 'admin_import_problem' %}">{% trans "Загрузить другие файлы" %}</a>
+            </div>
+        </form>
+    {% else %}
+        <div class="ip-box">
+            <p>{% trans "Прикрепите файл с условием в формате Markdown (.md или .txt) и архив с тестами. Можно прислать всё одним zip-архивом: условие и тесты внутри." %}</p>
+            <p>{% trans "Система сама найдёт название, ограничения времени и памяти, примеры и тесты. На следующем шаге всё можно поправить." %}</p>
+            <p><a href="{% static 'problem-template.md' %}" download>⬇ {% trans "Скачать шаблон условия" %}</a></p>
+        </div>
+        <form method="post" enctype="multipart/form-data" class="ip-box">
+            {% csrf_token %}
+            {{ upload.non_field_errors }}
+            <table>{{ upload.as_table }}</table>
+            <div class="ip-actions">
+                <input type="submit" class="default" value="{% trans 'Далее' %}">
+            </div>
+        </form>
+    {% endif %}
+</div>
+{% endblock %}

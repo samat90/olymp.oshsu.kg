@@ -6,9 +6,11 @@ from typing import List
 from zipfile import BadZipfile, ZipFile
 
 from django.conf import settings
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import ValidationError
+from django.db import transaction
 from django.forms import BaseModelFormSet, HiddenInput, ModelForm, NumberInput, Select, formset_factory
 from django.http import Http404, HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
@@ -21,6 +23,7 @@ from django.views.generic import DetailView
 from judge.highlight_code import highlight_code
 from judge.models import Problem, ProblemData, ProblemTestCase, Submission, problem_data_storage
 from judge.utils.problem_data import ProblemDataCompiler
+from judge.utils.test_files import pair_test_files
 from judge.utils.unicode import utf8text
 from judge.utils.views import TitleMixin, add_file_response
 from judge.views.problem import ProblemMixin
@@ -210,6 +213,23 @@ class ProblemDataView(TitleMixin, ProblemManagerMixin):
             data_form.zip_valid = False
 
         cases_formset = self.get_case_formset(valid_files, post=True)
+        if request.POST.get('autofill') and valid_files and data_form.is_valid():
+            # Rebuild the test list from the archive instead of entering every test by hand.
+            pairs = pair_test_files(valid_files)
+            if pairs:
+                data = data_form.save()
+                with transaction.atomic():
+                    problem.cases.all().delete()
+                    ProblemTestCase.objects.bulk_create([
+                        ProblemTestCase(dataset=problem, order=i, type='C', input_file=inp, output_file=out,
+                                        points=1, is_pretest=False)
+                        for i, (inp, out) in enumerate(pairs, 1)
+                    ])
+                ProblemDataCompiler.generate(problem, data, problem.cases.order_by('order'), valid_files)
+                messages.success(request, _('%d tests were added from the archive.') % len(pairs))
+                return HttpResponseRedirect(request.get_full_path())
+            messages.error(request, _('No test pairs were found in the archive. Name the files 1.in / 1.out '
+                                      '(or 01 / 01.a).'))
         if data_form.is_valid() and cases_formset.is_valid():
             data = data_form.save()
             for case in cases_formset.save(commit=False):
