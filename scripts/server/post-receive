@@ -1,0 +1,10 @@
+#!/bin/bash
+# Git hook for /home/admin/olymp.git on olymp.oshsu.kg.
+# A push to the "main" branch deploys it; other branches are only stored.
+while read -r old new ref; do
+    if [ "$ref" = "refs/heads/main" ]; then
+        /var/www/olymp.oshsu.kg/scripts/deploy.sh main 2>&1 | tee -a /var/log/olymp/deploy.log
+    else
+        echo "Stored $ref (not deployed)."
+    fi
+done

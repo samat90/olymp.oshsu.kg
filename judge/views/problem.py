@@ -376,7 +376,10 @@ class ProblemList(QueryStringSortMixin, TitleMixin, SolvedProblemMixin, ListView
             queryset = queryset.add_i18n_name(self.request.LANGUAGE_CODE)
             sort_key = self.order.lstrip('-')
             if sort_key == 'difficulty':
-                direction = F('difficulty').desc(nulls_last=True) if self.order.startswith('-') else F('difficulty').asc(nulls_last=True)
+                if self.order.startswith('-'):
+                    direction = F('difficulty').desc(nulls_last=True)
+                else:
+                    direction = F('difficulty').asc(nulls_last=True)
                 queryset = queryset.order_by(direction, 'code', 'id')
             elif sort_key in self.sql_sort:
                 queryset = queryset.order_by(self.order, 'id')
@@ -454,7 +457,8 @@ class ProblemList(QueryStringSortMixin, TitleMixin, SolvedProblemMixin, ListView
             filter &= org_filter
         if self.profile is not None:
             filter = Problem.q_add_author_curator_tester(filter, self.profile)
-        queryset = Problem.objects.filter(filter, is_listed=True).select_related('group').defer('description', 'summary')
+        queryset = Problem.objects.filter(filter, is_listed=True).select_related('group') \
+            .defer('description', 'summary')
         if self.profile is not None and self.hide_solved:
             queryset = queryset.exclude(id__in=Submission.objects
                                         .filter(user=self.profile, is_archived=False,
@@ -584,7 +588,8 @@ class ProblemList(QueryStringSortMixin, TitleMixin, SolvedProblemMixin, ListView
             self.difficulty_start = max(1, min(100, self.difficulty_start))
         if self.difficulty_end is not None:
             self.difficulty_end = max(1, min(100, self.difficulty_end))
-        if self.difficulty_start is not None and self.difficulty_end is not None and self.difficulty_start > self.difficulty_end:
+        if (self.difficulty_start is not None and self.difficulty_end is not None and
+                self.difficulty_start > self.difficulty_end):
             self.difficulty_start, self.difficulty_end = self.difficulty_end, self.difficulty_start
 
     @method_decorator(ensure_csrf_cookie)

@@ -26,7 +26,8 @@ server {
     add_header X-Content-Type-Options nosniff always;
     add_header Referrer-Policy strict-origin-when-cross-origin always;
 
-    client_max_body_size 5M;
+    # Test archives for problems can be large.
+    client_max_body_size 64M;
     gzip on;
     gzip_types text/css application/javascript application/json image/svg+xml;
 
@@ -40,6 +41,15 @@ server {
         alias /var/www/olymp.oshsu.kg/media/;
         expires 7d;
         access_log off;
+    }
+
+    # Code runner on the judge machine (runner/server.py). It checks its own token.
+    location /runner/ {
+        proxy_pass http://10.10.8.227:9910/;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_read_timeout 120s;
+        proxy_send_timeout 120s;
+        client_max_body_size 2M;
     }
 
     location /event/ {

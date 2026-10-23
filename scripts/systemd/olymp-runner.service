@@ -1,0 +1,23 @@
+# Code runner for the online editor. Runs on the judge machine next to the judges.
+# Install: see docs/DEPLOY-2026-10.md
+[Unit]
+Description=OshSU Olymp code runner (online editor)
+After=network.target
+
+[Service]
+User=admin
+WorkingDirectory=/home/admin
+ExecStart=/home/admin/judge-server/venv/bin/python /home/admin/olymp-runner/server.py \
+    --config /home/admin/judge-config/judge.yml \
+    --listen 0.0.0.0:9910 \
+    --secret-file /home/admin/olymp-runner/runner.secret \
+    --workers 2 --queue 8 --per-minute 20
+Restart=always
+RestartSec=3
+# The runner must never slow down grading: lower CPU and IO priority.
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+
+[Install]
+WantedBy=multi-user.target

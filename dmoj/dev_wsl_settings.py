@@ -2,7 +2,7 @@
 
 Run with DJANGO_SETTINGS_MODULE=dmoj.dev_wsl_settings. Never use on the server.
 """
-from dmoj.settings import *  # noqa: F403
+from dmoj.settings import *  # noqa: F401, F403
 
 DATABASES = {
     'default': {

@@ -110,7 +110,7 @@ class WorkspaceTest(TestCase):
     def test_runner_token_for_problem_uses_its_limits(self):
         problem = create_problem(code='wsprob', time_limit=1.5, memory_limit=131072, is_public=True)
         problem.allowed_languages.set(Language.objects.filter(key='PY3'))
-        _, data = self.post('runner_token', {'problem': 'wsprob'})
+        _, data = self.post('runner_token', {'problem': problem.code})
         body = data['token'].split('.')[0]
         payload = json.loads(base64.urlsafe_b64decode(body + '=' * (-len(body) % 4)))
         self.assertEqual(payload['langs'], ['PY3'])
@@ -131,9 +131,9 @@ class WorkspaceTest(TestCase):
 
         _, data = self.post('runner_token', {})
         self.assertFalse(data['ok'])
-        _, data = self.post('runner_token', {'problem': 'wsout'})
+        _, data = self.post('runner_token', {'problem': other_problem.code})
         self.assertFalse(data['ok'])
-        _, data = self.post('runner_token', {'problem': 'wsin'})
+        _, data = self.post('runner_token', {'problem': problem.code})
         self.assertTrue(data['ok'])
         _, data = self.post('workspace_api_create', {'name': 'x.py'})
         self.assertFalse(data['ok'])
