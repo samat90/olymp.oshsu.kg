@@ -1283,3 +1283,225 @@ msgstr "Файлдарыңыз өтө көп. Адегенде керексиз�
 
 msgid "s"
 msgstr "с"
+
+msgid "%d tests were added from the archive."
+msgstr "Архивден %d тест кошулду."
+
+msgid "Add to contest"
+msgstr "Олимпиадага кошуу"
+
+msgid "Additional settings"
+msgstr "Кошумча"
+
+msgid "After the contest ends anyone can see the ranking, even if the contest is private."
+msgstr "Олимпиада бүткөндөн кийин рейтингди баары көрөт, ал жабык болсо да."
+
+msgid "Archive with tests (.zip)"
+msgstr "Тесттер менен архив (.zip)"
+
+msgid "At most 1000 participants at a time."
+msgstr "Бир жолу 1000ден ашпаган катышуучу."
+
+msgid "Attach a statement file, a zip archive or both."
+msgstr "Шарт файлын, zip-архивди же экөөнү тең тиркеңиз."
+
+msgid "Date:"
+msgstr "Күнү:"
+
+msgid "Disqualified"
+msgstr "Четтетилген"
+
+msgid "During the contest, warn participants who switch to another tab or window or paste code from outside, and disqualify them after the allowed number of warnings."
+msgstr "Олимпиада учурунда башка өтмөккө же терезеге өткөн же сырттан код койгон катышуучуларга эскертүү берип, уруксат берилген эскертүүлөрдөн кийин четтетүү."
+
+msgid "Enter a number of minutes from -180 to 180."
+msgstr "−180дөн 180ге чейинки мүнөттү жазыңыз."
+
+msgid "Events less than a few seconds apart count as one warning."
+msgstr "Бир нече секунд аралыгындагы окуялар бир эскертүү деп эсептелет."
+
+msgid "Extend the contest by"
+msgstr "Олимпиаданы узартуу:"
+
+msgid "Extend"
+msgstr "Узартуу"
+
+msgid "Fill in the participants list or the number of participants."
+msgstr "Катышуучулардын тизмесин же санын жазыңыз."
+
+msgid "Fill the test list from the archive automatically"
+msgstr "Тесттердин тизмесин архивден автоматтык толтуруу"
+
+msgid "IP address"
+msgstr "IP дарек"
+
+msgid "Import a problem"
+msgstr "Маселени импорттоо"
+
+msgid "Integrity"
+msgstr "Адилеттүүлүк"
+
+msgid "Leave it off for olympiad problems: they open automatically after the contest if the contest says so."
+msgstr "Олимпиаданын маселелери үчүн күйгүзбөңүз: олимпиадада көрсөтүлсө, алар аягында өзү ачылат."
+
+msgid "Limits and points"
+msgstr "Чектөөлөр жана упайлар"
+
+msgid "May also contain the statement file itself."
+msgstr "Ичинде шарт файлы да болушу мүмкүн."
+
+msgid "Memory limit, MB"
+msgstr "Эс тутум, МБ"
+
+msgid "No test pairs were found in the archive. Name the files 1.in / 1.out (or 01 / 01.a)."
+msgstr "Архивде тест жуптары табылган жок. Файлдарды 1.in / 1.out (же 01 / 01.a) деп атаңыз."
+
+msgid "No violations so far."
+msgstr "Азырынча бузуулар жок."
+
+msgid "Note"
+msgstr "Эскертме"
+
+msgid "One participant per line: full name, then a semicolon and the university or school. If the list is filled in, the number below is ignored."
+msgstr "Ар сапта бир катышуучу: аты-жөнү, үтүрлүү чекит жана университет же мектеп. Тизме толтурулса, төмөнкү сан эсепке алынбайт."
+
+msgid "Pairs like 1.in / 1.out, 01 / 01.a or input1.txt / output1.txt are found by name and sorted by number. Each test is worth 1 point. The current list below is replaced."
+msgstr "1.in / 1.out, 01 / 01.a же input1.txt / output1.txt сыяктуу жуптар аты боюнча табылып, номер боюнча иреттелет. Ар бир тест 1 упай. Төмөнкү тизме алмаштырылат."
+
+msgid "Participant"
+msgstr "Катышуучу"
+
+msgid "Participants and access"
+msgstr "Катышуучулар жана кирүү"
+
+msgid "Participants list"
+msgstr "Катышуучулардын тизмеси"
+
+msgid "Place"
+msgstr "Орун"
+
+msgid "Problem %(code)s \"%(name)s\" was created with %(n)d tests."
+msgstr "%(code)s «%(name)s» маселеси түзүлдү, тесттер: %(n)d."
+
+msgid "Results in Excel"
+msgstr "Жыйынтык Excel файлында"
+
+msgid "Results"
+msgstr "Жыйынтыктар"
+
+msgid "Show in the public problem list"
+msgstr "Жалпы маселелер тизмесинде көрсөтүү"
+
+msgid "Statement (Markdown)"
+msgstr "Шарт (Markdown)"
+
+msgid "Statement file (.md or .txt)"
+msgstr "Шарт файлы (.md же .txt)"
+
+msgid "Tab tracking is off for this contest."
+msgstr "Бул олимпиадада өтмөктөрдү байкоо өчүк."
+
+msgid "Tab tracking is on. A participant is disqualified on the next violation after %(n)s warnings."
+msgstr "Өтмөктөрдү байкоо күйүк. %(n)s эскертүүдөн кийинки бузуу четтетүүгө алып келет."
+
+msgid "Tests must be in a .zip archive."
+msgstr "Тесттер zip-архивде болушу керек."
+
+msgid "The archive is larger than 64 MB."
+msgstr "Архив 64 МБдан чоң."
+
+msgid "The contest cannot end before it starts."
+msgstr "Олимпиада башталганга чейин бүтө албайт."
+
+msgid "The contest now ends at %s."
+msgstr "Эми олимпиада %s бүтөт."
+
+msgid "The new accounts become the only participants allowed into this contest."
+msgstr "Жаңы аккаунттар бул олимпиадага уруксат алган жалгыз катышуучулар болот."
+
+msgid "The participant is disqualified on the next violation after this many warnings."
+msgstr "Ушунча эскертүүдөн кийинки бузуу четтетүүгө алып келет."
+
+msgid "The statement file is too big."
+msgstr "Шарт файлы өтө чоң."
+
+msgid "The uploaded files expired. Please upload them again."
+msgstr "Жүктөлгөн файлдардын мөөнөтү өттү. Кайра жүктөңүз."
+
+msgid "They were added to the contest \"%(contest)s\"."
+msgstr "Алар «%(contest)s» олимпиадасына кошулду."
+
+msgid "Time limit, seconds"
+msgstr "Убакыт, секунд"
+
+msgid "Time, min"
+msgstr "Убакыт, мүн"
+
+msgid "Undo disqualification"
+msgstr "Четтетүүнү алып салуу"
+
+msgid "University / school"
+msgstr "Университет / мектеп"
+
+msgid "Violations in %s"
+msgstr "Бузуулар: %s"
+
+msgid "Violations"
+msgstr "Бузуулар"
+
+msgid "Warnings"
+msgstr "Эскертүүлөр"
+
+msgid "allowed warnings"
+msgstr "уруксат эскертүүлөр"
+
+msgid "contest violation"
+msgstr "олимпиададагы бузуу"
+
+msgid "contest violations"
+msgstr "олимпиададагы бузуулар"
+
+msgid "counted as a warning"
+msgstr "эскертүү катары эсептелди"
+
+msgid "details"
+msgstr "толугураак"
+
+msgid "disqualified"
+msgstr "четтетилген"
+
+msgid "event"
+msgstr "окуя"
+
+msgid "merged with the previous one"
+msgstr "мурункусу менен бириктирилди"
+
+msgid "min"
+msgstr "мүн"
+
+msgid "pasted code from outside"
+msgstr "сырттан код койду"
+
+msgid "results open to everyone after the end"
+msgstr "аягында жыйынтык баарына ачык"
+
+msgid "switched to another tab"
+msgstr "башка өтмөккө өттү"
+
+msgid "switched to another window"
+msgstr "башка терезеге өттү"
+
+msgid "watch for leaving the contest tab"
+msgstr "олимпиада өтмөгүнөн чыгууну байкоо"
+
+msgid "workspace file"
+msgstr "кумкана файлы"
+
+msgid "workspace files"
+msgstr "кумкана файлдары"
+
+msgid "Editing data for {0}"
+msgstr "{0} маселесинин тесттери"
+
+msgid "Editing data for %s"
+msgstr "%s маселесинин тесттери"

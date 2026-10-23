@@ -6549,3 +6549,228 @@ msgstr "У вас слишком много файлов. Сначала уда�
 
 msgid "s"
 msgstr "с"
+
+msgid "%d tests were added from the archive."
+msgstr "Из архива добавлено тестов: %d."
+
+msgid "Add to contest"
+msgstr "Добавить в олимпиаду"
+
+msgid "Additional settings"
+msgstr "Дополнительно"
+
+msgid "After the contest ends anyone can see the ranking, even if the contest is private."
+msgstr "После окончания рейтинг видят все, даже если олимпиада закрытая."
+
+msgid "Archive with tests (.zip)"
+msgstr "Архив с тестами (.zip)"
+
+msgid "At most 1000 participants at a time."
+msgstr "Не больше 1000 участников за раз."
+
+msgid "Attach a statement file, a zip archive or both."
+msgstr "Прикрепите файл с условием, zip-архив или оба."
+
+msgid "Date:"
+msgstr "Дата:"
+
+msgid "Disqualified"
+msgstr "Дисквалифицирован"
+
+msgid "During the contest, warn participants who switch to another tab or window or paste code from outside, and disqualify them after the allowed number of warnings."
+msgstr "Во время олимпиады предупреждать участников, которые переходят на другие вкладки и окна или вставляют код со стороны, и дисквалифицировать после допустимого числа предупреждений."
+
+msgid "Enter a number of minutes from -180 to 180."
+msgstr "Укажите число минут от −180 до 180."
+
+msgid "Events less than a few seconds apart count as one warning."
+msgstr "События с разницей в несколько секунд считаются одним предупреждением."
+
+msgid "Extend the contest by"
+msgstr "Продлить олимпиаду на"
+
+msgid "Extend"
+msgstr "Продлить"
+
+msgid "Fill in the participants list or the number of participants."
+msgstr "Заполните список участников или укажите их количество."
+
+msgid "Fill the test list from the archive automatically"
+msgstr "Заполнить список тестов из архива автоматически"
+
+msgid "Full name"
+msgstr "ФИО"
+
+msgid "IP address"
+msgstr "IP-адрес"
+
+msgid "Import a problem"
+msgstr "Импорт задачи"
+
+msgid "Integrity"
+msgstr "Честность"
+
+msgid "Leave it off for olympiad problems: they open automatically after the contest if the contest says so."
+msgstr "Для задач олимпиады не включайте: они откроются сами после окончания, если так указано в олимпиаде."
+
+msgid "Limits and points"
+msgstr "Ограничения и баллы"
+
+msgid "May also contain the statement file itself."
+msgstr "Внутри может лежать и файл с условием."
+
+msgid "Memory limit, MB"
+msgstr "Память, МБ"
+
+msgid "No test pairs were found in the archive. Name the files 1.in / 1.out (or 01 / 01.a)."
+msgstr "В архиве не найдены пары тестов. Назовите файлы 1.in / 1.out (или 01 / 01.a)."
+
+msgid "No violations so far."
+msgstr "Нарушений пока нет."
+
+msgid "Note"
+msgstr "Примечание"
+
+msgid "One participant per line: full name, then a semicolon and the university or school. If the list is filled in, the number below is ignored."
+msgstr "Один участник в строке: ФИО, точка с запятой и университет или школа. Если список заполнен, количество ниже не учитывается."
+
+msgid "Pairs like 1.in / 1.out, 01 / 01.a or input1.txt / output1.txt are found by name and sorted by number. Each test is worth 1 point. The current list below is replaced."
+msgstr "Пары вида 1.in / 1.out, 01 / 01.a или input1.txt / output1.txt находятся по имени и сортируются по номеру. Каждый тест стоит 1 балл. Текущий список ниже будет заменён."
+
+msgid "Participant"
+msgstr "Участник"
+
+msgid "Participants and access"
+msgstr "Участники и доступ"
+
+msgid "Participants list"
+msgstr "Список участников"
+
+msgid "Place"
+msgstr "Место"
+
+msgid "Problem %(code)s \"%(name)s\" was created with %(n)d tests."
+msgstr "Задача %(code)s «%(name)s» создана, тестов: %(n)d."
+
+msgid "Problem name"
+msgstr "Название задачи"
+
+msgid "Results in Excel"
+msgstr "Итоги в Excel"
+
+msgid "Results"
+msgstr "Итоги"
+
+msgid "Show in the public problem list"
+msgstr "Показывать в общем списке задач"
+
+msgid "Statement (Markdown)"
+msgstr "Условие (Markdown)"
+
+msgid "Statement file (.md or .txt)"
+msgstr "Файл с условием (.md или .txt)"
+
+msgid "Tab tracking is off for this contest."
+msgstr "Слежение за вкладками в этой олимпиаде выключено."
+
+msgid "Tab tracking is on. A participant is disqualified on the next violation after %(n)s warnings."
+msgstr "Слежение за вкладками включено. После %(n)s предупреждений следующее нарушение приводит к дисквалификации."
+
+msgid "Tests must be in a .zip archive."
+msgstr "Тесты должны быть в zip-архиве."
+
+msgid "The archive is larger than 64 MB."
+msgstr "Архив больше 64 МБ."
+
+msgid "The contest cannot end before it starts."
+msgstr "Олимпиада не может закончиться раньше начала."
+
+msgid "The contest now ends at %s."
+msgstr "Теперь олимпиада заканчивается в %s."
+
+msgid "The new accounts become the only participants allowed into this contest."
+msgstr "Новые аккаунты станут единственными участниками, допущенными в эту олимпиаду."
+
+msgid "The participant is disqualified on the next violation after this many warnings."
+msgstr "После стольких предупреждений следующее нарушение приводит к дисквалификации."
+
+msgid "The statement file is too big."
+msgstr "Файл с условием слишком большой."
+
+msgid "The uploaded files expired. Please upload them again."
+msgstr "Загруженные файлы устарели. Загрузите их ещё раз."
+
+msgid "They were added to the contest \"%(contest)s\"."
+msgstr "Они добавлены в олимпиаду «%(contest)s»."
+
+msgid "Time limit, seconds"
+msgstr "Время, секунд"
+
+msgid "Time, min"
+msgstr "Время, мин"
+
+msgid "Total"
+msgstr "Итого"
+
+msgid "Undo disqualification"
+msgstr "Снять дисквалификацию"
+
+msgid "University / school"
+msgstr "Университет / школа"
+
+msgid "Violations in %s"
+msgstr "Нарушения: %s"
+
+msgid "Violations"
+msgstr "Нарушения"
+
+msgid "Warnings"
+msgstr "Предупреждения"
+
+msgid "allowed warnings"
+msgstr "допустимо предупреждений"
+
+msgid "contest violation"
+msgstr "нарушение на олимпиаде"
+
+msgid "contest violations"
+msgstr "нарушения на олимпиаде"
+
+msgid "counted as a warning"
+msgstr "засчитано как предупреждение"
+
+msgid "details"
+msgstr "подробности"
+
+msgid "disqualified"
+msgstr "дисквалифицирован"
+
+msgid "event"
+msgstr "событие"
+
+msgid "merged with the previous one"
+msgstr "объединено с предыдущим"
+
+msgid "min"
+msgstr "мин"
+
+msgid "pasted code from outside"
+msgstr "вставил код со стороны"
+
+msgid "results open to everyone after the end"
+msgstr "итоги открыты всем после окончания"
+
+msgid "switched to another tab"
+msgstr "перешёл на другую вкладку"
+
+msgid "switched to another window"
+msgstr "переключился на другое окно"
+
+msgid "watch for leaving the contest tab"
+msgstr "следить за уходом со вкладки олимпиады"
+
+msgid "workspace file"
+msgstr "файл песочницы"
+
+msgid "workspace files"
+msgstr "файлы песочницы"
