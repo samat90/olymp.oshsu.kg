@@ -22,7 +22,7 @@ fi
 if [ "${2:-}" = "--database" ]; then
     echo "Restoring the database"
     sudo systemctl stop olymp-web olymp-bridge
-    pg_restore --clean --if-exists -d olymp_oshsu "$BACKUP/database.dump"
+    sudo -u postgres pg_restore --clean --if-exists -d olymp_oshsu < "$BACKUP/database.dump"
 fi
 
 cd "$APP"

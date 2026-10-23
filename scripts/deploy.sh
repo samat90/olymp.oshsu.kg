@@ -22,7 +22,7 @@ log "Deploying $REF"
 mkdir -p "$BACKUP"
 
 log "Backup: database"
-pg_dump -Fc olymp_oshsu > "$BACKUP/database.dump"
+sudo -u postgres pg_dump -Fc olymp_oshsu > "$BACKUP/database.dump"
 
 log "Backup: code"
 tar czf "$BACKUP/code.tgz" -C "$APP" \
