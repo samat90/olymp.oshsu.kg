@@ -47,3 +47,6 @@ msgstr "Сменить язык"
 
 msgid "Toggle theme"
 msgstr "Переключить тему"
+
+msgid "Sandbox"
+msgstr "Песочница"

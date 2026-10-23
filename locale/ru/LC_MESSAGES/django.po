@@ -6774,3 +6774,6 @@ msgstr "файл песочницы"
 
 msgid "workspace files"
 msgstr "файлы песочницы"
+
+msgid "Solve in the editor"
+msgstr "Решать в редакторе"

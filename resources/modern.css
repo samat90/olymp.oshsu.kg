@@ -1,0 +1,149 @@
+/* OshSU Olymp: visual refresh on top of the DMOJ styles.
+ * Loaded after style.css / dark style; plain CSS so it needs no build step. */
+
+:root {
+    --ui-bg: #f5f7fa;
+    --ui-surface: #ffffff;
+    --ui-surface-2: #f0f3f7;
+    --ui-border: #e1e6ed;
+    --ui-text: #1b2430;
+    --ui-muted: #667085;
+    --ui-primary: #1e3a5f;
+    --ui-primary-2: #2a4f82;
+    --ui-accent: #d4a24a;
+    --ui-radius: 12px;
+    --ui-shadow: 0 1px 2px rgba(16, 24, 40, .04), 0 1px 3px rgba(16, 24, 40, .06);
+}
+
+html[data-theme="dark"] {
+    --ui-bg: #16181c;
+    --ui-surface: #1f2227;
+    --ui-surface-2: #262a30;
+    --ui-border: #33383f;
+    --ui-text: #e3e6ea;
+    --ui-muted: #9aa3ae;
+    --ui-primary: #3d6aa3;
+    --ui-primary-2: #4b7cbb;
+    --ui-shadow: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    html[data-theme="auto"], html:not([data-theme]) {
+        --ui-bg: #16181c;
+        --ui-surface: #1f2227;
+        --ui-surface-2: #262a30;
+        --ui-border: #33383f;
+        --ui-text: #e3e6ea;
+        --ui-muted: #9aa3ae;
+        --ui-primary: #3d6aa3;
+        --ui-primary-2: #4b7cbb;
+        --ui-shadow: none;
+    }
+}
+
+body { background: var(--ui-bg); }
+
+/* ---------- navigation ---------- */
+
+nav ul li { text-transform: none; }
+nav ul li a, nav ul li button { font-weight: 500; letter-spacing: .01em; }
+#nav-list > li > a { border-radius: 8px; margin: 4px 1px !important; padding: 9px 11px !important; height: auto; }
+#nav-list > li > a.active { box-shadow: inset 0 -2px 0 var(--ui-accent); background: rgba(255, 255, 255, .08); }
+#nav-list > li > a:hover { background: rgba(255, 255, 255, .1); }
+#nav-list > li.home-nav-element > a { margin: 0 !important; padding: 0 !important; height: 44px; }
+#nav-shadow { display: none; }
+#nav-container { box-shadow: 0 1px 0 rgba(255, 255, 255, .06), 0 2px 10px rgba(0, 0, 0, .12); }
+
+/* ---------- page titles ---------- */
+
+#content > h2, .tabs h2 {
+    font-weight: 700;
+    letter-spacing: -.01em;
+    color: var(--ui-text);
+}
+
+#content > hr { border: 0; border-top: 1px solid var(--ui-border); }
+
+/* ---------- tabs ---------- */
+
+.tabs { border-bottom-color: var(--ui-border); }
+.tabs > ul > li > a, .tabs > ul > li > span {
+    border: 0 !important;
+    border-radius: 8px 8px 0 0;
+    color: var(--ui-muted);
+    font-weight: 500;
+}
+.tabs > ul > li > a:hover { background: var(--ui-surface-2); color: var(--ui-text); }
+.tabs > ul > li.active > a, .tabs > ul > li.active > span {
+    background: transparent !important;
+    color: var(--ui-text) !important;
+    box-shadow: inset 0 -2px 0 var(--ui-accent);
+}
+.tabs .tab.active .tab-icon { color: var(--ui-accent); }
+
+/* ---------- cards and side boxes ---------- */
+
+.sidebox { padding: 0 !important; padding-bottom: 1.2em !important; }
+.sidebox h3 {
+    margin: 0;
+    padding: 12px 14px;
+    background: var(--ui-surface);
+    color: var(--ui-text);
+    font-size: 1.05em;
+    font-weight: 700;
+    border: 1px solid var(--ui-border);
+    border-bottom: 0;
+    border-radius: var(--ui-radius) var(--ui-radius) 0 0;
+}
+.sidebox h3 .fa { color: var(--ui-accent); }
+.sidebox-content {
+    margin: 0;
+    background: var(--ui-surface);
+    border: 1px solid var(--ui-border);
+    border-top: 1px solid var(--ui-border);
+    border-radius: 0 0 var(--ui-radius) var(--ui-radius);
+    box-shadow: var(--ui-shadow);
+}
+
+.blog-content .post, #common-content .content-description.screen {
+    border-radius: var(--ui-radius);
+}
+
+/* ---------- tables ---------- */
+
+.table {
+    border-radius: var(--ui-radius);
+    overflow: hidden;
+    box-shadow: var(--ui-shadow);
+}
+.table th {
+    font-size: 12.5px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--ui-muted);
+    font-weight: 600;
+}
+.table tbody tr:hover > td { background-color: rgba(42, 79, 130, .04); }
+
+/* ---------- buttons and inputs ---------- */
+
+.button, button, input[type=submit] { border-radius: 8px; }
+input[type=text], input[type=password], input[type=email], input[type=number], input[type=search], select, textarea {
+    border-radius: 8px;
+}
+
+/* Contest list: the join button used to be cut off. */
+input.participate-button { width: auto !important; min-width: 9em; white-space: nowrap; padding: 8px 14px !important; }
+
+/* ---------- problem page ---------- */
+
+.info-float .solve-button { display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600;
+    box-sizing: border-box; width: 100%; }
+.info-float .solve-button .fa { font-size: .95em; color: inherit !important; }
+.problem-title h2, #content > h2 { font-weight: 700; }
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 799px) {
+    #nav-list > li > a { margin: 0 !important; border-radius: 0; }
+}

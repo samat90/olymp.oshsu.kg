@@ -1505,3 +1505,6 @@ msgstr "{0} маселесинин тесттери"
 
 msgid "Editing data for %s"
 msgstr "%s маселесинин тесттери"
+
+msgid "Solve in the editor"
+msgstr "Редактордо чечүү"

@@ -47,3 +47,6 @@ msgstr "Тилди өзгөртүү"
 
 msgid "Toggle theme"
 msgstr "Теманы которуу"
+
+msgid "Sandbox"
+msgstr "Кумкана"
