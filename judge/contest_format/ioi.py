@@ -22,15 +22,14 @@ class IOIContestFormat(LegacyIOIContestFormat):
         with connection.cursor() as cursor:
             cursor.execute("""
                 SELECT q.prob,
-                       MIN(q.date) as `date`,
-                       q.batch_points
+                       MIN(q.sub_date) AS min_date,
+                       MAX(q.batch_points) AS batch_points
                 FROM (
-                         SELECT cp.id          as `prob`,
-                                sub.id         as `subid`,
-                                sub.date       as `date`,
-                                tc.points      as `points`,
-                                tc.batch       as `batch`,
-                                MIN(tc.points) as `batch_points`
+                         SELECT cp.id          AS prob,
+                                sub.id         AS subid,
+                                sub.date       AS sub_date,
+                                tc.batch       AS batch,
+                                MIN(tc.points) AS batch_points
                          FROM judge_contestproblem cp
                                   INNER JOIN
                               judge_contestsubmission cs
@@ -45,9 +44,9 @@ class IOIContestFormat(LegacyIOIContestFormat):
                          INNER JOIN (
                     SELECT prob, batch, MAX(r.batch_points) as max_batch_points
                     FROM (
-                             SELECT cp.id          as `prob`,
-                                    tc.batch       as `batch`,
-                                    MIN(tc.points) as `batch_points`
+                             SELECT cp.id          AS prob,
+                                    tc.batch       AS batch,
+                                    MIN(tc.points) AS batch_points
                              FROM judge_contestproblem cp
                                       INNER JOIN
                                   judge_contestsubmission cs
