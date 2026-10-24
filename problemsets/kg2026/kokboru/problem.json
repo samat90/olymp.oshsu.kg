@@ -1,0 +1,11 @@
+{
+ "name": "Финал кок-бору",
+ "time": 3, "memory": 512, "difficulty": 100, "points": 100,
+ "types": ["Графы", "Математика"],
+ "subtasks": [
+  {"points": 10, "brute": true, "tests": [[1, "random", 1], [2, "random", 2], [10, "random", 3], [3000, "random", 4], [3000, "path", 5], [3000, "star", 6], [3000, "caterpillar", 7]]},
+  {"points": 20, "tests": [[200000, "pathfixed", 11], [199999, "pathfixed", 12]]},
+  {"points": 20, "tests": [[20000, "star", 21], [20000, "path", 22], [20000, "caterpillar", 23], [20000, "random", 24], [20000, "broom", 25]]},
+  {"points": 50, "tests": [[200000, "random", 31], [200000, "binary", 32], [200000, "sqrt", 33], [200000, "deep", 34], [200000, "path", 35], [200000, "star", 36], [200000, "caterpillar", 38], [200000, "random", 37]]}
+ ]
+}

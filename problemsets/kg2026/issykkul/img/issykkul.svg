@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 300" width="620" height="300" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="620" height="300" rx="10" fill="#e9f1e4"/>
+  <!-- the lake -->
+  <path d="M30 150 C60 70 200 40 330 52 C470 64 600 100 596 150 C592 210 460 250 320 248 C170 246 40 220 30 150 Z" fill="#5fa8d3"/>
+  <g fill="#7a5c3a" font-size="12"><text x="70" y="280">Балыкчы</text><text x="500" y="280">Каракол</text><text x="250" y="30">Чолпон-Ата</text></g>
+  <!-- grid: one unit = 40 px, origin at (220, 190) -->
+  <g transform="translate(220 190)">
+    <polygon points="0,0 160,0 80,-160 " fill="none"/>
+    <polygon points="0,0 80,80 160,0 80,-160" fill="#ffffff" fill-opacity="0.35" stroke="#c0392b" stroke-width="2.5"/>
+    <g fill="#f39c12" stroke="#7e5109" stroke-width="2">
+      <circle cx="0" cy="0" r="7"/><circle cx="160" cy="0" r="7"/><circle cx="80" cy="-160" r="7"/><circle cx="80" cy="80" r="7"/>
+    </g>
+    <g font-size="12" fill="#0b2f4a" font-weight="700">
+      <text x="-50" y="5">(0, 0)</text><text x="172" y="5">(4, 0)</text><text x="92" y="-160">(2, 4)</text><text x="92" y="92">(2, −2)</text>
+    </g>
+    <path d="M58 -46 l10 -8 l10 8 l-4 12 h-12 z" fill="#ffffff" stroke="#34495e" stroke-width="1.5"/>
+    <text x="84" y="-34" font-size="12" fill="#0b2f4a">лодка (2, 1)</text>
+  </g>
+  <text x="430" y="150" font-size="12" fill="#0b2f4a">зона гонки —</text>
+  <text x="430" y="166" font-size="12" fill="#0b2f4a">выпуклая оболочка буёв</text>
+</svg>

@@ -1,0 +1,11 @@
+{
+ "name": "Шырдак",
+ "time": 2, "memory": 256, "difficulty": 90, "points": 100,
+ "types": ["Комбинаторика", "Теория чисел"],
+ "subtasks": [
+  {"points": 10, "brute": true, "tests": [[20, "small", 1], [30, "small", 2], [40, "small", 3]]},
+  {"points": 20, "tests": [[100, "tiny", 11], [100, "prime", 12], [100, "pow", 13]]},
+  {"points": 30, "tests": [[100, "rand", 21], [100, "semiprime", 22], [100, "composite", 23]]},
+  {"points": 40, "tests": [[100, "pdiv", 31], [100, "mixed", 32], [100, "mixed", 33], [100, "composite", 34], [100, "semiprime", 35]]}
+ ]
+}

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" width="560" height="300" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="560" height="300" rx="10" fill="#f6f8fb"/>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#2a6fb0"/>
+    </marker>
+    <marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#d17a00"/>
+    </marker>
+  </defs>
+  <g stroke-width="2.5" fill="none">
+    <path d="M92 150 L236 62" stroke="#2a6fb0" marker-end="url(#ar)"/>
+    <path d="M92 150 L236 238" stroke="#2a6fb0" marker-end="url(#ar)"/>
+    <path d="M284 58 Q380 70 455 138" stroke="#2a6fb0" marker-end="url(#ar)"/>
+    <path d="M280 48 Q400 20 466 128" stroke="#d17a00" marker-end="url(#ag)"/>
+    <path d="M284 242 L455 162" stroke="#2a6fb0" marker-end="url(#ar)"/>
+    <path d="M95 160 Q280 300 452 160" stroke="#2a6fb0" stroke-dasharray="6 4" marker-end="url(#ar)"/>
+  </g>
+  <g font-size="13" fill="#24364a">
+    <text x="118" y="92">0 → 10</text>
+    <text x="118" y="224">5 → 12</text>
+    <text x="352" y="96">14 → 20</text>
+    <text x="352" y="30" fill="#b06500" font-weight="700">16 → 18</text>
+    <text x="372" y="222">13 → 30</text>
+    <text x="250" y="284">25 → 40</text>
+  </g>
+  <g text-anchor="middle">
+    <circle cx="70" cy="150" r="24" fill="#ffffff" stroke="#1f4e79" stroke-width="3"/>
+    <text x="70" y="156" font-size="17" font-weight="700" fill="#1f4e79">1</text>
+    <text x="70" y="196" font-size="12" fill="#55657a">ОшГУ, c = 0</text>
+    <circle cx="260" cy="50" r="24" fill="#ffffff" stroke="#1f4e79" stroke-width="3"/>
+    <text x="260" y="56" font-size="17" font-weight="700" fill="#1f4e79">2</text>
+    <text x="200" y="40" font-size="12" fill="#55657a">c = 5</text>
+    <circle cx="260" cy="250" r="24" fill="#ffffff" stroke="#1f4e79" stroke-width="3"/>
+    <text x="260" y="256" font-size="17" font-weight="700" fill="#1f4e79">3</text>
+    <text x="200" y="268" font-size="12" fill="#55657a">c = 2</text>
+    <circle cx="474" cy="150" r="24" fill="#ffe8b3" stroke="#1f4e79" stroke-width="3"/>
+    <text x="474" y="156" font-size="17" font-weight="700" fill="#1f4e79">4</text>
+    <text x="500" y="196" font-size="12" fill="#55657a">Сулайман-Тоо</text>
+  </g>
+  <text x="16" y="24" font-size="13" fill="#55657a">Рейсы примера: отправление → прибытие</text>
+</svg>

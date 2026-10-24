@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 290" width="600" height="290" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="600" height="290" rx="10" fill="#f2f7fb"/>
+  <defs>
+    <marker id="w" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#1b6ca8"/></marker>
+  </defs>
+  <!-- reservoir and dam -->
+  <path d="M20 60 Q70 30 130 60 L130 230 Q70 260 20 230 Z" fill="#7fb8e0"/>
+  <rect x="128" y="70" width="10" height="150" fill="#7b7d7d"/>
+  <text x="75" y="150" font-size="13" text-anchor="middle" fill="#0d3d63" font-weight="700">1</text>
+  <text x="75" y="170" font-size="11" text-anchor="middle" fill="#0d3d63">водохранилище</text>
+  <g stroke="#1b6ca8" stroke-width="3" fill="none">
+    <path d="M140 110 L282 66" marker-end="url(#w)"/>
+    <path d="M140 190 L282 228" marker-end="url(#w)"/>
+    <path d="M318 66 L486 128" marker-end="url(#w)"/>
+    <path d="M318 228 L486 162" marker-end="url(#w)"/>
+    <path d="M300 78 L300 212" marker-end="url(#w)"/>
+  </g>
+  <g font-size="12" fill="#1c2833">
+    <text x="160" y="72">0…5, 1 сом</text>
+    <text x="150" y="236" font-weight="700" fill="#a04000">2…4, 3 сома</text>
+    <text x="380" y="80">0…4, 2 сома</text>
+    <text x="380" y="226">0…6, 1 сом</text>
+    <text x="308" y="150">0…3, 1 сом</text>
+  </g>
+  <g text-anchor="middle">
+    <circle cx="300" cy="60" r="18" fill="#fff" stroke="#1f4e79" stroke-width="3"/><text x="300" y="66" font-size="15" font-weight="700" fill="#1f4e79">2</text>
+    <circle cx="300" cy="234" r="18" fill="#fff" stroke="#1f4e79" stroke-width="3"/><text x="300" y="240" font-size="15" font-weight="700" fill="#1f4e79">3</text>
+    <circle cx="505" cy="145" r="22" fill="#cfe8c4" stroke="#1f4e79" stroke-width="3"/><text x="505" y="151" font-size="15" font-weight="700" fill="#1f4e79">4</text>
+    <text x="505" y="190" font-size="11" fill="#1c2833">Ферганская долина</text>
+  </g>
+  <text x="16" y="276" font-size="12" fill="#55657a">Канал: «l…c, w» — экологический минимум, пропускная способность, цена кубометра</text>
+</svg>

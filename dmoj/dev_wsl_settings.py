@@ -39,3 +39,6 @@ DMOJ_RUNNER_SECRET_FILE = '/opt/judge/runner.secret'
 
 # Same as production: problems get six-digit numbers automatically.
 DMOJ_NUMERIC_PROBLEM_CODES = True
+
+# Serve /media/ (problem pictures, uploads) from runserver on the local stand.
+ROOT_URLCONF = 'dmoj.dev_wsl_urls'

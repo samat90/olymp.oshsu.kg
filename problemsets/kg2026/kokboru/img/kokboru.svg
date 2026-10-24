@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 250" width="560" height="250" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="560" height="250" rx="10" fill="#f3f6ee"/>
+  <g stroke="#6e5a3c" stroke-width="4">
+    <line x1="70" y1="125" x2="200" y2="125"/>
+    <line x1="200" y1="125" x2="300" y2="50"/>
+    <line x1="200" y1="125" x2="330" y2="180"/>
+    <line x1="330" y1="180" x2="470" y2="120"/>
+    <line x1="330" y1="180" x2="470" y2="220"/>
+  </g>
+  <path d="M300 50 Q420 40 470 110" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-dasharray="6 5"/>
+  <text x="400" y="40" font-size="12" fill="#c0392b" font-weight="700">расстояние 3</text>
+  <g text-anchor="middle" font-size="15" font-weight="700">
+    <circle cx="70" cy="125" r="19" fill="#fff" stroke="#1e5631" stroke-width="3"/><text x="70" y="131" fill="#1e5631">1</text>
+    <circle cx="200" cy="125" r="19" fill="#fff" stroke="#1e5631" stroke-width="3"/><text x="200" y="131" fill="#1e5631">2</text>
+    <circle cx="300" cy="50" r="19" fill="#ffe08a" stroke="#1e5631" stroke-width="3"/><text x="300" y="56" fill="#1e5631">3</text>
+    <circle cx="330" cy="180" r="19" fill="#fff" stroke="#1e5631" stroke-width="3"/><text x="330" y="186" fill="#1e5631">4</text>
+    <circle cx="470" cy="120" r="19" fill="#ffe08a" stroke="#1e5631" stroke-width="3"/><text x="470" y="126" fill="#1e5631">5</text>
+    <circle cx="470" cy="220" r="19" fill="#fff" stroke="#1e5631" stroke-width="3"/><text x="470" y="226" fill="#1e5631">6</text>
+  </g>
+  <text x="16" y="24" font-size="13" fill="#1e5631">Сёла и дороги примера: путь 3 → 2 → 4 → 5 состоит из трёх дорог</text>
+</svg>

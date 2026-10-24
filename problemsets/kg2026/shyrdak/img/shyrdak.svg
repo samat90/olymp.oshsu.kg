@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 300" width="420" height="300" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="420" height="300" rx="10" fill="#f8f4ec"/>
+  <g transform="translate(150 150)">
+    <!-- 8 border sectors, neighbouring sectors differ -->
+    <g stroke="#3b2a1a" stroke-width="2">
+      <path d="M0 -120 A120 120 0 0 1 84.85 -84.85 L56.57 -56.57 A80 80 0 0 0 0 -80 Z" fill="#b22222"/>
+      <path d="M84.85 -84.85 A120 120 0 0 1 120 0 L80 0 A80 80 0 0 0 56.57 -56.57 Z" fill="#1f6fb2"/>
+      <path d="M120 0 A120 120 0 0 1 84.85 84.85 L56.57 56.57 A80 80 0 0 0 80 0 Z" fill="#e0a526"/>
+      <path d="M84.85 84.85 A120 120 0 0 1 0 120 L0 80 A80 80 0 0 0 56.57 56.57 Z" fill="#b22222"/>
+      <path d="M0 120 A120 120 0 0 1 -84.85 84.85 L-56.57 56.57 A80 80 0 0 0 0 80 Z" fill="#1f6fb2"/>
+      <path d="M-84.85 84.85 A120 120 0 0 1 -120 0 L-80 0 A80 80 0 0 0 -56.57 56.57 Z" fill="#b22222"/>
+      <path d="M-120 0 A120 120 0 0 1 -84.85 -84.85 L-56.57 -56.57 A80 80 0 0 0 -80 0 Z" fill="#e0a526"/>
+      <path d="M-84.85 -84.85 A120 120 0 0 1 0 -120 L0 -80 A80 80 0 0 0 -56.57 -56.57 Z" fill="#1f6fb2"/>
+    </g>
+    <circle r="80" fill="#efe3c8" stroke="#3b2a1a" stroke-width="2"/>
+    <!-- ram's horn ornament (kochkor muyuz) in the middle -->
+    <g fill="none" stroke="#b22222" stroke-width="7" stroke-linecap="round">
+      <path d="M0 30 C0 0 -10 -20 -30 -20 C-50 -20 -52 5 -35 8 C-25 10 -22 0 -28 -5"/>
+      <path d="M0 30 C0 0 10 -20 30 -20 C50 -20 52 5 35 8 C25 10 22 0 28 -5"/>
+      <path d="M0 30 L0 52"/>
+    </g>
+  </g>
+  <g font-size="13" fill="#3b2a1a">
+    <text x="292" y="110">n = 8 секторов,</text>
+    <text x="292" y="130">k = 3 цвета:</text>
+    <text x="292" y="150">соседние секторы</text>
+    <text x="292" y="170">разного цвета,</text>
+    <text x="292" y="190">повороты кольца</text>
+    <text x="292" y="210">не различаются</text>
+  </g>
+</svg>
