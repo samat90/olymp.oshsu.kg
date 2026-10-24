@@ -541,7 +541,7 @@ msgstr "Эти задачи включены в этот тип задач."
 
 #: judge/apps.py:8
 msgid "Online Judge"
-msgstr "Онлайн Judge"
+msgstr "Олимпиады"
 
 #: judge/comments.py:41
 msgid "Comment body"
@@ -3915,7 +3915,7 @@ msgstr "Этот сайт лучше всего работает с включе
 
 #: templates/base.html:293
 msgid "proudly powered by **DMOJ**"
-msgstr "работает на базе **DMOJ**"
+msgstr "ОшГУ"
 
 #: templates/blog/content.html:13 templates/comments/list.html:89
 #: templates/comments/list.html:105 templates/contest/contest-tabs.html:23
@@ -5132,15 +5132,15 @@ msgstr "Разрешённые языки"
 #: templates/problem/problem.html:267
 #, python-format
 msgid "No %(lang)s judge online"
-msgstr "Нет доступного судьи для %(lang)s"
+msgstr "Сейчас нельзя проверить решения на %(lang)s"
 
 #: templates/problem/problem.html:278
 msgid "Judge:"
 msgid_plural "Judges:"
-msgstr[0] "Судья:"
-msgstr[1] "Судьи:"
-msgstr[2] "Судей:"
-msgstr[3] "Судей:"
+msgstr[0] "Сервер проверки:"
+msgstr[1] "Серверы проверки:"
+msgstr[2] "Серверов проверки:"
+msgstr[3] "Серверов проверки:"
 
 #: templates/problem/problem.html:295
 msgid "none available"
@@ -5241,7 +5241,7 @@ msgstr "У Вас осталось 0 посылок"
 
 #: templates/problem/submit.html:186
 msgid "No judge is available for this problem."
-msgstr "Для этой задачи нет доступных судей."
+msgstr "Проверка этой задачи сейчас недоступна."
 
 #: templates/problem/vote-ajax.html:4
 msgid "Change vote"
@@ -5678,7 +5678,7 @@ msgstr "Принятые посылки по языкам"
 
 #: templates/status/judge-status-table.html:3
 msgid "Judge"
-msgstr "Судья"
+msgstr "Сервер проверки"
 
 #: templates/status/judge-status-table.html:5
 msgid "Online"
@@ -5705,7 +5705,7 @@ msgstr "Н/Д"
 
 #: templates/status/judge-status-table.html:66
 msgid "There are no judges available at this time."
-msgstr "Сейчас нет доступных судей."
+msgstr "Серверы проверки сейчас недоступны."
 
 #: templates/status/language-list.html:36
 msgid "Runtime Info"
@@ -5713,7 +5713,7 @@ msgstr "Информация о среде выполнения"
 
 #: templates/status/status-tabs.html:4
 msgid "Judges"
-msgstr "Судьи"
+msgstr "Серверы проверки"
 
 #: templates/status/status-tabs.html:6
 msgid "Versions"
@@ -5722,7 +5722,7 @@ msgstr "Версии"
 #: templates/submission/info-base.html:8
 #, python-format
 msgid "%(date)s on %(judge)s"
-msgstr "%(date)s на %(judge)s"
+msgstr "%(date)s"
 
 #: templates/submission/internal-error-message.html:3
 #, python-format
@@ -5804,7 +5804,7 @@ msgstr "Отправить повторно"
 
 #: templates/submission/status-testcases.html:10
 msgid "We are waiting for a suitable judge to process your submission..."
-msgstr "Мы ждём подходящего судью для обработки Вашей посылки..."
+msgstr "Посылка в очереди на проверку..."
 
 #: templates/submission/status-testcases.html:12
 msgid "Your submission is being processed..."
@@ -5852,7 +5852,7 @@ msgstr "Ваш вывод (обрезан)"
 
 #: templates/submission/status-testcases.html:113
 msgid "Judge feedback"
-msgstr "Комментарий судьи"
+msgstr "Комментарий проверки"
 
 #: templates/submission/status-testcases.html:129
 msgid "Resources:"

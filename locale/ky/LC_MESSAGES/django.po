@@ -1814,3 +1814,33 @@ msgstr "жол"
 
 msgid "code"
 msgstr "код"
+
+msgid "Online Judge"
+msgstr "Олимпиадалар"
+
+msgid "Judge"
+msgstr "Текшерүү сервери"
+
+msgid "Judges"
+msgstr "Текшерүү серверлери"
+
+msgid "%(date)s on %(judge)s"
+msgstr "%(date)s"
+
+msgid "Judge feedback"
+msgstr "Текшерүүнүн комментарийи"
+
+msgid "proudly powered by **DMOJ**"
+msgstr "ОшМУ"
+
+msgid "No %(lang)s judge online"
+msgstr "Азыр %(lang)s тилиндеги чечимдерди текшерүүгө болбойт"
+
+msgid "No judge is available for this problem."
+msgstr "Бул маселени текшерүү азыр жеткиликсиз."
+
+msgid "There are no judges available at this time."
+msgstr "Текшерүү серверлери азыр жеткиликсиз."
+
+msgid "We are waiting for a suitable judge to process your submission..."
+msgstr "Жөнөтүү текшерүү кезегинде..."

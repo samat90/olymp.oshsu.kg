@@ -66,7 +66,7 @@ body:has(> #page-container .gdb) #content-body { margin: 0; padding: 0; }
 }
 .gdb-nav .ws-item .fa { color: var(--gdb-nav-muted); width: 14px; text-align: center; }
 .gdb-nav .ws-item:hover { background: var(--gdb-nav-hover); }
-.gdb-nav .ws-item.ws-current { background: rgba(255, 255, 255, .14); border-left-color: #ffd36b; }
+.gdb-nav .ws-item.ws-current { background: rgba(255, 255, 255, .14); border-left-color: #8ab4ff; }
 .gdb-nav .ws-item.ws-drop { outline: 1px dashed #fff; }
 .gdb-nav .ws-empty { padding: 6px 16px; color: var(--gdb-nav-muted); font-size: 13px; }
 .gdb-nav .ws-name-input { width: 100%; color: #1b2430; background: #fff; border: 0; border-radius: 3px; padding: 2px 4px; font: inherit; }
