@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block body %}
+    {% if request.in_contest and submission_limit %}
+        <div class="alert alert-info">
+            {% if submissions_left > 0 %}
+                {% trans left=submissions_left -%}
+                    You have {{ left }} submission left
+                    {%- pluralize -%}
+                    You have {{ left }} submissions left
+                {%- endtrans %}
+            {% else %}
+                {{ _('You have 0 submissions left') }}
+            {% endif %}
+        </div>
+    {% endif %}
+    {{ form.non_field_errors() }}
+    {{ form.source.errors }}
+    {{ form.language.errors }}
+
+    {% if no_judges %}
+        <p>{{ _('No judge is available for this problem.') }}</p>
+    {% else %}
+        <form id="problem_submit" class="quick-submit" action="" method="post">
+            {% csrf_token %}
+            <div class="qs-row">
+                <select id="id_language" name="language" aria-label="{{ _('Language') }}">
+                    {% for lang in form.fields.language.queryset %}
+                        <option value="{{ lang.id }}" {% if lang.id == default_lang.id %}selected{% endif %}>{{ lang.name }}</option>
+                    {% endfor %}
+                </select>
+                <label class="button" for="qs-file"><i class="fa fa-folder-open-o"></i> {{ _('Open a file') }}</label>
+                <input type="file" id="qs-file" hidden>
+            </div>
+            <textarea name="source" id="id_source" spellcheck="false" autocomplete="off" required
+                      placeholder="{{ _('Source code') }}">{{ form.source.value() or '' }}</textarea>
+            {{ form.judge }}
+            <div class="qs-actions">
+                <button type="submit" class="button"
+                        {% if request.in_contest and submission_limit and not submissions_left %}disabled{% endif %}>
+                    <i class="fa fa-paper-plane"></i> {{ _('Submit solution') }}
+                </button>
+                <a href="{{ url('problem_submit', problem.code) }}">{{ _('Solve in the editor') }}</a>
+            </div>
+        </form>
+        <script>
+            (function () {
+                var area = document.getElementById('id_source');
+                area.addEventListener('keydown', function (e) {
+                    if (e.key !== 'Tab') return;
+                    e.preventDefault();
+                    var start = area.selectionStart;
+                    area.setRangeText('    ', start, area.selectionEnd, 'end');
+                });
+                document.getElementById('qs-file').addEventListener('change', function () {
+                    var file = this.files[0];
+                    if (!file) return;
+                    file.text().then(function (text) { area.value = text; });
+                });
+                document.getElementById('problem_submit').addEventListener('submit', function (e) {
+                    if (this.dataset.sent) { e.preventDefault(); return; }
+                    this.dataset.sent = '1';
+                    this.querySelector('button[type=submit]').disabled = true;
+                });
+            })();
+        </script>
+    {% endif %}
+{% endblock %}

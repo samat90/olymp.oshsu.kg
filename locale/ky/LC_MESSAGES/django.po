@@ -1790,3 +1790,6 @@ msgstr "Сайтка кайтуу"
 
 msgid "optional"
 msgstr "милдеттүү эмес"
+
+msgid "Open a file"
+msgstr "Файлды ачуу"

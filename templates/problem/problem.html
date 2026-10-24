@@ -102,6 +102,9 @@
 {% block info_float %}
     {% if request.user.is_authenticated and request.in_contest and submission_limit %}
         {% if submissions_left > 0 %}
+            <a href="{{ url('problem_submit', problem.code) }}?quick=1" class="unselectable button full submit-button">
+                <i class="fa fa-paper-plane"></i> {{ _('Submit solution') }}
+            </a>
             <a href="{{ url('problem_submit', problem.code) }}" class="unselectable button full solve-button">
                 <i class="fa fa-code"></i> {{ _('Solve in the editor') }}
             </a>
@@ -117,6 +120,9 @@
             <div class="no-submissions-left submissions-left">{{ _('0 submissions left') }}</div>
         {% endif %}
     {% else %}
+        <a href="{{ url('problem_submit', problem.code) }}?quick=1" class="unselectable button full submit-button">
+            <i class="fa fa-paper-plane"></i> {{ _('Submit solution') }}
+        </a>
         <a href="{{ url('problem_submit', problem.code) }}" class="unselectable button full solve-button">
             <i class="fa fa-code"></i> {{ _('Solve in the editor') }}
         </a>

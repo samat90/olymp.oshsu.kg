@@ -141,6 +141,27 @@ input.participate-button { width: auto !important; min-width: 9em; white-space: 
     box-sizing: border-box; width: 100%; }
 .info-float .solve-button .fa { font-size: .95em; color: inherit !important; }
 .problem-title h2, #content > h2 { font-weight: 700; }
+.info-float .submit-button { display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600;
+    box-sizing: border-box; width: 100%; margin-bottom: 8px; }
+.info-float .submit-button .fa { font-size: .95em; color: inherit !important; }
+.info-float .submit-button + .solve-button { background: transparent !important; color: inherit !important;
+    border: 1px solid currentColor !important; opacity: .9; }
+
+/* ---------- submissions: my rows ---------- */
+
+.submissions-list-table tr.submission-mine > td { background: rgba(212, 162, 74, .14); }
+.submissions-list-table tr.submission-mine > td:first-child { box-shadow: inset 3px 0 0 #d4a24a; }
+.submissions-list-table tr.submission-just-sent > td { background: rgba(212, 162, 74, .3); }
+
+/* ---------- quick submit ---------- */
+
+.quick-submit { max-width: 900px; }
+.quick-submit .qs-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 10px; }
+.quick-submit select { min-width: 220px; height: 36px; }
+.quick-submit textarea { width: 100%; box-sizing: border-box; min-height: 420px; padding: 10px 12px; resize: vertical;
+    font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace; font-size: 14px; line-height: 1.45; tab-size: 4; }
+.quick-submit .qs-actions { display: flex; gap: 10px; align-items: center; margin-top: 12px; }
+
 
 /* ---------- small screens ---------- */
 

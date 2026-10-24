@@ -716,8 +716,18 @@ class ProblemSubmit(LoginRequiredMixin, ProblemMixin, TitleMixin, SingleObjectFo
 
         return form
 
+    def get_template_names(self):
+        if self.request.GET.get('quick'):
+            return ['problem/submit_quick.html']
+        return [self.template_name]
+
     def get_success_url(self):
-        return reverse('submission_status', args=(self.new_submission.id,))
+        # Straight to the submission list, where the new one is highlighted and updates by itself.
+        if self.contest_problem:
+            url = reverse('user_submissions', args=(self.object.code, self.request.user.username))
+        else:
+            url = reverse('chronological_submissions', args=(self.object.code,))
+        return '%s?mine=%d' % (url, self.new_submission.id)
 
     def form_valid(self, form):
         if not self.request.user.has_perm('judge.spam_submission'):

@@ -7074,3 +7074,6 @@ msgstr "На сайт"
 
 msgid "optional"
 msgstr "необязательно"
+
+msgid "Open a file"
+msgstr "Открыть файл"
