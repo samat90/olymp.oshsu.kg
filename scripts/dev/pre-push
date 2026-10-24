@@ -1,0 +1,12 @@
+#!/bin/bash
+# Git hook (copy to .git/hooks/pre-push): before pushing to the server, run the checks in WSL.
+# A failed check stops the push, so a broken version never reaches the site.
+remote="$1"
+if [ "$remote" = "server" ]; then
+    echo "Running checks before deploying (scripts/ci_check.sh)..."
+    if ! wsl -d Ubuntu-24.04 -u root -- bash /mnt/d/projects/olymp.oshsu.kg/scripts/ci_check.sh; then
+        echo "Checks failed, nothing was pushed."
+        exit 1
+    fi
+fi
+exit 0

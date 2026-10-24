@@ -82,7 +82,9 @@ document.addEventListener('DOMContentLoaded', function () {
         var out = $('#oe-result');
         out.innerHTML = '<div class="oe-placeholder">' + E.T.running + '</div>';
         setBusy(true, E.T.running);
-        runner.run(language(), editor.getValue(), stdin.value).then(function (result) {
+        runner.run(language(), editor.getValue(), stdin.value, function () {
+            out.innerHTML = '<div class="oe-placeholder">Много запусков, ваша программа в очереди…</div>';
+        }).then(function (result) {
             out.innerHTML = E.renderResult(result);
         }).catch(function (err) {
             out.innerHTML = E.renderResult({status: 'error', message: err.message});

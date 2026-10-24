@@ -237,11 +237,15 @@
     };
 
     /* `stdin` may be a list: the program is compiled once and run on every input (result.runs). */
-    Runner.prototype.run = function (language, source, stdin) {
+    /* `stdin` may be a list: the program is compiled once and run on every input (result.runs).
+     * When the runner is busy (HTTP 503) the request waits in line and is retried a few times. */
+    Runner.prototype.run = function (language, source, stdin, onWait, extra) {
         var self = this;
-        var body = {language: language, source: source};
+        var body = Object.assign({language: language, source: source}, extra || {});
         if (Array.isArray(stdin)) body.stdins = stdin; else body.stdin = stdin || '';
-        return self.getToken().then(function (token) {
+        var attempt = 0;
+
+        function once(token) {
             body.token = token;
             return fetch(self.url + '/run', {
                 method: 'POST',
@@ -250,11 +254,21 @@
             }).catch(function () {
                 throw new Error(T.network);
             }).then(function (r) {
+                if (r.status === 503 && attempt < 6) {
+                    attempt++;
+                    if (onWait) onWait(attempt);
+                    var delay = 1500 + Math.random() * 2500 * attempt;
+                    return new Promise(function (resolve) { setTimeout(resolve, delay); }).then(function () {
+                        return once(token);
+                    });
+                }
                 return r.json().catch(function () { throw new Error(T.network); });
-            }).then(function (result) {
-                if (result.status === 'error' && /устарела/.test(result.message || '')) self.token = null;
-                return result;
             });
+        }
+
+        return self.getToken().then(once).then(function (result) {
+            if (result.status === 'error' && /устарела/.test(result.message || '')) self.token = null;
+            return result;
         });
     };
 

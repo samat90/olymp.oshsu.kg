@@ -60,7 +60,7 @@ class Participant(HttpUser):
         self.client.post('/runner/token/', json={'problem': random.choice(PROBLEMS)},
                          headers={'X-CSRFToken': csrf, 'Referer': self.host + '/'}, name='runner token')
 
-    @task(3)
+    @task(int(os.environ.get('SUBMIT_WEIGHT', 3)))
     def submit(self):
         problem = random.choice(PROBLEMS)
         page = self.client.get('/problem/%s/submit' % problem, name='solve page')

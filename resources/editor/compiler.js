@@ -700,13 +700,9 @@ document.addEventListener('DOMContentLoaded', function () {
         setRunning(true);
         var out = $('#ws-result');
         out.innerHTML = '<div class="oe-placeholder">' + E.T.running + '</div>';
-        runner.getToken().then(function (token) {
-            return fetch(runner.url + '/run', {
-                method: 'POST', headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({token: token, language: file.language, source: source, main: file.name,
-                                      files: extra, args: args, stdin: $('#ws-stdin').value})
-            }).then(function (r) { return r.json(); });
-        }).then(function (result) {
+        runner.run(file.language, source, $('#ws-stdin').value, function () {
+            out.innerHTML = '<div class="oe-placeholder">Много запусков, ваша программа в очереди…</div>';
+        }, {main: file.name, files: extra, args: args}).then(function (result) {
             out.innerHTML = E.renderResult(result);
         }).catch(function (err) {
             out.innerHTML = E.renderResult({status: 'error', message: err.message || E.T.network});
