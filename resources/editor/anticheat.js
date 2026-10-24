@@ -6,6 +6,7 @@
     var cfg = window.OLYMP_ANTICHEAT;
     if (!cfg) return;
 
+    var T = cfg.t;
     var warnings = cfg.warnings;
     var lastSent = 0;
     var queueKey = 'anticheat-queue:' + cfg.contest;
@@ -53,21 +54,16 @@
         if (!res || !res.tracking) return;
         if (res.disqualified) {
             disqualified = true;
-            showModal('Вы дисквалифицированы',
-                'Вы слишком часто покидали страницу олимпиады. Ваши решения больше не учитываются в рейтинге. ' +
-                'Если это ошибка, обратитесь к наблюдателю.', 'Понятно', function () { location.reload(); }, true);
+            showModal(T.dq, T.dqText, T.ok, function () { location.reload(); }, true);
             return;
         }
         if (res.counted) {
             warnings = res.warnings;
             updateBadge();
             var left = res.max - res.warnings;
-            showModal('Предупреждение ' + res.warnings + ' из ' + res.max,
-                'Во время олимпиады нельзя переходить на другие вкладки, в другие программы и вставлять код со стороны. ' +
-                (left > 0
-                    ? 'Осталось предупреждений: ' + left + '. После них следующее нарушение приведёт к дисквалификации.'
-                    : 'Это было последнее предупреждение. Следующее нарушение приведёт к дисквалификации.'),
-                'Вернуться к олимпиаде');
+            showModal(T.warning + ' ' + res.warnings + ' / ' + res.max,
+                T.rule + ' ' + (left > 0 ? T.left + ' ' + left + '.' : T.last),
+                T.back);
         }
     }
 
@@ -132,7 +128,7 @@
     var badge = document.createElement('div');
     function updateBadge() {
         badge.className = 'ac-badge' + (warnings ? ' ac-warned' : '');
-        badge.textContent = 'Олимпиада: не покидайте вкладку · предупреждений ' + warnings + ' из ' + cfg.max;
+        badge.textContent = T.badge + ' ' + warnings + ' / ' + cfg.max;
     }
     document.addEventListener('DOMContentLoaded', function () {
         updateBadge();

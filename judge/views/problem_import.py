@@ -50,9 +50,7 @@ class ReviewForm(forms.Form):
     time_limit = forms.FloatField(min_value=0.1, max_value=20, label=gettext_lazy('Time limit, seconds'))
     memory_mb = forms.IntegerField(min_value=16, max_value=1024, label=gettext_lazy('Memory limit, MB'))
     points = forms.FloatField(min_value=1, initial=100, label=gettext_lazy('Points'))
-    is_public = forms.BooleanField(required=False, label=gettext_lazy('Show in the public problem list'),
-                                   help_text=gettext_lazy('Leave it off for olympiad problems: they open '
-                                                          'automatically after the contest if the contest says so.'))
+    is_public = forms.BooleanField(required=False, label=gettext_lazy('Show in the public problem list'))
     description = forms.CharField(label=gettext_lazy('Statement (Markdown)'), widget=forms.Textarea(
         attrs={'rows': 22, 'style': 'width: 100%; font-family: monospace'}))
 

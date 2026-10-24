@@ -23,11 +23,10 @@
 {% block body %}
     <p class="violations-note">
         {% if contest.anticheat_enabled %}
-            {{ _('Tab tracking is on. A participant is disqualified on the next violation after %(n)s warnings.', n=contest.anticheat_max_warnings) }}
+            {{ _('Warnings before disqualification: %(n)s', n=contest.anticheat_max_warnings) }}
         {% else %}
             {{ _('Tab tracking is off for this contest.') }}
         {% endif %}
-        {{ _('Events less than a few seconds apart count as one warning.') }}
     </p>
     {% if rows %}
         <table class="table striped violations">

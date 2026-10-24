@@ -462,3 +462,8 @@ button.cc-tab-close:hover { background: var(--oe-bg-hover); }
 }
 
 .cc-side .ws-side-head .oe-btn.oe-icon { width: 30px; height: 30px; }
+
+/* Problem page console */
+.oe-panel.oe-console { padding: 0; background: var(--oe-bg); }
+#oe-terminal { flex: 1; min-height: 0; height: 100%; padding: 6px 0 0 10px; }
+#oe-terminal .xterm { height: 100%; }

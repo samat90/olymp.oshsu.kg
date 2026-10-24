@@ -10,11 +10,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var select = $('#id_language');
     var status = $('#oe-status');
-    var stdin = $('#oe-stdin');
     var form = $('#problem_submit');
     var runner = data.runnerEnabled ? new E.Runner({problem: data.problem}) : null;
     var editor = null;
-    var busy = false;
     var currentLang = select ? select.value : null;
 
     function storageGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
@@ -32,104 +30,36 @@ document.addEventListener('DOMContentLoaded', function () {
         return lang ? lang.template || '' : '';
     }
 
-    function setStatus(text) { if (status) status.textContent = text || ''; }
-
-    /* ---- panel tabs ---- */
-    function showPane(name) {
-        document.querySelectorAll('.oe-tab').forEach(function (t) { t.classList.toggle('oe-active', t.dataset.pane === name); });
-        document.querySelectorAll('.oe-pane').forEach(function (p) { p.classList.toggle('oe-active', p.dataset.pane === name); });
-    }
-    document.querySelectorAll('.oe-tab').forEach(function (tab) {
-        tab.addEventListener('click', function () { showPane(tab.dataset.pane); });
-    });
-
-    if (stdin) {
-        var stdinKey = 'stdin:' + data.problem;
-        var savedInput = storageGet(stdinKey);
-        stdin.value = savedInput !== null ? savedInput : (data.samples.length ? data.samples[0].input : '');
-        stdin.addEventListener('input', function () { storageSet(stdinKey, stdin.value); });
-        stdin.addEventListener('keydown', function (e) {
-            if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { e.preventDefault(); run(); }
-        });
+    var statusTimer = null;
+    function setStatus(text) {
+        if (!status) return;
+        status.textContent = text || '';
+        clearTimeout(statusTimer);
+        if (text) statusTimer = setTimeout(function () { status.textContent = ''; }, 3000);
     }
 
-    var badge = $('#oe-samples-badge');
-    if (badge) badge.textContent = data.samples.length || '';
-    var samplesBtn = $('#oe-samples-btn');
-    if (samplesBtn && !data.samples.length) {
-        samplesBtn.disabled = true;
-        samplesBtn.title = 'В условии не найдено примеров';
-    }
+    /* ---- running: the program works in the console below the editor ---- */
+    var terminal = $('#oe-terminal');
+    var cons = runner && terminal && window.Terminal ? new window.OlympConsole(terminal, runner) : null;
+    var runBtn = $('#oe-run-btn');
+    var stopBtn = $('#oe-stop-btn');
+    if (cons) cons.onState = function (on) {
+        if (runBtn) runBtn.disabled = on;
+        if (stopBtn) stopBtn.disabled = !on;
+    };
 
-    /* ---- running ---- */
     function language() {
         var lang = languages[String(select.value)];
         return lang ? lang.key : null;
     }
 
-    function setBusy(on, text) {
-        busy = on;
-        ['#oe-run-btn', '#oe-samples-btn'].forEach(function (sel) {
-            var b = $(sel);
-            if (b) b.disabled = on || (sel === '#oe-samples-btn' && !data.samples.length);
-        });
-        setStatus(on ? text : '');
-    }
-
     function run() {
-        if (!runner || busy || !editor) return;
-        showPane('result');
-        var out = $('#oe-result');
-        out.innerHTML = '<div class="oe-placeholder">' + E.T.running + '</div>';
-        setBusy(true, E.T.running);
-        runner.run(language(), editor.getValue(), stdin.value, function () {
-            out.innerHTML = '<div class="oe-placeholder">Много запусков, ваша программа в очереди…</div>';
-        }).then(function (result) {
-            out.innerHTML = E.renderResult(result);
-        }).catch(function (err) {
-            out.innerHTML = E.renderResult({status: 'error', message: err.message});
-        }).then(function () { setBusy(false); });
+        if (!cons || !editor || cons.running()) return;
+        cons.run(language(), editor.getValue());
     }
 
-    function runSamples() {
-        if (!runner || busy || !editor || !data.samples.length) return;
-        showPane('samples');
-        var out = $('#oe-samples');
-        out.innerHTML = '';
-        setBusy(true, E.T.running);
-        var source = editor.getValue();
-        var lang = language();
-        var passed = 0;
-        out.innerHTML = '<div class="oe-placeholder">' + E.T.running + '</div>';
-
-        // One request: the code is compiled once and run on every sample.
-        var request = runner.run(lang, source, data.samples.map(function (s) { return s.input; }))
-            .then(function (result) {
-                out.innerHTML = '';
-                var runs = result.runs || [result];
-                for (var index = 0; index < data.samples.length; index++) {
-                    var r = E.renderSample(index, data.samples[index], result.status === 'ok' ? runs[index] : result);
-                    out.insertAdjacentHTML('beforeend', r.html);
-                    if (r.passed) passed++;
-                    if (r.stop) break;
-                }
-            });
-
-        request.catch(function (err) {
-            out.insertAdjacentHTML('beforeend', E.renderResult({status: 'error', message: err.message}));
-        }).then(function () {
-            setBusy(false);
-            if (badge) {
-                badge.textContent = passed + '/' + data.samples.length;
-                badge.className = 'oe-badge ' + (passed === data.samples.length ? 'oe-ok' : 'oe-bad');
-            }
-        });
-    }
-
-    var runBtn = $('#oe-run-btn');
     if (runBtn) runBtn.addEventListener('click', run);
-    if (samplesBtn) samplesBtn.addEventListener('click', runSamples);
-    $('#oe-settings-btn').addEventListener('click', E.openSettings);
+    if (stopBtn) stopBtn.addEventListener('click', function () { if (cons) cons.stop(); });
 
     /* ---- submit ---- */
     var submitting = false;
@@ -138,12 +68,12 @@ document.addEventListener('DOMContentLoaded', function () {
         var source = editor.getValue();
         if (!source.trim()) {
             e.preventDefault();
-            setStatus('Код пустой');
+            setStatus(E.T.emptyCode);
             return;
         }
         if (source.length > 65536) {
             e.preventDefault();
-            alert('Код должен быть не длиннее 65536 символов.');
+            alert(E.T.tooLong);
             return;
         }
         if (submitting) { e.preventDefault(); return; }
@@ -162,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
         ace: lang0 ? lang0.ace : 'text',
         onRun: run,
         onSubmit: function () { if (form.requestSubmit) form.requestSubmit(); else form.submit(); },
-        onSave: function () { storageSet(draftKey(currentLang), editor.getValue()); setStatus('Черновик сохранён'); },
+        onSave: function () { storageSet(draftKey(currentLang), editor.getValue()); setStatus(E.T.saved); },
         onChange: function (value) { if (currentLang) storageSet(draftKey(currentLang), value); },
         onExternalPaste: window.OlympAnticheat ? window.OlympAnticheat.onPaste : null
     }).then(function (ed) {
@@ -171,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (loading) loading.remove();
         ed.focus();
     }).catch(function () {
-        $('#oe-editor').innerHTML = '<div class="oe-editor-loading">Не удалось загрузить редактор. Обновите страницу.</div>';
+        $('#oe-editor').innerHTML = '<div class="oe-editor-loading">' + E.escape(E.T.editorFailed) + '</div>';
     });
 
     if (select) {
@@ -215,6 +145,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var ratio = (x / (rect.width - x - 6)).toFixed(3);
         solve.style.gridTemplateColumns = ratio + 'fr 6px 1fr';
         storageSet('oe-split', ratio);
+        if (cons) cons.refit();
     });
 
     var panel = $('#oe-panel');
@@ -225,5 +156,6 @@ document.addEventListener('DOMContentLoaded', function () {
         var h = Math.min(Math.max(work.bottom - ev.clientY, 90), work.height - 160);
         panel.style.flexBasis = h + 'px';
         storageSet('oe-panel-h', Math.round(h));
+        if (cons) cons.refit();
     });
 });

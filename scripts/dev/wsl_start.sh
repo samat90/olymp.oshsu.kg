@@ -13,9 +13,11 @@ service redis-server start >/dev/null
 
 pkill -f 'manage.py runserver' || true
 pkill -f 'manage.py runbridged' || true
-pkill -f 'dmoj -c /opt/judge/judge.yml' || true
+pkill -f 'dmoj -c /opt/judge/judge' || true
 pkill -f 'runner/server.py' || true
-sleep 1
+sleep 2
+# A bridge stuck from an earlier run keeps port 9999 and judges never connect.
+pkill -9 -f 'manage.py runbridged' || true
 
 cd $SITE
 setsid nohup $PY manage.py runbridged > $LOG/bridge.log 2>&1 &

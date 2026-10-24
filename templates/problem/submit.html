@@ -6,9 +6,11 @@
 
 {% block media %}
     <link rel="stylesheet" href="{{ static('editor/olymp-editor.css') }}?v={{ STATIC_VERSION }}">
+    <link rel="stylesheet" href="{{ static('vendor/xterm/xterm.css') }}">
 {% endblock %}
 
 {% block js_media %}
+    {% include "workspace/strings.html" %}
     <script>
         window.OLYMP_EDITOR = {
             monacoBase: '{{ static('vendor/monaco/vs') }}',
@@ -19,13 +21,15 @@
         window.OLYMP_SOLVE = {
             problem: '{{ problem.code }}',
             languages: {{ editor_languages_json|safe }},
-            samples: {{ samples_json|safe }},
             runnerEnabled: {{ 'true' if runner_enabled else 'false' }},
             initialSource: {{ initial_source|tojson if initial_source is not none else 'null' }},
             defaultLanguage: {{ default_lang.id if default_lang else 'null' }}
         };
     </script>
+    <script src="{{ static('vendor/xterm/xterm.js') }}"></script>
+    <script src="{{ static('vendor/xterm-fit/addon-fit.js') }}"></script>
     <script src="{{ static('editor/olymp-editor.js') }}?v={{ STATIC_VERSION }}"></script>
+    <script src="{{ static('editor/console.js') }}?v={{ STATIC_VERSION }}"></script>
     <script src="{{ static('editor/solve.js') }}?v={{ STATIC_VERSION }}"></script>
 {% endblock %}
 
@@ -84,16 +88,13 @@
                             {% endfor %}
                         </select>
                     {% endif %}
-                    <button type="button" class="oe-btn oe-icon" id="oe-settings-btn" title="{{ _('Editor settings') }}">
-                        <i class="fa fa-cog"></i>
-                    </button>
                     <span class="oe-status" id="oe-status" role="status" aria-live="polite"></span>
                     <span class="oe-spacer"></span>
-                    {% if runner_enabled %}
-                        <button type="button" class="oe-btn" id="oe-samples-btn">{{ _('Test on samples') }}</button>
-                        <button type="button" class="oe-btn oe-run" id="oe-run-btn">
-                            <i class="fa fa-play"></i> {{ _('Run') }} <kbd>Ctrl+Enter</kbd>
+                    {% if runner_enabled and not no_judges %}
+                        <button type="button" class="oe-btn oe-run" id="oe-run-btn" title="Ctrl+Enter">
+                            <i class="fa fa-play"></i> {{ _('Run') }}
                         </button>
+                        <button type="button" class="oe-btn" id="oe-stop-btn" disabled title="{{ _('Stop') }}"><i class="fa fa-stop"></i></button>
                     {% endif %}
                     {% if not no_judges %}
                         <button type="submit" class="oe-btn oe-primary" id="oe-submit-btn"
@@ -105,25 +106,10 @@
                 <div class="oe-editor" id="oe-editor">
                     <div class="oe-editor-loading">{{ _('Loading editor…') }}</div>
                 </div>
-                {% if runner_enabled %}
+                {% if runner_enabled and not no_judges %}
                     <div class="oe-hsplit" id="oe-hsplit"></div>
-                    <div class="oe-panel" id="oe-panel">
-                        <div class="oe-tabs" role="tablist">
-                            <button type="button" class="oe-tab oe-active" data-pane="input">{{ _('Input') }}</button>
-                            <button type="button" class="oe-tab" data-pane="result">{{ _('Result') }}</button>
-                            <button type="button" class="oe-tab" data-pane="samples">{{ _('Samples') }}
-                                <span class="oe-badge" id="oe-samples-badge"></span></button>
-                        </div>
-                        <div class="oe-pane oe-active" data-pane="input">
-                            <textarea class="oe-stdin" id="oe-stdin" spellcheck="false"
-                                      placeholder="{{ _('Input data for the Run button') }}"></textarea>
-                        </div>
-                        <div class="oe-pane" data-pane="result" id="oe-result">
-                            <div class="oe-placeholder">{{ _('Press Run to see what your program prints.') }}</div>
-                        </div>
-                        <div class="oe-pane" data-pane="samples" id="oe-samples">
-                            <div class="oe-placeholder">{{ _('Press "Test on samples" to check your program on the examples from the statement.') }}</div>
-                        </div>
+                    <div class="oe-panel oe-console" id="oe-panel">
+                        <div id="oe-terminal"></div>
                     </div>
                 {% endif %}
             </section>

@@ -86,8 +86,7 @@ class GenerateUsersForm(forms.Form):
         required=False, widget=forms.Textarea(attrs={'rows': 8, 'cols': 70,
                                                      'placeholder': 'Иванов Иван; ОшГУ\nПетрова Айгерим; ОшМПУ'}),
         label=_('Participants list'),
-        help_text=_('One participant per line: full name, then a semicolon and the university or school. '
-                    'If the list is filled in, the number below is ignored.'),
+        help_text=_('One per line: full name; university'),
     )
     count = forms.IntegerField(
         min_value=1, max_value=1000, required=False,
@@ -111,7 +110,6 @@ class GenerateUsersForm(forms.Form):
     contest = forms.ModelChoiceField(
         queryset=Contest.objects.none(), required=False,
         label=_('Add to contest'),
-        help_text=_('The new accounts become the only participants allowed into this contest.'),
     )
 
     def __init__(self, *args, **kwargs):

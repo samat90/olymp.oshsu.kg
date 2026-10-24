@@ -114,7 +114,18 @@
                 warnings: {{ anticheat.warnings }},
                 max: {{ anticheat.max }},
                 url: '{{ url('contest_anticheat_report', anticheat.contest) }}',
-                csrf: '{{ csrf_token }}'
+                csrf: '{{ csrf_token }}',
+                t: {{ {
+                    'dq': _('You are disqualified'),
+                    'dqText': _('You left the contest page too many times. Your solutions no longer count.'),
+                    'ok': _('OK'),
+                    'warning': _('Warning'),
+                    'rule': _('Do not leave the contest page.'),
+                    'left': _('Warnings left:'),
+                    'last': _('The next violation means disqualification.'),
+                    'back': _('Back to the contest'),
+                    'badge': _('Warnings:')
+                }|tojson }}
             };
         </script>
         <script src="{{ static('editor/anticheat.js') }}?v={{ STATIC_VERSION }}"></script>

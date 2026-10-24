@@ -1559,3 +1559,210 @@ msgstr "Файлдарды жүктөп салуу"
 
 msgid "Write and run code in C, C++, Java, Python, C#, JavaScript, Go, Kotlin and Pascal. The program runs in the terminal below: it prints and waits for your input just like on your own computer. Files are saved to your account."
 msgstr "C, C++, Java, Python, C#, JavaScript, Go, Kotlin жана Pascal тилдеринде код жазып, иштетиңиз. Программа төмөнкү терминалда иштейт: компьютериңиздегидей эле басып чыгарат жана киргизүүнү күтөт. Файлдар аккаунтта сакталат."
+
+msgid "Running…"
+msgstr "Аткарылууда…"
+
+msgid "Compiling…"
+msgstr "Компиляция…"
+
+msgid "Waiting in the queue…"
+msgstr "Кезекте күтүүдө…"
+
+msgid "Compilation error"
+msgstr "Компиляция катасы"
+
+msgid "Done"
+msgstr "Даяр"
+
+msgid "Time limit exceeded"
+msgstr "Убакыт ашып кетти"
+
+msgid "Stopped: no input for too long"
+msgstr "Токтотулду: киргизүү өтө узак болгон жок"
+
+msgid "Memory limit exceeded"
+msgstr "Эс тутум ашып кетти"
+
+msgid "Output limit exceeded"
+msgstr "Чыгаруу өтө чоң"
+
+msgid "Runtime error"
+msgstr "Аткаруу учурундагы ката"
+
+msgid "Server error"
+msgstr "Сервер катасы"
+
+msgid "Sample"
+msgstr "Мисал"
+
+msgid "Matches"
+msgstr "Дал келди"
+
+msgid "Does not match"
+msgstr "Дал келген жок"
+
+msgid "Expected"
+msgstr "Күтүлгөн"
+
+msgid "Got"
+msgstr "Алынган"
+
+msgid "(no output)"
+msgstr "(чыгаруу бош)"
+
+msgid "exit code"
+msgstr "чыгуу коду"
+
+msgid "time"
+msgstr "убакыт"
+
+msgid "memory"
+msgstr "эс тутум"
+
+msgid "No connection to the run server. Try again."
+msgstr "Ишке киргизүү сервери менен байланыш жок. Кайра аракет кылыңыз."
+
+msgid "Program finished with exit code"
+msgstr "Программа бүттү, чыгуу коду"
+
+msgid "Same as the site"
+msgstr "Сайттагыдай"
+
+msgid "High contrast"
+msgstr "Контрасттуу"
+
+msgid "Indent"
+msgstr "Чегинүү"
+
+msgid "spaces"
+msgstr "боштук"
+
+msgid "Wrap long lines"
+msgstr "Узун саптарды которуу"
+
+msgid "Minimap"
+msgstr "Мини-карта"
+
+msgid "Suggestions"
+msgstr "Сунуштар"
+
+msgid "Font ligatures"
+msgstr "Шрифт лигатуралары"
+
+msgid "No files"
+msgstr "Файлдар жок"
+
+msgid "Files"
+msgstr "Файлдар"
+
+msgid "Upload here"
+msgstr "Бул жерге жүктөө"
+
+msgid "Rename"
+msgstr "Атын өзгөртүү"
+
+msgid "Download zip"
+msgstr "Zip жүктөп алуу"
+
+msgid "Move to the top"
+msgstr "Башкы папкага жылдыруу"
+
+msgid "Delete «%s»?"
+msgstr "«%s» өчүрүлсүнбү?"
+
+msgid "%s is larger than 64 KB"
+msgstr "%s 64 КБдан чоң"
+
+msgid "Uploaded"
+msgstr "Жүктөлдү"
+
+msgid "Saved"
+msgstr "Сакталды"
+
+msgid "Not saved"
+msgstr "Сакталган жок"
+
+msgid "Formatted"
+msgstr "Форматталды"
+
+msgid "Not available for this language"
+msgstr "Бул тил үчүн жеткиликсиз"
+
+msgid "Link copied:"
+msgstr "Шилтеме көчүрүлдү:"
+
+msgid "Choose a language"
+msgstr "Тилди тандаңыз"
+
+msgid "Expand"
+msgstr "Жайып көрсөтүү"
+
+msgid "Collapse"
+msgstr "Жыйноо"
+
+msgid "Run in the console"
+msgstr "Консолдо иштетүү"
+
+msgid "Run with text input"
+msgstr "Тексттен киргизүү менен иштетүү"
+
+msgid "Beautify"
+msgstr "Форматтоо"
+
+msgid "Arguments"
+msgstr "Аргументтер"
+
+msgid "Interactive console"
+msgstr "Интерактивдүү консоль"
+
+msgid "Text"
+msgstr "Текст"
+
+msgid "Clear"
+msgstr "Тазалоо"
+
+msgid "The code is empty"
+msgstr "Код бош"
+
+msgid "The code must be at most 65536 characters long."
+msgstr "Код 65536 белгиден ашпашы керек."
+
+msgid "The editor did not load. Refresh the page."
+msgstr "Редактор жүктөлгөн жок. Баракты жаңылаңыз."
+
+msgid "Warnings before disqualification: %(n)s"
+msgstr "Дисквалификацияга чейинки эскертүүлөр: %(n)s"
+
+msgid "One per line: full name; university"
+msgstr "Ар бир сапка бирден: аты-жөнү; ЖОЖ"
+
+msgid "Files 1.in / 1.out or 01 / 01.a, 1 point per test."
+msgstr "1.in / 1.out же 01 / 01.a файлдары, ар бир тест 1 упай."
+
+msgid "You are disqualified"
+msgstr "Сиз дисквалификацияландыңыз"
+
+msgid "You left the contest page too many times. Your solutions no longer count."
+msgstr "Сиз олимпиаданын барагынан өтө көп чыктыңыз. Чечимдер мындан ары эсептелбейт."
+
+msgid "OK"
+msgstr "Түшүнүктүү"
+
+msgid "Warning"
+msgstr "Эскертүү"
+
+msgid "Do not leave the contest page."
+msgstr "Олимпиаданын барагынан чыкпаңыз."
+
+msgid "Warnings left:"
+msgstr "Калган эскертүүлөр:"
+
+msgid "The next violation means disqualification."
+msgstr "Кийинки бузуу — дисквалификация."
+
+msgid "Back to the contest"
+msgstr "Олимпиадага кайтуу"
+
+msgid "Warnings:"
+msgstr "Эскертүүлөр:"

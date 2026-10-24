@@ -368,7 +368,7 @@
                 <input type="checkbox" name="autofill" value="1"{% if not problem.cases.exists() %} checked{% endif %}>
                 <b>{{ _('Fill the test list from the archive automatically') }}</b>
             </label>
-            <div class="autofill-help">{{ _('Pairs like 1.in / 1.out, 01 / 01.a or input1.txt / output1.txt are found by name and sorted by number. Each test is worth 1 point. The current list below is replaced.') }}</div>
+            <div class="autofill-help">{{ _('Files 1.in / 1.out or 01 / 01.a, 1 point per test.') }}</div>
         </div>
         <div id="column-visible" data-problem="{{ problem.code }}">
             <strong>{{ _('Show columns:') }}</strong>

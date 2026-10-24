@@ -28,7 +28,11 @@ def in_live_contest(request):
 
 
 def available_languages():
-    return list(Language.objects.filter(judges__online=True).distinct().order_by('name'))
+    languages = list(Language.objects.filter(judges__online=True).distinct().order_by('name'))
+    if not languages:
+        # Judges restarting: still show the languages they normally have.
+        languages = list(Language.objects.filter(judges__isnull=False).distinct().order_by('name'))
+    return languages
 
 
 def editor_language_info(languages):

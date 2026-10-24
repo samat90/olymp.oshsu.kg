@@ -27,14 +27,18 @@
         objectivec: 'objective-c', fsharp: 'fsharp', vbscript: 'vb', sh: 'shell', d: 'plaintext'
     };
 
-    var T = {
-        run: 'Запустить', running: 'Выполняется…', compiling: 'Компиляция…',
+    var T = Object.assign({
+        run: 'Запустить', running: 'Выполняется…', compiling: 'Компиляция…', queued: 'Ожидание в очереди…',
         compileError: 'Ошибка компиляции', ok: 'Готово', tle: 'Превышено время', mle: 'Превышена память',
-        ole: 'Слишком большой вывод', rte: 'Ошибка во время выполнения', error: 'Ошибка',
-        sampleOk: 'Совпало', sampleBad: 'Не совпало', expected: 'Ожидалось', got: 'Получено',
-        noOutput: '(пустой вывод)', exitCode: 'код возврата', time: 'время', memory: 'память',
-        network: 'Нет связи с сервером запуска. Попробуйте ещё раз.'
-    };
+        ole: 'Слишком большой вывод', rte: 'Ошибка во время выполнения', error: 'Ошибка', serverError: 'Ошибка сервера',
+        sample: 'Пример', sampleOk: 'Совпало', sampleBad: 'Не совпало', expected: 'Ожидалось', got: 'Получено',
+        noOutput: '(пустой вывод)', exitCode: 'код возврата', time: 'время', memory: 'память', sec: 'с', mb: 'МБ',
+        network: 'Нет связи с сервером запуска. Попробуйте ещё раз.',
+        editorSettings: 'Настройки редактора', theme: 'Тема', themeAuto: 'Как на сайте', themeLight: 'Светлая',
+        themeDark: 'Тёмная', themeContrast: 'Контрастная', fontSize: 'Размер шрифта', indent: 'Отступ',
+        spaces: 'пробелов', wordWrap: 'Переносить длинные строки', minimap: 'Мини-карта', suggestions: 'Подсказки',
+        lineNumbers: 'Номера строк', ligatures: 'Лигатуры шрифта', reset: 'Сбросить', close: 'Закрыть'
+    }, window.OLYMP_STRINGS || {});
 
     function loadSettings() {
         var s = {};
@@ -294,7 +298,7 @@
 
     function stats(result) {
         if (result.status !== 'ok') return '';
-        var parts = [T.time + ' ' + result.time.toFixed(2) + ' c', T.memory + ' ' + Math.round(result.memory / 1024) + ' МБ'];
+        var parts = [T.time + ' ' + result.time.toFixed(2) + ' ' + T.sec, T.memory + ' ' + Math.round(result.memory / 1024) + ' ' + T.mb];
         if (result.exit_code) parts.push(T.exitCode + ' ' + result.exit_code);
         return parts.join(' · ');
     }
@@ -324,7 +328,7 @@
     function renderSample(index, sample, result) {
         var passed = result.status === 'ok' && result.verdict === 'OK' && sameOutput(result.stdout, sample.output);
         var head = '<div class="oe-sample-head ' + (passed ? 'oe-ok' : 'oe-bad') + '">' +
-            (passed ? '✓ ' : '✗ ') + 'Пример ' + (index + 1) + ': ' +
+            (passed ? '✓ ' : '✗ ') + T.sample + ' ' + (index + 1) + ': ' +
             esc(passed ? T.sampleOk : (result.status === 'ok' && result.verdict === 'OK' ? T.sampleBad : verdictText(result))) +
             '<span class="oe-stats">' + esc(stats(result)) + '</span></div>';
         if (passed) return {passed: true, html: head};
@@ -352,22 +356,23 @@
         box.id = 'oe-settings';
         box.className = 'oe-modal-backdrop';
         box.innerHTML =
-            '<div class="oe-modal" role="dialog" aria-label="Настройки редактора">' +
-            '<div class="oe-modal-title">Настройки редактора<button type="button" class="oe-close" aria-label="Закрыть">×</button></div>' +
-            row('Тема', '<select name="theme"><option value="auto">Как на сайте</option><option value="light">Светлая</option>' +
-                '<option value="dark">Тёмная</option><option value="contrast">Контрастная</option></select>') +
-            row('Размер шрифта', '<select name="fontSize">' + [12, 13, 14, 15, 16, 18, 20, 22, 24].map(function (n) {
+            '<div class="oe-modal" role="dialog" aria-label="' + T.editorSettings + '">' +
+            '<div class="oe-modal-title">' + T.editorSettings + '<button type="button" class="oe-close" aria-label="' + T.close + '">×</button></div>' +
+            row(T.theme, '<select name="theme"><option value="auto">' + T.themeAuto + '</option><option value="light">' + T.themeLight + '</option>' +
+                '<option value="dark">' + T.themeDark + '</option><option value="contrast">' + T.themeContrast + '</option></select>') +
+            row(T.fontSize, '<select name="fontSize">' + [12, 13, 14, 15, 16, 18, 20, 22, 24].map(function (n) {
                 return '<option value="' + n + '">' + n + '</option>';
             }).join('') + '</select>') +
-            row('Отступ', '<select name="tabSize"><option value="2">2 пробела</option><option value="4">4 пробела</option>' +
-                '<option value="8">8 пробелов</option></select>') +
-            check('wordWrap', 'Переносить длинные строки') +
-            check('minimap', 'Мини-карта кода справа') +
-            check('suggestions', 'Подсказки при наборе') +
-            check('lineNumbers', 'Номера строк') +
-            check('ligatures', 'Лигатуры шрифта') +
-            '<div class="oe-modal-foot"><button type="button" class="oe-btn oe-reset">Сбросить</button>' +
-            '<button type="button" class="oe-btn oe-primary oe-done">Готово</button></div></div>';
+            row(T.indent, '<select name="tabSize">' + [2, 4, 8].map(function (n) {
+                return '<option value="' + n + '">' + n + ' ' + T.spaces + '</option>';
+            }).join('') + '</select>') +
+            check('wordWrap', T.wordWrap) +
+            check('minimap', T.minimap) +
+            check('suggestions', T.suggestions) +
+            check('lineNumbers', T.lineNumbers) +
+            check('ligatures', T.ligatures) +
+            '<div class="oe-modal-foot"><button type="button" class="oe-btn oe-reset">' + T.reset + '</button>' +
+            '<button type="button" class="oe-btn oe-primary oe-done">' + T.ok + '</button></div></div>';
         document.body.appendChild(box);
 
         function row(label, control) { return '<label class="oe-row"><span>' + label + '</span>' + control + '</label>'; }

@@ -6828,3 +6828,225 @@ msgstr "Загрузить файлы"
 
 msgid "Write and run code in C, C++, Java, Python, C#, JavaScript, Go, Kotlin and Pascal. The program runs in the terminal below: it prints and waits for your input just like on your own computer. Files are saved to your account."
 msgstr "Пишите и запускайте код на C, C++, Java, Python, C#, JavaScript, Go, Kotlin и Pascal. Программа работает в терминале внизу: печатает и ждёт ввода, как на вашем компьютере. Файлы сохраняются в аккаунте."
+
+msgid "Running…"
+msgstr "Выполняется…"
+
+msgid "Compiling…"
+msgstr "Компиляция…"
+
+msgid "Waiting in the queue…"
+msgstr "Ожидание в очереди…"
+
+msgid "Compilation error"
+msgstr "Ошибка компиляции"
+
+msgid "Done"
+msgstr "Готово"
+
+msgid "Time limit exceeded"
+msgstr "Превышено время"
+
+msgid "Stopped: no input for too long"
+msgstr "Остановлено: слишком долго нет ввода"
+
+msgid "Memory limit exceeded"
+msgstr "Превышена память"
+
+msgid "Output limit exceeded"
+msgstr "Слишком большой вывод"
+
+msgid "Runtime error"
+msgstr "Ошибка во время выполнения"
+
+msgid "Server error"
+msgstr "Ошибка сервера"
+
+msgid "Sample"
+msgstr "Пример"
+
+msgid "Matches"
+msgstr "Совпало"
+
+msgid "Does not match"
+msgstr "Не совпало"
+
+msgid "Expected"
+msgstr "Ожидалось"
+
+msgid "Got"
+msgstr "Получено"
+
+msgid "(no output)"
+msgstr "(пустой вывод)"
+
+msgid "exit code"
+msgstr "код возврата"
+
+msgid "No connection to the run server. Try again."
+msgstr "Нет связи с сервером запуска. Попробуйте ещё раз."
+
+msgid "Program finished with exit code"
+msgstr "Программа завершилась с кодом"
+
+msgid "Theme"
+msgstr "Тема"
+
+msgid "Same as the site"
+msgstr "Как на сайте"
+
+msgid "High contrast"
+msgstr "Контрастная"
+
+msgid "Font size"
+msgstr "Размер шрифта"
+
+msgid "Indent"
+msgstr "Отступ"
+
+msgid "spaces"
+msgstr "пробелов"
+
+msgid "Wrap long lines"
+msgstr "Переносить длинные строки"
+
+msgid "Minimap"
+msgstr "Мини-карта"
+
+msgid "Suggestions"
+msgstr "Подсказки"
+
+msgid "Line numbers"
+msgstr "Номера строк"
+
+msgid "Font ligatures"
+msgstr "Лигатуры шрифта"
+
+msgid "Reset"
+msgstr "Сбросить"
+
+msgid "Close"
+msgstr "Закрыть"
+
+msgid "No files"
+msgstr "Файлов нет"
+
+msgid "Files"
+msgstr "Файлы"
+
+msgid "Upload here"
+msgstr "Загрузить сюда"
+
+msgid "Rename"
+msgstr "Переименовать"
+
+msgid "Download"
+msgstr "Скачать"
+
+msgid "Download zip"
+msgstr "Скачать zip"
+
+msgid "Move to the top"
+msgstr "Переместить в корень"
+
+msgid "Delete «%s»?"
+msgstr "Удалить «%s»?"
+
+msgid "%s is larger than 64 KB"
+msgstr "%s больше 64 КБ"
+
+msgid "Uploaded"
+msgstr "Загружено"
+
+msgid "Saved"
+msgstr "Сохранено"
+
+msgid "Not saved"
+msgstr "Не сохранено"
+
+msgid "Formatted"
+msgstr "Отформатировано"
+
+msgid "Not available for this language"
+msgstr "Для этого языка недоступно"
+
+msgid "Link copied:"
+msgstr "Ссылка скопирована:"
+
+msgid "Choose a language"
+msgstr "Выберите язык"
+
+msgid "Expand"
+msgstr "Развернуть"
+
+msgid "Collapse"
+msgstr "Свернуть"
+
+msgid "Run in the console"
+msgstr "Запустить в консоли"
+
+msgid "Run with text input"
+msgstr "Запустить с вводом из текста"
+
+msgid "Beautify"
+msgstr "Форматировать"
+
+msgid "Output"
+msgstr "Вывод"
+
+msgid "Arguments"
+msgstr "Аргументы"
+
+msgid "Interactive console"
+msgstr "Интерактивная консоль"
+
+msgid "Text"
+msgstr "Текст"
+
+msgid "Clear"
+msgstr "Очистить"
+
+msgid "The code is empty"
+msgstr "Код пустой"
+
+msgid "The code must be at most 65536 characters long."
+msgstr "Код должен быть не длиннее 65536 символов."
+
+msgid "The editor did not load. Refresh the page."
+msgstr "Редактор не загрузился. Обновите страницу."
+
+msgid "Warnings before disqualification: %(n)s"
+msgstr "Предупреждений до дисквалификации: %(n)s"
+
+msgid "One per line: full name; university"
+msgstr "По одному в строке: ФИО; вуз"
+
+msgid "Files 1.in / 1.out or 01 / 01.a, 1 point per test."
+msgstr "Файлы 1.in / 1.out или 01 / 01.a, по 1 баллу за тест."
+
+msgid "You are disqualified"
+msgstr "Вы дисквалифицированы"
+
+msgid "You left the contest page too many times. Your solutions no longer count."
+msgstr "Вы слишком часто покидали страницу олимпиады. Решения больше не учитываются."
+
+msgid "OK"
+msgstr "Понятно"
+
+msgid "Warning"
+msgstr "Предупреждение"
+
+msgid "Do not leave the contest page."
+msgstr "Не покидайте страницу олимпиады."
+
+msgid "Warnings left:"
+msgstr "Осталось предупреждений:"
+
+msgid "The next violation means disqualification."
+msgstr "Следующее нарушение — дисквалификация."
+
+msgid "Back to the contest"
+msgstr "Вернуться к олимпиаде"
+
+msgid "Warnings:"
+msgstr "Предупреждений:"

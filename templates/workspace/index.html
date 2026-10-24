@@ -1,15 +1,17 @@
 {% extends "base.html" %}
 
-{% block body_class %}oe-fullpage{% endblock %}
+{% block body_class %}gdb-page{% endblock %}
 {% block title_row %}{% endblock %}
 {% block title_ruler %}{% endblock %}
 
 {% block media %}
     <link rel="stylesheet" href="{{ static('editor/olymp-editor.css') }}?v={{ STATIC_VERSION }}">
+    <link rel="stylesheet" href="{{ static('editor/compiler.css') }}?v={{ STATIC_VERSION }}">
     <link rel="stylesheet" href="{{ static('vendor/xterm/xterm.css') }}">
 {% endblock %}
 
 {% block js_media %}
+    {% include "workspace/strings.html" %}
     <script>
         window.OLYMP_EDITOR = {
             monacoBase: '{{ static('vendor/monaco/vs') }}',
@@ -34,67 +36,92 @@
 {% endblock %}
 
 {% block body %}
-    <div class="cc" id="cc">
-        <div class="cc-toolbar oe-toolbar">
-            <button type="button" class="oe-btn oe-run" id="cc-run" disabled title="Ctrl+Enter">
-                <i class="fa fa-play"></i> {{ _('Run') }}
-            </button>
-            <button type="button" class="oe-btn" id="cc-stop" disabled><i class="fa fa-stop"></i> {{ _('Stop') }}</button>
-            <select class="oe-select" id="cc-language" aria-label="{{ _('Language') }}" disabled></select>
-            <div class="cc-mode" role="radiogroup" aria-label="{{ _('Input') }}">
-                <label><input type="radio" name="cc-mode" value="terminal" checked> {{ _('Terminal') }}</label>
-                <label><input type="radio" name="cc-mode" value="text"> {{ _('Prepared input') }}</label>
+    <div class="gdb" id="cc">
+        <aside class="gdb-nav">
+            <a class="gdb-brand" href="{{ url('home') }}">{% include "site-logo-fragment.html" %}</a>
+            <div class="gdb-links">
+                <a href="{{ url('home') }}"><i class="fa fa-home"></i>{{ _('Home') }}</a>
+                <a href="{{ url('problem_list') }}"><i class="fa fa-list"></i>{{ _('Problems') }}</a>
+                <a href="{{ url('contest_list') }}"><i class="fa fa-trophy"></i>{{ _('Contests') }}</a>
+                <a href="{{ url('all_submissions') }}"><i class="fa fa-tasks"></i>{{ _('Submissions') }}</a>
+                <a href="{{ url('workspace') }}" class="active"><i class="fa fa-code"></i>{{ _('Compiler') }}</a>
             </div>
-            <input type="text" class="cc-args" id="cc-args" placeholder="{{ _('Command line arguments') }}"
-                   spellcheck="false" autocomplete="off">
-            <span class="oe-spacer"></span>
-            <span class="oe-status" id="cc-status" role="status" aria-live="polite"></span>
-            <button type="button" class="oe-btn" id="cc-format" disabled title="{{ _('Format code') }}"><i class="fa fa-align-left"></i></button>
-            {% if not in_contest %}
-                <button type="button" class="oe-btn" id="cc-share" disabled title="{{ _('Share') }}"><i class="fa fa-link"></i></button>
-            {% endif %}
-            <button type="button" class="oe-btn" id="cc-download" disabled title="{{ _('Download file') }}"><i class="fa fa-download"></i></button>
-            <button type="button" class="oe-btn oe-icon" id="cc-settings" title="{{ _('Editor settings') }}"><i class="fa fa-cog"></i></button>
-        </div>
 
-        <aside class="ws-side cc-side">
-            <div class="ws-side-head">
-                <span class="ws-title">{{ _('My files') }}</span>
-                <button type="button" class="oe-btn oe-icon" id="ws-new-file" title="{{ _('New file') }}"><i class="fa fa-file-o"></i></button>
-                <button type="button" class="oe-btn oe-icon" id="ws-new-folder" title="{{ _('New folder') }}"><i class="fa fa-folder-o"></i></button>
-                <button type="button" class="oe-btn oe-icon" id="ws-upload" title="{{ _('Upload files') }}"><i class="fa fa-upload"></i></button>
-                <button type="button" class="oe-btn oe-icon" id="ws-zip" title="{{ _('Download everything as zip') }}"><i class="fa fa-file-archive-o"></i></button>
-                <input type="file" id="ws-upload-input" multiple hidden>
+            <div class="gdb-files">
+                <div class="gdb-files-head">
+                    <span>{{ _('My files') }}</span>
+                    <button type="button" id="ws-new-file" title="{{ _('New file') }}"><i class="fa fa-file-o"></i></button>
+                    <button type="button" id="ws-new-folder" title="{{ _('New folder') }}"><i class="fa fa-folder-o"></i></button>
+                    <button type="button" id="ws-zip" title="{{ _('Download everything as zip') }}"><i class="fa fa-file-archive-o"></i></button>
+                </div>
+                <div class="ws-tree" id="ws-tree" role="tree"></div>
+                <div class="gdb-files-foot" id="ws-foot"></div>
             </div>
-            <div class="ws-tree" id="ws-tree" role="tree"></div>
-            <div class="ws-side-foot" id="ws-foot"></div>
+
+            <div class="gdb-bottom">
+                <form action="{{ url('set_language') }}" method="post" class="gdb-lang">
+                    {% csrf_token %}
+                    <input name="next" type="hidden" value="{{ request.get_full_path() }}">
+                    {% for language in language_info_list(LANGUAGES) %}
+                        <button type="submit" name="language" value="{{ language.code }}" title="{{ language.name_local }}"
+                                {% if language.code == LANGUAGE_CODE %}class="active"{% endif %}>{{ language.code|upper }}</button>
+                    {% endfor %}
+                </form>
+                <a class="gdb-user" href="{{ url('user_page') }}">
+                    <img src="{{ gravatar(request.user, 32) }}" width="22" height="22" alt="">
+                    <span>{{ request.profile.display_name }}</span>
+                </a>
+            </div>
         </aside>
 
-        <section class="cc-main">
-            <div class="cc-tabs" id="cc-tabs" role="tablist"></div>
-            <div class="oe-editor" id="ws-editor">
-                <div class="ws-welcome" id="ws-welcome">
-                    <h2>{{ _('Online compiler') }}</h2>
-                    <p>{{ _('Write and run code in C, C++, Java, Python, C#, JavaScript, Go, Kotlin and Pascal. The program runs in the terminal below: it prints and waits for your input just like on your own computer. Files are saved to your account.') }}</p>
-                    <div class="cc-quick" id="cc-quick"></div>
-                </div>
+        <section class="gdb-main">
+            <div class="gdb-toolbar">
+                <button type="button" class="gdb-tool gdb-icon" id="tb-new" title="{{ _('New file') }}"><i class="fa fa-file-o"></i></button>
+                <button type="button" class="gdb-tool gdb-icon" id="ws-upload" title="{{ _('Upload files') }}"><i class="fa fa-upload"></i></button>
+                <input type="file" id="ws-upload-input" multiple hidden>
+                <span class="gdb-run-group">
+                    <button type="button" class="gdb-tool gdb-run" id="cc-run" disabled title="Ctrl+Enter">
+                        <i class="fa fa-play"></i> {{ _('Run') }}
+                    </button><button type="button" class="gdb-tool gdb-run gdb-caret" id="cc-run-menu" aria-haspopup="true"><i class="fa fa-caret-down"></i></button>
+                </span>
+                <button type="button" class="gdb-tool" id="cc-stop" disabled title="{{ _('Stop') }}"><i class="fa fa-stop"></i><span class="gdb-label">{{ _('Stop') }}</span></button>
+                {% if not in_contest %}
+                    <button type="button" class="gdb-tool" id="cc-share" disabled title="{{ _('Share') }}"><i class="fa fa-share-alt"></i><span class="gdb-label">{{ _('Share') }}</span></button>
+                {% endif %}
+                <button type="button" class="gdb-tool" id="cc-save" disabled title="Ctrl+S"><i class="fa fa-floppy-o"></i><span class="gdb-label">{{ _('Save') }}</span></button>
+                <button type="button" class="gdb-tool" id="cc-format" disabled title="{{ _('Beautify') }}"><i class="fa fa-code"></i><span class="gdb-label">{{ _('Beautify') }}</span></button>
+                <button type="button" class="gdb-tool gdb-icon" id="cc-download" disabled title="{{ _('Download file') }}"><i class="fa fa-download"></i></button>
+                <span class="gdb-spacer"></span>
+                <span class="gdb-status" id="cc-status" role="status" aria-live="polite"></span>
+                <label class="gdb-lang-select">{{ _('Language') }}
+                    <select id="cc-language" disabled></select>
+                </label>
+                <button type="button" class="gdb-tool gdb-icon" id="cc-settings" title="{{ _('Editor settings') }}"><i class="fa fa-cog"></i></button>
             </div>
-            <div class="oe-hsplit" id="ws-hsplit"></div>
-            <div class="oe-panel cc-panel" id="ws-panel">
-                <div class="oe-tabs">
-                    <button type="button" class="oe-tab oe-active" data-pane="terminal">{{ _('Terminal') }}</button>
-                    <button type="button" class="oe-tab" data-pane="input">{{ _('Input') }}</button>
-                    <button type="button" class="oe-tab" data-pane="result">{{ _('Result') }}</button>
-                    <span class="oe-spacer"></span>
-                    <button type="button" class="oe-tab" id="cc-clear" title="{{ _('Clear the terminal') }}"><i class="fa fa-eraser"></i></button>
+
+            <div class="gdb-tabs" id="cc-tabs" role="tablist"></div>
+            <div class="gdb-editor" id="ws-editor"></div>
+
+            <div class="gdb-hsplit" id="ws-hsplit"></div>
+            <div class="gdb-console" id="ws-panel">
+                <div class="gdb-console-head">
+                    <span class="gdb-console-title">{{ _('Output') }}</span>
+                    <label class="gdb-args">{{ _('Arguments') }}
+                        <input type="text" id="cc-args" spellcheck="false" autocomplete="off">
+                    </label>
+                    <span class="gdb-mode" role="radiogroup">
+                        {{ _('Input') }}:
+                        <label><input type="radio" name="cc-mode" value="terminal" checked> {{ _('Interactive console') }}</label>
+                        <label><input type="radio" name="cc-mode" value="text"> {{ _('Text') }}</label>
+                    </span>
+                    <span class="gdb-spacer"></span>
+                    <button type="button" class="gdb-icon-btn" id="cc-clear" title="{{ _('Clear') }}"><i class="fa fa-eraser"></i></button>
+                    <button type="button" class="gdb-icon-btn" id="cc-toggle" title="{{ _('Collapse') }}"><i class="fa fa-chevron-down"></i></button>
+                    <button type="button" class="gdb-icon-btn" id="cc-maximize" title="{{ _('Expand') }}"><i class="fa fa-expand"></i></button>
                 </div>
-                <div class="oe-pane oe-active cc-term-pane" data-pane="terminal"><div id="cc-terminal"></div></div>
-                <div class="oe-pane" data-pane="input">
-                    <textarea class="oe-stdin" id="ws-stdin" spellcheck="false" disabled
-                              placeholder="{{ _('Input data for the Prepared input mode') }}"></textarea>
-                </div>
-                <div class="oe-pane" data-pane="result" id="ws-result">
-                    <div class="oe-placeholder">{{ _('In the Prepared input mode the program gets the text from the Input tab, and its output shows up here.') }}</div>
+                <div class="gdb-console-body">
+                    <textarea class="gdb-stdin" id="ws-stdin" spellcheck="false" placeholder="{{ _('Input') }}" hidden></textarea>
+                    <div id="cc-terminal"></div>
                 </div>
             </div>
         </section>

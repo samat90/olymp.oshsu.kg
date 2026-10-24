@@ -94,19 +94,24 @@ def site_name(request):
 
 
 def _compute_static_version():
-    """OshSU: cache-buster для CSS/JS. nginx отдаёт static с max-age=30d,
-    поэтому без ?v= юзеры месяцами тащат закэшированный style.css.
-    Берём mtime style.css один раз на загрузку модуля; gunicorn restart
-    после каждого деплоя обновит значение."""
+    """OshSU: cache-buster for our CSS/JS (?v=). nginx serves static with max-age=30d.
+    The newest mtime among the site's own styles and the editor files, read once per
+    process: collectstatic touches only changed files, and a restart after each deploy
+    picks the new value up."""
     import os
-    candidates = [
-        os.path.join(settings.STATIC_ROOT or '', 'style.css'),
-        os.path.join(settings.BASE_DIR, 'sass_processed', 'style.css'),
-    ]
-    for path in candidates:
-        if path and os.path.isfile(path):
-            return str(int(os.path.getmtime(path)))
-    return '0'
+    newest = 0
+    for root in (settings.STATIC_ROOT, os.path.join(settings.BASE_DIR, 'sass_processed'),
+                 os.path.join(settings.BASE_DIR, 'resources')):
+        if not root or not os.path.isdir(root):
+            continue
+        paths = [os.path.join(root, name) for name in ('style.css', 'modern.css', 'common.js')]
+        editor = os.path.join(root, 'editor')
+        if os.path.isdir(editor):
+            paths += [os.path.join(editor, name) for name in os.listdir(editor)]
+        for path in paths:
+            if os.path.isfile(path):
+                newest = max(newest, int(os.path.getmtime(path)))
+    return str(newest)
 
 
 _STATIC_VERSION = _compute_static_version()

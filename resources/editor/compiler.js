@@ -1,9 +1,10 @@
-/* The Compiler section: files and folders, tabs, Monaco, and an interactive terminal. */
+/* The Compiler section: files and folders, tabs, Monaco, and a console. */
 document.addEventListener('DOMContentLoaded', function () {
     'use strict';
 
     var W = window.OLYMP_WORKSPACE;
     var E = window.OlympEditor;
+    var S = E.T;
     var cfg = window.OLYMP_EDITOR;
     var $ = function (sel) { return document.querySelector(sel); };
     var api = W.api;   // .../api/files/
@@ -48,9 +49,9 @@ document.addEventListener('DOMContentLoaded', function () {
             opts.body = JSON.stringify(body);
         }
         return fetch(url, opts).then(function (r) {
-            return r.json().catch(function () { return {ok: false, error: 'Ошибка сервера (' + r.status + ')'}; });
+            return r.json().catch(function () { return {ok: false, error: S.serverError + ' (' + r.status + ')'}; });
         }).then(function (data) {
-            if (!data.ok) throw new Error(data.error || 'Ошибка');
+            if (!data.ok) throw new Error(data.error || S.error);
             return data;
         });
     }
@@ -59,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function setStatus(text, sticky) {
         $('#cc-status').textContent = text || '';
         clearTimeout(statusTimer);
-        if (text && !sticky) statusTimer = setTimeout(function () { $('#cc-status').textContent = ''; }, 4000);
+        if (text && !sticky) statusTimer = setTimeout(function () { $('#cc-status').textContent = ''; }, 3000);
     }
     function fail(err) { setStatus(''); alert(err.message || err); }
 
@@ -84,22 +85,24 @@ document.addEventListener('DOMContentLoaded', function () {
     function render() {
         tree.innerHTML = '';
         var count = Object.keys(files).length;
-        if (!count) tree.innerHTML = '<div class="ws-empty">Файлов пока нет. Выберите язык ниже или создайте файл кнопкой сверху.</div>';
+        if (!count) tree.innerHTML = '<div class="ws-empty">' + E.escape(S.noFiles) + '</div>';
         (function walk(parentId, depth) {
             children(parentId).forEach(function (f) {
                 var row = document.createElement('div');
                 row.className = 'ws-item' + (f.id === active ? ' ws-current' : '');
-                row.style.paddingLeft = (8 + depth * 14) + 'px';
+                row.style.paddingLeft = (12 + depth * 14) + 'px';
                 row.dataset.id = f.id;
                 row.draggable = true;
                 row.setAttribute('role', 'treeitem');
-                row.innerHTML = '<i class="fa ' + icon(f) + '"></i><span class="ws-name"></span>';
+                row.innerHTML = '<i class="fa ' + icon(f) + '"></i><span class="ws-name"></span>' +
+                    '<button type="button" class="ws-del"><i class="fa fa-trash-o"></i></button>';
                 row.querySelector('.ws-name').textContent = f.name;
+                row.querySelector('.ws-del').title = S.delete;
                 tree.appendChild(row);
                 if (f.folder && expanded[f.id]) walk(f.id, depth + 1);
             });
         })(null, 0);
-        $('#ws-foot').textContent = 'Файлов: ' + count + ' из ' + W.maxFiles;
+        $('#ws-foot').textContent = S.files + ': ' + count + ' / ' + W.maxFiles;
         renderTabs();
     }
 
@@ -107,6 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var row = e.target.closest('.ws-item');
         if (!row || row.querySelector('input')) return;
         var f = files[row.dataset.id];
+        if (e.target.closest('.ws-del')) { e.stopPropagation(); remove(f); return; }
         if (f.folder) {
             expanded[f.id] = !expanded[f.id];
             storageSet('ws-expanded', JSON.stringify(expanded));
@@ -157,35 +161,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function closeMenu() {
-        var m = document.querySelector('.ws-menu');
-        if (m) m.remove();
+        document.querySelectorAll('.ws-menu').forEach(function (m) { m.remove(); });
     }
     document.addEventListener('click', closeMenu);
 
-    function showMenu(x, y, file) {
+    function popup(x, y, items) {
         closeMenu();
         var menu = document.createElement('div');
         menu.className = 'ws-menu';
-        var folderId = file ? (file.folder ? file.id : file.parent) : null;
-        var items = [
-            ['Новый файл', function () { startCreate(folderId, false); }],
-            ['Новая папка', function () { startCreate(folderId, true); }],
-            ['Загрузить файлы сюда', function () { uploadTarget = folderId; $('#ws-upload-input').click(); }]
-        ];
-        if (file) {
-            items.push(['Переименовать', function () { startRename(file); }]);
-            if (file.folder) {
-                items.push(['Скачать папку (zip)', function () { location.href = W.downloadUrl + '?folder=' + file.id; }]);
-            } else {
-                items.push(['Скачать файл', function () { downloadFile(file.id); }]);
-            }
-            if (file.parent) items.push(['Переместить в корень', function () {
-                request(api + file.id + '/move/', {parent: null}).then(function (d) {
-                    files[file.id] = Object.assign(files[file.id], d.file); render();
-                }).catch(fail);
-            }]);
-            items.push(['Удалить', function () { remove(file); }, 'ws-danger']);
-        }
         items.forEach(function (it) {
             var b = document.createElement('button');
             b.type = 'button';
@@ -198,6 +181,30 @@ document.addEventListener('DOMContentLoaded', function () {
         var rect = menu.getBoundingClientRect();
         menu.style.left = Math.min(x, window.innerWidth - rect.width - 8) + 'px';
         menu.style.top = Math.min(y, window.innerHeight - rect.height - 8) + 'px';
+    }
+
+    function showMenu(x, y, file) {
+        var folderId = file ? (file.folder ? file.id : file.parent) : null;
+        var items = [
+            [S.newFile, function () { startCreate(folderId, false); }],
+            [S.newFolder, function () { startCreate(folderId, true); }],
+            [S.uploadHere, function () { uploadTarget = folderId; $('#ws-upload-input').click(); }]
+        ];
+        if (file) {
+            items.push([S.rename, function () { startRename(file); }]);
+            if (file.folder) {
+                items.push([S.downloadZip, function () { location.href = W.downloadUrl + '?folder=' + file.id; }]);
+            } else {
+                items.push([S.download, function () { downloadFile(file.id); }]);
+            }
+            if (file.parent) items.push([S.moveToRoot, function () {
+                request(api + file.id + '/move/', {parent: null}).then(function (d) {
+                    files[file.id] = Object.assign(files[file.id], d.file); render();
+                }).catch(fail);
+            }]);
+            items.push([S.delete, function () { remove(file); }, 'ws-danger']);
+        }
+        popup(x, y, items);
     }
 
     function nameInput(row, value, onDone) {
@@ -225,18 +232,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function currentLanguage() {
-        return $('#cc-language').value || storageGet('ws-last-lang') || 'CPP17';
+        return langSelect.value || storageGet('ws-last-lang') || 'CPP17';
     }
 
-    function defaultName(folder, langKey) {
-        if (folder) return 'Новая папка';
-        var lang = langByKey[langKey || currentLanguage()] || W.languages[0];
+    function mainName(langKey) {
+        var lang = langByKey[langKey] || W.languages[0];
         return MAIN_NAME[lang.key] || ('main.' + (lang ? lang.ext : 'txt'));
     }
 
-    function uniqueName(parentId, name) {
+    function uniqueName(parentId, name, except) {
         var taken = {};
-        children(parentId).forEach(function (f) { taken[f.name] = true; });
+        children(parentId).forEach(function (f) { if (f.id !== except) taken[f.name] = true; });
         if (!taken[name]) return name;
         var dot = name.lastIndexOf('.');
         var base = dot > 0 ? name.slice(0, dot) : name;
@@ -259,6 +265,12 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    function createMain(langKey) {
+        return createFile(null, uniqueName(null, mainName(langKey)), HELLO[langKey] || '', langKey).then(function (f) {
+            return openFile(f.id, f);
+        });
+    }
+
     function startCreate(parentId, folder) {
         if (parentId) { expanded[parentId] = true; storageSet('ws-expanded', JSON.stringify(expanded)); }
         render();
@@ -266,13 +278,13 @@ document.addEventListener('DOMContentLoaded', function () {
         row.className = 'ws-item';
         var depth = 0;
         for (var p = parentId; p; p = files[p] && files[p].parent) depth++;
-        row.style.paddingLeft = (8 + depth * 14) + 'px';
+        row.style.paddingLeft = (12 + depth * 14) + 'px';
         row.innerHTML = '<i class="fa ' + (folder ? 'fa-folder-o' : 'fa-file-code-o') + '"></i><span class="ws-name"></span>';
         var anchor = parentId ? tree.querySelector('.ws-item[data-id="' + parentId + '"]') : null;
         if (anchor) anchor.after(row); else tree.prepend(row);
         var empty = tree.querySelector('.ws-empty');
         if (empty) empty.remove();
-        nameInput(row, uniqueName(parentId, defaultName(folder)), function (name) {
+        nameInput(row, uniqueName(parentId, folder ? S.newFolder : mainName(currentLanguage())), function (name) {
             if (!name) { render(); return; }
             if (folder) {
                 request(api + 'new/', {parent: parentId, name: name, folder: true}).then(function (data) {
@@ -291,26 +303,29 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    function applyRename(file, data) {
+        files[file.id] = Object.assign(files[file.id], data.file);
+        if (models[file.id]) {
+            var lang = langByKey[data.file.language];
+            window.monaco.editor.setModelLanguage(models[file.id], E.monacoLanguage(lang ? lang.ace : 'text'));
+        }
+        render();
+        if (active === file.id) showFileInfo();
+    }
+
     function startRename(file) {
         var row = tree.querySelector('.ws-item[data-id="' + file.id + '"]');
         if (!row) return;
         nameInput(row, file.name, function (name) {
             if (!name || name === file.name) { render(); return; }
             request(api + file.id + '/rename/', {name: name}).then(function (data) {
-                files[file.id] = Object.assign(files[file.id], data.file);
-                if (models[file.id]) {
-                    var lang = langByKey[data.file.language];
-                    window.monaco.editor.setModelLanguage(models[file.id], E.monacoLanguage(lang ? lang.ace : 'text'));
-                }
-                render();
-                if (active === file.id) showFileInfo();
+                applyRename(file, data);
             }).catch(function (err) { render(); fail(err); });
         });
     }
 
     function remove(file) {
-        var what = file.folder ? 'папку «' + file.name + '» со всем содержимым' : 'файл «' + file.name + '»';
-        if (!confirm('Удалить ' + what + '? Это нельзя отменить.')) return;
+        if (!confirm(S.deleteConfirm.replace('%s', file.name))) return;
         request(api + file.id + '/delete/', {}).then(function () {
             var gone = {};
             (function mark(id) {
@@ -333,6 +348,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     $('#ws-new-file').addEventListener('click', function () { startCreate(currentFolder(), false); });
+    $('#tb-new').addEventListener('click', function () { startCreate(currentFolder(), false); });
     $('#ws-new-folder').addEventListener('click', function () { startCreate(currentFolder(), true); });
     $('#ws-zip').addEventListener('click', function () { location.href = W.downloadUrl; });
 
@@ -347,18 +363,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function upload(list, parentId) {
         var chain = Promise.resolve();
+        var last = null;
         Array.prototype.forEach.call(list, function (file) {
             chain = chain.then(function () {
                 if (file.size > 65536) {
-                    setStatus('«' + file.name + '» больше 64 КБ, пропущен');
+                    setStatus(S.tooBig.replace('%s', file.name), true);
                     return;
                 }
                 return file.text().then(function (text) {
                     return createFile(parentId, uniqueName(parentId, file.name), text);
-                });
+                }).then(function (f) { last = f; });
             });
         });
-        chain.then(function () { setStatus('Файлы загружены'); }).catch(fail);
+        chain.then(function () {
+            setStatus(S.uploaded);
+            if (last && last.language) openFile(last.id, last);
+        }).catch(fail);
     }
 
     function downloadFile(id) {
@@ -388,6 +408,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     var lastLang = storageGet('ws-last-lang');
     if (lastLang && langByKey[lastLang]) langSelect.value = lastLang;
+    else if (langByKey.CPP17) langSelect.value = 'CPP17';
 
     function renderTabs() {
         var bar = $('#cc-tabs');
@@ -396,21 +417,22 @@ document.addEventListener('DOMContentLoaded', function () {
             var f = files[id];
             if (!f) return;
             var tab = document.createElement('div');
-            tab.className = 'cc-tab' + (id === active ? ' cc-tab-active' : '');
+            tab.className = 'gdb-tab' + (id === active ? ' gdb-tab-active' : '');
             tab.dataset.id = id;
-            tab.innerHTML = '<span class="cc-tab-name"></span><span class="cc-tab-dirty"></span>' +
-                '<button type="button" class="cc-tab-close" title="Закрыть">×</button>';
-            tab.querySelector('.cc-tab-name').textContent = f.name;
-            if (dirty[id]) tab.querySelector('.cc-tab-dirty').textContent = '●';
+            tab.innerHTML = '<span class="gdb-tab-name"></span><span class="gdb-tab-dirty"></span>' +
+                '<button type="button" class="gdb-tab-close">×</button>';
+            tab.querySelector('.gdb-tab-name').textContent = f.name;
+            tab.querySelector('.gdb-tab-close').title = S.close;
+            if (dirty[id]) tab.querySelector('.gdb-tab-dirty').textContent = '●';
             bar.appendChild(tab);
         });
     }
 
     $('#cc-tabs').addEventListener('click', function (e) {
-        var tab = e.target.closest('.cc-tab');
+        var tab = e.target.closest('.gdb-tab');
         if (!tab) return;
         var id = Number(tab.dataset.id);
-        if (e.target.classList.contains('cc-tab-close')) {
+        if (e.target.classList.contains('gdb-tab-close')) {
             flush(id);
             var i = tabs.indexOf(id);
             tabs.splice(i, 1);
@@ -426,7 +448,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (editor) return Promise.resolve(editor);
         var holder = $('#ws-editor');
         holder.innerHTML = '';
-        return E.create(holder, {value: '', onRun: run, onSave: function () { flush(active); }}).then(function (ed) {
+        return E.create(holder, {value: '', onRun: run, onSave: function () { save(); }}).then(function (ed) {
             editor = ed;
             return ed;
         });
@@ -457,21 +479,22 @@ document.addEventListener('DOMContentLoaded', function () {
         }).catch(fail);
     }
 
+    var fileButtons = ['#cc-run', '#cc-format', '#cc-share', '#cc-download', '#cc-save'];
+
     function activate(id) {
         active = id;
         storageSet('ws-open', id || '');
         if (!editor) { render(); return; }
         if (!id) {
             editor.editor.setModel(null);
-            ['#cc-run', '#cc-format', '#cc-share', '#cc-download'].forEach(function (s) { if ($(s)) $(s).disabled = true; });
-            langSelect.disabled = true;
+            fileButtons.forEach(function (s) { if ($(s)) $(s).disabled = true; });
             $('#ws-stdin').disabled = true;
             render();
             return;
         }
         editor.editor.setModel(models[id]);
         editor.focus();
-        ['#cc-run', '#cc-format', '#cc-share', '#cc-download'].forEach(function (s) { if ($(s)) $(s).disabled = !W.runnerEnabled && s === '#cc-run'; });
+        fileButtons.forEach(function (s) { if ($(s)) $(s).disabled = !W.runnerEnabled && (s === '#cc-run' || s === '#cc-format'); });
         langSelect.disabled = false;
         $('#ws-stdin').disabled = false;
         $('#ws-stdin').value = files[id].stdin || '';
@@ -497,21 +520,52 @@ document.addEventListener('DOMContentLoaded', function () {
         }).catch(function (err) {
             dirty[id] = true;
             renderTabs();
-            setStatus('Не сохранено: ' + err.message, true);
+            setStatus(S.notSaved + ': ' + err.message, true);
+            throw err;
         });
     }
 
     function flushAll() {
-        return Promise.all(tabs.map(flush));
+        return Promise.all(tabs.map(function (id) { return flush(id).catch(function () {}); }));
     }
 
-    langSelect.addEventListener('change', function () {
-        storageSet('ws-last-lang', langSelect.value);
+    function save() {
         if (!active) return;
+        flush(active).then(function () { setStatus(S.saved); }).catch(function () {});
+    }
+    $('#cc-save').addEventListener('click', save);
+
+    function isTemplate(text) {
+        var t = (text || '').trim();
+        if (!t) return true;
+        return Object.keys(HELLO).some(function (k) { return HELLO[k].trim() === t; });
+    }
+
+    /* Switching the language: an untouched Hello World becomes Hello World in the new
+     * language (and main.cpp becomes main.py), otherwise only the highlighting changes. */
+    langSelect.addEventListener('change', function () {
+        var key = langSelect.value;
+        storageSet('ws-last-lang', key);
+        if (!active) { createMain(key).catch(fail); return; }
         var id = active;
-        var lang = langByKey[langSelect.value];
-        if (models[id] && lang) window.monaco.editor.setModelLanguage(models[id], E.monacoLanguage(lang.ace));
-        request(api + id + '/save/', {language: langSelect.value}).then(function (d) {
+        var file = files[id];
+        var lang = langByKey[key];
+        var model = models[id];
+        if (model && isTemplate(model.getValue())) {
+            model.setValue(HELLO[key] || '');
+            var name = uniqueName(file.parent, mainName(key), id);
+            if (name !== file.name) {
+                flush(id).then(function () {
+                    return request(api + id + '/rename/', {name: name});
+                }).then(function (data) {
+                    applyRename(file, data);
+                    return request(api + id + '/save/', {language: key});
+                }).then(function (d) { files[id].language = d.file.language; }).catch(fail);
+                return;
+            }
+        }
+        if (model && lang) window.monaco.editor.setModelLanguage(model, E.monacoLanguage(lang.ace));
+        request(api + id + '/save/', {language: key}).then(function (d) {
             files[id].language = d.file.language;
         }).catch(fail);
     });
@@ -531,7 +585,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     $('#cc-settings').addEventListener('click', E.openSettings);
 
-    /* ---- format ---- */
+    /* ---- beautify ---- */
 
     $('#cc-format').addEventListener('click', function () {
         if (!active || !runner) return;
@@ -548,13 +602,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 editor.editor.pushUndoStop();
                 editor.editor.executeEdits('format', [{range: model.getFullModelRange(), text: res.source}]);
                 editor.editor.pushUndoStop();
-                setStatus('Код отформатирован');
+                setStatus(S.formatted);
             } else if (res.status === 'unsupported') {
                 var action = editor.editor.getAction('editor.action.formatDocument');
                 if (action && action.isSupported()) action.run();
-                else setStatus('Для этого языка автоформатирование недоступно');
+                else setStatus(S.noFormat);
             } else {
-                setStatus(res.message || 'Не удалось отформатировать');
+                setStatus(res.message || S.error);
             }
         }).catch(fail);
     });
@@ -570,14 +624,11 @@ document.addEventListener('DOMContentLoaded', function () {
             files[file.id] = Object.assign(files[file.id], d.file);
             var link = W.shareBase + d.file.share_key + '/';
             if (navigator.clipboard) navigator.clipboard.writeText(link).catch(function () {});
-            if (!confirm('Ссылка скопирована. Любой, у кого она есть, увидит этот файл:\n\n' + link +
-                    '\n\nНажмите «Отмена», чтобы закрыть доступ по ссылке.')) {
-                request(api + file.id + '/share/', {on: false}).catch(fail);
-            }
+            prompt(S.shareCopied, link);
         }).catch(fail);
     });
 
-    /* ======================= terminal ======================= */
+    /* ======================= console ======================= */
 
     var term = null;
     var fit = null;
@@ -585,9 +636,10 @@ document.addEventListener('DOMContentLoaded', function () {
         var dark = document.documentElement.getAttribute('data-theme') === 'dark' ||
             (document.documentElement.getAttribute('data-theme') !== 'light' &&
              window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
-        return dark ? {background: '#181a1e', foreground: '#e3e6ea', cursor: '#d4a24a'}
-                    : {background: '#fbfcfd', foreground: '#1b2430', cursor: '#1e3a5f', selectionBackground: '#cfe0f5'};
+        return dark ? {background: '#1e1e1e', foreground: '#e3e6ea', cursor: '#e3e6ea'}
+                    : {background: '#ffffff', foreground: '#1b2430', cursor: '#1b2430', selectionBackground: '#cfe0f5'};
     }
+    function refit() { if (fit) setTimeout(function () { try { fit.fit(); } catch (e) { /* hidden */ } }, 0); }
     if (window.Terminal) {
         term = new window.Terminal({
             fontFamily: "'JetBrains Mono', Consolas, 'Courier New', monospace",
@@ -596,12 +648,12 @@ document.addEventListener('DOMContentLoaded', function () {
         fit = new window.FitAddon.FitAddon();
         term.loadAddon(fit);
         term.open($('#cc-terminal'));
-        setTimeout(function () { fit.fit(); }, 50);
-        window.addEventListener('resize', function () { fit.fit(); });
-        new MutationObserver(function () { term.options.theme = termTheme(); })
+        refit();
+        window.addEventListener('resize', refit);
+        var paint = function () { $('.gdb-console-body').style.background = termTheme().background; };
+        paint();
+        new MutationObserver(function () { term.options.theme = termTheme(); paint(); })
             .observe(document.documentElement, {attributes: true, attributeFilter: ['data-theme']});
-        term.writeln('\x1b[2mЗдесь работает программа: она печатает сюда, а вы вводите данные и нажимаете Enter.\x1b[0m');
-        term.writeln('\x1b[2mCtrl+C — остановить, Ctrl+D — конец ввода.\x1b[0m');
     }
 
     var session = null;     // {socket, line}
@@ -611,12 +663,13 @@ document.addEventListener('DOMContentLoaded', function () {
         var codes = {dim: '\x1b[2m', red: '\x1b[31m', green: '\x1b[32m', yellow: '\x1b[33m', bold: '\x1b[1m'};
         term.write((style ? codes[style] : '') + text + (style ? '\x1b[0m' : ''));
     }
+    function nl(text) { return String(text || '').replace(/\r?\n/g, '\r\n'); }
 
     if (term) term.onData(function (data) {
         if (!session || !session.running) return;
         for (var i = 0; i < data.length; i++) {
             var ch = data[i];
-            if (ch === '\r') {
+            if (ch === '\r' || ch === '\n') {
                 term.write('\r\n');
                 sendInput(session.line + '\n');
                 session.line = '';
@@ -685,27 +738,50 @@ document.addEventListener('DOMContentLoaded', function () {
     function run() {
         if (!runner || !active || (session && session.running)) return;
         var file = files[active];
-        if (!file.language) { alert('Выберите язык программирования для этого файла.'); return; }
+        if (!file.language) { alert(S.pickLanguage); return; }
         var source = models[active].getValue();
         var args = parseArgs($('#cc-args').value);
         flushAll();
+        openConsole();
+        if (term) { term.reset(); }
         siblingFiles().then(function (extra) {
             if (mode() === 'text') return runPrepared(file, source, extra, args);
             return runInteractive(file, source, extra, args);
         }).catch(fail);
     }
 
+    function verdictText(verdict, wall) {
+        return {TLE: wall ? S.tleWait : S.tle, MLE: S.mle, OLE: S.ole, RTE: S.rte}[verdict] || verdict;
+    }
+
+    function printExit(verdict, code, time, memory, wall) {
+        var tail = ' (' + (time || 0).toFixed(2) + ' ' + S.sec + ', ' + Math.round((memory || 0) / 1024) + ' ' + S.mb + ')';
+        if (verdict && verdict !== 'OK' && !(verdict === 'RTE' && code)) {
+            termPrint('\r\n...' + verdictText(verdict, wall) + '\r\n', 'red');
+        }
+        termPrint('\r\n...' + S.finished + ' ' + (code || 0), code ? 'red' : 'green');
+        termPrint(tail + '\r\n', 'dim');
+    }
+
     function runPrepared(file, source, extra, args) {
-        showPane('result');
         setRunning(true);
-        var out = $('#ws-result');
-        out.innerHTML = '<div class="oe-placeholder">' + E.T.running + '</div>';
+        termPrint(S.running + '\r\n', 'dim');
         runner.run(file.language, source, $('#ws-stdin').value, function () {
-            out.innerHTML = '<div class="oe-placeholder">Много запусков, ваша программа в очереди…</div>';
-        }, {main: file.name, files: extra, args: args}).then(function (result) {
-            out.innerHTML = E.renderResult(result);
+            termPrint(S.queued + '\r\n', 'dim');
+        }, {main: file.name, files: extra, args: args}).then(function (r) {
+            if (term) term.reset();
+            if (r.status === 'compile_error') {
+                termPrint(S.compileError + '\r\n', 'red');
+                termPrint(nl(r.compile_output));
+            } else if (r.status !== 'ok') {
+                termPrint(nl(r.message || S.error) + '\r\n', 'red');
+            } else {
+                termPrint(nl(r.stdout));
+                if (r.stderr) termPrint(nl(r.stderr), 'red');
+                printExit(r.verdict, r.exit_code, r.time, r.memory, false);
+            }
         }).catch(function (err) {
-            out.innerHTML = E.renderResult({status: 'error', message: err.message || E.T.network});
+            termPrint(nl(err.message || S.network) + '\r\n', 'red');
         }).then(function () { setRunning(false); });
     }
 
@@ -716,11 +792,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function runInteractive(file, source, extra, args) {
-        showPane('terminal');
-        if (fit) setTimeout(function () { fit.fit(); }, 0);
+        refit();
         setRunning(true);
         runner.getToken().then(function (token) {
-            termPrint('\r\n▶ ' + file.name + '\r\n', 'dim');
             var socket = new WebSocket(socketUrl());
             session = {socket: socket, line: '', running: true, started: Date.now()};
             var current = session;
@@ -731,31 +805,26 @@ document.addEventListener('DOMContentLoaded', function () {
             socket.onmessage = function (event) {
                 var m = JSON.parse(event.data);
                 if (m.type === 'status') {
-                    termPrint(m.text === 'queued' ? 'Много запусков, ждём очереди на компиляцию…\r\n' : 'Компиляция…\r\n', 'dim');
-                }
-                else if (m.type === 'compile_error') {
-                    termPrint('Ошибка компиляции:\r\n', 'red');
-                    termPrint(m.output.replace(/\r?\n/g, '\r\n'));
+                    termPrint((m.text === 'queued' ? S.queued : S.compiling) + '\r\n', 'dim');
+                } else if (m.type === 'compile_error') {
+                    termPrint(S.compileError + '\r\n', 'red');
+                    termPrint(nl(m.output));
                 } else if (m.type === 'started') {
-                    if (m.warning && m.warning.trim()) termPrint(m.warning.replace(/\r?\n/g, '\r\n'), 'yellow');
-                    term && term.focus();
+                    if (term) term.reset();
+                    if (m.warning && m.warning.trim()) termPrint(nl(m.warning), 'yellow');
+                    if (term) term.focus();
                 } else if (m.type === 'out') termPrint(m.data);
                 else if (m.type === 'err') termPrint(m.data, 'red');
-                else if (m.type === 'exit') {
-                    var text = {OK: 'Программа завершилась', TLE: m.wall ? 'Остановлено: программа слишком долго ждала ввода' : 'Превышено время работы',
-                        MLE: 'Превышена память', OLE: 'Слишком большой вывод', RTE: 'Программа завершилась с ошибкой'}[m.verdict] || m.verdict;
-                    termPrint('\r\n' + text + ' (код ' + m.exit_code + ') · работала ' + (m.time || 0).toFixed(2) + ' с · ' +
-                        Math.round((m.memory || 0) / 1024) + ' МБ\r\n', m.verdict === 'OK' ? 'green' : 'red');
-                }
+                else if (m.type === 'exit') printExit(m.verdict, m.exit_code, m.time, m.memory, m.wall);
             };
-            socket.onerror = function () { termPrint('\r\n' + E.T.network + '\r\n', 'red'); };
+            socket.onerror = function () { termPrint('\r\n' + S.network + '\r\n', 'red'); };
             socket.onclose = function () {
                 current.running = false;
                 if (session === current) session = null;
                 setRunning(false);
             };
         }).catch(function (err) {
-            termPrint('\r\n' + (err.message || E.T.network) + '\r\n', 'red');
+            termPrint('\r\n' + nl(err.message || S.network) + '\r\n', 'red');
             setRunning(false);
         });
     }
@@ -769,55 +838,88 @@ document.addEventListener('DOMContentLoaded', function () {
 
     $('#cc-run').addEventListener('click', run);
     $('#cc-stop').addEventListener('click', stop);
-    $('#cc-clear').addEventListener('click', function () { if (term) term.clear(); });
+    $('#cc-clear').addEventListener('click', function () { if (term) term.reset(); });
 
-    /* ---- panel ---- */
-
-    function showPane(name) {
-        document.querySelectorAll('.cc-panel .oe-tab[data-pane]').forEach(function (t) {
-            t.classList.toggle('oe-active', t.dataset.pane === name);
-        });
-        document.querySelectorAll('.cc-panel .oe-pane').forEach(function (p) {
-            p.classList.toggle('oe-active', p.dataset.pane === name);
-        });
-        if (name === 'terminal' && fit) setTimeout(function () { fit.fit(); }, 0);
-    }
-    document.querySelectorAll('.cc-panel .oe-tab[data-pane]').forEach(function (t) {
-        t.addEventListener('click', function () { showPane(t.dataset.pane); });
-    });
-    document.querySelectorAll('input[name=cc-mode]').forEach(function (r) {
-        r.addEventListener('change', function () {
-            storageSet('cc-mode', mode());
-            showPane(mode() === 'text' ? 'input' : 'terminal');
-        });
-    });
-    var savedMode = storageGet('cc-mode');
-    if (savedMode) {
-        var radio = document.querySelector('input[name=cc-mode][value="' + savedMode + '"]');
+    function setMode(value) {
+        var radio = document.querySelector('input[name=cc-mode][value="' + value + '"]');
         if (radio) radio.checked = true;
+        storageSet('cc-mode', value);
+        $('#ws-stdin').hidden = value !== 'text';
+        refit();
     }
+    document.querySelectorAll('input[name=cc-mode]').forEach(function (r) {
+        r.addEventListener('change', function () { setMode(mode()); });
+    });
+    setMode(storageGet('cc-mode') || 'terminal');
+
+    $('#cc-run-menu').addEventListener('click', function (e) {
+        e.stopPropagation();
+        var rect = this.getBoundingClientRect();
+        popup(rect.left, rect.bottom + 4, [
+            [S.runInteractive, function () { setMode('terminal'); run(); }],
+            [S.runText, function () { setMode('text'); run(); }]
+        ]);
+    });
+
+    /* ---- console panel: resize, collapse, expand ---- */
 
     var panel = $('#ws-panel');
+    var main = document.querySelector('.gdb-main');
     var h = storageGet('ws-panel-h');
     if (h) panel.style.flexBasis = h + 'px';
+
+    function openConsole() {
+        if (panel.classList.contains('gdb-collapsed')) toggleCollapse();
+    }
+    function toggleCollapse() {
+        var collapsed = panel.classList.toggle('gdb-collapsed');
+        main.classList.remove('gdb-console-max');
+        $('#cc-toggle').title = collapsed ? S.expand : S.collapse;
+        $('#cc-toggle i').className = 'fa ' + (collapsed ? 'fa-chevron-up' : 'fa-chevron-down');
+        refit();
+    }
+    $('#cc-toggle').title = S.collapse;
+    $('#cc-toggle').addEventListener('click', toggleCollapse);
+    $('#cc-maximize').addEventListener('click', function () {
+        panel.classList.remove('gdb-collapsed');
+        var max = main.classList.toggle('gdb-console-max');
+        $('#cc-maximize i').className = 'fa ' + (max ? 'fa-compress' : 'fa-expand');
+        $('#cc-maximize').title = max ? S.collapse : S.expand;
+        refit();
+    });
+    $('#cc-maximize').title = S.expand;
+
     $('#ws-hsplit').addEventListener('mousedown', function (e) {
         e.preventDefault();
         var handle = e.target;
-        handle.classList.add('oe-dragging');
+        handle.classList.add('gdb-dragging');
+        panel.classList.remove('gdb-collapsed');
+        main.classList.remove('gdb-console-max');
         function move(ev) {
-            var work = panel.parentNode.getBoundingClientRect();
+            var work = main.getBoundingClientRect();
             var height = Math.min(Math.max(work.bottom - ev.clientY, 90), work.height - 160);
             panel.style.flexBasis = height + 'px';
             storageSet('ws-panel-h', Math.round(height));
-            if (fit) fit.fit();
+            refit();
         }
         function up() {
-            handle.classList.remove('oe-dragging');
+            handle.classList.remove('gdb-dragging');
             document.removeEventListener('mousemove', move);
             document.removeEventListener('mouseup', up);
         }
         document.addEventListener('mousemove', move);
         document.addEventListener('mouseup', up);
+    });
+
+    // Interface language: save the files, switch, and reload the page.
+    $('.gdb-lang').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var form = this;
+        var data = new FormData(form);
+        if (e.submitter) data.append('language', e.submitter.value);
+        flushAll().then(function () {
+            return fetch(form.action, {method: 'POST', body: data, credentials: 'same-origin'});
+        }).then(function () { location.reload(); });
     });
 
     window.addEventListener('beforeunload', function (e) {
@@ -830,28 +932,13 @@ document.addEventListener('DOMContentLoaded', function () {
             e.preventDefault();
             run();
         }
+        if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'S')) {
+            e.preventDefault();
+            save();
+        }
     });
 
-    /* ---- quick start: one click creates a Hello World file ---- */
-
-    var quick = $('#cc-quick');
-    W.languages.forEach(function (l) {
-        var b = document.createElement('button');
-        b.type = 'button';
-        b.className = 'oe-btn';
-        b.textContent = l.name;
-        b.addEventListener('click', function () {
-            langSelect.value = l.key;
-            storageSet('ws-last-lang', l.key);
-            var name = uniqueName(null, MAIN_NAME[l.key] || ('main.' + l.ext));
-            createFile(null, name, HELLO[l.key] || l.template || '', l.key).then(function (f) {
-                return openFile(f.id, f);
-            }).catch(fail);
-        });
-        quick.appendChild(b);
-    });
-
-    /* ---- start ---- */
+    /* ---- start: reopen the last tabs, or make main.cpp on the first visit ---- */
 
     request(api).then(function (data) {
         data.files.forEach(function (f) { files[f.id] = f; });
@@ -859,9 +946,13 @@ document.addEventListener('DOMContentLoaded', function () {
         var saved = loadJSON('cc-tabs', []).filter(function (id) { return files[id] && !files[id].folder; });
         var last = Number(storageGet('ws-open'));
         if (!saved.length && last && files[last] && !files[last].folder) saved = [last];
-        if (!saved.length) return;
+        if (!saved.length) {
+            var first = children(null).filter(function (f) { return !f.folder; })[0];
+            if (first) saved = [first.id];
+        }
+        if (!saved.length) return createMain(currentLanguage());
         var chain = Promise.resolve();
         saved.forEach(function (id) { chain = chain.then(function () { return openFile(id); }); });
-        chain.then(function () { if (last && models[last]) activate(last); });
+        return chain.then(function () { if (last && models[last]) activate(last); });
     }).catch(fail);
 });
