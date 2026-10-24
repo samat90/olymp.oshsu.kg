@@ -11,7 +11,7 @@ export DJANGO_SETTINGS_MODULE=${DJANGO_SETTINGS_MODULE:-dmoj.dev_wsl_settings}
 BASE=${BASE:-main}
 
 echo "== flake8 (files changed since $BASE)"
-CHANGED=$(git -c core.autocrlf=true diff --name-only --diff-filter=AM "$BASE" -- '*.py' 2>/dev/null | grep -v '^judge/migrations/' || true)
+CHANGED=$(git -c core.autocrlf=true diff --name-only --diff-filter=AM "$BASE" -- '*.py' 2>/dev/null | grep -E '^(judge|dmoj|runner)/' | grep -v '^judge/migrations/' || true)
 if [ -n "$CHANGED" ]; then
     "$PY" -m flake8 $CHANGED
 fi

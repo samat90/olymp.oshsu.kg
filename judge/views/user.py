@@ -16,7 +16,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.sites.shortcuts import get_current_site
 from django.core import signing
 from django.core.cache import cache
-from django.core.exceptions import PermissionDenied, ValidationError
+from django.core.exceptions import PermissionDenied
 from django.db.models import Count, Max, Min
 from django.db.models.functions import ExtractYear, TruncDate
 from django.http import Http404, HttpResponse, HttpResponseRedirect, JsonResponse
@@ -40,7 +40,6 @@ from judge.utils.celery import task_status_by_id, task_status_url_by_id
 from judge.utils.infinite_paginator import InfinitePaginationMixin
 from judge.utils.mail import send_mail
 from judge.utils.problems import contest_completed_ids, user_completed_ids
-from judge.utils.pwned import PwnedPasswordsValidator
 from judge.utils.ranker import ranker
 from judge.utils.subscription import Subscription
 from judge.utils.unicode import utf8text

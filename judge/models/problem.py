@@ -1,5 +1,4 @@
 from enum import IntEnum
-from operator import attrgetter
 import re
 from uuid import uuid4
 
