@@ -8,7 +8,11 @@ NODE_VERSION=22.11.0
 KOTLIN_VERSION=2.0.21
 
 apt-get update
-apt-get install -y golang-go fpc unzip curl clang-format
+apt-get install -y golang-go fpc unzip curl clang-format dotnet-sdk-10.0
+
+# Modern C# (.NET 10) executor; Mono stays only for old submissions.
+JUDGE_SERVER=${JUDGE_SERVER:-/home/admin/judge-server}
+cp "$(dirname "$0")/CSHARP.py" "$JUDGE_SERVER/dmoj/executors/CSHARP.py"
 
 if [ ! -x /opt/node22/bin/node ]; then
     curl -fsSL "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz" -o /tmp/node.tar.xz
@@ -36,6 +40,8 @@ Add these lines under "runtime:" in each judge config:
   fpc: $(command -v fpc)
   kotlinc: /opt/kotlinc/bin/kotlinc
   kotlin_vm: $JAVA
+  dotnet: $(command -v dotnet)
 
+(skip a line that is already there)
 Then: systemctl restart olymp-judge olymp-judge2 olymp-runner
 RUNTIME

@@ -1793,3 +1793,24 @@ msgstr "милдеттүү эмес"
 
 msgid "Open a file"
 msgstr "Файлды ачуу"
+
+msgid "type"
+msgstr "түрү"
+
+msgid "folder"
+msgstr "папка"
+
+msgid "file"
+msgstr "файл"
+
+msgid "user"
+msgstr "колдонуучу"
+
+msgid "project"
+msgstr "долбоор"
+
+msgid "path"
+msgstr "жол"
+
+msgid "code"
+msgstr "код"

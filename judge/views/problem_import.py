@@ -16,7 +16,8 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.utils.translation import gettext as _, gettext_lazy
 
-from judge.models import Language, Problem, ProblemData, ProblemGroup, ProblemTestCase
+from judge.models import Problem, ProblemData, ProblemGroup, ProblemTestCase
+from judge.utils.languages import problem_languages
 from judge.utils.problem_data import ProblemDataCompiler
 from judge.utils.problem_import import build_tests_zip, read_upload
 
@@ -145,7 +146,7 @@ def create_problem(request, data, tests):
             group=ProblemGroup.objects.order_by('id').first(),
         )
         problem.save()
-        problem.allowed_languages.set(Language.objects.all())
+        problem.allowed_languages.set(problem_languages())
         if getattr(request, 'profile', None) is not None:
             problem.authors.add(request.profile)
 

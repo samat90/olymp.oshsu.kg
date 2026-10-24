@@ -12,9 +12,10 @@ from django.utils.html import format_html
 from django.utils.translation import gettext, gettext_lazy as _, ngettext
 from reversion.admin import VersionAdmin
 
-from judge.models import Language, LanguageLimit, Problem, ProblemClarification, ProblemGroup, ProblemPointsVote, \
+from judge.models import LanguageLimit, Problem, ProblemClarification, ProblemGroup, ProblemPointsVote, \
     ProblemTranslation, Profile, Solution
 from judge.utils.views import NoBatchDeleteMixin
+from judge.utils.languages import problem_languages
 from judge.widgets import AdminHeavySelect2MultipleWidget, AdminMartorWidget, AdminSelect2MultipleWidget, \
     AdminSelect2Widget, CheckboxSelectMultipleWithSelectAll
 
@@ -273,7 +274,7 @@ class ProblemAdmin(NoBatchDeleteMixin, VersionAdmin):
         initial.setdefault('partial', True)
         initial.setdefault('time_limit', 1)
         initial.setdefault('memory_limit', 262144)
-        initial.setdefault('allowed_languages', list(Language.objects.values_list('id', flat=True)))
+        initial.setdefault('allowed_languages', list(problem_languages().values_list('id', flat=True)))
         initial.setdefault('authors', [request.profile.id] if getattr(request, 'profile', None) else [])
         group = ProblemGroup.objects.order_by('id').first()
         if group is not None:

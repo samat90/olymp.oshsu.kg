@@ -29,9 +29,9 @@ class Executor(CompiledExecutor):
     fs = [ExactFile('/proc/self/status'), ExactFile('/proc/self/cgroup')]
     syscalls = ['memfd_create', 'ftruncate', 'fchmod', 'msync', 'clock_nanosleep', 'mincore',
                 'getsid', ('membarrier', private_membarrier), ('mlock', ACCESS_EPERM),
-                ('get_mempolicy', ACCESS_EPERM)]
+                ('get_mempolicy', ACCESS_EPERM), 'sched_setaffinity']
     compiler_syscalls = ['getsid', 'mincore', ('membarrier', private_membarrier), ('mlock', ACCESS_EPERM),
-                        ('get_mempolicy', ACCESS_EPERM)]
+                        ('get_mempolicy', ACCESS_EPERM), 'sched_setaffinity']
     test_program = 'using System; Console.WriteLine(Console.ReadLine());'
 
     @classmethod

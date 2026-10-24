@@ -11,6 +11,7 @@ from django.dispatch import receiver
 from .caching import finished_submission
 from .models import BlogPost, Comment, Contest, ContestProblem, ContestSubmission, EFFECTIVE_MATH_ENGINES, Judge, \
     Language, License, MiscConfig, Organization, Problem, Profile, Submission, WebAuthnCredential
+from .utils.languages import LEGACY_LANGUAGES
 
 
 def get_pdf_path(basename: str) -> Optional[str]:
@@ -103,9 +104,15 @@ def license_update(sender, instance, **kwargs):
 
 
 @receiver(post_save, sender=Language)
-def language_update(sender, instance, **kwargs):
+def language_update(sender, instance, created=False, raw=False, **kwargs):
     cache.delete_many([make_template_fragment_key('language_html', (instance.id,)),
                        'lang:cn_map'])
+    # OshSU: a new language becomes available in every problem at once.
+    if created and not raw and instance.key not in LEGACY_LANGUAGES:
+        links = Problem.allowed_languages.through
+        links.objects.bulk_create([links(problem_id=pid, language_id=instance.id)
+                                   for pid in Problem.objects.values_list('id', flat=True)],
+                                  ignore_conflicts=True)
 
 
 @receiver(post_save, sender=Judge)

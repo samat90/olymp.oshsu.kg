@@ -12,8 +12,9 @@ from django.shortcuts import get_object_or_404, render
 from django.utils.translation import gettext as _
 from django.views.decorators.http import require_GET, require_POST
 
-from judge.models import Language, Problem, WorkspaceFile
+from judge.models import Problem, WorkspaceFile
 from judge.models.workspace import MAX_DEPTH, MAX_FILE_SIZE, MAX_FILES_PER_USER
+from judge.utils.languages import problem_languages
 from judge.utils.runner import make_token, public_url, runner_enabled
 from judge.utils.views import generic_message
 
@@ -28,11 +29,12 @@ def in_live_contest(request):
 
 
 def available_languages():
-    languages = list(Language.objects.filter(judges__online=True).distinct().order_by('name'))
-    if not languages:
-        # Judges restarting: still show the languages they normally have.
-        languages = list(Language.objects.filter(judges__isnull=False).distinct().order_by('name'))
-    return languages
+    languages = problem_languages()
+    online = list(languages.filter(judges__online=True).distinct().order_by('name'))
+    if online:
+        return online
+    # Judges restarting: still show the languages they normally have.
+    return list(languages.filter(judges__isnull=False).distinct().order_by('name'))
 
 
 def editor_language_info(languages):

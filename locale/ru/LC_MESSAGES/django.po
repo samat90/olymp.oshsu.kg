@@ -7077,3 +7077,21 @@ msgstr "необязательно"
 
 msgid "Open a file"
 msgstr "Открыть файл"
+
+msgid "type"
+msgstr "тип"
+
+msgid "folder"
+msgstr "папка"
+
+msgid "file"
+msgstr "файл"
+
+msgid "project"
+msgstr "проект"
+
+msgid "path"
+msgstr "путь"
+
+msgid "code"
+msgstr "код"
