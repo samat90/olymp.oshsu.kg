@@ -10,6 +10,8 @@ import re
 import subprocess
 import time
 
+from runner_clean import clean
+
 log = logging.getLogger('runner')
 
 MAX_OUTPUT = 65536
@@ -115,10 +117,10 @@ def run_job(language, source, extra, stdins, args, time_limit, memory_limit):
     except RunnerError as e:
         return {'status': 'error', 'message': str(e)}
     except CompileError as e:
-        return {'status': 'compile_error', 'compile_output': e.message[:MAX_OUTPUT]}
+        return {'status': 'compile_error', 'compile_output': clean(e.message)[:MAX_OUTPUT]}
     except Exception as e:  # compiler crashed, timed out, etc.
         log.exception('compile failed')
-        return {'status': 'compile_error', 'compile_output': str(e)[:MAX_OUTPUT]}
+        return {'status': 'compile_error', 'compile_output': clean(str(e))[:MAX_OUTPUT]}
     compile_time = time.monotonic() - started
     warning = getattr(executor, 'warning', None) or b''
     if isinstance(warning, bytes):
@@ -127,7 +129,7 @@ def run_job(language, source, extra, stdins, args, time_limit, memory_limit):
     runs = [run_once(executor, stdin, args, time_limit, memory_limit) for stdin in stdins]
     result = dict(runs[0])
     result['compile_time'] = round(compile_time, 2)
-    result['compile_output'] = warning[:MAX_OUTPUT]
+    result['compile_output'] = clean(warning)[:MAX_OUTPUT]
     if len(runs) > 1:
         result['runs'] = runs
     return result
@@ -162,7 +164,7 @@ def run_once(executor, stdin, args, time_limit, memory_limit):
         'status': 'ok',
         'verdict': verdict_of(proc, ole),
         'stdout': stdout.decode('utf-8', 'replace'),
-        'stderr': stderr.decode('utf-8', 'replace'),
+        'stderr': clean(stderr.decode('utf-8', 'replace')),
         'exit_code': proc.returncode,
         'time': round(proc.execution_time or 0, 3),
         'memory': proc.max_memory,

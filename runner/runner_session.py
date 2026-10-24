@@ -18,6 +18,7 @@ import subprocess
 import time
 
 import runner_ws as ws
+from runner_clean import clean
 from runner_exec import RunnerError, build_executor, verdict_of
 
 log = logging.getLogger('runner')
@@ -37,7 +38,7 @@ def run_session(sock, language, source, extra, args, cpu_limit, memory_limit, wa
             ws.send_json(sock, {'type': 'compile_error', 'output': str(e)})
             return
         except CompileError as e:
-            ws.send_json(sock, {'type': 'compile_error', 'output': e.message})
+            ws.send_json(sock, {'type': 'compile_error', 'output': clean(e.message)})
             return
         if compiled is not None:
             compiled.set()
@@ -45,7 +46,7 @@ def run_session(sock, language, source, extra, args, cpu_limit, memory_limit, wa
         if isinstance(warning, bytes):
             warning = warning.decode('utf-8', 'replace')
         ws.send_json(sock, {'type': 'started', 'compile_time': round(time.monotonic() - started, 2),
-                            'warning': warning[:65536]})
+                            'warning': clean(warning)[:65536]})
 
         proc = executor.launch(*args, time=cpu_limit, memory=memory_limit, wall_time=wall_limit,
                                stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -68,7 +69,7 @@ def run_session(sock, language, source, extra, args, cpu_limit, memory_limit, wa
                     del streams[fd]
                     tail = decoder.decode(b'', final=True)
                     if tail:
-                        ws.send_json(sock, {'type': kind, 'data': tail})
+                        ws.send_json(sock, {'type': kind, 'data': clean(tail) if kind == 'err' else tail})
                     continue
                 total += len(data)
                 if total > MAX_SESSION_OUTPUT:
@@ -77,7 +78,7 @@ def run_session(sock, language, source, extra, args, cpu_limit, memory_limit, wa
                     continue
                 text = decoder.decode(data)
                 if text:
-                    ws.send_json(sock, {'type': kind, 'data': text})
+                    ws.send_json(sock, {'type': kind, 'data': clean(text) if kind == 'err' else text})
             if not client_open:
                 proc.kill()
 

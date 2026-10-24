@@ -1,6 +1,7 @@
 from operator import attrgetter
 
 from judge.models import SubmissionSourceAccess
+from judge.utils.clean_output import clean as clean_output
 from . import registry
 
 
@@ -36,3 +37,9 @@ def submission_layout(submission, profile_id, user, completed_problem_ids, edita
             can_view = can_view or submission.problem.is_public
 
     return can_view, can_edit
+
+
+@registry.filter
+def hide_paths(text):
+    # Compiler and runtime errors for students: the message stays whole, server folders do not show.
+    return clean_output(text)
