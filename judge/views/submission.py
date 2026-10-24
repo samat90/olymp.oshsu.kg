@@ -281,7 +281,8 @@ class SubmissionsListBase(DiggPaginatorMixin, TitleMixin, ListView):
                     Q(curators=self.request.profile) |
                     Q(tester_see_submissions=True, testers=self.request.profile) |
                     Q(view_contest_submissions=self.request.profile) |
-                    Q(scoreboard_visibility=Contest.SCOREBOARD_VISIBLE) |
+                    # OshSU: a running olympiad keeps its submissions out of the common list.
+                    Q(scoreboard_visibility=Contest.SCOREBOARD_VISIBLE, end_time__lt=timezone.now()) |
                     Q(end_time__lt=timezone.now(), scoreboard_visibility__in=(
                         Contest.SCOREBOARD_AFTER_PARTICIPATION,
                         Contest.SCOREBOARD_AFTER_CONTEST,

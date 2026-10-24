@@ -721,11 +721,13 @@ class ProblemSubmit(LoginRequiredMixin, ProblemMixin, TitleMixin, SingleObjectFo
         return [self.template_name]
 
     def get_success_url(self):
-        # Straight to the submission list, where the new one is highlighted and updates by itself.
+        # Straight to the submission list, where the new one is highlighted and updates by itself:
+        # during a contest the participant's submissions in that contest, otherwise all submissions.
         if self.contest_problem:
-            url = reverse('user_submissions', args=(self.object.code, self.request.user.username))
+            url = reverse('contest_all_user_submissions',
+                          args=(self.contest_problem.contest.key, self.request.user.username))
         else:
-            url = reverse('chronological_submissions', args=(self.object.code,))
+            url = reverse('all_submissions')
         return '%s?mine=%d' % (url, self.new_submission.id)
 
     def form_valid(self, form):
