@@ -25,6 +25,8 @@
 - [x] Дизайн (resources/modern.css)
 - [x] Балансировщик и CI/CD: scripts/deploy.sh, rollback.sh, ci_check.sh, docs/DEPLOY-2026-10.md (выкат отрепетирован в WSL)
 - [x] Общая проверка: 150 тестов проходят
+- [x] Нагрузка 1000 участников: JIT off, общий рейтинг, PCH для C++, расчёт серверов (docs/LOAD-1000.md)
+- [x] Раздел «Компилятор» (/compiler/) как onlinegdb: вкладки, файлы, zip, терминал (WebSocket), аргументы, форматирование; открыт во время олимпиады
 - [ ] Выкат на сервер (Самат, из ОшГУ)
 - [ ] PascalABC.NET (пока Free Pascal)
 

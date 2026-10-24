@@ -387,7 +387,7 @@ def main():
     parser.add_argument('--secret-file', required=True, help='file with the secret shared with the site')
     parser.add_argument('--workers', type=int, default=2, help='programs run at the same time')
     parser.add_argument('--queue', type=int, default=8, help='requests allowed to wait for a worker')
-    parser.add_argument('--max-sessions', type=int, default=16, help='interactive terminals at the same time')
+    parser.add_argument('--max-sessions', type=int, default=64, help='interactive terminals at the same time')
     parser.add_argument('--per-minute', type=int, default=20, help='runs per user per minute')
     parser.add_argument('--only-executors', default='', help='comma separated executor ids')
     parser.add_argument('--allow-origin', action='append', default=[], help='origin allowed for CORS (dev)')
