@@ -31,7 +31,8 @@ class Command(BaseCommand):
     help = 'add the problems of a built problem set (never changes or deletes existing problems)'
 
     def add_arguments(self, parser):
-        parser.add_argument('build_dir', help='folder with one sub-folder per problem (manifest.json, statement.md, tests/)')
+        parser.add_argument('build_dir',
+                            help='folder with one sub-folder per problem (manifest.json, statement.md, tests/)')
         parser.add_argument('--public', action='store_true', help='show the new problems in the public list')
         parser.add_argument('--author', help='username to list as the author')
         parser.add_argument('--only', nargs='*', help='import only these sub-folders')
