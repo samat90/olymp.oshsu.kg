@@ -17,7 +17,8 @@
         minimap: false,
         suggestions: true,
         ligatures: false,
-        lineNumbers: true
+        lineNumbers: true,
+        terminal: 'light'     // light | dark | black | blue
     };
 
     var ACE_TO_MONACO = {
@@ -37,7 +38,8 @@
         editorSettings: 'Настройки редактора', theme: 'Тема', themeAuto: 'Как на сайте', themeLight: 'Светлая',
         themeDark: 'Тёмная', themeContrast: 'Контрастная', fontSize: 'Размер шрифта', indent: 'Отступ',
         spaces: 'пробелов', wordWrap: 'Переносить длинные строки', minimap: 'Мини-карта', suggestions: 'Подсказки',
-        lineNumbers: 'Номера строк', ligatures: 'Лигатуры шрифта', reset: 'Сбросить', close: 'Закрыть'
+        lineNumbers: 'Номера строк', ligatures: 'Лигатуры шрифта', reset: 'Сбросить', close: 'Закрыть',
+        terminal: 'Консоль', term_light: 'Белая', term_dark: 'Тёмная', term_black: 'Чёрная', term_blue: 'Синяя'
     }, window.OLYMP_STRINGS || {});
 
     function loadSettings() {
@@ -112,7 +114,20 @@
         };
     }
 
+    // Colours of the program console (Compiler and the problem page).
+    var TERMINALS = {
+        light: {background: '#ffffff', foreground: '#1b2430', cursor: '#1b2430', selectionBackground: '#cfe0f5'},
+        dark: {background: '#1e1e1e', foreground: '#e3e6ea', cursor: '#e3e6ea', selectionBackground: '#3a4250'},
+        black: {background: '#000000', foreground: '#33ff66', cursor: '#33ff66', selectionBackground: '#1f4d2b'},
+        blue: {background: '#0f2a4a', foreground: '#e8f0fb', cursor: '#ffd36b', selectionBackground: '#2a4f82'}
+    };
+
+    function terminalTheme() {
+        return TERMINALS[loadSettings().terminal] || TERMINALS.light;
+    }
+
     function applySettings(settings) {
+        document.dispatchEvent(new CustomEvent('olymp-terminal-theme'));
         if (!window.monaco) return;
         window.monaco.editor.setTheme(monacoTheme(settings));
         editors.forEach(function (ed) {
@@ -366,6 +381,9 @@
             row(T.indent, '<select name="tabSize">' + [2, 4, 8].map(function (n) {
                 return '<option value="' + n + '">' + n + ' ' + T.spaces + '</option>';
             }).join('') + '</select>') +
+            row(T.terminal, '<select name="terminal">' + ['light', 'dark', 'black', 'blue'].map(function (k) {
+                return '<option value="' + k + '">' + T['term_' + k] + '</option>';
+            }).join('') + '</select>') +
             check('wordWrap', T.wordWrap) +
             check('minimap', T.minimap) +
             check('suggestions', T.suggestions) +
@@ -390,7 +408,7 @@
         function read() {
             box.querySelectorAll('select, input').forEach(function (input) {
                 if (input.type === 'checkbox') s[input.name] = input.checked;
-                else if (input.name === 'theme') s.theme = input.value;
+                else if (input.name === 'theme' || input.name === 'terminal') s[input.name] = input.value;
                 else s[input.name] = parseInt(input.value, 10);
             });
             saveSettings(s);
@@ -429,6 +447,7 @@
         renderResult: renderResult,
         renderSample: renderSample,
         openSettings: openSettings,
+        terminalTheme: terminalTheme,
         monacoLanguage: monacoLanguage,
         escape: esc,
         T: T

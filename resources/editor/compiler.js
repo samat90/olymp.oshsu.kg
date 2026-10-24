@@ -759,13 +759,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var term = null;
     var fit = null;
-    function termTheme() {
-        var dark = document.documentElement.getAttribute('data-theme') === 'dark' ||
-            (document.documentElement.getAttribute('data-theme') !== 'light' &&
-             window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
-        return dark ? {background: '#1e1e1e', foreground: '#e3e6ea', cursor: '#e3e6ea'}
-                    : {background: '#ffffff', foreground: '#1b2430', cursor: '#1b2430', selectionBackground: '#cfe0f5'};
-    }
+    function termTheme() { return E.terminalTheme(); }
     function refit() { if (fit) setTimeout(function () { try { fit.fit(); } catch (e) { /* hidden */ } }, 0); }
     if (window.Terminal) {
         term = new window.Terminal({
@@ -779,8 +773,7 @@ document.addEventListener('DOMContentLoaded', function () {
         window.addEventListener('resize', refit);
         var paint = function () { $('.gdb-console-body').style.background = termTheme().background; };
         paint();
-        new MutationObserver(function () { term.options.theme = termTheme(); paint(); })
-            .observe(document.documentElement, {attributes: true, attributeFilter: ['data-theme']});
+        document.addEventListener('olymp-terminal-theme', function () { term.options.theme = termTheme(); paint(); });
     }
 
     var session = null;     // {socket, line}

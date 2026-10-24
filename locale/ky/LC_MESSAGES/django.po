@@ -1998,3 +1998,15 @@ msgstr "режим"
 
 msgid "To pass: accuracy %(acc)s and %(cpm)s characters a minute."
 msgstr "Сабактан өтүү үчүн: тактык %(acc)s жана мүнөтүнө %(cpm)s белги."
+
+msgid "Console"
+msgstr "Консоль"
+
+msgid "White"
+msgstr "Ак"
+
+msgid "Black"
+msgstr "Кара"
+
+msgid "Blue"
+msgstr "Көк"

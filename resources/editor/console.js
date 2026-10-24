@@ -6,12 +6,7 @@
     var E = window.OlympEditor;
     var S = E.T;
 
-    function theme() {
-        var t = document.documentElement.getAttribute('data-theme');
-        var dark = t === 'dark' || (t !== 'light' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
-        return dark ? {background: '#1e1e1e', foreground: '#e3e6ea', cursor: '#e3e6ea'}
-                    : {background: '#ffffff', foreground: '#1b2430', cursor: '#1b2430', selectionBackground: '#cfe0f5'};
-    }
+    function theme() { return E.terminalTheme(); }
 
     function Console(el, runner) {
         var self = this;
@@ -29,8 +24,7 @@
         window.addEventListener('resize', function () { self.refit(); });
         function paint() { el.style.background = el.parentNode.style.background = theme().background; }
         paint();
-        new MutationObserver(function () { self.term.options.theme = theme(); paint(); })
-            .observe(document.documentElement, {attributes: true, attributeFilter: ['data-theme']});
+        document.addEventListener('olymp-terminal-theme', function () { self.term.options.theme = theme(); paint(); });
         this.term.onData(function (data) { self.input(data); });
     }
 

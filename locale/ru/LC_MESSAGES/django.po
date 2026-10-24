@@ -7252,3 +7252,15 @@ msgstr "режим"
 
 msgid "To pass: accuracy %(acc)s and %(cpm)s characters a minute."
 msgstr "Чтобы пройти урок: точность %(acc)s и %(cpm)s знаков в минуту."
+
+msgid "Console"
+msgstr "Консоль"
+
+msgid "White"
+msgstr "Белая"
+
+msgid "Black"
+msgstr "Чёрная"
+
+msgid "Blue"
+msgstr "Синяя"
