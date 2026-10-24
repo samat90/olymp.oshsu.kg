@@ -90,6 +90,21 @@
             });
         </script>
     {% endcompress %}
+    {% if request.user.is_authenticated %}
+        <script>
+            /* Marks this tab of the site as the active one (used by the contest tab watcher). */
+            (function () {
+                window.OLYMP_TAB_ID = Math.random().toString(36).slice(2);
+                function mark() {
+                    if (document.visibilityState === 'hidden') return;
+                    try { localStorage.setItem('olymp-active-tab', JSON.stringify({id: window.OLYMP_TAB_ID, t: Date.now()})); } catch (e) {}
+                }
+                document.addEventListener('visibilitychange', mark);
+                window.addEventListener('focus', mark);
+                mark();
+            })();
+        </script>
+    {% endif %}
     {% set anticheat = anticheat_config() if request.user.is_authenticated else None %}
     {% if anticheat %}
         <link rel="stylesheet" href="{{ static('editor/anticheat.css') }}?v={{ STATIC_VERSION }}">

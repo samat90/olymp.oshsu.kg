@@ -1508,3 +1508,54 @@ msgstr "%s маселесинин тесттери"
 
 msgid "Solve in the editor"
 msgstr "Редактордо чечүү"
+
+msgid "Clear the terminal"
+msgstr "Терминалды тазалоо"
+
+msgid "Command line arguments"
+msgstr "Буйрук сабынын аргументтери"
+
+msgid "Compiler"
+msgstr "Компилятор"
+
+msgid "Download everything as zip"
+msgstr "Баарын zip менен жүктөө"
+
+msgid "Download file"
+msgstr "Файлды жүктөө"
+
+msgid "Format code"
+msgstr "Кодду форматтоо"
+
+msgid "In the Prepared input mode the program gets the text from the Input tab, and its output shows up here."
+msgstr "«Даяр маалымат» режиминде программа «Кирүү» өтмөгүндөгү текстти алат, ал эми анын чыгарган жообу ушул жерде көрүнөт."
+
+msgid "Input data for the Prepared input mode"
+msgstr "«Даяр маалымат» режими үчүн кирүүчү маалымат"
+
+msgid "Online compiler"
+msgstr "Онлайн-компилятор"
+
+msgid "Prepared input"
+msgstr "Даяр маалымат"
+
+msgid "Shared code cannot be opened while you are taking part in a contest."
+msgstr "Олимпиадага катышып жатканда шилтеме боюнча башка коду ачууга болбойт."
+
+msgid "Sharing is turned off during the contest"
+msgstr "Олимпиада учурунда шилтемелер өчүрүлгөн"
+
+msgid "Sharing is turned off during the contest."
+msgstr "Олимпиада учурунда шилтемелер өчүрүлгөн."
+
+msgid "Stop"
+msgstr "Токтотуу"
+
+msgid "Terminal"
+msgstr "Терминал"
+
+msgid "Upload files"
+msgstr "Файлдарды жүктөп салуу"
+
+msgid "Write and run code in C, C++, Java, Python, C#, JavaScript, Go, Kotlin and Pascal. The program runs in the terminal below: it prints and waits for your input just like on your own computer. Files are saved to your account."
+msgstr "C, C++, Java, Python, C#, JavaScript, Go, Kotlin жана Pascal тилдеринде код жазып, иштетиңиз. Программа төмөнкү терминалда иштейт: компьютериңиздегидей эле басып чыгарат жана киргизүүнү күтөт. Файлдар аккаунтта сакталат."

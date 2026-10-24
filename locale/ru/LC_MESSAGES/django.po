@@ -6777,3 +6777,54 @@ msgstr "файлы песочницы"
 
 msgid "Solve in the editor"
 msgstr "Решать в редакторе"
+
+msgid "Clear the terminal"
+msgstr "Очистить терминал"
+
+msgid "Command line arguments"
+msgstr "Аргументы командной строки"
+
+msgid "Compiler"
+msgstr "Компилятор"
+
+msgid "Download everything as zip"
+msgstr "Скачать всё в zip"
+
+msgid "Download file"
+msgstr "Скачать файл"
+
+msgid "Format code"
+msgstr "Отформатировать код"
+
+msgid "In the Prepared input mode the program gets the text from the Input tab, and its output shows up here."
+msgstr "В режиме «Готовые данные» программа получает текст со вкладки «Ввод», а её вывод появляется здесь."
+
+msgid "Input data for the Prepared input mode"
+msgstr "Входные данные для режима «Готовые данные»"
+
+msgid "Online compiler"
+msgstr "Онлайн-компилятор"
+
+msgid "Prepared input"
+msgstr "Готовые данные"
+
+msgid "Shared code cannot be opened while you are taking part in a contest."
+msgstr "Пока вы участвуете в олимпиаде, чужой код по ссылке открыть нельзя."
+
+msgid "Sharing is turned off during the contest"
+msgstr "Во время олимпиады ссылки отключены"
+
+msgid "Sharing is turned off during the contest."
+msgstr "Во время олимпиады ссылки отключены."
+
+msgid "Stop"
+msgstr "Стоп"
+
+msgid "Terminal"
+msgstr "Терминал"
+
+msgid "Upload files"
+msgstr "Загрузить файлы"
+
+msgid "Write and run code in C, C++, Java, Python, C#, JavaScript, Go, Kotlin and Pascal. The program runs in the terminal below: it prints and waits for your input just like on your own computer. Files are saved to your account."
+msgstr "Пишите и запускайте код на C, C++, Java, Python, C#, JavaScript, Go, Kotlin и Pascal. Программа работает в терминале внизу: печатает и ждёт ввода, как на вашем компьютере. Файлы сохраняются в аккаунте."

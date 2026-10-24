@@ -50,3 +50,6 @@ msgstr "Теманы которуу"
 
 msgid "Sandbox"
 msgstr "Кумкана"
+
+msgid "Compiler"
+msgstr "Компилятор"

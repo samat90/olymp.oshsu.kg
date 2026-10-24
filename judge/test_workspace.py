@@ -117,7 +117,7 @@ class WorkspaceTest(TestCase):
         self.assertEqual(payload['time'], 1.5)
         self.assertEqual(payload['memory'], 131072)
 
-    def test_sandbox_closed_during_contest(self):
+    def test_compiler_open_during_contest_but_no_sharing(self):
         now = timezone.now()
         contest = create_contest(key='wscontest', start_time=now - timezone.timedelta(hours=1),
                                  end_time=now + timezone.timedelta(hours=1), is_visible=True)
@@ -129,15 +129,29 @@ class WorkspaceTest(TestCase):
         profile.current_contest = participation
         profile.save()
 
+        # The compiler works: token without a problem, files.
         _, data = self.post('runner_token', {})
-        self.assertFalse(data['ok'])
+        self.assertTrue(data['ok'])
+        _, created = self.post('workspace_api_create', {'name': 'x.py'})
+        self.assertTrue(created['ok'])
+        self.assertEqual(self.client.get(reverse('workspace')).status_code, 200)
+        # Problems outside the contest still cannot be run.
         _, data = self.post('runner_token', {'problem': other_problem.code})
         self.assertFalse(data['ok'])
         _, data = self.post('runner_token', {'problem': problem.code})
         self.assertTrue(data['ok'])
-        _, data = self.post('workspace_api_create', {'name': 'x.py'})
+        # Sharing is off.
+        _, data = self.post('workspace_api_share', {'on': True}, created['file']['id'])
         self.assertFalse(data['ok'])
-        self.assertTrue(other_problem.is_public)
+
+    def test_download_zip(self):
+        import io
+        import zipfile
+        _, folder = self.post('workspace_api_create', {'name': 'lab', 'folder': True})
+        self.post('workspace_api_create', {'name': 'a.py', 'parent': folder['file']['id'], 'content': 'print(1)'})
+        response = self.client.get(reverse('workspace_api_download') + '?folder=%d' % folder['file']['id'])
+        names = zipfile.ZipFile(io.BytesIO(response.content)).namelist()
+        self.assertIn('lab/a.py', names)
 
 
 class SampleExtractionTest(TestCase):

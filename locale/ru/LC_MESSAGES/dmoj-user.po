@@ -50,3 +50,6 @@ msgstr "Переключить тему"
 
 msgid "Sandbox"
 msgstr "Песочница"
+
+msgid "Compiler"
+msgstr "Компилятор"

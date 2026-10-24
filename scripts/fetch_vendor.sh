@@ -3,18 +3,28 @@
 # Run once after checkout and on every deploy (it is a no-op when the version is already there).
 set -e
 cd "$(dirname "$0")/.."
-MONACO_VERSION=0.52.0
-DEST=resources/vendor/monaco
-if [ -f "$DEST/VERSION" ] && [ "$(cat $DEST/VERSION)" = "$MONACO_VERSION" ]; then
-    echo "monaco $MONACO_VERSION already present"
-    exit 0
-fi
-TMP=$(mktemp -d)
-curl -fsSL "https://registry.npmjs.org/monaco-editor/-/monaco-editor-$MONACO_VERSION.tgz" -o "$TMP/monaco.tgz"
-tar xzf "$TMP/monaco.tgz" -C "$TMP"
-rm -rf "$DEST"
-mkdir -p "$DEST"
-cp -r "$TMP/package/min/vs" "$DEST/vs"
-echo "$MONACO_VERSION" > "$DEST/VERSION"
-rm -rf "$TMP"
-echo "monaco $MONACO_VERSION installed into $DEST"
+# fetch <npm package> <version> <dest dir> <path inside package>...
+fetch() {
+    local pkg=$1 version=$2 dest=$3
+    shift 3
+    if [ -f "$dest/VERSION" ] && [ "$(cat "$dest/VERSION")" = "$version" ]; then
+        echo "$pkg $version already present"
+        return
+    fi
+    local tmp
+    tmp=$(mktemp -d)
+    curl -fsSL "https://registry.npmjs.org/$pkg/-/$(basename "$pkg")-$version.tgz" -o "$tmp/pkg.tgz"
+    tar xzf "$tmp/pkg.tgz" -C "$tmp"
+    rm -rf "$dest"
+    mkdir -p "$dest"
+    for path in "$@"; do
+        cp -r "$tmp/package/$path" "$dest/"
+    done
+    echo "$version" > "$dest/VERSION"
+    rm -rf "$tmp"
+    echo "$pkg $version installed into $dest"
+}
+
+fetch monaco-editor 0.52.0 resources/vendor/monaco min/vs
+fetch @xterm/xterm 5.5.0 resources/vendor/xterm lib/xterm.js css/xterm.css
+fetch @xterm/addon-fit 0.10.0 resources/vendor/xterm-fit lib/addon-fit.js

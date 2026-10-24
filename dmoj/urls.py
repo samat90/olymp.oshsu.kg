@@ -105,7 +105,7 @@ urlpatterns = [
     path('', include('social_django.urls')),
 
     path('runner/token/', workspace.runner_token, name='runner_token'),
-    path('sandbox/', include([
+    path('compiler/', include([
         path('', workspace.workspace, name='workspace'),
         path('share/<str:key>/', workspace.shared_file, name='workspace_shared'),
         path('api/files/', workspace.api_list, name='workspace_api_list'),
@@ -117,7 +117,10 @@ urlpatterns = [
         path('api/files/<int:file_id>/delete/', workspace.api_delete, name='workspace_api_delete'),
         path('api/files/<int:file_id>/share/', workspace.api_share, name='workspace_api_share'),
         path('api/fork/<str:key>/', workspace.api_fork, name='workspace_api_fork'),
+        path('api/download/', workspace.api_download, name='workspace_api_download'),
     ])),
+    path('sandbox/', lambda request: HttpResponsePermanentRedirect('/compiler/')),
+    path('sandbox/share/<str:key>/', lambda request, key: HttpResponsePermanentRedirect('/compiler/share/%s/' % key)),
 
     path('problems/', problem.ProblemList.as_view(), name='problem_list'),
     path('problems/random/', problem.RandomProblem.as_view(), name='problem_random'),

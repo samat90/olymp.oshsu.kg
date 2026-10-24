@@ -1,11 +1,13 @@
-"""Online editor: run tokens and the personal workspace with files and folders."""
+"""Online editor: run tokens and the Compiler section (files, folders, terminal)."""
+import io
 import json
 import re
+import zipfile
 
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import IntegrityError, transaction
-from django.http import Http404, JsonResponse
+from django.http import Http404, HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, render
 from django.utils.translation import gettext as _
 from django.views.decorators.http import require_GET, require_POST
@@ -84,8 +86,7 @@ def runner_token(request):
         time_limit = problem.time_limit
         memory_limit = problem.memory_limit
     else:
-        if live:
-            return json_error(_('The sandbox is closed during the contest.'), 403)
+        # The Compiler section stays open during a contest.
         languages = [lang.key for lang in available_languages()]
         time_limit = None
         memory_limit = None
@@ -96,13 +97,10 @@ def runner_token(request):
 
 @login_required
 def workspace(request):
-    if in_live_contest(request):
-        return generic_message(request, _('Sandbox is unavailable'),
-                               _('The sandbox is closed while you are taking part in a contest. '
-                                 'Use the editor on the problem page.'))
     languages = available_languages()
     return render(request, 'workspace/index.html', {
-        'title': _('Sandbox'),
+        'title': _('Compiler'),
+        'in_contest': in_live_contest(request),
         'languages_json': json.dumps(editor_language_info(languages)),
         'runner_enabled': runner_enabled(),
         'limits': {'files': MAX_FILES_PER_USER, 'size': MAX_FILE_SIZE},
@@ -110,6 +108,9 @@ def workspace(request):
 
 
 def shared_file(request, key):
+    if in_live_contest(request):
+        return generic_message(request, _('Sharing is turned off during the contest'),
+                               _('Shared code cannot be opened while you are taking part in a contest.'))
     file = get_object_or_404(WorkspaceFile.objects.select_related('owner__user'), share_key=key, is_folder=False)
     languages = available_languages()
     return render(request, 'workspace/shared.html', {
@@ -120,15 +121,20 @@ def shared_file(request, key):
     })
 
 
-def workspace_api(view):
-    """Login, no contest in progress, JSON in and out."""
+def workspace_api(view, closed_in_contest=False):
+    """Login and JSON. Sharing code is closed while the user takes part in a contest,
+    so that solutions cannot be passed around through links."""
     @login_required
     def wrapper(request, *args, **kwargs):
-        if in_live_contest(request):
-            return json_error(_('The sandbox is closed during the contest.'), 403)
+        if closed_in_contest and in_live_contest(request):
+            return json_error(_('Sharing is turned off during the contest.'), 403)
         return view(request, *args, **kwargs)
     wrapper.__name__ = view.__name__
     return wrapper
+
+
+def no_sharing_in_contest(view):
+    return workspace_api(view, closed_in_contest=True)
 
 
 def get_own(request, file_id, folder=None):
@@ -271,7 +277,7 @@ def api_delete(request, file_id):
     return JsonResponse({'ok': True})
 
 
-@workspace_api
+@no_sharing_in_contest
 @require_POST
 def api_share(request, file_id):
     file = get_own(request, file_id, folder=False)
@@ -283,7 +289,7 @@ def api_share(request, file_id):
     return JsonResponse({'ok': True, 'file': file.as_dict(with_content=True)})
 
 
-@workspace_api
+@no_sharing_in_contest
 @require_POST
 def api_fork(request, key):
     try:
@@ -305,3 +311,36 @@ def api_fork(request, key):
         except IntegrityError:
             continue
     return json_error(_('A file with this name already exists here.'))
+
+
+@workspace_api
+@require_GET
+def api_download(request):
+    """A folder (or all files) as a zip archive."""
+    files = list(WorkspaceFile.objects.filter(owner=request.profile))
+    by_parent = {}
+    for f in files:
+        by_parent.setdefault(f.parent_id, []).append(f)
+    root_id = request.GET.get('folder')
+    if root_id:
+        root = get_own(request, root_id, folder=True)
+        start, prefix = root.id, root.name + '/'
+        archive_name = root.name
+    else:
+        start, prefix = None, ''
+        archive_name = 'olymp-files'
+
+    out = io.BytesIO()
+    with zipfile.ZipFile(out, 'w', zipfile.ZIP_DEFLATED) as zf:
+        def walk(parent_id, path):
+            for f in by_parent.get(parent_id, []):
+                if f.is_folder:
+                    zf.writestr(path + f.name + '/', '')
+                    walk(f.id, path + f.name + '/')
+                else:
+                    zf.writestr(path + f.name, f.content)
+        walk(start, prefix)
+    response = HttpResponse(out.getvalue(), content_type='application/zip')
+    safe = re.sub(r'[^A-Za-z0-9_.-]+', '_', archive_name).strip('_') or 'files'
+    response['Content-Disposition'] = 'attachment; filename="%s.zip"' % safe
+    return response

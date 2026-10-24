@@ -29,7 +29,9 @@ fi
 if [ -f $SITE/runner/server.py ]; then
     setsid nohup sudo -u judge /opt/judge/venv/bin/python $SITE/runner/server.py --config /opt/judge/judge.yml \
         --listen 127.0.0.1:9910 --secret-file /opt/judge/runner.secret \
-        --allow-origin http://127.0.0.1:8000 --allow-origin http://localhost:8000 > $LOG/runner.log 2>&1 &
+        --allow-origin http://127.0.0.1:8000 --allow-origin http://localhost:8000 --workers 4 > $LOG/runner.log 2>&1 &
 fi
 
+# Give the last services a moment to start before this shell (and the wsl session) ends.
+sleep 4
 echo started

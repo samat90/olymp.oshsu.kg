@@ -462,5 +462,73 @@
  "Solve in the editor": {
   "ru": "Решать в редакторе",
   "ky": "Редактордо чечүү"
+ },
+ "Clear the terminal": {
+  "ru": "Очистить терминал",
+  "ky": "Терминалды тазалоо"
+ },
+ "Command line arguments": {
+  "ru": "Аргументы командной строки",
+  "ky": "Буйрук сабынын аргументтери"
+ },
+ "Compiler": {
+  "ru": "Компилятор",
+  "ky": "Компилятор"
+ },
+ "Download everything as zip": {
+  "ru": "Скачать всё в zip",
+  "ky": "Баарын zip менен жүктөө"
+ },
+ "Download file": {
+  "ru": "Скачать файл",
+  "ky": "Файлды жүктөө"
+ },
+ "Format code": {
+  "ru": "Отформатировать код",
+  "ky": "Кодду форматтоо"
+ },
+ "In the Prepared input mode the program gets the text from the Input tab, and its output shows up here.": {
+  "ru": "В режиме «Готовые данные» программа получает текст со вкладки «Ввод», а её вывод появляется здесь.",
+  "ky": "«Даяр маалымат» режиминде программа «Кирүү» өтмөгүндөгү текстти алат, ал эми анын чыгарган жообу ушул жерде көрүнөт."
+ },
+ "Input data for the Prepared input mode": {
+  "ru": "Входные данные для режима «Готовые данные»",
+  "ky": "«Даяр маалымат» режими үчүн кирүүчү маалымат"
+ },
+ "Online compiler": {
+  "ru": "Онлайн-компилятор",
+  "ky": "Онлайн-компилятор"
+ },
+ "Prepared input": {
+  "ru": "Готовые данные",
+  "ky": "Даяр маалымат"
+ },
+ "Shared code cannot be opened while you are taking part in a contest.": {
+  "ru": "Пока вы участвуете в олимпиаде, чужой код по ссылке открыть нельзя.",
+  "ky": "Олимпиадага катышып жатканда шилтеме боюнча башка коду ачууга болбойт."
+ },
+ "Sharing is turned off during the contest": {
+  "ru": "Во время олимпиады ссылки отключены",
+  "ky": "Олимпиада учурунда шилтемелер өчүрүлгөн"
+ },
+ "Sharing is turned off during the contest.": {
+  "ru": "Во время олимпиады ссылки отключены.",
+  "ky": "Олимпиада учурунда шилтемелер өчүрүлгөн."
+ },
+ "Stop": {
+  "ru": "Стоп",
+  "ky": "Токтотуу"
+ },
+ "Terminal": {
+  "ru": "Терминал",
+  "ky": "Терминал"
+ },
+ "Upload files": {
+  "ru": "Загрузить файлы",
+  "ky": "Файлдарды жүктөп салуу"
+ },
+ "Write and run code in C, C++, Java, Python, C#, JavaScript, Go, Kotlin and Pascal. The program runs in the terminal below: it prints and waits for your input just like on your own computer. Files are saved to your account.": {
+  "ru": "Пишите и запускайте код на C, C++, Java, Python, C#, JavaScript, Go, Kotlin и Pascal. Программа работает в терминале внизу: печатает и ждёт ввода, как на вашем компьютере. Файлы сохраняются в аккаунте.",
+  "ky": "C, C++, Java, Python, C#, JavaScript, Go, Kotlin жана Pascal тилдеринде код жазып, иштетиңиз. Программа төмөнкү терминалда иштейт: компьютериңиздегидей эле басып чыгарат жана киргизүүнү күтөт. Файлдар аккаунтта сакталат."
  }
 }

@@ -8,7 +8,7 @@ NODE_VERSION=22.11.0
 KOTLIN_VERSION=2.0.21
 
 apt-get update
-apt-get install -y golang-go fpc unzip curl
+apt-get install -y golang-go fpc unzip curl clang-format
 
 if [ ! -x /opt/node22/bin/node ]; then
     curl -fsSL "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz" -o /tmp/node.tar.xz

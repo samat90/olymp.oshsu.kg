@@ -99,16 +99,29 @@
     window.addEventListener('pagehide', function () { leaving = true; });
     window.addEventListener('pageshow', function () { leaving = false; });
 
+    // Switching to another tab of this site (the Compiler, the problem list) is allowed.
+    // Every page of the site notes in localStorage when it becomes active (see base.html).
+    function anotherSiteTabActive() {
+        try {
+            var mark = JSON.parse(localStorage.getItem('olymp-active-tab') || 'null');
+            return mark && mark.id !== window.OLYMP_TAB_ID && Date.now() - mark.t < 2000;
+        } catch (e) {
+            return false;
+        }
+    }
+
     document.addEventListener('visibilitychange', function () {
         if (document.visibilityState !== 'hidden') return;
         setTimeout(function () {
-            if (!leaving && document.visibilityState === 'hidden') report('hidden', 'вкладка скрыта');
-        }, 400);
+            if (!leaving && document.visibilityState === 'hidden' && !anotherSiteTabActive()) {
+                report('hidden', 'вкладка скрыта');
+            }
+        }, 700);
     });
 
     window.addEventListener('blur', function () {
         setTimeout(function () {
-            if (leaving || document.hasFocus()) return;
+            if (leaving || document.hasFocus() || anotherSiteTabActive()) return;
             // Focus moving into an iframe on our own page is not leaving the page.
             var active = document.activeElement;
             if (active && active.tagName === 'IFRAME') return;
