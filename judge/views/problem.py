@@ -33,6 +33,7 @@ from judge.forms import ProblemCloneForm, ProblemPointsVoteForm, ProblemSubmitFo
 from judge.models import ContestSubmission, Judge, Language, Problem, ProblemGroup, ProblemPointsVote, \
     ProblemTranslation, ProblemType, RuntimeVersion, Solution, Submission, SubmissionSource
 from judge.utils.diggpaginator import DiggPaginator
+from judge.utils.languages import EDITOR_EXCLUDED
 from judge.utils.opengraph import generate_opengraph
 from judge.utils.pdfoid import PDF_RENDERING_ENABLED, render_pdf
 from judge.utils.problems import contest_attempted_ids, contest_completed_ids, hot_problems, user_attempted_ids, \
@@ -798,7 +799,9 @@ class ProblemSubmit(LoginRequiredMixin, ProblemMixin, TitleMixin, SingleObjectFo
             context['statement_title'] = translation.name
             context['description'] = translation.description
         context['contest_problem'] = self.contest_problem
-        context['editor_languages'] = editor_language_info(context['form'].fields['language'].queryset)
+        context['editor_languages'] = editor_language_info(
+            context['form'].fields['language'].queryset.exclude(key__in=EDITOR_EXCLUDED))
+        context['editor_excluded'] = EDITOR_EXCLUDED
         context['runner_enabled'] = runner_enabled()
         if self.old_submission is not None:
             context['initial_source'] = self.old_submission.source.source

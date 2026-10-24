@@ -82,7 +82,7 @@
                         <span class="oe-status">{{ _('No judge is available for this problem.') }}</span>
                     {% else %}
                         <select id="id_language" name="language" class="oe-select" aria-label="{{ _('Language') }}">
-                            {% for lang in form.fields.language.queryset %}
+                            {% for lang in form.fields.language.queryset if lang.key not in editor_excluded %}
                                 <option value="{{ lang.id }}" data-key="{{ lang.key }}" data-ace="{{ lang.ace }}"
                                         {% if lang.id == default_lang.id %}selected{% endif %}>{{ lang.name }}</option>
                             {% endfor %}

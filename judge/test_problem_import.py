@@ -9,8 +9,9 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import TestCase, override_settings
 from django.urls import reverse
 
-from judge.models import Language, Problem, problem_data_storage
+from judge.models import Problem, problem_data_storage
 from judge.models.tests.util import create_problem_group, create_user
+from judge.utils.languages import problem_languages
 from judge.utils.problem_import import parse_statement, read_upload
 from judge.utils.test_files import pair_test_files
 
@@ -108,6 +109,6 @@ class ImportViewTest(TestCase):
                              fetch_redirect_response=False)
         self.assertRegex(problem.code, r'^\d{6}$')
         self.assertEqual(problem.cases.count(), 3)
-        self.assertEqual(problem.allowed_languages.count(), Language.objects.count())
+        self.assertEqual(problem.allowed_languages.count(), problem_languages().count())
         with open(os.path.join(root, problem.code, 'init.yml')) as f:
             self.assertIn('01.in', f.read())

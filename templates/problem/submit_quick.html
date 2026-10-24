@@ -26,7 +26,7 @@
             <div class="qs-row">
                 <select id="id_language" name="language" aria-label="{{ _('Language') }}">
                     {% for lang in form.fields.language.queryset %}
-                        <option value="{{ lang.id }}" {% if lang.id == default_lang.id %}selected{% endif %}>{{ lang.name }}</option>
+                        <option value="{{ lang.id }}" data-ext="{{ lang.extension }}" {% if lang.id == default_lang.id %}selected{% endif %}>{{ lang.name }}</option>
                     {% endfor %}
                 </select>
                 <label class="button" for="qs-file"><i class="fa fa-folder-open-o"></i> {{ _('Open a file') }}</label>
@@ -52,9 +52,20 @@
                     var start = area.selectionStart;
                     area.setRangeText('    ', start, area.selectionEnd, 'end');
                 });
+                var select = document.getElementById('id_language');
                 document.getElementById('qs-file').addEventListener('change', function () {
                     var file = this.files[0];
                     if (!file) return;
+                    if (/\.sb3$/i.test(file.name)) {
+                        // Scratch projects are zip files; they travel as base64 text.
+                        var reader = new FileReader();
+                        reader.onload = function () { area.value = reader.result.split(',')[1]; };
+                        reader.readAsDataURL(file);
+                        Array.prototype.forEach.call(select.options, function (o) {
+                            if (o.dataset.ext === 'sb3') select.value = o.value;
+                        });
+                        return;
+                    }
                     file.text().then(function (text) { area.value = text; });
                 });
                 document.getElementById('problem_submit').addEventListener('submit', function (e) {

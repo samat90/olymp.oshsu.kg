@@ -1,7 +1,6 @@
 [
 {
     "model": "judge.language",
-    "pk": 1,
     "fields": {
         "key": "PY2",
         "name": "Python 2",
@@ -17,7 +16,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 2,
     "fields": {
         "key": "CPP03",
         "name": "C++03",
@@ -33,7 +31,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 4,
     "fields": {
         "key": "RUBY18",
         "name": "Ruby 1.8",
@@ -49,7 +46,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 5,
     "fields": {
         "key": "PHP",
         "name": "PHP",
@@ -65,7 +61,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 6,
     "fields": {
         "key": "PERL",
         "name": "Perl",
@@ -81,7 +76,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 8,
     "fields": {
         "key": "PY3",
         "name": "Python 3",
@@ -97,7 +91,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 9,
     "fields": {
         "key": "C",
         "name": "C",
@@ -113,7 +106,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 10,
     "fields": {
         "key": "PAS",
         "name": "Pascal",
@@ -129,7 +121,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 13,
     "fields": {
         "key": "CPP11",
         "name": "C++11",
@@ -145,7 +136,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 14,
     "fields": {
         "key": "MONOCS",
         "name": "C#",
@@ -161,7 +151,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 15,
     "fields": {
         "key": "HASK",
         "name": "Haskell",
@@ -177,7 +166,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 16,
     "fields": {
         "key": "GO",
         "name": "Go",
@@ -193,7 +181,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 17,
     "fields": {
         "key": "PYPY",
         "name": "PyPy 2",
@@ -209,7 +196,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 18,
     "fields": {
         "key": "PYPY3",
         "name": "PyPy 3",
@@ -225,7 +211,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 19,
     "fields": {
         "key": "F95",
         "name": "Fortran",
@@ -241,7 +226,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 20,
     "fields": {
         "key": "NASM",
         "name": "NASM",
@@ -257,7 +241,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 21,
     "fields": {
         "key": "RUBY",
         "name": "Ruby",
@@ -273,7 +256,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 22,
     "fields": {
         "key": "LUA",
         "name": "Lua",
@@ -289,7 +271,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 23,
     "fields": {
         "key": "OCAML",
         "name": "OCaml",
@@ -305,7 +286,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 24,
     "fields": {
         "key": "TUR",
         "name": "Turing",
@@ -321,7 +301,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 25,
     "fields": {
         "key": "JAVA8",
         "name": "Java 8",
@@ -337,7 +316,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 27,
     "fields": {
         "key": "V8JS",
         "name": "V8 JavaScript",
@@ -353,7 +331,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 29,
     "fields": {
         "key": "D",
         "name": "D",
@@ -369,7 +346,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 30,
     "fields": {
         "key": "BF",
         "name": "Brain****",
@@ -385,7 +361,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 31,
     "fields": {
         "key": "OBJC",
         "name": "Objective-C",
@@ -401,7 +376,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 33,
     "fields": {
         "key": "CPP14",
         "name": "C++14",
@@ -417,7 +391,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 34,
     "fields": {
         "key": "MONOVB",
         "name": "Visual Basic",
@@ -433,7 +406,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 35,
     "fields": {
         "key": "CLANG",
         "name": "Clang",
@@ -449,7 +421,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 36,
     "fields": {
         "key": "CLANGX",
         "name": "Clang++",
@@ -465,7 +436,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 37,
     "fields": {
         "key": "DART",
         "name": "Dart",
@@ -481,7 +451,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 38,
     "fields": {
         "key": "TCL",
         "name": "TCL",
@@ -497,7 +466,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 39,
     "fields": {
         "key": "CBL",
         "name": "COBOL",
@@ -513,7 +481,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 40,
     "fields": {
         "key": "MONOFS",
         "name": "F#",
@@ -529,7 +496,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 41,
     "fields": {
         "key": "SCM",
         "name": "Scheme",
@@ -545,7 +511,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 42,
     "fields": {
         "key": "ADA",
         "name": "Ada",
@@ -561,7 +526,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 43,
     "fields": {
         "key": "AWK",
         "name": "AWK",
@@ -577,7 +541,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 44,
     "fields": {
         "key": "RUST",
         "name": "Rust",
@@ -593,7 +556,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 45,
     "fields": {
         "key": "COFFEE",
         "name": "CoffeeScript",
@@ -609,7 +571,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 47,
     "fields": {
         "key": "PRO",
         "name": "Prolog",
@@ -625,7 +586,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 49,
     "fields": {
         "key": "FORTH",
         "name": "Forth",
@@ -641,7 +601,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 50,
     "fields": {
         "key": "ICK",
         "name": "INTERCAL",
@@ -657,7 +616,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 51,
     "fields": {
         "key": "TEXT",
         "name": "Text",
@@ -673,7 +631,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 52,
     "fields": {
         "key": "SCALA",
         "name": "Scala",
@@ -689,7 +646,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 54,
     "fields": {
         "key": "SWIFT",
         "name": "Swift",
@@ -705,7 +661,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 56,
     "fields": {
         "key": "GAS32",
         "name": "Assembly (x86)",
@@ -721,7 +676,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 57,
     "fields": {
         "key": "GASARM",
         "name": "Assembly (ARM)",
@@ -737,7 +691,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 58,
     "fields": {
         "key": "GAS64",
         "name": "Assembly (x64)",
@@ -753,7 +706,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 60,
     "fields": {
         "key": "SED",
         "name": "Sed",
@@ -769,7 +721,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 61,
     "fields": {
         "key": "JAVA",
         "name": "Java",
@@ -785,7 +736,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 62,
     "fields": {
         "key": "NASM64",
         "name": "NASM64",
@@ -801,7 +751,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 63,
     "fields": {
         "key": "RKT",
         "name": "Racket",
@@ -817,7 +766,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 64,
     "fields": {
         "key": "GROOVY",
         "name": "Groovy",
@@ -833,7 +781,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 67,
     "fields": {
         "key": "KOTLIN",
         "name": "Kotlin",
@@ -849,7 +796,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 68,
     "fields": {
         "key": "PIKE",
         "name": "Pike",
@@ -865,7 +811,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 69,
     "fields": {
         "key": "CPP17",
         "name": "C++17",
@@ -881,7 +826,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 70,
     "fields": {
         "key": "SBCL",
         "name": "Lisp",
@@ -897,7 +841,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 72,
     "fields": {
         "key": "C11",
         "name": "C11",
@@ -913,7 +856,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 75,
     "fields": {
         "key": "ZIG",
         "name": "Zig",
@@ -929,7 +871,6 @@
 },
 {
     "model": "judge.language",
-    "pk": 76,
     "fields": {
         "key": "CPP20",
         "name": "C++20",

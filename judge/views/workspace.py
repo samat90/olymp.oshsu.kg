@@ -14,7 +14,7 @@ from django.views.decorators.http import require_GET, require_POST
 
 from judge.models import Problem, WorkspaceFile
 from judge.models.workspace import MAX_DEPTH, MAX_FILE_SIZE, MAX_FILES_PER_USER
-from judge.utils.languages import problem_languages
+from judge.utils.languages import EDITOR_EXCLUDED, problem_languages
 from judge.utils.runner import make_token, public_url, runner_enabled
 from judge.utils.views import generic_message
 
@@ -29,7 +29,7 @@ def in_live_contest(request):
 
 
 def available_languages():
-    languages = problem_languages()
+    languages = problem_languages().exclude(key__in=EDITOR_EXCLUDED)
     online = list(languages.filter(judges__online=True).distinct().order_by('name'))
     if online:
         return online

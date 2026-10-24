@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
         C: '#include <stdio.h>\n\nint main() {\n    printf("Hello, World!\\n");\n    return 0;\n}\n',
         CPP17: '#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << "Hello, World!" << endl;\n    return 0;\n}\n',
         CPP20: '#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << "Hello, World!" << endl;\n    return 0;\n}\n',
+        CPP14: '#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << "Hello, World!" << endl;\n    return 0;\n}\n',
         PY3: 'print("Hello, World!")\n',
         JAVA8: 'public class Main {\n    public static void main(String[] args) {\n        System.out.println("Hello, World!");\n    }\n}\n',
         JAVA: 'public class Main {\n    public static void main(String[] args) {\n        System.out.println("Hello, World!");\n    }\n}\n',
@@ -21,6 +22,8 @@ document.addEventListener('DOMContentLoaded', function () {
         NODEJS: 'console.log("Hello, World!");\n',
         GO: 'package main\n\nimport "fmt"\n\nfunc main() {\n\tfmt.Println("Hello, World!")\n}\n',
         KOTLIN: 'fun main() {\n    println("Hello, World!")\n}\n',
+        FSHARP: 'printfn "Hello, World!"\n',
+        SWIFT: 'print("Hello, World!")\n',
         PAS: 'program Hello;\nbegin\n  writeln(\'Hello, World!\');\nend.\n'
     };
     var MAIN_NAME = {JAVA8: 'Main.java', JAVA: 'Main.java'};
