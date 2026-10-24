@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function loadJSON(k, d) { try { return JSON.parse(storageGet(k) || 'null') || d; } catch (e) { return d; } }
 
     function request(url, body) {
+        if (W.guest) return guestRequest(url, body);
         var opts = {credentials: 'same-origin', headers: {'X-CSRFToken': cfg.csrf}};
         if (body !== undefined) {
             opts.method = 'POST';
@@ -58,6 +59,87 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!data.ok) throw new Error(data.error || S.error);
             return data;
         });
+    }
+
+    /* ---- guests: files live in this browser only; keeping them needs an account ---- */
+
+    var GUEST_KEY = 'cc-guest-files';
+
+    function guestStore() {
+        var data = loadJSON(GUEST_KEY, null);
+        if (!data || !data.files) data = {next: 1, files: {}};
+        return data;
+    }
+
+    function guestRequest(url, body) {
+        var data = guestStore();
+        var rest = url.slice(api.length);
+        var m = /^(\d+)\/(?:(save|rename|delete|move|share)\/)?$/.exec(rest);
+        var ext = function (name) { return name.split('.').pop(); };
+        var langOf = function (name) {
+            var lang = W.languages.filter(function (l) { return l.ext === ext(name); })[0];
+            return lang ? lang.key : '';
+        };
+        var out;
+        if (rest === '') {
+            out = {ok: true, files: Object.keys(data.files).map(function (id) {
+                var f = Object.assign({}, data.files[id]);
+                delete f.content;
+                return f;
+            })};
+        } else if (rest === 'new/') {
+            var id = data.next++;
+            data.files[id] = {id: id, name: body.name, parent: body.parent || null, folder: !!body.folder,
+                              language: body.language || (body.folder ? '' : langOf(body.name)),
+                              content: body.content || '', stdin: ''};
+            out = {ok: true, file: data.files[id]};
+        } else if (m && data.files[m[1]]) {
+            var f = data.files[m[1]];
+            if (!m[2]) out = {ok: true, file: f};
+            else if (m[2] === 'save') {
+                ['content', 'stdin', 'language'].forEach(function (k) { if (k in body) f[k] = body[k]; });
+                out = {ok: true, file: f};
+            } else if (m[2] === 'rename') {
+                f.name = body.name;
+                f.language = langOf(body.name) || f.language;
+                out = {ok: true, file: f};
+            } else if (m[2] === 'delete') {
+                (function drop(id) {
+                    Object.keys(data.files).forEach(function (k) { if (data.files[k].parent === id) drop(Number(k)); });
+                    delete data.files[id];
+                })(f.id);
+                out = {ok: true};
+            } else if (m[2] === 'move') {
+                f.parent = body.parent || null;
+                out = {ok: true, file: f};
+            }
+        }
+        if (!out) {
+            needAccount();
+            return Promise.reject(new Error(S.needAccount));
+        }
+        storageSet(GUEST_KEY, JSON.stringify(data));
+        return Promise.resolve(JSON.parse(JSON.stringify(out)));
+    }
+
+    function needAccount() {
+        var m = modal(S.logIn, '<p class="cc-guest-text"></p><div class="oe-modal-foot"><a class="oe-btn" href="' +
+            W.registerUrl + '"></a><a class="oe-btn oe-primary" href="' + W.loginUrl + '"></a></div>');
+        m.box.querySelector('.cc-guest-text').textContent = S.needAccount;
+        m.box.querySelector('.oe-btn:not(.oe-primary)').textContent = S.register;
+        m.box.querySelector('.oe-primary').textContent = S.logIn;
+    }
+
+    if (W.guest) {
+        // Keeping, sharing and organising files is for signed-in users; writing and running is for everyone.
+        document.addEventListener('click', function (e) {
+            var hit = e.target.closest('#cc-save, #ws-new-file, #tb-new, #ws-new-folder, #ws-upload, #ws-zip, ' +
+                                       '#pj-new, #pj-list, #cc-share');
+            if (!hit) return;
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            needAccount();
+        }, true);
     }
 
     var statusTimer = null;
@@ -657,6 +739,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function save() {
+        if (W.guest) { needAccount(); return; }
         if (!active) return;
         flush(active).then(function () { setStatus(S.saved); }).catch(function () {});
     }

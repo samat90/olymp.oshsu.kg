@@ -7264,3 +7264,12 @@ msgstr "Чёрная"
 
 msgid "Blue"
 msgstr "Синяя"
+
+msgid "To save files, sign in or create an account. Your code stays here until then."
+msgstr "Чтобы сохранять файлы, войдите или зарегистрируйтесь. До тех пор код остаётся здесь, в этом браузере."
+
+msgid "Too many runs. Wait a few minutes or sign in."
+msgstr "Слишком много запусков. Подождите несколько минут или войдите."
+
+msgid "Sign in to run code for problems."
+msgstr "Войдите, чтобы запускать код задач."

@@ -5,6 +5,7 @@ import re
 import zipfile
 
 from django.contrib.auth.decorators import login_required
+from django.core.cache import cache
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import IntegrityError, transaction
 from django.http import Http404, HttpResponse, JsonResponse
@@ -21,6 +22,9 @@ from judge.utils.views import generic_message
 NAME_RE = re.compile(r'^[^\\/:*?"<>|\x00-\x1f]{1,100}$')
 # When two languages share an extension, the first one listed wins.
 PREFERRED = ['CPP17', 'CPP20', 'C', 'PY3', 'JAVA8', 'JAVA', 'CSHARP', 'MONOCS', 'NODEJS', 'GO', 'KOTLIN', 'PAS']
+
+
+GUEST_TOKENS_PER_10_MIN = 300
 
 
 def in_live_contest(request):
@@ -69,11 +73,28 @@ def read_json(request):
         return {}
 
 
-@login_required
+def runner_user(request):
+    """Who the runner limits: the user, or for a guest the browser session."""
+    if request.user.is_authenticated:
+        return request.user.id
+    if not request.session.session_key:
+        request.session.save()
+    return 'guest-' + request.session.session_key
+
+
 @require_POST
 def runner_token(request):
     if not runner_enabled():
         return json_error(_('Code runner is not configured.'), 503)
+    if not request.user.is_authenticated:
+        # Guests may run code in the Compiler; a flood of new sessions from one address is cut off.
+        ip = request.META.get('HTTP_X_REAL_IP') or request.META.get('REMOTE_ADDR') or '?'
+        key = 'runner-guest-tokens:' + ip
+        cache.add(key, 0, 600)
+        if cache.incr(key) > GUEST_TOKENS_PER_10_MIN:
+            return json_error(_('Too many runs. Wait a few minutes or sign in.'), 429)
+        if request.body and read_json(request).get('problem'):
+            return json_error(_('Sign in to run code for problems.'), 403)
 
     data = read_json(request)
     code = data.get('problem')
@@ -97,15 +118,16 @@ def runner_token(request):
         time_limit = None
         memory_limit = None
 
-    token, expires = make_token(request.user.id, languages, time_limit, memory_limit)
+    token, expires = make_token(runner_user(request), languages, time_limit, memory_limit)
     return JsonResponse({'ok': True, 'token': token, 'expires': expires, 'url': public_url()})
 
 
-@login_required
 def workspace(request):
+    # Open to guests: they can write and run code; keeping files needs an account.
     languages = available_languages()
     return render(request, 'workspace/index.html', {
         'title': _('Compiler'),
+        'guest': not request.user.is_authenticated,
         'in_contest': in_live_contest(request),
         'languages': editor_language_info(languages),
         'runner_enabled': runner_enabled(),

@@ -26,7 +26,10 @@
             downloadUrl: '{{ url('workspace_api_download') }}',
             shareBase: '{{ request.build_absolute_uri('/compiler/share/') }}',
             maxFiles: {{ limits.files }},
-            inContest: {{ 'true' if in_contest else 'false' }}
+            inContest: {{ 'true' if in_contest else 'false' }},
+            guest: {{ 'true' if guest else 'false' }},
+            loginUrl: '{{ url('auth_login') }}?next={{ request.get_full_path()|urlencode }}',
+            registerUrl: '{{ url('registration_register') }}'
         };
     </script>
     <script src="{{ static('vendor/xterm/xterm.js') }}"></script>
@@ -65,10 +68,16 @@
                                 {% if language.code == LANGUAGE_CODE %}class="active"{% endif %}>{{ language.code|upper }}</button>
                     {% endfor %}
                 </form>
-                <a class="gdb-user" href="{{ url('user_page') }}">
-                    <img src="{{ gravatar(request.user, 32) }}" width="22" height="22" alt="">
-                    <span>{{ request.profile.display_name }}</span>
-                </a>
+                {% if guest %}
+                    <a class="gdb-user" href="{{ url('auth_login') }}?next={{ request.get_full_path()|urlencode }}">
+                        <i class="fa fa-sign-in"></i><span>{{ _('Log in') }}</span>
+                    </a>
+                {% else %}
+                    <a class="gdb-user" href="{{ url('user_page') }}">
+                        <img src="{{ gravatar(request.user, 32) }}" width="22" height="22" alt="">
+                        <span>{{ request.profile.display_name }}</span>
+                    </a>
+                {% endif %}
             </div>
         </aside>
 

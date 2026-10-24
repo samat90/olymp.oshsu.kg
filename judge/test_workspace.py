@@ -176,3 +176,23 @@ class SampleExtractionTest(TestCase):
     def test_code_blocks_without_labels_are_ignored(self):
         md = 'Пример кода:\n```\nint main() {}\n```\n'
         self.assertEqual(extract_samples(md), [])
+
+
+@override_settings(DMOJ_RUNNER_PUBLIC_URL='http://runner.test', DMOJ_RUNNER_SECRET='0123456789abcdef0123456789')
+class GuestCompilerTest(TestCase):
+    fixtures = ['language_small.json']
+
+    def test_guest_can_open_the_compiler_and_run_code(self):
+        judge = Judge.objects.create(name='guest_judge', auth_key='k' * 20, online=True)
+        judge.runtimes.set(Language.objects.all())
+        self.assertEqual(self.client.get(reverse('workspace')).status_code, 200)
+        response = self.client.post(reverse('runner_token'), '{}', content_type='application/json')
+        self.assertTrue(response.json()['ok'])
+        payload = json.loads(base64.urlsafe_b64decode(response.json()['token'].split('.')[0] + '=='))
+        self.assertTrue(str(payload['u']).startswith('guest-'))
+
+    def test_guest_cannot_run_problems_or_keep_files(self):
+        response = self.client.post(reverse('runner_token'), '{"problem": "x"}', content_type='application/json')
+        self.assertEqual(response.status_code, 403)
+        response = self.client.post(reverse('workspace_api_create'), '{"name": "a.py"}', content_type='application/json')
+        self.assertNotEqual(response.status_code, 200)

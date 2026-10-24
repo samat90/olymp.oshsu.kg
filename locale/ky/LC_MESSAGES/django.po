@@ -2010,3 +2010,12 @@ msgstr "Кара"
 
 msgid "Blue"
 msgstr "Көк"
+
+msgid "To save files, sign in or create an account. Your code stays here until then."
+msgstr "Файлдарды сактоо үчүн кириңиз же катталыңыз. Ага чейин код ушул браузерде калат."
+
+msgid "Too many runs. Wait a few minutes or sign in."
+msgstr "Өтө көп иштетүү. Бир нече мүнөт күтүңүз же кириңиз."
+
+msgid "Sign in to run code for problems."
+msgstr "Маселелердин кодун иштетүү үчүн кириңиз."
