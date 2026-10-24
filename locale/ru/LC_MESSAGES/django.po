@@ -7273,3 +7273,18 @@ msgstr "Слишком много запусков. Подождите неск�
 
 msgid "Sign in to run code for problems."
 msgstr "Войдите, чтобы запускать код задач."
+
+msgid "Archive with automatic checking"
+msgstr "Архив с автоматической проверкой"
+
+msgid "Olympiads and rankings"
+msgstr "Олимпиады и рейтинги"
+
+msgid "Write and run code online"
+msgstr "Пишите и запускайте код онлайн"
+
+msgid "Touch typing and records"
+msgstr "Слепая печать и рекорды"
+
+msgid "Trainer"
+msgstr "Тренажёр"

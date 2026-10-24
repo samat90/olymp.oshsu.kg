@@ -2019,3 +2019,18 @@ msgstr "Өтө көп иштетүү. Бир нече мүнөт күтүңүз 
 
 msgid "Sign in to run code for problems."
 msgstr "Маселелердин кодун иштетүү үчүн кириңиз."
+
+msgid "Archive with automatic checking"
+msgstr "Автоматтык текшерүүсү бар архив"
+
+msgid "Olympiads and rankings"
+msgstr "Олимпиадалар жана рейтингдер"
+
+msgid "Write and run code online"
+msgstr "Кодду онлайн жазып, иштетиңиз"
+
+msgid "Touch typing and records"
+msgstr "Сокур терүү жана рекорддор"
+
+msgid "Trainer"
+msgstr "Тренажёр"

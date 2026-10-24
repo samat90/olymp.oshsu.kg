@@ -3,10 +3,23 @@
     <section class="oshsu-hero" aria-labelledby="hero-title">
         <h1 id="hero-title" class="hero-title">OshSU Olymp</h1>
         <p class="hero-subtitle">{{ _('Online programming contest platform of Osh State University. Solve problems, participate in contests, compete with friends.') }}</p>
-        <div class="hero-ctas">
-            <a class="hero-cta primary" href="{{ url('problem_list') }}">{{ _('Problems') }} &rarr;</a>
-            <a class="hero-cta secondary" href="{{ url('contest_list') }}">{{ _('Contests') }}</a>
-            <a class="hero-cta secondary" href="{{ url('workspace') }}">{{ _('Compiler') }}</a>
+        <div class="hero-tiles">
+            <a class="hero-tile tile-problems" href="{{ url('problem_list') }}">
+                <span class="tile-icon"><i class="fa fa-puzzle-piece"></i></span>
+                <span class="tile-text"><b>{{ _('Problems') }}</b><small>{{ _('Archive with automatic checking') }}</small></span>
+            </a>
+            <a class="hero-tile tile-contests" href="{{ url('contest_list') }}">
+                <span class="tile-icon"><i class="fa fa-trophy"></i></span>
+                <span class="tile-text"><b>{{ _('Contests') }}</b><small>{{ _('Olympiads and rankings') }}</small></span>
+            </a>
+            <a class="hero-tile tile-compiler" href="{{ url('workspace') }}">
+                <span class="tile-icon"><i class="fa fa-terminal"></i></span>
+                <span class="tile-text"><b>{{ _('Compiler') }}</b><small>{{ _('Write and run code online') }}</small></span>
+            </a>
+            <a class="hero-tile tile-typing" href="{{ url('typing') }}">
+                <span class="tile-icon"><i class="fa fa-keyboard-o"></i></span>
+                <span class="tile-text"><b>{{ _('Trainer') }}</b><small>{{ _('Touch typing and records') }}</small></span>
+            </a>
         </div>
     </section>
     {% if misc_config.home_page_top %}
