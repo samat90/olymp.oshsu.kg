@@ -23,7 +23,9 @@ server {
     listen [::]:80 default_server;
     server_name olymp.oshsu.kg www.olymp.oshsu.kg _;
 
+    server_tokens off;
     add_header X-Content-Type-Options nosniff always;
+    add_header X-Frame-Options SAMEORIGIN always;
     add_header Referrer-Policy strict-origin-when-cross-origin always;
 
     # Test archives for problems can be large.
@@ -48,6 +50,9 @@ server {
         alias /var/www/olymp.oshsu.kg/media/;
         expires 7d;
         access_log off;
+        # Uploaded files never run as pages of the site (an uploaded .html or .svg cannot steal a session).
+        add_header Content-Security-Policy "sandbox" always;
+        add_header X-Content-Type-Options nosniff always;
     }
 
     # Code runner on the judge machine (runner/server.py). It checks its own token.

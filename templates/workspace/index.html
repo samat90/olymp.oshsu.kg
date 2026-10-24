@@ -20,7 +20,7 @@
             locale: '{{ LANGUAGE_CODE }}'
         };
         window.OLYMP_WORKSPACE = {
-            languages: {{ languages_json|safe }},
+            languages: {{ languages|tojson }},
             runnerEnabled: {{ 'true' if runner_enabled else 'false' }},
             api: '{{ url('workspace_api_list') }}',
             downloadUrl: '{{ url('workspace_api_download') }}',

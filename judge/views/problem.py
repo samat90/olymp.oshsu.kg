@@ -1,4 +1,3 @@
-import json
 import logging
 import os
 import re
@@ -36,7 +35,6 @@ from judge.models import ContestSubmission, Judge, Language, Problem, ProblemGro
 from judge.utils.diggpaginator import DiggPaginator
 from judge.utils.opengraph import generate_opengraph
 from judge.utils.pdfoid import PDF_RENDERING_ENABLED, render_pdf
-from judge.utils.problem_samples import extract_samples
 from judge.utils.problems import contest_attempted_ids, contest_completed_ids, hot_problems, user_attempted_ids, \
     user_completed_ids
 from judge.utils.strings import safe_float_or_none, safe_int_or_none
@@ -799,9 +797,8 @@ class ProblemSubmit(LoginRequiredMixin, ProblemMixin, TitleMixin, SingleObjectFo
         else:
             context['statement_title'] = translation.name
             context['description'] = translation.description
-        context['samples_json'] = json.dumps(extract_samples(context['description']))
         context['contest_problem'] = self.contest_problem
-        context['editor_languages_json'] = json.dumps(editor_language_info(context['form'].fields['language'].queryset))
+        context['editor_languages'] = editor_language_info(context['form'].fields['language'].queryset)
         context['runner_enabled'] = runner_enabled()
         if self.old_submission is not None:
             context['initial_source'] = self.old_submission.source.source

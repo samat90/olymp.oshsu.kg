@@ -85,6 +85,14 @@ class WorkspaceTest(TestCase):
         self.assertTrue(forked['ok'])
         self.assertEqual(WorkspaceFile.objects.get(id=forked['file']['id']).owner, self.other.profile)
 
+    def test_shared_code_cannot_break_out_of_the_script(self):
+        evil = '</script><script>alert(document.cookie)</script>'
+        _, file = self.post('workspace_api_create', {'name': 'x.py', 'content': evil})
+        _, shared = self.post('workspace_api_share', {'on': True}, file['file']['id'])
+        page = self.client.get(reverse('workspace_shared', args=(shared['file']['share_key'],)))
+        self.assertEqual(page.status_code, 200)
+        self.assertNotContains(page, evil)
+
     def test_file_limit(self):
         with self.settings():
             from judge.models import workspace

@@ -107,7 +107,7 @@ def workspace(request):
     return render(request, 'workspace/index.html', {
         'title': _('Compiler'),
         'in_contest': in_live_contest(request),
-        'languages_json': json.dumps(editor_language_info(languages)),
+        'languages': editor_language_info(languages),
         'runner_enabled': runner_enabled(),
         'limits': {'files': MAX_FILES_PER_USER, 'size': MAX_FILE_SIZE},
     })
@@ -122,8 +122,9 @@ def shared_file(request, key):
     return render(request, 'workspace/shared.html', {
         'title': file.name,
         'file': file,
-        'file_json': json.dumps(file.as_dict(with_content=True)),
-        'languages_json': json.dumps(editor_language_info(languages)),
+        'file': file,
+        'file_data': file.as_dict(with_content=True),
+        'languages': editor_language_info(languages),
     })
 
 

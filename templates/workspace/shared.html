@@ -19,8 +19,8 @@
     <script src="{{ static('editor/olymp-editor.js') }}?v={{ STATIC_VERSION }}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var file = {{ file_json|safe }};
-            var languages = {{ languages_json|safe }};
+            var file = {{ file_data|tojson }};
+            var languages = {{ languages|tojson }};
             var lang = languages.filter(function (l) { return l.key === file.language; })[0];
             OlympEditor.create(document.getElementById('ws-editor'), {
                 value: file.content, ace: lang ? lang.ace : 'text', readOnly: true

@@ -20,7 +20,7 @@
         };
         window.OLYMP_SOLVE = {
             problem: '{{ problem.code }}',
-            languages: {{ editor_languages_json|safe }},
+            languages: {{ editor_languages|tojson }},
             runnerEnabled: {{ 'true' if runner_enabled else 'false' }},
             initialSource: {{ initial_source|tojson if initial_source is not none else 'null' }},
             defaultLanguage: {{ default_lang.id if default_lang else 'null' }}

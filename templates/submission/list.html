@@ -321,16 +321,27 @@
                 var cell = row.querySelector('.sub-verdict');
                 return cell && /\bv-None\b/.test(cell.className);
             }
+            // Under load the interval grows (2 s -> 10 s) and a hidden tab does not poll at all,
+            // so a thousand open lists do not flood the server.
+            var delay = 2000;
+            var started = Date.now();
             function tick() {
+                if (Date.now() - started > 15 * 60 * 1000) return;
+                if (document.hidden) { setTimeout(tick, delay); return; }
                 var rows = Array.prototype.filter.call(document.querySelectorAll('#submissions-table > tr'), pending);
                 if (!rows.length) return;
-                rows.forEach(function (row) {
-                    fetch(url + '?id=' + row.id + '&show_problem=' + showProblem, {credentials: 'same-origin'})
+                // The newest rows first; at most five requests per round.
+                var mine = rows.filter(function (r) { return r.classList.contains('submission-mine'); });
+                rows = mine.concat(rows.filter(function (r) { return mine.indexOf(r) < 0; })).slice(0, 5);
+                Promise.all(rows.map(function (row) {
+                    return fetch(url + '?id=' + row.id + '&show_problem=' + showProblem, {credentials: 'same-origin'})
                         .then(function (r) { return r.ok ? r.text() : null; })
                         .then(function (html) { if (html) row.innerHTML = html; })
                         .catch(function () {});
+                })).then(function () {
+                    delay = Math.min(delay * 1.25, 10000);
+                    setTimeout(tick, delay);
                 });
-                setTimeout(tick, 2000);
             }
             setTimeout(tick, 1500);
             var sent = document.querySelector('.submission-just-sent');

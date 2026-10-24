@@ -50,6 +50,12 @@ def ranking_rows(contest):
     return problems, rows
 
 
+def text_cell(value):
+    # A name typed by a participant must stay text: "=..." would become a formula in Excel.
+    value = str(value or '')
+    return "'" + value if value[:1] in ('=', '+', '-', '@') else value
+
+
 def contest_ranking_xlsx(request, contest):
     contest = get_object_or_404(Contest, key=contest)
     if not request.user.is_authenticated or not contest.is_editable_by(request.user):
@@ -81,8 +87,8 @@ def contest_ranking_xlsx(request, contest):
         cell.alignment = Alignment(wrap_text=True, vertical='center', horizontal='center')
 
     for row in rows:
-        ws.append([row['place'], row['username'], row['name'], row['organization']] + row['problems'] +
-                  [row['score'], row['time'], row['status']])
+        ws.append([row['place'], row['username'], text_cell(row['name']), text_cell(row['organization'])] +
+                  row['problems'] + [row['score'], row['time'], row['status']])
 
     widths = [7, 18, 32, 26] + [14] * len(problems) + [10, 10, 16]
     for i, width in enumerate(widths, 1):
