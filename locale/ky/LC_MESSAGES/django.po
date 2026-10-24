@@ -1844,3 +1844,157 @@ msgstr "Текшерүү серверлери азыр жеткиликсиз."
 
 msgid "We are waiting for a suitable judge to process your submission..."
 msgstr "Жөнөтүү текшерүү кезегинде..."
+
+msgid "Typing trainer"
+msgstr "Сокур терүү тренажёру"
+
+msgid "Typing records"
+msgstr "Терүү ылдамдыгынын рекорддору"
+
+msgid "Lessons"
+msgstr "Сабактар"
+
+msgid "Lesson"
+msgstr "Сабак"
+
+msgid "Speed test"
+msgstr "Ылдамдык тести"
+
+msgid "Capital letters"
+msgstr "Баш тамгалар"
+
+msgid "Digits"
+msgstr "Сандар"
+
+msgid "left little finger"
+msgstr "сол чыпалак"
+
+msgid "left ring finger"
+msgstr "сол аты жок манжа"
+
+msgid "left middle finger"
+msgstr "сол ортон манжа"
+
+msgid "left index finger"
+msgstr "сол сөөмөй"
+
+msgid "right index finger"
+msgstr "оң сөөмөй"
+
+msgid "right middle finger"
+msgstr "оң ортон манжа"
+
+msgid "right ring finger"
+msgstr "оң аты жок манжа"
+
+msgid "right little finger"
+msgstr "оң чыпалак"
+
+msgid "thumb"
+msgstr "бармак"
+
+msgid "Switch the keyboard to English"
+msgstr "Клавиатураны англисчеге которуңуз"
+
+msgid "Switch the keyboard to Russian"
+msgstr "Клавиатураны орусчага которуңуз"
+
+msgid "Lesson passed."
+msgstr "Сабак өттү."
+
+
+msgid "Sign in to keep your records."
+msgstr "Рекорддорду сактоо үчүн кириңиз."
+
+msgid "Layout"
+msgstr "Тергич"
+
+msgid "Sound"
+msgstr "Үн"
+
+msgid "Keyboard"
+msgstr "Клавиатура"
+
+msgid "Records"
+msgstr "Рекорддор"
+
+msgid "Start again"
+msgstr "Кайра баштоо"
+
+msgid "chars/min"
+msgstr "белги/мүн"
+
+msgid "words/min"
+msgstr "сөз/мүн"
+
+msgid "accuracy"
+msgstr "тактык"
+
+msgid "errors"
+msgstr "каталар"
+
+msgid "Click here and start typing"
+msgstr "Бул жерди басып, тере баштаңыз"
+
+msgid "New personal record!"
+msgstr "Жаңы жеке рекорд!"
+
+msgid "Again"
+msgstr "Дагы бир жолу"
+
+msgid "Next lesson"
+msgstr "Кийинки сабак"
+
+msgid "My last results"
+msgstr "Менин акыркы жыйынтыктарым"
+
+msgid "Mode"
+msgstr "Режим"
+
+msgid "Typing"
+msgstr "Терүү"
+
+msgid "Week"
+msgstr "Апта"
+
+msgid "Month"
+msgstr "Ай"
+
+msgid "All time"
+msgstr "Бардык убакыт"
+
+msgid "No results yet. Be the first!"
+msgstr "Азырынча жыйынтык жок. Биринчи болуңуз!"
+
+msgid "lesson"
+msgstr "сабак"
+
+msgid "speed test"
+msgstr "ылдамдык тести"
+
+msgid "layout"
+msgstr "тергич"
+
+msgid "time, s"
+msgstr "убакыт, с"
+
+msgid "characters"
+msgstr "белгилер"
+
+msgid "characters per minute"
+msgstr "мүнөтүнө белги"
+
+msgid "accuracy, %"
+msgstr "тактык, %"
+
+msgid "typing result"
+msgstr "тренажёрдун жыйынтыгы"
+
+msgid "typing results"
+msgstr "тренажёрдун жыйынтыктары"
+
+msgid "mode"
+msgstr "режим"
+
+msgid "To pass: accuracy %(acc)s and %(cpm)s characters a minute."
+msgstr "Сабактан өтүү үчүн: тактык %(acc)s жана мүнөтүнө %(cpm)s белги."

@@ -7095,3 +7095,160 @@ msgstr "путь"
 
 msgid "code"
 msgstr "код"
+
+msgid "Typing trainer"
+msgstr "Тренажёр слепой печати"
+
+msgid "Typing records"
+msgstr "Рекорды скорости печати"
+
+msgid "Lessons"
+msgstr "Уроки"
+
+msgid "Lesson"
+msgstr "Урок"
+
+msgid "Speed test"
+msgstr "Тест скорости"
+
+msgid "Code"
+msgstr "Код"
+
+msgid "Capital letters"
+msgstr "Заглавные буквы"
+
+msgid "Digits"
+msgstr "Цифры"
+
+msgid "left little finger"
+msgstr "левый мизинец"
+
+msgid "left ring finger"
+msgstr "левый безымянный"
+
+msgid "left middle finger"
+msgstr "левый средний"
+
+msgid "left index finger"
+msgstr "левый указательный"
+
+msgid "right index finger"
+msgstr "правый указательный"
+
+msgid "right middle finger"
+msgstr "правый средний"
+
+msgid "right ring finger"
+msgstr "правый безымянный"
+
+msgid "right little finger"
+msgstr "правый мизинец"
+
+msgid "thumb"
+msgstr "большой палец"
+
+msgid "Switch the keyboard to English"
+msgstr "Переключите раскладку на английскую"
+
+msgid "Switch the keyboard to Russian"
+msgstr "Переключите раскладку на русскую"
+
+msgid "Lesson passed."
+msgstr "Урок пройден."
+
+
+msgid "Sign in to keep your records."
+msgstr "Войдите, чтобы сохранять рекорды."
+
+msgid "Layout"
+msgstr "Раскладка"
+
+msgid "Sound"
+msgstr "Звук"
+
+msgid "Keyboard"
+msgstr "Клавиатура"
+
+msgid "Records"
+msgstr "Рекорды"
+
+msgid "Start again"
+msgstr "Начать заново"
+
+msgid "chars/min"
+msgstr "знаков/мин"
+
+msgid "words/min"
+msgstr "слов/мин"
+
+msgid "accuracy"
+msgstr "точность"
+
+msgid "errors"
+msgstr "ошибки"
+
+msgid "Click here and start typing"
+msgstr "Нажмите сюда и начинайте печатать"
+
+msgid "New personal record!"
+msgstr "Новый личный рекорд!"
+
+msgid "Again"
+msgstr "Ещё раз"
+
+msgid "Next lesson"
+msgstr "Следующий урок"
+
+msgid "My last results"
+msgstr "Мои последние результаты"
+
+msgid "Mode"
+msgstr "Режим"
+
+msgid "Typing"
+msgstr "Печать"
+
+msgid "Week"
+msgstr "Неделя"
+
+msgid "Month"
+msgstr "Месяц"
+
+msgid "All time"
+msgstr "Всё время"
+
+msgid "No results yet. Be the first!"
+msgstr "Результатов пока нет. Будьте первым!"
+
+msgid "lesson"
+msgstr "урок"
+
+msgid "speed test"
+msgstr "тест скорости"
+
+msgid "layout"
+msgstr "раскладка"
+
+msgid "time, s"
+msgstr "время, с"
+
+msgid "characters"
+msgstr "знаков"
+
+msgid "characters per minute"
+msgstr "знаков в минуту"
+
+msgid "accuracy, %"
+msgstr "точность, %"
+
+msgid "typing result"
+msgstr "результат тренажёра"
+
+msgid "typing results"
+msgstr "результаты тренажёра"
+
+msgid "mode"
+msgstr "режим"
+
+msgid "To pass: accuracy %(acc)s and %(cpm)s characters a minute."
+msgstr "Чтобы пройти урок: точность %(acc)s и %(cpm)s знаков в минуту."

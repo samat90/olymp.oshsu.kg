@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title_row %}{% endblock %}
+{% block title_ruler %}{% endblock %}
+
+{% block media %}
+    <link rel="stylesheet" href="{{ static('typing/typing.css') }}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
+{% block body %}
+<div class="ty">
+    <div class="ty-top">
+        <h2 class="ty-title">{{ _('Typing records') }}</h2>
+        <span class="ty-spacer"></span>
+        <a class="ty-records-link" href="{{ url('typing') }}"><i class="fa fa-keyboard-o"></i> {{ _('Typing trainer') }}</a>
+    </div>
+
+    {% macro link(m, l, p, label, active) -%}
+        <a href="?mode={{ m }}&layout={{ l }}&period={{ p }}" class="{{ 'ty-active' if active else '' }}">{{ label }}</a>
+    {%- endmacro %}
+    <div class="ty-rec-filters">
+        {{ link('test', layout, period, _('Speed test'), mode == 'test') }}
+        {{ link('code', 'en', period, _('Code'), mode == 'code') }}
+    </div>
+    {% if mode == 'test' %}
+        <div class="ty-rec-filters">
+            {% for code, name in layouts %}{{ link(mode, code, period, name, layout == code) }}{% endfor %}
+        </div>
+    {% endif %}
+    <div class="ty-rec-filters">
+        {{ link(mode, layout, 'day', _('Today'), period == 'day') }}
+        {{ link(mode, layout, 'week', _('Week'), period == 'week') }}
+        {{ link(mode, layout, 'month', _('Month'), period == 'month') }}
+        {{ link(mode, layout, 'all', _('All time'), period == 'all') }}
+    </div>
+
+    {% if rows %}
+        <table class="table ty-rec-table">
+            <thead>
+                <tr><th>#</th><th>{{ _('User') }}</th><th>{{ _('chars/min') }}</th><th>{{ _('words/min') }}</th>
+                    <th>{{ _('accuracy') }}</th><th>{{ _('Date') }}</th></tr>
+            </thead>
+            <tbody>
+            {% for row in rows %}
+                <tr{% if row.profile.id == my_id %} class="ty-me"{% endif %}>
+                    <td>{% if row.place <= 3 %}<span class="ty-medal ty-medal-{{ row.place }}">{{ row.place }}</span>{% else %}{{ row.place }}{% endif %}</td>
+                    <td>{{ link_user(row.profile) }}</td>
+                    <td><b>{{ row.cpm }}</b></td>
+                    <td>{{ row.wpm }}</td>
+                    <td>{{ row.accuracy }}%</td>
+                    <td>{{ row.date|date('d.m.Y') if row.date else '' }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>{{ _('No results yet. Be the first!') }}</p>
+    {% endif %}
+</div>
+{% endblock %}

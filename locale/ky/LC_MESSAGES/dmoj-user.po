@@ -53,3 +53,6 @@ msgstr "Кумкана"
 
 msgid "Compiler"
 msgstr "Компилятор"
+
+msgid "Typing"
+msgstr "Тренажёр"

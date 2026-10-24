@@ -59,3 +59,17 @@ class WorkspaceFileAdmin(admin.ModelAdmin):
     def code(self, obj):
         return format_html('<pre style="max-height:60vh;overflow:auto;white-space:pre;font-size:13px">{}</pre>',
                            obj.content)
+
+
+class TypingResultAdmin(admin.ModelAdmin):
+    list_display = ('user', 'mode', 'layout', 'lesson', 'cpm', 'accuracy', 'seconds', 'created')
+    list_filter = ('mode', 'layout')
+    search_fields = ('user__user__username',)
+    list_select_related = ('user__user',)
+    date_hierarchy = 'created'
+
+    def has_add_permission(self, request):
+        return False
+
+    def has_change_permission(self, request, obj=None):
+        return False

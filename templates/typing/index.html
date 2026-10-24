@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block title_row %}{% endblock %}
+{% block title_ruler %}{% endblock %}
+
+{% block media %}
+    <link rel="stylesheet" href="{{ static('typing/typing.css') }}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
+{% block js_media %}
+    {% set S = {
+        'lesson': _('Lesson'), 'test': _('Speed test'), 'code': _('Code'), 'sec': _('s'),
+        'capitals': _('Capital letters'), 'digits': _('Digits'),
+        'lp': _('left little finger'), 'lr': _('left ring finger'), 'lm': _('left middle finger'),
+        'li': _('left index finger'), 'ri': _('right index finger'), 'rm': _('right middle finger'),
+        'rr': _('right ring finger'), 'rp': _('right little finger'), 'thumb': _('thumb'),
+        'switchEn': _('Switch the keyboard to English'), 'switchRu': _('Switch the keyboard to Russian'),
+        'lessonPassed': _('Lesson passed.'), 'lessonAgain': _('To pass: accuracy %(acc)s and %(cpm)s characters a minute.', acc='93%', cpm=60),
+        'signIn': _('Sign in to keep your records.')
+    } %}
+    <script>
+        window.TYPING = {
+            strings: {{ S|tojson }},
+            saveUrl: '{{ url('typing_save') }}',
+            csrf: '{{ csrf_token }}',
+            signedIn: {{ 'true' if request.user.is_authenticated else 'false' }},
+            defaultLayout: {{ ('ky' if LANGUAGE_CODE == 'ky' else 'en' if LANGUAGE_CODE == 'en' else 'ru')|tojson }},
+            doneLessons: {{ done_lessons|tojson }}
+        };
+    </script>
+    <script src="{{ static('typing/words.js') }}?v={{ STATIC_VERSION }}"></script>
+    <script src="{{ static('typing/typing.js') }}?v={{ STATIC_VERSION }}"></script>
+{% endblock %}
+
+{% block body %}
+<div class="ty">
+    <div class="ty-top">
+        <h2 class="ty-title">{{ _('Typing trainer') }}</h2>
+        <div class="ty-modes" role="tablist">
+            <button type="button" class="ty-mode" data-mode="lesson">{{ _('Lessons') }}</button>
+            <button type="button" class="ty-mode" data-mode="test">{{ _('Speed test') }}</button>
+            <button type="button" class="ty-mode" data-mode="code">{{ _('Code') }}</button>
+        </div>
+        <span class="ty-spacer"></span>
+        <select id="ty-layout" aria-label="{{ _('Layout') }}">
+            <option value="ru">Русская</option>
+            <option value="ky">Кыргызча</option>
+            <option value="en">English</option>
+        </select>
+        <select id="ty-duration" aria-label="{{ _('Time') }}">
+            <option value="30">30 {{ _('s') }}</option>
+            <option value="60">60 {{ _('s') }}</option>
+            <option value="120">120 {{ _('s') }}</option>
+        </select>
+        <button type="button" class="ty-icon" id="ty-sound" title="{{ _('Sound') }}"><i class="fa fa-volume-up"></i></button>
+        <button type="button" class="ty-icon" id="ty-kbd-toggle" title="{{ _('Keyboard') }}"><i class="fa fa-keyboard-o"></i></button>
+        <a class="ty-records-link" href="{{ url('typing_records') }}"><i class="fa fa-trophy"></i> {{ _('Records') }}</a>
+    </div>
+
+    <div class="ty-lessons-box" id="ty-lessons-box">
+        <div class="ty-lessons" id="ty-lessons"></div>
+    </div>
+
+    <div class="ty-area" id="ty-area">
+        <div class="ty-board" id="ty-board">
+            <div class="ty-caption-row">
+                <span class="ty-caption" id="ty-caption"></span>
+                <span class="ty-hint" id="ty-hint"></span>
+                <button type="button" class="ty-icon" id="ty-restart" title="{{ _('Start again') }} (Esc)"><i class="fa fa-refresh"></i></button>
+            </div>
+            <div class="ty-text" id="ty-text"></div>
+            <div class="ty-stats">
+                <div><b id="ty-cpm">0</b><span>{{ _('chars/min') }}</span></div>
+                <div><b id="ty-wpm">0</b><span>{{ _('words/min') }}</span></div>
+                <div><b id="ty-acc">100%</b><span>{{ _('accuracy') }}</span></div>
+                <div><b id="ty-err">0</b><span>{{ _('errors') }}</span></div>
+                <div><b id="ty-time">0</b><span>{{ _('time') }}</span></div>
+            </div>
+            <div class="ty-unfocused-note">{{ _('Click here and start typing') }}</div>
+        </div>
+
+        <div class="ty-result" id="ty-result" hidden>
+            <div class="ty-record" id="ty-r-record" hidden><i class="fa fa-trophy"></i> {{ _('New personal record!') }}</div>
+            <div class="ty-result-grid">
+                <div><b id="ty-r-cpm"></b><span>{{ _('chars/min') }}</span></div>
+                <div><b id="ty-r-wpm"></b><span>{{ _('words/min') }}</span></div>
+                <div><b id="ty-r-acc"></b><span>{{ _('accuracy') }}</span></div>
+                <div><b id="ty-r-err"></b><span>{{ _('errors') }}</span></div>
+                <div><b id="ty-r-time"></b><span>{{ _('time') }}</span></div>
+            </div>
+            <p class="ty-note" id="ty-r-note"></p>
+            <div class="ty-result-actions">
+                <button type="button" class="button" id="ty-again"><i class="fa fa-refresh"></i> {{ _('Again') }}</button>
+                <button type="button" class="button" id="ty-next" hidden>{{ _('Next lesson') }} <i class="fa fa-arrow-right"></i></button>
+                <a class="button" href="{{ url('typing_records') }}"><i class="fa fa-trophy"></i> {{ _('Records') }}</a>
+            </div>
+        </div>
+        <textarea id="ty-input" class="ty-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="{{ _('Typing') }}"></textarea>
+    </div>
+
+    <div class="ty-finger" id="ty-finger"></div>
+    <div class="ty-keyboard" id="ty-keyboard"></div>
+
+    {% if history %}
+        <h3 class="ty-subtitle">{{ _('My last results') }}</h3>
+        <table class="table ty-history">
+            <thead><tr><th>{{ _('Date') }}</th><th>{{ _('Mode') }}</th><th>{{ _('chars/min') }}</th><th>{{ _('accuracy') }}</th></tr></thead>
+            <tbody>
+            {% for r in history %}
+                <tr>
+                    <td>{{ r.created|date('d.m.Y H:i') }}</td>
+                    <td>{{ r.get_mode_display() }}{% if r.lesson is not none %} {{ r.lesson + 1 }}{% endif %} · {{ r.get_layout_display() }}</td>
+                    <td>{{ r.cpm }}</td>
+                    <td>{{ r.accuracy }}%</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</div>
+{% endblock %}

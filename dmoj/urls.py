@@ -14,7 +14,7 @@ from judge.sitemap import sitemaps
 from judge.views import TitledTemplateView, api, blog, comment, contests, language, license, mailgun, organization, \
     preview, problem, problem_manage, ranked_submission, register, stats, status, submission, tasks, ticket, \
     two_factor, user, widgets, workspace
-from judge.views import anticheat, contest_tools
+from judge.views import anticheat, contest_tools, typing as typing_views
 from judge.views.generate_users import GenerateUsersView
 from judge.views.problem_import import import_problem
 from judge.views.problem_data import ProblemDataView, ProblemSubmissionDiff, \
@@ -118,6 +118,11 @@ urlpatterns = [
         path('api/files/<int:file_id>/share/', workspace.api_share, name='workspace_api_share'),
         path('api/fork/<str:key>/', workspace.api_fork, name='workspace_api_fork'),
         path('api/download/', workspace.api_download, name='workspace_api_download'),
+    ])),
+    path('typing/', include([
+        path('', typing_views.trainer, name='typing'),
+        path('records/', typing_views.records, name='typing_records'),
+        path('api/save/', typing_views.save_result, name='typing_save'),
     ])),
     path('sandbox/', lambda request: HttpResponsePermanentRedirect('/compiler/')),
     path('sandbox/share/<str:key>/', lambda request, key: HttpResponsePermanentRedirect('/compiler/share/%s/' % key)),
