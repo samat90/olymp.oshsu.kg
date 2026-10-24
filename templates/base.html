@@ -279,7 +279,7 @@
                         <a href="{{ url('user_page') }}">
                             <span>
                                 <img src="{{ gravatar(request.user, 32) }}" height="24" width="24">{# -#}
-                                <span>{{ _('Hello, %(username)s.', username=bold(request.profile.display_name)) }}</span>
+                                <span><b>{{ request.profile.display_name }}</b></span>
                             </span>
                         </a>
                         <ul style="width: 150px">
