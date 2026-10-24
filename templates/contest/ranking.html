@@ -130,6 +130,10 @@
 {% endblock %}
 
 {% block users_table %}
-    {% set table_id='ranking-table' %}
-    {% include "contest/ranking-table.html" %}
+    {% if ranking_html %}
+        {{ ranking_html|safe }}
+    {% else %}
+        {% set table_id='ranking-table' %}
+        {% include "contest/ranking-table.html" %}
+    {% endif %}
 {% endblock %}

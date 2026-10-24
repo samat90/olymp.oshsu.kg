@@ -625,6 +625,14 @@ except IOError:
     pass
 
 
+# PostgreSQL JIT compiles the contest visibility query (many OR'ed joins) on every request,
+# which costs ~0.5-0.8 s per page. Plain execution takes milliseconds, so turn JIT off.
+for _db in DATABASES.values():
+    if _db.get('ENGINE', '').endswith('postgresql'):
+        _options = _db.setdefault('OPTIONS', {})
+        if 'jit' not in _options.get('options', ''):
+            _options['options'] = (_options.get('options', '') + ' -c jit=off').strip()
+
 # Check settings are consistent
 assert DMOJ_PROBLEM_MIN_USER_POINTS_VOTE >= DMOJ_PROBLEM_MIN_PROBLEM_POINTS
 

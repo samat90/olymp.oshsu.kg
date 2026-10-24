@@ -236,13 +236,17 @@
         });
     };
 
+    /* `stdin` may be a list: the program is compiled once and run on every input (result.runs). */
     Runner.prototype.run = function (language, source, stdin) {
         var self = this;
+        var body = {language: language, source: source};
+        if (Array.isArray(stdin)) body.stdins = stdin; else body.stdin = stdin || '';
         return self.getToken().then(function (token) {
+            body.token = token;
             return fetch(self.url + '/run', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({token: token, language: language, source: source, stdin: stdin || ''})
+                body: JSON.stringify(body)
             }).catch(function () {
                 throw new Error(T.network);
             }).then(function (r) {

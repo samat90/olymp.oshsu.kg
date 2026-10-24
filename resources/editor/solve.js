@@ -98,23 +98,22 @@ document.addEventListener('DOMContentLoaded', function () {
         var source = editor.getValue();
         var lang = language();
         var passed = 0;
-        var i = 0;
+        out.innerHTML = '<div class="oe-placeholder">' + E.T.running + '</div>';
 
-        function next() {
-            if (i >= data.samples.length) return Promise.resolve();
-            var index = i++;
-            var holder = document.createElement('div');
-            holder.innerHTML = '<div class="oe-sample-head">Пример ' + (index + 1) + ': ' + E.T.running + '</div>';
-            out.appendChild(holder);
-            return runner.run(lang, source, data.samples[index].input).then(function (result) {
-                var r = E.renderSample(index, data.samples[index], result);
-                holder.innerHTML = r.html;
-                if (r.passed) passed++;
-                if (!r.stop) return next();
+        // One request: the code is compiled once and run on every sample.
+        var request = runner.run(lang, source, data.samples.map(function (s) { return s.input; }))
+            .then(function (result) {
+                out.innerHTML = '';
+                var runs = result.runs || [result];
+                for (var index = 0; index < data.samples.length; index++) {
+                    var r = E.renderSample(index, data.samples[index], result.status === 'ok' ? runs[index] : result);
+                    out.insertAdjacentHTML('beforeend', r.html);
+                    if (r.passed) passed++;
+                    if (r.stop) break;
+                }
             });
-        }
 
-        next().catch(function (err) {
+        request.catch(function (err) {
             out.insertAdjacentHTML('beforeend', E.renderResult({status: 'error', message: err.message}));
         }).then(function () {
             setBusy(false);

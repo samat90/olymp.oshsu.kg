@@ -9,6 +9,7 @@ import pyotp
 import webauthn
 from django.conf import settings
 from django.contrib.auth.models import User
+from django.core.cache import cache
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
@@ -291,8 +292,19 @@ class Profile(models.Model):
 
     def update_contest(self):
         contest = self.current_contest
-        if contest is not None and (contest.ended or not contest.contest.is_accessible_by(self.user)):
+        if contest is None:
+            return
+        if contest.ended:
             self.remove_contest()
+            return
+        # The access check costs several queries; it runs on every page, so remember a positive answer briefly.
+        key = 'contest_access_ok:%d' % contest.id
+        if cache.get(key):
+            return
+        if not contest.contest.is_accessible_by(self.user):
+            self.remove_contest()
+        else:
+            cache.set(key, True, 30)
 
     update_contest.alters_data = True
 

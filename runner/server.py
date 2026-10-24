@@ -31,6 +31,7 @@ log = logging.getLogger('runner')
 
 MAX_SOURCE = 65536
 MAX_STDIN = 1 << 20
+MAX_BATCH = 10          # inputs per request ("test on samples" compiles once)
 MAX_OUTPUT = 65536
 MAX_TIME = 5.0          # CPU seconds for the program itself
 MAX_MEMORY = 262144     # KB
@@ -50,11 +51,10 @@ def load_judge(config, only):
     return sorted(executors.executors)
 
 
-def run_job(language, source, stdin, time_limit, memory_limit):
-    """Executed in a worker process."""
+def run_job(language, source, stdins, time_limit, memory_limit):
+    """Executed in a worker process. Compiles once and runs the program on every input."""
     from dmoj import executors
     from dmoj.error import CompileError
-    from dmoj.utils.communicate import safe_communicate, OutputLimitExceeded
 
     if language not in executors.executors:
         return {'status': 'error', 'message': 'language is not available'}
@@ -69,6 +69,20 @@ def run_job(language, source, stdin, time_limit, memory_limit):
         return {'status': 'compile_error', 'compile_output': str(e)[:MAX_OUTPUT]}
     compile_time = time.monotonic() - started
     warning = getattr(executor, 'warning', None) or b''
+    if isinstance(warning, bytes):
+        warning = warning.decode('utf-8', 'replace')
+
+    runs = [run_once(executor, stdin, time_limit, memory_limit) for stdin in stdins]
+    result = dict(runs[0])
+    result['compile_time'] = round(compile_time, 2)
+    result['compile_output'] = warning[:MAX_OUTPUT]
+    if len(runs) > 1:
+        result['runs'] = runs
+    return result
+
+
+def run_once(executor, stdin, time_limit, memory_limit):
+    from dmoj.utils.communicate import safe_communicate, OutputLimitExceeded
 
     proc = executor.launch(time=time_limit, memory=memory_limit, wall_time=time_limit * 3 + 1,
                            stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
@@ -99,8 +113,6 @@ def run_job(language, source, stdin, time_limit, memory_limit):
         'exit_code': proc.returncode,
         'time': round(proc.execution_time or 0, 3),
         'memory': proc.max_memory,
-        'compile_time': round(compile_time, 2),
-        'compile_output': warning.decode('utf-8', 'replace')[:MAX_OUTPUT] if isinstance(warning, bytes) else warning,
     }
     if proc.protection_fault:
         syscall, callname, args, update_errno = proc.protection_fault
@@ -207,7 +219,11 @@ class Handler(BaseHTTPRequestHandler):
             return self.reply(403, {'status': 'error', 'message': 'Сессия запуска устарела. Обновите страницу.'})
 
         source = str(data.get('source', ''))
-        stdin = str(data.get('stdin', ''))
+        stdins = data.get('stdins')
+        if not isinstance(stdins, list) or not stdins:
+            stdins = [data.get('stdin', '')]
+        stdins = [str(x) for x in stdins[:MAX_BATCH]]
+        stdin = ''.join(stdins)
         language = str(data.get('language', ''))
         if len(source.encode()) > MAX_SOURCE:
             return self.reply(413, {'status': 'error', 'message': 'Код длиннее 64 КБ.'})
@@ -233,7 +249,7 @@ class Handler(BaseHTTPRequestHandler):
                     return self.reply(503, {'status': 'error', 'message': 'Сервер занят, попробуйте через минуту.'})
                 self.server.busy += 1
             try:
-                future = self.server.pool.submit(run_job, language, source, stdin, time_limit, memory_limit)
+                future = self.server.pool.submit(run_job, language, source, stdins, time_limit, memory_limit)
                 result = future.result(timeout=90)
             except FutureTimeout:
                 result = {'status': 'error', 'message': 'Запуск занял слишком много времени.'}

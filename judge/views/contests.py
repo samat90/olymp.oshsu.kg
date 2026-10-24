@@ -15,7 +15,9 @@ from django.db import IntegrityError
 from django.db.models import BooleanField, Case, Count, F, FloatField, IntegerField, Max, Min, Q, Sum, Value, When
 from django.db.models.expressions import CombinedExpression, Exists, OuterRef
 from django.http import Http404, HttpResponse, HttpResponseBadRequest, HttpResponseRedirect
+from django.core.cache import cache
 from django.shortcuts import get_object_or_404, render
+from django.template.loader import render_to_string
 from django.template.defaultfilters import date as date_filter
 from django.urls import reverse
 from django.utils import timezone
@@ -739,6 +741,9 @@ def contest_ranking_ajax(request, contest, participation=None):
     })
 
 
+RANKING_CACHE_SECONDS = 10
+
+
 class ContestRankingBase(ContestMixin, TitleMixin, DetailView):
     template_name = 'contest/ranking.html'
     tab = None
@@ -758,12 +763,48 @@ class ContestRankingBase(ContestMixin, TitleMixin, DetailView):
         if not self.object.can_see_own_scoreboard(self.request.user):
             raise Http404()
 
+        context['last_msg'] = event.last()
+        context['tab'] = self.tab
+
+        cache_key = self.shared_ranking_cache_key(context)
+        if cache_key:
+            html = cache.get(cache_key)
+            if html is None:
+                # Only one request rebuilds the table; the others keep showing the previous one.
+                stale = cache.get(cache_key + ':stale')
+                if stale is None or cache.add(cache_key + ':lock', True, 30):
+                    users, problems = self.get_ranking_list()
+                    html = render_to_string('contest/ranking-table.html', {
+                        'users': users, 'problems': problems, 'contest': self.object, 'table_id': 'ranking-table',
+                        'has_rating': self.object.ratings.exists(), 'can_edit': False,
+                    }, request=self.request)
+                    cache.set_many({cache_key: html, cache_key + ':stale': html}, RANKING_CACHE_SECONDS)
+                    cache.set(cache_key + ':stale', html, 600)
+                    cache.delete(cache_key + ':lock')
+                else:
+                    html = stale
+            context['ranking_html'] = html
+            context['users'], context['problems'] = [], []
+            return context
+
         users, problems = self.get_ranking_list()
         context['users'] = users
         context['problems'] = problems
-        context['last_msg'] = event.last()
-        context['tab'] = self.tab
         return context
+
+    def shared_ranking_cache_key(self, context):
+        """With hundreds of participants the table takes about a second to build. Everyone who
+        sees the full scoreboard and cannot edit the contest gets the same table, so it is built
+        once every few seconds and shared."""
+        if self.tab != 'ranking' or context.get('can_edit'):
+            return None
+        user = self.request.user
+        if not self.object.can_see_full_scoreboard(user):
+            return None
+        participation = getattr(self.request, 'participation', None)
+        if participation is not None and participation.contest_id == self.object.id and participation.virtual:
+            return None
+        return 'contest_ranking_html:%d:%s' % (self.object.id, self.request.LANGUAGE_CODE)
 
 
 class ContestRanking(ContestRankingBase):
