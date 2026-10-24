@@ -35,3 +35,5 @@
 - На проде Node нужно ставить 22 (в Node 18 `readFileSync(0)` падает в песочнице DMOJ).
 - На проде judge-языки: C, C++17, Java 8, Python 3.14, C# (.NET 10). Новые языки требуют установки на judge.oshsu.kg.
 - Коды задач на проде уже шестизначные (DMOJ_NUMERIC_PROBLEM_CODES = True).
+
+- [ ] Повторить «обычный день» (scripts/load/locustfile_everyday.py) с разделением ядер: сначала scripts/load/pin_two_machines.sh, gunicorn на 0-4, locust на 9-11
