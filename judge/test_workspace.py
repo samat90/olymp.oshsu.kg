@@ -194,5 +194,6 @@ class GuestCompilerTest(TestCase):
     def test_guest_cannot_run_problems_or_keep_files(self):
         response = self.client.post(reverse('runner_token'), '{"problem": "x"}', content_type='application/json')
         self.assertEqual(response.status_code, 403)
-        response = self.client.post(reverse('workspace_api_create'), '{"name": "a.py"}', content_type='application/json')
+        response = self.client.post(reverse('workspace_api_create'), '{"name": "a.py"}',
+                                    content_type='application/json')
         self.assertNotEqual(response.status_code, 200)
