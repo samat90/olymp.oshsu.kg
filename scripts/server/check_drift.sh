@@ -5,7 +5,7 @@
 set -euo pipefail
 APP=${OLYMP_APP:-/var/www/olymp.oshsu.kg}
 REPO=${OLYMP_REPO:-/home/admin/olymp.git}
-changed=$(git --git-dir="$REPO" --work-tree="$APP" -c core.autocrlf=true diff --name-only snapshot -- . 2>/dev/null || true)
+changed=$(git --git-dir="$REPO" --work-tree="$APP" -c core.autocrlf=true -c core.fileMode=false diff --name-only snapshot -- . 2>/dev/null || true)
 if [ -z "$changed" ]; then
     echo "OK: the server code is the same as the 2026-10-21 snapshot."
 else
