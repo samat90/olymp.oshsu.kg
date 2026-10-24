@@ -80,7 +80,7 @@ class Student(HttpUser):
 
     @task(8)
     def problem_list(self):
-        page = random.randint(1, 5)
+        page = random.randint(1, 3)
         self.client.get('/problems/?page=%d' % page, name='problem list')
 
     @task(10)

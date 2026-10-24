@@ -730,7 +730,9 @@ document.addEventListener('DOMContentLoaded', function () {
             };
             socket.onmessage = function (event) {
                 var m = JSON.parse(event.data);
-                if (m.type === 'status') termPrint('Компиляция…\r\n', 'dim');
+                if (m.type === 'status') {
+                    termPrint(m.text === 'queued' ? 'Много запусков, ждём очереди на компиляцию…\r\n' : 'Компиляция…\r\n', 'dim');
+                }
                 else if (m.type === 'compile_error') {
                     termPrint('Ошибка компиляции:\r\n', 'red');
                     termPrint(m.output.replace(/\r?\n/g, '\r\n'));

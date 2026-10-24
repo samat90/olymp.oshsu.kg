@@ -170,9 +170,9 @@ def parse_program(data, payload):
     return language, source, extra, args
 
 
-def session_child(sock, language, source, extra, args, memory_limit):
+def session_child(sock, language, source, extra, args, memory_limit, compiled):
     from runner_session import run_session
-    run_session(sock, language, source, extra, args, SESSION_CPU, memory_limit, SESSION_WALL)
+    run_session(sock, language, source, extra, args, SESSION_CPU, memory_limit, SESSION_WALL, compiled)
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -343,9 +343,25 @@ class Handler(BaseHTTPRequestHandler):
             try:
                 memory_limit = min(int(payload.get('memory') or DEFAULT_MEMORY), MAX_MEMORY)
                 sock.settimeout(None)
-                child = multiprocessing.get_context('fork').Process(
-                    target=session_child, args=(sock, language, source, extra, args, memory_limit))
-                child.start()
+                # Compiling takes a whole core, so at most `workers` terminals compile at the same time;
+                # the others wait their turn. Waiting for the user's input costs almost nothing.
+                if not self.server.compile_gate.acquire(timeout=0):
+                    ws.send_json(sock, {'type': 'status', 'text': 'queued'})
+                    if not self.server.compile_gate.acquire(timeout=120):
+                        busy = 'Сервер занят, попробуйте через минуту.'
+                        ws.send_json(sock, {'type': 'compile_error', 'output': busy})
+                        return ws.close(sock)
+                ctx = multiprocessing.get_context('fork')
+                compiled = ctx.Event()
+                try:
+                    child = ctx.Process(target=session_child,
+                                        args=(sock, language, source, extra, args, memory_limit, compiled))
+                    child.start()
+                    deadline = time.monotonic() + 60
+                    while not compiled.wait(0.5) and child.is_alive() and time.monotonic() < deadline:
+                        pass
+                finally:
+                    self.server.compile_gate.release()
                 child.join(SESSION_WALL + 60)
                 if child.is_alive():
                     child.kill()
@@ -420,6 +436,7 @@ def main():
     server.busy = 0
     server.sessions = 0
     server.busy_lock = threading.Lock()
+    server.compile_gate = threading.BoundedSemaphore(args.workers)
     server.allow_origins = set(args.allow_origin)
     server.workers_set = WorkerSet(args.workers)
     log.info('listening on %s, %d workers, queue %d, %d terminals', args.listen, args.workers, args.queue,

@@ -25,7 +25,7 @@ log = logging.getLogger('runner')
 MAX_SESSION_OUTPUT = 1 << 20
 
 
-def run_session(sock, language, source, extra, args, cpu_limit, memory_limit, wall_limit):
+def run_session(sock, language, source, extra, args, cpu_limit, memory_limit, wall_limit, compiled=None):
     from dmoj.error import CompileError
 
     try:
@@ -39,6 +39,8 @@ def run_session(sock, language, source, extra, args, cpu_limit, memory_limit, wa
         except CompileError as e:
             ws.send_json(sock, {'type': 'compile_error', 'output': e.message})
             return
+        if compiled is not None:
+            compiled.set()
         warning = getattr(executor, 'warning', None) or b''
         if isinstance(warning, bytes):
             warning = warning.decode('utf-8', 'replace')
@@ -97,6 +99,8 @@ def run_session(sock, language, source, extra, args, cpu_limit, memory_limit, wa
         except OSError:
             pass
     finally:
+        if compiled is not None:
+            compiled.set()
         ws.close(sock)
 
 
