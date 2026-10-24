@@ -1,0 +1,15 @@
+# Extra judges on judge.oshsu.kg: olymp-judge@3, olymp-judge@4, ...
+# The config of judge N is /home/admin/judge-config/judgeN.yml (made by scripts/judge/scale_judges.sh).
+[Unit]
+Description=OshSU Olymp judge %i
+After=network.target
+
+[Service]
+User=admin
+WorkingDirectory=/home/admin
+ExecStart=/home/admin/judge-server/venv/bin/dmoj -c /home/admin/judge-config/judge%i.yml -p 9999 10.10.8.226
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

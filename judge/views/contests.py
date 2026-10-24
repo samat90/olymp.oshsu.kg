@@ -1,5 +1,6 @@
 import datetime
 import json
+import os
 from calendar import Calendar, SUNDAY
 from collections import defaultdict, namedtuple
 from datetime import date, time, timedelta
@@ -742,6 +743,16 @@ def contest_ranking_ajax(request, contest, participation=None):
 
 
 RANKING_CACHE_SECONDS = 10
+RANKING_CACHE_SECONDS_BUSY = 30
+
+
+def ranking_cache_seconds():
+    """Under heavy load the shared ranking is rebuilt less often, which frees the CPU for pages."""
+    try:
+        busy = os.getloadavg()[0] > (os.cpu_count() or 1) * 1.5
+    except OSError:
+        busy = False
+    return RANKING_CACHE_SECONDS_BUSY if busy else RANKING_CACHE_SECONDS
 
 
 class ContestRankingBase(ContestMixin, TitleMixin, DetailView):
@@ -778,7 +789,7 @@ class ContestRankingBase(ContestMixin, TitleMixin, DetailView):
                         'users': users, 'problems': problems, 'contest': self.object, 'table_id': 'ranking-table',
                         'has_rating': self.object.ratings.exists(), 'can_edit': False,
                     }, request=self.request)
-                    cache.set_many({cache_key: html, cache_key + ':stale': html}, RANKING_CACHE_SECONDS)
+                    cache.set_many({cache_key: html, cache_key + ':stale': html}, ranking_cache_seconds())
                     cache.set(cache_key + ':stale', html, 600)
                     cache.delete(cache_key + ':lock')
                 else:

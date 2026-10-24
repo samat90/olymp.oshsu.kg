@@ -16,7 +16,7 @@ User=admin
 Group=admin
 WorkingDirectory=$PROJ
 Environment=DJANGO_SETTINGS_MODULE=dmoj.settings
-ExecStart=$PROJ/venv/bin/gunicorn -w 4 -b 127.0.0.1:8000 --access-logfile /var/log/olymp/gunicorn-access.log --error-logfile /var/log/olymp/gunicorn-error.log dmoj.wsgi:application
+ExecStart=$PROJ/venv/bin/gunicorn -c dmoj/gunicorn_conf.py -b 127.0.0.1:8000 dmoj.wsgi:application
 Restart=always
 RestartSec=5
 

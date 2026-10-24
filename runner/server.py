@@ -385,8 +385,10 @@ def main():
     parser.add_argument('--config', required=True, help='judge.yml with the runtime section')
     parser.add_argument('--listen', default='127.0.0.1:9910')
     parser.add_argument('--secret-file', required=True, help='file with the secret shared with the site')
-    parser.add_argument('--workers', type=int, default=2, help='programs run at the same time')
-    parser.add_argument('--queue', type=int, default=8, help='requests allowed to wait for a worker')
+    parser.add_argument('--workers', type=int, default=0,
+                        help='programs run at the same time (default: one per CPU core)')
+    parser.add_argument('--queue', type=int, default=0,
+                        help='requests allowed to wait for a worker (default: 4 per worker)')
     parser.add_argument('--max-sessions', type=int, default=64, help='interactive terminals at the same time')
     parser.add_argument('--per-minute', type=int, default=20, help='runs per user per minute')
     parser.add_argument('--only-executors', default='', help='comma separated executor ids')
@@ -394,6 +396,10 @@ def main():
     args = parser.parse_args()
 
     logging.basicConfig(level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s')
+    # The runner is started with a lower CPU priority than the judges (see olymp-runner.service),
+    # so it may use every core: grading still gets the CPU first.
+    args.workers = args.workers or os.cpu_count() or 2
+    args.queue = args.queue or args.workers * 4
     with open(args.secret_file, 'rb') as f:
         secret = f.read().strip()
     if len(secret) < 16:
@@ -416,7 +422,8 @@ def main():
     server.busy_lock = threading.Lock()
     server.allow_origins = set(args.allow_origin)
     server.workers_set = WorkerSet(args.workers)
-    log.info('listening on %s', args.listen)
+    log.info('listening on %s, %d workers, queue %d, %d terminals', args.listen, args.workers, args.queue,
+             args.max_sessions)
     try:
         server.serve_forever()
     finally:

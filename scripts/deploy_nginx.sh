@@ -31,6 +31,13 @@ server {
     gzip on;
     gzip_types text/css application/javascript application/json image/svg+xml;
 
+    # When gunicorn is overloaded or restarting, show a calm page that reloads itself.
+    error_page 502 503 504 /busy.html;
+    location = /busy.html {
+        root /var/www/olymp.oshsu.kg/static;
+        internal;
+    }
+
     location /static/ {
         alias /var/www/olymp.oshsu.kg/static/;
         expires 30d;
