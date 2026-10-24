@@ -21,7 +21,7 @@ taskset -c $CPUS /opt/olymp/venv/bin/gunicorn $GUNICORN_ARGS -b 127.0.0.1:8080 d
 sleep 6
 curl -s -o /dev/null -w "warmup %{http_code}\n" http://127.0.0.1:8080/
 
-taskset -c ${LOCUST_CPUS:-6-11} /opt/pw/bin/locust -f $SITE/scripts/load/locustfile.py --host http://127.0.0.1:8080 \
+taskset -c ${LOCUST_CPUS:-6-11} /opt/pw/bin/locust -f $SITE/scripts/load/${LOCUSTFILE:-locustfile.py} --host http://127.0.0.1:8080 \
     -u $USERS -r ${SPAWN_RATE:-25} --headless -t ${MINUTES}m --csv $OUT/$LABEL --only-summary --processes 4 \
     > $OUT/$LABEL-locust.log 2>&1 || true
 
