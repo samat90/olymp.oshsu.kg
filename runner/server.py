@@ -55,13 +55,18 @@ def run_job(language, source, stdins, time_limit, memory_limit):
     """Executed in a worker process. Compiles once and runs the program on every input."""
     from dmoj import executors
     from dmoj.error import CompileError
+    from dmoj.executors.compiled_executor import CompiledExecutor
 
     if language not in executors.executors:
         return {'status': 'error', 'message': 'language is not available'}
 
     started = time.monotonic()
     try:
-        executor = executors.executors[language].Executor('main', source.encode('utf-8'))
+        executor_class = executors.executors[language].Executor
+        kwargs = {}
+        if issubclass(executor_class, CompiledExecutor):
+            kwargs['cached'] = True   # reuse the binary when the same code is run again
+        executor = executor_class('main', source.encode('utf-8'), **kwargs)
     except CompileError as e:
         return {'status': 'compile_error', 'compile_output': e.message[:MAX_OUTPUT]}
     except Exception as e:  # compiler crashed, timed out, etc.
@@ -118,6 +123,45 @@ def run_once(executor, stdin, time_limit, memory_limit):
         syscall, callname, args, update_errno = proc.protection_fault
         result['stderr'] += '\n[заблокирован системный вызов: %s]' % callname
     return result
+
+
+class WorkerSet:
+    """Single-process pools. The same code goes to the same worker, so pressing Run again
+    with other input reuses the compiled program from that worker's cache."""
+
+    def __init__(self, count):
+        self.lock = threading.Lock()
+        self.pools = [self._new_pool() for _ in range(count)]
+        self.busy = [0] * count
+
+    @staticmethod
+    def _new_pool():
+        return ProcessPoolExecutor(max_workers=1, mp_context=multiprocessing.get_context('fork'))
+
+    def run(self, key, fn, *args):
+        with self.lock:
+            preferred = int(hashlib.md5(key.encode('utf-8', 'replace')).hexdigest(), 16) % len(self.pools)
+            least = min(range(len(self.pools)), key=lambda i: self.busy[i])
+            # Keep the cache-friendly worker unless it is clearly busier than another one.
+            index = preferred if self.busy[preferred] <= self.busy[least] + 1 else least
+            self.busy[index] += 1
+            pool = self.pools[index]
+        try:
+            return pool.submit(fn, *args).result(timeout=90)
+        except BrokenProcessPool:
+            log.error('worker %d died, starting a new one', index)
+            with self.lock:
+                if self.pools[index] is pool:
+                    self.pools[index] = self._new_pool()
+            pool.shutdown(wait=False, cancel_futures=True)
+            raise
+        finally:
+            with self.lock:
+                self.busy[index] -= 1
+
+    def shutdown(self):
+        for pool in self.pools:
+            pool.shutdown(cancel_futures=True)
 
 
 class Limiter:
@@ -249,13 +293,11 @@ class Handler(BaseHTTPRequestHandler):
                     return self.reply(503, {'status': 'error', 'message': 'Сервер занят, попробуйте через минуту.'})
                 self.server.busy += 1
             try:
-                future = self.server.pool.submit(run_job, language, source, stdins, time_limit, memory_limit)
-                result = future.result(timeout=90)
+                result = self.server.workers_set.run(language + '\0' + source, run_job, language, source, stdins,
+                                                     time_limit, memory_limit)
             except FutureTimeout:
                 result = {'status': 'error', 'message': 'Запуск занял слишком много времени.'}
             except BrokenProcessPool:
-                log.error('worker pool died, restarting it')
-                self.server.restart_pool()
                 result = {'status': 'error', 'message': 'Внутренняя ошибка запуска, попробуйте ещё раз.'}
             except Exception:
                 log.exception('run failed')
@@ -301,19 +343,12 @@ def main():
     server.busy_lock = threading.Lock()
     server.allow_origins = set(args.allow_origin)
 
-    def restart_pool():
-        old = getattr(server, 'pool', None)
-        server.pool = ProcessPoolExecutor(max_workers=args.workers, mp_context=multiprocessing.get_context('fork'))
-        if old is not None:
-            old.shutdown(wait=False, cancel_futures=True)
-
-    server.restart_pool = restart_pool
-    restart_pool()
+    server.workers_set = WorkerSet(args.workers)
     log.info('listening on %s', args.listen)
     try:
         server.serve_forever()
     finally:
-        server.pool.shutdown(cancel_futures=True)
+        server.workers_set.shutdown()
 
 
 if __name__ == '__main__':

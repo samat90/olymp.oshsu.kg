@@ -23,6 +23,8 @@ if [ ! -x /opt/kotlinc/bin/kotlinc ]; then
     ln -sf /opt/kotlinc/bin/kotlinc /usr/local/bin/kotlinc
 fi
 
+bash "$(dirname "$0")/build_pch.sh"
+
 JAVA=$(readlink -f "$(command -v java)")
 
 cat <<RUNTIME
