@@ -18,16 +18,16 @@ pkill -f 'runner/server.py' || true
 sleep 1
 
 cd $SITE
-nohup $PY manage.py runbridged > $LOG/bridge.log 2>&1 &
-nohup $PY manage.py runserver 0.0.0.0:8000 > $LOG/web.log 2>&1 &
+setsid nohup $PY manage.py runbridged > $LOG/bridge.log 2>&1 &
+setsid nohup $PY manage.py runserver 0.0.0.0:8000 > $LOG/web.log 2>&1 &
 
 if [ -f /opt/judge/judge.yml ]; then
     sleep 3
-    nohup sudo -u judge /opt/judge/venv/bin/dmoj -c /opt/judge/judge.yml -p 9999 127.0.0.1 > $LOG/judge.log 2>&1 &
+    setsid nohup sudo -u judge /opt/judge/venv/bin/dmoj -c /opt/judge/judge.yml -p 9999 127.0.0.1 > $LOG/judge.log 2>&1 &
 fi
 
 if [ -f $SITE/runner/server.py ]; then
-    nohup sudo -u judge /opt/judge/venv/bin/python $SITE/runner/server.py --config /opt/judge/judge.yml \
+    setsid nohup sudo -u judge /opt/judge/venv/bin/python $SITE/runner/server.py --config /opt/judge/judge.yml \
         --listen 127.0.0.1:9910 --secret-file /opt/judge/runner.secret \
         --allow-origin http://127.0.0.1:8000 --allow-origin http://localhost:8000 > $LOG/runner.log 2>&1 &
 fi

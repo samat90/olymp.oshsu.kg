@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Code runner for the in-browser editor ("Запуск" button and the sandbox).
+"""Code runner for the online editor and the Compiler section.
 
 Runs next to the judge and uses the judge's own executors, so the editor
 supports exactly the languages (and compilers, and sandbox) used for grading.
@@ -9,6 +9,12 @@ it with the code. The runner never talks to the database.
 
     python runner/server.py --config /home/judge/judge-config/judge.yml \
         --listen 127.0.0.1:9910 --secret-file /home/judge/runner.secret
+
+Endpoints:
+    POST /run       run with prepared input (several inputs = compile once, run each)
+    GET  /session   WebSocket: interactive run in a terminal
+    POST /format    format code with clang-format
+    GET  /health, /languages
 """
 import argparse
 import base64
@@ -16,7 +22,9 @@ import hashlib
 import hmac
 import json
 import logging
+import multiprocessing
 import os
+import shutil
 import subprocess
 import sys
 import threading
@@ -25,18 +33,29 @@ from collections import defaultdict, deque
 from concurrent.futures import ProcessPoolExecutor, TimeoutError as FutureTimeout
 from concurrent.futures.process import BrokenProcessPool
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
-import multiprocessing
+
+# The judge package is also called "dmoj", so only this folder goes on the path, not the site.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+import runner_ws as ws  # noqa: E402
+from runner_exec import RunnerError, clean_files, run_job  # noqa: E402
 
 log = logging.getLogger('runner')
 
 MAX_SOURCE = 65536
 MAX_STDIN = 1 << 20
 MAX_BATCH = 10          # inputs per request ("test on samples" compiles once)
-MAX_OUTPUT = 65536
+MAX_ARGS = 20
 MAX_TIME = 5.0          # CPU seconds for the program itself
 MAX_MEMORY = 262144     # KB
 DEFAULT_TIME = 2.0
 DEFAULT_MEMORY = 262144
+SESSION_CPU = 10.0      # CPU seconds of an interactive run
+SESSION_WALL = 300      # an interactive run may wait for input this long
+CLANG_FORMAT_LANGS = {
+    'C': 'c', 'C11': 'c', 'CPP03': 'cpp', 'CPP11': 'cpp', 'CPP14': 'cpp', 'CPP17': 'cpp', 'CPP20': 'cpp',
+    'CPP23': 'cpp', 'JAVA': 'java', 'JAVA8': 'java', 'NODEJS': 'js', 'MONOCS': 'cs', 'CSHARP': 'cs',
+}
 
 
 def load_judge(config, only):
@@ -49,80 +68,6 @@ def load_judge(config, only):
     from dmoj import executors
     executors.load_executors()
     return sorted(executors.executors)
-
-
-def run_job(language, source, stdins, time_limit, memory_limit):
-    """Executed in a worker process. Compiles once and runs the program on every input."""
-    from dmoj import executors
-    from dmoj.error import CompileError
-    from dmoj.executors.compiled_executor import CompiledExecutor
-
-    if language not in executors.executors:
-        return {'status': 'error', 'message': 'language is not available'}
-
-    started = time.monotonic()
-    try:
-        executor_class = executors.executors[language].Executor
-        kwargs = {}
-        if issubclass(executor_class, CompiledExecutor):
-            kwargs['cached'] = True   # reuse the binary when the same code is run again
-        executor = executor_class('main', source.encode('utf-8'), **kwargs)
-    except CompileError as e:
-        return {'status': 'compile_error', 'compile_output': e.message[:MAX_OUTPUT]}
-    except Exception as e:  # compiler crashed, timed out, etc.
-        log.exception('compile failed')
-        return {'status': 'compile_error', 'compile_output': str(e)[:MAX_OUTPUT]}
-    compile_time = time.monotonic() - started
-    warning = getattr(executor, 'warning', None) or b''
-    if isinstance(warning, bytes):
-        warning = warning.decode('utf-8', 'replace')
-
-    runs = [run_once(executor, stdin, time_limit, memory_limit) for stdin in stdins]
-    result = dict(runs[0])
-    result['compile_time'] = round(compile_time, 2)
-    result['compile_output'] = warning[:MAX_OUTPUT]
-    if len(runs) > 1:
-        result['runs'] = runs
-    return result
-
-
-def run_once(executor, stdin, time_limit, memory_limit):
-    from dmoj.utils.communicate import safe_communicate, OutputLimitExceeded
-
-    proc = executor.launch(time=time_limit, memory=memory_limit, wall_time=time_limit * 3 + 1,
-                           stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    try:
-        stdout, stderr = safe_communicate(proc, stdin.encode('utf-8'), outlimit=MAX_OUTPUT, errlimit=MAX_OUTPUT)
-        ole = False
-    except OutputLimitExceeded:
-        proc.kill()
-        proc.wait()
-        stdout, stderr, ole = b'', b'', True
-
-    if proc.is_tle:
-        verdict = 'TLE'
-    elif proc.is_mle:
-        verdict = 'MLE'
-    elif ole or proc.is_ole:
-        verdict = 'OLE'
-    elif proc.returncode != 0:
-        verdict = 'RTE'
-    else:
-        verdict = 'OK'
-
-    result = {
-        'status': 'ok',
-        'verdict': verdict,
-        'stdout': stdout.decode('utf-8', 'replace'),
-        'stderr': stderr.decode('utf-8', 'replace'),
-        'exit_code': proc.returncode,
-        'time': round(proc.execution_time or 0, 3),
-        'memory': proc.max_memory,
-    }
-    if proc.protection_fault:
-        syscall, callname, args, update_errno = proc.protection_fault
-        result['stderr'] += '\n[заблокирован системный вызов: %s]' % callname
-    return result
 
 
 class WorkerSet:
@@ -171,12 +116,12 @@ class Limiter:
         self.per_minute = per_minute
         self.lock = threading.Lock()
         self.history = defaultdict(deque)
-        self.active = set()
+        self.active = defaultdict(int)
 
-    def acquire(self, user):
+    def acquire(self, user, parallel=1):
         now = time.monotonic()
         with self.lock:
-            if user in self.active:
+            if self.active[user] >= parallel:
                 return 'Подождите, предыдущий запуск ещё не закончился.'
             hist = self.history[user]
             while hist and now - hist[0] > 60:
@@ -184,12 +129,14 @@ class Limiter:
             if len(hist) >= self.per_minute:
                 return 'Слишком много запусков. Подождите минуту.'
             hist.append(now)
-            self.active.add(user)
+            self.active[user] += 1
         return None
 
     def release(self, user):
         with self.lock:
-            self.active.discard(user)
+            self.active[user] -= 1
+            if self.active[user] <= 0:
+                del self.active[user]
 
 
 def check_token(secret, token):
@@ -204,6 +151,28 @@ def check_token(secret, token):
     if payload.get('exp', 0) < time.time():
         return None
     return payload
+
+
+def parse_program(data, payload):
+    """Common checks for /run and /session. Returns (language, source, extra, args) or raises RunnerError."""
+    language = str(data.get('language', ''))
+    allowed = payload.get('langs')
+    if allowed is not None and language not in allowed:
+        raise RunnerError('Этот язык недоступен.')
+    source = str(data.get('source', ''))
+    if len(source.encode()) > MAX_SOURCE:
+        raise RunnerError('Код длиннее 64 КБ.')
+    extra = clean_files(data.get('files'), str(data.get('main', '')))
+    args = data.get('args') or []
+    if not isinstance(args, list):
+        args = []
+    args = [str(a)[:200] for a in args[:MAX_ARGS]]
+    return language, source, extra, args
+
+
+def session_child(sock, language, source, extra, args, memory_limit):
+    from runner_session import run_session
+    run_session(sock, language, source, extra, args, SESSION_CPU, memory_limit, SESSION_WALL)
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -235,47 +204,64 @@ class Handler(BaseHTTPRequestHandler):
         self.cors()
         self.end_headers()
 
+    def route(self):
+        return self.path.split('?')[0].rstrip('/').rsplit('/', 1)[-1]
+
     def do_GET(self):
-        path = self.path.split('?')[0].rstrip('/')
-        if path.endswith('/health'):
-            self.reply(200, {'ok': True, 'busy': self.server.busy, 'workers': self.server.workers})
-        elif path.endswith('/languages'):
+        route = self.route()
+        if route == 'health':
+            self.reply(200, {'ok': True, 'busy': self.server.busy, 'workers': self.server.workers,
+                             'sessions': self.server.sessions})
+        elif route == 'languages':
             self.reply(200, {'languages': self.server.languages})
+        elif route == 'session' and self.headers.get('Upgrade', '').lower() == 'websocket':
+            self.handle_session()
         else:
             self.reply(404, {'status': 'error', 'message': 'not found'})
 
-    def do_POST(self):
-        if not self.path.split('?')[0].rstrip('/').endswith('/run'):
-            return self.reply(404, {'status': 'error', 'message': 'not found'})
+    def read_json(self, limit):
         try:
             length = int(self.headers.get('Content-Length', 0))
         except ValueError:
             length = 0
-        if length <= 0 or length > MAX_SOURCE + MAX_STDIN + 4096:
-            return self.reply(413, {'status': 'error', 'message': 'Слишком большой запрос.'})
+        if length <= 0 or length > limit:
+            self.reply(413, {'status': 'error', 'message': 'Слишком большой запрос.'})
+            return None
         try:
-            data = json.loads(self.rfile.read(length))
+            return json.loads(self.rfile.read(length))
         except ValueError:
-            return self.reply(400, {'status': 'error', 'message': 'bad json'})
+            self.reply(400, {'status': 'error', 'message': 'bad json'})
+            return None
 
+    def do_POST(self):
+        route = self.route()
+        if route == 'run':
+            self.handle_run()
+        elif route == 'format':
+            self.handle_format()
+        else:
+            self.reply(404, {'status': 'error', 'message': 'not found'})
+
+    # ---- /run ----
+
+    def handle_run(self):
+        data = self.read_json(MAX_SOURCE + MAX_STDIN + 300 * 1024)
+        if data is None:
+            return
         payload = check_token(self.server.secret, str(data.get('token', '')))
         if payload is None:
             return self.reply(403, {'status': 'error', 'message': 'Сессия запуска устарела. Обновите страницу.'})
+        try:
+            language, source, extra, args = parse_program(data, payload)
+        except RunnerError as e:
+            return self.reply(400, {'status': 'error', 'message': str(e)})
 
-        source = str(data.get('source', ''))
         stdins = data.get('stdins')
         if not isinstance(stdins, list) or not stdins:
             stdins = [data.get('stdin', '')]
         stdins = [str(x) for x in stdins[:MAX_BATCH]]
-        stdin = ''.join(stdins)
-        language = str(data.get('language', ''))
-        if len(source.encode()) > MAX_SOURCE:
-            return self.reply(413, {'status': 'error', 'message': 'Код длиннее 64 КБ.'})
-        if len(stdin.encode()) > MAX_STDIN:
+        if len(''.join(stdins).encode()) > MAX_STDIN:
             return self.reply(413, {'status': 'error', 'message': 'Входные данные больше 1 МБ.'})
-        allowed = payload.get('langs')
-        if allowed is not None and language not in allowed:
-            return self.reply(400, {'status': 'error', 'message': 'Этот язык недоступен.'})
 
         try:
             time_limit = min(float(payload.get('time') or DEFAULT_TIME), MAX_TIME)
@@ -293,7 +279,8 @@ class Handler(BaseHTTPRequestHandler):
                     return self.reply(503, {'status': 'error', 'message': 'Сервер занят, попробуйте через минуту.'})
                 self.server.busy += 1
             try:
-                result = self.server.workers_set.run(language + '\0' + source, run_job, language, source, stdins,
+                key = language + '\0' + source + '\0' + json.dumps(sorted(extra))
+                result = self.server.workers_set.run(key, run_job, language, source, extra, stdins, args,
                                                      time_limit, memory_limit)
             except FutureTimeout:
                 result = {'status': 'error', 'message': 'Запуск занял слишком много времени.'}
@@ -309,6 +296,89 @@ class Handler(BaseHTTPRequestHandler):
             self.server.limiter.release(user)
         self.reply(200, result)
 
+    # ---- /session (WebSocket) ----
+
+    def handle_session(self):
+        key = self.headers.get('Sec-WebSocket-Key')
+        origin = self.headers.get('Origin')
+        bad_origin = bool(self.server.allow_origins and origin and origin not in self.server.allow_origins)
+        if not key or bad_origin:
+            return self.reply(403, {'status': 'error', 'message': 'forbidden'})
+        self.send_response(101, 'Switching Protocols')
+        self.send_header('Upgrade', 'websocket')
+        self.send_header('Connection', 'Upgrade')
+        self.send_header('Sec-WebSocket-Accept', ws.accept_key(key))
+        self.end_headers()
+        self.wfile.flush()
+        sock = self.connection
+        sock.settimeout(30)
+        self.close_connection = True
+
+        try:
+            opcode, raw = ws.recv_frame(sock)
+            data = json.loads(raw) if opcode == 0x1 else {}
+        except (ws.Closed, OSError, ValueError):
+            return
+        payload = check_token(self.server.secret, str(data.get('token', '')))
+        if payload is None:
+            ws.send_json(sock, {'type': 'compile_error', 'output': 'Сессия запуска устарела. Обновите страницу.'})
+            return ws.close(sock)
+        try:
+            language, source, extra, args = parse_program(data, payload)
+        except RunnerError as e:
+            ws.send_json(sock, {'type': 'compile_error', 'output': str(e)})
+            return ws.close(sock)
+
+        user = payload.get('u')
+        error = self.server.limiter.acquire(user)
+        if error:
+            ws.send_json(sock, {'type': 'compile_error', 'output': error})
+            return ws.close(sock)
+        try:
+            with self.server.busy_lock:
+                if self.server.sessions >= self.server.max_sessions:
+                    ws.send_json(sock, {'type': 'compile_error', 'output': 'Сервер занят, попробуйте через минуту.'})
+                    return ws.close(sock)
+                self.server.sessions += 1
+            try:
+                memory_limit = min(int(payload.get('memory') or DEFAULT_MEMORY), MAX_MEMORY)
+                sock.settimeout(None)
+                child = multiprocessing.get_context('fork').Process(
+                    target=session_child, args=(sock, language, source, extra, args, memory_limit))
+                child.start()
+                child.join(SESSION_WALL + 60)
+                if child.is_alive():
+                    child.kill()
+            finally:
+                with self.server.busy_lock:
+                    self.server.sessions -= 1
+        finally:
+            self.server.limiter.release(user)
+
+    # ---- /format ----
+
+    def handle_format(self):
+        data = self.read_json(MAX_SOURCE + 4096)
+        if data is None:
+            return
+        if check_token(self.server.secret, str(data.get('token', ''))) is None:
+            return self.reply(403, {'status': 'error', 'message': 'Сессия устарела. Обновите страницу.'})
+        lang = CLANG_FORMAT_LANGS.get(str(data.get('language', '')))
+        tool = shutil.which('clang-format')
+        if lang is None or tool is None:
+            return self.reply(200, {'status': 'unsupported'})
+        source = str(data.get('source', ''))[:MAX_SOURCE]
+        style = '{BasedOnStyle: Google, IndentWidth: %d, ColumnLimit: 110}' % (
+            4 if int(data.get('indent') or 4) == 4 else 2)
+        try:
+            out = subprocess.run([tool, '--assume-filename=main.' + lang, '--style=' + style],
+                                 input=source.encode(), capture_output=True, timeout=5)
+        except subprocess.TimeoutExpired:
+            return self.reply(200, {'status': 'error', 'message': 'Форматирование заняло слишком много времени.'})
+        if out.returncode != 0:
+            return self.reply(200, {'status': 'error', 'message': out.stderr.decode('utf-8', 'replace')[:2000]})
+        self.reply(200, {'status': 'ok', 'source': out.stdout.decode('utf-8', 'replace')})
+
 
 def main():
     parser = argparse.ArgumentParser(description='Code runner for the olymp editor')
@@ -317,6 +387,7 @@ def main():
     parser.add_argument('--secret-file', required=True, help='file with the secret shared with the site')
     parser.add_argument('--workers', type=int, default=2, help='programs run at the same time')
     parser.add_argument('--queue', type=int, default=8, help='requests allowed to wait for a worker')
+    parser.add_argument('--max-sessions', type=int, default=16, help='interactive terminals at the same time')
     parser.add_argument('--per-minute', type=int, default=20, help='runs per user per minute')
     parser.add_argument('--only-executors', default='', help='comma separated executor ids')
     parser.add_argument('--allow-origin', action='append', default=[], help='origin allowed for CORS (dev)')
@@ -339,10 +410,11 @@ def main():
     server.limiter = Limiter(args.per_minute)
     server.workers = args.workers
     server.queue = args.queue
+    server.max_sessions = args.max_sessions
     server.busy = 0
+    server.sessions = 0
     server.busy_lock = threading.Lock()
     server.allow_origins = set(args.allow_origin)
-
     server.workers_set = WorkerSet(args.workers)
     log.info('listening on %s', args.listen)
     try:
