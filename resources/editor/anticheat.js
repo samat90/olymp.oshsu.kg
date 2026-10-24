@@ -90,9 +90,17 @@
     }
 
     // Going to another page of the site also hides this one for a moment; that is not a violation.
+    // A download link or a cancelled form also fires beforeunload without leaving, so the flag
+    // clears itself after a few seconds; otherwise every later tab switch would be missed.
     var leaving = false;
-    window.addEventListener('beforeunload', function () { leaving = true; });
-    window.addEventListener('pagehide', function () { leaving = true; });
+    var leavingTimer = null;
+    function markLeaving() {
+        leaving = true;
+        clearTimeout(leavingTimer);
+        leavingTimer = setTimeout(function () { leaving = false; }, 3000);
+    }
+    window.addEventListener('beforeunload', markLeaving);
+    window.addEventListener('pagehide', markLeaving);
     window.addEventListener('pageshow', function () { leaving = false; });
 
     // Switching to another tab of this site (the Compiler, the problem list) is allowed.
