@@ -746,7 +746,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 else if (m.type === 'exit') {
                     var text = {OK: 'Программа завершилась', TLE: m.wall ? 'Остановлено: программа слишком долго ждала ввода' : 'Превышено время работы',
                         MLE: 'Превышена память', OLE: 'Слишком большой вывод', RTE: 'Программа завершилась с ошибкой'}[m.verdict] || m.verdict;
-                    termPrint('\r\n' + text + ' (код ' + m.exit_code + ') · ' + (m.time || 0).toFixed(2) + ' с · ' +
+                    termPrint('\r\n' + text + ' (код ' + m.exit_code + ') · работала ' + (m.time || 0).toFixed(2) + ' с · ' +
                         Math.round((m.memory || 0) / 1024) + ' МБ\r\n', m.verdict === 'OK' ? 'green' : 'red');
                 }
             };
