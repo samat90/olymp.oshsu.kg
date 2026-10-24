@@ -1,6 +1,6 @@
 #!/bin/bash
 # Deployment setup script — run on web server as admin (with sudo NOPASSWD).
-# Args: SECRET_KEY DB_PASSWORD JUDGE_KEY ADMIN_URL
+# Args: SECRET_KEY DB_PASSWORD JUDGE_KEY ADMIN_URL; the first superuser password comes from $SUPERUSER_PASSWORD
 set -e
 
 SECRET_KEY="$1"
@@ -179,10 +179,10 @@ export DJANGO_SETTINGS_MODULE=dmoj.settings
 python manage.py migrate --noinput 2>&1 | tail -3
 python manage.py loaddata navbar language_small 2>&1
 python -c "
-import django; django.setup()
+import os, django; django.setup()
 from django.contrib.auth.models import User
 if not User.objects.filter(username='samat1').exists():
-    u = User.objects.create_superuser('samat1', 'skarabaev@oshsu.kg', '***')
+    u = User.objects.create_superuser('samat1', 'skarabaev@oshsu.kg', os.environ['SUPERUSER_PASSWORD'])
     from judge.models import Profile, Language
     Profile.objects.get_or_create(user=u, defaults={'language': Language.get_default_language()})
     print('superuser created')
