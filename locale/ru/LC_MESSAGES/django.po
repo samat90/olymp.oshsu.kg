@@ -7050,3 +7050,27 @@ msgstr "Вернуться к олимпиаде"
 
 msgid "Warnings:"
 msgstr "Предупреждений:"
+
+msgid "New project"
+msgstr "Новый проект"
+
+msgid "My projects"
+msgstr "Мои проекты"
+
+msgid "Project"
+msgstr "Проект"
+
+msgid "Project name"
+msgstr "Название проекта"
+
+msgid "All files"
+msgstr "Все файлы"
+
+msgid "No projects yet"
+msgstr "Проектов пока нет"
+
+msgid "Back to the site"
+msgstr "На сайт"
+
+msgid "optional"
+msgstr "необязательно"

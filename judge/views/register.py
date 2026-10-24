@@ -42,7 +42,12 @@ class CustomRegistrationForm(RegistrationForm):
     if ReCaptchaField is not None:
         captcha = ReCaptchaField(widget=ReCaptchaWidget())
 
+    # OshSU: only the username and the password are required.
+    email = forms.EmailField(label=_('Email'), required=False)
+
     def clean_email(self):
+        if not self.cleaned_data.get('email'):
+            return ''
         if User.objects.filter(email__iexact=self.cleaned_data['email']).exists():
             raise forms.ValidationError(gettext('The email address "%s" is already taken. Only one registration '
                                                 'is allowed per address.') % self.cleaned_data['email'])

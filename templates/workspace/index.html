@@ -40,16 +40,14 @@
         <aside class="gdb-nav">
             <a class="gdb-brand" href="{{ url('home') }}">{% include "site-logo-fragment.html" %}</a>
             <div class="gdb-links">
-                <a href="{{ url('home') }}"><i class="fa fa-home"></i>{{ _('Home') }}</a>
-                <a href="{{ url('problem_list') }}"><i class="fa fa-list"></i>{{ _('Problems') }}</a>
-                <a href="{{ url('contest_list') }}"><i class="fa fa-trophy"></i>{{ _('Contests') }}</a>
-                <a href="{{ url('all_submissions') }}"><i class="fa fa-tasks"></i>{{ _('Submissions') }}</a>
-                <a href="{{ url('workspace') }}" class="active"><i class="fa fa-code"></i>{{ _('Compiler') }}</a>
+                <button type="button" id="pj-new"><i class="fa fa-plus-square-o"></i>{{ _('New project') }}</button>
+                <button type="button" id="pj-list"><i class="fa fa-folder-open-o"></i>{{ _('My projects') }}</button>
+                <a href="{{ url('home') }}"><i class="fa fa-home"></i>{{ _('Back to the site') }}</a>
             </div>
 
             <div class="gdb-files">
                 <div class="gdb-files-head">
-                    <span>{{ _('My files') }}</span>
+                    <span id="pj-name">{{ _('My files') }}</span>
                     <button type="button" id="ws-new-file" title="{{ _('New file') }}"><i class="fa fa-file-o"></i></button>
                     <button type="button" id="ws-new-folder" title="{{ _('New folder') }}"><i class="fa fa-folder-o"></i></button>
                     <button type="button" id="ws-zip" title="{{ _('Download everything as zip') }}"><i class="fa fa-file-archive-o"></i></button>
@@ -74,6 +72,7 @@
             </div>
         </aside>
 
+        <button type="button" class="gdb-collapse" id="gdb-collapse"><i class="fa fa-chevron-left"></i></button>
         <section class="gdb-main">
             <div class="gdb-toolbar">
                 <button type="button" class="gdb-tool gdb-icon" id="tb-new" title="{{ _('New file') }}"><i class="fa fa-file-o"></i></button>

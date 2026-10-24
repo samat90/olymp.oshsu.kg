@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var saveTimers = {};
     var dirty = {};
     var runner = W.runnerEnabled ? new E.Runner({}) : null;
+    var project = Number(storageGet('cc-project')) || null;   // a top-level folder, or null for all files
     var langByKey = {};
     W.languages.forEach(function (l) { langByKey[l.key] = l; });
 
@@ -101,7 +102,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 tree.appendChild(row);
                 if (f.folder && expanded[f.id]) walk(f.id, depth + 1);
             });
-        })(null, 0);
+        })(project, 0);
+        $('#pj-name').textContent = project && files[project] ? files[project].name : S.allFiles;
         $('#ws-foot').textContent = S.files + ': ' + count + ' / ' + W.maxFiles;
         renderTabs();
     }
@@ -266,7 +268,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function createMain(langKey) {
-        return createFile(null, uniqueName(null, mainName(langKey)), HELLO[langKey] || '', langKey).then(function (f) {
+        return createFile(project, uniqueName(project, mainName(langKey)), HELLO[langKey] || '', langKey).then(function (f) {
             return openFile(f.id, f);
         });
     }
@@ -324,7 +326,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    function remove(file) {
+    function remove(file, done) {
         if (!confirm(S.deleteConfirm.replace('%s', file.name))) return;
         request(api + file.id + '/delete/', {}).then(function () {
             var gone = {};
@@ -340,17 +342,139 @@ document.addEventListener('DOMContentLoaded', function () {
             });
             if (active && gone[active]) activate(tabs.length ? tabs[tabs.length - 1] : null);
             render();
+            if (done) done();
         }).catch(fail);
     }
 
     function currentFolder() {
-        return active && files[active] ? files[active].parent : null;
+        return active && files[active] ? files[active].parent : project;
     }
 
     $('#ws-new-file').addEventListener('click', function () { startCreate(currentFolder(), false); });
     $('#tb-new').addEventListener('click', function () { startCreate(currentFolder(), false); });
     $('#ws-new-folder').addEventListener('click', function () { startCreate(currentFolder(), true); });
-    $('#ws-zip').addEventListener('click', function () { location.href = W.downloadUrl; });
+    $('#ws-zip').addEventListener('click', function () {
+        location.href = W.downloadUrl + (project ? '?folder=' + project : '');
+    });
+
+    /* ======================= projects ======================= */
+
+    function topFolder(id) {
+        var f = files[id];
+        while (f && f.parent) f = files[f.parent];
+        return f ? f.id : null;
+    }
+    function inProject(id) {
+        return !project || (files[id] && topFolder(id) === project && Number(id) !== project);
+    }
+    function projectFiles(id) {
+        var n = 0;
+        (function count(pid) { children(pid).forEach(function (c) { if (c.folder) count(c.id); else n++; }); })(id);
+        return n;
+    }
+
+    function openProject(id) {
+        return flushAll().then(function () {
+            project = id || null;
+            storageSet('cc-project', project || '');
+            tabs = tabs.filter(inProject);
+            storageSet('cc-tabs', JSON.stringify(tabs));
+            if (active && inProject(active)) { render(); return; }
+            if (tabs.length) { activate(tabs[0]); return; }
+            var first = children(project).filter(function (f) { return !f.folder; })[0];
+            if (first) return openFile(first.id);
+            activate(null);
+            return createMain(currentLanguage());
+        });
+    }
+
+    function modal(title, body) {
+        var box = document.createElement('div');
+        box.className = 'oe-modal-backdrop';
+        box.innerHTML = '<div class="oe-modal" role="dialog"><div class="oe-modal-title"><span></span>' +
+            '<button type="button" class="oe-close">×</button></div>' + body + '</div>';
+        box.querySelector('.oe-modal-title span').textContent = title;
+        box.querySelector('.oe-close').title = S.close;
+        function onKey(e) { if (e.key === 'Escape') close(); }
+        function close() { box.remove(); document.removeEventListener('keydown', onKey); }
+        box.querySelector('.oe-close').onclick = close;
+        box.addEventListener('click', function (e) { if (e.target === box) close(); });
+        document.addEventListener('keydown', onKey);
+        document.body.appendChild(box);
+        return {box: box, close: close};
+    }
+
+    $('#pj-new').addEventListener('click', function () {
+        var n = children(null).filter(function (f) { return f.folder; }).length + 1;
+        var m = modal(S.newProject,
+            '<label class="oe-row"><span>' + E.escape(S.projectName) + '</span></label>' +
+            '<input type="text" class="pj-input" id="pj-title" maxlength="100">' +
+            '<label class="oe-row"><span>' + E.escape(S.language) + '</span></label>' +
+            '<select class="pj-input" id="pj-lang"></select>' +
+            '<div class="oe-modal-foot"><span></span><button type="button" class="oe-btn oe-primary" id="pj-create">' +
+            E.escape(S.create) + '</button></div>');
+        var title = m.box.querySelector('#pj-title');
+        var lang = m.box.querySelector('#pj-lang');
+        title.value = uniqueName(null, S.project + ' ' + n);
+        W.languages.forEach(function (l) {
+            var o = document.createElement('option');
+            o.value = l.key;
+            o.textContent = l.name;
+            lang.appendChild(o);
+        });
+        lang.value = currentLanguage();
+        title.focus();
+        title.select();
+        function create() {
+            var name = title.value.trim();
+            if (!name) { title.focus(); return; }
+            var key = lang.value;
+            storageSet('ws-last-lang', key);
+            langSelect.value = key;
+            m.box.querySelector('#pj-create').disabled = true;
+            request(api + 'new/', {parent: null, name: name, folder: true}).then(function (data) {
+                files[data.file.id] = data.file;
+                expanded[data.file.id] = true;
+                return openProject(data.file.id);
+            }).then(function () { m.close(); }).catch(function (err) {
+                m.box.querySelector('#pj-create').disabled = false;
+                fail(err);
+            });
+        }
+        m.box.querySelector('#pj-create').onclick = create;
+        title.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); create(); } });
+    });
+
+    $('#pj-list').addEventListener('click', function () {
+        var m = modal(S.myProjects, '<div class="pj-list"></div>');
+        var list = m.box.querySelector('.pj-list');
+        function row(id, name, count, icon) {
+            var r = document.createElement('div');
+            r.className = 'pj-row' + ((id || null) === project ? ' pj-current' : '');
+            r.innerHTML = '<i class="fa ' + icon + '"></i><span class="pj-title"></span><span class="pj-count"></span>' +
+                (id ? '<button type="button" class="pj-del"><i class="fa fa-trash-o"></i></button>' : '');
+            r.querySelector('.pj-title').textContent = name;
+            r.querySelector('.pj-count').textContent = S.files + ': ' + count;
+            if (id) r.querySelector('.pj-del').title = S.delete;
+            r.addEventListener('click', function (e) {
+                if (e.target.closest('.pj-del')) {
+                    e.stopPropagation();
+                    remove(files[id], function () {
+                        r.remove();
+                        if (project === id) openProject(null);
+                    });
+                    return;
+                }
+                m.close();
+                openProject(id);
+            });
+            list.appendChild(r);
+        }
+        var folders = children(null).filter(function (f) { return f.folder; });
+        folders.forEach(function (f) { row(f.id, f.name, projectFiles(f.id), 'fa-folder-o'); });
+        if (!folders.length) list.insertAdjacentHTML('beforeend', '<div class="pj-empty">' + E.escape(S.noProjects) + '</div>');
+        row(null, S.allFiles, Object.keys(files).filter(function (k) { return !files[k].folder; }).length, 'fa-files-o');
+    });
 
     /* ---- upload / download ---- */
 
@@ -861,6 +985,19 @@ document.addEventListener('DOMContentLoaded', function () {
         ]);
     });
 
+    /* ---- sidebar: hide and show ---- */
+
+    function setNav(hidden) {
+        $('#cc').classList.toggle('gdb-nav-hidden', hidden);
+        $('#gdb-collapse i').className = 'fa ' + (hidden ? 'fa-chevron-right' : 'fa-chevron-left');
+        $('#gdb-collapse').title = hidden ? S.expand : S.collapse;
+        storageSet('cc-nav-hidden', hidden ? '1' : '');
+        refit();
+        if (editor) editor.editor.layout();
+    }
+    $('#gdb-collapse').addEventListener('click', function () { setNav(!$('#cc').classList.contains('gdb-nav-hidden')); });
+    setNav(storageGet('cc-nav-hidden') === '1');
+
     /* ---- console panel: resize, collapse, expand ---- */
 
     var panel = $('#ws-panel');
@@ -942,12 +1079,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     request(api).then(function (data) {
         data.files.forEach(function (f) { files[f.id] = f; });
+        if (project && !(files[project] && files[project].folder && !files[project].parent)) project = null;
         render();
-        var saved = loadJSON('cc-tabs', []).filter(function (id) { return files[id] && !files[id].folder; });
+        var saved = loadJSON('cc-tabs', []).filter(function (id) { return files[id] && !files[id].folder && inProject(id); });
         var last = Number(storageGet('ws-open'));
-        if (!saved.length && last && files[last] && !files[last].folder) saved = [last];
+        if (!saved.length && last && files[last] && !files[last].folder && inProject(last)) saved = [last];
         if (!saved.length) {
-            var first = children(null).filter(function (f) { return !f.folder; })[0];
+            var first = children(project).filter(function (f) { return !f.folder; })[0];
             if (first) saved = [first.id];
         }
         if (!saved.length) return createMain(currentLanguage());

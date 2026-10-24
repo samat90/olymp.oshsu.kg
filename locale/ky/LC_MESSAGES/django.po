@@ -1766,3 +1766,27 @@ msgstr "Олимпиадага кайтуу"
 
 msgid "Warnings:"
 msgstr "Эскертүүлөр:"
+
+msgid "New project"
+msgstr "Жаңы долбоор"
+
+msgid "My projects"
+msgstr "Менин долбоорлорум"
+
+msgid "Project"
+msgstr "Долбоор"
+
+msgid "Project name"
+msgstr "Долбоордун аталышы"
+
+msgid "All files"
+msgstr "Бардык файлдар"
+
+msgid "No projects yet"
+msgstr "Азырынча долбоорлор жок"
+
+msgid "Back to the site"
+msgstr "Сайтка кайтуу"
+
+msgid "optional"
+msgstr "милдеттүү эмес"
