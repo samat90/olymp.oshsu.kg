@@ -1,3 +1,6 @@
+"""Creates 1000 test accounts and the contest "load1000" for the load test.
+FOR THE LAPTOP COPY ONLY. Never run this on the real server.
+"""
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import User
 from django.utils import timezone
