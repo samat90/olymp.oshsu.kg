@@ -23,11 +23,13 @@ document.addEventListener('DOMContentLoaded', function () {
         return 'draft:' + data.problem + ':' + (lang ? lang.key : langId);
     }
 
+    // The editor starts empty: the student writes the solution. Drafts that are only the old
+    // ready-made language template (saved by earlier versions) count as empty too.
     function sourceFor(langId) {
         var saved = storageGet(draftKey(langId));
-        if (saved !== null) return saved;
         var lang = languages[String(langId)];
-        return lang ? lang.template || '' : '';
+        if (saved === null || (lang && lang.template && saved === lang.template)) return '';
+        return saved;
     }
 
     var statusTimer = null;
@@ -111,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
             var old = editor.getValue();
             var oldLang = languages[String(currentLang)];
             // Keep the code when the user only switches between versions of one language (C++14 -> C++17).
-            var keep = oldLang && lang && oldLang.ace === lang.ace && old.trim() && old !== oldLang.template;
+            var keep = oldLang && lang && oldLang.ace === lang.ace && old.trim();
             currentLang = select.value;
             editor.setLanguage(lang ? lang.ace : 'text');
             if (!keep) editor.setValue(sourceFor(select.value));
