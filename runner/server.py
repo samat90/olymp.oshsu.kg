@@ -175,8 +175,34 @@ def session_child(sock, language, source, extra, args, memory_limit, compiled):
     run_session(sock, language, source, extra, args, SESSION_CPU, memory_limit, SESSION_WALL, compiled)
 
 
+class BoundedServer(ThreadingHTTPServer):
+    """A thread per connection, but never more than `max_connections` of them: a flood of idle
+    connections cannot use up the machine's memory or threads."""
+
+    daemon_threads = True
+    request_queue_size = 128
+
+    def __init__(self, address, handler, max_connections):
+        super().__init__(address, handler)
+        self.slots = threading.BoundedSemaphore(max_connections)
+
+    def process_request(self, request, client_address):
+        if not self.slots.acquire(blocking=False):
+            log.warning('too many connections, dropping %s', client_address[0])
+            self.shutdown_request(request)
+            return
+        super().process_request(request, client_address)
+
+    def process_request_thread(self, request, client_address):
+        try:
+            super().process_request_thread(request, client_address)
+        finally:
+            self.slots.release()
+
+
 class Handler(BaseHTTPRequestHandler):
     server_version = 'olymp-runner'
+    timeout = 30  # a client that does not send its request in time is dropped
 
     def log_message(self, fmt, *args):
         log.info('%s %s', self.address_string(), fmt % args)
@@ -425,8 +451,7 @@ def main():
     log.info('languages: %s', ', '.join(languages))
 
     host, port = args.listen.rsplit(':', 1)
-    server = ThreadingHTTPServer((host, int(port)), Handler)
-    server.daemon_threads = True
+    server = BoundedServer((host, int(port)), Handler, args.max_sessions + args.queue + args.workers + 64)
     server.secret = secret
     server.languages = languages
     server.limiter = Limiter(args.per_minute)
