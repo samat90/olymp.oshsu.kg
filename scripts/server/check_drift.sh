@@ -18,5 +18,5 @@ else
     echo "These files were changed on the server after 2026-10-21:"
     echo "$changed" | sed 's/^/  /'
     echo
-    echo "Send this list to Claude before deploying. The deploy keeps a copy of the old code in its backup."
+    echo "Review this list before deploying. The deploy keeps a copy of the old code in its backup."
 fi
