@@ -16,6 +16,7 @@ from django.conf import settings
 from django.core.files.base import ContentFile
 from django.core.management.base import BaseCommand, CommandError
 from django.db import connection, transaction
+from django.utils import timezone
 
 from judge.models import (Problem, ProblemCodeAlias, ProblemData, ProblemGroup, ProblemTestCase, ProblemType,
                           Profile)
@@ -114,6 +115,7 @@ class Command(BaseCommand):
                 partial=True,
                 is_public=public,
                 difficulty=manifest.get('difficulty'),
+                date=timezone.now(),
                 group=group,
             )
             problem.save()
