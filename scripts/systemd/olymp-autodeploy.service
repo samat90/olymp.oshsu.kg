@@ -6,5 +6,5 @@ After=network-online.target postgresql.service
 [Service]
 Type=oneshot
 User=admin
-ExecStart=/bin/bash -c '/var/www/olymp.oshsu.kg/scripts/server/autodeploy.sh >> /var/log/olymp/deploy.log 2>&1'
+ExecStart=/bin/bash -c 'bash /var/www/olymp.oshsu.kg/scripts/server/autodeploy.sh >> /var/log/olymp/deploy.log 2>&1'
 TimeoutStartSec=1800
