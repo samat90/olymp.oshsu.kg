@@ -13,6 +13,8 @@ it with the code. The runner never talks to the database.
 Endpoints:
     POST /run       run with prepared input (several inputs = compile once, run each)
     GET  /session   WebSocket: interactive run in a terminal
+    POST /poll/start, GET /poll/<id>?since=N, POST /poll/<id>/send
+                    the same interactive run over plain HTTP, for networks without WebSocket
     POST /format    format code with clang-format
     GET  /health, /languages
 """
@@ -24,7 +26,9 @@ import json
 import logging
 import multiprocessing
 import os
+import secrets
 import shutil
+import socket
 import subprocess
 import sys
 import threading
@@ -175,6 +179,162 @@ def session_child(sock, language, source, extra, args, memory_limit, compiled):
     run_session(sock, language, source, extra, args, SESSION_CPU, memory_limit, SESSION_WALL, compiled)
 
 
+def serve_session(server, sock):
+    """Runs one interactive session over `sock`, which speaks WebSocket frames: the browser's own
+    connection, or one end of a socket pair when the browser polls over plain HTTP (PollSession)."""
+    try:
+        opcode, raw = ws.recv_frame(sock)
+        data = json.loads(raw) if opcode == 0x1 else {}
+    except (ws.Closed, OSError, ValueError):
+        return
+    payload = check_token(server.secret, str(data.get('token', '')))
+    if payload is None:
+        ws.send_json(sock, {'type': 'compile_error', 'output': 'Сессия запуска устарела. Обновите страницу.'})
+        return ws.close(sock)
+    try:
+        language, source, extra, args = parse_program(data, payload)
+    except RunnerError as e:
+        ws.send_json(sock, {'type': 'compile_error', 'output': str(e)})
+        return ws.close(sock)
+
+    user = payload.get('u')
+    error = server.limiter.acquire(user)
+    if error:
+        ws.send_json(sock, {'type': 'compile_error', 'output': error})
+        return ws.close(sock)
+    try:
+        with server.busy_lock:
+            if server.sessions >= server.max_sessions:
+                ws.send_json(sock, {'type': 'compile_error', 'output': 'Сервер занят, попробуйте через минуту.'})
+                return ws.close(sock)
+            server.sessions += 1
+        try:
+            memory_limit = min(int(payload.get('memory') or DEFAULT_MEMORY), MAX_MEMORY)
+            sock.settimeout(None)
+            # Compiling takes a whole core, so at most `workers` terminals compile at the same time;
+            # the others wait their turn. Waiting for the user's input costs almost nothing.
+            if not server.compile_gate.acquire(timeout=0):
+                ws.send_json(sock, {'type': 'status', 'text': 'queued'})
+                if not server.compile_gate.acquire(timeout=120):
+                    busy = 'Сервер занят, попробуйте через минуту.'
+                    ws.send_json(sock, {'type': 'compile_error', 'output': busy})
+                    return ws.close(sock)
+            ctx = multiprocessing.get_context('fork')
+            compiled = ctx.Event()
+            try:
+                child = ctx.Process(target=session_child,
+                                    args=(sock, language, source, extra, args, memory_limit, compiled))
+                child.start()
+                deadline = time.monotonic() + 60
+                while not compiled.wait(0.5) and child.is_alive() and time.monotonic() < deadline:
+                    pass
+            finally:
+                server.compile_gate.release()
+            child.join(SESSION_WALL + 60)
+            if child.is_alive():
+                child.kill()
+        finally:
+            with server.busy_lock:
+                server.sessions -= 1
+    finally:
+        server.limiter.release(user)
+
+
+class PollSession:
+    """An interactive session for browsers whose network does not pass WebSocket (a proxy in the way).
+
+    The session runs exactly as over WebSocket (serve_session), but on one end of a socket pair;
+    this object holds the other end. Messages from the program are kept in a list that the browser
+    reads with GET /poll/<id>?since=N (long polling), and its input comes with POST /poll/<id>/send.
+    """
+    POLL_WAIT = 15      # seconds a poll request waits for new messages
+    IDLE_LIMIT = 45     # a session nobody polls for this long is killed
+    KEEP_DONE = 60      # a finished session is kept this long for the last poll
+
+    def __init__(self, server, start):
+        self.id = secrets.token_urlsafe(24)
+        self.messages = []
+        self.done = False
+        self.finished = 0
+        self.seen = time.monotonic()
+        self.cond = threading.Condition()
+        self.send_lock = threading.Lock()
+        self.sock, inner = socket.socketpair()
+        ws.send_json(self.sock, start)
+        threading.Thread(target=self._serve, args=(server, inner), daemon=True).start()
+        threading.Thread(target=self._pump, daemon=True).start()
+
+    @staticmethod
+    def _serve(server, inner):
+        try:
+            serve_session(server, inner)
+        finally:
+            inner.close()
+
+    def _pump(self):
+        try:
+            while True:
+                opcode, payload = ws.recv_frame(self.sock)
+                if opcode == 0x8:
+                    break
+                if opcode == 0x1:
+                    message = json.loads(payload)
+                    with self.cond:
+                        self.messages.append(message)
+                        self.cond.notify_all()
+        except (ws.Closed, OSError, ValueError):
+            pass
+        with self.cond:
+            self.done = True
+            self.finished = time.monotonic()
+            self.cond.notify_all()
+        try:
+            self.sock.close()
+        except OSError:
+            pass
+
+    def send(self, message):
+        try:
+            with self.send_lock:
+                ws.send_json(self.sock, message)
+        except OSError:
+            pass
+
+    def poll(self, since):
+        """Returns (messages after `since`, True when the session has ended and nothing is left)."""
+        deadline = time.monotonic() + self.POLL_WAIT
+        with self.cond:
+            self.seen = time.monotonic()
+            while len(self.messages) <= since and not self.done:
+                left = deadline - time.monotonic()
+                if left <= 0:
+                    break
+                self.cond.wait(left)
+            self.seen = time.monotonic()
+            return self.messages[since:], self.done
+
+    def expired(self, now):
+        if self.done:
+            return now - self.finished > self.KEEP_DONE
+        if now - self.seen > self.IDLE_LIMIT:
+            # The browser is gone: stop the program, the pump then marks the session done.
+            self.send({'type': 'kill'})
+            try:
+                self.sock.shutdown(socket.SHUT_RDWR)
+            except OSError:
+                pass
+        return False
+
+
+def reap_poll_sessions(server):
+    while True:
+        time.sleep(10)
+        now = time.monotonic()
+        with server.poll_lock:
+            for key in [k for k, v in server.poll_sessions.items() if v.expired(now)]:
+                del server.poll_sessions[key]
+
+
 class BoundedServer(ThreadingHTTPServer):
     """A thread per connection, but never more than `max_connections` of them: a flood of idle
     connections cannot use up the machine's memory or threads."""
@@ -233,6 +393,19 @@ class Handler(BaseHTTPRequestHandler):
     def route(self):
         return self.path.split('?')[0].rstrip('/').rsplit('/', 1)[-1]
 
+    def poll_route(self):
+        """('start', None) | ('poll', id) | ('send', id) for /poll/... paths, else (None, None)."""
+        parts = self.path.split('?')[0].strip('/').split('/')
+        if len(parts) >= 2 and parts[-2] == 'poll':
+            return ('start', None) if parts[-1] == 'start' else ('poll', parts[-1])
+        if len(parts) >= 3 and parts[-3] == 'poll' and parts[-1] == 'send':
+            return 'send', parts[-2]
+        return None, None
+
+    def poll_session(self, key):
+        with self.server.poll_lock:
+            return self.server.poll_sessions.get(key)
+
     def do_GET(self):
         route = self.route()
         if route == 'health':
@@ -242,6 +415,8 @@ class Handler(BaseHTTPRequestHandler):
             self.reply(200, {'languages': self.server.languages})
         elif route == 'session' and self.headers.get('Upgrade', '').lower() == 'websocket':
             self.handle_session()
+        elif self.poll_route()[0] == 'poll':
+            self.handle_poll(self.poll_route()[1])
         else:
             self.reply(404, {'status': 'error', 'message': 'not found'})
 
@@ -265,6 +440,10 @@ class Handler(BaseHTTPRequestHandler):
             self.handle_run()
         elif route == 'format':
             self.handle_format()
+        elif self.poll_route()[0] == 'start':
+            self.handle_poll_start()
+        elif self.poll_route()[0] == 'send':
+            self.handle_poll_send(self.poll_route()[1])
         else:
             self.reply(404, {'status': 'error', 'message': 'not found'})
 
@@ -340,62 +519,45 @@ class Handler(BaseHTTPRequestHandler):
         sock.settimeout(30)
         self.close_connection = True
 
-        try:
-            opcode, raw = ws.recv_frame(sock)
-            data = json.loads(raw) if opcode == 0x1 else {}
-        except (ws.Closed, OSError, ValueError):
-            return
-        payload = check_token(self.server.secret, str(data.get('token', '')))
-        if payload is None:
-            ws.send_json(sock, {'type': 'compile_error', 'output': 'Сессия запуска устарела. Обновите страницу.'})
-            return ws.close(sock)
-        try:
-            language, source, extra, args = parse_program(data, payload)
-        except RunnerError as e:
-            ws.send_json(sock, {'type': 'compile_error', 'output': str(e)})
-            return ws.close(sock)
+        serve_session(self.server, sock)
 
-        user = payload.get('u')
-        error = self.server.limiter.acquire(user)
-        if error:
-            ws.send_json(sock, {'type': 'compile_error', 'output': error})
-            return ws.close(sock)
+    # ---- /poll (the interactive session over plain HTTP) ----
+
+    def handle_poll_start(self):
+        data = self.read_json(MAX_SOURCE + 300 * 1024)
+        if data is None:
+            return
+        # The token is checked here too, so strangers cannot fill the session table.
+        if check_token(self.server.secret, str(data.get('token', ''))) is None:
+            return self.reply(403, {'status': 'error', 'message': 'Сессия запуска устарела. Обновите страницу.'})
+        with self.server.poll_lock:
+            if len(self.server.poll_sessions) >= self.server.max_sessions * 2:
+                return self.reply(503, {'status': 'error', 'message': 'Сервер занят, попробуйте через минуту.'})
+            session = PollSession(self.server, data)
+            self.server.poll_sessions[session.id] = session
+        self.reply(200, {'status': 'ok', 'id': session.id})
+
+    def handle_poll(self, key):
+        session = self.poll_session(key)
+        if session is None:
+            return self.reply(404, {'status': 'error', 'message': 'not found'})
         try:
-            with self.server.busy_lock:
-                if self.server.sessions >= self.server.max_sessions:
-                    ws.send_json(sock, {'type': 'compile_error', 'output': 'Сервер занят, попробуйте через минуту.'})
-                    return ws.close(sock)
-                self.server.sessions += 1
-            try:
-                memory_limit = min(int(payload.get('memory') or DEFAULT_MEMORY), MAX_MEMORY)
-                sock.settimeout(None)
-                # Compiling takes a whole core, so at most `workers` terminals compile at the same time;
-                # the others wait their turn. Waiting for the user's input costs almost nothing.
-                if not self.server.compile_gate.acquire(timeout=0):
-                    ws.send_json(sock, {'type': 'status', 'text': 'queued'})
-                    if not self.server.compile_gate.acquire(timeout=120):
-                        busy = 'Сервер занят, попробуйте через минуту.'
-                        ws.send_json(sock, {'type': 'compile_error', 'output': busy})
-                        return ws.close(sock)
-                ctx = multiprocessing.get_context('fork')
-                compiled = ctx.Event()
-                try:
-                    child = ctx.Process(target=session_child,
-                                        args=(sock, language, source, extra, args, memory_limit, compiled))
-                    child.start()
-                    deadline = time.monotonic() + 60
-                    while not compiled.wait(0.5) and child.is_alive() and time.monotonic() < deadline:
-                        pass
-                finally:
-                    self.server.compile_gate.release()
-                child.join(SESSION_WALL + 60)
-                if child.is_alive():
-                    child.kill()
-            finally:
-                with self.server.busy_lock:
-                    self.server.sessions -= 1
-        finally:
-            self.server.limiter.release(user)
+            since = max(0, int(self.path.partition('since=')[2].split('&')[0] or 0))
+        except ValueError:
+            since = 0
+        messages, done = session.poll(since)
+        self.reply(200, {'messages': messages, 'next': since + len(messages), 'done': done})
+
+    def handle_poll_send(self, key):
+        data = self.read_json(70000)
+        if data is None:
+            return
+        session = self.poll_session(key)
+        if session is None:
+            return self.reply(404, {'status': 'error', 'message': 'not found'})
+        if data.get('type') in ('in', 'eof', 'kill'):
+            session.send({'type': data['type'], 'data': str(data.get('data', ''))[:65536]})
+        self.reply(200, {'status': 'ok'})
 
     # ---- /format ----
 
@@ -464,6 +626,9 @@ def main():
     server.compile_gate = threading.BoundedSemaphore(args.workers)
     server.allow_origins = set(args.allow_origin)
     server.workers_set = WorkerSet(args.workers)
+    server.poll_sessions = {}
+    server.poll_lock = threading.Lock()
+    threading.Thread(target=reap_poll_sessions, args=(server,), daemon=True).start()
     log.info('listening on %s, %d workers, queue %d, %d terminals', args.listen, args.workers, args.queue,
              args.max_sessions)
     try:

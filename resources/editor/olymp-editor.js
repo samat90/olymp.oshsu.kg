@@ -291,6 +291,111 @@
         });
     };
 
+    /* ---- Terminal connection ----
+     * Looks like a WebSocket (onopen, onmessage, onclose, send, close) for the interactive console.
+     * Tries a real WebSocket first; when the network does not pass it (a proxy in the way), the same
+     * session runs over plain HTTP requests: POST /poll/start, long-polled GET /poll/<id>, POST /poll/<id>/send.
+     * After one failed WebSocket the page goes straight to HTTP. */
+
+    var noWebSocket = false;
+    try { noWebSocket = sessionStorage.getItem('olymp-no-ws') === '1'; } catch (e) { /* private mode */ }
+
+    function TerminalSocket(runner) {
+        var self = this;
+        self.base = runner.url;
+        self.readyState = 0;
+        self.onopen = self.onmessage = self.onerror = self.onclose = function () {};
+        if (noWebSocket || typeof WebSocket === 'undefined') {
+            setTimeout(function () { self.usePolling(); }, 0);
+            return;
+        }
+        var url = /^https?:/.test(self.base) ? self.base.replace(/^http/, 'ws') + '/session'
+            : location.origin.replace(/^http/, 'ws') + self.base + '/session';
+        var socket = self.socket = new WebSocket(url);
+        var opened = false;
+        socket.onopen = function () { opened = true; self.readyState = 1; self.onopen(); };
+        socket.onmessage = function (event) { self.onmessage(event); };
+        socket.onerror = function () { if (opened) self.onerror(); };
+        socket.onclose = function () {
+            if (opened) { self.readyState = 3; self.onclose(); return; }
+            noWebSocket = true;
+            try { sessionStorage.setItem('olymp-no-ws', '1'); } catch (e) { /* private mode */ }
+            self.socket = null;
+            self.usePolling();
+        };
+    }
+
+    TerminalSocket.prototype.usePolling = function () {
+        this.polling = true;
+        this.queue = Promise.resolve();
+        this.readyState = 1;
+        this.onopen();
+    };
+
+    TerminalSocket.prototype.post = function (path, message) {
+        return fetch(this.base + path, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(message)
+        }).then(function (r) { return r.json(); });
+    };
+
+    TerminalSocket.prototype.deliver = function (message) {
+        this.onmessage({data: JSON.stringify(message)});
+    };
+
+    TerminalSocket.prototype.finish = function () {
+        if (this.readyState === 3) return;
+        this.readyState = 3;
+        this.onclose();
+    };
+
+    TerminalSocket.prototype.send = function (text) {
+        var self = this;
+        if (!self.polling) { if (self.socket) self.socket.send(text); return; }
+        if (self.readyState !== 1) return;
+        var message = JSON.parse(text);
+        // Messages go one after another, so typed input keeps its order.
+        self.queue = self.queue.then(function () {
+            if (!self.id) {
+                return self.post('/poll/start', message).then(function (r) {
+                    if (r.status !== 'ok') {
+                        self.deliver({type: 'compile_error', output: r.message || T.error});
+                        self.finish();
+                        return;
+                    }
+                    self.id = r.id;
+                    self.pollLoop(0, 0);
+                });
+            }
+            return self.post('/poll/' + self.id + '/send', message);
+        }).catch(function () {
+            if (!self.id) { self.onerror(); self.finish(); }
+        });
+    };
+
+    TerminalSocket.prototype.pollLoop = function (since, failures) {
+        var self = this;
+        if (self.readyState !== 1) return;
+        fetch(self.base + '/poll/' + self.id + '?since=' + since).then(function (r) {
+            if (r.status === 404) return {messages: [], next: since, done: true};
+            return r.json();
+        }).then(function (r) {
+            r.messages.forEach(function (m) { self.deliver(m); });
+            if (r.done) self.finish();
+            else self.pollLoop(r.next, 0);
+        }).catch(function () {
+            if (failures >= 5) { self.onerror(); self.finish(); return; }
+            setTimeout(function () { self.pollLoop(since, failures + 1); }, 1000 * (failures + 1));
+        });
+    };
+
+    TerminalSocket.prototype.close = function () {
+        if (!this.polling) { if (this.socket) this.socket.close(); return; }
+        if (this.id && this.readyState === 1) this.post('/poll/' + this.id + '/send', {type: 'kill'}).catch(function () {});
+        this.finish();
+    };
+
     /* ---- Result rendering ---- */
 
     function esc(s) {
@@ -444,6 +549,7 @@
         create: create,
         load: loadMonaco,
         Runner: Runner,
+        TerminalSocket: TerminalSocket,
         renderResult: renderResult,
         renderSample: renderSample,
         openSettings: openSettings,

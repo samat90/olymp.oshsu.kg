@@ -2034,9 +2034,3 @@ msgstr "Сокур терүү жана рекорддор"
 
 msgid "Trainer"
 msgstr "Тренажёр"
-
-msgid "The interactive console is not available in this network. The program was run with the input from the \"Text\" field."
-msgstr "Бул тармакта интерактивдүү консоль иштебейт, ошондуктан программа «Текст» талаасындагы маалымат менен ишке киргизилди."
-
-msgid "The interactive console is not available in this network. The program was run without input."
-msgstr "Бул тармакта интерактивдүү консоль иштебейт, ошондуктан программа киргизүүсүз ишке киргизилди."
