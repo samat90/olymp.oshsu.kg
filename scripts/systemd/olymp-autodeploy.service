@@ -1,0 +1,10 @@
+# Deploys new signed commits from GitHub main (scripts/server/autodeploy.sh).
+[Unit]
+Description=OshSU Olymp auto-deploy from GitHub
+After=network-online.target postgresql.service
+
+[Service]
+Type=oneshot
+User=admin
+ExecStart=/bin/bash -c '/var/www/olymp.oshsu.kg/scripts/server/autodeploy.sh >> /var/log/olymp/deploy.log 2>&1'
+TimeoutStartSec=1800
