@@ -172,18 +172,6 @@ button.gdb-tab-close:hover { background: var(--oe-bg-hover); color: var(--oe-tex
 
 .ws-menu { z-index: 1000; }
 
-@media (max-width: 860px) {
-    body:has(> #page-container .gdb) { overflow: auto; }
-    .gdb { position: static; display: flex; flex-direction: column; min-height: 100vh; }
-    .gdb-nav { max-height: none; }
-    .gdb-links { flex-direction: row; flex-wrap: wrap; }
-    .gdb-links a { padding: 6px 10px; }
-    .gdb-nav .ws-tree { max-height: 160px; }
-    .gdb-editor { flex: none; height: 55vh; }
-    .gdb-console { flex: none; height: 320px; }
-    .gdb-tool:not(.gdb-icon):not(.gdb-run) { padding: 0 8px; }
-}
-
 .gdb-nav .ws-name { flex: 1; overflow: hidden; text-overflow: ellipsis; }
 .gdb-nav .ws-del {
     flex: none; width: 24px; height: 22px; padding: 0; border: 0; border-radius: 3px; background: none; box-shadow: none;
@@ -220,4 +208,80 @@ button.gdb-tab-close:hover { background: var(--oe-bg-hover); color: var(--oe-tex
 .gdb.gdb-nav-hidden .gdb-nav { display: none; }
 .gdb.gdb-nav-hidden .gdb-collapse { left: 0; }
 .gdb.gdb-nav-hidden .gdb-main { padding-left: 14px; }
-@media (max-width: 860px) { .gdb-collapse { display: none; } }
+
+/* Toolbar order on desktop: the secondary tools live in .gdb-more so that phones can show them as a menu. */
+.gdb-more { display: contents; }
+.gdb-mobile, .gdb-mlabel, .gdb-backdrop { display: none; }
+.gdb-args input::placeholder { color: transparent; }
+#tb-new { order: 1; } #ws-upload { order: 2; } .gdb-run-group { order: 3; } #cc-stop { order: 4; }
+#cc-share { order: 5; } #cc-save { order: 6; } #cc-format { order: 7; } #cc-download { order: 8; }
+.gdb-toolbar > .gdb-spacer { order: 9; } .gdb-status { order: 10; } .gdb-lang-select { order: 11; } #cc-settings { order: 12; }
+
+/* ---------- phones: app bar, side drawer, overflow menu ---------- */
+
+@media (max-width: 860px) {
+    .gdb { display: flex; flex-direction: column; height: 100vh; height: 100dvh; bottom: auto; }
+    .gdb-collapse, .gdb-lang-text, .gdb-label { display: none !important; }
+    .gdb-mobile { display: inline-flex; }
+
+    .gdb-nav {
+        position: fixed; top: 0; bottom: 0; left: 0; z-index: 30; width: min(82vw, 300px);
+        transform: translateX(-100%); transition: transform .2s ease; box-shadow: 0 0 24px rgba(0, 0, 0, .35);
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+    .gdb.gdb-nav-hidden .gdb-nav { display: flex; }
+    .gdb.gdb-nav-hidden .gdb-main { padding-left: 0; }
+    .gdb.gdb-drawer .gdb-nav { transform: none; }
+    .gdb.gdb-drawer .gdb-backdrop { display: block; }
+    .gdb-backdrop { position: fixed; inset: 0; z-index: 20; background: rgba(0, 0, 0, .4); }
+    .gdb-links a, .gdb-links button { padding: 12px 18px; }
+    .gdb-nav .ws-item { padding: 9px 12px; }
+    .gdb-nav .ws-del { visibility: visible; }
+    .gdb-lang button { padding: 8px 0; }
+
+    .gdb-main { flex: 1; position: relative; z-index: 0; }
+    .gdb-toolbar { position: relative; z-index: 25; gap: 6px; padding: 6px 8px; overflow: visible; flex-wrap: wrap; }
+    .gdb-toolbar > * { order: 0; }
+    #gdb-menu { order: 0; }
+    .gdb-lang-select { order: 1; flex: 1; min-width: 0; margin: 0; }
+    .gdb-lang-select select { width: 100%; min-width: 0 !important; height: 36px; font-size: 16px; }
+    #cc-stop { order: 2; width: 36px; padding: 0; justify-content: center; }
+    .gdb-run-group { order: 3; margin: 0; }
+    .gdb-tool { height: 36px; }
+    .gdb-tool.gdb-icon { width: 36px; }
+    .gdb-tool.gdb-run { padding: 0 12px; }
+    .gdb-tool.gdb-caret { padding: 0 9px; }
+    #gdb-more-btn { order: 4; }
+    .gdb-toolbar > .gdb-spacer { display: none; }
+    .gdb-status { order: 5; flex-basis: 100%; margin: 0; font-size: 12px; white-space: normal; }
+    .gdb-status:empty { display: none; }
+
+    .gdb-more {
+        display: none; position: absolute; top: calc(100% + 2px); right: 6px; z-index: 26; min-width: 220px;
+        flex-direction: column; padding: 6px 0; background: var(--oe-bg); border: 1px solid var(--oe-border);
+        border-radius: 8px; box-shadow: 0 8px 24px rgba(0, 0, 0, .2);
+    }
+    .gdb.gdb-more-open .gdb-more { display: flex; }
+    .gdb-more .gdb-tool, .gdb-more .gdb-tool.gdb-icon {
+        width: 100%; height: 44px; padding: 0 16px; gap: 12px; justify-content: flex-start; border: 0; border-radius: 0;
+    }
+    .gdb-more .gdb-tool .fa { width: 18px; text-align: center; color: var(--oe-muted); }
+    .gdb-more .gdb-mlabel, .gdb-more .gdb-label { display: inline !important; }
+
+    .gdb-tab { height: 36px; }
+    .gdb-editor { flex: 1 1 auto; min-height: 0; }
+    .gdb-hsplit { height: 10px; touch-action: none; }
+    .gdb-console { flex-basis: 38%; }
+    .gdb-console-head { gap: 8px 10px; padding: 4px 6px 4px 10px; }
+    .gdb-console-title, .gdb-hint { display: none; }
+    .gdb-mode { order: 5; flex-basis: 100%; }
+    .gdb-args { flex: 1 1 0; min-width: 0; }
+    .gdb-args input { flex: 1; width: auto; min-width: 0; height: 30px; font-size: 16px; }
+    .gdb-args input::placeholder { color: var(--oe-muted); }
+    .gdb-stdin { font-size: 16px; }
+    .gdb-console-head .gdb-spacer { display: none; }
+    .gdb-icon-btn { width: 34px; height: 34px; }
+    .gdb-stdin { width: 40%; min-width: 0; }
+    .gdb-main.gdb-console-max .gdb-console { flex-basis: auto !important; }
+}
+@media (max-width: 440px) { .gdb-run-label { display: none; } }

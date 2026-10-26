@@ -1,4 +1,14 @@
 /* The Compiler section: files and folders, tabs, Monaco, and a console. */
+
+// The site scales narrow screens to 480px (common.js); the compiler is laid out for the real phone width.
+(function () {
+    var vp = document.getElementById('viewport');
+    if (vp) {
+        vp.removeAttribute('id');
+        vp.setAttribute('content', 'width=device-width, initial-scale=1');
+    }
+})();
+
 document.addEventListener('DOMContentLoaded', function () {
     'use strict';
 
@@ -1121,7 +1131,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     $('#cc-maximize').title = S.expand;
 
-    $('#ws-hsplit').addEventListener('mousedown', function (e) {
+    $('#ws-hsplit').addEventListener('pointerdown', function (e) {
         e.preventDefault();
         var handle = e.target;
         handle.classList.add('gdb-dragging');
@@ -1136,12 +1146,42 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         function up() {
             handle.classList.remove('gdb-dragging');
-            document.removeEventListener('mousemove', move);
-            document.removeEventListener('mouseup', up);
+            document.removeEventListener('pointermove', move);
+            document.removeEventListener('pointerup', up);
         }
-        document.addEventListener('mousemove', move);
-        document.addEventListener('mouseup', up);
+        document.addEventListener('pointermove', move);
+        document.addEventListener('pointerup', up);
     });
+
+    /* ---- phones: side drawer and the overflow menu of the toolbar ---- */
+
+    var cc = $('#cc');
+    function closeMobile() { cc.classList.remove('gdb-drawer', 'gdb-more-open'); }
+    $('#gdb-menu').addEventListener('click', function () {
+        cc.classList.remove('gdb-more-open');
+        cc.classList.toggle('gdb-drawer');
+    });
+    $('#gdb-more-btn').addEventListener('click', function (e) {
+        e.stopPropagation();
+        cc.classList.remove('gdb-drawer');
+        cc.classList.toggle('gdb-more-open');
+    });
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('#gdb-more')) cc.classList.remove('gdb-more-open');
+    });
+    $('#gdb-backdrop').addEventListener('click', closeMobile);
+    $('#gdb-more').addEventListener('click', function (e) {
+        if (e.target.closest('button')) cc.classList.remove('gdb-more-open');
+    });
+    // Opening a file or a project dialog from the drawer hides the drawer.
+    document.querySelector('.gdb-nav').addEventListener('click', function (e) {
+        if (e.target.closest('.gdb-links button') || (e.target.closest('.ws-item') && !e.target.closest('.ws-del, input'))) {
+            var item = e.target.closest('.ws-item');
+            if (item && files[item.dataset.id] && files[item.dataset.id].folder) return;
+            cc.classList.remove('gdb-drawer');
+        }
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMobile(); });
 
     // Interface language: save the files, switch, and reload the page.
     $('.gdb-lang').addEventListener('submit', function (e) {
