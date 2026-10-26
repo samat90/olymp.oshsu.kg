@@ -26,6 +26,15 @@ document.addEventListener('DOMContentLoaded', function () {
         SWIFT: 'print("Hello, World!")\n',
         PAS: 'program Hello;\nbegin\n  writeln(\'Hello, World!\');\nend.\n'
     };
+    // The bare programs stay recognisable as templates in files created before the welcome.
+    var PLAIN_HELLO = Object.keys(HELLO).map(function (k) { return HELLO[k].trim(); });
+    // Starter code: a short welcome in the language's own comments, then Hello World.
+    var WELCOME = ['Добро пожаловать в компилятор olymp.oshsu.kg!',
+                   'Напишите программу, нажмите «Запустить» — результат появится в консоли.'];
+    Object.keys(HELLO).forEach(function (k) {
+        var mark = k === 'PY3' ? '# ' : '// ';
+        HELLO[k] = WELCOME.map(function (line) { return mark + line + '\n'; }).join('') + '\n' + HELLO[k];
+    });
     var MAIN_NAME = {JAVA8: 'Main.java', JAVA: 'Main.java'};
 
     var files = {};          // id -> file
@@ -748,7 +757,8 @@ document.addEventListener('DOMContentLoaded', function () {
     function isTemplate(text) {
         var t = (text || '').trim();
         if (!t) return true;
-        return Object.keys(HELLO).some(function (k) { return HELLO[k].trim() === t; });
+        return PLAIN_HELLO.indexOf(t) >= 0 ||
+            Object.keys(HELLO).some(function (k) { return HELLO[k].trim() === t; });
     }
 
     /* Switching the language: an untouched Hello World becomes Hello World in the new
