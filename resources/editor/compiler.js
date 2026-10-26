@@ -976,13 +976,14 @@ document.addEventListener('DOMContentLoaded', function () {
         termPrint(tail + '\r\n', 'dim');
     }
 
-    function runPrepared(file, source, extra, args) {
+    function runPrepared(file, source, extra, args, note) {
         setRunning(true);
         termPrint(S.running + '\r\n', 'dim');
         runner.run(file.language, source, $('#ws-stdin').value, function () {
             termPrint(S.queued + '\r\n', 'dim');
         }, {main: file.name, files: extra, args: args}).then(function (r) {
             if (term) term.reset();
+            if (note) termPrint(note + '\r\n\r\n', 'yellow');
             if (r.status === 'compile_error') {
                 termPrint(S.compileError + '\r\n', 'red');
                 termPrint(nl(r.compile_output));
@@ -1011,7 +1012,9 @@ document.addEventListener('DOMContentLoaded', function () {
             var socket = new WebSocket(socketUrl());
             session = {socket: socket, line: '', running: true, started: Date.now()};
             var current = session;
+            var opened = false;
             socket.onopen = function () {
+                opened = true;
                 socket.send(JSON.stringify({token: token, language: file.language, source: source,
                                             main: file.name, files: extra, args: args}));
             };
@@ -1030,11 +1033,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 else if (m.type === 'err') termPrint(m.data, 'red');
                 else if (m.type === 'exit') printExit(m.verdict, m.exit_code, m.time, m.memory, m.wall);
             };
-            socket.onerror = function () { termPrint('\r\n' + S.network + '\r\n', 'red'); };
+            socket.onerror = function () { if (opened) termPrint('\r\n' + S.network + '\r\n', 'red'); };
             socket.onclose = function () {
                 current.running = false;
                 if (session === current) session = null;
                 setRunning(false);
+                // Some networks (a proxy without WebSocket support) never let the terminal connect:
+                // switch to the "Text" input mode and run the program with a plain request instead.
+                if (!opened) {
+                    setMode('text');
+                    runPrepared(file, source, extra, args, S.noTerminal);
+                }
             };
         }).catch(function (err) {
             termPrint('\r\n' + nl(err.message || S.network) + '\r\n', 'red');

@@ -7288,3 +7288,9 @@ msgstr "Слепая печать и рекорды"
 
 msgid "Trainer"
 msgstr "Тренажёр"
+
+msgid "The interactive console is not available in this network. The program was run with the input from the \"Text\" field."
+msgstr "В этой сети интерактивная консоль недоступна, поэтому программа запущена с вводом из поля «Текст»."
+
+msgid "The interactive console is not available in this network. The program was run without input."
+msgstr "В этой сети интерактивная консоль недоступна, поэтому программа запущена без ввода."

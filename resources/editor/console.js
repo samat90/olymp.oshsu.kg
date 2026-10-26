@@ -105,7 +105,9 @@
         this.runner.getToken().then(function (token) {
             var socket = new WebSocket(self.socketUrl());
             var current = self.session = {socket: socket, line: '', running: true};
+            var opened = false;
             socket.onopen = function () {
+                opened = true;
                 socket.send(JSON.stringify({token: token, language: language, source: source,
                                             main: opts.main, files: opts.files || {}, args: opts.args || []}));
             };
@@ -121,16 +123,36 @@
                 else if (m.type === 'err') self.print(m.data, 'red');
                 else if (m.type === 'exit') self.exit(m);
             };
-            socket.onerror = function () { self.print('\n' + S.network + '\n', 'red'); };
+            socket.onerror = function () { if (opened) self.print('\n' + S.network + '\n', 'red'); };
             socket.onclose = function () {
                 current.running = false;
                 if (self.session === current) self.session = null;
-                self.onState(false);
+                if (opened) self.onState(false);
+                else self.runPlain(language, source, opts);
             };
         }).catch(function (err) {
             self.print('\n' + (err.message || S.network) + '\n', 'red');
             self.onState(false);
         });
+    };
+
+    /* Without a WebSocket (a proxy that does not pass it): one plain run with empty input. */
+    Console.prototype.runPlain = function (language, source, opts) {
+        var self = this;
+        this.print(S.noTerminalPlain + '\n\n', 'yellow');
+        this.runner.run(language, source, '', function () {
+            self.print(S.queued + '\n', 'dim');
+        }, {main: opts.main, files: opts.files || {}, args: opts.args || []}).then(function (r) {
+            if (r.status === 'compile_error') { self.print(S.compileError + '\n', 'red'); self.print(r.compile_output); }
+            else if (r.status !== 'ok') self.print((r.message || S.error) + '\n', 'red');
+            else {
+                self.term.write((r.stdout || '').replace(/\r?\n/g, '\r\n'));
+                if (r.stderr) self.print(r.stderr, 'red');
+                self.exit(r);
+            }
+        }).catch(function (err) {
+            self.print('\n' + (err.message || S.network) + '\n', 'red');
+        }).then(function () { self.onState(false); });
     };
 
     Console.prototype.stop = function () {
