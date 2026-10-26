@@ -176,7 +176,13 @@ def parse_program(data, payload):
 
 def session_child(sock, language, source, extra, args, memory_limit, compiled):
     from runner_session import run_session
-    run_session(sock, language, source, extra, args, SESSION_CPU, memory_limit, SESSION_WALL, compiled)
+    try:
+        run_session(sock, language, source, extra, args, SESSION_CPU, memory_limit, SESSION_WALL, compiled)
+    finally:
+        # The child is forked from a process with many threads; a lock one of them held at that moment
+        # (the log stream, for example) stays locked here forever, and the normal interpreter exit
+        # would wait for it. Leave without the usual clean-up.
+        os._exit(0)
 
 
 def serve_session(server, sock):
@@ -365,6 +371,8 @@ class Handler(BaseHTTPRequestHandler):
     timeout = 30  # a client that does not send its request in time is dropped
 
     def log_message(self, fmt, *args):
+        if '/poll/' in self.path and ' 200 ' in ' %s ' % (fmt % args):
+            return  # a running terminal polls several times a second
         log.info('%s %s', self.address_string(), fmt % args)
 
     def cors(self):
