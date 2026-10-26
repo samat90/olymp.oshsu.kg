@@ -398,6 +398,12 @@
 
     /* ---- Result rendering ---- */
 
+    // kotlinc cannot unpack its colour library into /tmp inside the sandbox and says so; the build is fine.
+    // The runner drops this line too (runner_clean.py); this covers a runner that is not updated yet.
+    function compileWarning(text) {
+        return String(text || '').replace(/^[^\n]*jansi-[\w.-]*\.lck \(Permission denied\)\r?(?:\n|$)/gm, '');
+    }
+
     function esc(s) {
         return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
             return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[c];
@@ -556,6 +562,7 @@
         terminalTheme: terminalTheme,
         monacoLanguage: monacoLanguage,
         escape: esc,
+        compileWarning: compileWarning,
         T: T
     };
 })(window, document);

@@ -90,6 +90,8 @@ def _with_extra_files(base, extra):
         def create_files(self, problem_id, source_code, *args, **kwargs):
             super().create_files(problem_id, source_code, *args, **kwargs)
             for name, data in extra.items():
+                if self._file(name) == self._code:
+                    continue  # Java saves the main file as <class>.java; a helper of that name would replace it
                 with open(self._file(name), 'wb') as f:
                     f.write(data)
             if isinstance(self, CLikeExecutor):
@@ -99,7 +101,7 @@ def _with_extra_files(base, extra):
         def get_compile_args(self):
             args = super().get_compile_args()
             if str(getattr(self, '_code', '') or '').endswith('.java'):
-                args = args + [self._file(n) for n in extra if n.endswith('.java')]
+                args = args + [self._file(n) for n in extra if n.endswith('.java') and self._file(n) != self._code]
             return args
 
     WithExtraFiles.__name__ = base.__name__

@@ -919,9 +919,20 @@ document.addEventListener('DOMContentLoaded', function () {
         $('#cc-stop').disabled = !on;
     }
 
+    function javaClassFile(source) {
+        var code = source.replace(/\/\*[\s\S]*?\*\//g, '').replace(/"(?:\\.|[^"\\\n])*"/g, '""')
+            .replace(/\/\/[^\n]*/g, '');
+        var m = /\bpublic\s+(?:(?:abstract|final|strictfp)\s+)*class\s+([\w$]+)/.exec(code);
+        return m ? m[1] + '.java' : null;
+    }
+
     function siblingFiles() {
         var main = files[active];
-        var others = children(main.parent).filter(function (f) { return !f.folder && f.id !== main.id; });
+        // Java saves the program as <its public class>.java; a neighbour with that name would replace it.
+        var javaMain = /^JAVA/.test(main.language || '') && javaClassFile(models[active].getValue());
+        var others = children(main.parent).filter(function (f) {
+            return !f.folder && f.id !== main.id && f.name !== javaMain;
+        });
         return Promise.all(others.map(function (f) {
             if (models[f.id]) return Promise.resolve([f.name, models[f.id].getValue()]);
             if (typeof f.content === 'string') return Promise.resolve([f.name, f.content]);
@@ -1018,7 +1029,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     termPrint(nl(m.output));
                 } else if (m.type === 'started') {
                     if (term) term.reset();
-                    if (m.warning && m.warning.trim()) termPrint(nl(m.warning), 'yellow');
+                    var warning = E.compileWarning(m.warning);
+                    if (warning.trim()) termPrint(nl(warning), 'yellow');
                     if (term) term.focus();
                 } else if (m.type === 'out') termPrint(m.data);
                 else if (m.type === 'err') termPrint(m.data, 'red');

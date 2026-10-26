@@ -109,7 +109,8 @@
                 else if (m.type === 'compile_error') { self.print(S.compileError + '\n', 'red'); self.print(m.output); }
                 else if (m.type === 'started') {
                     self.clear();
-                    if (m.warning && m.warning.trim()) self.print(m.warning, 'yellow');
+                    var warning = E.compileWarning(m.warning);
+                    if (warning.trim()) self.print(warning, 'yellow');
                     self.term.focus();
                 } else if (m.type === 'out') self.term.write(m.data.replace(/\r?\n/g, '\r\n'));
                 else if (m.type === 'err') self.print(m.data, 'red');

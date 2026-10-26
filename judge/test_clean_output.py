@@ -28,3 +28,8 @@ class CleanOutputTest(SimpleTestCase):
     def test_colored_gcc_output(self):
         self.assertEqual(clean('\x1b[01m\x1b[Kmaincpp.cpp:1:13:\x1b[m\x1b[K error'),
                          '\x1b[01m\x1b[Kmain.cpp:1:13:\x1b[m\x1b[K error')
+
+    def test_kotlin_jansi_lock_notice_is_dropped(self):
+        self.assertEqual(clean('jansi-2.4.0-9340af9629fa45e0-libjansi.so.lck (Permission denied)\r\n'), '')
+        self.assertEqual(clean('warning: x\n/tmp/jansi-2.4.0-9340af9629fa45e0-libjansi.so.lck (Permission denied)\n'
+                               'main.kt:1:1: error'), 'warning: x\nmain.kt:1:1: error')
