@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">
 <head>
+    {# The university proxy also serves plain HTTP, where the Secure CSRF cookie is dropped and forms fail with 403. #}
+    <script>if (location.protocol === 'http:' && /(^|\.)olymp\.oshsu\.kg$/.test(location.hostname)) location.replace('https://' + location.host + location.pathname + location.search + location.hash);</script>
     <title>{% block title %}{{ title }} - {{ SITE_LONG_NAME }}{% endblock %}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     {% if misc_config.meta_keywords %}
