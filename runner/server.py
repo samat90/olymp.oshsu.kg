@@ -54,8 +54,8 @@ MAX_TIME = 5.0          # CPU seconds for the program itself
 MAX_MEMORY = 262144     # KB
 DEFAULT_TIME = 2.0
 DEFAULT_MEMORY = 262144
-SESSION_CPU = 10.0      # CPU seconds of an interactive run
-SESSION_WALL = 300      # an interactive run may wait for input this long
+SESSION_CPU = 10.0      # CPU seconds of an interactive run (time spent waiting for input is free)
+SESSION_WALL = 900      # overall cap of an interactive run: it may wait for input this long
 CLANG_FORMAT_LANGS = {
     'C': 'c', 'C11': 'c', 'CPP03': 'cpp', 'CPP11': 'cpp', 'CPP14': 'cpp', 'CPP17': 'cpp', 'CPP20': 'cpp',
     'CPP23': 'cpp', 'JAVA': 'java', 'JAVA8': 'java', 'NODEJS': 'js', 'MONOCS': 'cs', 'CSHARP': 'cs',

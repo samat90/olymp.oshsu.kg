@@ -24,6 +24,7 @@ from runner_exec import RunnerError, build_executor, verdict_of
 log = logging.getLogger('runner')
 
 MAX_SESSION_OUTPUT = 1 << 20
+CLOCK_TICKS = os.sysconf('SC_CLK_TCK')
 
 
 def run_session(sock, language, source, extra, args, cpu_limit, memory_limit, wall_limit, compiled=None):
@@ -48,12 +49,17 @@ def run_session(sock, language, source, extra, args, cpu_limit, memory_limit, wa
         ws.send_json(sock, {'type': 'started', 'compile_time': round(time.monotonic() - started, 2),
                             'warning': clean(warning)[:65536]})
 
-        proc = executor.launch(*args, time=cpu_limit, memory=memory_limit, wall_time=wall_limit,
+        # The judge's own time limit counts the time a program waits in read() as well, so a program
+        # waiting for the user's input would be stopped after a few seconds. Here it is only the overall
+        # cap, and the CPU time is limited by this loop instead (cpu_seconds).
+        proc = executor.launch(*args, time=wall_limit, memory=memory_limit, wall_time=wall_limit,
                                stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         streams = {proc.stdout.fileno(): ('out', codecs.getincrementaldecoder('utf-8')('replace')),
                    proc.stderr.fileno(): ('err', codecs.getincrementaldecoder('utf-8')('replace'))}
         total = 0
         ole = False
+        cpu_tle = False
+        used = 0
         client_open = True
 
         while streams:
@@ -81,15 +87,21 @@ def run_session(sock, language, source, extra, args, cpu_limit, memory_limit, wa
                     ws.send_json(sock, {'type': kind, 'data': clean(text) if kind == 'err' else text})
             if not client_open:
                 proc.kill()
+            used = max(used, cpu_seconds(proc))
+            if not cpu_tle and used > cpu_limit:
+                cpu_tle = True
+                proc.kill()
 
         proc.wait()
+        used = max(used, proc.cpu_time or 0)
         ws.send_json(sock, {
             'type': 'exit',
-            'verdict': verdict_of(proc, ole),
+            'verdict': 'TLE' if cpu_tle else verdict_of(proc, ole),
             'exit_code': proc.returncode,
-            'time': round(proc.execution_time or 0, 3),
+            'time': round(used, 3),
             'memory': proc.max_memory,
-            'wall': proc.is_tle and (proc.execution_time or 0) < cpu_limit,
+            # Stopped by the overall cap: the program was waiting (for input, or in sleep), not computing.
+            'wall': proc.is_tle and not cpu_tle,
         })
     except (ws.Closed, OSError):
         pass
@@ -103,6 +115,17 @@ def run_session(sock, language, source, extra, args, cpu_limit, memory_limit, wa
         if compiled is not None:
             compiled.set()
         ws.close(sock)
+
+
+def cpu_seconds(proc):
+    """User + system CPU time of the running program, from /proc (0 once it is gone)."""
+    try:
+        with open('/proc/%d/stat' % proc.pid) as f:
+            fields = f.read().rpartition(')')[2].split()
+        # utime, stime, cutime, cstime are fields 14-17 of stat, 12-15 after the name.
+        return sum(int(x) for x in fields[11:15]) / CLOCK_TICKS
+    except (OSError, ValueError, IndexError, TypeError):
+        return 0
 
 
 def handle_client(sock, proc):
