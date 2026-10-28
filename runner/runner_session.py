@@ -49,16 +49,17 @@ def run_session(sock, language, source, extra, args, cpu_limit, memory_limit, wa
         ws.send_json(sock, {'type': 'started', 'compile_time': round(time.monotonic() - started, 2),
                             'warning': clean(warning)[:65536]})
 
+        deadline = time.monotonic() + wall_limit
         # The judge's own time limit counts the time a program waits in read() as well, so a program
         # waiting for the user's input would be stopped after a few seconds. Here it is only the overall
-        # cap, and the CPU time is limited by this loop instead (cpu_seconds).
-        proc = executor.launch(*args, time=wall_limit, memory=memory_limit, wall_time=wall_limit,
+        # cap (a backstop: it runs late), and both limits are checked by this loop instead.
+        proc = executor.launch(*args, time=wall_limit + 60, memory=memory_limit, wall_time=wall_limit + 60,
                                stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         streams = {proc.stdout.fileno(): ('out', codecs.getincrementaldecoder('utf-8')('replace')),
                    proc.stderr.fileno(): ('err', codecs.getincrementaldecoder('utf-8')('replace'))}
         total = 0
         ole = False
-        cpu_tle = False
+        cpu_tle = wall_tle = False
         used = 0
         client_open = True
 
@@ -91,17 +92,20 @@ def run_session(sock, language, source, extra, args, cpu_limit, memory_limit, wa
             if not cpu_tle and used > cpu_limit:
                 cpu_tle = True
                 proc.kill()
+            if not wall_tle and time.monotonic() > deadline:
+                wall_tle = True
+                proc.kill()
 
         proc.wait()
         used = max(used, proc.cpu_time or 0)
         ws.send_json(sock, {
             'type': 'exit',
-            'verdict': 'TLE' if cpu_tle else verdict_of(proc, ole),
+            'verdict': 'TLE' if cpu_tle or wall_tle else verdict_of(proc, ole),
             'exit_code': proc.returncode,
             'time': round(used, 3),
             'memory': proc.max_memory,
             # Stopped by the overall cap: the program was waiting (for input, or in sleep), not computing.
-            'wall': proc.is_tle and not cpu_tle,
+            'wall': (wall_tle or proc.is_tle) and not cpu_tle,
         })
     except (ws.Closed, OSError):
         pass

@@ -236,7 +236,7 @@ def serve_session(server, sock):
                     pass
             finally:
                 server.compile_gate.release()
-            child.join(SESSION_WALL + 60)
+            child.join(SESSION_WALL + 120)
             if child.is_alive():
                 child.kill()
         finally:
