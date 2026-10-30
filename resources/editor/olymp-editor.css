@@ -149,6 +149,16 @@ body.oe-fullpage #content > br, body.oe-fullpage > br { display: none; }
 .oe-editor-loading { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
     color: var(--oe-muted); }
 
+/* Scratch: the project file takes the place of the code editor. */
+.oe-scratch { position: absolute; inset: 0; z-index: 5; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; gap: 14px; padding: 24px; text-align: center; background: var(--oe-bg); color: var(--oe-text); }
+.oe-scratch[hidden] { display: none; }
+.oe-scratch-icon { font-size: 44px; color: #ff8c1a; }
+.oe-scratch-name { font-weight: 600; font-size: 16px; word-break: break-all; }
+.oe-scratch-actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.oe-scratch-actions a.oe-btn { text-decoration: none; }
+.oe-scratch-hint { max-width: 520px; margin: 0; color: var(--oe-muted); font-size: 13px; line-height: 1.5; }
+
 .oe-hsplit { height: 6px; background: var(--oe-border); cursor: row-resize; flex: none; }
 .oe-hsplit:hover, .oe-hsplit.oe-dragging { background: var(--oe-primary); }
 

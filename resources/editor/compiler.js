@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var mark = k === 'PY3' ? '# ' : '// ';
         HELLO[k] = WELCOME.map(function (line) { return mark + line + '\n'; }).join('') + '\n' + HELLO[k];
     });
+    HELLO.SB3 = E.SCRATCH_HELLO;
     var MAIN_NAME = {JAVA8: 'Main.java', JAVA: 'Main.java'};
 
     var files = {};          // id -> file
@@ -59,6 +60,9 @@ document.addEventListener('DOMContentLoaded', function () {
     var project = Number(storageGet('cc-project')) || null;   // a top-level folder, or null for all files
     var langByKey = {};
     W.languages.forEach(function (l) { langByKey[l.key] = l; });
+    // Scratch programs are project files (.sb3), kept as base64 text: no code editor for them.
+    function isProject(langKey) { return !!(langByKey[langKey] && langByKey[langKey].file); }
+    var pane = null;
 
     function storageGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
     function storageSet(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* ignore */ } }
@@ -594,6 +598,11 @@ document.addEventListener('DOMContentLoaded', function () {
         var last = null;
         Array.prototype.forEach.call(list, function (file) {
             chain = chain.then(function () {
+                if (/\.sb3$/i.test(file.name)) {
+                    return E.readProject(file).then(function (data) {
+                        return createFile(parentId, uniqueName(parentId, file.name), data, 'SB3');
+                    }).then(function (f) { last = f; });
+                }
                 if (file.size > 65536) {
                     setStatus(S.tooBig.replace('%s', file.name), true);
                     return;
@@ -613,6 +622,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var f = files[id];
         var text = models[id] ? models[id].getValue() : f.content;
         var send = function (content) {
+            if (isProject(f.language)) { E.downloadProject(f.name, content); return; }
             var a = document.createElement('a');
             a.href = URL.createObjectURL(new Blob([content], {type: 'text/plain;charset=utf-8'}));
             a.download = f.name;
@@ -678,6 +688,14 @@ document.addEventListener('DOMContentLoaded', function () {
         holder.innerHTML = '';
         return E.create(holder, {value: '', onRun: run, onSave: function () { save(); }}).then(function (ed) {
             editor = ed;
+            pane = new E.ScratchPane(holder, {
+                onLoad: function (data) {
+                    if (!active || !models[active]) return;
+                    models[active].setValue(data);
+                    flush(active).then(function () { setStatus(S.uploaded); }).catch(function () {});
+                },
+                onError: function (message) { setStatus(message, true); }
+            });
             return ed;
         });
     }
@@ -714,6 +732,7 @@ document.addEventListener('DOMContentLoaded', function () {
         storageSet('ws-open', id || '');
         if (!editor) { render(); return; }
         if (!id) {
+            pane.hide();
             editor.editor.setModel(null);
             fileButtons.forEach(function (s) { if ($(s)) $(s).disabled = true; });
             $('#ws-stdin').disabled = true;
@@ -721,7 +740,8 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
         editor.editor.setModel(models[id]);
-        editor.focus();
+        if (isProject(files[id].language)) pane.show(models[id].getValue(), files[id].name);
+        else { pane.hide(); editor.focus(); }
         fileButtons.forEach(function (s) { if ($(s)) $(s).disabled = !W.runnerEnabled && (s === '#cc-run' || s === '#cc-format'); });
         langSelect.disabled = false;
         $('#ws-stdin').disabled = false;
@@ -781,6 +801,11 @@ document.addEventListener('DOMContentLoaded', function () {
         var file = files[id];
         var lang = langByKey[key];
         var model = models[id];
+        // Code does not turn into a Scratch project or back: a new main file is made instead.
+        if ((isProject(key) || isProject(file.language)) && model && !isTemplate(model.getValue())) {
+            createMain(key).catch(fail);
+            return;
+        }
         if (model && isTemplate(model.getValue())) {
             model.setValue(HELLO[key] || '');
             var name = uniqueName(file.parent, mainName(key), id);
@@ -790,13 +815,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 }).then(function (data) {
                     applyRename(file, data);
                     return request(api + id + '/save/', {language: key});
-                }).then(function (d) { files[id].language = d.file.language; }).catch(fail);
+                }).then(function (d) {
+                    files[id].language = d.file.language;
+                    if (active === id) activate(id);
+                }).catch(fail);
                 return;
             }
         }
         if (model && lang) window.monaco.editor.setModelLanguage(model, E.monacoLanguage(lang.ace));
         request(api + id + '/save/', {language: key}).then(function (d) {
             files[id].language = d.file.language;
+            if (active === id) activate(id);
         }).catch(fail);
     });
 
@@ -938,10 +967,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function siblingFiles() {
         var main = files[active];
+        if (isProject(main.language)) return Promise.resolve({});
         // Java saves the program as <its public class>.java; a neighbour with that name would replace it.
         var javaMain = /^JAVA/.test(main.language || '') && javaClassFile(models[active].getValue());
         var others = children(main.parent).filter(function (f) {
-            return !f.folder && f.id !== main.id && f.name !== javaMain;
+            return !f.folder && f.id !== main.id && f.name !== javaMain && !isProject(f.language);
         });
         return Promise.all(others.map(function (f) {
             if (models[f.id]) return Promise.resolve([f.name, models[f.id].getValue()]);
@@ -974,6 +1004,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var file = files[active];
         if (!file.language) { alert(S.pickLanguage); return; }
         var source = models[active].getValue();
+        if (isProject(file.language) && !source) { setStatus(E.T.scratchEmpty, true); return; }
         var args = parseArgs($('#cc-args').value);
         flushAll();
         openConsole();

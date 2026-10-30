@@ -47,6 +47,7 @@ from runner_exec import RunnerError, clean_files, run_job  # noqa: E402
 log = logging.getLogger('runner')
 
 MAX_SOURCE = 65536
+MAX_PROJECT = 262144  # Scratch projects (.sb3) arrive base64-encoded
 MAX_STDIN = 1 << 20
 MAX_BATCH = 10          # inputs per request ("test on samples" compiles once)
 MAX_ARGS = 20
@@ -178,8 +179,8 @@ def parse_program(data, payload):
     if allowed is not None and language not in allowed:
         raise RunnerError('Этот язык недоступен.')
     source = str(data.get('source', ''))
-    if len(source.encode()) > MAX_SOURCE:
-        raise RunnerError('Код длиннее 64 КБ.')
+    if len(source.encode()) > (MAX_PROJECT if language == 'SB3' else MAX_SOURCE):
+        raise RunnerError('Код длиннее 64 КБ.' if language != 'SB3' else 'Проект больше 190 КБ.')
     extra = clean_files(data.get('files'), str(data.get('main', '')))
     args = data.get('args') or []
     if not isinstance(args, list):
@@ -472,7 +473,7 @@ class Handler(BaseHTTPRequestHandler):
     # ---- /run ----
 
     def handle_run(self):
-        data = self.read_json(MAX_SOURCE + MAX_STDIN + 300 * 1024)
+        data = self.read_json(MAX_PROJECT + MAX_STDIN + 300 * 1024)
         if data is None:
             return
         payload = check_token(self.server.secret, str(data.get('token', '')))
@@ -546,7 +547,7 @@ class Handler(BaseHTTPRequestHandler):
     # ---- /poll (the interactive session over plain HTTP) ----
 
     def handle_poll_start(self):
-        data = self.read_json(MAX_SOURCE + 300 * 1024)
+        data = self.read_json(MAX_PROJECT + 300 * 1024)
         if data is None:
             return
         # The token is checked here too, so strangers cannot fill the session table.

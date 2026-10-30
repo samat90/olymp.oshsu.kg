@@ -39,7 +39,12 @@
         themeDark: 'Тёмная', themeContrast: 'Контрастная', fontSize: 'Размер шрифта', indent: 'Отступ',
         spaces: 'пробелов', wordWrap: 'Переносить длинные строки', minimap: 'Мини-карта', suggestions: 'Подсказки',
         lineNumbers: 'Номера строк', ligatures: 'Лигатуры шрифта', reset: 'Сбросить', close: 'Закрыть',
-        terminal: 'Консоль', term_light: 'Белая', term_dark: 'Тёмная', term_black: 'Чёрная', term_blue: 'Синяя'
+        terminal: 'Консоль', term_light: 'Белая', term_dark: 'Тёмная', term_black: 'Чёрная', term_blue: 'Синяя',
+        download: 'Скачать', kb: 'КБ', scratchUpload: 'Загрузить .sb3', scratchEditor: 'Редактор Scratch',
+        scratchEmpty: 'Проект не загружен',
+        scratchHint: 'Соберите программу в редакторе Scratch, сохраните её (Файл → Сохранить на компьютер) и загрузите сюда. ' +
+            '«Спросить и ждать» читает строку ввода, «сказать» печатает строку.',
+        scratchBad: 'Это не проект Scratch 3 (.sb3).', scratchTooBig: 'Проект больше 190 КБ.'
     }, window.OLYMP_STRINGS || {});
 
     function loadSettings() {
@@ -551,6 +556,96 @@
         if (mq.addEventListener) mq.addEventListener('change', function () { applySettings(loadSettings()); });
     }
 
+    /* ---- Scratch: the program is a .sb3 project file, kept as base64 text ---- */
+
+    var SCRATCH_EDITOR = 'https://scratch.mit.edu/projects/editor/';
+    var MAX_PROJECT = 262144;   // base64 characters, about 190 KB of .sb3
+    // "When the flag is clicked: say Hello, World!" (one empty costume each for the stage and the sprite).
+    var SCRATCH_HELLO = 'UEsDBBQAAAAIAICLXl0Rbimd9AEAANcEAAAMAAAAcHJvamVjdC5qc29u3VPJbtswEP2VlGfBEFPbrXUrgnQBUvTgAG0RGMGIHMuEKY5AUopdw//eoZbU7SnIsRfpzdMsbxadRARfYQyieDgJE9YRKhRF9C1mwkHNWAxcJjrwBkqL7Hs6Z8KaEEdYegKt4I9tSe1HrKiu0U1fVOs9WzcUYpuS58mhx4OCsWQJaq89NZLLQggYv2hm5Wr7XuZyXi5W82WpV3KVX8tluVTvdDnPywU713qBh/gC31noKvbXEOEj+RpSzEB5ihANuRvWif6HKOS/3E/mzptMBGqdTroZd2T7hmTOLVk4ov/mNfq+w4h1Q6JYMuyMRrr34EIDPAh1FMVionnOMTVPTqSYQ7yndYOodnfgqrbfi2utPWcXi9qCDRebaryJKF+3KwHpQY0inXJhx70+Pu3QbS1Uyhq1R82Z3TDfkmHfQhxUZcK4pp2Sbg1aPeKwA01Pz1IjNXec205HdhDFnCdwTK8k5y8RlmgfHgMcnwsPtabKrPmisPh6u15/+HTLG5HZg+Ssn9Fayq6+k7f6jdhsXiqtJ86vvd6R+w+OV6bTDIYP6WJdw7b4GcyvKUgbjyoVEcUqmR6qCvqwcbaTiHU8JlaAtVfgkwaR1NTkTCQ/6uEpoAvsPdo1xv44A9ZdkiXezvJZns68ZiOfXfcG/xD9TYjz+TdQSwMEFAAAAAgAgIteXYnK8y5OAAAAVQAAACQAAAAxOWY4MTAxNGI1OTQ2YmQ5MTkwMjE2YjZjN2RiNDBiNS5zdmcdyssNgCAMANBVmg5gm3ozwMFZJJRExQihjO/n9g7P1Z5gHPtZPWpr10JkZpPNU7kTCTPTOxAsb009CoLGnLT97DnaWoZHBgYBweC+HR5QSwECFAMUAAAACACAi15dEW4pnfQBAADXBAAADAAAAAAAAAAAAAAAgAEAAAAAcHJvamVjdC5qc29uUEsBAhQDFAAAAAgAgIteXYnK8y5OAAAAVQAAACQAAAAAAAAAAAAAAIABHgIAADE5ZjgxMDE0YjU5NDZiZDkxOTAyMTZiNmM3ZGI0MGI1LnN2Z1BLBQYAAAAAAgACAIwAAACuAgAAAAA=';
+
+    function readProject(file) {
+        return new Promise(function (resolve, reject) {
+            var reader = new FileReader();
+            reader.onload = function () {
+                var data = String(reader.result).split(',')[1] || '';
+                if (data.slice(0, 4) !== 'UEsD') reject(new Error(T.scratchBad));  // a zip file starts with PK\3\4
+                else if (data.length > MAX_PROJECT) reject(new Error(T.scratchTooBig));
+                else resolve(data);
+            };
+            reader.onerror = function () { reject(new Error(T.scratchBad)); };
+            reader.readAsDataURL(file);
+        });
+    }
+
+    function projectBlob(data) {
+        var bin = atob(data);
+        var bytes = new Uint8Array(bin.length);
+        for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+        return new Blob([bytes], {type: 'application/x.scratch.sb3'});
+    }
+
+    function downloadProject(name, data) {
+        var a = document.createElement('a');
+        a.href = URL.createObjectURL(projectBlob(data));
+        a.download = name;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+    }
+
+    /* Shown instead of the code editor for a Scratch program. opts: {onLoad(data, fileName), onError(message)}.
+     * show(data, name) displays a project; hide() brings the code editor back. */
+    function ScratchPane(holder, opts) {
+        var self = this;
+        var el = this.el = document.createElement('div');
+        el.className = 'oe-scratch';
+        el.hidden = true;
+        el.innerHTML =
+            '<i class="fa fa-puzzle-piece oe-scratch-icon"></i>' +
+            '<div class="oe-scratch-name"></div>' +
+            '<div class="oe-scratch-actions">' +
+            '<button type="button" class="oe-btn oe-primary oe-scratch-upload"><i class="fa fa-upload"></i> </button>' +
+            '<button type="button" class="oe-btn oe-scratch-download"><i class="fa fa-download"></i> </button>' +
+            '<a class="oe-btn" target="_blank" rel="noopener"><i class="fa fa-external-link"></i> </a>' +
+            '</div><p class="oe-scratch-hint"></p><input type="file" accept=".sb3" hidden>';
+        el.querySelector('.oe-scratch-upload').appendChild(document.createTextNode(T.scratchUpload));
+        el.querySelector('.oe-scratch-download').appendChild(document.createTextNode(T.download));
+        el.querySelector('a').href = SCRATCH_EDITOR;
+        el.querySelector('a').appendChild(document.createTextNode(T.scratchEditor));
+        el.querySelector('.oe-scratch-hint').textContent = T.scratchHint;
+        var input = el.querySelector('input');
+        el.querySelector('.oe-scratch-upload').addEventListener('click', function () { input.click(); });
+        el.querySelector('.oe-scratch-download').addEventListener('click', function () {
+            if (self.data) downloadProject(self.name, self.data);
+        });
+        input.addEventListener('change', function () {
+            var file = input.files[0];
+            input.value = '';
+            if (!file) return;
+            readProject(file).then(function (data) {
+                self.show(data, self.name);
+                if (opts.onLoad) opts.onLoad(data, file.name);
+            }).catch(function (err) { if (opts.onError) opts.onError(err.message); else alert(err.message); });
+        });
+        holder.appendChild(el);
+    }
+
+    ScratchPane.prototype.show = function (data, name) {
+        this.data = data || '';
+        this.name = name || 'main.sb3';
+        var size = Math.ceil(this.data.length * 3 / 4 / 1024);
+        this.el.querySelector('.oe-scratch-name').textContent =
+            this.data ? this.name + ' · ' + size + ' ' + T.kb : T.scratchEmpty;
+        this.el.querySelector('.oe-scratch-download').disabled = !this.data;
+        this.el.hidden = false;
+        this.el.parentNode.classList.add('oe-scratch-on');
+    };
+
+    ScratchPane.prototype.hide = function () {
+        this.el.hidden = true;
+        this.el.parentNode.classList.remove('oe-scratch-on');
+    };
+
     window.OlympEditor = {
         create: create,
         load: loadMonaco,
@@ -563,6 +658,11 @@
         monacoLanguage: monacoLanguage,
         escape: esc,
         compileWarning: compileWarning,
+        ScratchPane: ScratchPane,
+        readProject: readProject,
+        downloadProject: downloadProject,
+        SCRATCH_HELLO: SCRATCH_HELLO,
+        MAX_PROJECT: MAX_PROJECT,
         T: T
     };
 })(window, document);

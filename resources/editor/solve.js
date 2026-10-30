@@ -55,9 +55,26 @@ document.addEventListener('DOMContentLoaded', function () {
         return lang ? lang.key : null;
     }
 
+    // Scratch programs are project files: they are uploaded, not typed.
+    function isFile(langId) {
+        var lang = languages[String(langId)];
+        return !!(lang && lang.file);
+    }
+
+    var pane = new E.ScratchPane($('#oe-editor'), {
+        onLoad: function (data) { storageSet(draftKey(currentLang), data); setStatus(E.T.uploaded); }
+    });
+
+    function source() {
+        if (select && isFile(select.value)) return pane.data || '';
+        return editor ? editor.getValue() : null;
+    }
+
     function run() {
-        if (!cons || !editor || cons.running()) return;
-        cons.run(language(), editor.getValue());
+        var code = source();
+        if (!cons || code === null || cons.running()) return;
+        if (!code) { setStatus(E.T.scratchEmpty); return; }
+        cons.run(language(), code);
     }
 
     if (runBtn) runBtn.addEventListener('click', run);
@@ -66,21 +83,22 @@ document.addEventListener('DOMContentLoaded', function () {
     /* ---- submit ---- */
     var submitting = false;
     form.addEventListener('submit', function (e) {
-        if (!editor) { e.preventDefault(); return; }
-        var source = editor.getValue();
-        if (!source.trim()) {
+        var code = source();
+        var file = select && isFile(select.value);
+        if (code === null) { e.preventDefault(); return; }
+        if (!code.trim()) {
             e.preventDefault();
-            setStatus(E.T.emptyCode);
+            setStatus(file ? E.T.scratchEmpty : E.T.emptyCode);
             return;
         }
-        if (source.length > 65536) {
+        if (code.length > (file ? E.MAX_PROJECT : 65536)) {
             e.preventDefault();
-            alert(E.T.tooLong);
+            alert(file ? E.T.scratchTooBig : E.T.tooLong);
             return;
         }
         if (submitting) { e.preventDefault(); return; }
         submitting = true;
-        $('#id_source').value = source;
+        $('#id_source').value = code;
         var btn = $('#oe-submit-btn');
         if (btn) btn.disabled = true;
     });
@@ -88,6 +106,10 @@ document.addEventListener('DOMContentLoaded', function () {
     /* ---- editor ---- */
     var initial = data.initialSource !== null ? data.initialSource : (select ? sourceFor(select.value) : '');
     var lang0 = select ? languages[String(select.value)] : null;
+    if (lang0 && lang0.file) {
+        pane.show(initial);
+        initial = '';
+    }
 
     E.create($('#oe-editor'), {
         value: initial,
@@ -101,19 +123,25 @@ document.addEventListener('DOMContentLoaded', function () {
         editor = ed;
         var loading = document.querySelector('.oe-editor-loading');
         if (loading) loading.remove();
-        ed.focus();
+        if (!(lang0 && lang0.file)) ed.focus();
     }).catch(function () {
         $('#oe-editor').innerHTML = '<div class="oe-editor-loading">' + E.escape(E.T.editorFailed) + '</div>';
     });
 
     if (select) {
         select.addEventListener('change', function () {
-            if (!editor) return;
             var lang = languages[String(select.value)];
-            var old = editor.getValue();
             var oldLang = languages[String(currentLang)];
+            if (lang && lang.file) {
+                currentLang = select.value;
+                pane.show(sourceFor(select.value));
+                return;
+            }
+            pane.hide();
+            if (!editor) return;
+            var old = editor.getValue();
             // Keep the code when the user only switches between versions of one language (C++14 -> C++17).
-            var keep = oldLang && lang && oldLang.ace === lang.ace && old.trim();
+            var keep = oldLang && !oldLang.file && lang && oldLang.ace === lang.ace && old.trim();
             currentLang = select.value;
             editor.setLanguage(lang ? lang.ace : 'text');
             if (!keep) editor.setValue(sourceFor(select.value));

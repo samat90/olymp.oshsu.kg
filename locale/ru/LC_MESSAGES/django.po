@@ -7303,3 +7303,24 @@ msgstr "Картинка больше 5 МБ."
 
 msgid "Upload a JPG, PNG, GIF or WebP picture."
 msgstr "Загрузите картинку JPG, PNG, GIF или WebP."
+
+msgid "KB"
+msgstr "КБ"
+
+msgid "Upload .sb3"
+msgstr "Загрузить .sb3"
+
+msgid "Scratch editor"
+msgstr "Редактор Scratch"
+
+msgid "No project loaded"
+msgstr "Проект не загружен"
+
+msgid "Build the program in the Scratch editor, save it (File → Save to your computer) and upload it here. «Ask and wait» reads a line of input, «say» prints a line."
+msgstr "Соберите программу в редакторе Scratch, сохраните её (Файл → Сохранить на компьютер) и загрузите сюда. «Спросить и ждать» читает строку ввода, «сказать» печатает строку."
+
+msgid "This is not a Scratch 3 project (.sb3)."
+msgstr "Это не проект Scratch 3 (.sb3)."
+
+msgid "The project is larger than 190 KB."
+msgstr "Проект больше 190 КБ."

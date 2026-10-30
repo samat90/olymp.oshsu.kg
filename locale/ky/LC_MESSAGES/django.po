@@ -2034,3 +2034,24 @@ msgstr "Сокур терүү жана рекорддор"
 
 msgid "Trainer"
 msgstr "Тренажёр"
+
+msgid "KB"
+msgstr "КБ"
+
+msgid "Upload .sb3"
+msgstr ".sb3 жүктөө"
+
+msgid "Scratch editor"
+msgstr "Scratch редактору"
+
+msgid "No project loaded"
+msgstr "Долбоор жүктөлгөн жок"
+
+msgid "Build the program in the Scratch editor, save it (File → Save to your computer) and upload it here. «Ask and wait» reads a line of input, «say» prints a line."
+msgstr "Программаны Scratch редакторунда түзүп, сактап (Файл → Компьютерге сактоо) ушул жерге жүктөңүз. «Сура жана күт» киргизүүнүн бир сабын окуйт, «айт» бир сапты чыгарат."
+
+msgid "This is not a Scratch 3 project (.sb3)."
+msgstr "Бул Scratch 3 долбоору эмес (.sb3)."
+
+msgid "The project is larger than 190 KB."
+msgstr "Долбоор 190 КБдан чоң."

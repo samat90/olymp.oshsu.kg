@@ -1,4 +1,5 @@
 """Online editor: run tokens and the Compiler section (files, folders, terminal)."""
+import base64
 import io
 import json
 import re
@@ -15,7 +16,7 @@ from django.views.decorators.http import require_GET, require_POST
 
 from judge.models import Problem, WorkspaceFile
 from judge.models.workspace import MAX_DEPTH, MAX_FILE_SIZE, MAX_FILES_PER_USER
-from judge.utils.languages import EDITOR_EXCLUDED, problem_languages
+from judge.utils.languages import FILE_LANGUAGES, MAX_PROJECT, problem_languages
 from judge.utils.runner import make_token, public_url, runner_enabled
 from judge.utils.views import generic_message
 
@@ -33,7 +34,7 @@ def in_live_contest(request):
 
 
 def available_languages():
-    languages = problem_languages().exclude(key__in=EDITOR_EXCLUDED)
+    languages = problem_languages()
     online = list(languages.filter(judges__online=True).distinct().order_by('name'))
     if online:
         return online
@@ -50,6 +51,7 @@ def editor_language_info(languages):
         'ace': lang.ace,
         'ext': lang.extension,
         'template': lang.template,
+        'file': lang.key in FILE_LANGUAGES,
     } for lang in languages]
 
 
@@ -60,6 +62,20 @@ def language_for_name(name, languages):
         return ''
     matches.sort(key=lambda lang: PREFERRED.index(lang.key) if lang.key in PREFERRED else len(PREFERRED))
     return matches[0].key
+
+
+def size_limit(language):
+    return MAX_PROJECT if language in FILE_LANGUAGES else MAX_FILE_SIZE
+
+
+def file_bytes(file):
+    """What the user downloads: project files (.sb3) are kept base64-encoded."""
+    if file.language in FILE_LANGUAGES:
+        try:
+            return base64.b64decode(file.content, validate=True)
+        except ValueError:
+            pass
+    return file.content.encode('utf-8')
 
 
 def json_error(message, status=400):
@@ -221,7 +237,7 @@ def api_create(request):
             language = language_for_name(name, languages)
         template = next((lang.template for lang in languages if lang.key == language), '')
         content = data.get('content') if isinstance(data.get('content'), str) else template
-        if len(content.encode()) > MAX_FILE_SIZE:
+        if len(content.encode()) > size_limit(language):
             return json_error(_('The file is larger than 64 KB.'))
     try:
         with transaction.atomic():
@@ -239,7 +255,7 @@ def api_save(request, file_id):
     data = read_json(request)
     fields = []
     if isinstance(data.get('content'), str):
-        if len(data['content'].encode()) > MAX_FILE_SIZE:
+        if len(data['content'].encode()) > size_limit(data.get('language') or file.language):
             return json_error(_('The file is larger than 64 KB.'))
         file.content = data['content']
         fields.append('content')
@@ -367,7 +383,7 @@ def api_download(request):
                     zf.writestr(path + f.name + '/', '')
                     walk(f.id, path + f.name + '/')
                 else:
-                    zf.writestr(path + f.name, f.content)
+                    zf.writestr(path + f.name, file_bytes(f))
         walk(start, prefix)
     response = HttpResponse(out.getvalue(), content_type='application/zip')
     safe = re.sub(r'[^A-Za-z0-9_.-]+', '_', archive_name).strip('_') or 'files'

@@ -17,6 +17,7 @@ from django.utils.translation import gettext_lazy as _, ngettext_lazy
 
 from judge.models import Contest, Language, Organization, Problem, ProblemPointsVote, Profile, Submission, \
     WebAuthnCredential
+from judge.utils.languages import FILE_LANGUAGES, MAX_PROJECT, MAX_SOURCE
 from judge.utils.mail import validate_email_domain
 from judge.utils.subscription import newsletter_id
 from judge.widgets import AceWidget, MartorWidget, Select2MultipleWidget, Select2Widget
@@ -143,7 +144,7 @@ class DownloadDataForm(Form):
 
 
 class ProblemSubmitForm(ModelForm):
-    source = CharField(max_length=65536, widget=AceWidget(theme='twilight', no_ace_media=True))
+    source = CharField(max_length=MAX_PROJECT, widget=AceWidget(theme='twilight', no_ace_media=True))
     judge = ChoiceField(choices=(), widget=forms.HiddenInput(), required=False)
 
     def __init__(self, *args, judge_choices=(), **kwargs):
@@ -153,6 +154,14 @@ class ProblemSubmitForm(ModelForm):
         self.fields['language'].queryset = Language.objects.filter(judges__online=True).distinct()
         # OshSU: скрываем выбор судьи от пользователя — bridge распределяет
         # автоматически. Поле judge остаётся HiddenInput с пустым choices.
+
+    def clean(self):
+        cleaned = super().clean()
+        language = cleaned.get('language')
+        source = cleaned.get('source') or ''
+        if language is not None and language.key not in FILE_LANGUAGES and len(source) > MAX_SOURCE:
+            self.add_error('source', _('The code must be at most 65536 characters long.'))
+        return cleaned
 
     class Meta:
         model = Submission
