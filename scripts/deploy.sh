@@ -82,6 +82,7 @@ for i in $(seq 1 30); do
     code=$(curl -s -o /dev/null -w '%{http_code}' -H 'Host: olymp.oshsu.kg' "$SITE" || true)
     if [ "$code" = "200" ]; then
         log "OK: site answers 200. Backup: $BACKUP"
+        bash scripts/server/sync_runner.sh || log "The code runner on the judge was not updated (see above)."
         "$PY" manage.py security_report || true
         exit 0
     fi

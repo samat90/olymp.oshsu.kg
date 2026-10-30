@@ -62,6 +62,20 @@ CLANG_FORMAT_LANGS = {
 }
 
 
+def code_version():
+    """Short hash of the runner's code, so a deploy can check which code is running (scripts/server/sync_runner.sh)."""
+    folder = os.path.dirname(os.path.abspath(__file__))
+    names = sorted(n for n in os.listdir(folder) if n == 'server.py' or n.startswith('runner_') and n.endswith('.py'))
+    digest = hashlib.sha256()
+    for name in names:
+        with open(os.path.join(folder, name), 'rb') as f:
+            digest.update(f.read())
+    return digest.hexdigest()[:12]
+
+
+VERSION = code_version()
+
+
 def load_judge(config, only):
     argv = ['dmoj-runner', '-c', config, '--no-ansi', '--skip-self-test']
     if only:
@@ -418,7 +432,7 @@ class Handler(BaseHTTPRequestHandler):
         route = self.route()
         if route == 'health':
             self.reply(200, {'ok': True, 'busy': self.server.busy, 'workers': self.server.workers,
-                             'sessions': self.server.sessions})
+                             'sessions': self.server.sessions, 'version': VERSION})
         elif route == 'languages':
             self.reply(200, {'languages': self.server.languages})
         elif route == 'session' and self.headers.get('Upgrade', '').lower() == 'websocket':
