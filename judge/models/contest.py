@@ -630,7 +630,7 @@ class ContestParticipation(models.Model):
 class ContestProblem(models.Model):
     problem = models.ForeignKey(Problem, verbose_name=_('problem'), related_name='contests', on_delete=CASCADE)
     contest = models.ForeignKey(Contest, verbose_name=_('contest'), related_name='contest_problems', on_delete=CASCADE)
-    points = models.IntegerField(verbose_name=_('points'))
+    points = models.IntegerField(default=100, verbose_name=_('points'))
     partial = models.BooleanField(default=True, verbose_name=_('partial'))
     is_pretested = models.BooleanField(default=False, verbose_name=_('is pretested'))
     order = models.PositiveIntegerField(db_index=True, verbose_name=_('order'))
