@@ -7288,3 +7288,18 @@ msgstr "Слепая печать и рекорды"
 
 msgid "Trainer"
 msgstr "Тренажёр"
+
+msgid "Avatar"
+msgstr "Аватар"
+
+msgid "avatar"
+msgstr "аватар"
+
+msgid "Uploaded picture, relative to MEDIA_ROOT."
+msgstr "Загруженная картинка (путь внутри MEDIA_ROOT)."
+
+msgid "The picture is larger than 5 MB."
+msgstr "Картинка больше 5 МБ."
+
+msgid "Upload a JPG, PNG, GIF or WebP picture."
+msgstr "Загрузите картинку JPG, PNG, GIF или WebP."

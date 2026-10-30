@@ -36,6 +36,7 @@ from judge.models import Profile, Submission
 from judge.performance_points import get_pp_breakdown
 from judge.ratings import rating_class, rating_progress
 from judge.tasks import prepare_user_data
+from judge.utils.avatar import AvatarError, remove_avatar, set_avatar
 from judge.utils.celery import task_status_by_id, task_status_url_by_id
 from judge.utils.infinite_paginator import InfinitePaginationMixin
 from judge.utils.mail import send_mail
@@ -387,6 +388,30 @@ def edit_profile(request):
         'ignore_user_script': True,
         'TIMEZONE_MAP': settings.TIMEZONE_MAP,
     })
+
+
+@require_POST
+@login_required
+def upload_avatar(request):
+    if request.profile.mute:
+        return generic_message(request, _("Can't edit profile"), _('Your part is silent, little toad.'), status=403)
+    upload = request.FILES.get('avatar')
+    if upload is None:
+        return HttpResponseRedirect(reverse('user_edit_profile'))
+    try:
+        set_avatar(request.profile, upload)
+    except AvatarError as e:
+        return generic_message(request, _('Avatar'), str(e), status=400)
+    return HttpResponseRedirect(reverse('user_edit_profile'))
+
+
+@require_POST
+@login_required
+def delete_avatar(request):
+    if request.profile.mute:
+        return generic_message(request, _("Can't edit profile"), _('Your part is silent, little toad.'), status=403)
+    remove_avatar(request.profile)
+    return HttpResponseRedirect(reverse('user_edit_profile'))
 
 
 @require_POST

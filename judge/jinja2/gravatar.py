@@ -4,6 +4,7 @@ from django.contrib.auth.models import AbstractUser
 from django.utils.http import urlencode
 
 from judge.models import Profile
+from judge.utils.avatar import avatar_url
 from judge.utils.unicode import utf8bytes
 from . import registry
 
@@ -13,8 +14,13 @@ def gravatar(email, size=80, default=None):
     if isinstance(email, Profile):
         if default is None:
             default = email.mute
+        if email.avatar and not default:
+            return avatar_url(email.avatar)
         email = email.user.email
     elif isinstance(email, AbstractUser):
+        profile = getattr(email, 'profile', None)
+        if profile is not None and profile.avatar:
+            return avatar_url(profile.avatar)
         email = email.email
 
     gravatar_url = 'https://www.gravatar.com/avatar/' + hashlib.md5(utf8bytes(email.strip().lower())).hexdigest() + '?'

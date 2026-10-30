@@ -191,6 +191,8 @@ urlpatterns = [
 
     path('user', user.UserAboutPage.as_view(), name='user_page'),
     path('edit/profile/', user.edit_profile, name='user_edit_profile'),
+    path('edit/profile/avatar/', user.upload_avatar, name='user_avatar_upload'),
+    path('edit/profile/avatar/delete/', user.delete_avatar, name='user_avatar_delete'),
     path('data/prepare/', user.UserPrepareData.as_view(), name='user_prepare_data'),
     path('data/download/', user.UserDownloadData.as_view(), name='user_download_data'),
     path('user/<str:user>', include([

@@ -26,6 +26,18 @@
             padding-left: 0;
         }
 
+        .avatar-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 0;
+        }
+
+        .avatar-row img {
+            border-radius: 4px;
+            object-fit: cover;
+        }
+
         .block-header {
             font-size: 1.1em;
         }
@@ -329,10 +341,19 @@
                                 {{- form.test_site.label -}}
                             </label>
                         </td></tr>
-                        <tr><td>
-                            <a href="https://www.gravatar.com/" target="_blank" class="inline-header" rel="noopener">
-                                {{ _('Change your avatar') }}
-                            </a>
+                        <tr><td class="avatar-row">
+                            <img src="{{ gravatar(profile, 96) }}" width="48" height="48" alt="">
+                            <label class="button inline-button">
+                                {{- _('Change your avatar') -}}
+                                <input type="file" name="avatar" form="avatar-upload-form" hidden
+                                       accept="image/jpeg,image/png,image/gif,image/webp"
+                                       onchange="if (this.files.length) this.form.submit()">
+                            </label>
+                            {% if profile.avatar %}
+                                <button type="submit" form="avatar-delete-form" class="button inline-button">
+                                    {{- _('Remove') -}}
+                                </button>
+                            {% endif %}
                         </td></tr>
                         <tr><td>
                             <a href="{{ url('password_change') }}" class="inline-header">
@@ -377,6 +398,11 @@
             <hr>
 
             <input type="submit" class="submit-bar" value="{{ _('Update profile') }}">
+        </form>
+        <form id="avatar-upload-form" action="{{ url('user_avatar_upload') }}" method="post"
+              enctype="multipart/form-data" hidden>{% csrf_token %}</form>
+        <form id="avatar-delete-form" action="{{ url('user_avatar_delete') }}" method="post" hidden>
+            {%- csrf_token -%}
         </form>
     </div>
 {% endblock %}
