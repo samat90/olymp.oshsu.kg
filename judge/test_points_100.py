@@ -55,3 +55,14 @@ class AllProblems100PointsTest(TestCase):
         self.assertEqual(ContestSubmission.objects.get().points, 50)
         self.assertEqual(participation.score, 50)
         self.assertEqual(Submission.objects.get().points, 50)
+
+    def test_stale_user_total_is_recounted(self):
+        student = create_user(username='p100_stale')
+        problem = create_problem(code='p100s', points=100, is_public=True)
+        self.submit(student, problem, 'AC', 5, 5, 100)
+        type(student.profile).objects.filter(id=student.profile.id).update(points=0, problem_count=0)
+
+        import_module('judge.migrations.0170_recount_user_points').recount(None, None)
+
+        student.profile.refresh_from_db()
+        self.assertEqual((student.profile.points, student.profile.problem_count), (100, 1))
