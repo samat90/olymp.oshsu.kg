@@ -23,8 +23,8 @@ from judge.models import (Problem, ProblemCodeAlias, ProblemData, ProblemGroup, 
 from judge.utils.languages import problem_languages
 from judge.utils.problem_data import ProblemDataCompiler
 
-GROUP_NAME = 'kyrgyzstan'
-GROUP_FULL_NAME = 'Задачи о Кыргызстане'
+GROUP_NAME = 'olympiad'
+GROUP_FULL_NAME = 'Олимпиадные задачи'
 IMAGE_DIR = os.path.join('problems', 'kg2026')  # inside MEDIA_ROOT; statements link to /media/problems/kg2026/
 
 
