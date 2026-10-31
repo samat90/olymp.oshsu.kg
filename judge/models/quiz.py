@@ -19,9 +19,11 @@ class Quiz(models.Model):
     cover = models.ImageField(verbose_name=_('cover'), upload_to='quiz/', blank=True)
     theme = models.CharField(verbose_name=_('theme'), max_length=10, choices=THEMES, default='steppe')
     subject = models.CharField(verbose_name=_('subject'), max_length=60, blank=True, db_index=True)
-    access = models.CharField(verbose_name=_('access'), max_length=8, choices=ACCESS, default=LINK)
+    access = models.CharField(verbose_name=_('access'), max_length=8, choices=ACCESS, default=PUBLIC)
     key = models.CharField(verbose_name=_('link key'), max_length=12, unique=True)
     is_hidden = models.BooleanField(verbose_name=_('hidden by admin'), default=False)
+    # Deleted by the author: gone from the site, kept for the reports of games already played.
+    is_deleted = models.BooleanField(verbose_name=_('deleted by the author'), default=False)
     copied_from = models.ForeignKey('self', verbose_name=_('copied from'), null=True, blank=True, on_delete=SET_NULL,
                                     related_name='copies')
     plays = models.PositiveIntegerField(verbose_name=_('games played'), default=0)
@@ -37,14 +39,16 @@ class Quiz(models.Model):
         return self.title
 
     def can_edit(self, user):
-        if not user.is_authenticated:
-            return False
-        return self.author_id == user.profile.id or user.is_superuser
+        """Only the author edits and deletes; admins moderate in the admin (hide)."""
+        return user.is_authenticated and self.author_id == user.profile.id and not self.is_deleted
 
     def can_view(self, user):
-        if self.can_edit(user):
+        """Anyone may open, play and host a quiz unless an admin hid it."""
+        if self.is_deleted:
+            return False
+        if not self.is_hidden:
             return True
-        return not self.is_hidden
+        return user.is_authenticated and (self.author_id == user.profile.id or user.is_superuser)
 
 
 class Question(models.Model):
@@ -148,6 +152,7 @@ class GameSession(models.Model):
     phase_started = models.DateTimeField(verbose_name=_('phase started'), null=True, blank=True)
     settings = models.JSONField(verbose_name=_('settings'), default=dict, blank=True)
     question_ids = models.JSONField(verbose_name=_('question order'), default=list, blank=True)
+    snapshot = models.JSONField(verbose_name=_('questions at the start'), default=dict, blank=True)
     created = models.DateTimeField(verbose_name=_('created'), auto_now_add=True, db_index=True)
     finished = models.DateTimeField(verbose_name=_('finished'), null=True, blank=True)
 
@@ -189,7 +194,10 @@ class Player(models.Model):
 
 class Answer(models.Model):
     player = models.ForeignKey(Player, verbose_name=_('player'), related_name='answers', on_delete=CASCADE)
-    question = models.ForeignKey(Question, verbose_name=_('question'), related_name='answers', on_delete=CASCADE)
+    # Answers outlive a question deleted in the editor: old game reports keep them (see GameSession.snapshot).
+    question = models.ForeignKey(Question, verbose_name=_('question'), related_name='answers', null=True,
+                                 on_delete=SET_NULL)
+    question_key = models.PositiveIntegerField(verbose_name=_('question id'), default=0, db_index=True)
     value = models.JSONField(verbose_name=_('answer'), null=True, blank=True)
     is_correct = models.BooleanField(verbose_name=_('correct'), default=False)
     fraction = models.FloatField(verbose_name=_('share correct'), default=0)
@@ -200,7 +208,7 @@ class Answer(models.Model):
     class Meta:
         verbose_name = _('quiz answer')
         verbose_name_plural = _('quiz answers')
-        unique_together = ('player', 'question')
+        unique_together = ('player', 'question_key')
 
 
 class QuizReport(models.Model):

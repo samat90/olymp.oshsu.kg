@@ -13,14 +13,14 @@ DISABLE_NOTE = ('Чтобы временно запретить новые иг�
 
 
 class QuizAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author_link', 'access', 'is_hidden', 'question_count', 'plays', 'updated')
-    list_filter = ('access', 'is_hidden', 'theme')
+    list_display = ('title', 'author_link', 'access', 'is_hidden', 'is_deleted', 'question_count', 'plays', 'updated')
+    list_filter = ('access', 'is_hidden', 'is_deleted', 'theme')
     search_fields = ('title', 'description', 'subject', 'key', 'author__user__username')
     list_select_related = ('author__user',)
     date_hierarchy = 'updated'
     fieldsets = (
         (None, {'fields': ('title', 'author', 'key', 'site_links', 'subject', 'description', 'theme', 'access',
-                           'is_hidden', 'copied_from', 'plays', 'created', 'updated', 'question_list')}),
+                           'is_hidden', 'is_deleted', 'copied_from', 'plays', 'created', 'updated', 'question_list')}),
         ('Остановить игры', {'fields': (), 'description': DISABLE_NOTE}),
     )
     readonly_fields = ('author', 'key', 'site_links', 'copied_from', 'plays', 'created', 'updated', 'question_list')

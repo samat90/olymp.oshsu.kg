@@ -354,6 +354,104 @@ class QuizTimingTest(QuizGameTestCase):
         self.assertEqual(QuizAnswer.objects.get().points, 500)
 
 
+class QuizPermissionRulesTest(QuizGameTestCase):
+    """Anyone signed in creates and hosts any catalog quiz; only the author edits or deletes it."""
+
+    def test_new_quiz_is_in_the_catalog_by_default(self):
+        response = self.login(self.other).get(reverse('quiz_new'))
+        quiz = Quiz.objects.get(author=self.other.profile)
+        self.assertRedirects(response, reverse('quiz_edit', args=[quiz.key]), fetch_redirect_response=False)
+        self.assertEqual(quiz.access, Quiz.PUBLIC)
+        add_question(quiz, Q.SINGLE, [('Да', True), ('Нет', False)])
+        self.assertIn(quiz, visible_quizzes())
+
+    def test_anyone_signed_in_hosts_someone_elses_quiz_in_every_mode(self):
+        stranger = self.login(self.other)
+        for mode in ('screen', 'remote', 'auto'):
+            pin = self.launch(mode=mode, client=stranger)
+            self.assertEqual(self.game(pin).host, self.other.profile)
+            self.assertEqual(stranger.get(reverse('quiz_host', args=[pin])).status_code, 200)
+        solo = stranger.post(reverse('quiz_solo', args=[self.quiz.key]))
+        self.assertEqual(solo.status_code, 302)
+        self.assertEqual(Client().post(reverse('quiz_launch', args=[self.quiz.key]), {'mode': 'screen'})
+                         .status_code, 302)                     # to the login page, no game
+        self.assertFalse(GameSession.objects.filter(host=None).exclude(mode='solo').exists())
+
+    def test_only_the_author_edits_and_deletes(self):
+        q = self.q1
+        api = 'quiz_api_question_save', 'quiz_api_question_delete', 'quiz_api_question_image'
+        for user in (self.other, self.admin):
+            client = self.login(user)
+            self.assertIn(client.get(reverse('quiz_edit', args=[self.quiz.key])).status_code, (403, 404))
+            self.assertIn(client.post(reverse('quiz_delete', args=[self.quiz.key])).status_code, (403, 404))
+            for name in api:
+                self.assertEqual(client.post(reverse(name, args=[self.quiz.key, q.id]), '{}',
+                                             content_type='application/json').status_code, 404)
+            for name in ('quiz_api_save', 'quiz_api_reorder', 'quiz_api_import', 'quiz_api_cover',
+                         'quiz_api_question_add'):
+                self.assertEqual(client.post(reverse(name, args=[self.quiz.key]), '{}',
+                                             content_type='application/json').status_code, 404)
+            page = client.get(reverse('quiz_detail', args=[self.quiz.key])).content.decode()
+            self.assertNotIn(reverse('quiz_edit', args=[self.quiz.key]), page)
+        self.assertTrue(Quiz.objects.filter(id=self.quiz.id, is_deleted=False).exists())
+        self.assertEqual(self.quiz.questions.count(), 2)
+        page = self.host.get(reverse('quiz_detail', args=[self.quiz.key])).content.decode()
+        self.assertIn(reverse('quiz_edit', args=[self.quiz.key]), page)
+        self.assertEqual(self.host.get(reverse('quiz_edit', args=[self.quiz.key])).status_code, 200)
+
+    def test_admin_moderates_by_hiding(self):
+        self.quiz.is_hidden = True
+        self.quiz.save()
+        self.assertEqual(self.login(self.other).get(reverse('quiz_detail', args=[self.quiz.key])).status_code, 404)
+        self.assertEqual(self.login(self.admin).get(reverse('quiz_detail', args=[self.quiz.key])).status_code, 200)
+        self.assertNotIn(self.quiz, visible_quizzes())
+
+    def test_deleting_a_played_quiz_keeps_other_hosts_reports(self):
+        stranger = self.login(self.other)
+        pin = self.launch(client=stranger)
+        a = self.join(pin, 'Аня')
+        self.action(pin, 'start', client=stranger)
+        self.answer(a, pin, 0, option_id(self.q1, 'Два'))
+        self.action(pin, 'end', client=stranger)
+        game = self.game(pin)
+        response = self.host.post(reverse('quiz_delete', args=[self.quiz.key]))
+        self.assertEqual(response.status_code, 302)
+        self.quiz.refresh_from_db()
+        self.assertTrue(self.quiz.is_deleted)
+        self.assertEqual(self.host.get(reverse('quiz_detail', args=[self.quiz.key])).status_code, 404)
+        self.assertEqual(self.host.get(reverse('quiz_edit', args=[self.quiz.key])).status_code, 404)
+        self.assertNotIn(self.quiz, visible_quizzes())
+        report = stranger.get(reverse('quiz_game_report', args=[game.id]))
+        self.assertEqual(report.status_code, 200)
+        self.assertIn('Аня', report.content.decode())
+        self.assertEqual(stranger.get(reverse('quiz_game_report_xlsx', args=[game.id])).status_code, 200)
+
+    def test_deleting_an_unplayed_quiz_removes_it(self):
+        quiz = make_quiz(self.author, title='Черновик')
+        self.assertEqual(self.host.post(reverse('quiz_delete', args=[quiz.key])).status_code, 302)
+        self.assertFalse(Quiz.objects.filter(id=quiz.id).exists())
+
+
+class QuizDeletedQuestionTest(QuizGameTestCase):
+    def test_report_keeps_answers_of_a_deleted_question(self):
+        pin, (a, b) = self.game_with_players('Аня', 'Бек')
+        self.action(pin, 'start')
+        self.answer(a, pin, 0, option_id(self.q1, 'Два'))
+        self.answer(b, pin, 0, option_id(self.q1, 'Три'))
+        self.action(pin, 'end')
+        game = self.game(pin)
+        self.q1.delete()
+        self.assertEqual(QuizAnswer.objects.filter(player__game=game).count(), 2)
+        page = self.host.get(reverse('quiz_game_report', args=[game.id]))
+        self.assertEqual(page.status_code, 200)
+        self.assertIn('удалён', page.content.decode())
+        from judge.views.quiz import report_rows
+        questions, players, answers, stats = report_rows(game)
+        self.assertEqual(stats[0]['answered'], 2)
+        self.assertEqual(stats[0]['correct'], 1)
+        self.assertEqual(self.host.get(reverse('quiz_game_report_xlsx', args=[game.id])).status_code, 200)
+
+
 class QuizLeakTest(QuizGameTestCase):
     def all_types_quiz(self):
         quiz = make_quiz(self.author, title='Все типы')
@@ -785,6 +883,25 @@ class QuizStateTest(QuizGameTestCase):
             self.t += 3
             self.state(b, pin, v=v)
 
+    def test_state_poll_is_one_cache_round_trip(self):
+        pin, (a, b) = self.game_with_players('Аня', 'Бек')
+        self.action(pin, 'start')
+        v = self.state(a, pin)['v']
+        calls = []
+        real_get, real_get_many = cache.get, cache.get_many
+        with patch.object(cache, 'get', side_effect=lambda *x, **y: calls.append('get') or real_get(*x, **y)), \
+                patch.object(cache, 'get_many',
+                             side_effect=lambda *x, **y: calls.append('get_many') or real_get_many(*x, **y)):
+            self.assertEqual(self.state(a, pin, v=v), {})
+        # One get_many of three keys (the local-memory backend runs it as one get per key, Redis as MGET).
+        self.assertEqual(calls, ['get_many', 'get', 'get', 'get'])
+
+    def test_removed_player_is_seen_by_the_poll(self):
+        pin, (a, b) = self.game_with_players('Аня', 'Бек')
+        self.action(pin, 'kick', player=self.player(pin, 'Аня').id)
+        self.assertEqual(self.state(a, pin), {'kicked': True})
+        self.assertNotIn('kicked', self.state(b, pin))
+
     def test_poll_interval(self):
         self.assertEqual(engine.poll_interval(100), 1000)
         self.assertEqual(engine.poll_interval(300), 1500)
@@ -1120,10 +1237,12 @@ class QuizEditorTest(TestCase):
         self.assertEqual(self.save(question['id'], payload, status=404, client=self.stranger, quiz=mine)['error'],
                          'Вопрос не найден')
 
-    def test_author_and_admin_edit(self):
+    def test_author_edits_admin_does_not(self):
         admin = Client()
         admin.force_login(create_user(username='editadmin', is_superuser=True, is_staff=True))
-        response = self.api('quiz_api_save', client=admin, body={'title': '  Новое   имя ', 'access': 'public'})
+        response = self.api('quiz_api_save', client=admin, body={'title': 'Чужое', 'access': 'public'})
+        self.assertEqual(response.status_code, 404)
+        response = self.api('quiz_api_save', body={'title': '  Новое   имя ', 'access': 'public'})
         self.assertEqual(response.status_code, 200)
         self.quiz.refresh_from_db()
         self.assertEqual((self.quiz.title, self.quiz.access), ('Новое имя', Quiz.PUBLIC))
@@ -1309,7 +1428,7 @@ class QuizEditorTest(TestCase):
         response = self.stranger.post(url)
         copy = Quiz.objects.get(author=self.other.profile)
         self.assertRedirects(response, reverse('quiz_edit', args=[copy.key]), fetch_redirect_response=False)
-        self.assertEqual((copy.copied_from, copy.access), (self.quiz, Quiz.LINK))
+        self.assertEqual((copy.copied_from, copy.access), (self.quiz, Quiz.PUBLIC))
         self.assertTrue(copy.title.endswith('Моя'))
         copied = copy.questions.get()
         self.assertEqual((copied.text, copied.explanation), (question.text, 'почему'))

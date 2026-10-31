@@ -68,7 +68,7 @@ def touch(quiz):
 
 def quiz_limit_reached(request):
     return not request.user.is_superuser and \
-        Quiz.objects.filter(author=request.profile).count() >= MAX_QUIZZES
+        Quiz.objects.filter(author=request.profile, is_deleted=False).count() >= MAX_QUIZZES
 
 
 def message(request, text, status=400, back=None):
@@ -123,6 +123,7 @@ def renumber(quiz):
 def new_quiz(request):
     """Create an empty quiz and open its editor. A fresh untouched one is reused instead of making another."""
     recent = Quiz.objects.filter(author=request.profile, title=NEW_TITLE, questions__isnull=True,
+                                 is_deleted=False,
                                  created__gte=timezone.now() - timedelta(minutes=30)).first()
     if recent is not None:
         return redirect('quiz_edit', key=recent.key)
@@ -163,7 +164,7 @@ def edit(request, key):
 @login_required
 @require_POST
 def copy_quiz(request, key):
-    source = get_object_or_404(Quiz, key=key)
+    source = get_object_or_404(Quiz, key=key, is_deleted=False)
     own = source.can_edit(request.user)
     if not own and (source.is_hidden or source.access != Quiz.PUBLIC):
         raise Http404()
@@ -172,7 +173,7 @@ def copy_quiz(request, key):
     with transaction.atomic():
         quiz = Quiz.objects.create(
             author=request.profile, title=('Копия: %s' % source.title)[:120], description=source.description,
-            subject=source.subject, theme=source.theme, access=Quiz.LINK, key=new_key(), copied_from=source,
+            subject=source.subject, theme=source.theme, access=Quiz.PUBLIC, key=new_key(), copied_from=source,
             cover=images.copy_file(source.cover))
         for question in questions_of(source):
             copy_question(question, quiz, question.order)
@@ -183,7 +184,11 @@ def copy_quiz(request, key):
 @require_POST
 def delete_quiz(request, key):
     quiz = own_quiz(request, key)
-    quiz.delete()
+    if quiz.games.exists():
+        # Games were played: their reports keep the quiz; it only disappears from the site.
+        Quiz.objects.filter(id=quiz.id).update(is_deleted=True)
+    else:
+        quiz.delete()
     return redirect('quiz_my')
 
 
