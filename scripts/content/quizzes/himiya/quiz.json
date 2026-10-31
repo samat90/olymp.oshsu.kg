@@ -1,0 +1,868 @@
+{
+ "key": "himiya",
+ "title": "Химия: 8–11 классы",
+ "subject": "Химия",
+ "theme": "lake",
+ "description": "30 вопросов по химии: элементы и таблица Менделеева, строение атома, формулы веществ, кислоты и щёлочи, реакции, органическая химия и лабораторная посуда.",
+ "cover": "cover.png",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Модель какой молекулы изображена?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Вода",
+     "is_correct": true
+    },
+    {
+     "text": "Аммиак",
+     "is_correct": false
+    },
+    {
+     "text": "Метан",
+     "is_correct": false
+    },
+    {
+     "text": "Углекислый газ",
+     "is_correct": false
+    }
+   ],
+   "image": "q01_water.png"
+  },
+  {
+   "type": "single",
+   "text": "Какой химический символ у золота?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Ag — серебро, Gd — гадолиний, Ar — аргон.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ar",
+     "is_correct": false
+    },
+    {
+     "text": "Ag",
+     "is_correct": false
+    },
+    {
+     "text": "Gd",
+     "is_correct": false
+    },
+    {
+     "text": "Au",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой химический символ у натрия?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "N — азот, Ne — неон, Ni — никель.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ne",
+     "is_correct": false
+    },
+    {
+     "text": "N",
+     "is_correct": false
+    },
+    {
+     "text": "Na",
+     "is_correct": true
+    },
+    {
+     "text": "Ni",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой порядковый номер у углерода в таблице Менделеева?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "6",
+     "is_correct": true
+    },
+    {
+     "text": "12",
+     "is_correct": false
+    },
+    {
+     "text": "8",
+     "is_correct": false
+    },
+    {
+     "text": "14",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько протонов в ядре атома этого элемента?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "Число протонов равно порядковому номеру: 8.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "24",
+     "is_correct": false
+    },
+    {
+     "text": "16",
+     "is_correct": false
+    },
+    {
+     "text": "6",
+     "is_correct": false
+    },
+    {
+     "text": "8",
+     "is_correct": true
+    }
+   ],
+   "image": "q05_element_cell.png"
+  },
+  {
+   "type": "single",
+   "text": "Атом какого элемента изображён? (электроны: 2, 8, 1)",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "2 + 8 + 1 = 11 электронов — это натрий.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Натрий",
+     "is_correct": true
+    },
+    {
+     "text": "Неон",
+     "is_correct": false
+    },
+    {
+     "text": "Магний",
+     "is_correct": false
+    },
+    {
+     "text": "Калий",
+     "is_correct": false
+    }
+   ],
+   "image": "q06_shells_na.png"
+  },
+  {
+   "type": "order",
+   "text": "Расставьте элементы по возрастанию порядкового номера.",
+   "time_limit": 40,
+   "weight": 1,
+   "explanation": "H — 1, He — 2, Li — 3, C — 6, O — 8, Na — 11.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "H",
+     "is_correct": false
+    },
+    {
+     "text": "He",
+     "is_correct": false
+    },
+    {
+     "text": "Li",
+     "is_correct": false
+    },
+    {
+     "text": "C",
+     "is_correct": false
+    },
+    {
+     "text": "O",
+     "is_correct": false
+    },
+    {
+     "text": "Na",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто открыл периодический закон химических элементов (1869)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Антуан Лавуазье",
+     "is_correct": false
+    },
+    {
+     "text": "Дмитрий Менделеев",
+     "is_correct": true
+    },
+    {
+     "text": "Мария Кюри",
+     "is_correct": false
+    },
+    {
+     "text": "Михаил Ломоносов",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой химический элемент самый лёгкий?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кислород",
+     "is_correct": false
+    },
+    {
+     "text": "Водород",
+     "is_correct": true
+    },
+    {
+     "text": "Гелий",
+     "is_correct": false
+    },
+    {
+     "text": "Литий",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какого газа больше всего в воздухе?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Азота в воздухе около 78%.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Углекислый газ",
+     "is_correct": false
+    },
+    {
+     "text": "Кислород",
+     "is_correct": false
+    },
+    {
+     "text": "Аргон",
+     "is_correct": false
+    },
+    {
+     "text": "Азот",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая формула у поваренной соли?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "HCl",
+     "is_correct": false
+    },
+    {
+     "text": "NaOH",
+     "is_correct": false
+    },
+    {
+     "text": "NaCl",
+     "is_correct": true
+    },
+    {
+     "text": "KCl",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется кислота H₂SO₄?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Соляная",
+     "is_correct": false
+    },
+    {
+     "text": "Азотная",
+     "is_correct": false
+    },
+    {
+     "text": "Угольная",
+     "is_correct": false
+    },
+    {
+     "text": "Серная",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чему равна молярная масса воды H₂O?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "2 · 1 + 16 = 18 г/моль.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "20 г/моль",
+     "is_correct": false
+    },
+    {
+     "text": "16 г/моль",
+     "is_correct": false
+    },
+    {
+     "text": "18 г/моль",
+     "is_correct": true
+    },
+    {
+     "text": "10 г/моль",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Сколько атомов кислорода в молекуле CO₂? Введите число.",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "2"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое вещество простое?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Простое вещество состоит из атомов одного элемента.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "O₂",
+     "is_correct": true
+    },
+    {
+     "text": "CO₂",
+     "is_correct": false
+    },
+    {
+     "text": "H₂O",
+     "is_correct": false
+    },
+    {
+     "text": "NaCl",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие из этих веществ — металлы?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "железо",
+     "is_correct": true
+    },
+    {
+     "text": "сера",
+     "is_correct": false
+    },
+    {
+     "text": "медь",
+     "is_correct": true
+    },
+    {
+     "text": "алюминий",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой элемент относится к галогенам?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Натрий",
+     "is_correct": false
+    },
+    {
+     "text": "Хлор",
+     "is_correct": true
+    },
+    {
+     "text": "Сера",
+     "is_correct": false
+    },
+    {
+     "text": "Кальций",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Благородные (инертные) газы почти не вступают в химические реакции.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой металл бурно реагирует с водой?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Калий",
+     "is_correct": true
+    },
+    {
+     "text": "Медь",
+     "is_correct": false
+    },
+    {
+     "text": "Серебро",
+     "is_correct": false
+    },
+    {
+     "text": "Золото",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая среда у раствора на шкале?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "pH меньше 7 — кислая среда, 7 — нейтральная, больше 7 — щелочная.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "По pH этого не узнать",
+     "is_correct": false
+    },
+    {
+     "text": "Кислая",
+     "is_correct": true
+    },
+    {
+     "text": "Щелочная",
+     "is_correct": false
+    },
+    {
+     "text": "Нейтральная",
+     "is_correct": false
+    }
+   ],
+   "image": "q20_ph_scale.png"
+  },
+  {
+   "type": "single",
+   "text": "Какого цвета становится фенолфталеин в щелочи?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бесцветный",
+     "is_correct": false
+    },
+    {
+     "text": "Жёлтый",
+     "is_correct": false
+    },
+    {
+     "text": "Малиновый",
+     "is_correct": true
+    },
+    {
+     "text": "Синий",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что получается при реакции кислоты со щёлочью?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Это реакция нейтрализации.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Только вода",
+     "is_correct": false
+    },
+    {
+     "text": "Кислород и водород",
+     "is_correct": false
+    },
+    {
+     "text": "Соль и вода",
+     "is_correct": true
+    },
+    {
+     "text": "Металл и газ",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой коэффициент нужно поставить перед H₂: … H₂ + O₂ → 2H₂O?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "Справа 4 атома водорода, значит слева 2H₂.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "4",
+     "is_correct": false
+    },
+    {
+     "text": "2",
+     "is_correct": true
+    },
+    {
+     "text": "3",
+     "is_correct": false
+    },
+    {
+     "text": "1",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое явление химическое?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Таяние льда",
+     "is_correct": false
+    },
+    {
+     "text": "Растворение сахара в чае",
+     "is_correct": false
+    },
+    {
+     "text": "Горение дров",
+     "is_correct": true
+    },
+    {
+     "text": "Испарение воды",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой газ выделяется при дыхании и при горении угля?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Углекислый газ",
+     "is_correct": true
+    },
+    {
+     "text": "Азот",
+     "is_correct": false
+    },
+    {
+     "text": "Кислород",
+     "is_correct": false
+    },
+    {
+     "text": "Водород",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В 100 г раствора растворено 20 г соли. Какова массовая доля соли?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "20 / 100 · 100% = 20%.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "20%",
+     "is_correct": true
+    },
+    {
+     "text": "25%",
+     "is_correct": false
+    },
+    {
+     "text": "80%",
+     "is_correct": false
+    },
+    {
+     "text": "2%",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чему примерно равно число Авогадро?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "3 · 10⁸",
+     "is_correct": false
+    },
+    {
+     "text": "6,02 · 10²³",
+     "is_correct": true
+    },
+    {
+     "text": "1,6 · 10⁻¹⁹",
+     "is_correct": false
+    },
+    {
+     "text": "9,8",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое вещество изображено?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Этанол C₂H₅OH",
+     "is_correct": false
+    },
+    {
+     "text": "Этан C₂H₆",
+     "is_correct": false
+    },
+    {
+     "text": "Аммиак NH₃",
+     "is_correct": false
+    },
+    {
+     "text": "Метан CH₄",
+     "is_correct": true
+    }
+   ],
+   "image": "q28_methane.png"
+  },
+  {
+   "type": "single",
+   "text": "Какое вещество изображено?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "C₂H₅OH — этиловый спирт.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Уксусная кислота",
+     "is_correct": false
+    },
+    {
+     "text": "Этанол",
+     "is_correct": true
+    },
+    {
+     "text": "Этан",
+     "is_correct": false
+    },
+    {
+     "text": "Метан",
+     "is_correct": false
+    }
+   ],
+   "image": "q29_ethanol.png"
+  },
+  {
+   "type": "single",
+   "text": "Как называется эта лабораторная посуда?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пробирка",
+     "is_correct": false
+    },
+    {
+     "text": "Мензурка",
+     "is_correct": false
+    },
+    {
+     "text": "Химический стакан",
+     "is_correct": false
+    },
+    {
+     "text": "Коническая колба",
+     "is_correct": true
+    }
+   ],
+   "image": "q30_flask.png"
+  }
+ ]
+}

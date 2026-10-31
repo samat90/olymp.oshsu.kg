@@ -1,0 +1,864 @@
+{
+ "key": "istoriya",
+ "title": "История: Кыргызстан и мир",
+ "subject": "История",
+ "theme": "felt",
+ "description": "30 вопросов по истории Кыргызстана и всемирной истории: от Древнего Египта и Великого шёлкового пути до независимости Кыргызстана.",
+ "cover": "cover.png",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Когда Кыргызстан провозгласил независимость?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "25 декабря 1991 года",
+     "is_correct": false
+    },
+    {
+     "text": "9 мая 1945 года",
+     "is_correct": false
+    },
+    {
+     "text": "5 мая 1993 года",
+     "is_correct": false
+    },
+    {
+     "text": "31 августа 1991 года",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется величайший кыргызский героический эпос?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Шахнаме»",
+     "is_correct": false
+    },
+    {
+     "text": "«Манас»",
+     "is_correct": true
+    },
+    {
+     "text": "«Калевала»",
+     "is_correct": false
+    },
+    {
+     "text": "«Алпамыш»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что изображено в центре солнца на флаге Кыргызстана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тюндюк — верх юрты",
+     "is_correct": true
+    },
+    {
+     "text": "Звезда",
+     "is_correct": false
+    },
+    {
+     "text": "Орёл",
+     "is_correct": false
+    },
+    {
+     "text": "Полумесяц",
+     "is_correct": false
+    }
+   ],
+   "image": "q03_kg_flag.png"
+  },
+  {
+   "type": "single",
+   "text": "Сколько лучей у солнца на флаге Кыргызстана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "40 лучей — символ сорока кыргызских племён во главе с Манасом.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "12",
+     "is_correct": false
+    },
+    {
+     "text": "40",
+     "is_correct": true
+    },
+    {
+     "text": "30",
+     "is_correct": false
+    },
+    {
+     "text": "50",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется переносное жилище кочевников на рисунке?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Боз үй (юрта)",
+     "is_correct": true
+    },
+    {
+     "text": "Иглу",
+     "is_correct": false
+    },
+    {
+     "text": "Сакля",
+     "is_correct": false
+    },
+    {
+     "text": "Вигвам",
+     "is_correct": false
+    }
+   ],
+   "image": "q05_yurt.png"
+  },
+  {
+   "type": "truefalse",
+   "text": "Первое упоминание о кыргызах в китайских летописях относят к 201 году до н. э.",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой город Кыргызстана в 2000 году отметил своё 3000-летие?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Нарын",
+     "is_correct": false
+    },
+    {
+     "text": "Бишкек",
+     "is_correct": false
+    },
+    {
+     "text": "Ош",
+     "is_correct": true
+    },
+    {
+     "text": "Каракол",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как назывался Бишкек с 1926 по 1991 год?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верный",
+     "is_correct": false
+    },
+    {
+     "text": "Фрунзе",
+     "is_correct": true
+    },
+    {
+     "text": "Токмок",
+     "is_correct": false
+    },
+    {
+     "text": "Пишпек",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кого называли «Алайской царицей»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Томирис",
+     "is_correct": false
+    },
+    {
+     "text": "Курманжан Датку",
+     "is_correct": true
+    },
+    {
+     "text": "Жаныл Мырзу",
+     "is_correct": false
+    },
+    {
+     "text": "Каныкей",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто стал первым президентом Кыргызстана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Алмазбек Атамбаев",
+     "is_correct": false
+    },
+    {
+     "text": "Роза Отунбаева",
+     "is_correct": false
+    },
+    {
+     "text": "Аскар Акаев",
+     "is_correct": true
+    },
+    {
+     "text": "Курманбек Бакиев",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В каком году принята первая Конституция независимого Кыргызстана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "1991",
+     "is_correct": false
+    },
+    {
+     "text": "1995",
+     "is_correct": false
+    },
+    {
+     "text": "1993",
+     "is_correct": true
+    },
+    {
+     "text": "2010",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называют трагические события 1916 года в истории кыргызского народа?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Үркүн",
+     "is_correct": true
+    },
+    {
+     "text": "Курултай",
+     "is_correct": false
+    },
+    {
+     "text": "Ашар",
+     "is_correct": false
+    },
+    {
+     "text": "Той",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто такой Токтогул Сатылганов?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Астроном",
+     "is_correct": false
+    },
+    {
+     "text": "Акын и комузист",
+     "is_correct": true
+    },
+    {
+     "text": "Хан Кокандского ханства",
+     "is_correct": false
+    },
+    {
+     "text": "Полководец",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие древние города Великого шёлкового пути находились на территории Кыргызстана?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Самарканд находится в Узбекистане.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Баласагын",
+     "is_correct": true
+    },
+    {
+     "text": "Суяб",
+     "is_correct": true
+    },
+    {
+     "text": "Узген",
+     "is_correct": true
+    },
+    {
+     "text": "Самарканд",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой средневековый минарет стоит около Токмока, на месте древнего Баласагына?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Башня Бурана",
+     "is_correct": true
+    },
+    {
+     "text": "Гур-Эмир",
+     "is_correct": false
+    },
+    {
+     "text": "Таш-Рабат",
+     "is_correct": false
+    },
+    {
+     "text": "Минарет Калян",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какие страны соединял Великий шёлковый путь?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Африку и Америку",
+     "is_correct": false
+    },
+    {
+     "text": "Китай и страны Средиземноморья",
+     "is_correct": true
+    },
+    {
+     "text": "Америку и Европу",
+     "is_correct": false
+    },
+    {
+     "text": "Австралию и Азию",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В какой стране находятся пирамиды Гизы?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Египет",
+     "is_correct": true
+    },
+    {
+     "text": "Греция",
+     "is_correct": false
+    },
+    {
+     "text": "Ирак",
+     "is_correct": false
+    },
+    {
+     "text": "Мексика",
+     "is_correct": false
+    }
+   ],
+   "image": "q17_pyramids.png"
+  },
+  {
+   "type": "single",
+   "text": "Какое древнее сооружение изображено?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Великая Китайская стена",
+     "is_correct": false
+    },
+    {
+     "text": "Пирамида Хеопса",
+     "is_correct": false
+    },
+    {
+     "text": "Парфенон",
+     "is_correct": false
+    },
+    {
+     "text": "Колизей",
+     "is_correct": true
+    }
+   ],
+   "image": "q18_colosseum.png"
+  },
+  {
+   "type": "single",
+   "text": "Какой год записан римскими цифрами?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "M = 1000, CM = 900, XC = 90, I = 1.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "2011",
+     "is_correct": false
+    },
+    {
+     "text": "1891",
+     "is_correct": false
+    },
+    {
+     "text": "1991",
+     "is_correct": true
+    },
+    {
+     "text": "1981",
+     "is_correct": false
+    }
+   ],
+   "image": "q19_roman_tablet.png"
+  },
+  {
+   "type": "single",
+   "text": "В какой стране зародились Олимпийские игры?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Древний Египет",
+     "is_correct": false
+    },
+    {
+     "text": "Древний Рим",
+     "is_correct": false
+    },
+    {
+     "text": "Древний Китай",
+     "is_correct": false
+    },
+    {
+     "text": "Древняя Греция",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Правителем какого государства был Юлий Цезарь?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Древняя Греция",
+     "is_correct": false
+    },
+    {
+     "text": "Древний Рим",
+     "is_correct": true
+    },
+    {
+     "text": "Персия",
+     "is_correct": false
+    },
+    {
+     "text": "Египет",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто основал Монгольскую империю?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Аттила",
+     "is_correct": false
+    },
+    {
+     "text": "Тамерлан",
+     "is_correct": false
+    },
+    {
+     "text": "Хубилай",
+     "is_correct": false
+    },
+    {
+     "text": "Чингисхан",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте события в порядке времени.",
+   "time_limit": 40,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Строительство пирамиды Хеопса",
+     "is_correct": false
+    },
+    {
+     "text": "Основание Рима",
+     "is_correct": false
+    },
+    {
+     "text": "Падение Западной Римской империи",
+     "is_correct": false
+    },
+    {
+     "text": "Открытие Америки Колумбом",
+     "is_correct": false
+    },
+    {
+     "text": "Начало Первой мировой войны",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В каком году Христофор Колумб открыл Америку?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "1492",
+     "is_correct": true
+    },
+    {
+     "text": "1392",
+     "is_correct": false
+    },
+    {
+     "text": "1592",
+     "is_correct": false
+    },
+    {
+     "text": "1812",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто изобрёл книгопечатание в Европе в XV веке?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Леонардо да Винчи",
+     "is_correct": false
+    },
+    {
+     "text": "Мартин Лютер",
+     "is_correct": false
+    },
+    {
+     "text": "Иоганн Гутенберг",
+     "is_correct": true
+    },
+    {
+     "text": "Галилео Галилей",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В каком году началась Великая французская революция?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "1812",
+     "is_correct": false
+    },
+    {
+     "text": "1917",
+     "is_correct": false
+    },
+    {
+     "text": "1689",
+     "is_correct": false
+    },
+    {
+     "text": "1789",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Когда началась Великая Отечественная война?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "22 июня 1939 года",
+     "is_correct": false
+    },
+    {
+     "text": "9 мая 1945 года",
+     "is_correct": false
+    },
+    {
+     "text": "1 сентября 1939 года",
+     "is_correct": false
+    },
+    {
+     "text": "22 июня 1941 года",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В какие годы шла Вторая мировая война?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "1939–1945",
+     "is_correct": true
+    },
+    {
+     "text": "1941–1944",
+     "is_correct": false
+    },
+    {
+     "text": "1914–1918",
+     "is_correct": false
+    },
+    {
+     "text": "1937–1949",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "В каком году человек впервые полетел в космос? Введите год.",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "1961"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто первым ступил на Луну (1969)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Юрий Гагарин",
+     "is_correct": false
+    },
+    {
+     "text": "Базз Олдрин",
+     "is_correct": false
+    },
+    {
+     "text": "Нил Армстронг",
+     "is_correct": true
+    },
+    {
+     "text": "Алексей Леонов",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

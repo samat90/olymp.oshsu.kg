@@ -1,0 +1,864 @@
+{
+ "key": "literatura",
+ "title": "Литература: русская, кыргызская, мировая",
+ "subject": "Литература",
+ "theme": "felt",
+ "description": "30 вопросов по литературе: эпос «Манас», Чингиз Айтматов, русская классика, мировая литература и художественные приёмы.",
+ "cover": "cover.png",
+ "questions": [
+  {
+   "type": "truefalse",
+   "text": "Эпос «Манас» веками передавался устно, его исполнителей называют манасчы.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто из этих людей — знаменитый манасчы?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Аалы Токомбаев",
+     "is_correct": false
+    },
+    {
+     "text": "Алыкул Осмонов",
+     "is_correct": false
+    },
+    {
+     "text": "Чингиз Айтматов",
+     "is_correct": false
+    },
+    {
+     "text": "Саякбай Каралаев",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как звали жену Манаса?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Курманжан",
+     "is_correct": false
+    },
+    {
+     "text": "Жаныл Мырза",
+     "is_correct": false
+    },
+    {
+     "text": "Каныкей",
+     "is_correct": true
+    },
+    {
+     "text": "Айчурек",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется часть трилогии эпоса о сыне Манаса?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Кожожаш»",
+     "is_correct": false
+    },
+    {
+     "text": "«Эр Төштүк»",
+     "is_correct": false
+    },
+    {
+     "text": "«Семетей»",
+     "is_correct": true
+    },
+    {
+     "text": "«Сейтек»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какую повесть написал Чингиз Айтматов?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Джамиля»",
+     "is_correct": true
+    },
+    {
+     "text": "«Муму»",
+     "is_correct": false
+    },
+    {
+     "text": "«Тарас Бульба»",
+     "is_correct": false
+    },
+    {
+     "text": "«Мцыри»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто автор повести «Белый пароход»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тугельбай Сыдыкбеков",
+     "is_correct": false
+    },
+    {
+     "text": "Иван Тургенев",
+     "is_correct": false
+    },
+    {
+     "text": "Чингиз Айтматов",
+     "is_correct": true
+    },
+    {
+     "text": "Антон Чехов",
+     "is_correct": false
+    }
+   ],
+   "image": "q06_steamboat.png"
+  },
+  {
+   "type": "single",
+   "text": "В каком произведении Айтматова рассказана легенда о манкурте?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«И дольше века длится день» («Буранный полустанок»)",
+     "is_correct": true
+    },
+    {
+     "text": "«Первый учитель»",
+     "is_correct": false
+    },
+    {
+     "text": "«Белый пароход»",
+     "is_correct": false
+    },
+    {
+     "text": "«Джамиля»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто написал роман в стихах «Евгений Онегин»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Николай Гоголь",
+     "is_correct": false
+    },
+    {
+     "text": "Михаил Лермонтов",
+     "is_correct": false
+    },
+    {
+     "text": "Александр Пушкин",
+     "is_correct": true
+    },
+    {
+     "text": "Иван Крылов",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие произведения написал Александр Пушкин?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Герой нашего времени»",
+     "is_correct": false
+    },
+    {
+     "text": "«Сказка о рыбаке и рыбке»",
+     "is_correct": true
+    },
+    {
+     "text": "«Капитанская дочка»",
+     "is_correct": true
+    },
+    {
+     "text": "«Руслан и Людмила»",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто автор романа «Война и мир»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Антон Чехов",
+     "is_correct": false
+    },
+    {
+     "text": "Лев Толстой",
+     "is_correct": true
+    },
+    {
+     "text": "Фёдор Достоевский",
+     "is_correct": false
+    },
+    {
+     "text": "Иван Тургенев",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто автор романа «Преступление и наказание»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Иван Гончаров",
+     "is_correct": false
+    },
+    {
+     "text": "Фёдор Достоевский",
+     "is_correct": true
+    },
+    {
+     "text": "Лев Толстой",
+     "is_correct": false
+    },
+    {
+     "text": "Николай Гоголь",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто написал поэму «Мцыри»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сергей Есенин",
+     "is_correct": false
+    },
+    {
+     "text": "Михаил Лермонтов",
+     "is_correct": true
+    },
+    {
+     "text": "Николай Некрасов",
+     "is_correct": false
+    },
+    {
+     "text": "Александр Пушкин",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как зовут главного героя романа «Герой нашего времени»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Онегин",
+     "is_correct": false
+    },
+    {
+     "text": "Печорин",
+     "is_correct": true
+    },
+    {
+     "text": "Базаров",
+     "is_correct": false
+    },
+    {
+     "text": "Обломов",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто автор поэмы «Мёртвые души»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Иван Бунин",
+     "is_correct": false
+    },
+    {
+     "text": "Александр Пушкин",
+     "is_correct": false
+    },
+    {
+     "text": "Лев Толстой",
+     "is_correct": false
+    },
+    {
+     "text": "Николай Гоголь",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто автор романа «Отцы и дети»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Иван Тургенев",
+     "is_correct": true
+    },
+    {
+     "text": "Фёдор Достоевский",
+     "is_correct": false
+    },
+    {
+     "text": "Лев Толстой",
+     "is_correct": false
+    },
+    {
+     "text": "Антон Чехов",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как звали собаку Герасима в рассказе Тургенева?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Шарик",
+     "is_correct": false
+    },
+    {
+     "text": "Белый Бим",
+     "is_correct": false
+    },
+    {
+     "text": "Муму",
+     "is_correct": true
+    },
+    {
+     "text": "Каштанка",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто написал рассказ «Каштанка»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Антон Чехов",
+     "is_correct": true
+    },
+    {
+     "text": "Иван Тургенев",
+     "is_correct": false
+    },
+    {
+     "text": "Александр Куприн",
+     "is_correct": false
+    },
+    {
+     "text": "Лев Толстой",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто автор басни «Стрекоза и Муравей»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Александр Пушкин",
+     "is_correct": false
+    },
+    {
+     "text": "Иван Крылов",
+     "is_correct": true
+    },
+    {
+     "text": "Самуил Маршак",
+     "is_correct": false
+    },
+    {
+     "text": "Лев Толстой",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто написал комедию «Горе от ума»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Николай Гоголь",
+     "is_correct": false
+    },
+    {
+     "text": "Александр Грибоедов",
+     "is_correct": true
+    },
+    {
+     "text": "Денис Фонвизин",
+     "is_correct": false
+    },
+    {
+     "text": "Александр Островский",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто автор романа «Мастер и Маргарита»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Михаил Булгаков",
+     "is_correct": true
+    },
+    {
+     "text": "Максим Горький",
+     "is_correct": false
+    },
+    {
+     "text": "Иван Бунин",
+     "is_correct": false
+    },
+    {
+     "text": "Борис Пастернак",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Как зовут огромного кота из свиты Воланда в «Мастере и Маргарите»? Введите имя.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "Бегемот"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте писателей по году рождения, от самого раннего.",
+   "time_limit": 40,
+   "weight": 1,
+   "explanation": "1799, 1814, 1828, 1860, 1928.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Александр Пушкин",
+     "is_correct": false
+    },
+    {
+     "text": "Михаил Лермонтов",
+     "is_correct": false
+    },
+    {
+     "text": "Лев Толстой",
+     "is_correct": false
+    },
+    {
+     "text": "Антон Чехов",
+     "is_correct": false
+    },
+    {
+     "text": "Чингиз Айтматов",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто написал трагедию «Ромео и Джульетта»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чарлз Диккенс",
+     "is_correct": false
+    },
+    {
+     "text": "Уильям Шекспир",
+     "is_correct": true
+    },
+    {
+     "text": "Виктор Гюго",
+     "is_correct": false
+    },
+    {
+     "text": "Джек Лондон",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто автор романа «Робинзон Крузо»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Жюль Верн",
+     "is_correct": false
+    },
+    {
+     "text": "Марк Твен",
+     "is_correct": false
+    },
+    {
+     "text": "Джонатан Свифт",
+     "is_correct": false
+    },
+    {
+     "text": "Даниель Дефо",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какую поэму приписывают древнегреческому поэту Гомеру?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Фауст»",
+     "is_correct": false
+    },
+    {
+     "text": "«Энеида»",
+     "is_correct": false
+    },
+    {
+     "text": "«Божественная комедия»",
+     "is_correct": false
+    },
+    {
+     "text": "«Илиада»",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько строк в классическом сонете?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "14",
+     "is_correct": true
+    },
+    {
+     "text": "16",
+     "is_correct": false
+    },
+    {
+     "text": "12",
+     "is_correct": false
+    },
+    {
+     "text": "8",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется художественный приём в строке «Ветер поёт»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Олицетворение",
+     "is_correct": true
+    },
+    {
+     "text": "Гипербола",
+     "is_correct": false
+    },
+    {
+     "text": "Сравнение",
+     "is_correct": false
+    },
+    {
+     "text": "Эпитет",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой пример — сравнение?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Золотая осень",
+     "is_correct": false
+    },
+    {
+     "text": "Река уснула",
+     "is_correct": false
+    },
+    {
+     "text": "Сто лет тебя не видел",
+     "is_correct": false
+    },
+    {
+     "text": "Глаза, как звёзды",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чем писали поэты во времена Пушкина?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Шариковой ручкой",
+     "is_correct": false
+    },
+    {
+     "text": "Мелом",
+     "is_correct": false
+    },
+    {
+     "text": "Фломастером",
+     "is_correct": false
+    },
+    {
+     "text": "Гусиным пером",
+     "is_correct": true
+    }
+   ],
+   "image": "q29_quill.png"
+  },
+  {
+   "type": "single",
+   "text": "Как называется короткий рассказ в стихах или прозе с поучительным выводом (моралью)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Роман",
+     "is_correct": false
+    },
+    {
+     "text": "Элегия",
+     "is_correct": false
+    },
+    {
+     "text": "Басня",
+     "is_correct": true
+    },
+    {
+     "text": "Ода",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

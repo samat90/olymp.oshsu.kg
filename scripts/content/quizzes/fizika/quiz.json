@@ -1,0 +1,868 @@
+{
+ "key": "fizika",
+ "title": "Физика: 7–11 классы",
+ "subject": "Физика",
+ "theme": "night",
+ "description": "30 вопросов по физике: механика, давление, энергия, электричество, оптика, тепловые явления и знаменитые учёные.",
+ "cover": "cover.png",
+ "questions": [
+  {
+   "type": "single",
+   "text": "В каких единицах измеряют силу в СИ?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ньютон",
+     "is_correct": true
+    },
+    {
+     "text": "Ватт",
+     "is_correct": false
+    },
+    {
+     "text": "Джоуль",
+     "is_correct": false
+    },
+    {
+     "text": "Паскаль",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В каких единицах измеряют работу и энергию?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ватт",
+     "is_correct": false
+    },
+    {
+     "text": "Ампер",
+     "is_correct": false
+    },
+    {
+     "text": "Ньютон",
+     "is_correct": false
+    },
+    {
+     "text": "Джоуль",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие из этих величин векторные?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "сила",
+     "is_correct": true
+    },
+    {
+     "text": "ускорение",
+     "is_correct": true
+    },
+    {
+     "text": "масса",
+     "is_correct": false
+    },
+    {
+     "text": "скорость",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чему примерно равно ускорение свободного падения на Земле?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "98 м/с²",
+     "is_correct": false
+    },
+    {
+     "text": "9,8 м/с²",
+     "is_correct": true
+    },
+    {
+     "text": "1 м/с²",
+     "is_correct": false
+    },
+    {
+     "text": "0,98 м/с²",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Тело движется так, как показано на графике. Какой путь оно прошло за 5 секунд?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "s = v · t = 20 м/с · 5 с = 100 м.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "4 м",
+     "is_correct": false
+    },
+    {
+     "text": "100 м",
+     "is_correct": true
+    },
+    {
+     "text": "20 м",
+     "is_correct": false
+    },
+    {
+     "text": "25 м",
+     "is_correct": false
+    }
+   ],
+   "image": "q05_speed_graph.png"
+  },
+  {
+   "type": "text",
+   "text": "Тело падает без начальной скорости 2 секунды (g = 10 м/с²). Какую скорость оно наберёт? Введите число в м/с.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "v = g · t = 10 · 2 = 20 м/с.",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "20"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Рычаг в равновесии. Какая масса у правого груза?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Правило рычага: 2 кг · 3 м = m · 2 м, m = 3 кг.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "2 кг",
+     "is_correct": false
+    },
+    {
+     "text": "1,5 кг",
+     "is_correct": false
+    },
+    {
+     "text": "3 кг",
+     "is_correct": true
+    },
+    {
+     "text": "6 кг",
+     "is_correct": false
+    }
+   ],
+   "image": "q07_lever.png"
+  },
+  {
+   "type": "single",
+   "text": "Две силы 4 Н и 3 Н направлены под прямым углом. Чему равна их равнодействующая?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "√(4² + 3²) = 5 Н.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "5 Н",
+     "is_correct": true
+    },
+    {
+     "text": "12 Н",
+     "is_correct": false
+    },
+    {
+     "text": "7 Н",
+     "is_correct": false
+    },
+    {
+     "text": "1 Н",
+     "is_correct": false
+    }
+   ],
+   "image": "q08_forces.png"
+  },
+  {
+   "type": "single",
+   "text": "Кто открыл закон всемирного тяготения?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Архимед",
+     "is_correct": false
+    },
+    {
+     "text": "Альберт Эйнштейн",
+     "is_correct": false
+    },
+    {
+     "text": "Исаак Ньютон",
+     "is_correct": true
+    },
+    {
+     "text": "Галилео Галилей",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чему равна плотность воды?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "1 кг/м³",
+     "is_correct": false
+    },
+    {
+     "text": "100 кг/м³",
+     "is_correct": false
+    },
+    {
+     "text": "10 000 кг/м³",
+     "is_correct": false
+    },
+    {
+     "text": "1000 кг/м³",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Масса тела 200 г, объём 100 см³. Какова его плотность?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "ρ = m / V = 200 / 100 = 2 г/см³.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "20 г/см³",
+     "is_correct": false
+    },
+    {
+     "text": "300 г/см³",
+     "is_correct": false
+    },
+    {
+     "text": "2 г/см³",
+     "is_correct": true
+    },
+    {
+     "text": "0,5 г/см³",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сила 100 Н давит на площадь 0,5 м². Какое давление она создаёт?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "p = F / S = 100 / 0,5 = 200 Па.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "200 Па",
+     "is_correct": true
+    },
+    {
+     "text": "500 Па",
+     "is_correct": false
+    },
+    {
+     "text": "100,5 Па",
+     "is_correct": false
+    },
+    {
+     "text": "50 Па",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что гласит закон Архимеда? На тело, погружённое в жидкость, действует выталкивающая сила, равная…",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "весу вытесненной жидкости",
+     "is_correct": true
+    },
+    {
+     "text": "атмосферному давлению",
+     "is_correct": false
+    },
+    {
+     "text": "объёму тела",
+     "is_correct": false
+    },
+    {
+     "text": "массе самого тела",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Тело массой 2 кг движется со скоростью 3 м/с. Чему равна его кинетическая энергия?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "E = mv²/2 = 2 · 9 / 2 = 9 Дж.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "18 Дж",
+     "is_correct": false
+    },
+    {
+     "text": "9 Дж",
+     "is_correct": true
+    },
+    {
+     "text": "3 Дж",
+     "is_correct": false
+    },
+    {
+     "text": "6 Дж",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Работу 600 Дж совершили за 2 минуты. Какая мощность?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "2 мин = 120 с, N = 600 / 120 = 5 Вт.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "300 Вт",
+     "is_correct": false
+    },
+    {
+     "text": "1200 Вт",
+     "is_correct": false
+    },
+    {
+     "text": "5 Вт",
+     "is_correct": true
+    },
+    {
+     "text": "50 Вт",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чему равно общее сопротивление цепи?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "При последовательном соединении сопротивления складываются: 2 + 4 = 6 Ом.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "2 Ом",
+     "is_correct": false
+    },
+    {
+     "text": "6 Ом",
+     "is_correct": true
+    },
+    {
+     "text": "1,33 Ом",
+     "is_correct": false
+    },
+    {
+     "text": "8 Ом",
+     "is_correct": false
+    }
+   ],
+   "image": "q16_circuit_series.png"
+  },
+  {
+   "type": "single",
+   "text": "Напряжение 12 В, сопротивление 4 Ом. Какая сила тока?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "Закон Ома: I = U / R = 12 / 4 = 3 А.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "16 А",
+     "is_correct": false
+    },
+    {
+     "text": "0,33 А",
+     "is_correct": false
+    },
+    {
+     "text": "48 А",
+     "is_correct": false
+    },
+    {
+     "text": "3 А",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Каким прибором измеряют силу тока?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Барометром",
+     "is_correct": false
+    },
+    {
+     "text": "Динамометром",
+     "is_correct": false
+    },
+    {
+     "text": "Вольтметром",
+     "is_correct": false
+    },
+    {
+     "text": "Амперметром",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В честь какого учёного названа единица силы тока?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Андре-Мари Ампер",
+     "is_correct": true
+    },
+    {
+     "text": "Алессандро Вольта",
+     "is_correct": false
+    },
+    {
+     "text": "Майкл Фарадей",
+     "is_correct": false
+    },
+    {
+     "text": "Георг Ом",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая частица имеет отрицательный заряд?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ядро атома гелия",
+     "is_correct": false
+    },
+    {
+     "text": "Протон",
+     "is_correct": false
+    },
+    {
+     "text": "Электрон",
+     "is_correct": true
+    },
+    {
+     "text": "Нейтрон",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как будут вести себя магниты, если сблизить их одинаковыми полюсами N?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Оттолкнутся",
+     "is_correct": true
+    },
+    {
+     "text": "Притянутся",
+     "is_correct": false
+    },
+    {
+     "text": "Не будут взаимодействовать",
+     "is_correct": false
+    },
+    {
+     "text": "Размагнитятся",
+     "is_correct": false
+    }
+   ],
+   "image": "q21_magnets.png"
+  },
+  {
+   "type": "single",
+   "text": "Какая линза изображена на рисунке?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Параллельные лучи после линзы сходятся в фокусе F.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Это не линза, а зеркало",
+     "is_correct": false
+    },
+    {
+     "text": "Плоская",
+     "is_correct": false
+    },
+    {
+     "text": "Собирающая",
+     "is_correct": true
+    },
+    {
+     "text": "Рассеивающая",
+     "is_correct": false
+    }
+   ],
+   "image": "q22_lens.png"
+  },
+  {
+   "type": "single",
+   "text": "Какую температуру показывает термометр?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "Цена деления 2 °C, столбик на третьем делении выше 20.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "28 °C",
+     "is_correct": false
+    },
+    {
+     "text": "26 °C",
+     "is_correct": true
+    },
+    {
+     "text": "24 °C",
+     "is_correct": false
+    },
+    {
+     "text": "36 °C",
+     "is_correct": false
+    }
+   ],
+   "image": "q23_thermometer.png"
+  },
+  {
+   "type": "single",
+   "text": "При какой температуре кипит вода при нормальном атмосферном давлении?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "80 °C",
+     "is_correct": false
+    },
+    {
+     "text": "90 °C",
+     "is_correct": false
+    },
+    {
+     "text": "120 °C",
+     "is_correct": false
+    },
+    {
+     "text": "100 °C",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чему примерно равен абсолютный ноль по шкале Цельсия?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "−100 °C",
+     "is_correct": false
+    },
+    {
+     "text": "−373 °C",
+     "is_correct": false
+    },
+    {
+     "text": "0 °C",
+     "is_correct": false
+    },
+    {
+     "text": "−273 °C",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Звук может распространяться в вакууме.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Звуку нужна среда: газ, жидкость или твёрдое тело.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чему примерно равна скорость света в вакууме?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "300 000 км/с",
+     "is_correct": true
+    },
+    {
+     "text": "300 км/с",
+     "is_correct": false
+    },
+    {
+     "text": "30 000 км/с",
+     "is_correct": false
+    },
+    {
+     "text": "3000 км/с",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Период колебаний маятника 2 с. Какова частота колебаний?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "ν = 1 / T = 1 / 2 = 0,5 Гц.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "2 Гц",
+     "is_correct": false
+    },
+    {
+     "text": "0,5 Гц",
+     "is_correct": true
+    },
+    {
+     "text": "1 Гц",
+     "is_correct": false
+    },
+    {
+     "text": "4 Гц",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте виды излучения по возрастанию длины волны.",
+   "time_limit": 40,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "гамма-лучи",
+     "is_correct": false
+    },
+    {
+     "text": "рентгеновские лучи",
+     "is_correct": false
+    },
+    {
+     "text": "ультрафиолет",
+     "is_correct": false
+    },
+    {
+     "text": "видимый свет",
+     "is_correct": false
+    },
+    {
+     "text": "инфракрасные лучи",
+     "is_correct": false
+    },
+    {
+     "text": "радиоволны",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто первым в мире полетел в космос в 1961 году?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Нил Армстронг",
+     "is_correct": false
+    },
+    {
+     "text": "Юрий Гагарин",
+     "is_correct": true
+    },
+    {
+     "text": "Сергей Королёв",
+     "is_correct": false
+    },
+    {
+     "text": "Герман Титов",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

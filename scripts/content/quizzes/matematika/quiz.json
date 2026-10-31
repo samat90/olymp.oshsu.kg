@@ -1,0 +1,864 @@
+{
+ "key": "matematika",
+ "title": "Математика: 5–11 классы",
+ "subject": "Математика",
+ "theme": "lake",
+ "description": "30 вопросов школьной математики: проценты, дроби, уравнения, функции, геометрия, вероятность, прогрессии и немного тригонометрии.",
+ "cover": "cover.png",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Сколько будет 15% от 200?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "35",
+     "is_correct": false
+    },
+    {
+     "text": "20",
+     "is_correct": false
+    },
+    {
+     "text": "30",
+     "is_correct": true
+    },
+    {
+     "text": "15",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чему равен √144?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "14",
+     "is_correct": false
+    },
+    {
+     "text": "72",
+     "is_correct": false
+    },
+    {
+     "text": "12",
+     "is_correct": true
+    },
+    {
+     "text": "11",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чему равно 2⁵?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "25",
+     "is_correct": false
+    },
+    {
+     "text": "10",
+     "is_correct": false
+    },
+    {
+     "text": "32",
+     "is_correct": true
+    },
+    {
+     "text": "16",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какую десятичную дробь 0,25 записывают обыкновенной дробью?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "1/4",
+     "is_correct": true
+    },
+    {
+     "text": "2/5",
+     "is_correct": false
+    },
+    {
+     "text": "1/25",
+     "is_correct": false
+    },
+    {
+     "text": "25/10",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте числа по возрастанию.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "−3",
+     "is_correct": false
+    },
+    {
+     "text": "−1/2",
+     "is_correct": false
+    },
+    {
+     "text": "0",
+     "is_correct": false
+    },
+    {
+     "text": "0,7",
+     "is_correct": false
+    },
+    {
+     "text": "2",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое число отмечено на прямой точкой A?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "−1,5",
+     "is_correct": false
+    },
+    {
+     "text": "−2,5",
+     "is_correct": true
+    },
+    {
+     "text": "−3,5",
+     "is_correct": false
+    },
+    {
+     "text": "2,5",
+     "is_correct": false
+    }
+   ],
+   "image": "q06_number_line.png"
+  },
+  {
+   "type": "single",
+   "text": "Какое из этих чисел простое?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "21 = 3·7, 27 = 3·9, 33 = 3·11, а 29 делится только на 1 и на себя.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "27",
+     "is_correct": false
+    },
+    {
+     "text": "29",
+     "is_correct": true
+    },
+    {
+     "text": "21",
+     "is_correct": false
+    },
+    {
+     "text": "33",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Число 0 — натуральное.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Натуральные числа — это числа для счёта: 1, 2, 3, …",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Найдите НОД(24; 36).",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "72",
+     "is_correct": false
+    },
+    {
+     "text": "4",
+     "is_correct": false
+    },
+    {
+     "text": "6",
+     "is_correct": false
+    },
+    {
+     "text": "12",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Найдите НОК(4; 6).",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "10",
+     "is_correct": false
+    },
+    {
+     "text": "24",
+     "is_correct": false
+    },
+    {
+     "text": "2",
+     "is_correct": false
+    },
+    {
+     "text": "12",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Решите уравнение 3x − 7 = 11.",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "3x = 18, x = 6.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "6",
+     "is_correct": true
+    },
+    {
+     "text": "4",
+     "is_correct": false
+    },
+    {
+     "text": "7",
+     "is_correct": false
+    },
+    {
+     "text": "5",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Найдите корни уравнения x² − 5x + 6 = 0.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "По теореме Виета: сумма корней 5, произведение 6.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "−2 и −3",
+     "is_correct": false
+    },
+    {
+     "text": "1 и 6",
+     "is_correct": false
+    },
+    {
+     "text": "−1 и 6",
+     "is_correct": false
+    },
+    {
+     "text": "2 и 3",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой формулой задана парабола на рисунке?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Нули функции −1 и 3, вершина (1; −4): y = (x + 1)(x − 3) = x² − 2x − 3.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "y = −x² + 2x + 3",
+     "is_correct": false
+    },
+    {
+     "text": "y = x² + 2x − 3",
+     "is_correct": false
+    },
+    {
+     "text": "y = x² − 2x − 3",
+     "is_correct": true
+    },
+    {
+     "text": "y = x² − 3",
+     "is_correct": false
+    }
+   ],
+   "image": "q13_parabola.png"
+  },
+  {
+   "type": "single",
+   "text": "Какая формула верна?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "(a + b)² = a² + b²",
+     "is_correct": false
+    },
+    {
+     "text": "(a + b)² = a² + ab + b²",
+     "is_correct": false
+    },
+    {
+     "text": "(a + b)² = a² + 2ab + b²",
+     "is_correct": true
+    },
+    {
+     "text": "(a + b)² = 2a + 2b",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Арифметическая прогрессия: 2, 5, 8, … Чему равен её 10-й член?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "a₁₀ = 2 + 9 · 3 = 29.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "27",
+     "is_correct": false
+    },
+    {
+     "text": "30",
+     "is_correct": false
+    },
+    {
+     "text": "29",
+     "is_correct": true
+    },
+    {
+     "text": "32",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чему равен log₂ 8?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "2³ = 8.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "3",
+     "is_correct": true
+    },
+    {
+     "text": "16",
+     "is_correct": false
+    },
+    {
+     "text": "2",
+     "is_correct": false
+    },
+    {
+     "text": "4",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чему равен sin 30°?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "√2/2",
+     "is_correct": false
+    },
+    {
+     "text": "1/2",
+     "is_correct": true
+    },
+    {
+     "text": "1",
+     "is_correct": false
+    },
+    {
+     "text": "√3/2",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чему равна сумма углов треугольника?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "360°",
+     "is_correct": false
+    },
+    {
+     "text": "270°",
+     "is_correct": false
+    },
+    {
+     "text": "90°",
+     "is_correct": false
+    },
+    {
+     "text": "180°",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Найдите гипотенузу прямоугольного треугольника.",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "По теореме Пифагора: √(3² + 4²) = √25 = 5.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "5",
+     "is_correct": true
+    },
+    {
+     "text": "6",
+     "is_correct": false
+    },
+    {
+     "text": "25",
+     "is_correct": false
+    },
+    {
+     "text": "7",
+     "is_correct": false
+    }
+   ],
+   "image": "q19_right_triangle.png"
+  },
+  {
+   "type": "single",
+   "text": "Найдите площадь круга радиусом 3.",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "S = πr² = 9π.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "9π",
+     "is_correct": true
+    },
+    {
+     "text": "12π",
+     "is_correct": false
+    },
+    {
+     "text": "6π",
+     "is_correct": false
+    },
+    {
+     "text": "3π",
+     "is_correct": false
+    }
+   ],
+   "image": "q20_circle_r.png"
+  },
+  {
+   "type": "single",
+   "text": "Прямые a и b параллельны. Найдите угол x.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Это накрест лежащие углы при параллельных прямых, они равны.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "115°",
+     "is_correct": false
+    },
+    {
+     "text": "65°",
+     "is_correct": true
+    },
+    {
+     "text": "25°",
+     "is_correct": false
+    },
+    {
+     "text": "130°",
+     "is_correct": false
+    }
+   ],
+   "image": "q21_parallel_lines.png"
+  },
+  {
+   "type": "single",
+   "text": "Чему равна сумма внутренних углов шестиугольника?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "(n − 2) · 180° = 4 · 180° = 720°.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "1080°",
+     "is_correct": false
+    },
+    {
+     "text": "720°",
+     "is_correct": true
+    },
+    {
+     "text": "540°",
+     "is_correct": false
+    },
+    {
+     "text": "360°",
+     "is_correct": false
+    }
+   ],
+   "image": "q22_hexagon.png"
+  },
+  {
+   "type": "single",
+   "text": "Найдите объём куба с ребром 3 см.",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "V = a³ = 3³ = 27 см³.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "27 см³",
+     "is_correct": true
+    },
+    {
+     "text": "18 см³",
+     "is_correct": false
+    },
+    {
+     "text": "9 см³",
+     "is_correct": false
+    },
+    {
+     "text": "54 см³",
+     "is_correct": false
+    }
+   ],
+   "image": "q23_cube.png"
+  },
+  {
+   "type": "single",
+   "text": "Найдите площадь прямоугольника со сторонами 7 и 8.",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "15",
+     "is_correct": false
+    },
+    {
+     "text": "54",
+     "is_correct": false
+    },
+    {
+     "text": "30",
+     "is_correct": false
+    },
+    {
+     "text": "56",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Найдите периметр квадрата со стороной 5.",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "25",
+     "is_correct": false
+    },
+    {
+     "text": "15",
+     "is_correct": false
+    },
+    {
+     "text": "10",
+     "is_correct": false
+    },
+    {
+     "text": "20",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько учеников выбрали математику?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "Математика занимает половину круга: 40 : 2 = 20.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "25",
+     "is_correct": false
+    },
+    {
+     "text": "20",
+     "is_correct": true
+    },
+    {
+     "text": "15",
+     "is_correct": false
+    },
+    {
+     "text": "10",
+     "is_correct": false
+    }
+   ],
+   "image": "q26_pie_chart.png"
+  },
+  {
+   "type": "single",
+   "text": "Бросают игральный кубик. Какова вероятность, что выпадет чётное число?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "Чётных граней 3 (2, 4, 6) из 6.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "1/6",
+     "is_correct": false
+    },
+    {
+     "text": "2/3",
+     "is_correct": false
+    },
+    {
+     "text": "1/2",
+     "is_correct": true
+    },
+    {
+     "text": "1/3",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько квадратных метров в 1 км²?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "1 км = 1000 м, значит 1 км² = 1000 · 1000 м².",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "10 000",
+     "is_correct": false
+    },
+    {
+     "text": "1 000 000",
+     "is_correct": true
+    },
+    {
+     "text": "1000",
+     "is_correct": false
+    },
+    {
+     "text": "100 000",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Сколько секунд в одном часе? Введите число.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "3600"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чему примерно равно число π?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "3,14",
+     "is_correct": true
+    },
+    {
+     "text": "3,41",
+     "is_correct": false
+    },
+    {
+     "text": "2,72",
+     "is_correct": false
+    },
+    {
+     "text": "1,62",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

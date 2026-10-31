@@ -1,0 +1,856 @@
+{
+ "key": "biologiya",
+ "title": "Биология: 5–11 классы",
+ "subject": "Биология",
+ "theme": "steppe",
+ "description": "30 вопросов по биологии: клетка, растения и животные, человек, генетика, экология и природа Кыргызстана.",
+ "cover": "cover.png",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Что обозначено на рисунке цифрой 2?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ядро",
+     "is_correct": false
+    },
+    {
+     "text": "Вакуоль",
+     "is_correct": false
+    },
+    {
+     "text": "Хлоропласт",
+     "is_correct": true
+    },
+    {
+     "text": "Клеточная стенка",
+     "is_correct": false
+    }
+   ],
+   "image": "q01_plant_cell.png"
+  },
+  {
+   "type": "single",
+   "text": "Что обозначено на рисунке цифрой 4?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Хлоропласт",
+     "is_correct": false
+    },
+    {
+     "text": "Ядро",
+     "is_correct": false
+    },
+    {
+     "text": "Вакуоль",
+     "is_correct": true
+    },
+    {
+     "text": "Митохондрия",
+     "is_correct": false
+    }
+   ],
+   "image": "q02_plant_cell.png"
+  },
+  {
+   "type": "single",
+   "text": "В каких органоидах происходит фотосинтез?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В хлоропластах",
+     "is_correct": true
+    },
+    {
+     "text": "В митохондриях",
+     "is_correct": false
+    },
+    {
+     "text": "В рибосомах",
+     "is_correct": false
+    },
+    {
+     "text": "В ядре",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какие органоиды называют «энергетическими станциями» клетки?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Рибосомы",
+     "is_correct": false
+    },
+    {
+     "text": "Вакуоли",
+     "is_correct": false
+    },
+    {
+     "text": "Лизосомы",
+     "is_correct": false
+    },
+    {
+     "text": "Митохондрии",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Где в клетке синтезируется белок?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В хлоропластах",
+     "is_correct": false
+    },
+    {
+     "text": "В вакуоли",
+     "is_correct": false
+    },
+    {
+     "text": "На рибосомах",
+     "is_correct": true
+    },
+    {
+     "text": "В клеточной стенке",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой газ растения выделяют на свету при фотосинтезе?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Углекислый газ",
+     "is_correct": false
+    },
+    {
+     "text": "Кислород",
+     "is_correct": true
+    },
+    {
+     "text": "Водород",
+     "is_correct": false
+    },
+    {
+     "text": "Азот",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто первым увидел клетки в микроскоп (1665)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Роберт Гук",
+     "is_correct": true
+    },
+    {
+     "text": "Луи Пастер",
+     "is_correct": false
+    },
+    {
+     "text": "Чарлз Дарвин",
+     "is_correct": false
+    },
+    {
+     "text": "Грегор Мендель",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте уровни организации от простого к сложному.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "клетка",
+     "is_correct": false
+    },
+    {
+     "text": "ткань",
+     "is_correct": false
+    },
+    {
+     "text": "орган",
+     "is_correct": false
+    },
+    {
+     "text": "система органов",
+     "is_correct": false
+    },
+    {
+     "text": "организм",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что не имеет клеточного строения?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Амёба",
+     "is_correct": false
+    },
+    {
+     "text": "Дрожжи",
+     "is_correct": false
+    },
+    {
+     "text": "Бактерия",
+     "is_correct": false
+    },
+    {
+     "text": "Вирус",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Грибы относятся к царству растений.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Грибы — отдельное царство живой природы.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая молекула изображена на рисунке?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Глюкоза",
+     "is_correct": false
+    },
+    {
+     "text": "Белок",
+     "is_correct": false
+    },
+    {
+     "text": "Крахмал",
+     "is_correct": false
+    },
+    {
+     "text": "ДНК",
+     "is_correct": true
+    }
+   ],
+   "image": "q11_dna.png"
+  },
+  {
+   "type": "single",
+   "text": "Какое азотистое основание в ДНК комплементарно аденину (А)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Цитозин",
+     "is_correct": false
+    },
+    {
+     "text": "Тимин",
+     "is_correct": true
+    },
+    {
+     "text": "Гуанин",
+     "is_correct": false
+    },
+    {
+     "text": "Урацил",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько хромосом в клетках тела человека?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "23",
+     "is_correct": false
+    },
+    {
+     "text": "44",
+     "is_correct": false
+    },
+    {
+     "text": "46",
+     "is_correct": true
+    },
+    {
+     "text": "48",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Сколько пар хромосом у человека? Введите число.",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "23"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая доля потомков будет с генотипом aa?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Из четырёх клеток решётки только одна — aa.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "75%",
+     "is_correct": false
+    },
+    {
+     "text": "50%",
+     "is_correct": false
+    },
+    {
+     "text": "25%",
+     "is_correct": true
+    },
+    {
+     "text": "0%",
+     "is_correct": false
+    }
+   ],
+   "image": "q15_punnett.png"
+  },
+  {
+   "type": "single",
+   "text": "Кого называют основателем генетики?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Роберт Гук",
+     "is_correct": false
+    },
+    {
+     "text": "Грегор Мендель",
+     "is_correct": true
+    },
+    {
+     "text": "Иван Павлов",
+     "is_correct": false
+    },
+    {
+     "text": "Чарлз Дарвин",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто создал теорию эволюции путём естественного отбора?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чарлз Дарвин",
+     "is_correct": true
+    },
+    {
+     "text": "Жан-Батист Ламарк",
+     "is_correct": false
+    },
+    {
+     "text": "Карл Линней",
+     "is_correct": false
+    },
+    {
+     "text": "Грегор Мендель",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто в этой пищевой цепи растительноядный (консумент первого порядка)?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лиса",
+     "is_correct": false
+    },
+    {
+     "text": "Заяц",
+     "is_correct": true
+    },
+    {
+     "text": "Трава",
+     "is_correct": false
+    },
+    {
+     "text": "Беркут",
+     "is_correct": false
+    }
+   ],
+   "image": "q18_food_chain.png"
+  },
+  {
+   "type": "single",
+   "text": "Сколько ног у насекомых?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "4",
+     "is_correct": false
+    },
+    {
+     "text": "8",
+     "is_correct": false
+    },
+    {
+     "text": "6",
+     "is_correct": true
+    },
+    {
+     "text": "10",
+     "is_correct": false
+    }
+   ],
+   "image": "q19_insect.png"
+  },
+  {
+   "type": "multi",
+   "text": "Какие из этих животных — млекопитающие?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Дельфин",
+     "is_correct": true
+    },
+    {
+     "text": "Пингвин",
+     "is_correct": false
+    },
+    {
+     "text": "Летучая мышь",
+     "is_correct": true
+    },
+    {
+     "text": "Кит",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Кит — это рыба.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Кит — млекопитающее: дышит лёгкими и кормит детёнышей молоком.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое из этих животных — земноводное?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Змея",
+     "is_correct": false
+    },
+    {
+     "text": "Лягушка",
+     "is_correct": true
+    },
+    {
+     "text": "Черепаха",
+     "is_correct": false
+    },
+    {
+     "text": "Ящерица",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая большая кошка живёт высоко в горах Кыргызстана и занесена в Красную книгу?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Гепард",
+     "is_correct": false
+    },
+    {
+     "text": "Снежный барс (ирбис)",
+     "is_correct": true
+    },
+    {
+     "text": "Лев",
+     "is_correct": false
+    },
+    {
+     "text": "Тигр",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое из этих деревьев хвойное и растёт в горах Тянь-Шаня?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Берёза",
+     "is_correct": false
+    },
+    {
+     "text": "Тополь",
+     "is_correct": false
+    },
+    {
+     "text": "Дуб",
+     "is_correct": false
+    },
+    {
+     "text": "Тянь-шанская ель",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько камер в сердце человека?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "4",
+     "is_correct": true
+    },
+    {
+     "text": "6",
+     "is_correct": false
+    },
+    {
+     "text": "3",
+     "is_correct": false
+    },
+    {
+     "text": "2",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какие клетки крови переносят кислород?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Эритроциты",
+     "is_correct": true
+    },
+    {
+     "text": "Нейроны",
+     "is_correct": false
+    },
+    {
+     "text": "Тромбоциты",
+     "is_correct": false
+    },
+    {
+     "text": "Лейкоциты",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Где в лёгких происходит газообмен?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В альвеолах",
+     "is_correct": true
+    },
+    {
+     "text": "В трахее",
+     "is_correct": false
+    },
+    {
+     "text": "В бронхах",
+     "is_correct": false
+    },
+    {
+     "text": "В гортани",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой орган вырабатывает инсулин?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Поджелудочная железа",
+     "is_correct": true
+    },
+    {
+     "text": "Печень",
+     "is_correct": false
+    },
+    {
+     "text": "Желудок",
+     "is_correct": false
+    },
+    {
+     "text": "Почки",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой витамин образуется в коже под действием солнечного света?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "B₁₂",
+     "is_correct": false
+    },
+    {
+     "text": "C",
+     "is_correct": false
+    },
+    {
+     "text": "A",
+     "is_correct": false
+    },
+    {
+     "text": "D",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая кость в теле человека самая длинная?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Плечевая",
+     "is_correct": false
+    },
+    {
+     "text": "Локтевая",
+     "is_correct": false
+    },
+    {
+     "text": "Большая берцовая",
+     "is_correct": false
+    },
+    {
+     "text": "Бедренная",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  }
+ ]
+}

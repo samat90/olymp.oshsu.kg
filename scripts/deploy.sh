@@ -50,6 +50,9 @@ bash scripts/fetch_vendor.sh
 log "Database migrations"
 "$PY" manage.py migrate --noinput
 
+log "Ready-made quizzes (adds only the missing ones)"
+"$PY" manage.py load_quizzes || log "Quizzes were not added (see above); the site is not affected."
+
 log "Translations"
 "$PY" - <<'PYEOF'
 import os

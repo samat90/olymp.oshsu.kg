@@ -1,0 +1,874 @@
+{
+ "key": "informatika",
+ "title": "Информатика: 5–9 классы",
+ "subject": "Информатика",
+ "theme": "night",
+ "description": "30 вопросов по школьной программе информатики Кыргызстана: информация и её измерение, системы счисления, устройство компьютера, файлы, электронные таблицы, логика, алгоритмы, программирование, сети и безопасность.",
+ "cover": "cover.png",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Какая единица измерения информации самая маленькая?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "пиксель",
+     "is_correct": false
+    },
+    {
+     "text": "килобайт",
+     "is_correct": false
+    },
+    {
+     "text": "бит",
+     "is_correct": true
+    },
+    {
+     "text": "байт",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько бит в одном байте?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "10",
+     "is_correct": false
+    },
+    {
+     "text": "2",
+     "is_correct": false
+    },
+    {
+     "text": "16",
+     "is_correct": false
+    },
+    {
+     "text": "8",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько байт в 1 килобайте (Кбайт)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "1 Кбайт = 2¹⁰ = 1024 байта.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "8",
+     "is_correct": false
+    },
+    {
+     "text": "100",
+     "is_correct": false
+    },
+    {
+     "text": "1000",
+     "is_correct": false
+    },
+    {
+     "text": "1024",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте единицы измерения информации от меньшей к большей.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "бит",
+     "is_correct": false
+    },
+    {
+     "text": "байт",
+     "is_correct": false
+    },
+    {
+     "text": "килобайт",
+     "is_correct": false
+    },
+    {
+     "text": "мегабайт",
+     "is_correct": false
+    },
+    {
+     "text": "гигабайт",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Переведите двоичное число 1011₂ в десятичную систему.",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "1·8 + 0·4 + 1·2 + 1·1 = 11.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "11",
+     "is_correct": true
+    },
+    {
+     "text": "9",
+     "is_correct": false
+    },
+    {
+     "text": "13",
+     "is_correct": false
+    },
+    {
+     "text": "1011",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как записать число 13 в двоичной системе?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "13 = 8 + 4 + 1 = 1101₂.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "1011",
+     "is_correct": false
+    },
+    {
+     "text": "1001",
+     "is_correct": false
+    },
+    {
+     "text": "1101",
+     "is_correct": true
+    },
+    {
+     "text": "1110",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько разных символов можно закодировать одним байтом (8 бит)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "2⁸ = 256.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "8",
+     "is_correct": false
+    },
+    {
+     "text": "128",
+     "is_correct": false
+    },
+    {
+     "text": "256",
+     "is_correct": true
+    },
+    {
+     "text": "255",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чёрно-белая картинка 8×8 пикселей, на каждый пиксель 1 бит. Сколько байт она занимает?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "64 пикселя × 1 бит = 64 бита = 8 байт.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "8",
+     "is_correct": true
+    },
+    {
+     "text": "1",
+     "is_correct": false
+    },
+    {
+     "text": "64",
+     "is_correct": false
+    },
+    {
+     "text": "16",
+     "is_correct": false
+    }
+   ],
+   "image": "q08_pixel_smile.png"
+  },
+  {
+   "type": "single",
+   "text": "Что такое алгоритм?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Любая компьютерная программа",
+     "is_correct": false
+    },
+    {
+     "text": "Набор файлов на диске",
+     "is_correct": false
+    },
+    {
+     "text": "Точная последовательность действий, которая приводит к результату",
+     "is_correct": true
+    },
+    {
+     "text": "Устройство для обработки информации",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое значение x выведет алгоритм на блок-схеме?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "x = 5, условие 5 > 3 истинно, значит x := 5 * 2 = 10.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "11",
+     "is_correct": false
+    },
+    {
+     "text": "10",
+     "is_correct": true
+    },
+    {
+     "text": "6",
+     "is_correct": false
+    },
+    {
+     "text": "5",
+     "is_correct": false
+    }
+   ],
+   "image": "q10_flowchart.png"
+  },
+  {
+   "type": "single",
+   "text": "Робот стоит в нижней левой клетке и выполняет команды. В какой клетке он окажется?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Вправо на 3 клетки, вверх на 2 и влево на 1 — это клетка Б.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Г",
+     "is_correct": false
+    },
+    {
+     "text": "Б",
+     "is_correct": true
+    },
+    {
+     "text": "А",
+     "is_correct": false
+    },
+    {
+     "text": "В",
+     "is_correct": false
+    }
+   ],
+   "image": "q11_robot_grid.png"
+  },
+  {
+   "type": "single",
+   "text": "Какое устройство служит для ввода информации?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Клавиатура",
+     "is_correct": true
+    },
+    {
+     "text": "Колонки",
+     "is_correct": false
+    },
+    {
+     "text": "Принтер",
+     "is_correct": false
+    },
+    {
+     "text": "Монитор",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое устройство служит для вывода информации?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сканер",
+     "is_correct": false
+    },
+    {
+     "text": "Мышь",
+     "is_correct": false
+    },
+    {
+     "text": "Принтер",
+     "is_correct": true
+    },
+    {
+     "text": "Микрофон",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое устройство выполняет вычисления и управляет работой компьютера?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Процессор",
+     "is_correct": true
+    },
+    {
+     "text": "Блок питания",
+     "is_correct": false
+    },
+    {
+     "text": "Жёсткий диск",
+     "is_correct": false
+    },
+    {
+     "text": "Оперативная память",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Данные в оперативной памяти сохраняются после выключения компьютера.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Оперативная память (ОЗУ) энергозависима: при выключении всё стирается.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Что из этого — операционные системы?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Microsoft Word",
+     "is_correct": false
+    },
+    {
+     "text": "Windows",
+     "is_correct": true
+    },
+    {
+     "text": "Android",
+     "is_correct": true
+    },
+    {
+     "text": "Linux",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое расширение у простого текстового файла?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": ".jpg",
+     "is_correct": false
+    },
+    {
+     "text": ".txt",
+     "is_correct": true
+    },
+    {
+     "text": ".mp3",
+     "is_correct": false
+    },
+    {
+     "text": ".exe",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой полный путь к файлу «задача.py»?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "D:\\Python\\задача.py",
+     "is_correct": false
+    },
+    {
+     "text": "D:\\Учёба\\Python\\задача.py",
+     "is_correct": true
+    },
+    {
+     "text": "D:\\Учёба\\Фото\\задача.py",
+     "is_correct": false
+    },
+    {
+     "text": "Учёба\\D:\\Python\\задача.py",
+     "is_correct": false
+    }
+   ],
+   "image": "q18_file_tree.png"
+  },
+  {
+   "type": "single",
+   "text": "Какое сочетание клавиш копирует выделенный фрагмент?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ctrl + Z",
+     "is_correct": false
+    },
+    {
+     "text": "Ctrl + C",
+     "is_correct": true
+    },
+    {
+     "text": "Ctrl + V",
+     "is_correct": false
+    },
+    {
+     "text": "Ctrl + X",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется ячейка электронной таблицы на пересечении столбца C и строки 4?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "C:4",
+     "is_correct": false
+    },
+    {
+     "text": "CD",
+     "is_correct": false
+    },
+    {
+     "text": "4C",
+     "is_correct": false
+    },
+    {
+     "text": "C4",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое число появится в ячейке C1?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "5 · 2 + 7 = 17.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "24",
+     "is_correct": false
+    },
+    {
+     "text": "12",
+     "is_correct": false
+    },
+    {
+     "text": "17",
+     "is_correct": true
+    },
+    {
+     "text": "19",
+     "is_correct": false
+    }
+   ],
+   "image": "q21_spreadsheet.png"
+  },
+  {
+   "type": "single",
+   "text": "Какая логическая операция задана этой таблицей истинности?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "F = 1 только когда A = 1 и B = 1.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "И (конъюнкция)",
+     "is_correct": true
+    },
+    {
+     "text": "Исключающее ИЛИ",
+     "is_correct": false
+    },
+    {
+     "text": "НЕ (отрицание)",
+     "is_correct": false
+    },
+    {
+     "text": "ИЛИ (дизъюнкция)",
+     "is_correct": false
+    }
+   ],
+   "image": "q22_truth_table.png"
+  },
+  {
+   "type": "truefalse",
+   "text": "Выражение НЕ (1 ИЛИ 0) истинно.",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "1 ИЛИ 0 = 1, а НЕ 1 = 0, то есть ложь.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "1 + 2 + 3 + 4 = 10 (range(1, 5) не включает 5).",
+   "code": "s = 0\nfor i in range(1, 5):\n    s += i\nprint(s)",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "10",
+     "is_correct": true
+    },
+    {
+     "text": "0",
+     "is_correct": false
+    },
+    {
+     "text": "15",
+     "is_correct": false
+    },
+    {
+     "text": "4",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа на Паскале?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "div — целая часть деления (3), mod — остаток (1).",
+   "code": "var a, b: integer;\nbegin\n  a := 7 div 2;\n  b := 7 mod 2;\n  writeln(a, ' ', b)\nend.",
+   "code_language": "pascal",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "3.5 0",
+     "is_correct": false
+    },
+    {
+     "text": "3 0",
+     "is_correct": false
+    },
+    {
+     "text": "1 3",
+     "is_correct": false
+    },
+    {
+     "text": "3 1",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "В слове «Кыргызстан» 10 букв.",
+   "code": "print(len(\"Кыргызстан\"))",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "10",
+     "is_correct": true
+    },
+    {
+     "text": "8",
+     "is_correct": false
+    },
+    {
+     "text": "11",
+     "is_correct": false
+    },
+    {
+     "text": "9",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется топология сети на рисунке?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кольцо",
+     "is_correct": false
+    },
+    {
+     "text": "Шина",
+     "is_correct": false
+    },
+    {
+     "text": "Сетка",
+     "is_correct": false
+    },
+    {
+     "text": "Звезда",
+     "is_correct": true
+    }
+   ],
+   "image": "q27_star_topology.png"
+  },
+  {
+   "type": "single",
+   "text": "Какая часть адреса https://olymp.oshsu.kg/quiz/ — доменное имя сайта?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "/quiz/",
+     "is_correct": false
+    },
+    {
+     "text": "olymp.oshsu.kg",
+     "is_correct": true
+    },
+    {
+     "text": "https",
+     "is_correct": false
+    },
+    {
+     "text": "https://",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой домен верхнего уровня у Кыргызстана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": ".kz — Казахстан, .ky — Каймановы острова, .kr — Южная Корея.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": ".kr",
+     "is_correct": false
+    },
+    {
+     "text": ".ky",
+     "is_correct": false
+    },
+    {
+     "text": ".kz",
+     "is_correct": false
+    },
+    {
+     "text": ".kg",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой пароль самый надёжный?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "qwerty",
+     "is_correct": false
+    },
+    {
+     "text": "Kg#7mPz!92q",
+     "is_correct": true
+    },
+    {
+     "text": "123456",
+     "is_correct": false
+    },
+    {
+     "text": "aibek2010",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

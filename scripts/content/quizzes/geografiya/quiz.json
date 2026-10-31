@@ -1,0 +1,876 @@
+{
+ "key": "geografiya",
+ "title": "География: Кыргызстан и мир",
+ "subject": "География",
+ "theme": "lake",
+ "description": "30 вопросов по географии: стороны света, координаты, масштаб, материки и океаны, горы, реки и озёра Кыргызстана.",
+ "cover": "cover.png",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Какая сторона света обозначена знаком вопроса?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Север",
+     "is_correct": false
+    },
+    {
+     "text": "Восток",
+     "is_correct": true
+    },
+    {
+     "text": "Запад",
+     "is_correct": false
+    },
+    {
+     "text": "Юг",
+     "is_correct": false
+    }
+   ],
+   "image": "q01_compass.png"
+  },
+  {
+   "type": "single",
+   "text": "Какая линия на глобусе отмечена красным?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Нулевой меридиан",
+     "is_correct": false
+    },
+    {
+     "text": "Экватор",
+     "is_correct": true
+    },
+    {
+     "text": "Северный тропик",
+     "is_correct": false
+    },
+    {
+     "text": "Северный полярный круг",
+     "is_correct": false
+    }
+   ],
+   "image": "q02_globe_equator.png"
+  },
+  {
+   "type": "single",
+   "text": "Какие координаты у точки M?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Широту считают от экватора (по вертикали), долготу — от нулевого меридиана (по горизонтали).",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "20° ю. ш., 30° в. д.",
+     "is_correct": false
+    },
+    {
+     "text": "20° с. ш., 30° в. д.",
+     "is_correct": true
+    },
+    {
+     "text": "30° с. ш., 20° в. д.",
+     "is_correct": false
+    },
+    {
+     "text": "20° с. ш., 30° з. д.",
+     "is_correct": false
+    }
+   ],
+   "image": "q03_coord_grid.png"
+  },
+  {
+   "type": "single",
+   "text": "Каково расстояние между сёлами на местности?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "На карте 4 см, 1 см = 5 км, значит 4 · 5 = 20 км.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "25 км",
+     "is_correct": false
+    },
+    {
+     "text": "9 км",
+     "is_correct": false
+    },
+    {
+     "text": "20 км",
+     "is_correct": true
+    },
+    {
+     "text": "4 км",
+     "is_correct": false
+    }
+   ],
+   "image": "q04_map_scale.png"
+  },
+  {
+   "type": "single",
+   "text": "Масштаб карты 1 : 100 000. Сколько километров на местности в 1 см карты?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "100 000 см = 1000 м = 1 км.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "100 м",
+     "is_correct": false
+    },
+    {
+     "text": "100 км",
+     "is_correct": false
+    },
+    {
+     "text": "1 км",
+     "is_correct": true
+    },
+    {
+     "text": "10 км",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой будет температура на высоте 3 км? (на каждый километр подъёма воздух остывает примерно на 6 °C)",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "24 − 3 · 6 = 6 °C.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "0 °C",
+     "is_correct": false
+    },
+    {
+     "text": "+6 °C",
+     "is_correct": true
+    },
+    {
+     "text": "+18 °C",
+     "is_correct": false
+    },
+    {
+     "text": "−6 °C",
+     "is_correct": false
+    }
+   ],
+   "image": "q06_mountain_temp.png"
+  },
+  {
+   "type": "single",
+   "text": "Сколько времени в Лондоне (UTC+0), когда в Бишкеке (UTC+6) 15:00?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Лондон на 6 часов «позади» Бишкека: 15 − 6 = 9.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "09:00",
+     "is_correct": true
+    },
+    {
+     "text": "21:00",
+     "is_correct": false
+    },
+    {
+     "text": "15:00",
+     "is_correct": false
+    },
+    {
+     "text": "12:00",
+     "is_correct": false
+    }
+   ],
+   "image": "q07_clocks_time_zone.png"
+  },
+  {
+   "type": "single",
+   "text": "Через какой город проходит нулевой (Гринвичский) меридиан?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Париж",
+     "is_correct": false
+    },
+    {
+     "text": "Москва",
+     "is_correct": false
+    },
+    {
+     "text": "Нью-Йорк",
+     "is_correct": false
+    },
+    {
+     "text": "Лондон",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "За сколько примерно часов Земля делает один оборот вокруг своей оси?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "365",
+     "is_correct": false
+    },
+    {
+     "text": "30",
+     "is_correct": false
+    },
+    {
+     "text": "12",
+     "is_correct": false
+    },
+    {
+     "text": "24",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько материков на Земле?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "5",
+     "is_correct": false
+    },
+    {
+     "text": "4",
+     "is_correct": false
+    },
+    {
+     "text": "7",
+     "is_correct": false
+    },
+    {
+     "text": "6",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте материки по площади, от самого большого к самому маленькому.",
+   "time_limit": 40,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Евразия",
+     "is_correct": false
+    },
+    {
+     "text": "Африка",
+     "is_correct": false
+    },
+    {
+     "text": "Северная Америка",
+     "is_correct": false
+    },
+    {
+     "text": "Южная Америка",
+     "is_correct": false
+    },
+    {
+     "text": "Антарктида",
+     "is_correct": false
+    },
+    {
+     "text": "Австралия",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой океан самый большой?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Северный Ледовитый",
+     "is_correct": false
+    },
+    {
+     "text": "Атлантический",
+     "is_correct": false
+    },
+    {
+     "text": "Тихий",
+     "is_correct": true
+    },
+    {
+     "text": "Индийский",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая гора самая высокая в мире?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Эверест (Джомолунгма)",
+     "is_correct": true
+    },
+    {
+     "text": "К2 (Чогори)",
+     "is_correct": false
+    },
+    {
+     "text": "Эльбрус",
+     "is_correct": false
+    },
+    {
+     "text": "Килиманджаро",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое озеро самое глубокое в мире?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Байкал",
+     "is_correct": true
+    },
+    {
+     "text": "Виктория",
+     "is_correct": false
+    },
+    {
+     "text": "Каспийское море",
+     "is_correct": false
+    },
+    {
+     "text": "Иссык-Куль",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "На каком материке находится пустыня Сахара?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Африка",
+     "is_correct": true
+    },
+    {
+     "text": "Австралия",
+     "is_correct": false
+    },
+    {
+     "text": "Южная Америка",
+     "is_correct": false
+    },
+    {
+     "text": "Евразия",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая страна самая большая по площади?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Китай",
+     "is_correct": false
+    },
+    {
+     "text": "Россия",
+     "is_correct": true
+    },
+    {
+     "text": "Канада",
+     "is_correct": false
+    },
+    {
+     "text": "США",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой город — столица Казахстана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Шымкент",
+     "is_correct": false
+    },
+    {
+     "text": "Караганда",
+     "is_correct": false
+    },
+    {
+     "text": "Астана",
+     "is_correct": true
+    },
+    {
+     "text": "Алматы",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая горная система занимает большую часть Кыргызстана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Урал",
+     "is_correct": false
+    },
+    {
+     "text": "Кавказ",
+     "is_correct": false
+    },
+    {
+     "text": "Тянь-Шань",
+     "is_correct": true
+    },
+    {
+     "text": "Алтай",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая вершина — самая высокая в Кыргызстане?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Пик Жеңиш — 7439 м.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пик Ленина",
+     "is_correct": false
+    },
+    {
+     "text": "Хан-Тенгри",
+     "is_correct": false
+    },
+    {
+     "text": "Эверест",
+     "is_correct": false
+    },
+    {
+     "text": "Пик Жеңиш (Победы)",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое озеро в Кыргызстане самое большое?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сон-Куль",
+     "is_correct": false
+    },
+    {
+     "text": "Иссык-Куль",
+     "is_correct": true
+    },
+    {
+     "text": "Сары-Челек",
+     "is_correct": false
+    },
+    {
+     "text": "Чатыр-Куль",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько областей в Кыргызстане?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Баткенская, Джалал-Абадская, Иссык-Кульская, Нарынская, Ошская, Таласская и Чуйская.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "9",
+     "is_correct": false
+    },
+    {
+     "text": "8",
+     "is_correct": false
+    },
+    {
+     "text": "7",
+     "is_correct": true
+    },
+    {
+     "text": "5",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "С какими странами граничит Кыргызстан?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Узбекистан",
+     "is_correct": true
+    },
+    {
+     "text": "Китай",
+     "is_correct": true
+    },
+    {
+     "text": "Казахстан",
+     "is_correct": true
+    },
+    {
+     "text": "Туркменистан",
+     "is_correct": false
+    },
+    {
+     "text": "Россия",
+     "is_correct": false
+    },
+    {
+     "text": "Таджикистан",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "У Кыргызстана есть выход к морю.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая река образуется при слиянии Нарына и Карадарьи?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сырдарья",
+     "is_correct": true
+    },
+    {
+     "text": "Амударья",
+     "is_correct": false
+    },
+    {
+     "text": "Талас",
+     "is_correct": false
+    },
+    {
+     "text": "Чу",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "На какой реке построена Токтогульская ГЭС?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Нарын",
+     "is_correct": true
+    },
+    {
+     "text": "Иртыш",
+     "is_correct": false
+    },
+    {
+     "text": "Талас",
+     "is_correct": false
+    },
+    {
+     "text": "Чу",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В каких горах находится ледник Южный Иныльчек?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кавказ",
+     "is_correct": false
+    },
+    {
+     "text": "Тянь-Шань",
+     "is_correct": true
+    },
+    {
+     "text": "Альпы",
+     "is_correct": false
+    },
+    {
+     "text": "Анды",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что добывают на месторождении Кумтор?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Уголь",
+     "is_correct": false
+    },
+    {
+     "text": "Газ",
+     "is_correct": false
+    },
+    {
+     "text": "Нефть",
+     "is_correct": false
+    },
+    {
+     "text": "Золото",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется самый нижний слой атмосферы?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Термосфера",
+     "is_correct": false
+    },
+    {
+     "text": "Стратосфера",
+     "is_correct": false
+    },
+    {
+     "text": "Мезосфера",
+     "is_correct": false
+    },
+    {
+     "text": "Тропосфера",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая река — самая длинная в Кыргызстане?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Нарын",
+     "is_correct": true
+    },
+    {
+     "text": "Чу",
+     "is_correct": false
+    },
+    {
+     "text": "Талас",
+     "is_correct": false
+    },
+    {
+     "text": "Кара-Дарья",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Какой город — столица Кыргызстана? Введите название.",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "Бишкек"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  }
+ ]
+}
