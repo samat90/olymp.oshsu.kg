@@ -90,6 +90,12 @@
 
     function fx() { return window.QuizFx || null; }
 
+    var GAME_SEED = (function (s) {
+        var n = 0;
+        for (var i = 0; i < s.length; i++) n = (n * 31 + s.charCodeAt(i)) % 9973;
+        return n;
+    })(String(C.pin || location.pathname));
+
     function shape(i) {
         var f = fx();
         if (f && f.shape) {
@@ -104,6 +110,37 @@
             try { f.countUp(el, from, to, ms || 900); return; } catch (e) { /* fall through */ }
         }
         el.textContent = String(to);
+    }
+
+    // Visuals in time with the drums: a flash on hits and a soft glow that pulses with the kick.
+    function reduced() { var f = fx(); return !!(f && f.reducedMotion && f.reducedMotion()); }
+    function beatFlash(k) {
+        if (!stage || reduced()) return;
+        stage.style.setProperty('--qz-hit', String(k || 1));
+        stage.classList.remove('qz-hit');
+        void stage.offsetWidth;
+        stage.classList.add('qz-hit');
+    }
+    function beatGlow() {
+        var a = window.QuizAudio, last = -1;
+        if (!stage || !a || !a.beat || reduced()) return;
+        (function frame() {
+            var b = 0;
+            try { b = a.beat(); } catch (e) { b = 0; }
+            if (Math.abs(b - last) > 0.01) {
+                last = b;
+                stage.style.setProperty('--qz-beat', b.toFixed(3));
+            }
+            requestAnimationFrame(frame);
+        })();
+    }
+    // Last five seconds: tick-tock per second, a hit when the time is up.
+    function clockSound(ui, t) {
+        var n = Math.ceil(t.left);
+        if (n === ui.lastSec) return;
+        ui.lastSec = n;
+        if (n > 0 && n <= 5) sound.sfx('clock', n);
+        else if (n <= 0 && t.total > 0) sound.sfx('timeup');
     }
 
     function confetti(ms) {
@@ -163,14 +200,15 @@
         music: function (name, variant) {
             if (!this.musicAllowed()) name = null;
             var opts = ROLE === 'player' ? {quiet: true} : {};
-            if (typeof variant === 'number') opts.variant = variant;
+            // Each game starts at its own place in the list, so the same quiz sounds different next time.
+            if (typeof variant === 'number') opts.variant = variant + (name === 'question' ? GAME_SEED : 0);
             var want = name ? name + ':' + (typeof variant === 'number' ? variant : '') : null;
             if (want === this.want) return;
             this.want = want;
             this.call('music', name, opts);
         },
         urgent: function (on) { this.call('urgent', on); },
-        sfx: function (name) { this.call('sfx', name); },
+        sfx: function (name, arg) { this.call('sfx', name, arg); },
         vibrate: function (pattern) {
             var a = this.api();
             if (a && a.vibrate) this.call('vibrate', pattern);
@@ -593,7 +631,7 @@
                 return;
             }
             box.appendChild(h('div', {cls: 'qz-pod qz-pod-' + (k + 1) + (me && row.id === me ? ' qz-me' : ''),
-                    style: 'animation-delay:' + [600, 1200, 0][n] + 'ms'},
+                    style: 'animation-delay:' + [2000, 3300, 1000][n] + 'ms'},
                 h('span', {cls: 'qz-pod-nick', text: row.nickname || row.nick}),
                 h('span', {cls: 'qz-pod-score', text: String(row.score)}),
                 h('span', {cls: 'qz-pod-block'}, h('b', {text: String(k + 1)}))));
@@ -647,17 +685,19 @@
                 void b.offsetWidth;
                 b.classList.add('qz-count');
                 if (withSound) {
-                    // The first question of the game opens with a gong.
+                    // The first question of the game opens with a big drum hit, then a drum per number.
                     var first = game.st && game.st.i === 0 && el.getAttribute('data-gong') !== '1';
                     if (first) el.setAttribute('data-gong', '1');
-                    sound.sfx(first ? 'gong' : 'tick');
+                    sound.sfx(first ? 'start' : 'count', n);
                 }
+                beatFlash(first ? 1 : 0.6);
             }
             return true;
         }
         if (!el.hidden) {
             el.hidden = true;
             if (withSound) sound.sfx('go');
+            beatFlash(1);
         }
         return false;
     }
@@ -888,7 +928,10 @@
                 var first = P.ui.answer.querySelector('input:not([type=range]), textarea');
                 if (first && !('ontouchstart' in window)) first.focus();
             }
-            if (P.ui.opened && st.ph === 'question') sound.urgent(t.left <= 5 && t.left > 0);
+            if (P.ui.opened && st.ph === 'question') {
+                sound.urgent(t.left <= 5 && t.left > 0);
+                if (sound.musicAllowed() && !P.answered && !st.paused) clockSound(P.ui, t);
+            }
             if (P.ui.opened && t.left <= 0 && !P.answered && !P.timeUp && !st.paused) {
                 P.timeUp = true;
                 sound.urgent(false);
@@ -1213,7 +1256,10 @@
             }
             show(view);
             typeset(body.querySelector('.qz-q-mini'));
-            if (me && me.scored && me.points > 0) countUp(pts, 0, me.points, 900);
+            if (me && me.scored && me.points > 0) {
+                countUp(pts, 0, me.points, 900);
+                if (P.effectsFor !== st.i) setTimeout(function () { sound.sfx('count_up', 900); }, 250);
+            }
             else pts.textContent = String(me ? me.points : 0);
             if (P.effectsFor !== st.i) {
                 P.effectsFor = st.i;
@@ -1279,9 +1325,9 @@
             show(view);
             if (me && me.rank && me.rank <= 3) {
                 sound.sfx('finale');
-                setTimeout(function () { sound.music('final'); }, 3500);
+                setTimeout(function () { sound.music('final'); }, 5200);
                 sound.vibrate([60, 60, 60, 60, 200]);
-                setTimeout(function () { confetti(5000); }, 900);
+                setTimeout(function () { confetti(5000); beatFlash(1); }, 3300);
             } else {
                 sound.sfx('finale');
             }
@@ -1347,6 +1393,11 @@
         }
 
         function updateCounters() {
+            if (ROLE === 'screen' && game.st && game.st.ph === 'question' && H.answered > (H.shownAnswered || 0)) {
+                var more = Math.min(4, H.answered - (H.shownAnswered || 0));
+                for (var k = 0; k < more; k++) setTimeout(function () { sound.sfx('answered'); }, k * 90);
+            }
+            H.shownAnswered = game.st && game.st.ph === 'question' ? H.answered : 0;
             var els = document.querySelectorAll('.qz-answered-n');
             for (var i = 0; i < els.length; i++) els[i].textContent = String(H.answered);
             els = document.querySelectorAll('.qz-players-n');
@@ -1625,6 +1676,7 @@
             }
             if (H.ui.opened && !game.st.paused) {
                 sound.urgent(t.left <= 5 && t.left > 0);
+                if (ROLE === 'screen') clockSound(H.ui, t);
                 if (t.left <= 0 && !H.ui.timeOver) {
                     H.ui.timeOver = true;
                     sound.urgent(false);
@@ -1689,6 +1741,9 @@
                 lb.total > 5 ? h('p', {cls: 'qz-muted', text: 'Всего игроков: ' + lb.total}) : null));
             sound.music('board');
             H.boardTimer = setTimeout(function () {
+                beatFlash(1);
+                sound.sfx('count_up', 1200);
+                if (top.some(function (row) { return row.prev && row.rank < row.prev; })) setTimeout(function () { sound.sfx('rise'); }, 60);
                 flip(list, function () {
                     top.forEach(function (row) {
                         var li = list.querySelector('[data-key="' + row.id + '"]');
@@ -1732,8 +1787,8 @@
             if (H.effectsFor !== 'fin') {
                 H.effectsFor = 'fin';
                 sound.sfx('finale');
-                setTimeout(function () { sound.music('final'); }, 3500);
-                setTimeout(function () { confetti(6000); }, 1500);
+                setTimeout(function () { sound.music('final'); }, 5200);
+                setTimeout(function () { confetti(6000); beatFlash(1); }, 3300);
             }
         }
 
@@ -1751,6 +1806,7 @@
 
     function boot() {
         stage.classList.add('qz-ready');
+        if (ROLE === 'screen' || (!IS_HOST && (MODE === 'auto' || MODE === 'solo'))) beatGlow();
         if (IS_HOST) startHost();
         else startPlayer();
     }

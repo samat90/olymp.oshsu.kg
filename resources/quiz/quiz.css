@@ -672,3 +672,37 @@ button.qz-btn-accent:hover, button.qz-btn-accent:focus { background: #0a6b64; }
 }
 .qz-bar-qr { width: 40px; height: 40px; margin-left: 8px; border-radius: 6px; background: #fff; padding: 2px; }
 .qz-remote-qr { display: block; width: 180px; height: 180px; margin: 4px auto; padding: 8px; border-radius: 14px; background: #fff; }
+
+/* ======================================================================= in time with the music */
+/* A soft glow that breathes with the kick drum (--qz-beat is set by game.js from QuizAudio.beat()). */
+.qz-stage-bg::after { content: ''; position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(ellipse 70% 55% at 50% 105%, currentColor, transparent 70%);
+    opacity: calc(var(--qz-beat, 0) * .16); transform: scale(calc(1 + var(--qz-beat, 0) * .03)); transform-origin: 50% 100%; }
+/* Drum hits (start, 3-2-1, "go", leaderboard, podium): a short flash of the background. */
+.qz-stage.qz-hit .qz-stage-bg { animation: qz-hit .55s ease-out; }
+@keyframes qz-hit { 0% { filter: brightness(calc(1 + .35 * var(--qz-hit, 1))) saturate(1.25); } 100% { filter: none; } }
+/* 3-2-1: every number lands with a shockwave ring. */
+.qz-countdown b.qz-count { position: relative; }
+.qz-countdown b.qz-count::after { content: ''; position: absolute; left: 50%; top: 50%; width: 1.1em; height: 1.1em;
+    margin: -.55em 0 0 -.55em; border-radius: 50%; border: 6px solid rgba(255, 255, 255, .8);
+    animation: qz-wave .7s ease-out both; pointer-events: none; }
+@keyframes qz-wave { 0% { transform: scale(.4); opacity: .9; } 100% { transform: scale(2.4); opacity: 0; } }
+/* Leaderboard: the gained points pop in on the drum hit, a climber gets an arrow. */
+.qz-host-board .qz-delta { display: inline-block; animation: qz-pop .45s .9s both; }
+.qz-board-row.qz-up .qz-board-place::after { content: '▲'; position: absolute; transform: translate(22px, -14px);
+    color: var(--qz-ok); font-size: 14px; animation: qz-pop .4s both; }
+.qz-board-place { position: relative; }
+.qz-board-score { display: inline-block; font-variant-numeric: tabular-nums; }
+/* Podium: each place rises on its own drum hit; the winner gets a shine sweep. */
+.qz-pod-1 .qz-pod-block { position: relative; overflow: hidden; }
+.qz-pod-1 .qz-pod-block::after { content: ''; position: absolute; inset: 0;
+    background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, .55) 50%, transparent 70%);
+    transform: translateX(-120%); animation: qz-shine 1.4s 3.5s ease-out both; }
+@keyframes qz-shine { to { transform: translateX(120%); } }
+.qz-pod-1 .qz-pod-nick { animation: qz-pop .5s 3.3s both; }
+@media (prefers-reduced-motion: reduce) {
+    .qz-stage-bg::after { display: none; }
+    .qz-stage.qz-hit .qz-stage-bg, .qz-countdown b.qz-count::after, .qz-host-board .qz-delta,
+    .qz-pod-1 .qz-pod-block::after, .qz-pod-1 .qz-pod-nick, .qz-board-row.qz-up .qz-board-place::after { animation: none !important; }
+    .qz-countdown b.qz-count::after { display: none; }
+}
