@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}О платформе - {{ SITE_LONG_NAME }}{% endblock %}
+{% block title_row %}{% endblock %}
+{% block title_ruler %}{% endblock %}
+{% block media %}<link rel="stylesheet" href="{{ static('about/about.css') }}?v={{ STATIC_VERSION }}">{% endblock %}
+
+{% block body %}
+<div class="hp">
+    <section class="hp-hero">
+        <h2>OshSU Olymp</h2>
+        <p>Платформа Ошского государственного университета для олимпиад и занятий по программированию: задачи с автоматической проверкой, онлайн-компилятор, соревнования, тренажёр печати и живые викторины.</p>
+        <div class="hp-actions">
+            <a class="hp-btn" href="{{ url('problem_list') }}"><i class="fa fa-puzzle-piece"></i> К задачам</a>
+            <a class="hp-btn ghost" href="{{ url('quiz_catalog') }}"><i class="fa fa-gamepad"></i> Викторина</a>
+        </div>
+    </section>
+
+    <div class="hp-stats">
+        <div class="hp-stat"><b>{{ stats.problems }}</b><span>задач</span></div>
+        <div class="hp-stat"><b>{{ stats.users }}</b><span>участников</span></div>
+        <div class="hp-stat"><b>{{ stats.contests }}</b><span>соревнований</span></div>
+        {% if stats.quizzes %}<div class="hp-stat"><b>{{ stats.quizzes }}</b><span>викторин</span></div>{% endif %}
+        <div class="hp-stat"><b>3</b><span>языка интерфейса</span></div>
+    </div>
+
+    <h3 class="hp-h">Возможности</h3>
+    <div class="hp-grid">
+        <a class="hp-card" href="{{ url('problem_list') }}"><i class="fa fa-puzzle-piece"></i>
+            <h3>Архив задач</h3><p>Тренировочные и олимпиадные задачи по 14 темам. Каждая задача — 100 баллов, решение проверяется на тестах за секунды.</p></a>
+        <a class="hp-card" href="{{ url('problem_list') }}"><i class="fa fa-code"></i>
+            <h3>Редактор решений</h3><p>Пишите код прямо в браузере, запускайте на примерах и отправляйте на проверку одной кнопкой.</p></a>
+        <a class="hp-card" href="{{ url('workspace') }}"><i class="fa fa-terminal"></i>
+            <h3>Компилятор</h3><p>Проекты и файлы, запуск с вводом с клавиатуры, ссылки на код. Работает и без регистрации.</p></a>
+        <a class="hp-card" href="{{ url('contest_list') }}"><i class="fa fa-trophy"></i>
+            <h3>Олимпиады</h3><p>Форматы IOI, ACM/ICPC и AtCoder, таблица результатов в реальном времени, контроль честности участников.</p></a>
+        <a class="hp-card" href="{{ url('user_list') }}"><i class="fa fa-line-chart"></i>
+            <h3>Рейтинг</h3><p>Баллы за решённые задачи и рейтинг по итогам соревнований.</p></a>
+        <a class="hp-card" href="{{ url('quiz_catalog') }}"><i class="fa fa-gamepad"></i>
+            <h3>Викторина</h3><p>Живые игры на занятиях: вопросы на экране, ответы с телефонов по QR-коду, музыка и таблица лидеров. До 1000 игроков.</p></a>
+        <a class="hp-card" href="{{ url('typing') }}"><i class="fa fa-keyboard-o"></i>
+            <h3>Тренажёр печати</h3><p>Уроки слепой печати, тесты скорости и таблица рекордов.</p></a>
+        <a class="hp-card" href="{{ url('user_edit_profile') }}"><i class="fa fa-user"></i>
+            <h3>Профиль</h3><p>История решений, достижения и настройки: аватар, язык, тёмная тема.</p></a>
+    </div>
+
+    <h3 class="hp-h">Языки программирования</h3>
+    <ul class="hp-langs">
+        {% for l in ('C', 'C++', 'C#', 'F#', 'Java', 'Python', 'JavaScript', 'Go', 'Kotlin', 'Pascal', 'Scratch') %}<li>{{ l }}</li>{% endfor %}
+    </ul>
+
+    <div class="hp-credits">
+        Разработано на кафедре информационных систем и программирования МФТИТ ОшГУ. Разработчик: Карабаев С. Э., <a href="mailto:skarabaev@oshsu.kg">skarabaev@oshsu.kg</a>.<br>
+        Основа — открытый движок <a href="https://github.com/DMOJ/site" target="_blank" rel="noopener">DMOJ</a> (лицензия <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener">AGPL-3.0</a>). Компилятор, редактор, викторина, тренажёр, защита от списывания, интерфейс и задачи — собственная разработка ОшГУ.<br>
+        Исходный код: <a href="https://github.com/samat90/olymp.oshsu.kg" target="_blank" rel="noopener">github.com/samat90/olymp.oshsu.kg</a> · Сайт университета: <a href="https://oshsu.kg" target="_blank" rel="noopener">oshsu.kg</a>
+    </div>
+</div>
+{% endblock %}
