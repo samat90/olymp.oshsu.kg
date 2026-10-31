@@ -172,8 +172,8 @@ def launch(request, key):
     if disabled and not request.user.is_superuser:
         return render(request, 'quiz/message.html', {'title': 'Викторина', 'message': disabled}, status=403)
     mode = request.POST.get('mode')
-    if mode not in (GameSession.HOST_SCREEN, GameSession.HOST_REMOTE, GameSession.AUTO):
-        mode = GameSession.HOST_SCREEN
+    if mode != GameSession.AUTO:
+        mode = GameSession.HOST
     options = {
         'shuffle_questions': request.POST.get('shuffle_questions') == 'on',
         'shuffle_answers': request.POST.get('shuffle_answers') == 'on',
@@ -334,10 +334,11 @@ def host(request, pin):
     if not is_host(request, state):
         return HttpResponseForbidden('Только ведущий может открыть эту страницу')
     game = GameSession.objects.select_related('quiz').get(id=state['id'])
+    # The same game in two layouts: a big screen (projector, computer) or a compact one for a phone.
     view = request.GET.get('view')
-    role = 'remote' if view == 'remote' or (view != 'screen' and state['mode'] == GameSession.HOST_REMOTE) \
-        else 'screen'
+    role = 'remote' if view == 'remote' else 'screen'
     context = game_page_context(state, game, role)
+    context['view_chosen'] = view in ('remote', 'screen')
     context['join_absolute'] = request.build_absolute_uri(reverse('quiz_join'))
     return render(request, 'quiz/host.html', context)
 
@@ -536,7 +537,7 @@ def host_action(request, pin):
 
 def game_for_report(request, game_id):
     game = get_object_or_404(GameSession.objects.select_related('quiz'), id=game_id)
-    if not request.user.is_authenticated or not (game.host_id == request.profile.id or request.user.is_superuser or
+    if not request.user.is_authenticated or not (game.host_id == request.profile.id or Quiz.is_admin(request.user) or
                                                  game.quiz.author_id == request.profile.id):
         raise Http404()
     return game

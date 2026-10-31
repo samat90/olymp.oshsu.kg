@@ -8,7 +8,7 @@ notices it (guarded by a cache lock), so no background worker is needed.
 Cache keys (G = game id):
     qz:s:<pin>            state dict (see new_state)
     qz:np:G               number of players in the game
-    qz:na:G:i             number of answers to question i
+    qz:na:G:i / qz:ns:G:i  number of answers to question i / of players who received it
     qz:q:G:i / qz:k:G:i   question for players (no correct answer) / answer key for checking
     qz:seen:G:i:P         when player P received question i
     qz:a:G:i:P            player P has answered question i
@@ -36,6 +36,7 @@ from judge.utils import quiz_scoring as scoring
 
 TTL = 6 * 3600
 COUNTDOWN = 3            # seconds of "get ready" before answers open
+SEEN_WINDOW = 3          # seconds after the start when players who have not fetched the question still count
 GRACE = 1.5              # answers sent in time but delivered late (network, busy server) still count
 AUTO_REVEAL = 7          # automatic mode: seconds on the reveal and on the leaderboard
 AUTO_BOARD = 6
@@ -311,7 +312,29 @@ def get_key(game_id, index):
 
 
 def mark_seen(game_id, index, player_id):
-    cache.add(k('seen', game_id, index, player_id), now(), TTL)
+    if cache.add(k('seen', game_id, index, player_id), now(), TTL):
+        try:
+            cache.incr(k('ns', game_id, index))
+        except ValueError:
+            cache.add(k('ns', game_id, index), 0, TTL)
+            cache.incr(k('ns', game_id, index))
+
+
+def everyone_answered(game_id, index, answered=None, start=None):
+    """All players who are here have answered: those in the game who received this question.
+
+    A player who closed the tab never receives the question, so they do not hold the game up. Right after
+    the question opens everyone in the game counts: a slow phone may not have fetched it yet.
+    """
+    names = [k('na', game_id, index), k('np', game_id), k('ns', game_id, index)]
+    got = cache.get_many(names)
+    answered = got.get(names[0], 0) if answered is None else answered
+    players = got.get(names[1]) or 0
+    seen = got.get(names[2]) or 0
+    if start is not None and now() < start + SEEN_WINDOW:
+        seen = 0
+    waiting_for = min(players, seen) if seen else players
+    return waiting_for > 0 and answered >= waiting_for
 
 
 # ---------------------------------------------------------------- phase changes
@@ -347,7 +370,7 @@ def open_question(state, index):
     opened = now() + COUNTDOWN
     state.update({'ph': GameSession.QUESTION, 'i': index, 'start': round(opened, 3),
                   'end': round(opened + key['time'], 3), 'paused': None})
-    cache.set(k('na', game.id, index), 0, TTL)
+    cache.set_many({k('na', game.id, index): 0, k('ns', game.id, index): 0}, TTL)
     GameSession.objects.filter(id=game.id).update(status=GameSession.QUESTION, current=index,
                                                   phase_started=timezone.now())
     return save_state(state)
@@ -681,7 +704,7 @@ def remove_player(state, player_id):
                     cache.decr(k('na', current['id'], index))
                 except ValueError:
                     pass
-            if answered_count(current['id'], index) >= player_count(current['id']) > 0:
+            if everyone_answered(current['id'], index, start=current['start']):
                 # The removed player was the last one we were waiting for.
                 try:
                     with phase_lock(current['id']):
@@ -736,7 +759,7 @@ def submit_answer(state, player_id, raw_value):
     except ValueError:
         answered = 1
         cache.set(k('na', game_id, index), 1, TTL)
-    if state['mode'] == GameSession.SOLO or answered >= player_count(game_id):
+    if state['mode'] == GameSession.SOLO or everyone_answered(game_id, index, answered, state['start']):
         # Everyone has answered: no need to wait for the timer.
         try:
             with phase_lock(game_id):

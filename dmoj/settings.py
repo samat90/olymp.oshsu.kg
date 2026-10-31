@@ -633,6 +633,12 @@ for _db in DATABASES.values():
         if 'jit' not in _options.get('options', ''):
             _options['options'] = (_options.get('options', '') + ' -c jit=off').strip()
 
+# Django's Redis cache builds a new client object for every operation; quiz games poll the cache
+# hundreds of times a second, so use the same cache keeping one client per process.
+for _cache in CACHES.values():
+    if _cache.get('BACKEND') == 'django.core.cache.backends.redis.RedisCache':
+        _cache['BACKEND'] = 'judge.utils.redis_cache.RedisCache'
+
 # Check settings are consistent
 assert DMOJ_PROBLEM_MIN_USER_POINTS_VOTE >= DMOJ_PROBLEM_MIN_PROBLEM_POINTS
 

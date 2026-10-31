@@ -38,9 +38,16 @@ class Quiz(models.Model):
     def __str__(self):
         return self.title
 
+    @staticmethod
+    def is_admin(user):
+        """Site admins manage every quiz: superusers and staff allowed to change quizzes."""
+        return user.is_authenticated and (user.is_superuser or (user.is_staff and user.has_perm('judge.change_quiz')))
+
     def can_edit(self, user):
-        """Only the author edits and deletes; admins moderate in the admin (hide)."""
-        return user.is_authenticated and self.author_id == user.profile.id and not self.is_deleted
+        """The author or a site admin edits and deletes; other users only play and host."""
+        if not user.is_authenticated or self.is_deleted:
+            return False
+        return self.author_id == user.profile.id or self.is_admin(user)
 
     def can_view(self, user):
         """Anyone may open, play and host a quiz unless an admin hid it."""
@@ -48,7 +55,7 @@ class Quiz(models.Model):
             return False
         if not self.is_hidden:
             return True
-        return user.is_authenticated and (self.author_id == user.profile.id or user.is_superuser)
+        return user.is_authenticated and (self.author_id == user.profile.id or self.is_admin(user))
 
 
 class Question(models.Model):
@@ -123,13 +130,12 @@ class Option(models.Model):
 
 
 class GameSession(models.Model):
-    HOST_SCREEN = 'screen'
-    HOST_REMOTE = 'remote'
+    # One hosted mode: the host runs the game from a computer or a phone, players see everything on their phones.
+    HOST = HOST_SCREEN = 'screen'
     AUTO = 'auto'
     SOLO = 'solo'
     MODES = (
-        (HOST_SCREEN, 'С ведущим и экраном'),
-        (HOST_REMOTE, 'С ведущим без экрана'),
+        (HOST, 'С ведущим'),
         (AUTO, 'Автоматически'),
         (SOLO, 'В одиночку'),
     )

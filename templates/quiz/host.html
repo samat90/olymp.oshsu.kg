@@ -21,6 +21,9 @@
         window.QUIZ.urls.screen = {{ (url('quiz_host', pin) + '?view=screen')|tojson }};
         window.QUIZ.urls.remote = {{ (url('quiz_host', pin) + '?view=remote')|tojson }};
     </script>
+    {% if not view_chosen %}
+        <script>if (window.innerWidth < 700) location.replace(window.QUIZ.urls.remote);</script>
+    {% endif %}
     <script src="{{ static('quiz/audio.js') }}?v={{ STATIC_VERSION }}" defer></script>
     <script src="{{ static('quiz/fx.js') }}?v={{ STATIC_VERSION }}" defer></script>
     <script src="{{ static('quiz/game.js') }}?v={{ STATIC_VERSION }}" defer></script>
@@ -41,6 +44,7 @@
             </span>
         {% else %}
             <span class="qz-bar-pin">PIN <b>{{ pin }}</b></span>
+            <img class="qz-bar-qr" src="{{ config.urls.qr }}" alt="QR-код для входа" width="40" height="40">
         {% endif %}
     </header>
     <div class="qz-net" id="qz-net" role="status" hidden><i class="fa fa-wifi"></i> Нет связи, переподключаюсь…</div>
@@ -54,9 +58,9 @@
         <button type="button" class="qz-ctl" data-act="sound" title="Звук (M)"><i class="fa fa-volume-up"></i> <span>Звук</span></button>
         {% if role == 'screen' %}
             <button type="button" class="qz-ctl" data-act="fullscreen" title="Полный экран (F)"><i class="fa fa-expand"></i> <span>Экран</span></button>
-            <a class="qz-ctl" href="{{ url('quiz_host', pin) }}?view=remote" target="_blank" rel="noopener" title="Пульт на телефоне"><i class="fa fa-mobile"></i> <span>Пульт</span></a>
+            <a class="qz-ctl" href="{{ url('quiz_host', pin) }}?view=remote" title="Компактный вид для телефона"><i class="fa fa-mobile"></i> <span>Телефон</span></a>
         {% else %}
-            <a class="qz-ctl" href="{{ url('quiz_host', pin) }}?view=screen" title="Показать на экране"><i class="fa fa-desktop"></i> <span>Экран</span></a>
+            <a class="qz-ctl" href="{{ url('quiz_host', pin) }}?view=screen" title="Большой экран: компьютер или проектор"><i class="fa fa-desktop"></i> <span>Экран</span></a>
         {% endif %}
         <button type="button" class="qz-ctl qz-ctl-end" data-act="end" title="Завершить игру"><i class="fa fa-stop"></i> <span>Завершить</span></button>
     </div>

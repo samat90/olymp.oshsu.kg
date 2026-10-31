@@ -306,6 +306,7 @@ class QuizTimingTest(QuizGameTestCase):
         start = self.t
         self.t = start + 4
         self.question(a, pin)                       # A sees the question 4 s late
+        self.question(c, pin)                       # C is here too, so the question stays open
         self.t = start + 6
         right = option_id(self.q1, 'Два')
         # whatever the client says about time is ignored
@@ -367,7 +368,7 @@ class QuizPermissionRulesTest(QuizGameTestCase):
 
     def test_anyone_signed_in_hosts_someone_elses_quiz_in_every_mode(self):
         stranger = self.login(self.other)
-        for mode in ('screen', 'remote', 'auto'):
+        for mode in ('screen', 'auto'):
             pin = self.launch(mode=mode, client=stranger)
             self.assertEqual(self.game(pin).host, self.other.profile)
             self.assertEqual(stranger.get(reverse('quiz_host', args=[pin])).status_code, 200)
@@ -380,7 +381,8 @@ class QuizPermissionRulesTest(QuizGameTestCase):
     def test_only_the_author_edits_and_deletes(self):
         q = self.q1
         api = 'quiz_api_question_save', 'quiz_api_question_delete', 'quiz_api_question_image'
-        for user in (self.other, self.admin):
+        staff = create_user(username='plainstaff', is_staff=True)       # staff without the quiz permission
+        for user in (self.other, staff):
             client = self.login(user)
             self.assertIn(client.get(reverse('quiz_edit', args=[self.quiz.key])).status_code, (403, 404))
             self.assertIn(client.post(reverse('quiz_delete', args=[self.quiz.key])).status_code, (403, 404))
@@ -398,6 +400,34 @@ class QuizPermissionRulesTest(QuizGameTestCase):
         page = self.host.get(reverse('quiz_detail', args=[self.quiz.key])).content.decode()
         self.assertIn(reverse('quiz_edit', args=[self.quiz.key]), page)
         self.assertEqual(self.host.get(reverse('quiz_edit', args=[self.quiz.key])).status_code, 200)
+
+    def test_site_admins_manage_every_quiz(self):
+        from django.contrib.auth.models import Permission
+        moderator = create_user(username='moderator', is_staff=True)
+        moderator.user_permissions.add(Permission.objects.get(codename='change_quiz', content_type__app_label='judge'))
+        for user in (self.admin, moderator):
+            client = self.login(user)
+            self.assertEqual(client.get(reverse('quiz_edit', args=[self.quiz.key])).status_code, 200)
+            page = client.get(reverse('quiz_detail', args=[self.quiz.key])).content.decode()
+            self.assertIn(reverse('quiz_edit', args=[self.quiz.key]), page)
+            response = client.post(reverse('quiz_api_save', args=[self.quiz.key]),
+                                   json.dumps({'title': 'Правка админа %s' % user.username}),
+                                   content_type='application/json')
+            self.assertEqual(response.status_code, 200)
+            added = client.post(reverse('quiz_api_question_add', args=[self.quiz.key]), json.dumps({'type': 'poll'}),
+                                content_type='application/json')
+            self.assertEqual(added.status_code, 200)
+            qid = added.json()['question']['id']
+            self.assertEqual(client.post(reverse('quiz_api_question_delete', args=[self.quiz.key, qid]), '{}',
+                                         content_type='application/json').status_code, 200)
+        self.quiz.refresh_from_db()
+        self.assertEqual(self.quiz.title, 'Правка админа moderator')
+        pin = self.launch()
+        game = self.game(pin)
+        self.assertEqual(self.login(moderator).get(reverse('quiz_game_report', args=[game.id])).status_code, 200)
+        self.assertEqual(self.login(self.admin).post(reverse('quiz_delete', args=[self.quiz.key])).status_code, 302)
+        self.quiz.refresh_from_db()
+        self.assertTrue(self.quiz.is_deleted)                         # it was played: reports stay
 
     def test_admin_moderates_by_hiding(self):
         self.quiz.is_hidden = True
@@ -430,6 +460,36 @@ class QuizPermissionRulesTest(QuizGameTestCase):
         quiz = make_quiz(self.author, title='Черновик')
         self.assertEqual(self.host.post(reverse('quiz_delete', args=[quiz.key])).status_code, 302)
         self.assertFalse(Quiz.objects.filter(id=quiz.id).exists())
+
+
+class QuizEarlyCloseTest(QuizGameTestCase):
+    def test_long_question_closes_when_everyone_answered(self):
+        self.q1.time_limit = 50
+        self.q1.save()
+        pin, (a, b) = self.game_with_players('Аня', 'Бек')
+        self.action(pin, 'start')
+        self.t += 8
+        self.answer(a, pin, 0, option_id(self.q1, 'Два'))
+        self.assertEqual(self.phase(pin), 'question')
+        self.answer(b, pin, 0, option_id(self.q1, 'Три'))
+        self.assertEqual(self.phase(pin), 'reveal')                 # at 8 s of 50, no grace wait
+
+    def test_a_closed_tab_does_not_hold_the_question(self):
+        pin, (a, b, gone) = self.game_with_players('Аня', 'Бек', 'Ушёл')
+        self.action(pin, 'start')
+        self.question(a, pin)                                       # these two received the question,
+        self.question(b, pin)                                       # the third player never polled again
+        self.t += engine.SEEN_WINDOW + 1
+        self.answer(a, pin, 0, option_id(self.q1, 'Два'))
+        self.assertEqual(self.phase(pin), 'question')
+        self.answer(b, pin, 0, option_id(self.q1, 'Два'))
+        self.assertEqual(self.phase(pin), 'reveal')
+
+    def test_auto_mode_closes_early_too(self):
+        pin, (a,) = self.game_with_players('Аня', mode='auto')
+        self.action(pin, 'start')
+        self.answer(a, pin, 0, option_id(self.q1, 'Два'))
+        self.assertEqual(self.phase(pin), 'reveal')
 
 
 class QuizDeletedQuestionTest(QuizGameTestCase):
@@ -1137,6 +1197,17 @@ class QuizAccessTest(QuizGameTestCase):
         self.assertContains(self.host.get(reverse('quiz_my')), 'Столицы')
         self.assertEqual(self.login(self.student).get(reverse('quiz_my')).status_code, 200)
 
+    @needs_templates('quiz/host.html')
+    def test_one_hosted_mode_with_pin_and_qr_in_both_layouts(self):
+        self.assertEqual([m for m, _name in GameSession.MODES], ['screen', 'auto', 'solo'])
+        pin = self.launch(mode='remote')                 # the old mode name still starts a hosted game
+        self.assertEqual(self.game(pin).mode, GameSession.HOST)
+        qr = reverse('quiz_qr', args=[pin])
+        for view in ('', '?view=screen', '?view=remote'):
+            page = self.host.get(reverse('quiz_host', args=[pin]) + view).content.decode()
+            self.assertIn(pin, page)
+            self.assertIn(qr, page)
+
     @needs_templates('quiz/play.html', 'quiz/host.html')
     def test_game_pages_render(self):
         pin, (a,) = self.game_with_players('Аня')
@@ -1237,11 +1308,11 @@ class QuizEditorTest(TestCase):
         self.assertEqual(self.save(question['id'], payload, status=404, client=self.stranger, quiz=mine)['error'],
                          'Вопрос не найден')
 
-    def test_author_edits_admin_does_not(self):
+    def test_author_and_admin_edit(self):
         admin = Client()
         admin.force_login(create_user(username='editadmin', is_superuser=True, is_staff=True))
         response = self.api('quiz_api_save', client=admin, body={'title': 'Чужое', 'access': 'public'})
-        self.assertEqual(response.status_code, 404)
+        self.assertEqual(response.status_code, 200)
         response = self.api('quiz_api_save', body={'title': '  Новое   имя ', 'access': 'public'})
         self.assertEqual(response.status_code, 200)
         self.quiz.refresh_from_db()
@@ -1446,3 +1517,28 @@ class QuizEditorTest(TestCase):
     def test_editor_page(self):
         self.add(Q.SINGLE)
         self.assertEqual(self.editor.get(reverse('quiz_edit', args=[self.quiz.key])).status_code, 200)
+
+
+class QuizRedisCacheTest(TestCase):
+    def test_one_client_per_process(self):
+        from judge.utils.redis_cache import RedisCache
+        backend = RedisCache('redis://127.0.0.1:6379/9', {})
+        client = backend._cache
+        self.assertIs(client.get_client(), client.get_client())
+        self.assertIs(client.get_client(write=True), client.get_client())
+        try:
+            backend.set('qz:test', {'a': 1}, 5)
+        except Exception:
+            self.skipTest('no Redis here')
+        self.assertEqual(backend.get_many(['qz:test', 'qz:none']), {'qz:test': {'a': 1}})
+        backend.delete('qz:test')
+
+    def test_settings_swap_django_redis_for_ours(self):
+        source = open(os.path.join(os.path.dirname(__file__), '..', 'dmoj', 'settings.py'), encoding='utf-8').read()
+        start = source.index('for _cache in CACHES.values():')
+        caches = {'default': {'BACKEND': 'django.core.cache.backends.redis.RedisCache', 'LOCATION': 'redis://x/1'},
+                  'other': {'BACKEND': 'django.core.cache.backends.locmem.LocMemCache'}}
+        exec(source[start:source.index('\n\n', start)], {'CACHES': caches})
+        self.assertEqual(caches['default']['BACKEND'], 'judge.utils.redis_cache.RedisCache')
+        self.assertEqual(caches['default']['LOCATION'], 'redis://x/1')
+        self.assertEqual(caches['other']['BACKEND'], 'django.core.cache.backends.locmem.LocMemCache')

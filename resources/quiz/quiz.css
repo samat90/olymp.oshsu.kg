@@ -670,3 +670,5 @@ button.qz-btn-accent:hover, button.qz-btn-accent:focus { background: #0a6b64; }
         align-content: flex-start; min-height: 4.6em; }
     .qz-role-screen .qz-sbars:not(.qz-sbars-text) .qz-sbar-label .qz-opt-body { flex: 1 0 100%; order: 2; }
 }
+.qz-bar-qr { width: 40px; height: 40px; margin-left: 8px; border-radius: 6px; background: #fff; padding: 2px; }
+.qz-remote-qr { display: block; width: 180px; height: 180px; margin: 4px auto; padding: 8px; border-radius: 14px; background: #fff; }
