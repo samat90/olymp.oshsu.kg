@@ -15,7 +15,7 @@ Cache keys (G = game id):
     qz:me:G:P             player P's last result, score, place and streak
     qz:r:G:i              reveal data: correct answer, statistics, explanation
     qz:lb:G               leaderboard (top players)
-    qz:kick:G             removed player ids
+    qz:x:G:P              player P was removed by the host
 """
 import random
 import secrets
@@ -36,7 +36,7 @@ from judge.utils import quiz_scoring as scoring
 
 TTL = 6 * 3600
 COUNTDOWN = 3            # seconds of "get ready" before answers open
-GRACE = 0.5              # late answers are accepted this long after the deadline (network)
+GRACE = 1.5              # answers sent in time but delivered late (network, busy server) still count
 AUTO_REVEAL = 7          # automatic mode: seconds on the reveal and on the leaderboard
 AUTO_BOARD = 6
 LEADERBOARD_SIZE = 10
@@ -106,10 +106,22 @@ def create_game(quiz, host, mode, options=None):
     if mode == GameSession.SOLO:
         game_settings['max_players'] = 1
     game = GameSession.objects.create(quiz=quiz, host=host if mode != GameSession.SOLO else None, pin=new_pin(),
-                                      mode=mode, settings=game_settings, question_ids=questions)
+                                      mode=mode, settings=game_settings, question_ids=questions,
+                                      snapshot=snapshot(quiz))
     cache.set(k('s', game.pin), new_state(game), TTL)
     cache.set(k('np', game.id), 0, TTL)
     return game
+
+
+def snapshot(quiz):
+    """The questions as they were at the start, for reports after a question is edited or deleted."""
+    data = {}
+    for q in quiz.questions.prefetch_related('options'):
+        data[str(q.id)] = {'type': q.type, 'type_name': q.get_type_display(), 'text': q.text[:500],
+                           'scored': q.scored, 'correct': correct_text(q),
+                           'options': {str(o.id): o.text or 'картинка %d' % (n + 1)
+                                       for n, o in enumerate(q.options.all())}}
+    return data
 
 
 def unfinished_questions(quiz):
@@ -186,9 +198,10 @@ def player_count(game_id):
     return cache.get(k('np', game_id)) or 0
 
 
-def public_state(state):
+def public_state(state, players=None):
     """What every player polls. No database queries."""
-    players = player_count(state['id'])
+    if players is None:
+        players = player_count(state['id'])
     return {'v': state['v'], 'ph': state['ph'], 'i': state['i'], 'n': state['n'], 'now': round(now(), 3),
             'start': state['start'], 'end': state['end'], 'paused': state['paused'], 'mode': state['mode'],
             'poll': poll_interval(players)}
@@ -346,7 +359,7 @@ def close_question(state):
     index = state['i']
     key = get_key(game.id, index)
     question = Question.objects.prefetch_related('options').get(id=key['id'])
-    answers = {a.player_id: a for a in Answer.objects.filter(player__game=game, question_id=key['id'])}
+    answers = {a.player_id: a for a in Answer.objects.filter(player__game=game, question_key=key['id'])}
     players = list(Player.objects.filter(game=game, is_removed=False))
     old_rank = {p.id: p.rank for p in players}
     is_scored = scoring.scored(key)
@@ -455,7 +468,7 @@ def prepare_finals(game, players):
     ordered = [(n, questions[qid]) for n, qid in enumerate(game.question_ids, 1) if qid in questions]
     answers = {}
     for a in Answer.objects.filter(player__game=game):
-        answers[(a.player_id, a.question_id)] = a
+        answers[(a.player_id, a.question_key)] = a
     cache.set(k('final', game.id), {
         'top': [{'id': p.id, 'nickname': p.nickname, 'score': p.score, 'correct': p.correct, 'rank': p.rank}
                 for p in players[:10]],
@@ -655,9 +668,7 @@ def join(state, profile, nickname, token, ip):
 def remove_player(state, player_id):
     updated = Player.objects.filter(game_id=state['id'], id=player_id, is_removed=False).update(is_removed=True)
     if updated:
-        kicked = set(cache.get(k('kick', state['id'])) or ())
-        kicked.add(player_id)
-        cache.set(k('kick', state['id']), kicked, TTL)
+        cache.set(k('x', state['id'], player_id), 1, TTL)
         try:
             cache.decr(k('np', state['id']))
         except ValueError:
@@ -683,7 +694,7 @@ def remove_player(state, player_id):
 
 
 def is_kicked(game_id, player_id):
-    return player_id in (cache.get(k('kick', game_id)) or ())
+    return bool(cache.get(k('x', game_id, player_id)))
 
 
 def submit_answer(state, player_id, raw_value):
@@ -698,22 +709,26 @@ def submit_answer(state, player_id, raw_value):
     if state['paused'] is not None:
         return 409, {'error': 'Игра на паузе'}
     game_id, index = state['id'], state['i']
-    if is_kicked(game_id, player_id):
+    names = {'x': k('x', game_id, player_id), 'key': k('k', game_id, index),
+             'seen': k('seen', game_id, index, player_id), 'me': k('me', game_id, player_id)}
+    got = cache.get_many(list(names.values()))
+    if got.get(names['x']):
         return 403, {'error': 'Вы удалены из игры'}
-    key = get_key(game_id, index)
+    key = got.get(names['key']) or get_key(game_id, index)
     value = scoring.clean_value(key, raw_value)
     if value is None:
         return 400, {'error': 'Неверный ответ'}
     if not cache.add(k('a', game_id, index, player_id), 1, TTL):
         return 409, {'error': 'Ответ уже принят'}
-    seen = cache.get(k('seen', game_id, index, player_id)) or state['start']
-    elapsed = max(t - max(seen, state['start']), 0)
+    seen = got.get(names['seen']) or state['start']
+    # Capped at the time limit: an answer delivered late never earns more than the slowest one in time.
+    elapsed = min(max(t - max(seen, state['start']), 0), key['time'])
     fraction, correct = scoring.check(key, value)
-    me = cache.get(k('me', game_id, player_id)) or {}
+    me = got.get(names['me']) or {}
     points = scoring.points(key, fraction, correct, elapsed, me.get('streak', 0))
     try:
-        Answer.objects.create(player_id=player_id, question_id=key['id'], value=value, is_correct=correct,
-                              fraction=fraction, points=points, time_ms=int(elapsed * 1000))
+        Answer.objects.create(player_id=player_id, question_id=key['id'], question_key=key['id'], value=value,
+                              is_correct=correct, fraction=fraction, points=points, time_ms=int(elapsed * 1000))
     except IntegrityError:
         return 409, {'error': 'Ответ уже принят'}
     try:

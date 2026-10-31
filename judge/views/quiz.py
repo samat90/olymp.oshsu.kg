@@ -54,14 +54,20 @@ def client_ip(request):
     return request.META.get('REMOTE_ADDR', '')
 
 
-def current_player_id(request, state):
-    """The player id from the signed cookie, checked against this game. No database."""
+def cookie_ids(request, pin):
+    """(game id, player id) from the signed player cookie, or None. No database."""
     try:
-        value = request.get_signed_cookie(player_cookie(state['pin']), salt=COOKIE_SALT)
+        value = request.get_signed_cookie(player_cookie(pin), salt=COOKIE_SALT)
         game_id, player_id = (int(x) for x in value.split(':'))
     except (KeyError, ValueError, TypeError, signing.BadSignature):
         return None
-    return player_id if game_id == state['id'] else None
+    return game_id, player_id
+
+
+def current_player_id(request, state):
+    """The player id from the signed cookie, checked against this game."""
+    ids = cookie_ids(request, state['pin'])
+    return ids[1] if ids and ids[0] == state['id'] else None
 
 
 def set_player_cookie(response, game, player):
@@ -84,7 +90,8 @@ def is_host(request, state):
 # ---------------------------------------------------------------- catalog and quiz pages
 
 def visible_quizzes():
-    return Quiz.objects.filter(access=Quiz.PUBLIC, is_hidden=False).annotate(question_count=Count('questions')) \
+    return Quiz.objects.filter(access=Quiz.PUBLIC, is_hidden=False, is_deleted=False) \
+        .annotate(question_count=Count('questions')) \
         .filter(question_count__gt=0).select_related('author__user')
 
 
@@ -114,7 +121,8 @@ def catalog(request):
 @login_required
 def my_quizzes(request):
     profile = request.profile
-    quizzes = Quiz.objects.filter(author=profile).annotate(question_count=Count('questions')).order_by('-updated')
+    quizzes = Quiz.objects.filter(author=profile, is_deleted=False).annotate(question_count=Count('questions')) \
+        .order_by('-updated')
     hosted = GameSession.objects.filter(host=profile).select_related('quiz') \
         .annotate(player_count=Count('players')).order_by('-created')[:30]
     played = QuizPlayer.objects.filter(profile=profile).select_related('game__quiz') \
@@ -338,20 +346,28 @@ def host(request, pin):
 
 @short_circuit
 def state_view(request, pin):
-    """GET ?v=N. The hot path: cache only, no middleware, no database. `{}` when nothing changed."""
-    state = cache.get(engine.k('s', pin))
+    """GET ?v=N. The hot path: one cache round trip, no middleware, no database. `{}` when nothing changed."""
+    ids = cookie_ids(request, pin)
+    keys = [engine.k('s', pin)]
+    if ids:
+        keys += [engine.k('np', ids[0]), engine.k('x', ids[0], ids[1])]
+    got = cache.get_many(keys)
+    state = got.get(keys[0])
     if state is None:
         state = engine.get_state(pin)
         if state is None:
             return JsonResponse({'error': 'Игра не найдена', 'gone': True}, status=404)
     state = engine.advance_if_due(state)
-    player_id = current_player_id(request, state)
-    if player_id is not None and engine.is_kicked(state['id'], player_id):
-        return JsonResponse({'kicked': True})
+    player_id = players = None
+    if ids and ids[0] == state['id']:
+        player_id = ids[1]
+        if got.get(keys[2]):
+            return JsonResponse({'kicked': True})
+        players = got.get(keys[1])
     if request.GET.get('v') == str(state['v']):
         response = JsonResponse({})
     else:
-        data = engine.public_state(state)
+        data = engine.public_state(state, players)
         if request.GET.get('full') != '0':
             engine.with_details(state, data, player_id)
         response = JsonResponse(data)
@@ -526,13 +542,34 @@ def game_for_report(request, game_id):
     return game
 
 
+class SnapshotQuestion:
+    """A question deleted after the game, as it was at the start."""
+    is_deleted = True
+
+    def __init__(self, qid, data):
+        self.id = qid
+        self.type = data.get('type', '')
+        self.text = data.get('text', '')
+        self.scored = data.get('scored', True)
+        self.type_name = data.get('type_name', '')
+
+    def get_type_display(self):
+        return '%s (удалён)' % self.type_name
+
+
 def report_rows(game):
     questions = {q.id: q for q in QuizQuestion.objects.filter(id__in=game.question_ids)}
-    ordered = [questions[i] for i in game.question_ids if i in questions]
+    snapshot = game.snapshot or {}
+    ordered = []
+    for qid in game.question_ids:
+        if qid in questions:
+            ordered.append(questions[qid])
+        elif str(qid) in snapshot:
+            ordered.append(SnapshotQuestion(qid, snapshot[str(qid)]))
     players = list(QuizPlayer.objects.filter(game=game).order_by('is_removed', '-score', 'joined'))
     answers = {}
     for a in QuizAnswer.objects.filter(player__game=game):
-        answers[(a.player_id, a.question_id)] = a
+        answers[(a.player_id, a.question_key)] = a
     stats = []
     for number, q in enumerate(ordered, 1):
         given = [answers[(p.id, q.id)] for p in players if (p.id, q.id) in answers]

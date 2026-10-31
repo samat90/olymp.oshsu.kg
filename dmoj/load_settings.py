@@ -4,7 +4,7 @@ from dmoj.dev_wsl_settings import *  # noqa: F401, F403
 DEBUG = False
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+        'BACKEND': 'judge.utils.redis_cache.RedisCache',
         'LOCATION': 'redis://127.0.0.1:6379/1',
     },
 }
