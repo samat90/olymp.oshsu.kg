@@ -646,7 +646,12 @@
                 b.classList.remove('qz-count');
                 void b.offsetWidth;
                 b.classList.add('qz-count');
-                if (withSound) sound.sfx('tick');
+                if (withSound) {
+                    // The first question of the game opens with a gong.
+                    var first = game.st && game.st.i === 0 && el.getAttribute('data-gong') !== '1';
+                    if (first) el.setAttribute('data-gong', '1');
+                    sound.sfx(first ? 'gong' : 'tick');
+                }
             }
             return true;
         }
@@ -1273,12 +1278,12 @@
                 h('a', {cls: 'qz-btn qz-btn-lg', href: U.join, text: 'Другая игра'})));
             show(view);
             if (me && me.rank && me.rank <= 3) {
-                sound.sfx('fanfare');
-                setTimeout(function () { sound.music('final'); }, 1800);
+                sound.sfx('finale');
+                setTimeout(function () { sound.music('final'); }, 3500);
                 sound.vibrate([60, 60, 60, 60, 200]);
                 setTimeout(function () { confetti(5000); }, 900);
             } else {
-                sound.sfx('reveal');
+                sound.sfx('finale');
             }
         }
 
@@ -1726,8 +1731,8 @@
                 finalLinks()));
             if (H.effectsFor !== 'fin') {
                 H.effectsFor = 'fin';
-                sound.sfx('fanfare');
-                setTimeout(function () { sound.music('final'); }, 1800);
+                sound.sfx('finale');
+                setTimeout(function () { sound.music('final'); }, 3500);
                 setTimeout(function () { confetti(6000); }, 1500);
             }
         }
