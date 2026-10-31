@@ -6,10 +6,6 @@
 .hp-hero h2 { font-size: 1.9em; margin: 0 0 .35em; line-height: 1.2; }
 .hp-hero p { font-size: 1.1em; max-width: 46em; margin: 0 0 1.1em; opacity: .85; }
 .hp-actions { display: flex; flex-wrap: wrap; gap: .6em; }
-.hp-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .8em; margin: 0 0 2em; }
-.hp-stat { border: 1px solid var(--hp-line); border-radius: 12px; padding: .9em 1em; }
-.hp-stat b { display: block; font-size: 1.7em; line-height: 1.1; }
-.hp-stat span { opacity: .7; font-size: .92em; }
 .hp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: .9em; margin: 0 0 2em; }
 .hp-card { display: block; border: 1px solid var(--hp-line); border-radius: 12px; padding: 1em 1.1em; color: inherit !important; text-decoration: none !important; transition: border-color .15s, transform .15s; }
 .hp-card:hover { border-color: var(--hp-accent); transform: translateY(-2px); }
