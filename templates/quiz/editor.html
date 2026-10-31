@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block title_row %}{% endblock %}
+{% block title_ruler %}{% endblock %}
+
+{% block media %}
+    <link rel="stylesheet" href="{{ static('quiz/editor.css') }}?v={{ STATIC_VERSION }}">
+    <link rel="stylesheet" href="{{ static('quiz/theme.css') }}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
+{% block js_media %}
+    <script>
+        window.QUIZ_EDITOR = {{ config|tojson }};
+        window.QUIZ_EDITOR.csrf = '{{ csrf_token }}';
+    </script>
+    <script src="{{ static('quiz/fx.js') }}?v={{ STATIC_VERSION }}"></script>
+    <script src="{{ static('quiz/editor.js') }}?v={{ STATIC_VERSION }}"></script>
+{% endblock %}
+
+{% block body %}
+<div class="qe" id="qe">
+    <div class="qe-top">
+        <a class="qe-back" href="{{ url('quiz_my') }}"><i class="fa fa-angle-left"></i> Мои викторины</a>
+        <input type="text" id="qe-title" class="qe-title" maxlength="120" value="{{ quiz.title }}" aria-label="Название викторины" data-field="title">
+        <span class="qe-status" id="qe-status" role="status"></span>
+        <button type="button" class="qe-btn" id="qe-settings-btn" title="Настройки"><i class="fa fa-cog"></i><span> Настройки</span></button>
+        <button type="button" class="qe-btn" id="qe-import-btn" title="Импорт из Excel"><i class="fa fa-file-excel-o"></i><span> Импорт из Excel</span></button>
+        <a class="qe-btn qe-primary" href="{{ url('quiz_detail', quiz.key) }}" title="Играть"><i class="fa fa-play"></i><span> Играть</span></a>
+    </div>
+
+    {% if quiz.is_hidden %}
+        <div class="qe-banner">Викторина скрыта администратором: другие пользователи её не видят.</div>
+    {% endif %}
+
+    <section class="qe-panel" id="qe-settings" hidden>
+        <h3>Настройки викторины</h3>
+        <div class="qe-grid2">
+            <div>
+                <div class="qe-field">
+                    <label for="qe-description">Описание</label>
+                    <textarea id="qe-description" rows="3" maxlength="2000" placeholder="О чём викторина, для какого класса">{{ quiz.description }}</textarea>
+                </div>
+                <div class="qe-field">
+                    <label for="qe-subject">Предмет</label>
+                    <input type="text" id="qe-subject" maxlength="60" value="{{ quiz.subject }}" placeholder="Информатика, математика, история…">
+                </div>
+                <div class="qe-field">
+                    <span class="qe-label">Доступ</span>
+                    <div class="qe-seg">
+                        <button type="button" data-access="public">Открытая</button>
+                        <button type="button" data-access="link">По ссылке</button>
+                    </div>
+                    <div class="qe-hint">Открытая видна в каталоге, её можно скопировать. По ссылке — только у кого есть ссылка или PIN.</div>
+                </div>
+            </div>
+            <div>
+                <div class="qe-field">
+                    <span class="qe-label">Тема оформления</span>
+                    <div class="qe-themes">
+                        {% for code, name in config.themes %}
+                            <button type="button" class="qe-theme qe-sw-{{ code }} qz-theme-{{ code }}" data-theme="{{ code }}">{{ name }}</button>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="qe-field">
+                    <span class="qe-label">Обложка</span>
+                    <div class="qe-cover">
+                        <img id="qe-cover-img" alt="" hidden>
+                        <button type="button" class="qe-btn qe-small" id="qe-cover-upload"><i class="fa fa-picture-o"></i> Загрузить</button>
+                        <button type="button" class="qe-btn qe-small qe-danger" id="qe-cover-remove" hidden><i class="fa fa-times"></i> Убрать</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="qe-settings-foot">
+            <span class="qe-hint">Игр сыграно: {{ quiz.plays }}</span>
+            <form method="post" action="{{ url('quiz_delete', quiz.key) }}" id="qe-delete-form">
+                <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+                <button type="submit" class="qe-btn qe-small qe-danger"><i class="fa fa-trash"></i> Удалить викторину</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="qe-panel" id="qe-import" hidden>
+        <h3>Импорт вопросов из Excel</h3>
+        <p style="margin:0 0 10px">Скачайте шаблон, заполните его и загрузите. Вопросы добавятся в конец викторины.</p>
+        <div class="qe-row">
+            <a class="qe-btn" href="{{ url('quiz_import_template') }}"><i class="fa fa-download"></i> Шаблон .xlsx</a>
+            <button type="button" class="qe-btn qe-primary" id="qe-import-file"><i class="fa fa-upload"></i> Загрузить файл</button>
+            <span class="qe-hint" style="margin:0">До 2 МБ и 100 строк.</span>
+        </div>
+        <div class="qe-import-result" id="qe-import-result" aria-live="polite"></div>
+    </section>
+
+    <div class="qe-main" id="qe-main">
+        <aside class="qe-side">
+            <div class="qe-side-head"><span>Вопросы</span><span id="qe-count"></span></div>
+            <ol class="qe-list" id="qe-list"></ol>
+            <button type="button" class="qe-btn qe-primary qe-add" id="qe-add"><i class="fa fa-plus"></i> Вопрос</button>
+        </aside>
+        <div class="qe-form" id="qe-form"></div>
+        <div class="qe-preview" id="qe-preview" hidden>
+            <div class="qe-preview-head">
+                <span>Так видит игрок</span>
+                <button type="button" class="qe-btn qe-small qe-icon" id="qe-preview-close" title="Закрыть" aria-label="Закрыть"><i class="fa fa-times"></i></button>
+            </div>
+            <div class="qe-phone" id="qe-phone"></div>
+        </div>
+    </div>
+
+    <div class="qe-modal" id="qe-picker" hidden role="dialog" aria-modal="true" aria-labelledby="qe-picker-title">
+        <div class="qe-modal-box">
+            <div class="qe-modal-head">
+                <h3 id="qe-picker-title">Тип вопроса</h3>
+                <button type="button" class="qe-btn qe-icon" id="qe-picker-close" aria-label="Закрыть"><i class="fa fa-times"></i></button>
+            </div>
+            <div class="qe-types" id="qe-types"></div>
+        </div>
+    </div>
+
+    <input type="file" id="qe-file" hidden>
+</div>
+{% endblock %}

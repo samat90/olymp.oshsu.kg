@@ -13,6 +13,7 @@ class JudgeAppConfig(AppConfig):
         #          DO NOT REMOVE THINKING THE IMPORT IS UNUSED.
         # noinspection PyUnresolvedReferences
         from . import signals, jinja2  # noqa: F401, imported for side effects
+        from judge.utils import quiz_images  # noqa: F401, deletes quiz pictures with their questions
 
         from judge.models import Language, Profile
         from django.contrib.auth.models import User

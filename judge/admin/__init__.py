@@ -9,15 +9,16 @@ from judge.admin.interface import BlogPostAdmin, FlatPageAdmin, LicenseAdmin, Lo
 from judge.admin.organization import ClassAdmin, OrganizationAdmin, OrganizationRequestAdmin
 from judge.admin.problem import ProblemAdmin, ProblemPointsVoteAdmin
 from judge.admin.profile import ProfileAdmin, UserAdmin
+from judge.admin.quiz import GameSessionAdmin, QuizAdmin, QuizReportAdmin
 from judge.admin.runtime import JudgeAdmin, LanguageAdmin
 from judge.admin.submission import SubmissionAdmin
 from judge.admin.taxon import ProblemGroupAdmin, ProblemTypeAdmin
 from judge.admin.ticket import TicketAdmin
 from judge.admin.workspace import TypingResultAdmin, WorkspaceFileAdmin
 from judge.models import BlogPost, Class, Comment, CommentLock, Contest, ContestParticipation, \
-    ContestTag, Judge, Language, License, MiscConfig, NavigationBar, Organization, \
-    OrganizationRequest, Problem, ProblemGroup, ProblemPointsVote, ProblemType, Profile, Submission, Ticket, \
-    TypingResult, WorkspaceFile
+    ContestTag, GameSession, Judge, Language, License, MiscConfig, NavigationBar, Organization, \
+    OrganizationRequest, Problem, ProblemGroup, ProblemPointsVote, ProblemType, Profile, Quiz, QuizReport, \
+    Submission, Ticket, TypingResult, WorkspaceFile
 
 admin.site.register(BlogPost, BlogPostAdmin)
 admin.site.register(Comment, CommentAdmin)
@@ -45,5 +46,8 @@ admin.site.register(Submission, SubmissionAdmin)
 admin.site.register(Ticket, TicketAdmin)
 admin.site.register(WorkspaceFile, WorkspaceFileAdmin)
 admin.site.register(TypingResult, TypingResultAdmin)
+admin.site.register(Quiz, QuizAdmin)
+admin.site.register(QuizReport, QuizReportAdmin)
+admin.site.register(GameSession, GameSessionAdmin)
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
