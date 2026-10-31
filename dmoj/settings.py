@@ -218,6 +218,14 @@ else:
                 },
                 ('judge.Ticket', 'fa-bell'),
                 {
+                    'model': 'judge.Quiz',
+                    'icon': 'fa-gamepad',
+                    'children': [
+                        'judge.GameSession',
+                        'judge.QuizReport',
+                    ],
+                },
+                {
                     'model': 'auth.User',
                     'icon': 'fa-user',
                     'children': [

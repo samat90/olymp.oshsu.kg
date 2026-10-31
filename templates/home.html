@@ -20,6 +20,10 @@
                 <span class="tile-icon"><i class="fa fa-keyboard-o"></i></span>
                 <span class="tile-text"><b>{{ _('Trainer') }}</b><small>{{ _('Touch typing and records') }}</small></span>
             </a>
+            <a class="hero-tile tile-quiz" href="{{ url('quiz_catalog') }}">
+                <span class="tile-icon"><i class="fa fa-gamepad"></i></span>
+                <span class="tile-text"><b>{{ _('Quiz') }}</b><small>{{ _('Group games by PIN') }}</small></span>
+            </a>
         </div>
     </section>
     {% if misc_config.home_page_top %}

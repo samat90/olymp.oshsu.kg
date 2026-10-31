@@ -51,3 +51,26 @@ admin.site.register(QuizReport, QuizReportAdmin)
 admin.site.register(GameSession, GameSessionAdmin)
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
+
+
+# The quiz lives in the judge app too; show it as its own block in the admin, apart from olympiads.
+QUIZ_MODELS = {'Quiz', 'QuizReport', 'GameSession'}
+_judge_app_list = admin.site.get_app_list
+
+
+def get_app_list(request, app_label=None):
+    apps = []
+    for app in _judge_app_list(request, app_label):
+        if app['app_label'] != 'judge':
+            apps.append(app)
+            continue
+        quiz = [m for m in app['models'] if m['object_name'] in QUIZ_MODELS]
+        rest = [m for m in app['models'] if m['object_name'] not in QUIZ_MODELS]
+        if rest:
+            apps.append(dict(app, name='Олимпиады и задачи', models=rest))
+        if quiz:
+            apps.append(dict(app, name='Викторина', models=quiz, app_url=quiz[0].get('admin_url') or app['app_url']))
+    return apps
+
+
+admin.site.get_app_list = get_app_list

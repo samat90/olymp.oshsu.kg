@@ -7324,3 +7324,141 @@ msgstr "Это не проект Scratch 3 (.sb3)."
 
 msgid "The project is larger than 190 KB."
 msgstr "Проект больше 190 КБ."
+
+msgid "quiz"
+msgstr "викторина"
+
+msgid "quizzes"
+msgstr "Викторины"
+
+msgid "quiz question"
+msgstr "вопрос викторины"
+
+msgid "quiz questions"
+msgstr "Вопросы викторин"
+
+msgid "quiz option"
+msgstr "вариант ответа"
+
+msgid "quiz options"
+msgstr "Варианты ответов"
+
+msgid "quiz game"
+msgstr "игра викторины"
+
+msgid "quiz games"
+msgstr "Игры викторин"
+
+msgid "quiz player"
+msgstr "игрок викторины"
+
+msgid "quiz players"
+msgstr "Игроки викторин"
+
+msgid "quiz answer"
+msgstr "ответ в викторине"
+
+msgid "quiz answers"
+msgstr "Ответы в викторинах"
+
+msgid "quiz report"
+msgstr "жалоба на викторину"
+
+msgid "quiz reports"
+msgstr "Жалобы на викторины"
+
+msgid "hidden by admin"
+msgstr "скрыта администратором"
+
+msgid "deleted by the author"
+msgstr "удалена автором"
+
+msgid "games played"
+msgstr "сыграно игр"
+
+msgid "link key"
+msgstr "ключ ссылки"
+
+msgid "copied from"
+msgstr "скопирована из"
+
+msgid "cover"
+msgstr "обложка"
+
+msgid "theme"
+msgstr "оформление"
+
+msgid "subject"
+msgstr "предмет"
+
+msgid "access"
+msgstr "доступ"
+
+msgid "host"
+msgstr "ведущий"
+
+msgid "current question"
+msgstr "текущий вопрос"
+
+msgid "phase started"
+msgstr "начало фазы"
+
+msgid "question order"
+msgstr "порядок вопросов"
+
+msgid "questions at the start"
+msgstr "вопросы на момент старта"
+
+msgid "finished"
+msgstr "завершена"
+
+msgid "nickname"
+msgstr "ник"
+
+msgid "guest token"
+msgstr "токен гостя"
+
+msgid "streak"
+msgstr "серия"
+
+msgid "correct answers"
+msgstr "верных ответов"
+
+msgid "removed"
+msgstr "удалён"
+
+msgid "joined"
+msgstr "вошёл"
+
+msgid "player"
+msgstr "игрок"
+
+msgid "share correct"
+msgstr "доля верного"
+
+msgid "time, ms"
+msgstr "время, мс"
+
+msgid "question id"
+msgstr "номер вопроса"
+
+msgid "resolved"
+msgstr "рассмотрена"
+
+msgid "parameters"
+msgstr "параметры"
+
+msgid "explanation"
+msgstr "пояснение"
+
+msgid "code language"
+msgstr "язык кода"
+
+msgid "correct"
+msgstr "верный"
+
+msgid "Quiz"
+msgstr "Викторина"
+
+msgid "Group games by PIN"
+msgstr "Игры с группой по PIN"

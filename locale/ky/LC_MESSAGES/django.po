@@ -2055,3 +2055,144 @@ msgstr "Бул Scratch 3 долбоору эмес (.sb3)."
 
 msgid "The project is larger than 190 KB."
 msgstr "Долбоор 190 КБдан чоң."
+
+msgid "quiz"
+msgstr "викторина"
+
+msgid "quizzes"
+msgstr "Викториналар"
+
+msgid "quiz question"
+msgstr "викторинанын суроосу"
+
+msgid "quiz questions"
+msgstr "Викторина суроолору"
+
+msgid "quiz option"
+msgstr "жооп варианты"
+
+msgid "quiz options"
+msgstr "Жооп варианттары"
+
+msgid "quiz game"
+msgstr "викторина оюну"
+
+msgid "quiz games"
+msgstr "Викторина оюндары"
+
+msgid "quiz player"
+msgstr "викторина оюнчусу"
+
+msgid "quiz players"
+msgstr "Викторина оюнчулары"
+
+msgid "quiz answer"
+msgstr "викторинадагы жооп"
+
+msgid "quiz answers"
+msgstr "Викториналардагы жооптор"
+
+msgid "quiz report"
+msgstr "викторинага даттануу"
+
+msgid "quiz reports"
+msgstr "Викториналарга даттануулар"
+
+msgid "hidden by admin"
+msgstr "администратор жашырган"
+
+msgid "deleted by the author"
+msgstr "автор өчүргөн"
+
+msgid "games played"
+msgstr "ойнолгон оюндар"
+
+msgid "link key"
+msgstr "шилтеме ачкычы"
+
+msgid "copied from"
+msgstr "көчүрүлгөн"
+
+msgid "cover"
+msgstr "мукаба"
+
+msgid "theme"
+msgstr "жасалгалоо"
+
+msgid "subject"
+msgstr "сабак"
+
+msgid "access"
+msgstr "жеткиликтүүлүк"
+
+msgid "host"
+msgstr "алып баруучу"
+
+msgid "current question"
+msgstr "учурдагы суроо"
+
+msgid "phase started"
+msgstr "баскычтын башталышы"
+
+msgid "question order"
+msgstr "суроолордун тартиби"
+
+msgid "questions at the start"
+msgstr "башталгандагы суроолор"
+
+msgid "finished"
+msgstr "аяктады"
+
+msgid "nickname"
+msgstr "ник"
+
+msgid "guest token"
+msgstr "коноктун токени"
+
+msgid "streak"
+msgstr "катар"
+
+msgid "correct answers"
+msgstr "туура жооптор"
+
+msgid "removed"
+msgstr "өчүрүлгөн"
+
+msgid "joined"
+msgstr "кошулду"
+
+msgid "player"
+msgstr "оюнчу"
+
+msgid "share correct"
+msgstr "туура үлүшү"
+
+msgid "time, ms"
+msgstr "убакыт, мс"
+
+msgid "question id"
+msgstr "суроонун номери"
+
+msgid "resolved"
+msgstr "каралды"
+
+msgid "reason"
+msgstr "себеби"
+
+msgid "parameters"
+msgstr "параметрлер"
+
+msgid "explanation"
+msgstr "түшүндүрмө"
+
+msgid "code language"
+msgstr "коддун тили"
+
+msgid "correct"
+msgstr "туура"
+
+msgid "Quiz"
+msgstr "Викторина"
+
+msgid "Group games by PIN"
+msgstr "Топ менен PIN аркылуу оюндар"

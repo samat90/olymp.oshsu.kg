@@ -36,6 +36,14 @@
         <a class="oa-link" href="{% url 'admin:judge_workspacefile_changelist' %}">{% trans "Проекты и файлы компилятора" %}</a>
     </div>
     <div class="oa-card">
+        <h3>{% trans "Викторина" %}</h3>
+        <a class="oa-main" href="/quiz/new/">+ {% trans "Создать викторину" %}</a>
+        <a class="oa-link" href="{% url 'admin:judge_quiz_changelist' %}">{% trans "Все викторины" %}</a>
+        <a class="oa-link" href="{% url 'admin:judge_gamesession_changelist' %}">{% trans "Игры" %}</a>
+        <a class="oa-link" href="{% url 'admin:judge_quizreport_changelist' %}">{% trans "Жалобы" %}</a>
+        <a class="oa-link" href="/quiz/">{% trans "Викторина на сайте" %}</a>
+    </div>
+    <div class="oa-card">
         <h3>{% trans "Проверка" %}</h3>
         <a class="oa-link" href="/submissions/">{% trans "Все посылки" %}</a>
         <a class="oa-link" href="{% url 'admin:judge_judge_changelist' %}">{% trans "Судьи (серверы проверки)" %}</a>

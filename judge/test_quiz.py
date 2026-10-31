@@ -1542,3 +1542,22 @@ class QuizRedisCacheTest(TestCase):
         self.assertEqual(caches['default']['BACKEND'], 'judge.utils.redis_cache.RedisCache')
         self.assertEqual(caches['default']['LOCATION'], 'redis://x/1')
         self.assertEqual(caches['other']['BACKEND'], 'django.core.cache.backends.locmem.LocMemCache')
+
+
+class QuizAdminBlockTest(TestCase):
+    def test_quiz_has_its_own_admin_block(self):
+        admin = create_user(username='blockadmin', is_superuser=True, is_staff=True)
+        client = Client()
+        client.force_login(admin)
+        quiz = make_quiz(admin, title='Админка')
+        index = client.get(reverse('admin:index'))
+        self.assertEqual(index.status_code, 200)
+        apps = {app['name']: [m['object_name'] for m in app['models']] for app in index.context['app_list']}
+        self.assertEqual(sorted(apps['Викторина']), ['GameSession', 'Quiz', 'QuizReport'])
+        self.assertIn('Problem', apps['Олимпиады и задачи'])
+        self.assertNotIn('Quiz', apps['Олимпиады и задачи'])
+        self.assertEqual(client.get(reverse('admin:app_list', args=['judge'])).status_code, 200)
+        for name in ('judge_quiz_changelist', 'judge_gamesession_changelist', 'judge_quizreport_changelist',
+                     'judge_problem_changelist', 'judge_contest_changelist', 'judge_submission_changelist'):
+            self.assertEqual(client.get(reverse('admin:' + name)).status_code, 200, name)
+        self.assertEqual(client.get(reverse('admin:judge_quiz_change', args=[quiz.id])).status_code, 200)
