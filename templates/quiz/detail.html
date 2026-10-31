@@ -37,6 +37,12 @@
             <div class="qz-actions">
                 {% if can_edit %}
                     <a class="qz-btn" href="{{ url('quiz_edit', quiz.key) }}"><i class="fa fa-pencil"></i> Редактировать</a>
+                    <form method="post" action="{{ url('quiz_delete', quiz.key) }}" class="qz-inline qz-delete-form"
+                          onsubmit="return confirm('Удалить викторину «' + this.dataset.title + '»? Это нельзя отменить.')"
+                          data-title="{{ quiz.title }}">
+                        {% csrf_token %}
+                        <button type="submit" class="qz-btn qz-btn-danger"><i class="fa fa-trash"></i> Удалить</button>
+                    </form>
                 {% endif %}
                 {% if request.user.is_authenticated %}
                     <form method="post" action="{{ url('quiz_copy', quiz.key) }}" class="qz-inline">

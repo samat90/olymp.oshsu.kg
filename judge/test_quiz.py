@@ -1,4 +1,5 @@
 import itertools
+from datetime import timedelta
 import json
 import os
 import shutil
@@ -1561,3 +1562,35 @@ class QuizAdminBlockTest(TestCase):
                      'judge_problem_changelist', 'judge_contest_changelist', 'judge_submission_changelist'):
             self.assertEqual(client.get(reverse('admin:' + name)).status_code, 200, name)
         self.assertEqual(client.get(reverse('admin:judge_quiz_change', args=[quiz.id])).status_code, 200)
+
+
+class QuizMyPageTest(QuizGameTestCase):
+    def test_delete_button_on_my_quizzes_and_quiz_page(self):
+        page = self.host.get(reverse('quiz_my')).content.decode()
+        self.assertIn(reverse('quiz_delete', args=[self.quiz.key]), page)
+        detail = self.host.get(reverse('quiz_detail', args=[self.quiz.key])).content.decode()
+        self.assertIn(reverse('quiz_delete', args=[self.quiz.key]), detail)
+        other = self.login(self.other).get(reverse('quiz_detail', args=[self.quiz.key])).content.decode()
+        self.assertNotIn(reverse('quiz_delete', args=[self.quiz.key]), other)
+
+    def test_copy_keeps_every_question_in_order(self):
+        big = make_quiz(self.author, title='Пятьдесят')
+        for n in range(50):
+            add_question(big, Q.SINGLE, [('Да %d' % n, True), ('Нет', False), ('Может', False), ('Никогда', False)])
+        response = self.login(self.other).post(reverse('quiz_copy', args=[big.key]))
+        copy = Quiz.objects.get(author=self.other.profile, copied_from=big)
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(copy.questions.count(), 50)
+        self.assertEqual([q.options.get(is_correct=True).text for q in copy.questions.order_by('order')],
+                         ['Да %d' % n for n in range(50)])
+        self.assertEqual(QuizOption.objects.filter(question__quiz=copy).count(), 200)
+
+    def test_empty_draft_is_reused_and_not_in_catalog(self):
+        client = self.login(self.other)
+        first = client.get(reverse('quiz_new'))
+        draft = Quiz.objects.get(author=self.other.profile)
+        Quiz.objects.filter(id=draft.id).update(created=draft.created - timedelta(days=3))
+        second = client.get(reverse('quiz_new'))
+        self.assertEqual(first['Location'], second['Location'])
+        self.assertEqual(Quiz.objects.filter(author=self.other.profile).count(), 1)
+        self.assertNotIn(draft, visible_quizzes())

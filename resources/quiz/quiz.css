@@ -706,3 +706,6 @@ button.qz-btn-accent:hover, button.qz-btn-accent:focus { background: #0a6b64; }
     .qz-pod-1 .qz-pod-block::after, .qz-pod-1 .qz-pod-nick, .qz-board-row.qz-up .qz-board-place::after { animation: none !important; }
     .qz-countdown b.qz-count::after { display: none; }
 }
+.qz-btn.qz-btn-danger { color: #c4366a !important; border-color: rgba(196, 54, 106, .45); }
+.qz-btn.qz-btn-danger:hover { background: #c4366a !important; color: #fff !important; border-color: #c4366a; }
+.qz-delete-form { display: inline; margin: 0; }

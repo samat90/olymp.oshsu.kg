@@ -8,6 +8,15 @@
     <link rel="stylesheet" href="{{ static('quiz/quiz.css') }}?v={{ STATIC_VERSION }}">
 {% endblock %}
 
+{% block js_media %}
+    <script>
+        document.addEventListener('submit', function (e) {
+            var form = e.target.closest('.qz-delete-form');
+            if (form && !window.confirm('Удалить викторину «' + form.dataset.title + '»? Это нельзя отменить.')) e.preventDefault();
+        });
+    </script>
+{% endblock %}
+
 {% block body %}
 <div class="qz qz-my">
     <a class="qz-back" href="{{ url('quiz_catalog') }}"><i class="fa fa-angle-left"></i> Викторина</a>
@@ -37,6 +46,11 @@
                     </span>
                     <a class="qz-btn" href="{{ url('quiz_edit', quiz.key) }}"><i class="fa fa-pencil"></i><span class="qz-hide-sm"> Изменить</span></a>
                     <a class="qz-btn qz-btn-primary" href="{{ url('quiz_detail', quiz.key) }}"><i class="fa fa-play"></i><span class="qz-hide-sm"> Играть</span></a>
+                    <form method="post" action="{{ url('quiz_delete', quiz.key) }}" class="qz-inline qz-delete-form"
+                          data-title="{{ quiz.title }}">
+                        {% csrf_token %}
+                        <button type="submit" class="qz-btn qz-btn-danger" title="Удалить"><i class="fa fa-trash"></i><span class="qz-hide-sm"> Удалить</span></button>
+                    </form>
                 </div>
             {% endfor %}
         </div>

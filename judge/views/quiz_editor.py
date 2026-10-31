@@ -2,7 +2,6 @@
 import copy
 import json
 import secrets
-from datetime import timedelta
 from functools import wraps
 from types import SimpleNamespace
 
@@ -121,10 +120,9 @@ def renumber(quiz):
 
 @login_required
 def new_quiz(request):
-    """Create an empty quiz and open its editor. A fresh untouched one is reused instead of making another."""
+    """Create an empty quiz and open its editor. An untouched empty draft is reused instead of making another."""
     recent = Quiz.objects.filter(author=request.profile, title=NEW_TITLE, questions__isnull=True,
-                                 is_deleted=False,
-                                 created__gte=timezone.now() - timedelta(minutes=30)).first()
+                                 is_deleted=False).order_by('-created').first()
     if recent is not None:
         return redirect('quiz_edit', key=recent.key)
     if quiz_limit_reached(request):
