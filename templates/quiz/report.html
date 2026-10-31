@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title_row %}{% endblock %}
+{% block title_ruler %}{% endblock %}
+
+{% block media %}
+    <link rel="stylesheet" href="{{ static('quiz/quiz.css') }}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
+{% block body %}
+<div class="qz qz-report">
+    <a class="qz-back" href="{{ url('quiz_detail', game.quiz.key) }}"><i class="fa fa-angle-left"></i> {{ game.quiz.title }}</a>
+    <div class="qz-toolbar">
+        <div>
+            <h1 class="qz-h1">Отчёт об игре</h1>
+            <p class="qz-muted">{{ game.created|date('d.m.Y H:i') }} · {{ game.get_mode_display() }} · PIN {{ game.pin }} ·
+                {{ table|length }} игр. · {{ game.get_status_display() }}</p>
+        </div>
+        <span class="qz-spacer"></span>
+        <a class="qz-btn qz-btn-primary" href="{{ url('quiz_game_report_xlsx', game.id) }}"><i class="fa fa-file-excel-o"></i> Excel</a>
+    </div>
+
+    <h2 class="qz-h2">Вопросы</h2>
+    <div class="qz-scroll">
+    <table class="qz-table qz-stats">
+        <thead><tr><th class="qz-num">№</th><th>Вопрос</th><th class="qz-num">Ответили</th><th>Верно</th><th class="qz-num">Среднее время</th></tr></thead>
+        <tbody>
+        {% for s in stats %}
+            {% set pct = (100 * s.correct / s.answered)|round|int if s.answered else 0 %}
+            <tr>
+                <td class="qz-num">{{ s.n }}</td>
+                <td><span class="qz-qtype">{{ s.question.get_type_display() }}</span>
+                    {{ s.question.text|replace('**', '')|replace('`', '')|striptags|truncate(90, True, '…') }}</td>
+                <td class="qz-num">{{ s.answered }}</td>
+                <td>{% if s.question.scored %}
+                    <span class="qz-meter"><span style="width: {{ pct }}%" class="{{ 'qz-ok' if pct >= 60 else 'qz-mid' if pct >= 30 else 'qz-bad' }}"></span></span>
+                    {{ pct }}%{% else %}<span class="qz-muted">без очков</span>{% endif %}</td>
+                <td class="qz-num">{{ '%.1f'|format(s.avg_ms / 1000) }} с</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+    <h2 class="qz-h2">Игроки</h2>
+    {% if table %}
+    <div class="qz-scroll">
+    <table class="qz-table qz-grid">
+        <thead><tr><th class="qz-num">#</th><th>Игрок</th><th class="qz-num">Очки</th><th class="qz-num">Верно</th>
+            {% for q in questions %}<th class="qz-num" title="{{ q.get_type_display() }}">{{ loop.index }}</th>{% endfor %}</tr></thead>
+        <tbody>
+        {% for row in table %}
+            {% set p = row.player %}
+            <tr{% if p.is_removed %} class="qz-removed"{% endif %}>
+                <td class="qz-num">{{ p.rank or loop.index }}</td>
+                <td class="qz-nowrap">{{ p.nickname }}{% if p.is_removed %} <span class="qz-muted qz-small">удалён</span>{% endif %}</td>
+                <td class="qz-num"><b>{{ p.score }}</b></td>
+                <td class="qz-num">{{ p.correct }}</td>
+                {% for a in row.cells %}
+                    {% set q = questions[loop.index0] %}
+                    {% if a is none %}<td class="qz-cell qz-cell-none">—</td>
+                    {% elif not q.scored %}<td class="qz-cell qz-cell-info" title="{{ a.value if a.value is string else '' }}">•</td>
+                    {% elif a.is_correct %}<td class="qz-cell qz-cell-ok" title="{{ '%.1f'|format(a.time_ms / 1000) }} с">✓ {{ a.points }}</td>
+                    {% elif a.fraction > 0 %}<td class="qz-cell qz-cell-part" title="{{ '%.1f'|format(a.time_ms / 1000) }} с">≈ {{ a.points }}</td>
+                    {% else %}<td class="qz-cell qz-cell-bad">✗</td>{% endif %}
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    <p class="qz-muted qz-small">✓ верно, ≈ частично, ✗ неверно, — нет ответа, • вопрос без очков. Числа — очки.</p>
+    {% else %}
+        <p class="qz-muted">В игре не было игроков.</p>
+    {% endif %}
+</div>
+{% endblock %}

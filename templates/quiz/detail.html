@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+
+{% block title_row %}{% endblock %}
+{% block title_ruler %}{% endblock %}
+
+{% block media %}
+    <link rel="stylesheet" href="{{ static('quiz/theme.css') }}?v={{ STATIC_VERSION }}">
+    <link rel="stylesheet" href="{{ static('quiz/quiz.css') }}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
+{% set mode_help = {
+    'screen': 'Вопросы и итоги на проекторе, ведущий управляет игрой. Варианты ответа видны и на телефонах.',
+    'remote': 'Без проектора: ведущий управляет с телефона, игроки видят всё у себя.',
+    'auto': 'Игра идёт сама: разбор и таблица сменяются по таймеру.',
+} %}
+
+{% block body %}
+<div class="qz qz-detail">
+    <a class="qz-back" href="{{ url('quiz_catalog') }}"><i class="fa fa-angle-left"></i> Викторина</a>
+    <div class="qz-detail-head">
+        {% if quiz.cover %}
+            <span class="qz-cover qz-cover-big"><img src="{{ quiz.cover.url }}" alt=""></span>
+        {% else %}
+            <span class="qz-cover qz-cover-big qz-cover-blank qz-theme-{{ quiz.theme }}"><span class="qz-ornament"></span>
+                <b>{{ (quiz.subject or quiz.title)[:1]|upper }}</b></span>
+        {% endif %}
+        <div class="qz-detail-info">
+            <h1 class="qz-h1">{{ quiz.title }}</h1>
+            <div class="qz-card-meta">
+                {% if quiz.subject %}<a class="qz-tag" href="{{ url('quiz_catalog') }}?subject={{ quiz.subject|urlencode }}">{{ quiz.subject }}</a>{% endif %}
+                <span><i class="fa fa-question-circle"></i> {{ questions|length }} вопр.</span>
+                <span><i class="fa fa-play"></i> {{ quiz.plays }} игр</span>
+                <span><i class="fa fa-user"></i> {{ quiz.author.user.username }}</span>
+                {% if quiz.access == 'link' %}<span class="qz-tag qz-tag-muted">по ссылке</span>{% endif %}
+                {% if quiz.is_hidden %}<span class="qz-tag qz-tag-bad">скрыта администратором</span>{% endif %}
+            </div>
+            {% if quiz.description %}<p class="qz-desc">{{ quiz.description }}</p>{% endif %}
+            <div class="qz-actions">
+                {% if can_edit %}
+                    <a class="qz-btn" href="{{ url('quiz_edit', quiz.key) }}"><i class="fa fa-pencil"></i> Редактировать</a>
+                {% endif %}
+                {% if request.user.is_authenticated %}
+                    <form method="post" action="{{ url('quiz_copy', quiz.key) }}" class="qz-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="qz-btn"><i class="fa fa-files-o"></i> Копировать</button>
+                    </form>
+                {% endif %}
+                <a class="qz-btn" href="{{ url('quiz_records', quiz.key) }}"><i class="fa fa-trophy"></i> Рекорды</a>
+            </div>
+        </div>
+    </div>
+
+    {% if disabled %}
+        <div class="qz-banner qz-banner-warn"><i class="fa fa-pause"></i> {{ disabled }}</div>
+    {% endif %}
+
+    <div class="qz-detail-grid">
+        <section class="qz-panel">
+            <h2 class="qz-h2">Провести игру</h2>
+            {% if not questions %}
+                <p class="qz-muted">В викторине пока нет вопросов.</p>
+            {% elif request.user.is_authenticated %}
+                <form method="post" action="{{ url('quiz_launch', quiz.key) }}" class="qz-launch">
+                    {% csrf_token %}
+                    <div class="qz-modes">
+                        {% for value, name in modes if value != 'solo' %}
+                            <label class="qz-mode">
+                                <input type="radio" name="mode" value="{{ value }}"{% if loop.first %} checked{% endif %}>
+                                <span><b>{{ name }}</b><small>{{ mode_help[value] }}</small></span>
+                            </label>
+                        {% endfor %}
+                    </div>
+                    <div class="qz-checks">
+                        <label><input type="checkbox" name="shuffle_questions"> Перемешать вопросы</label>
+                        <label><input type="checkbox" name="shuffle_answers"> Перемешать варианты</label>
+                        <input type="hidden" name="music" value="off">
+                        <label><input type="checkbox" name="music" value="on" checked> Музыка</label>
+                        <input type="hidden" name="guests" value="off">
+                        <label><input type="checkbox" name="guests" value="on" checked> Гости без аккаунта</label>
+                    </div>
+                    <p class="qz-muted qz-small">До {{ max_players }} игроков. Игроки входят по PIN или QR-коду.</p>
+                    <button type="submit" class="qz-btn qz-btn-primary qz-btn-lg"{% if disabled and not request.user.is_superuser %} disabled{% endif %}>
+                        <i class="fa fa-play"></i> Начать игру</button>
+                </form>
+            {% else %}
+                <p><a href="{{ url('auth_login') }}?next={{ request.get_full_path()|urlencode }}">Войдите</a>, чтобы провести игру для класса.</p>
+            {% endif %}
+        </section>
+
+        <section class="qz-panel">
+            <h2 class="qz-h2">Играть одному</h2>
+            {% if questions %}
+                <form method="post" action="{{ url('quiz_solo', quiz.key) }}" class="qz-solo">
+                    {% csrf_token %}
+                    {% if not request.user.is_authenticated %}
+                        <input type="text" name="nickname" maxlength="24" required placeholder="Ваш ник" aria-label="Ник" class="qz-input">
+                    {% endif %}
+                    <button type="submit" class="qz-btn qz-btn-accent qz-btn-lg"{% if disabled and not request.user.is_superuser %} disabled{% endif %}>
+                        <i class="fa fa-user"></i> Играть одному</button>
+                </form>
+            {% endif %}
+            {% if records %}
+                <table class="qz-table qz-records-mini">
+                    <thead><tr><th>#</th><th>Игрок</th><th class="qz-num">Очки</th></tr></thead>
+                    <tbody>
+                    {% for r in records[:10] %}
+                        <tr><td>{{ r.place }}</td><td>{{ r.nickname }}{% if not r.is_user %} <span class="qz-muted qz-small">гость</span>{% endif %}</td>
+                            <td class="qz-num">{{ r.score }}</td></tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p class="qz-muted qz-small">Рекордов пока нет.</p>
+            {% endif %}
+        </section>
+    </div>
+
+    <section class="qz-panel">
+        <h2 class="qz-h2">Вопросы</h2>
+        <ol class="qz-qlist">
+            {% for q in questions %}
+                <li>
+                    <span class="qz-qtype">{{ type_names[q.type] }}</span>
+                    <span class="qz-qtext">{{ q.text|replace('**', '')|replace('`', '')|striptags|truncate(110, True, '…') if q.text else '—' }}</span>
+                    <span class="qz-qmeta">{{ q.time_limit }} с{% if q.weight == 2 %} · x2{% elif q.weight == 0 or not q.scored %} · без очков{% endif %}{% if q.image %} · <i class="fa fa-picture-o"></i>{% endif %}</span>
+                </li>
+            {% endfor %}
+        </ol>
+    </section>
+
+    <details class="qz-complain">
+        <summary>Пожаловаться</summary>
+        <form method="post" action="{{ url('quiz_complain', quiz.key) }}">
+            {% csrf_token %}
+            <textarea name="reason" maxlength="1000" rows="3" required placeholder="Что не так с этой викториной?" class="qz-input"></textarea>
+            <button type="submit" class="qz-btn">Отправить</button>
+        </form>
+    </details>
+</div>
+{% endblock %}

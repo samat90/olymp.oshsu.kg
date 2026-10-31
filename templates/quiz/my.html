@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block title_row %}{% endblock %}
+{% block title_ruler %}{% endblock %}
+
+{% block media %}
+    <link rel="stylesheet" href="{{ static('quiz/theme.css') }}?v={{ STATIC_VERSION }}">
+    <link rel="stylesheet" href="{{ static('quiz/quiz.css') }}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
+{% block body %}
+<div class="qz qz-my">
+    <a class="qz-back" href="{{ url('quiz_catalog') }}"><i class="fa fa-angle-left"></i> Викторина</a>
+    <div class="qz-toolbar">
+        <h1 class="qz-h1">Мои викторины</h1>
+        <span class="qz-spacer"></span>
+        <a class="qz-btn" href="{{ url('quiz_join') }}"><i class="fa fa-sign-in"></i> Войти по PIN</a>
+        <a class="qz-btn qz-btn-primary" href="{{ url('quiz_new') }}"><i class="fa fa-plus"></i> Создать викторину</a>
+    </div>
+
+    {% if quizzes %}
+        <div class="qz-mylist">
+            {% for quiz in quizzes %}
+                <div class="qz-myrow">
+                    <span class="qz-cover qz-cover-tiny{% if not quiz.cover %} qz-cover-blank qz-theme-{{ quiz.theme }}{% endif %}">
+                        {% if quiz.cover %}<img src="{{ quiz.cover.url }}" alt="">{% else %}<b>{{ (quiz.subject or quiz.title)[:1]|upper }}</b>{% endif %}
+                    </span>
+                    <span class="qz-myrow-main">
+                        <a class="qz-card-title" href="{{ url('quiz_detail', quiz.key) }}">{{ quiz.title }}</a>
+                        <span class="qz-card-meta">
+                            <span>{{ quiz.question_count }} вопр.</span>
+                            <span>{{ quiz.plays }} игр</span>
+                            <span>{{ 'открытая' if quiz.access == 'public' else 'по ссылке' }}</span>
+                            {% if quiz.is_hidden %}<span class="qz-tag qz-tag-bad">скрыта администратором</span>{% endif %}
+                            <span>изменена {{ quiz.updated|date('d.m.Y') }}</span>
+                        </span>
+                    </span>
+                    <a class="qz-btn" href="{{ url('quiz_edit', quiz.key) }}"><i class="fa fa-pencil"></i><span class="qz-hide-sm"> Изменить</span></a>
+                    <a class="qz-btn qz-btn-primary" href="{{ url('quiz_detail', quiz.key) }}"><i class="fa fa-play"></i><span class="qz-hide-sm"> Играть</span></a>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="qz-empty">У вас пока нет викторин. <a href="{{ url('quiz_new') }}">Создать первую</a></div>
+    {% endif %}
+
+    <h2 class="qz-h2">Игры, которые я провёл</h2>
+    {% if hosted %}
+        <div class="qz-scroll">
+        <table class="qz-table">
+            <thead><tr><th>Дата</th><th>Викторина</th><th>Режим</th><th class="qz-num">Игроков</th><th>Статус</th><th></th></tr></thead>
+            <tbody>
+            {% for g in hosted %}
+                <tr>
+                    <td class="qz-nowrap">{{ g.created|date('d.m.Y H:i') }}</td>
+                    <td>{{ g.quiz.title }}</td>
+                    <td>{{ g.get_mode_display() }}</td>
+                    <td class="qz-num">{{ g.player_count }}</td>
+                    <td>{{ g.get_status_display() }}</td>
+                    <td class="qz-nowrap">
+                        {% if g.is_active %}<a href="{{ url('quiz_host', g.pin) }}">Открыть</a> · {% endif %}
+                        <a href="{{ url('quiz_game_report', g.id) }}">Отчёт</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        </div>
+    {% else %}
+        <p class="qz-muted">Пока нет.</p>
+    {% endif %}
+
+    <h2 class="qz-h2">Игры, в которых я участвовал</h2>
+    {% if played %}
+        <div class="qz-scroll">
+        <table class="qz-table">
+            <thead><tr><th>Дата</th><th>Викторина</th><th>Режим</th><th class="qz-num">Место</th><th class="qz-num">Очки</th></tr></thead>
+            <tbody>
+            {% for p in played %}
+                <tr>
+                    <td class="qz-nowrap">{{ p.joined|date('d.m.Y H:i') }}</td>
+                    <td><a href="{{ url('quiz_detail', p.game.quiz.key) }}">{{ p.game.quiz.title }}</a></td>
+                    <td>{{ p.game.get_mode_display() }}</td>
+                    <td class="qz-num">{% if p.is_removed %}<span class="qz-muted">удалён</span>{% elif p.rank %}{{ p.rank }}{% else %}—{% endif %}</td>
+                    <td class="qz-num">{{ p.score }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        </div>
+    {% else %}
+        <p class="qz-muted">Пока нет.</p>
+    {% endif %}
+</div>
+{% endblock %}

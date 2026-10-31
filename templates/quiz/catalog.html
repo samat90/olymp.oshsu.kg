@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block title_row %}{% endblock %}
+{% block title_ruler %}{% endblock %}
+
+{% block media %}
+    <link rel="stylesheet" href="{{ static('quiz/theme.css') }}?v={{ STATIC_VERSION }}">
+    <link rel="stylesheet" href="{{ static('quiz/quiz.css') }}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
+{% macro page_link(number) -%}
+    ?{% if query %}q={{ query|urlencode }}&{% endif %}{% if subject %}subject={{ subject|urlencode }}&{% endif %}{% if order == 'popular' %}order=popular&{% endif %}page={{ number }}
+{%- endmacro %}
+
+{% block body %}
+<div class="qz qz-catalog">
+    <div class="qz-hero qz-ornament">
+        <div class="qz-hero-text">
+            <h1 class="qz-h1">Викторина</h1>
+            <p class="qz-muted">Игры с вопросами для класса: ведущий показывает, игроки отвечают с телефонов.</p>
+        </div>
+        <form class="qz-pin-box" action="{{ url('quiz_join') }}" method="get">
+            <label for="qz-cat-pin" class="qz-pin-label">PIN игры</label>
+            <div class="qz-pin-row">
+                <input id="qz-cat-pin" name="pin" class="qz-pin-small" inputmode="numeric" pattern="[0-9]*" maxlength="6"
+                       autocomplete="off" placeholder="000000" aria-label="PIN игры">
+                <button type="submit" class="qz-btn qz-btn-primary qz-btn-lg">Войти по PIN</button>
+            </div>
+        </form>
+    </div>
+
+    {% if disabled %}
+        <div class="qz-banner qz-banner-warn"><i class="fa fa-pause"></i> {{ disabled }}</div>
+    {% endif %}
+
+    <div class="qz-toolbar">
+        <form class="qz-search" method="get">
+            <input type="search" name="q" value="{{ query }}" placeholder="Поиск викторин" aria-label="Поиск">
+            {% if subject %}<input type="hidden" name="subject" value="{{ subject }}">{% endif %}
+            {% if order == 'popular' %}<input type="hidden" name="order" value="popular">{% endif %}
+            <button type="submit" class="qz-btn" aria-label="Найти"><i class="fa fa-search"></i></button>
+        </form>
+        <div class="qz-seg" role="group" aria-label="Сортировка">
+            <a class="qz-seg-item{% if order != 'popular' %} qz-on{% endif %}"
+               href="?{% if query %}q={{ query|urlencode }}&{% endif %}{% if subject %}subject={{ subject|urlencode }}{% endif %}">Новые</a>
+            <a class="qz-seg-item{% if order == 'popular' %} qz-on{% endif %}"
+               href="?{% if query %}q={{ query|urlencode }}&{% endif %}{% if subject %}subject={{ subject|urlencode }}&{% endif %}order=popular">Популярные</a>
+        </div>
+        <span class="qz-spacer"></span>
+        {% if request.user.is_authenticated %}
+            <a class="qz-btn" href="{{ url('quiz_my') }}"><i class="fa fa-folder-open-o"></i> Мои викторины</a>
+            <a class="qz-btn qz-btn-primary" href="{{ url('quiz_new') }}"><i class="fa fa-plus"></i> Создать викторину</a>
+        {% else %}
+            <a class="qz-btn" href="{{ url('auth_login') }}?next={{ request.get_full_path()|urlencode }}">Войдите, чтобы создать свою</a>
+        {% endif %}
+    </div>
+
+    {% if subjects %}
+        <div class="qz-chips">
+            <a class="qz-chip{% if not subject %} qz-on{% endif %}"
+               href="?{% if query %}q={{ query|urlencode }}&{% endif %}{% if order == 'popular' %}order=popular{% endif %}">Все</a>
+            {% for s in subjects %}
+                <a class="qz-chip{% if s|lower == subject|lower %} qz-on{% endif %}"
+                   href="?{% if query %}q={{ query|urlencode }}&{% endif %}subject={{ s|urlencode }}{% if order == 'popular' %}&order=popular{% endif %}">{{ s }}</a>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if page.object_list %}
+        <div class="qz-cards">
+            {% for quiz in page.object_list %}
+                <a class="qz-card" href="{{ url('quiz_detail', quiz.key) }}">
+                    {% if quiz.cover %}
+                        <span class="qz-cover"><img src="{{ quiz.cover.url }}" alt="" loading="lazy"></span>
+                    {% else %}
+                        <span class="qz-cover qz-cover-blank qz-theme-{{ quiz.theme }}"><span class="qz-ornament"></span>
+                            <b>{{ (quiz.subject or quiz.title)[:1]|upper }}</b></span>
+                    {% endif %}
+                    <span class="qz-card-body">
+                        <span class="qz-card-title">{{ quiz.title }}</span>
+                        {% if quiz.subject %}<span class="qz-tag">{{ quiz.subject }}</span>{% endif %}
+                        <span class="qz-card-meta">
+                            <span><i class="fa fa-question-circle"></i> {{ quiz.question_count }}</span>
+                            <span><i class="fa fa-play"></i> {{ quiz.plays }}</span>
+                            <span class="qz-card-author">{{ quiz.author.user.username }}</span>
+                        </span>
+                    </span>
+                </a>
+            {% endfor %}
+        </div>
+        {% if page.paginator.num_pages > 1 %}
+            <nav class="qz-pages" aria-label="Страницы">
+                {% if page.has_previous() %}<a href="{{ page_link(page.previous_page_number()) }}">&larr;</a>{% endif %}
+                {% for n in page.paginator.page_range %}
+                    {% if n == page.number %}<span class="qz-on">{{ n }}</span>
+                    {% elif n <= 2 or n > page.paginator.num_pages - 2 or (n - page.number)|abs <= 2 %}<a href="{{ page_link(n) }}">{{ n }}</a>
+                    {% elif n == 3 or n == page.paginator.num_pages - 2 %}<span>…</span>{% endif %}
+                {% endfor %}
+                {% if page.has_next() %}<a href="{{ page_link(page.next_page_number()) }}">&rarr;</a>{% endif %}
+            </nav>
+        {% endif %}
+    {% else %}
+        <div class="qz-empty">
+            {% if query or subject %}Ничего не нашлось.{% else %}Открытых викторин пока нет.{% endif %}
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

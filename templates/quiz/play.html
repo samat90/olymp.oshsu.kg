@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title_row %}{% endblock %}
+{% block title_ruler %}{% endblock %}
+{% block body_class %}qz-game-page{% endblock %}
+
+{% block meta %}
+    <meta name="robots" content="noindex">
+{% endblock %}
+
+{% block media %}
+    <link rel="stylesheet" href="{{ static('quiz/theme.css') }}?v={{ STATIC_VERSION }}">
+    <link rel="stylesheet" href="{{ static('quiz/quiz.css') }}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
+{% block js_media %}
+    <script>window.QUIZ = {{ config|tojson }};</script>
+    <script src="{{ static('quiz/audio.js') }}?v={{ STATIC_VERSION }}" defer></script>
+    <script src="{{ static('quiz/fx.js') }}?v={{ STATIC_VERSION }}" defer></script>
+    <script src="{{ static('quiz/game.js') }}?v={{ STATIC_VERSION }}" defer></script>
+{% endblock %}
+
+{% block body %}
+<div class="qz-stage qz-role-player qz-theme-{{ quiz.theme }}" id="qz-stage" data-mode="{{ game.mode }}">
+    <div class="qz-stage-bg qz-ornament" aria-hidden="true"></div>
+    <header class="qz-topbar">
+        <span class="qz-bar-q" id="qz-qnum"></span>
+        <span class="qz-ring-wrap" id="qz-ring" aria-hidden="true"></span>
+        <span class="qz-bar-score" id="qz-score" hidden></span>
+        <span class="qz-spacer"></span>
+        <span class="qz-bar-nick">{{ player.nickname }}</span>
+        <button type="button" class="qz-icon-btn" id="qz-sound" aria-label="Звук"><i class="fa fa-volume-up"></i></button>
+    </header>
+    <div class="qz-net" id="qz-net" role="status" hidden><i class="fa fa-wifi"></i> Нет связи, переподключаюсь…</div>
+    <main class="qz-screen" id="qz-screen" aria-live="polite">
+        <div class="qz-center"><div class="qz-wait"><i></i><i></i><i></i></div></div>
+    </main>
+    <noscript><p class="qz-center">Для игры нужен JavaScript.</p></noscript>
+</div>
+{% endblock %}

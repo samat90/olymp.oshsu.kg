@@ -13,6 +13,7 @@
         {{ make_tab('admin', 'fa-edit', url('admin:judge_profile_change', user.id), _('Admin Profile')) }}
     {% endif %}
     {% if user.user == request.user %}
+        {{ make_tab('quiz', 'fa-question-circle', url('quiz_my'), 'Викторины') }}
         {{ make_tab('edit', 'fa-edit', url('user_edit_profile'), _('Edit profile')) }}
     {% endif %}
 {% endblock %}

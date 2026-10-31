@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title_row %}{% endblock %}
+{% block title_ruler %}{% endblock %}
+
+{% block media %}
+    <link rel="stylesheet" href="{{ static('quiz/quiz.css') }}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
+{% block body %}
+<div class="qz qz-records">
+    <a class="qz-back" href="{{ url('quiz_detail', quiz.key) }}"><i class="fa fa-angle-left"></i> {{ quiz.title }}</a>
+    <h1 class="qz-h1"><i class="fa fa-trophy"></i> Рекорды</h1>
+    <p class="qz-muted">Лучшие результаты одиночной игры: по одной строке на игрока.</p>
+    {% if records %}
+        <table class="qz-table qz-records-table">
+            <thead><tr><th class="qz-num">Место</th><th>Игрок</th><th class="qz-num">Очки</th></tr></thead>
+            <tbody>
+            {% for r in records %}
+                <tr class="{% if r.place <= 3 %}qz-top{{ r.place }}{% endif %}">
+                    <td class="qz-num"><span class="qz-place">{{ r.place }}</span></td>
+                    <td>{{ r.nickname }}{% if not r.is_user %} <span class="qz-muted qz-small">гость</span>{% endif %}</td>
+                    <td class="qz-num"><b>{{ r.score }}</b></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="qz-empty">Рекордов пока нет. Сыграйте первым!</div>
+    {% endif %}
+    <form method="post" action="{{ url('quiz_solo', quiz.key) }}" class="qz-solo qz-actions">
+        {% csrf_token %}
+        {% if not request.user.is_authenticated %}
+            <input type="text" name="nickname" maxlength="24" required placeholder="Ваш ник" aria-label="Ник" class="qz-input">
+        {% endif %}
+        <button type="submit" class="qz-btn qz-btn-accent"><i class="fa fa-user"></i> Играть одному</button>
+    </form>
+</div>
+{% endblock %}
