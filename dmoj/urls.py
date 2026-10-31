@@ -14,7 +14,7 @@ from judge.sitemap import sitemaps
 from judge.views import TitledTemplateView, api, blog, comment, contests, language, license, mailgun, organization, \
     preview, problem, problem_manage, ranked_submission, register, stats, status, submission, tasks, ticket, \
     two_factor, user, widgets, workspace
-from judge.views import anticheat, contest_tools, quiz as quiz_views, quiz_editor, typing as typing_views
+from judge.views import about, anticheat, contest_tools, quiz as quiz_views, quiz_editor, typing as typing_views
 from judge.views.generate_users import GenerateUsersView
 from judge.views.problem_import import import_problem
 from judge.views.problem_data import ProblemDataView, ProblemSubmissionDiff, \
@@ -96,6 +96,7 @@ def paged_list_view(view, name):
 
 urlpatterns = [
     path('', blog.PostList.as_view(template_name='home.html', title=_('Home')), kwargs={'page': 1}, name='home'),
+    path('about/', about.about, name='about'),
     path('500/', exception),
     path(f'{settings.ADMIN_URL_PREFIX}/generate-users/', GenerateUsersView.as_view(), name='admin_generate_users'),
     path(f'{settings.ADMIN_URL_PREFIX}/import-problem/', import_problem, name='admin_import_problem'),
