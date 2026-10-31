@@ -1,31 +1,25 @@
-import hashlib
-
 from django.contrib.auth.models import AbstractUser
-from django.utils.http import urlencode
+from django.urls import reverse
 
 from judge.models import Profile
 from judge.utils.avatar import avatar_url
-from judge.utils.unicode import utf8bytes
 from . import registry
 
 
 @registry.function
 def gravatar(email, size=80, default=None):
+    """Uploaded picture if there is one, otherwise the shyrdak ornament drawn from the username."""
     if isinstance(email, Profile):
         if default is None:
             default = email.mute
         if email.avatar and not default:
             return avatar_url(email.avatar)
-        email = email.user.email
+        seed = email.user.username
     elif isinstance(email, AbstractUser):
         profile = getattr(email, 'profile', None)
         if profile is not None and profile.avatar:
             return avatar_url(profile.avatar)
-        email = email.email
-
-    gravatar_url = 'https://www.gravatar.com/avatar/' + hashlib.md5(utf8bytes(email.strip().lower())).hexdigest() + '?'
-    args = {'d': 'identicon', 's': str(size)}
-    if default:
-        args['f'] = 'y'
-    gravatar_url += urlencode(args)
-    return gravatar_url
+        seed = email.username
+    else:
+        seed = (email or '').strip().lower()
+    return reverse('default_avatar', args=[seed or '_'])

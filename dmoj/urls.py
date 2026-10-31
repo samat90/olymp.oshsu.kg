@@ -15,6 +15,7 @@ from judge.views import TitledTemplateView, api, blog, comment, contests, langua
     preview, problem, problem_manage, ranked_submission, register, stats, status, submission, tasks, ticket, \
     two_factor, user, widgets, workspace
 from judge.views import about, anticheat, contest_tools, quiz as quiz_views, quiz_editor, typing as typing_views
+from judge.views.default_avatar import default_avatar
 from judge.views.generate_users import GenerateUsersView
 from judge.views.problem_import import import_problem
 from judge.views.problem_data import ProblemDataView, ProblemSubmissionDiff, \
@@ -237,6 +238,7 @@ urlpatterns = [
 
     path('user', user.UserAboutPage.as_view(), name='user_page'),
     path('edit/profile/', user.edit_profile, name='user_edit_profile'),
+    path('avatar/<str:seed>.svg', default_avatar, name='default_avatar'),
     path('edit/profile/avatar/', user.upload_avatar, name='user_avatar_upload'),
     path('edit/profile/avatar/delete/', user.delete_avatar, name='user_avatar_delete'),
     path('data/prepare/', user.UserPrepareData.as_view(), name='user_prepare_data'),
