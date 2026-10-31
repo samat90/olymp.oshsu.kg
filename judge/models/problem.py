@@ -161,7 +161,7 @@ class Problem(models.Model):
         validators=[MinValueValidator(1), MaxValueValidator(100)],
         help_text=_('Difficulty from 1% to 100%. Independent of awarded points.'))
     is_listed = models.BooleanField(default=True, db_index=True, verbose_name=_('Show in problem archive'))
-    partial = models.BooleanField(verbose_name=_('allows partial points'), default=False)
+    partial = models.BooleanField(verbose_name=_('allows partial points'), default=True)
     allowed_languages = models.ManyToManyField(Language, verbose_name=_('allowed languages'),
                                                help_text=_('List of allowed submission languages.'))
     is_public = models.BooleanField(verbose_name=_('publicly visible'), db_index=True, default=False)

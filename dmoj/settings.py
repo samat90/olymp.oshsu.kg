@@ -43,10 +43,11 @@ DMOJ_2FA_HARDCORE = False
 # Set to 0 to always use HTTP for links
 DMOJ_SSL = 0
 
-# Refer to https://dmoj.ca/post/103-point-system-rework
-DMOJ_PP_STEP = 0.95
-DMOJ_PP_ENTRIES = 100
-DMOJ_PP_BONUS_FUNCTION = lambda n: 300 * (1 - 0.997 ** n)  # noqa: E731
+# The rating is the plain sum of the best scores on public problems: every problem counts in full
+# (the upstream weighting is described at https://dmoj.ca/post/103-point-system-rework).
+DMOJ_PP_STEP = 1.0
+DMOJ_PP_ENTRIES = 10000
+DMOJ_PP_BONUS_FUNCTION = lambda n: 0  # noqa: E731
 
 ACE_URL = '//cdnjs.cloudflare.com/ajax/libs/ace/1.1.3'
 SELECT2_JS_URL = '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js'

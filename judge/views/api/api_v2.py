@@ -589,7 +589,7 @@ class APISubmissionList(APIListView):
         use_straight_join(queryset)
         join_sql_subquery(
             queryset,
-            subquery=Problem.get_visible_problems(self.request.user).distinct().only('id').query,
+            subquery=str(Problem.get_visible_problems(self.request.user).distinct().only('id').query),
             params=[],
             related_model=Problem,
             join_fields=[('problem_id', 'id')],

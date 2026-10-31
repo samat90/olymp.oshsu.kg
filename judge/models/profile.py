@@ -3,7 +3,6 @@ import hmac
 import json
 import secrets
 import struct
-from operator import mul
 
 import pyotp
 import webauthn
@@ -238,9 +237,7 @@ class Profile(models.Model):
         # This must be resolved client-side using prefers-color-scheme.
         return None
 
-    _pp_table = [pow(settings.DMOJ_PP_STEP, i) for i in range(settings.DMOJ_PP_ENTRIES)]
-
-    def calculate_points(self, table=_pp_table):
+    def calculate_points(self):
         from judge.models import Problem
         public_problems = Problem.get_public_problems()
         data = (
@@ -249,15 +246,14 @@ class Profile(models.Model):
                            .annotate(max_points=Max('submission__points')).order_by('-max_points')
                            .values_list('max_points', flat=True).filter(max_points__gt=0)
         )
-        bonus_function = settings.DMOJ_PP_BONUS_FUNCTION
         points = sum(data)
-        entries = min(len(data), len(table))
         problems = (
             public_problems.filter(submission__user=self, submission__is_archived=False, submission__result='AC',
                                    submission__case_points__gte=F('submission__case_total'))
             .values('id').distinct().count()
         )
-        pp = sum(map(mul, table[:entries], data[:entries])) + bonus_function(problems)
+        # The rating is the plain sum of the best scores, so every solved problem adds its full points.
+        pp = points
         if self.points != points or problems != self.problem_count or self.performance_points != pp:
             self.points = points
             self.problem_count = problems
