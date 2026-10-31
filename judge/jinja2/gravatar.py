@@ -8,7 +8,7 @@ from . import registry
 
 @registry.function
 def gravatar(email, size=80, default=None):
-    """Uploaded picture if there is one, otherwise the shyrdak ornament drawn from the username."""
+    """Uploaded picture if there is one, otherwise the default person silhouette."""
     if isinstance(email, Profile):
         if default is None:
             default = email.mute
@@ -22,4 +22,4 @@ def gravatar(email, size=80, default=None):
         seed = email.username
     else:
         seed = (email or '').strip().lower()
-    return reverse('default_avatar', args=[seed or '_'])
+    return reverse('default_avatar', args=[seed or '_']) + '?v=2'
