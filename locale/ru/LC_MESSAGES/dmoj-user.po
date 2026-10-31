@@ -56,3 +56,6 @@ msgstr "Компилятор"
 
 msgid "Typing"
 msgstr "Тренажёр"
+
+msgid "Quiz"
+msgstr "Викторина"
