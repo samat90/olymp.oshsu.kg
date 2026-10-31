@@ -155,15 +155,18 @@
         },
         musicAllowed: function () {
             if (C.music === false) return false;
-            if (ROLE === 'screen') return true;
-            if (ROLE === 'player') return MODE === 'remote' || MODE === 'auto' || MODE === 'solo';
-            return false;
+            // The host's device plays the music; phones of players only in games without a host.
+            if (IS_HOST) return true;
+            return MODE === 'auto' || MODE === 'solo';
         },
-        music: function (name) {
+        // variant: the question number, so every question gets a different tune
+        music: function (name, variant) {
             if (!this.musicAllowed()) name = null;
             var opts = ROLE === 'player' ? {quiet: true} : {};
-            if (name === this.want) return;
-            this.want = name;
+            if (typeof variant === 'number') opts.variant = variant;
+            var want = name ? name + ':' + (typeof variant === 'number' ? variant : '') : null;
+            if (want === this.want) return;
+            this.want = want;
             this.call('music', name, opts);
         },
         urgent: function (on) { this.call('urgent', on); },
@@ -876,7 +879,7 @@
             if (!counting && !P.ui.opened) {
                 P.ui.opened = true;
                 P.ui.answer.classList.remove('qz-locked');
-                if (st.ph === 'question') sound.music('question');
+                if (st.ph === 'question') sound.music('question', st.i);
                 var first = P.ui.answer.querySelector('input:not([type=range]), textarea');
                 if (first && !('ontouchstart' in window)) first.focus();
             }
@@ -1271,6 +1274,7 @@
             show(view);
             if (me && me.rank && me.rank <= 3) {
                 sound.sfx('fanfare');
+                setTimeout(function () { sound.music('final'); }, 1800);
                 sound.vibrate([60, 60, 60, 60, 200]);
                 setTimeout(function () { confetti(5000); }, 900);
             } else {
@@ -1521,6 +1525,7 @@
         function remoteLobby() {
             show(h('div', {cls: 'qz-remote qz-enter'},
                 h('div', {cls: 'qz-remote-pin'}, 'PIN ', h('b', {text: spacedPin(C.pin)})),
+                h('img', {cls: 'qz-remote-qr', src: U.qr, alt: 'QR-код для входа'}),
                 h('p', {cls: 'qz-muted qz-remote-url', text: (C.joinAbsolute || '').replace(/^https?:\/\//, '') + '?pin=' + C.pin}),
                 h('div', {cls: 'qz-lobby-count'}, h('b', {cls: 'qz-players-n', text: String(H.players)}),
                     h('small', {text: plural(H.players, 'игрок', 'игрока', 'игроков')})),
@@ -1611,7 +1616,7 @@
             if (!t) return;
             if (!counting && !H.ui.opened) {
                 H.ui.opened = true;
-                sound.music('question');
+                sound.music('question', game.st.i);
             }
             if (H.ui.opened && !game.st.paused) {
                 sound.urgent(t.left <= 5 && t.left > 0);
@@ -1722,6 +1727,7 @@
             if (H.effectsFor !== 'fin') {
                 H.effectsFor = 'fin';
                 sound.sfx('fanfare');
+                setTimeout(function () { sound.music('final'); }, 1800);
                 setTimeout(function () { confetti(6000); }, 1500);
             }
         }
