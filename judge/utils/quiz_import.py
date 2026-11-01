@@ -3,6 +3,8 @@ import math
 import re
 from io import BytesIO
 
+from django.utils.translation import gettext as _
+
 from judge.models.quiz import Question
 
 TYPE_CODES = [code for code, _name in Question.TYPES]
@@ -32,21 +34,21 @@ def text_value(value, limit, field, name):
     value = '' if value is None else str(value)
     value = value.replace('\r\n', '\n').strip()
     if len(value) > limit:
-        raise QuestionError('%s: не больше %d символов' % (name, limit), field)
+        raise QuestionError(_('%s: не больше %d символов') % (name, limit), field)
     return value
 
 
 def number(value, field, name, default=None):
     if value is None or str(value).strip() == '':
         if default is None:
-            raise QuestionError('%s: нужно число' % name, field)
+            raise QuestionError(_('%s: нужно число') % name, field)
         return default
     try:
         result = float(str(value).strip().replace(',', '.').replace(' ', ''))
     except ValueError:
-        raise QuestionError('%s: нужно число' % name, field)
+        raise QuestionError(_('%s: нужно число') % name, field)
     if not math.isfinite(result) or abs(result) > 1e12:
-        raise QuestionError('%s: неверное число' % name, field)
+        raise QuestionError(_('%s: неверное число') % name, field)
     return int(result) if result == int(result) else result
 
 
@@ -61,7 +63,7 @@ def answer_list(values):
         if value and value not in result:
             result.append(value)
     if len(result) > MAX_ANSWERS:
-        raise QuestionError('Не больше %d ответов' % MAX_ANSWERS, 'answers')
+        raise QuestionError(_('Не больше %d ответов') % MAX_ANSWERS, 'answers')
     return result
 
 
@@ -76,36 +78,36 @@ def clean_data(type, data):
     if type == Question.WORD:
         word = ' '.join(str(data.get('word') or '').split()).upper()
         if len(word) > MAX_WORD:
-            raise QuestionError('Слово: не больше %d букв' % MAX_WORD, 'word')
+            raise QuestionError(_('Слово: не больше %d букв') % MAX_WORD, 'word')
         return {'word': word}
     if type == Question.TEXT:
         return {'answers': answer_list(data.get('answers')),
-                'tolerance': abs(number(data.get('tolerance'), 'tolerance', 'Допуск', 0))}
+                'tolerance': abs(number(data.get('tolerance'), 'tolerance', _('Допуск'), 0))}
     if type == Question.CODE:
         if data.get('input'):
             return {'input': True, 'answers': answer_list(data.get('answers')),
-                    'tolerance': abs(number(data.get('tolerance'), 'tolerance', 'Допуск', 0))}
+                    'tolerance': abs(number(data.get('tolerance'), 'tolerance', _('Допуск'), 0))}
         return {'input': False}
     if type == Question.SLIDER:
-        lo = number(data.get('min'), 'min', 'Минимум', 0)
-        hi = number(data.get('max'), 'max', 'Максимум', 100)
-        step = number(data.get('step'), 'step', 'Шаг', 1)
+        lo = number(data.get('min'), 'min', _('Минимум'), 0)
+        hi = number(data.get('max'), 'max', _('Максимум'), 100)
+        step = number(data.get('step'), 'step', _('Шаг'), 1)
         if lo >= hi:
-            raise QuestionError('Минимум должен быть меньше максимума', 'max')
+            raise QuestionError(_('Минимум должен быть меньше максимума'), 'max')
         if step <= 0 or step > hi - lo:
-            raise QuestionError('Шаг должен быть больше 0 и не больше диапазона', 'step')
+            raise QuestionError(_('Шаг должен быть больше 0 и не больше диапазона'), 'step')
         if (hi - lo) / step > 100000:
-            raise QuestionError('Слишком мелкий шаг', 'step')
-        answer = number(data.get('answer'), 'answer', 'Ответ', lo)
+            raise QuestionError(_('Слишком мелкий шаг'), 'step')
+        answer = number(data.get('answer'), 'answer', _('Ответ'), lo)
         if not lo <= answer <= hi:
-            raise QuestionError('Ответ должен быть от минимума до максимума', 'answer')
-        tolerance = abs(number(data.get('tolerance'), 'tolerance', 'Допуск', 0))
+            raise QuestionError(_('Ответ должен быть от минимума до максимума'), 'answer')
+        tolerance = abs(number(data.get('tolerance'), 'tolerance', _('Допуск'), 0))
         unit = str(data.get('unit') or '').strip()[:12]
         return {'min': lo, 'max': hi, 'step': step, 'answer': answer, 'tolerance': tolerance, 'unit': unit}
     if type == Question.PIN:
         x = min(max(number(data.get('x'), 'x', 'X', 50), 0), 100)
         y = min(max(number(data.get('y'), 'y', 'Y', 50), 0), 100)
-        r = min(max(number(data.get('r'), 'r', 'Радиус', 10), 1), 50)
+        r = min(max(number(data.get('r'), 'r', _('Радиус'), 10), 1), 50)
         return {'x': round(x, 2), 'y': round(y, 2), 'r': round(r, 2)}
     return {}
 
@@ -122,7 +124,7 @@ def clean_options(type, data, options):
             continue
         option_id = raw.get('id')
         result.append({'id': option_id if isinstance(option_id, int) else None,
-                       'text': text_value(raw.get('text'), 300, 'options', 'Вариант'),
+                       'text': text_value(raw.get('text'), 300, 'options', _('Вариант')),
                        'is_correct': bool(raw.get('is_correct')), 'has_image': bool(raw.get('image'))})
     low, high = OPTION_LIMITS[type]
     if type == Question.TRUEFALSE:
@@ -133,7 +135,7 @@ def clean_options(type, data, options):
         return [{'id': ids[0], 'text': TRUE_FALSE[0], 'is_correct': first_correct, 'has_image': False},
                 {'id': ids[1], 'text': TRUE_FALSE[1], 'is_correct': not first_correct, 'has_image': False}]
     if len(result) > high:
-        raise QuestionError('Не больше %d вариантов' % high, 'options')
+        raise QuestionError(_('Не больше %d вариантов') % high, 'options')
     if type in (Question.ORDER, Question.POLL):
         for option in result:
             option['is_correct'] = False
@@ -148,32 +150,32 @@ def clean_options(type, data, options):
 def clean_question(payload):
     """Check and normalise a question from the editor or the import: (fields, options). Raises QuestionError."""
     if not isinstance(payload, dict):
-        raise QuestionError('Неверный запрос')
+        raise QuestionError(_('Неверный запрос'))
     type = payload.get('type')
     if type not in TYPE_CODES:
-        raise QuestionError('Неизвестный тип вопроса', 'type')
+        raise QuestionError(_('Неизвестный тип вопроса'), 'type')
     try:
         time_limit = int(payload.get('time_limit', 20))
     except (TypeError, ValueError):
-        raise QuestionError('Время: нужно число секунд', 'time_limit')
+        raise QuestionError(_('Время: нужно число секунд'), 'time_limit')
     if not TIME_MIN <= time_limit <= TIME_MAX:
-        raise QuestionError('Время: от %d до %d секунд' % (TIME_MIN, TIME_MAX), 'time_limit')
+        raise QuestionError(_('Время: от %d до %d секунд') % (TIME_MIN, TIME_MAX), 'time_limit')
     try:
         weight = int(payload.get('weight', 1))
     except (TypeError, ValueError):
         weight = -1
     if weight not in WEIGHT_CODES:
-        raise QuestionError('Неверные очки', 'weight')
-    code = text_value(payload.get('code'), 4000, 'code', 'Код')
+        raise QuestionError(_('Неверные очки'), 'weight')
+    code = text_value(payload.get('code'), 4000, 'code', _('Код'))
     language = str(payload.get('code_language') or '')
     if language not in LANGUAGE_CODES:
         language = 'python' if type == Question.CODE else ''
     data = clean_data(type, payload.get('data'))
     fields = {
-        'type': type, 'text': text_value(payload.get('text'), 2000, 'text', 'Текст вопроса'),
+        'type': type, 'text': text_value(payload.get('text'), 2000, 'text', _('Текст вопроса')),
         'code': code, 'code_language': language if code or type == Question.CODE else '',
         'time_limit': time_limit, 'weight': weight, 'data': data,
-        'explanation': text_value(payload.get('explanation'), 2000, 'explanation', 'Пояснение'),
+        'explanation': text_value(payload.get('explanation'), 2000, 'explanation', _('Пояснение')),
     }
     return fields, clean_options(type, data, payload.get('options'))
 
@@ -183,25 +185,25 @@ def problems(fields, options, has_image):
     type, data = fields['type'], fields['data']
     found = []
     if not fields['text'] and not has_image and not fields['code']:
-        found.append('Нет текста вопроса')
+        found.append(_('Нет текста вопроса'))
     if type == Question.CODE and not fields['code']:
-        found.append('Добавьте код')
+        found.append(_('Добавьте код'))
     if has_options(type, data):
         low = OPTION_LIMITS[type][0]
         if len(options) < low:
-            found.append('Нужно минимум %d варианта' % low)
+            found.append(_('Нужно минимум %d варианта') % low)
         if any(not o['text'] and not o.get('has_image') for o in options):
-            found.append('Есть пустой вариант')
+            found.append(_('Есть пустой вариант'))
         if type in (Question.SINGLE, Question.TRUEFALSE, Question.CODE) and not any(o['is_correct'] for o in options):
-            found.append('Отметьте верный вариант')
+            found.append(_('Отметьте верный вариант'))
         if type == Question.MULTI and not any(o['is_correct'] for o in options):
-            found.append('Отметьте хотя бы один верный вариант')
+            found.append(_('Отметьте хотя бы один верный вариант'))
     if type == Question.WORD and len(data.get('word', '').replace(' ', '')) < 2:
-        found.append('Введите слово')
+        found.append(_('Введите слово'))
     if (type == Question.TEXT or (type == Question.CODE and data.get('input'))) and not data.get('answers'):
-        found.append('Добавьте хотя бы один ответ')
+        found.append(_('Добавьте хотя бы один ответ'))
     if type == Question.PIN and not has_image:
-        found.append('Загрузите картинку')
+        found.append(_('Загрузите картинку'))
     return found
 
 
@@ -344,21 +346,21 @@ def parse_weight(value):
         return 2
     if name in ('0', 'безочков', 'нет', 'x0'):
         return 0
-    raise QuestionError('Очки: обычные, x2 или без очков')
+    raise QuestionError(_('Очки: обычные, x2 или без очков'))
 
 
 def row_payload(get):
     """Turn one sheet row into an editor payload."""
     type = parse_type(get('type'))
     if type is None:
-        raise QuestionError('Неизвестный тип «%s»' % cell_text(get('type'))[:40])
+        raise QuestionError(_('Неизвестный тип «%s»') % cell_text(get('type'))[:40])
     if type == Question.PIN:
-        raise QuestionError('Точку на картинке добавьте в редакторе: нужна картинка')
+        raise QuestionError(_('Точку на картинке добавьте в редакторе: нужна картинка'))
     time_text = cell_text(get('time'))
     try:
         time_limit = int(float(time_text.replace(',', '.'))) if time_text else 20
     except ValueError:
-        raise QuestionError('Время: нужно число секунд')
+        raise QuestionError(_('Время: нужно число секунд'))
     options = [cell_text(get('opt%d' % i)) for i in range(1, MAX_OPTIONS + 1)]
     while options and not options[-1]:
         options.pop()
@@ -373,12 +375,12 @@ def row_payload(get):
             if not part:
                 continue
             if not part.isdigit() or not 1 <= int(part) <= len(options):
-                raise QuestionError('Верные: номера вариантов от 1 до %d' % len(options))
+                raise QuestionError(_('Верные: номера вариантов от 1 до %d') % len(options))
             numbers.append(int(part))
         if not numbers:
-            raise QuestionError('Укажите номер верного варианта')
+            raise QuestionError(_('Укажите номер верного варианта'))
         if type != Question.MULTI and len(numbers) > 1:
-            raise QuestionError('Здесь только один верный вариант')
+            raise QuestionError(_('Здесь только один верный вариант'))
     if type == Question.TRUEFALSE:
         name = correct.lower().replace('ё', 'е')
         if name in ('верно', 'да', 'true', '1', '+', 'правда'):
@@ -386,16 +388,16 @@ def row_payload(get):
         elif name in ('неверно', 'нет', 'false', '2', '-', 'ложь'):
             truth = False
         else:
-            raise QuestionError('Верные: «Верно» или «Неверно»')
+            raise QuestionError(_('Верные: «Верно» или «Неверно»'))
         payload['options'] = [{'text': TRUE_FALSE[0], 'is_correct': truth},
                               {'text': TRUE_FALSE[1], 'is_correct': not truth}]
     elif type in OPTION_LIMITS and (type != Question.CODE or options):
         if any(not text for text in options):
-            raise QuestionError('Пустой вариант между заполненными')
+            raise QuestionError(_('Пустой вариант между заполненными'))
         payload['options'] = [{'text': text, 'is_correct': n in numbers} for n, text in enumerate(options, 1)]
         low, high = OPTION_LIMITS[type]
         if not low <= len(options) <= high:
-            raise QuestionError('Нужно от %d до %d вариантов' % (low, high))
+            raise QuestionError(_('Нужно от %d до %d вариантов') % (low, high))
     if type == Question.WORD:
         payload['data'] = {'word': correct or (options[0] if options else '')}
     elif type == Question.TEXT or (type == Question.CODE and not options):
@@ -413,25 +415,25 @@ def read_rows(upload):
     from openpyxl import load_workbook
 
     if upload.size > MAX_FILE:
-        raise QuestionError('Файл больше 2 МБ')
+        raise QuestionError(_('Файл больше 2 МБ'))
     try:
         book = load_workbook(BytesIO(upload.read(MAX_FILE + 1)), read_only=True, data_only=True)
     except Exception:
-        raise QuestionError('Нужен файл Excel (.xlsx)')
+        raise QuestionError(_('Нужен файл Excel (.xlsx)'))
     try:
         sheet = book.worksheets[0]
         rows = sheet.iter_rows(max_col=len(COLUMNS) + 6, values_only=True)
         header = next(rows, None)
         mapping = header_map(header or [])
         if 'type' not in mapping or 'text' not in mapping:
-            raise QuestionError('В первой строке нужны заголовки из шаблона (Тип, Вопрос, ...)')
+            raise QuestionError(_('В первой строке нужны заголовки из шаблона (Тип, Вопрос, ...)'))
         result, count = [], 0
         for number, row in enumerate(rows, 2):
             if row is None or all(cell_text(v) == '' for v in row):
                 continue
             count += 1
             if count > MAX_ROWS:
-                raise QuestionError('Не больше %d строк за раз' % MAX_ROWS)
+                raise QuestionError(_('Не больше %d строк за раз') % MAX_ROWS)
 
             def get(name, row=row):
                 index = mapping.get(name)

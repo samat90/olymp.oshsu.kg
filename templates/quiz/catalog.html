@@ -16,15 +16,15 @@
 <div class="qz qz-catalog">
     <div class="qz-hero qz-ornament">
         <div class="qz-hero-text">
-            <h1 class="qz-h1">Викторина</h1>
-            <p class="qz-muted">Игры с вопросами для класса: ведущий показывает, игроки отвечают с телефонов.</p>
+            <h1 class="qz-h1">{{ _('Викторина') }}</h1>
+            <p class="qz-muted">{{ _('Игры с вопросами для класса: ведущий показывает, игроки отвечают с телефонов.') }}</p>
         </div>
         <form class="qz-pin-box" action="{{ url('quiz_join') }}" method="get">
-            <label for="qz-cat-pin" class="qz-pin-label">PIN игры</label>
+            <label for="qz-cat-pin" class="qz-pin-label">{{ _('PIN игры') }}</label>
             <div class="qz-pin-row">
                 <input id="qz-cat-pin" name="pin" class="qz-pin-small" inputmode="numeric" pattern="[0-9]*" maxlength="6"
-                       autocomplete="off" placeholder="000000" aria-label="PIN игры">
-                <button type="submit" class="qz-btn qz-btn-primary qz-btn-lg">Войти по PIN</button>
+                       autocomplete="off" placeholder="000000" aria-label="{{ _('PIN игры') }}">
+                <button type="submit" class="qz-btn qz-btn-primary qz-btn-lg">{{ _('Войти по PIN') }}</button>
             </div>
         </form>
     </div>
@@ -35,30 +35,30 @@
 
     <div class="qz-toolbar">
         <form class="qz-search" method="get">
-            <input type="search" name="q" value="{{ query }}" placeholder="Поиск викторин" aria-label="Поиск">
+            <input type="search" name="q" value="{{ query }}" placeholder="{{ _('Поиск викторин') }}" aria-label="{{ _('Поиск') }}">
             {% if subject %}<input type="hidden" name="subject" value="{{ subject }}">{% endif %}
             {% if order == 'popular' %}<input type="hidden" name="order" value="popular">{% endif %}
-            <button type="submit" class="qz-btn" aria-label="Найти"><i class="fa fa-search"></i></button>
+            <button type="submit" class="qz-btn" aria-label="{{ _('Найти') }}"><i class="fa fa-search"></i></button>
         </form>
-        <div class="qz-seg" role="group" aria-label="Сортировка">
+        <div class="qz-seg" role="group" aria-label="{{ _('Сортировка') }}">
             <a class="qz-seg-item{% if order != 'popular' %} qz-on{% endif %}"
-               href="?{% if query %}q={{ query|urlencode }}&{% endif %}{% if subject %}subject={{ subject|urlencode }}{% endif %}">Новые</a>
+               href="?{% if query %}q={{ query|urlencode }}&{% endif %}{% if subject %}subject={{ subject|urlencode }}{% endif %}">{{ _('Новые') }}</a>
             <a class="qz-seg-item{% if order == 'popular' %} qz-on{% endif %}"
-               href="?{% if query %}q={{ query|urlencode }}&{% endif %}{% if subject %}subject={{ subject|urlencode }}&{% endif %}order=popular">Популярные</a>
+               href="?{% if query %}q={{ query|urlencode }}&{% endif %}{% if subject %}subject={{ subject|urlencode }}&{% endif %}order=popular">{{ _('Популярные') }}</a>
         </div>
         <span class="qz-spacer"></span>
         {% if request.user.is_authenticated %}
-            <a class="qz-btn" href="{{ url('quiz_my') }}"><i class="fa fa-folder-open-o"></i> Мои викторины</a>
-            <a class="qz-btn qz-btn-primary" href="{{ url('quiz_new') }}"><i class="fa fa-plus"></i> Создать викторину</a>
+            <a class="qz-btn" href="{{ url('quiz_my') }}"><i class="fa fa-folder-open-o"></i> {{ _('Мои викторины') }}</a>
+            <a class="qz-btn qz-btn-primary" href="{{ url('quiz_new') }}"><i class="fa fa-plus"></i> {{ _('Создать викторину') }}</a>
         {% else %}
-            <a class="qz-btn" href="{{ url('auth_login') }}?next={{ request.get_full_path()|urlencode }}">Войдите, чтобы создать свою</a>
+            <a class="qz-btn" href="{{ url('auth_login') }}?next={{ request.get_full_path()|urlencode }}">{{ _('Войдите, чтобы создать свою') }}</a>
         {% endif %}
     </div>
 
     {% if subjects %}
         <div class="qz-chips">
             <a class="qz-chip{% if not subject %} qz-on{% endif %}"
-               href="?{% if query %}q={{ query|urlencode }}&{% endif %}{% if order == 'popular' %}order=popular{% endif %}">Все</a>
+               href="?{% if query %}q={{ query|urlencode }}&{% endif %}{% if order == 'popular' %}order=popular{% endif %}">{{ _('Все') }}</a>
             {% for s in subjects %}
                 <a class="qz-chip{% if s|lower == subject|lower %} qz-on{% endif %}"
                    href="?{% if query %}q={{ query|urlencode }}&{% endif %}subject={{ s|urlencode }}{% if order == 'popular' %}&order=popular{% endif %}">{{ s }}</a>
@@ -89,7 +89,7 @@
             {% endfor %}
         </div>
         {% if page.paginator.num_pages > 1 %}
-            <nav class="qz-pages" aria-label="Страницы">
+            <nav class="qz-pages" aria-label="{{ _('Страницы') }}">
                 {% if page.has_previous() %}<a href="{{ page_link(page.previous_page_number()) }}">&larr;</a>{% endif %}
                 {% for n in page.paginator.page_range %}
                     {% if n == page.number %}<span class="qz-on">{{ n }}</span>
@@ -101,7 +101,7 @@
         {% endif %}
     {% else %}
         <div class="qz-empty">
-            {% if query or subject %}Ничего не нашлось.{% else %}Открытых викторин пока нет.{% endif %}
+            {% if query or subject %}{{ _('Ничего не нашлось.') }}{% else %}{{ _('Открытых викторин пока нет.') }}{% endif %}
         </div>
     {% endif %}
 </div>

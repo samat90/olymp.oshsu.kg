@@ -28,6 +28,7 @@ from django.core.cache import cache
 from django.db import IntegrityError, transaction
 from django.db.models import F
 from django.utils import timezone
+from django.utils.translation import gettext as _
 
 from judge.jinja2.markdown import markdown
 from judge.models.interface import MiscConfig
@@ -84,17 +85,17 @@ def new_pin():
         recent = GameSession.objects.filter(pin=pin, created__gte=timezone.now() - timedelta(hours=12))
         if not recent.exclude(status=GameSession.FINISHED).exists() and cache.get(k('s', pin)) is None:
             return pin
-    raise GameError('Не удалось подобрать PIN, попробуйте ещё раз')
+    raise GameError(_('Не удалось подобрать PIN, попробуйте ещё раз'))
 
 
 def create_game(quiz, host, mode, options=None):
     options = options or {}
     questions = list(quiz.questions.values_list('id', flat=True))
     if not questions:
-        raise GameError('В викторине нет вопросов')
+        raise GameError(_('В викторине нет вопросов'))
     broken = unfinished_questions(quiz)
     if broken:
-        raise GameError('Не готовы вопросы %s: допишите их в редакторе' % ', '.join(map(str, broken)))
+        raise GameError(_('Не готовы вопросы %s: допишите их в редакторе') % ', '.join(map(str, broken)))
     if options.get('shuffle_questions'):
         random.shuffle(questions)
     game_settings = {
@@ -120,8 +121,7 @@ def snapshot(quiz):
     for q in quiz.questions.prefetch_related('options'):
         data[str(q.id)] = {'type': q.type, 'type_name': q.get_type_display(), 'text': q.text[:500],
                            'scored': q.scored, 'correct': correct_text(q),
-                           'options': {str(o.id): o.text or 'картинка %d' % (n + 1)
-                                       for n, o in enumerate(q.options.all())}}
+                           'options': {str(o.id): option_text(q, o, n) for n, o in enumerate(q.options.all())}}
     return data
 
 
@@ -219,7 +219,7 @@ class phase_lock:
             if cache.add(self.key, 1, 30):
                 return self
             time.sleep(0.05)
-        raise GameError('Игра занята, попробуйте ещё раз')
+        raise GameError(_('Игра занята, попробуйте ещё раз'))
 
     def __exit__(self, *exc):
         cache.delete(self.key)
@@ -230,7 +230,7 @@ def fresh_state(pin):
     if state is None:
         state = get_state(pin)
     if state is None:
-        raise GameError('Игра не найдена')
+        raise GameError(_('Игра не найдена'))
     return state
 
 
@@ -344,7 +344,7 @@ def start(pin):
         if state['ph'] != GameSession.LOBBY:
             return state
         if state['mode'] != GameSession.SOLO and player_count(state['id']) == 0:
-            raise GameError('Пока нет ни одного игрока')
+            raise GameError(_('Пока нет ни одного игрока'))
         return open_question(state, 0)
 
 
@@ -525,8 +525,15 @@ def final_data(game_id, player_id):
     return dict(data, **(mine or {'me': None, 'mistakes': []}))
 
 
+def option_text(question, option, n):
+    """An option as text; the fixed «Верно» / «Неверно» options in the page language."""
+    if question.type == Question.TRUEFALSE and option.text in ('Верно', 'Неверно'):
+        return _(option.text)
+    return option.text or _('картинка %d') % (n + 1)
+
+
 def answer_text(question, value):
-    options = {o.id: o.text or 'картинка %d' % (n + 1) for n, o in enumerate(question.options.all())}
+    options = {o.id: option_text(question, o, n) for n, o in enumerate(question.options.all())}
     if isinstance(value, list):
         return ', '.join(options.get(v, '?') for v in value)
     if isinstance(value, dict):
@@ -550,8 +557,8 @@ def correct_text(question):
     if t == Question.SLIDER:
         return str(data.get('answer', ''))
     if t == Question.PIN:
-        return 'отмеченная область на картинке'
-    return ', '.join(o.text or 'картинка %d' % (n + 1) for n, o in enumerate(options) if o.is_correct)
+        return _('отмеченная область на картинке')
+    return ', '.join(option_text(question, o, n) for n, o in enumerate(options) if o.is_correct)
 
 
 def next_step(pin):
@@ -560,7 +567,7 @@ def next_step(pin):
         ph = state['ph']
         if ph == GameSession.LOBBY:
             if state['mode'] != GameSession.SOLO and player_count(state['id']) == 0:
-                raise GameError('Пока нет ни одного игрока')
+                raise GameError(_('Пока нет ни одного игрока'))
             return open_question(state, 0)
         if ph == GameSession.QUESTION:
             return close_question(state)
@@ -654,37 +661,37 @@ def join(state, profile, nickname, token, ip):
         player = Player.objects.filter(game_id=game_id, token=token).first() if token else None
     if player is not None:
         if player.is_removed:
-            raise GameError('Ведущий удалил вас из игры')
+            raise GameError(_('Ведущий удалил вас из игры'))
         return player, False
     if state['ph'] == GameSession.FINISHED:
-        raise GameError('Игра уже закончилась')
+        raise GameError(_('Игра уже закончилась'))
     if profile is None and not game.settings.get('guests', True):
-        raise GameError('В эту игру можно войти только с аккаунтом')
+        raise GameError(_('В эту игру можно войти только с аккаунтом'))
     ip_key = k('ip', ip)
     cache.add(ip_key, 0, 600)
     try:
         if cache.incr(ip_key) > JOINS_PER_IP:
-            raise GameError('Слишком много входов с этого адреса, подождите')
+            raise GameError(_('Слишком много входов с этого адреса, подождите'))
     except ValueError:
         pass
     nickname = ' '.join(nickname.split())[:24]
     if not nickname_ok(nickname):
-        raise GameError('Выберите другой ник')
+        raise GameError(_('Выберите другой ник'))
     limit = game.settings.get('max_players', MAX_PLAYERS)
     count_key = k('np', game_id)
     cache.add(count_key, Player.objects.filter(game_id=game_id, is_removed=False).count(), TTL)
     if cache.incr(count_key) > limit:
         cache.decr(count_key)
-        raise GameError('В игре уже %d игроков, это максимум' % limit)
+        raise GameError(_('В игре уже %d игроков, это максимум') % limit)
     if Player.objects.filter(game_id=game_id, nickname__iexact=nickname, is_removed=False).exists():
         cache.decr(count_key)
-        raise GameError('Этот ник уже занят')
+        raise GameError(_('Этот ник уже занят'))
     try:
         player = Player.objects.create(game_id=game_id, profile=profile, nickname=nickname,
                                        token='' if profile is not None else (token or secrets.token_hex(16)))
     except IntegrityError:
         cache.decr(count_key)
-        raise GameError('Не получилось войти, попробуйте ещё раз')
+        raise GameError(_('Не получилось войти, попробуйте ещё раз'))
     return player, True
 
 
@@ -724,25 +731,25 @@ def submit_answer(state, player_id, raw_value):
     """Check and store one answer. Returns (http status, response dict)."""
     t = now()
     if state['ph'] != GameSession.QUESTION:
-        return 409, {'error': 'Сейчас нельзя отвечать'}
+        return 409, {'error': _('Сейчас нельзя отвечать')}
     if t > state['end'] + GRACE:
-        return 409, {'error': 'Время вышло'}
+        return 409, {'error': _('Время вышло')}
     if t < state['start'] - 0.05:
-        return 409, {'error': 'Ещё рано'}
+        return 409, {'error': _('Ещё рано')}
     if state['paused'] is not None:
-        return 409, {'error': 'Игра на паузе'}
+        return 409, {'error': _('Игра на паузе')}
     game_id, index = state['id'], state['i']
     names = {'x': k('x', game_id, player_id), 'key': k('k', game_id, index),
              'seen': k('seen', game_id, index, player_id), 'me': k('me', game_id, player_id)}
     got = cache.get_many(list(names.values()))
     if got.get(names['x']):
-        return 403, {'error': 'Вы удалены из игры'}
+        return 403, {'error': _('Вы удалены из игры')}
     key = got.get(names['key']) or get_key(game_id, index)
     value = scoring.clean_value(key, raw_value)
     if value is None:
-        return 400, {'error': 'Неверный ответ'}
+        return 400, {'error': _('Неверный ответ')}
     if not cache.add(k('a', game_id, index, player_id), 1, TTL):
-        return 409, {'error': 'Ответ уже принят'}
+        return 409, {'error': _('Ответ уже принят')}
     seen = got.get(names['seen']) or state['start']
     # Capped at the time limit: an answer delivered late never earns more than the slowest one in time.
     elapsed = min(max(t - max(seen, state['start']), 0), key['time'])
@@ -753,7 +760,7 @@ def submit_answer(state, player_id, raw_value):
         Answer.objects.create(player_id=player_id, question_id=key['id'], question_key=key['id'], value=value,
                               is_correct=correct, fraction=fraction, points=points, time_ms=int(elapsed * 1000))
     except IntegrityError:
-        return 409, {'error': 'Ответ уже принят'}
+        return 409, {'error': _('Ответ уже принят')}
     try:
         answered = cache.incr(k('na', game_id, index))
     except ValueError:

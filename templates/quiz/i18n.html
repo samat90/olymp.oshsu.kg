@@ -1,0 +1,5 @@
+{# Translations for the quiz scripts: they call L('Русский текст'). #}
+<script>
+    window.QZ_I18N = {{ quiz_js_catalog()|tojson }};
+    window.QZ_L = function (text) { return window.QZ_I18N[text] || text; };
+</script>

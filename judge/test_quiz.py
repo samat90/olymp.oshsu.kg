@@ -69,6 +69,8 @@ def walk_keys(value):
 
 # ---------------------------------------------------------------- checking and points
 
+# The quiz is written in Russian: its messages are the Russian msgids.
+@override_settings(LANGUAGE_CODE='ru')
 class QuizScoringTest(TestCase):
     def setUp(self):
         cache.clear()
@@ -222,6 +224,8 @@ class QuizScoringTest(TestCase):
 
 # ---------------------------------------------------------------- games over HTTP
 
+# The quiz is written in Russian: its messages are the Russian msgids.
+@override_settings(LANGUAGE_CODE='ru')
 class QuizGameTestCase(TestCase):
     """Fixed server clock (judge.utils.quiz_game.now) and no countdown."""
 
@@ -1236,6 +1240,8 @@ def png_bytes(size=(2000, 1500), mode='RGB'):
     return buf.getvalue()
 
 
+# The quiz is written in Russian: its messages are the Russian msgids.
+@override_settings(LANGUAGE_CODE='ru')
 class QuizEditorTest(TestCase):
     def setUp(self):
         cache.clear()
@@ -1520,6 +1526,8 @@ class QuizEditorTest(TestCase):
         self.assertEqual(self.editor.get(reverse('quiz_edit', args=[self.quiz.key])).status_code, 200)
 
 
+# The quiz is written in Russian: its messages are the Russian msgids.
+@override_settings(LANGUAGE_CODE='ru')
 class QuizRedisCacheTest(TestCase):
     def test_one_client_per_process(self):
         from judge.utils.redis_cache import RedisCache
@@ -1545,6 +1553,8 @@ class QuizRedisCacheTest(TestCase):
         self.assertEqual(caches['other']['BACKEND'], 'django.core.cache.backends.locmem.LocMemCache')
 
 
+# The quiz is written in Russian: its messages are the Russian msgids.
+@override_settings(LANGUAGE_CODE='ru')
 class QuizAdminBlockTest(TestCase):
     def test_quiz_has_its_own_admin_block(self):
         admin = create_user(username='blockadmin', is_superuser=True, is_staff=True)

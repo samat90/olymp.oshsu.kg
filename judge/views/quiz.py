@@ -18,6 +18,7 @@ from django.middleware.csrf import CsrfViewMiddleware
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.views.decorators.http import require_POST
+from django.utils.translation import gettext as _
 
 from judge.models import GameSession, Quiz, QuizAnswer, QuizPlayer, QuizQuestion, QuizReport
 from judge.utils import quiz_game as engine
@@ -41,7 +42,7 @@ def short_circuit(view):
             return view(request, *args, **kwargs)
         except Exception:
             logger.exception('quiz API error')
-            return JsonResponse({'error': 'Ошибка сервера'}, status=500)
+            return JsonResponse({'error': _('Ошибка сервера')}, status=500)
     wrapper.short_circuit_middleware = True
     return wrapper
 
@@ -113,7 +114,7 @@ def catalog(request):
                         .order_by('-c').values_list('subject', flat=True)[:20])
         cache.set('qz:subjects', subjects, 300)
     return render(request, 'quiz/catalog.html', {
-        'title': 'Викторина', 'page': page, 'query': query, 'subject': subject, 'subjects': subjects,
+        'title': _('Викторина'), 'page': page, 'query': query, 'subject': subject, 'subjects': subjects,
         'order': order or 'new', 'disabled': engine.games_disabled(),
     })
 
@@ -128,7 +129,7 @@ def my_quizzes(request):
     played = QuizPlayer.objects.filter(profile=profile).select_related('game__quiz') \
         .order_by('-joined')[:30]
     return render(request, 'quiz/my.html', {
-        'title': 'Мои викторины', 'quizzes': quizzes, 'hosted': hosted, 'played': played,
+        'title': _('Мои викторины'), 'quizzes': quizzes, 'hosted': hosted, 'played': played,
     })
 
 
@@ -170,7 +171,7 @@ def launch(request, key):
     quiz = get_quiz(request, key)
     disabled = engine.games_disabled()
     if disabled and not request.user.is_superuser:
-        return render(request, 'quiz/message.html', {'title': 'Викторина', 'message': disabled}, status=403)
+        return render(request, 'quiz/message.html', {'title': _('Викторина'), 'message': disabled}, status=403)
     mode = request.POST.get('mode')
     if mode != GameSession.AUTO:
         mode = GameSession.HOST
@@ -194,11 +195,11 @@ def solo(request, key):
         return redirect('quiz_detail', key=quiz.key)
     disabled = engine.games_disabled()
     if disabled and not request.user.is_superuser:
-        return render(request, 'quiz/message.html', {'title': 'Викторина', 'message': disabled}, status=403)
+        return render(request, 'quiz/message.html', {'title': _('Викторина'), 'message': disabled}, status=403)
     profile = request.profile if request.user.is_authenticated else None
     nickname = profile.user.username if profile else request.POST.get('nickname', '').strip()
     if profile is None and not engine.nickname_ok(' '.join(nickname.split())[:24]):
-        return render(request, 'quiz/message.html', {'title': quiz.title, 'message': 'Выберите другой ник'},
+        return render(request, 'quiz/message.html', {'title': quiz.title, 'message': _('Выберите другой ник')},
                       status=400)
     try:
         game = engine.create_game(quiz, None, GameSession.SOLO)
@@ -220,7 +221,7 @@ def complain(request, key):
         QuizReport.objects.create(quiz=quiz, author=request.profile if request.user.is_authenticated else None,
                                   reason=reason)
     return render(request, 'quiz/message.html', {
-        'title': quiz.title, 'message': 'Спасибо, жалоба отправлена администраторам.',
+        'title': quiz.title, 'message': _('Спасибо, жалоба отправлена администраторам.'),
         'back': reverse('quiz_detail', args=[quiz.key])})
 
 
@@ -230,12 +231,12 @@ def complain(request, key):
 def join(request):
     """Step 1: PIN (the QR code opens this page with ?pin=). Step 2: nickname for guests."""
     pin = ''.join(ch for ch in (request.POST.get('pin') or request.GET.get('pin') or '') if ch.isdigit())[:6]
-    context = {'title': 'Войти в игру', 'pin': pin, 'error': '', 'step': 'pin', 'nickname': ''}
+    context = {'title': _('Войти в игру'), 'pin': pin, 'error': '', 'step': 'pin', 'nickname': ''}
     if not pin or (request.method != 'POST' and not request.GET.get('pin')):
         return render(request, 'quiz/join.html', context)
     state = engine.get_state(pin) if len(pin) == 6 else None
     if state is None or state['mode'] == GameSession.SOLO:
-        context['error'] = 'Игра с таким PIN не найдена'
+        context['error'] = _('Игра с таким PIN не найдена')
         return render(request, 'quiz/join.html', context, status=404 if request.method == 'POST' else 200)
     player_id = current_player_id(request, state)
     if player_id is not None and not engine.is_kicked(state['id'], player_id):
@@ -332,7 +333,7 @@ def host(request, pin):
     if state is None or state['mode'] == GameSession.SOLO:
         raise Http404()
     if not is_host(request, state):
-        return HttpResponseForbidden('Только ведущий может открыть эту страницу')
+        return HttpResponseForbidden(_('Только ведущий может открыть эту страницу'))
     game = GameSession.objects.select_related('quiz').get(id=state['id'])
     # The same game in two layouts: a big screen (projector, computer) or a compact one for a phone.
     view = request.GET.get('view')
@@ -357,7 +358,7 @@ def state_view(request, pin):
     if state is None:
         state = engine.get_state(pin)
         if state is None:
-            return JsonResponse({'error': 'Игра не найдена', 'gone': True}, status=404)
+            return JsonResponse({'error': _('Игра не найдена'), 'gone': True}, status=404)
     state = engine.advance_if_due(state)
     player_id = players = None
     if ids and ids[0] == state['id']:
@@ -381,9 +382,9 @@ def question_view(request, pin):
     """The current question without its answer. Records when this player received it."""
     state = cache.get(engine.k('s', pin)) or engine.get_state(pin)
     if state is None:
-        return json_error('Игра не найдена', 404)
+        return json_error(_('Игра не найдена'), 404)
     if state['ph'] not in (GameSession.QUESTION, GameSession.REVEAL, GameSession.LEADERBOARD) or state['i'] < 0:
-        return json_error('Сейчас нет вопроса', 409)
+        return json_error(_('Сейчас нет вопроса'), 409)
     player_id = current_player_id(request, state)
     payload = engine.get_question(state['id'], state['i'])
     if player_id is not None and state['ph'] == GameSession.QUESTION:
@@ -408,18 +409,18 @@ def answer_view(request, pin):
         return json_error('CSRF', 403)
     state = cache.get(engine.k('s', pin)) or engine.get_state(pin)
     if state is None:
-        return json_error('Игра не найдена', 404)
+        return json_error(_('Игра не найдена'), 404)
     player_id = current_player_id(request, state)
     if player_id is None:
-        return json_error('Вы не в этой игре', 403)
+        return json_error(_('Вы не в этой игре'), 403)
     try:
         body = json.loads(request.body or b'{}')
         index = int(body['i'])
         value = body['value']
     except (ValueError, KeyError, TypeError):
-        return json_error('Неверный запрос')
+        return json_error(_('Неверный запрос'))
     if index != state['i']:
-        return json_error('Этот вопрос уже закрыт', 409)
+        return json_error(_('Этот вопрос уже закрыт'), 409)
     status, data = engine.submit_answer(state, player_id, value)
     return JsonResponse(data, status=status)
 
@@ -429,9 +430,9 @@ def result_view(request, pin):
     """After the reveal: the correct answer, statistics and this player's result."""
     state = cache.get(engine.k('s', pin)) or engine.get_state(pin)
     if state is None:
-        return json_error('Игра не найдена', 404)
+        return json_error(_('Игра не найдена'), 404)
     if state['ph'] not in (GameSession.REVEAL, GameSession.LEADERBOARD, GameSession.FINISHED) or state['i'] < 0:
-        return json_error('Разбор ещё не начался', 409)
+        return json_error(_('Разбор ещё не начался'), 409)
     data = {'reveal': engine.reveal_data(state['id'], state['i']), 'me': None,
             'leaderboard': engine.leaderboard_data(state['id'])}
     player_id = current_player_id(request, state)
@@ -447,7 +448,7 @@ def final_view(request, pin):
     """The podium, the leaderboard and this player's answers with the right ones (prepared at the finish)."""
     state = cache.get(engine.k('s', pin)) or engine.get_state(pin)
     if state is None or state['ph'] != GameSession.FINISHED:
-        return json_error('Игра ещё идёт', 409)
+        return json_error(_('Игра ещё идёт'), 409)
     return JsonResponse(engine.final_data(state['id'], current_player_id(request, state)))
 
 
@@ -460,9 +461,9 @@ def solo_next(request, pin):
         return json_error('CSRF', 403)
     state = engine.get_state(pin)
     if state is None or state['mode'] != GameSession.SOLO:
-        return json_error('Игра не найдена', 404)
+        return json_error(_('Игра не найдена'), 404)
     if current_player_id(request, state) is None:
-        return json_error('Вы не в этой игре', 403)
+        return json_error(_('Вы не в этой игре'), 403)
     try:
         state = engine.next_step(pin)
     except GameError as e:
@@ -476,9 +477,9 @@ def host_state(request, pin):
     """Everything the host screen needs, polled every second: state, counts, the players in the lobby."""
     state = engine.get_state(pin)
     if state is None:
-        return json_error('Игра не найдена', 404)
+        return json_error(_('Игра не найдена'), 404)
     if not is_host(request, state):
-        return json_error('Только ведущий', 403)
+        return json_error(_('Только ведущий'), 403)
     state = engine.advance_if_due(state)
     data = engine.public_state(state)
     data['players'] = engine.player_count(state['id'])
@@ -509,9 +510,9 @@ def host_action(request, pin):
     """POST action=start|next|skip|pause|resume|end|kick (player=id)|hide (answer=id)."""
     state = engine.get_state(pin)
     if state is None:
-        return json_error('Игра не найдена', 404)
+        return json_error(_('Игра не найдена'), 404)
     if not is_host(request, state):
-        return json_error('Только ведущий', 403)
+        return json_error(_('Только ведущий'), 403)
     action = request.POST.get('action')
     try:
         if action == 'start':
@@ -527,7 +528,7 @@ def host_action(request, pin):
         elif action == 'kick':
             engine.remove_player(state, int(request.POST.get('player', 0)))
         else:
-            return json_error('Неизвестное действие')
+            return json_error(_('Неизвестное действие'))
     except (GameError, ValueError) as e:
         return json_error(str(e), 409)
     return JsonResponse(engine.public_state(state))
@@ -555,7 +556,7 @@ class SnapshotQuestion:
         self.type_name = data.get('type_name', '')
 
     def get_type_display(self):
-        return '%s (удалён)' % self.type_name
+        return _('%s (удалён)') % self.type_name
 
 
 def report_rows(game):
@@ -586,7 +587,7 @@ def game_report(request, game_id):
     questions, players, answers, stats = report_rows(game)
     table = [{'player': p, 'cells': [answers.get((p.id, q.id)) for q in questions]} for p in players]
     return render(request, 'quiz/report.html', {
-        'title': 'Отчёт: %s' % game.quiz.title, 'game': game, 'questions': questions, 'table': table,
+        'title': _('Отчёт: %s') % game.quiz.title, 'game': game, 'questions': questions, 'table': table,
         'stats': stats,
     })
 
@@ -600,9 +601,9 @@ def game_report_xlsx(request, game_id):
     questions, players, answers, stats = report_rows(game)
     book = Workbook()
     sheet = book.active
-    sheet.title = 'Игроки'
-    sheet.append(['Место', 'Ник', 'Пользователь', 'Очки', 'Верных'] +
-                 ['В%d' % n for n in range(1, len(questions) + 1)])
+    sheet.title = _('Игроки')
+    sheet.append([_('Место'), _('Ник'), _('Пользователь'), _('Очки'), _('Верных')] +
+                 [_('В%d') % n for n in range(1, len(questions) + 1)])
     for place, p in enumerate(players, 1):
         row = [p.rank or place, p.nickname, p.profile.user.username if p.profile_id else '', p.score, p.correct]
         for q in questions:
@@ -618,8 +619,8 @@ def game_report_xlsx(request, game_id):
             a = answers.get((p.id, q.id))
             if a is not None and q.scored:
                 sheet.cell(row=r, column=c).fill = green if a.is_correct else red
-    second = book.create_sheet('Вопросы')
-    second.append(['№', 'Тип', 'Вопрос', 'Ответили', 'Верно', '% верных', 'Среднее время, с'])
+    second = book.create_sheet(_('Вопросы'))
+    second.append(['№', _('Тип'), _('Вопрос'), _('Ответили'), _('Верно'), _('% верных'), _('Среднее время, с')])
     for s in stats:
         q = s['question']
         second.append([s['n'], q.get_type_display(), q.text[:200], s['answered'], s['correct'],
@@ -636,7 +637,7 @@ def game_report_xlsx(request, game_id):
 
 def records(request, key):
     quiz = get_quiz(request, key)
-    return render(request, 'quiz/records.html', {'title': 'Рекорды: %s' % quiz.title, 'quiz': quiz,
+    return render(request, 'quiz/records.html', {'title': _('Рекорды: %s') % quiz.title, 'quiz': quiz,
                                                  'records': quiz_records(quiz, 100)})
 
 

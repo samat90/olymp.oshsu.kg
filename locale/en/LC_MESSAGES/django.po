@@ -6460,3 +6460,1679 @@ msgstr ""
 #: templates/widgets/select_all.html:8
 msgid "Check all"
 msgstr ""
+
+msgid "Открытая"
+msgstr "Public"
+
+msgid "По ссылке"
+msgstr "By link"
+
+msgid "Степь"
+msgstr "Steppe"
+
+msgid "Иссык-Куль"
+msgstr "Issyk-Kul"
+
+msgid "Ночь"
+msgstr "Night"
+
+msgid "Шырдак"
+msgstr "Shyrdak"
+
+msgid "Один вариант"
+msgstr "Single choice"
+
+msgid "Верно / Неверно"
+msgstr "True / False"
+
+msgid "Несколько верных"
+msgstr "Multiple choice"
+
+msgid "Собери слово"
+msgstr "Build the word"
+
+msgid "Расставь по порядку"
+msgstr "Put in order"
+
+msgid "Что выведет код"
+msgstr "Code output"
+
+msgid "Введи ответ"
+msgstr "Type the answer"
+
+msgid "Ползунок"
+msgstr "Slider"
+
+msgid "Точка на картинке"
+msgstr "Point on image"
+
+msgid "Опрос"
+msgstr "Poll"
+
+msgid "Облако слов"
+msgstr "Word cloud"
+
+msgid "Открытый ответ"
+msgstr "Open answer"
+
+msgid "Обычный"
+msgstr "Normal"
+
+msgid "Двойные очки"
+msgstr "Double points"
+
+msgid "Без очков"
+msgstr "No points"
+
+msgid "С ведущим"
+msgstr "With a host"
+
+msgid "Автоматически"
+msgstr "Automatic"
+
+msgid "В одиночку"
+msgstr "Solo"
+
+msgid "Лобби"
+msgstr "Lobby"
+
+msgid "Вопрос"
+msgstr "Question"
+
+msgid "Разбор"
+msgstr "Review"
+
+msgid "Таблица"
+msgstr "Leaderboard"
+
+msgid "Завершена"
+msgstr "Finished"
+
+msgid "Не удалось подобрать PIN, попробуйте ещё раз"
+msgstr "Could not pick a PIN, please try again"
+
+msgid "В викторине нет вопросов"
+msgstr "The quiz has no questions"
+
+#, python-format
+msgid "Не готовы вопросы %s: допишите их в редакторе"
+msgstr "Questions %s are not ready: finish them in the editor"
+
+#, python-format
+msgid "картинка %d"
+msgstr "image %d"
+
+msgid "Игра занята, попробуйте ещё раз"
+msgstr "The game is busy, please try again"
+
+msgid "Игра не найдена"
+msgstr "Game not found"
+
+msgid "Пока нет ни одного игрока"
+msgstr "No players yet"
+
+msgid "отмеченная область на картинке"
+msgstr "the marked area on the image"
+
+msgid "Ведущий удалил вас из игры"
+msgstr "The host removed you from the game"
+
+msgid "Игра уже закончилась"
+msgstr "The game has already ended"
+
+msgid "В эту игру можно войти только с аккаунтом"
+msgstr "This game is for signed-in users only"
+
+msgid "Слишком много входов с этого адреса, подождите"
+msgstr "Too many joins from this address, please wait"
+
+msgid "Выберите другой ник"
+msgstr "Choose another nickname"
+
+#, python-format
+msgid "В игре уже %d игроков, это максимум"
+msgstr "The game already has %d players, that is the maximum"
+
+msgid "Этот ник уже занят"
+msgstr "This nickname is taken"
+
+msgid "Не получилось войти, попробуйте ещё раз"
+msgstr "Could not join, please try again"
+
+msgid "Сейчас нельзя отвечать"
+msgstr "Answers are closed now"
+
+msgid "Время вышло"
+msgstr "Time is up"
+
+msgid "Ещё рано"
+msgstr "Too early"
+
+msgid "Игра на паузе"
+msgstr "The game is paused"
+
+msgid "Вы удалены из игры"
+msgstr "You were removed from the game"
+
+msgid "Неверный ответ"
+msgstr "Invalid answer"
+
+msgid "Ответ уже принят"
+msgstr "Answer already received"
+
+msgid "Файл не получен"
+msgstr "No file received"
+
+msgid "Картинка больше 5 МБ"
+msgstr "The image is larger than 5 MB"
+
+msgid "Нужна картинка JPEG, PNG, GIF или WebP"
+msgstr "Use a JPEG, PNG, GIF or WebP image"
+
+msgid "Слишком большая картинка"
+msgstr "The image is too large"
+
+msgid "Это не картинка или файл повреждён"
+msgstr "Not an image, or the file is damaged"
+
+#, python-format
+msgid "%s: не больше %d символов"
+msgstr "%s: no more than %d characters"
+
+#, python-format
+msgid "%s: нужно число"
+msgstr "%s: a number is required"
+
+#, python-format
+msgid "%s: неверное число"
+msgstr "%s: invalid number"
+
+#, python-format
+msgid "Не больше %d ответов"
+msgstr "No more than %d answers"
+
+#, python-format
+msgid "Слово: не больше %d букв"
+msgstr "Word: no more than %d letters"
+
+msgid "Допуск"
+msgstr "Tolerance"
+
+msgid "Минимум"
+msgstr "Minimum"
+
+msgid "Максимум"
+msgstr "Maximum"
+
+msgid "Шаг"
+msgstr "Step"
+
+msgid "Минимум должен быть меньше максимума"
+msgstr "The minimum must be less than the maximum"
+
+msgid "Шаг должен быть больше 0 и не больше диапазона"
+msgstr "The step must be above 0 and not larger than the range"
+
+msgid "Слишком мелкий шаг"
+msgstr "The step is too small"
+
+msgid "Ответ"
+msgstr "Answer"
+
+msgid "Ответ должен быть от минимума до максимума"
+msgstr "The answer must be between the minimum and the maximum"
+
+msgid "Радиус"
+msgstr "Radius"
+
+msgid "Вариант"
+msgstr "Option"
+
+#, python-format
+msgid "Не больше %d вариантов"
+msgstr "No more than %d options"
+
+msgid "Неверный запрос"
+msgstr "Bad request"
+
+msgid "Неизвестный тип вопроса"
+msgstr "Unknown question type"
+
+msgid "Время: нужно число секунд"
+msgstr "Time: a number of seconds is required"
+
+#, python-format
+msgid "Время: от %d до %d секунд"
+msgstr "Time: from %d to %d seconds"
+
+msgid "Неверные очки"
+msgstr "Invalid points"
+
+msgid "Код"
+msgstr "Code"
+
+msgid "Текст вопроса"
+msgstr "Question text"
+
+msgid "Пояснение"
+msgstr "Explanation"
+
+msgid "Нет текста вопроса"
+msgstr "No question text"
+
+msgid "Добавьте код"
+msgstr "Add the code"
+
+#, python-format
+msgid "Нужно минимум %d варианта"
+msgstr "At least %d options are needed"
+
+msgid "Есть пустой вариант"
+msgstr "There is an empty option"
+
+msgid "Отметьте верный вариант"
+msgstr "Mark the correct option"
+
+msgid "Отметьте хотя бы один верный вариант"
+msgstr "Mark at least one correct option"
+
+msgid "Введите слово"
+msgstr "Enter the word"
+
+msgid "Добавьте хотя бы один ответ"
+msgstr "Add at least one answer"
+
+msgid "Загрузите картинку"
+msgstr "Upload an image"
+
+msgid "Очки: обычные, x2 или без очков"
+msgstr "Points: обычные, x2 or без очков (as in the template)"
+
+#, python-format
+msgid "Неизвестный тип «%s»"
+msgstr "Unknown type «%s»"
+
+msgid "Точку на картинке добавьте в редакторе: нужна картинка"
+msgstr "Add a point-on-image question in the editor: it needs an image"
+
+#, python-format
+msgid "Верные: номера вариантов от 1 до %d"
+msgstr "Correct: option numbers from 1 to %d"
+
+msgid "Укажите номер верного варианта"
+msgstr "Give the number of the correct option"
+
+msgid "Здесь только один верный вариант"
+msgstr "Only one correct option here"
+
+msgid "Верные: «Верно» или «Неверно»"
+msgstr "Correct: «Верно» or «Неверно»"
+
+msgid "Пустой вариант между заполненными"
+msgstr "Empty option between filled ones"
+
+#, python-format
+msgid "Нужно от %d до %d вариантов"
+msgstr "From %d to %d options are needed"
+
+msgid "Файл больше 2 МБ"
+msgstr "The file is larger than 2 MB"
+
+msgid "Нужен файл Excel (.xlsx)"
+msgstr "An Excel file (.xlsx) is required"
+
+msgid "В первой строке нужны заголовки из шаблона (Тип, Вопрос, ...)"
+msgstr "The first row must have the template headers (Тип, Вопрос, ...)"
+
+#, python-format
+msgid "Не больше %d строк за раз"
+msgstr "No more than %d rows at a time"
+
+msgid "Ошибка сервера"
+msgstr "Server error"
+
+msgid "Викторина"
+msgstr "Quiz"
+
+msgid "Мои викторины"
+msgstr "My quizzes"
+
+msgid "Спасибо, жалоба отправлена администраторам."
+msgstr "Thank you, the report was sent to the administrators."
+
+msgid "Войти в игру"
+msgstr "Join a game"
+
+msgid "Игра с таким PIN не найдена"
+msgstr "No game with this PIN"
+
+msgid "Только ведущий может открыть эту страницу"
+msgstr "Only the host can open this page"
+
+msgid "Сейчас нет вопроса"
+msgstr "There is no question now"
+
+msgid "Вы не в этой игре"
+msgstr "You are not in this game"
+
+msgid "Этот вопрос уже закрыт"
+msgstr "This question is already closed"
+
+msgid "Разбор ещё не начался"
+msgstr "The review has not started yet"
+
+msgid "Игра ещё идёт"
+msgstr "The game is still on"
+
+msgid "Только ведущий"
+msgstr "Host only"
+
+msgid "Неизвестное действие"
+msgstr "Unknown action"
+
+#, python-format
+msgid "%s (удалён)"
+msgstr "%s (deleted)"
+
+#, python-format
+msgid "Отчёт: %s"
+msgstr "Report: %s"
+
+msgid "Игроки"
+msgstr "Players"
+
+msgid "Место"
+msgstr "Place"
+
+msgid "Ник"
+msgstr "Nickname"
+
+msgid "Пользователь"
+msgstr "User"
+
+msgid "Очки"
+msgstr "Points"
+
+msgid "Верных"
+msgstr "Correct"
+
+#, python-format
+msgid "В%d"
+msgstr "Q%d"
+
+msgid "Вопросы"
+msgstr "Questions"
+
+msgid "Тип"
+msgstr "Type"
+
+msgid "Ответили"
+msgstr "Answered"
+
+msgid "Верно"
+msgstr "Correct"
+
+msgid "% верных"
+msgstr "% correct"
+
+msgid "Среднее время, с"
+msgstr "Average time, s"
+
+#, python-format
+msgid "Рекорды: %s"
+msgstr "Records: %s"
+
+msgid "Один верный из 2–4"
+msgstr "One correct out of 2–4"
+
+msgid "Утверждение: верно или нет"
+msgstr "Statement: true or false"
+
+msgid "Несколько верных из 2–6"
+msgstr "Several correct out of 2–6"
+
+msgid "Собрать слово из букв"
+msgstr "Build a word from letters"
+
+msgid "Расставить 3–6 пунктов"
+msgstr "Order 3–6 items"
+
+msgid "Код: варианты или ввод"
+msgstr "Code: options or typed answer"
+
+msgid "Ввести ответ с клавиатуры"
+msgstr "Type the answer on the keyboard"
+
+msgid "Число на шкале"
+msgstr "Number on a scale"
+
+msgid "Отметить место на картинке"
+msgstr "Mark a spot on an image"
+
+msgid "Мнение, без очков"
+msgstr "Opinion, no points"
+
+msgid "Облако слов, без очков"
+msgstr "Word cloud, no points"
+
+msgid "Свободный ответ, без очков"
+msgstr "Free answer, no points"
+
+#, python-format
+msgid "У вас уже %d викторин. Удалите ненужные, чтобы создать новую."
+msgstr "You already have %d quizzes. Delete the ones you do not need to create a new one."
+
+#, python-format
+msgid "Редактор: %s"
+msgstr "Editor: %s"
+
+#, python-format
+msgid "У вас уже %d викторин. Удалите ненужные, чтобы скопировать."
+msgstr "You already have %d quizzes. Delete the ones you do not need to make a copy."
+
+#, python-format
+msgid "Копия: %s"
+msgstr "Copy: %s"
+
+msgid "Войдите на сайт"
+msgstr "Sign in to the site"
+
+msgid "Нет доступа к этой викторине"
+msgstr "No access to this quiz"
+
+msgid "Вопрос не найден"
+msgstr "Question not found"
+
+msgid "Введите название"
+msgstr "Enter a title"
+
+msgid "Название: не больше 120 символов"
+msgstr "Title: no more than 120 characters"
+
+msgid "Описание: не больше 2000 символов"
+msgstr "Description: no more than 2000 characters"
+
+msgid "Предмет: не больше 60 символов"
+msgstr "Subject: no more than 60 characters"
+
+msgid "Неизвестная тема"
+msgstr "Unknown theme"
+
+msgid "Неверный доступ"
+msgstr "Invalid access"
+
+#, python-format
+msgid "Не больше %d вопросов в викторине"
+msgstr "No more than %d questions per quiz"
+
+msgid "Вариант не найден"
+msgstr "Option not found"
+
+msgid "У вариантов «Верно / Неверно» нет картинок"
+msgstr "True / False options have no images"
+
+msgid "Список вопросов устарел, обновите страницу"
+msgstr "The question list is out of date, reload the page"
+
+msgid "Выберите файл"
+msgstr "Choose a file"
+
+msgid "Игры с вопросами для класса: ведущий показывает, игроки отвечают с телефонов."
+msgstr "Question games for the classroom: the host shows, players answer on their phones."
+
+msgid "PIN игры"
+msgstr "Game PIN"
+
+msgid "Войти по PIN"
+msgstr "Join with PIN"
+
+msgid "Поиск викторин"
+msgstr "Search quizzes"
+
+msgid "Поиск"
+msgstr "Search"
+
+msgid "Найти"
+msgstr "Find"
+
+msgid "Сортировка"
+msgstr "Sorting"
+
+msgid "Новые"
+msgstr "Newest"
+
+msgid "Популярные"
+msgstr "Popular"
+
+msgid "Создать викторину"
+msgstr "Create a quiz"
+
+msgid "Войдите, чтобы создать свою"
+msgstr "Sign in to create your own"
+
+msgid "Все"
+msgstr "All"
+
+msgid "Страницы"
+msgstr "Pages"
+
+msgid "Ничего не нашлось."
+msgstr "Nothing found."
+
+msgid "Открытых викторин пока нет."
+msgstr "No public quizzes yet."
+
+msgid "Ведущий управляет игрой с компьютера или телефона, на его экране PIN и QR-код. Вопросы и варианты каждый видит на своём телефоне, проектор не обязателен."
+msgstr "The host runs the game from a computer or phone that shows the PIN and QR code. Everyone sees the questions and options on their own phone, no projector needed."
+
+msgid "Игра идёт сама: разбор и таблица сменяются по таймеру."
+msgstr "The game runs by itself: the review and the leaderboard change on a timer."
+
+#, python-format
+msgid "%(n)s вопр."
+msgstr "%(n)s questions"
+
+#, python-format
+msgid "%(n)s игр"
+msgstr "%(n)s games"
+
+msgid "по ссылке"
+msgstr "by link"
+
+msgid "скрыта администратором"
+msgstr "hidden by an administrator"
+
+msgid "Редактировать"
+msgstr "Edit"
+
+#, python-format
+msgid "Удалить викторину «%(title)s»? Это нельзя отменить."
+msgstr "Delete the quiz «%(title)s»? This cannot be undone."
+
+msgid "Удалить"
+msgstr "Delete"
+
+msgid "Копировать"
+msgstr "Copy"
+
+msgid "Рекорды"
+msgstr "Records"
+
+msgid "Провести игру"
+msgstr "Host a game"
+
+msgid "В викторине пока нет вопросов."
+msgstr "The quiz has no questions yet."
+
+msgid "Перемешать вопросы"
+msgstr "Shuffle questions"
+
+msgid "Перемешать варианты"
+msgstr "Shuffle options"
+
+msgid "Музыка"
+msgstr "Music"
+
+msgid "Гости без аккаунта"
+msgstr "Guests without an account"
+
+#, python-format
+msgid "До %(n)s игроков. Игроки входят по PIN или QR-коду."
+msgstr "Up to %(n)s players. Players join with the PIN or QR code."
+
+msgid "Начать игру"
+msgstr "Start the game"
+
+msgid "Войдите"
+msgstr "Sign in"
+
+msgid ", чтобы провести игру для класса."
+msgstr " to host a game for your class."
+
+msgid "Играть одному"
+msgstr "Play solo"
+
+msgid "Ваш ник"
+msgstr "Your nickname"
+
+msgid "Игрок"
+msgstr "Player"
+
+msgid "гость"
+msgstr "guest"
+
+msgid "Рекордов пока нет."
+msgstr "No records yet."
+
+#, python-format
+msgid "%(n)s с"
+msgstr "%(n)s s"
+
+msgid "без очков"
+msgstr "no points"
+
+msgid "Пожаловаться"
+msgstr "Report"
+
+msgid "Что не так с этой викториной?"
+msgstr "What is wrong with this quiz?"
+
+msgid "Отправить"
+msgstr "Send"
+
+msgid "Название викторины"
+msgstr "Quiz title"
+
+msgid "Настройки"
+msgstr "Settings"
+
+msgid "Импорт из Excel"
+msgstr "Import from Excel"
+
+msgid "Играть"
+msgstr "Play"
+
+msgid "Викторина скрыта администратором: другие пользователи её не видят."
+msgstr "The quiz is hidden by an administrator: other users cannot see it."
+
+msgid "Настройки викторины"
+msgstr "Quiz settings"
+
+msgid "Описание"
+msgstr "Description"
+
+msgid "О чём викторина, для какого класса"
+msgstr "What the quiz is about, for which grade"
+
+msgid "Предмет"
+msgstr "Subject"
+
+msgid "Информатика, математика, история…"
+msgstr "Computer science, math, history…"
+
+msgid "Доступ"
+msgstr "Access"
+
+msgid "Открытая видна в каталоге, её можно скопировать. По ссылке — только у кого есть ссылка или PIN."
+msgstr "A public quiz is listed in the catalog and can be copied. By link: only people with the link or PIN."
+
+msgid "Тема оформления"
+msgstr "Theme"
+
+msgid "Обложка"
+msgstr "Cover"
+
+msgid "Загрузить"
+msgstr "Upload"
+
+msgid "Убрать"
+msgstr "Remove"
+
+#, python-format
+msgid "Игр сыграно: %(n)s"
+msgstr "Games played: %(n)s"
+
+msgid "Удалить викторину"
+msgstr "Delete the quiz"
+
+msgid "Импорт вопросов из Excel"
+msgstr "Import questions from Excel"
+
+msgid "Скачайте шаблон, заполните его и загрузите. Вопросы добавятся в конец викторины."
+msgstr "Download the template, fill it in and upload it. The questions are added to the end of the quiz."
+
+msgid "Шаблон .xlsx"
+msgstr ".xlsx template"
+
+msgid "Загрузить файл"
+msgstr "Upload a file"
+
+msgid "До 2 МБ и 100 строк."
+msgstr "Up to 2 MB and 100 rows."
+
+msgid "Так видит игрок"
+msgstr "What the player sees"
+
+msgid "Закрыть"
+msgstr "Close"
+
+msgid "Тип вопроса"
+msgstr "Question type"
+
+msgid "Игроков"
+msgstr "Players"
+
+msgid "QR-код для входа"
+msgstr "QR code to join"
+
+msgid "Нет связи, переподключаюсь…"
+msgstr "No connection, reconnecting…"
+
+msgid "Управление игрой"
+msgstr "Game controls"
+
+msgid "Далее (пробел, →)"
+msgstr "Next (space, →)"
+
+msgid "Далее"
+msgstr "Next"
+
+msgid "Пауза (P)"
+msgstr "Pause (P)"
+
+msgid "Пауза"
+msgstr "Pause"
+
+msgid "Закрыть вопрос"
+msgstr "Close the question"
+
+msgid "Пропустить"
+msgstr "Skip"
+
+msgid "Звук (M)"
+msgstr "Sound (M)"
+
+msgid "Звук"
+msgstr "Sound"
+
+msgid "Полный экран (F)"
+msgstr "Full screen (F)"
+
+msgid "Экран"
+msgstr "Screen"
+
+msgid "Компактный вид для телефона"
+msgstr "Compact view for a phone"
+
+msgid "Телефон"
+msgstr "Phone"
+
+msgid "Большой экран: компьютер или проектор"
+msgstr "Big screen: computer or projector"
+
+msgid "Завершить игру"
+msgstr "End the game"
+
+msgid "Завершить"
+msgstr "End"
+
+msgid "изменить"
+msgstr "change"
+
+msgid "Например, Айбек"
+msgstr "For example, Aibek"
+
+msgid "Войти с аккаунтом"
+msgstr "Sign in with your account"
+
+msgid ", чтобы игра сохранилась в истории."
+msgstr " to keep the game in your history."
+
+msgid "Войти"
+msgstr "Join"
+
+msgid "Вы войдёте как"
+msgstr "You will join as"
+
+msgid "Каталог викторин"
+msgstr "Quiz catalog"
+
+msgid "PIN — это 6 цифр"
+msgstr "The PIN is 6 digits"
+
+msgid "Назад"
+msgstr "Back"
+
+msgid "открытая"
+msgstr "public"
+
+#, python-format
+msgid "изменена %(date)s"
+msgstr "updated %(date)s"
+
+msgid "Изменить"
+msgstr "Edit"
+
+msgid "У вас пока нет викторин."
+msgstr "You have no quizzes yet."
+
+msgid "Создать первую"
+msgstr "Create the first one"
+
+msgid "Игры, которые я провёл"
+msgstr "Games I hosted"
+
+msgid "Дата"
+msgstr "Date"
+
+msgid "Режим"
+msgstr "Mode"
+
+msgid "Статус"
+msgstr "Status"
+
+msgid "Открыть"
+msgstr "Open"
+
+msgid "Отчёт"
+msgstr "Report"
+
+msgid "Пока нет."
+msgstr "None yet."
+
+msgid "Игры, в которых я участвовал"
+msgstr "Games I played"
+
+msgid "удалён"
+msgstr "removed"
+
+msgid "Для игры нужен JavaScript."
+msgstr "The game needs JavaScript."
+
+msgid "Лучшие результаты одиночной игры: по одной строке на игрока."
+msgstr "Best solo results: one row per player."
+
+msgid "Рекордов пока нет. Сыграйте первым!"
+msgstr "No records yet. Be the first to play!"
+
+msgid "Отчёт об игре"
+msgstr "Game report"
+
+#, python-format
+msgid "%(n)s игр."
+msgstr "%(n)s players"
+
+msgid "Среднее время"
+msgstr "Average time"
+
+msgid "✓ верно, ≈ частично, ✗ неверно, — нет ответа, • вопрос без очков. Числа — очки."
+msgstr "✓ correct, ≈ partly, ✗ wrong, — no answer, • question without points. Numbers are points."
+
+msgid "В игре не было игроков."
+msgstr "There were no players in the game."
+
+msgid "В пещере горного короля"
+msgstr "In the Hall of the Mountain King"
+
+msgid "Э. Григ (1843–1907)"
+msgstr "E. Grieg (1843–1907)"
+
+msgid "Турецкий марш"
+msgstr "Turkish March"
+
+msgid "В. А. Моцарт (1756–1791)"
+msgstr "W. A. Mozart (1756–1791)"
+
+msgid "Коробейники"
+msgstr "Korobeiniki"
+
+msgid "русская народная песня"
+msgstr "Russian folk song"
+
+msgid "Канкан"
+msgstr "Can-can"
+
+msgid "Ж. Оффенбах (1819–1880)"
+msgstr "J. Offenbach (1819–1880)"
+
+msgid "К Элизе"
+msgstr "Für Elise"
+
+msgid "Л. ван Бетховен (1770–1827)"
+msgstr "L. van Beethoven (1770–1827)"
+
+msgid "Симфония № 5"
+msgstr "Symphony No. 5"
+
+msgid "Маленькая ночная серенада"
+msgstr "Eine kleine Nachtmusik"
+
+msgid "Пьяный матрос"
+msgstr "Drunken Sailor"
+
+msgid "английская народная песня"
+msgstr "English folk song"
+
+msgid "Весна («Времена года»)"
+msgstr "Spring (The Four Seasons)"
+
+msgid "А. Вивальди (1678–1741)"
+msgstr "A. Vivaldi (1678–1741)"
+
+msgid "Хава нагила"
+msgstr "Hava Nagila"
+
+msgid "еврейская народная мелодия"
+msgstr "Jewish folk tune"
+
+msgid "Лебединое озеро"
+msgstr "Swan Lake"
+
+msgid "П. И. Чайковский (1840–1893)"
+msgstr "P. I. Tchaikovsky (1840–1893)"
+
+msgid "Регтайм «Артист»"
+msgstr "The Entertainer (ragtime)"
+
+msgid "С. Джоплин (1868–1917)"
+msgstr "S. Joplin (1868–1917)"
+
+msgid "Марс («Планеты»)"
+msgstr "Mars (The Planets)"
+
+msgid "Г. Холст (1874–1934)"
+msgstr "G. Holst (1874–1934)"
+
+msgid "Ля кукарача"
+msgstr "La Cucaracha"
+
+msgid "мексиканская народная песня"
+msgstr "Mexican folk song"
+
+msgid "Вильгельм Телль, финал"
+msgstr "William Tell, finale"
+
+msgid "Дж. Россини (1792–1868)"
+msgstr "G. Rossini (1792–1868)"
+
+msgid "Утро («Пер Гюнт»)"
+msgstr "Morning Mood (Peer Gynt)"
+
+msgid "Симфония № 40"
+msgstr "Symphony No. 40"
+
+msgid "Полёт шмеля"
+msgstr "Flight of the Bumblebee"
+
+msgid "Н. А. Римский-Корсаков (1844–1908)"
+msgstr "N. A. Rimsky-Korsakov (1844–1908)"
+
+msgid "Когда святые маршируют"
+msgstr "When the Saints Go Marching In"
+
+msgid "американская народная песня"
+msgstr "American folk song"
+
+msgid "Канон ре мажор"
+msgstr "Canon in D"
+
+msgid "И. Пахельбель (1653–1706)"
+msgstr "J. Pachelbel (1653–1706)"
+
+msgid "Менуэт соль мажор"
+msgstr "Minuet in G"
+
+msgid "Х. Петцольд (1677–1733)"
+msgstr "C. Petzold (1677–1733)"
+
+msgid "Токката и фуга ре минор"
+msgstr "Toccata and Fugue in D minor"
+
+msgid "И. С. Бах (1685–1750)"
+msgstr "J. S. Bach (1685–1750)"
+
+msgid "О, Сюзанна"
+msgstr "Oh! Susanna"
+
+msgid "С. Фостер (1826–1864)"
+msgstr "S. Foster (1826–1864)"
+
+msgid "Сюрприз (симфония № 94)"
+msgstr "Surprise (Symphony No. 94)"
+
+msgid "Й. Гайдн (1732–1809)"
+msgstr "J. Haydn (1732–1809)"
+
+msgid "Зелёные рукава"
+msgstr "Greensleeves"
+
+msgid "Мне радостно (кантата 147)"
+msgstr "Jesu, Joy of Man's Desiring (BWV 147)"
+
+msgid "Аллилуйя"
+msgstr "Hallelujah"
+
+msgid "Г. Ф. Гендель (1685–1759)"
+msgstr "G. F. Handel (1685–1759)"
+
+msgid "Братец Жак"
+msgstr "Frère Jacques"
+
+msgid "французская народная песня"
+msgstr "French folk song"
+
+msgid "Ода к радости"
+msgstr "Ode to Joy"
+
+msgid "Звёздочка (вариации)"
+msgstr "Twinkle, Twinkle (variations)"
+
+msgid "Бубенцы"
+msgstr "Jingle Bells"
+
+msgid "Дж. Пирпонт (1822–1893)"
+msgstr "J. Pierpont (1822–1893)"
+
+msgid "Симфония «Из Нового Света», ларго"
+msgstr "New World Symphony, Largo"
+
+msgid "А. Дворжак (1841–1904)"
+msgstr "A. Dvořák (1841–1904)"
+
+msgid "Гимнопедия № 1"
+msgstr "Gymnopédie No. 1"
+
+msgid "Э. Сати (1866–1925)"
+msgstr "E. Satie (1866–1925)"
+
+msgid "На прекрасном голубом Дунае"
+msgstr "The Blue Danube"
+
+msgid "И. Штраус-сын (1825–1899)"
+msgstr "J. Strauss II (1825–1899)"
+
+msgid "Ошибка сервера ("
+msgstr "Server error ("
+
+msgid "Ошибка "
+msgstr "Error "
+
+msgid "Нет связи с сервером"
+msgstr "No connection to the server"
+
+msgid "Ошибка: "
+msgstr "Error: "
+
+msgid "Сохраняю…"
+msgstr "Saving…"
+
+msgid "Сохранено"
+msgstr "Saved"
+
+msgid "(картинка)"
+msgstr "(image)"
+
+msgid "(код)"
+msgstr "(code)"
+
+msgid "Вопросов пока нет. Нажмите «+ Вопрос» или загрузите Excel."
+msgstr "No questions yet. Press «+ Question» or upload an Excel file."
+
+msgid "Без текста"
+msgstr "No text"
+
+msgid "Выше"
+msgstr "Up"
+
+msgid "Ниже"
+msgstr "Down"
+
+msgid "Не больше "
+msgstr "No more than "
+
+msgid " вопросов в викторине"
+msgstr " questions per quiz"
+
+msgid "Удалить вопрос?"
+msgstr "Delete the question?"
+
+msgid "Вопрос "
+msgstr "Question "
+
+msgid "Добавьте первый вопрос: нажмите «+ Вопрос» слева или импортируйте вопросы из Excel."
+msgstr "Add the first question: press «+ Question» on the left or import questions from Excel."
+
+msgid " Вопрос"
+msgstr " Question"
+
+msgid " Предпросмотр"
+msgstr " Preview"
+
+msgid "Дублировать"
+msgstr "Duplicate"
+
+msgid " Копия"
+msgstr " Copy"
+
+msgid "Удалить вопрос"
+msgstr "Delete the question"
+
+msgid "Утверждение, например: «Вода кипит при 100 °C»"
+msgstr "A statement, e.g. «Water boils at 100 °C»"
+
+msgid "Например: Сколько байт в килобайте?"
+msgstr "For example: How many bytes are in a kilobyte?"
+
+msgid "Можно **жирный**, *курсив*, `код` и формулы в $...$"
+msgstr "You can use **bold**, *italic*, `code` and formulas in $...$"
+
+msgid "Секунд"
+msgstr "Seconds"
+
+msgid " с"
+msgstr " s"
+
+msgid " мин"
+msgstr " min"
+
+msgid "Время на ответ"
+msgstr "Time to answer"
+
+msgid "с"
+msgstr "s"
+
+msgid "Пояснение после ответа"
+msgstr "Explanation after the answer"
+
+msgid "Необязательно: почему ответ именно такой"
+msgstr "Optional: why this is the answer"
+
+msgid " Добавить код"
+msgstr " Add code"
+
+msgid "Язык"
+msgstr "Language"
+
+msgid "Язык…"
+msgstr "Language…"
+
+msgid "Программа, вывод которой нужно угадать"
+msgstr "A program whose output should be guessed"
+
+msgid "Фрагмент кода к вопросу"
+msgstr "A code snippet for the question"
+
+msgid " Убрать код"
+msgstr " Remove code"
+
+msgid "Картинка (обязательно)"
+msgstr "Image (required)"
+
+msgid "Картинка"
+msgstr "Image"
+
+msgid " Заменить"
+msgstr " Replace"
+
+msgid " Загрузить"
+msgstr " Upload"
+
+msgid " Убрать"
+msgstr " Remove"
+
+msgid "JPEG, PNG, GIF или WebP до 5 МБ. Картинка уменьшится до 1280 пикселей."
+msgstr "JPEG, PNG, GIF or WebP up to 5 MB. The image is reduced to 1280 pixels."
+
+msgid "Варианты ответа"
+msgstr "Answer options"
+
+msgid "Ввод ответа"
+msgstr "Typed answer"
+
+msgid "Как отвечают"
+msgstr "How players answer"
+
+msgid "Верный вывод программы"
+msgstr "The correct program output"
+
+msgid "Слово"
+msgstr "Word"
+
+msgid "Например: АЛГОРИТМ"
+msgstr "For example: ALGORITHM"
+
+msgid "Игроки получат буквы вперемешку. До 24 букв, регистр не важен."
+msgstr "Players get the letters shuffled. Up to 24 letters, case does not matter."
+
+msgid "Допустимые ответы"
+msgstr "Accepted answers"
+
+msgid "Игроки пишут слово или короткую фразу (до 30 символов). Ответы складываются в облако слов. Очков нет."
+msgstr "Players type a word or a short phrase (up to 30 characters). The answers form a word cloud. No points."
+
+msgid "Игроки пишут свободный ответ (до 300 символов). Ведущий показывает выбранные ответы на экране. Очков нет."
+msgstr "Players type a free answer (up to 300 characters). The host shows selected answers on the screen. No points."
+
+msgid "Пункты в верном порядке"
+msgstr "Items in the correct order"
+
+msgid "Варианты (без верного)"
+msgstr "Options (no correct one)"
+
+msgid "Верный ответ"
+msgstr "Correct answer"
+
+msgid "Запишите пункты сверху вниз в правильном порядке. Игроки получат их перемешанными."
+msgstr "Write the items top to bottom in the correct order. Players get them shuffled."
+
+msgid "Отметьте один верный вариант."
+msgstr "Mark one correct option."
+
+msgid "Отметьте все верные варианты. Очки — за долю верно отмеченных."
+msgstr "Mark all correct options. Points depend on the share marked correctly."
+
+msgid "Опрос без очков: игроки увидят, как распределились голоса."
+msgstr "A poll without points: players see how the votes split."
+
+msgid " Пункт"
+msgstr " Item"
+
+msgid " Вариант"
+msgstr " Option"
+
+msgid " От "
+msgstr " From "
+
+msgid " до "
+msgstr " to "
+
+msgid "Подпись (необязательно)"
+msgstr "Caption (optional)"
+
+msgid "Пункт "
+msgstr "Item "
+
+msgid "Вариант "
+msgstr "Option "
+
+msgid "Убрать картинку"
+msgstr "Remove the image"
+
+msgid "Картинка к варианту"
+msgstr "Image for the option"
+
+msgid " верный"
+msgstr " correct"
+
+msgid "Удалить вариант"
+msgstr "Delete the option"
+
+msgid "Пока нет ответов"
+msgstr "No answers yet"
+
+msgid "Ответ и Enter"
+msgstr "Answer and Enter"
+
+msgid " Добавить"
+msgstr " Add"
+
+msgid "Регистр, «ё/е» и лишние пробелы не важны. Числа сравниваются как числа."
+msgstr "Case, «ё/е» and extra spaces do not matter. Numbers are compared as numbers."
+
+msgid "Допуск для чисел"
+msgstr "Tolerance for numbers"
+
+msgid "Допуск (±)"
+msgstr "Tolerance (±)"
+
+msgid "Единица"
+msgstr "Unit"
+
+msgid "км, °C, %…"
+msgstr "km, °C, %…"
+
+msgid "Шкала от "
+msgstr "Scale from "
+
+msgid " с шагом "
+msgstr " in steps of "
+
+msgid ". Полные очки за "
+msgstr ". Full points for "
+
+msgid ", дальше — меньше."
+msgstr ", fewer further away."
+
+msgid "Минимум должен быть меньше максимума, шаг больше 0."
+msgstr "The minimum must be less than the maximum, the step above 0."
+
+msgid "Загрузите картинку выше, затем нажмите на неё, чтобы отметить верное место."
+msgstr "Upload an image above, then click it to mark the correct spot."
+
+msgid "Верное место"
+msgstr "Correct spot"
+
+msgid "Нажмите на картинку, чтобы перенести точку. Ответ засчитывается внутри зелёной области."
+msgstr "Click the image to move the point. Answers inside the green area count."
+
+msgid "Размер области"
+msgstr "Area size"
+
+msgid "<div class=\"qe-ph-btn\">Ответить</div>"
+msgstr "<div class=\"qe-ph-btn\">Answer</div>"
+
+msgid "Ваш ответ…"
+msgstr "Your answer…"
+
+msgid "Слово…"
+msgstr "Word…"
+
+msgid "Ответ…"
+msgstr "Answer…"
+
+msgid "</div><div class=\"qe-ph-btn\">Ответить</div>"
+msgstr "</div><div class=\"qe-ph-btn\">Answer</div>"
+
+msgid "</div></div><div class=\"qe-ph-btn\">Ответить</div>"
+msgstr "</div></div><div class=\"qe-ph-btn\">Answer</div>"
+
+msgid "<div class=\"qe-ph-note\">Нажмите на картинку</div>"
+msgstr "<div class=\"qe-ph-note\">Tap the image</div>"
+
+msgid "</div><div class=\"qe-ph-btn\">Готово</div>"
+msgstr "</div><div class=\"qe-ph-btn\">Done</div>"
+
+msgid "Удалить викторину «"
+msgstr "Delete the quiz «"
+
+msgid "» со всеми вопросами? Это нельзя отменить."
+msgstr "» with all its questions? This cannot be undone."
+
+msgid "Загружаю…"
+msgstr "Uploading…"
+
+msgid "Добавлено вопросов: "
+msgstr "Questions added: "
+
+msgid "Строка "
+msgstr "Row "
+
+msgid "звезда"
+msgstr "star"
+
+msgid "шестиугольник"
+msgstr "hexagon"
+
+msgid "капля"
+msgstr "drop"
+
+msgid "полумесяц"
+msgstr "crescent"
+
+msgid "юрта"
+msgstr "yurt"
+
+msgid "облако"
+msgstr "cloud"
+
+msgid "АБВГДЕ"
+msgstr "ABCDEF"
+
+msgid "картинка "
+msgstr "image "
+
+msgid "вы"
+msgstr "you"
+
+msgid "верно"
+msgstr "correct"
+
+msgid "Правильный ответ: "
+msgstr "Correct answer: "
+
+msgid "Ваш ответ"
+msgstr "Your answer"
+
+msgid "Правильно: "
+msgstr "Correct: "
+
+msgid " · ваш ответ "
+msgstr " · your answer "
+
+msgid "Слов пока нет"
+msgstr "No words yet"
+
+msgid "Ответов нет"
+msgstr "No answers"
+
+msgid "Скрыть ответ"
+msgstr "Hide the answer"
+
+msgid "показать"
+msgstr "show"
+
+msgid "скрыть"
+msgstr "hide"
+
+msgid "Ответили: "
+msgstr "Answered: "
+
+msgid " из "
+msgstr " of "
+
+msgid "Верно: "
+msgstr "Correct: "
+
+msgid " · не ответили "
+msgstr " · no answer: "
+
+msgid "Игра закончилась"
+msgstr "The game is over"
+
+msgid "Войти в другую игру"
+msgstr "Join another game"
+
+msgid "Войти снова"
+msgstr "Join again"
+
+msgid "Подсчёт…"
+msgstr "Counting…"
+
+msgid "Вы в игре!"
+msgstr "You are in!"
+
+msgid "Начать"
+msgstr "Start"
+
+msgid "Ждём начала игры. Смотрите на экран ведущего."
+msgstr "Waiting for the game to start. Watch the host's screen."
+
+msgid "Не получилось"
+msgstr "Something went wrong"
+
+msgid "Нет связи"
+msgstr "No connection"
+
+msgid " Время вышло"
+msgstr " Time is up"
+
+msgid "Ответ не принят"
+msgstr "The answer was not accepted"
+
+msgid "Нет связи, попробуйте ещё раз"
+msgstr "No connection, please try again"
+
+msgid "Ответить"
+msgstr "Answer"
+
+msgid "Отметьте все верные варианты"
+msgstr "Mark all correct options"
+
+msgid "Перетащите или двигайте стрелками"
+msgstr "Drag or move with the arrows"
+
+msgid "Ваше слово"
+msgstr "Your word"
+
+msgid "Стереть букву"
+msgstr "Erase a letter"
+
+msgid " Стереть"
+msgstr " Erase"
+
+msgid "Одно-два слова"
+msgstr "One or two words"
+
+msgid "Коснитесь картинки, чтобы поставить точку"
+msgstr "Tap the image to place a point"
+
+msgid "Ответ принят"
+msgstr "Answer received"
+
+msgid "Проверяем…"
+msgstr "Checking…"
+
+msgid "Ждём остальных игроков"
+msgstr "Waiting for the other players"
+
+msgid "Нет ответа"
+msgstr "No answer"
+
+msgid "Верно!"
+msgstr "Correct!"
+
+msgid "Частично"
+msgstr "Partly"
+
+msgid "Неверно"
+msgstr "Wrong"
+
+msgid "🔥 Серия "
+msgstr "🔥 Streak "
+
+msgid "{n}-е место из {total}"
+msgstr "Place {n} of {total}"
+
+msgid "Ваш ответ: "
+msgstr "Your answer: "
+
+msgid "Итоги"
+msgstr "Results"
+
+msgid "Дальше"
+msgstr "Next"
+
+msgid "Ваше место"
+msgstr "Your place"
+
+msgid "из "
+msgstr "of "
+
+msgid "очко"
+msgstr "point"
+
+msgid "очка"
+msgstr "points"
+
+msgid "очков"
+msgstr "points"
+
+msgid "Лидеры"
+msgstr "Leaders"
+
+msgid " · ваше место"
+msgstr " · your place"
+
+msgid " · верно "
+msgstr " · correct "
+
+msgid "Работа над ошибками"
+msgstr "Review your mistakes"
+
+msgid "нет ответа"
+msgstr "no answer"
+
+msgid "Ни одной ошибки!"
+msgstr "Not a single mistake!"
+
+msgid "К викторине"
+msgstr "Back to the quiz"
+
+msgid "Другая игра"
+msgstr "Another game"
+
+msgid "игрок"
+msgstr "player"
+
+msgid "игрока"
+msgstr "players"
+
+msgid "игроков"
+msgstr "players"
+
+msgid "Показать ответ"
+msgstr "Show the answer"
+
+msgid "Следующий вопрос"
+msgstr "Next question"
+
+msgid "Готово"
+msgstr "Done"
+
+msgid "Продолжить"
+msgstr "Resume"
+
+msgid "Завершить игру для всех?"
+msgstr "End the game for everyone?"
+
+msgid "Удалить игрока"
+msgstr "Remove the player"
+
+msgid "Удалить игрока «"
+msgstr "Remove the player «"
+
+msgid "Подводим итоги…"
+msgstr "Summing up…"
+
+msgid " Начать"
+msgstr " Start"
+
+msgid "Откройте "
+msgstr "Open "
+
+msgid "и введите PIN"
+msgstr "and enter the PIN"
+
+msgid "или наведите камеру на QR-код"
+msgstr "or point your camera at the QR code"
+
+msgid "Ждём игроков…"
+msgstr "Waiting for players…"
+
+msgid "Нажмите на имя, чтобы удалить игрока."
+msgstr "Click a name to remove the player."
+
+msgid "Нет правильного ответа"
+msgstr "No correct answer"
+
+msgid "Точка ("
+msgstr "Point ("
+
+msgid "%), радиус "
+msgstr "%), radius "
+
+msgid "Выберите число от "
+msgstr "Pick a number from "
+
+msgid "Напишите слово на телефоне"
+msgstr "Type a word on your phone"
+
+msgid "Напишите ответ на телефоне"
+msgstr "Type your answer on your phone"
+
+msgid "Введите ответ на телефоне"
+msgstr "Enter the answer on your phone"
+
+msgid "ответили"
+msgstr "answered"
+
+msgid "Ответ: "
+msgstr "Answer: "
+
+msgid "Ответили "
+msgstr "Answered "
+
+msgid "Всего игроков: "
+msgstr "Total players: "
+
+msgid " Отчёт"
+msgstr " Report"
+
+msgid "Игроков: "
+msgstr "Players: "
+
+msgid " · вопросов: "
+msgstr " · questions: "
+
+msgid "Новая викторина"
+msgstr "New quiz"

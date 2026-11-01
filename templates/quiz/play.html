@@ -15,6 +15,7 @@
 
 {% block js_media %}
     <script>window.QUIZ = {{ config|tojson }};</script>
+    {% include "quiz/i18n.html" %}
     <script src="{{ static('quiz/audio.js') }}?v={{ STATIC_VERSION }}" defer></script>
     <script src="{{ static('quiz/fx.js') }}?v={{ STATIC_VERSION }}" defer></script>
     <script src="{{ static('quiz/game.js') }}?v={{ STATIC_VERSION }}" defer></script>
@@ -29,12 +30,12 @@
         <span class="qz-bar-score" id="qz-score" hidden></span>
         <span class="qz-spacer"></span>
         <span class="qz-bar-nick">{{ player.nickname }}</span>
-        <button type="button" class="qz-icon-btn" id="qz-sound" aria-label="Звук"><i class="fa fa-volume-up"></i></button>
+        <button type="button" class="qz-icon-btn" id="qz-sound" aria-label="{{ _('Звук') }}"><i class="fa fa-volume-up"></i></button>
     </header>
-    <div class="qz-net" id="qz-net" role="status" hidden><i class="fa fa-wifi"></i> Нет связи, переподключаюсь…</div>
+    <div class="qz-net" id="qz-net" role="status" hidden><i class="fa fa-wifi"></i> {{ _('Нет связи, переподключаюсь…') }}</div>
     <main class="qz-screen" id="qz-screen" aria-live="polite">
         <div class="qz-center"><div class="qz-wait"><i></i><i></i><i></i></div></div>
     </main>
-    <noscript><p class="qz-center">Для игры нужен JavaScript.</p></noscript>
+    <noscript><p class="qz-center">{{ _('Для игры нужен JavaScript.') }}</p></noscript>
 </div>
 {% endblock %}

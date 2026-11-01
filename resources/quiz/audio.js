@@ -7,6 +7,8 @@
  * beat (0..1 pulse of the current kick, for visuals), tracks (titles). */
 (function () {
     'use strict';
+    // Interface strings in the page language (see judge/utils/quiz_i18n.py).
+    var L = window.QZ_L || function (s) { return s; };
 
     var AC = window.AudioContext || window.webkitAudioContext;
     var ctx = null, bus = {}, noise = null, unlocked = false, curve = null, pulseWave = null;
@@ -855,130 +857,130 @@
     // Every melody here is public domain: the composers died long ago (the year is in `by`),
     // or it is a traditional folk tune. Order: styles alternate so neighbouring questions differ.
     var QUESTION = [
-        song({id: 20, name: 'В пещере горного короля', by: 'Э. Григ (1843–1907)', style: 'rock', bpm: 126, spb: 2, bpb: 4, accel: 0.1, o: -12,
+        song({id: 20, name: L('В пещере горного короля'), by: L('Э. Григ (1843–1907)'), style: 'rock', bpm: 126, spb: 2, bpb: 4, accel: 0.1, o: -12,
             mel: "b, c# d e f# d f# - | f c# f - e c e - | b, c# d e f# d f# b | a f# d f# a - - -",
             ch: 'Bm Bm C# C Bm Bm D D'}),
-        song({id: 21, name: 'Турецкий марш', by: 'В. А. Моцарт (1756–1791)', style: 'edm', bpm: 124, spb: 4, bpb: 2, o: -12,
+        song({id: 21, name: L('Турецкий марш'), by: L('В. А. Моцарт (1756–1791)'), style: 'edm', bpm: 124, spb: 4, bpb: 2, o: -12,
             mel: "b a g# a c' - d' c' | b c' e' - f' e' d#' e' | b' a' g#' a' b' a' g#' a' | c'' - - - a' - b' -",
             ch: 'Am Am Am E Am E Am E'}),
-        song({id: 22, name: 'Коробейники', by: 'русская народная песня', style: 'chip', bpm: 140, spb: 2, bpb: 4,
+        song({id: 22, name: L('Коробейники'), by: L('русская народная песня'), style: 'chip', bpm: 140, spb: 2, bpb: 4,
             mel: "e' - b c' d' - c' b | a - a c' e' - d' c' | b - - c' d' - e' - | c' - a - a - - - |" +
                  ". d' - f' a' - g' f' | e' - - c' e' - d' c' | b - b c' d' - e' - | c' - a - a - - -",
             ch: 'E Am E Am Dm C E Am'}),
-        song({id: 23, name: 'Канкан', by: 'Ж. Оффенбах (1819–1880)', style: 'gallop', bpm: 144, spb: 2, bpb: 2, o: 12,
+        song({id: 23, name: L('Канкан'), by: L('Ж. Оффенбах (1819–1880)'), style: 'gallop', bpm: 144, spb: 2, bpb: 2, o: 12,
             mel: "c - - - | d f e d | g - g - | g a e f | d - d - | d f e d | c c' b a | g f e d",
             ch: 'C G7 C F G7 G7 C G7'}),
-        song({id: 24, name: 'К Элизе', by: 'Л. ван Бетховен (1770–1827)', style: 'lofi', bpm: 140, spb: 2, bpb: 3, lead: 'epiano',
+        song({id: 24, name: L('К Элизе'), by: L('Л. ван Бетховен (1770–1827)'), style: 'lofi', bpm: 140, spb: 2, bpb: 3, lead: 'epiano',
             mel: "e' d#' e' b d' c' | a - . c e a | b - . e g# b | c' - . e e' d#' |" +
                  "e' d#' e' b d' c' | a - . c e a | b - . e c' b | a - . . e' d#'",
             ch: 'Am Am E Am Am Am E Am'}),
-        song({id: 25, name: 'Симфония № 5', by: 'Л. ван Бетховен (1770–1827)', style: 'epic', bpm: 112, spb: 2, bpb: 2, lead: 'strings',
+        song({id: 25, name: L('Симфония № 5'), by: L('Л. ван Бетховен (1770–1827)'), style: 'epic', bpm: 112, spb: 2, bpb: 2, lead: 'strings',
             mel: ". g g g | eb - - - | . f f f | d - - - | . g g g | eb . ab ab | ab g . eb' | eb' eb' c' -",
             ch: 'Cm Cm G G Cm Ab Fm Cm'}),
-        song({id: 26, name: 'Маленькая ночная серенада', by: 'В. А. Моцарт (1756–1791)', style: 'disco', bpm: 122, spb: 2, bpb: 4,
+        song({id: 26, name: L('Маленькая ночная серенада'), by: L('В. А. Моцарт (1756–1791)'), style: 'disco', bpm: 122, spb: 2, bpb: 4,
             mel: "g' - - d' g' - - d' | g' d' g' b' d'' - - - | c'' - - a' c'' - - a' | c'' a' f#' a' d' - - - |" +
                  "g' - - d' g' - - d' | g' d' g' b' d'' - - - | c'' - - a' c'' - - a' | c'' a' f#' a' g' - - -",
             ch: 'G G D7 D G G D7 G', o: -12}),
-        song({id: 27, name: 'Пьяный матрос', by: 'английская народная песня', style: 'rock', bpm: 150, spb: 2, bpb: 4, lead: 'brass',
+        song({id: 27, name: L('Пьяный матрос'), by: L('английская народная песня'), style: 'rock', bpm: 150, spb: 2, bpb: 4, lead: 'brass',
             mel: "a - a a a - a a | a - d - f - a - | g - g g g - g g | g - c - e - g - |" +
                  "a - a a a - a a | a - b - c' - d' - | c' - a - g - e - | d - - - d - - -",
             ch: 'Dm Dm C C Dm Dm C Dm'}),
-        song({id: 28, name: 'Весна («Времена года»)', by: 'А. Вивальди (1678–1741)', style: 'edm', bpm: 126, spb: 2, bpb: 4, o: -12,
+        song({id: 28, name: L('Весна («Времена года»)'), by: L('А. Вивальди (1678–1741)'), style: 'edm', bpm: 126, spb: 2, bpb: 4, o: -12,
             mel: "e' - g#' g#' g#' - f#' e' | b' - - - - - b' a' | g#' - g#' g#' g#' - f#' e' | b' - - - - - b' a' |" +
                  "g#' - a' b' a' - g#' - | f#' - d#' - b - - - | g#' - a' b' a' - g#' - | f#' - d#' - e' - - -",
             ch: 'E E E E E B E E'}),
-        song({id: 29, name: 'Хава нагила', by: 'еврейская народная мелодия', style: 'edm', bpm: 132, spb: 2, bpb: 4, lead: 'saw',
+        song({id: 29, name: L('Хава нагила'), by: L('еврейская народная мелодия'), style: 'edm', bpm: 132, spb: 2, bpb: 4, lead: 'saw',
             mel: "e - - e g# - f e | g# - - g# b - a g# | a - - a c' - b a | g# - f - e - - - |" +
                  "e - - e g# - f e | g# - - g# b - a g# | a - - a c' - b a | g# f g# a g# - - -",
             ch: 'E E Am E E E Am E', o: 12}),
-        song({id: 30, name: 'Лебединое озеро', by: 'П. И. Чайковский (1840–1893)', style: 'epic', bpm: 96, spb: 2, bpb: 4, lead: 'strings',
+        song({id: 30, name: L('Лебединое озеро'), by: L('П. И. Чайковский (1840–1893)'), style: 'epic', bpm: 96, spb: 2, bpb: 4, lead: 'strings',
             mel: "f#' - - - b c#' d' e' | f#' - - - - - d' - | f#' - - - - - d' - | f#' - - b d' b g d' |" +
                  "b - - - - - - - | . . . . . . . .",
             ch: 'Bm Bm D Bm Bm F#'}),
-        song({id: 31, name: 'Регтайм «Артист»', by: 'С. Джоплин (1868–1917)', style: 'swing', bpm: 96, spb: 4, bpb: 2,
+        song({id: 31, name: L('Регтайм «Артист»'), by: L('С. Джоплин (1868–1917)'), style: 'swing', bpm: 96, spb: 4, bpb: 2,
             mel: "d d# e c' - e c' - | e c' - - - - c' d' | d#' e' c' d' e' - b d' | c' - - - - - d d# |" +
                  "e c' - e c' - e c' | - - - - - - a g | f# a c' e' - d' c' a | d' - - - - - - -",
             ch: 'C C G7 C C C D7 G7'}),
-        song({id: 32, name: 'Марс («Планеты»)', by: 'Г. Холст (1874–1934)', gain: 1.6, bpm: 150, spb: 6, bpb: 5,
+        song({id: 32, name: L('Марс («Планеты»)'), by: L('Г. Холст (1874–1934)'), gain: 1.6, bpm: 150, spb: 6, bpb: 5,
             mel: times(at(30, MARS, 'g,', '-'), 4), ch: 'G5 G5 Ab5 G5',
             sec: [{lead: 'pizz', pad: 'strings', pv: 0.7, dp: codes(at(30, [0], 'B', '.'))},
                 {lead: 'guitar', o: -12, l2: 'strings', o2: 12, pad: 'choir', dp: codes(at(30, MARS, 't', '.')).map(function (c, i) { return i === 0 ? 'B' : c; })},
                 {lead: 'guitar', o: -12, l2: 'brass', o2: 12, pad: 'strings', bass: 'root', bi: 'sub', dp: codes(at(30, MARS, 'B', '.')), crash: 1}]}),
-        song({id: 33, name: 'Ля кукарача', by: 'мексиканская народная песня', style: 'latin', bpm: 120, spb: 2, bpb: 4, lead: 'harp',
+        song({id: 33, name: L('Ля кукарача'), by: L('мексиканская народная песня'), style: 'latin', bpm: 120, spb: 2, bpb: 4, lead: 'harp',
             mel: "c c c f - a - - | c c c f - a - - | f - f e e d d - | c - - - - - - - |" +
                  "c c c e - g - - | c c c e - g - - | c' - d' c' bb a g a | f - - - - - - -",
             ch: 'F F C7 C7 C7 C7 F F', o: 12}),
-        song({id: 34, name: 'Вильгельм Телль, финал', by: 'Дж. Россини (1792–1868)', style: 'rock', bpm: 132, spb: 4, bpb: 2, lead: 'guitar',
+        song({id: 34, name: L('Вильгельм Телль, финал'), by: L('Дж. Россини (1792–1868)'), style: 'rock', bpm: 132, spb: 4, bpb: 2, lead: 'guitar',
             mel: "g g g - g g g - | g g c' - d' - e' - | g g g - g g g - | g g d' - b - g - |" +
                  "c' c' c' - c' c' c' - | c' c' f' - g' - a' - | g' - f' - e' - d' - | c' - e' - c' - - -",
             ch: 'C C C G F F G C'}),
-        song({id: 35, name: 'Утро («Пер Гюнт»)', by: 'Э. Григ (1843–1907)', style: 'lofi', bpm: 76, spb: 3, bpb: 2, lead: 'flute',
+        song({id: 35, name: L('Утро («Пер Гюнт»)'), by: L('Э. Григ (1843–1907)'), style: 'lofi', bpm: 76, spb: 3, bpb: 2, lead: 'flute',
             mel: "g' - e' d' c' d' | e' - - g' - e' | d' c' d' e' d' e' | g' - e' g' - a' |" +
                  "e' - a' g' - e' | d' - c' - - - | c' - - - - - | . . . . . .",
             ch: 'C C G C Am Am G C'}),
-        song({id: 36, name: 'Симфония № 40', by: 'В. А. Моцарт (1756–1791)', style: 'pop', bpm: 112, spb: 2, bpb: 4, lead: 'saw',
+        song({id: 36, name: L('Симфония № 40'), by: L('В. А. Моцарт (1756–1791)'), style: 'pop', bpm: 112, spb: 2, bpb: 4, lead: 'saw',
             mel: "eb' d' d' - eb' d' d' - | eb' d' d' - bb' - - - | bb' a' g' - g' f' eb' - | eb' d' c' - c' - - - |" +
                  "d' c' c' - d' c' c' - | d' c' c' - a' - - - | a' g' f#' - f#' eb' d' - | d' c' bb - bb - - -",
             ch: 'Gm Gm Cm Cm D7 D7 D7 Gm', o: -12}),
-        song({id: 37, name: 'Полёт шмеля', by: 'Н. А. Римский-Корсаков (1844–1908)', style: 'rock', bpm: 132, spb: 4, bpb: 2, lead: 'saw',
+        song({id: 37, name: L('Полёт шмеля'), by: L('Н. А. Римский-Корсаков (1844–1908)'), style: 'rock', bpm: 132, spb: 4, bpb: 2, lead: 'saw',
             mel: "e'' d#'' d'' c#'' d'' c#'' c'' b' | c'' b' bb' a' g#' g' f#' f' | e' f' e' d#' e' f' e' d#' | e' f' f#' g' g#' a' a#' b' |" +
                  "e'' d#'' d'' c#'' d'' c#'' c'' b' | c'' b' bb' a' g#' g' f#' f' | e' f' e' d#' e' f' e' d#' | a' - e' - a - - -",
             ch: 'Am Am E E Am Am E Am', o: -12}),
-        song({id: 38, name: 'Когда святые маршируют', by: 'американская народная песня', style: 'swing', bpm: 168, spb: 2, bpb: 4, swing: 1, lead: 'brass',
+        song({id: 38, name: L('Когда святые маршируют'), by: L('американская народная песня'), style: 'swing', bpm: 168, spb: 2, bpb: 4, swing: 1, lead: 'brass',
             mel: ". . c - e - f - | g - - - - - - - | . . c - e - f - | g - - - - - - - |" +
                  ". . c - e - f - | g - - - e - - - | c - - - e - - - | d - - - - - - - |" +
                  ". . e - e - d - | c - - - c - e - | g - - - g - f - | - - - - - - - - |" +
                  ". . e - f - g - | e - - - c - - - | d - - - - - - - | c - - - - - - -",
             ch: 'C C C C C C G G C C7 F F C G C C'}),
-        song({id: 39, name: 'Канон ре мажор', by: 'И. Пахельбель (1653–1706)', style: 'pop', bpm: 100, spb: 2, bpb: 4, lead: 'strings',
+        song({id: 39, name: L('Канон ре мажор'), by: L('И. Пахельбель (1653–1706)'), style: 'pop', bpm: 100, spb: 2, bpb: 4, lead: 'strings',
             mel: "f#'' - - - e'' - - - | d'' - - - c#'' - - - | b' - - - a' - - - | b' - - - c#'' - - - |" +
                  "d'' - c#'' - b' - a' - | g' - f#' - g' - e' - | f#' - d' - e' - c#' - | d' - b - c#' - a -",
             ch: 'D A Bm F#m G D G A D A Bm F#m G D G A', o: -12}),
-        song({id: 40, name: 'Менуэт соль мажор', by: 'Х. Петцольд (1677–1733)', style: 'chip', bpm: 132, spb: 2, bpb: 3,
+        song({id: 40, name: L('Менуэт соль мажор'), by: L('Х. Петцольд (1677–1733)'), style: 'chip', bpm: 132, spb: 2, bpb: 3,
             mel: "d'' - g' a' b' c'' | d'' - g' - g' - | e'' - c'' d'' e'' f#'' | g'' - g' - g' - |" +
                  "c'' - d'' c'' b' a' | b' - c'' b' a' g' | f#' - g' a' b' g' | a' - - - - -",
             ch: 'G G C G C G D D', o: -12}),
-        song({id: 41, name: 'Токката и фуга ре минор', by: 'И. С. Бах (1685–1750)', gain: 1.1, bpm: 76, spb: 4, bpb: 4,
+        song({id: 41, name: L('Токката и фуга ре минор'), by: L('И. С. Бах (1685–1750)'), gain: 1.1, bpm: 76, spb: 4, bpb: 4,
             mel: "a' g' a' - - - - - - - - - - - - - | g f e d c# - - - d - - - - - - -",
             ch: 'Dm Dm A7 Dm',
             sec: [{lead: 'organ', pad: 'organ', pv: 0.5, dr: 'none'},
                 {lead: 'organ', o: -12, pad: 'choir', bass: 'root', bi: 'sub', dr: 'boom', fill: 'tom'},
                 {lead: 'organ', o: -12, l2: 'saw', o2: 0, pad: 'strings', bass: 'eighth', comp: 'guitar', cr: 'eighth', dr: 'rock', fill: 'snare', crash: 1}]}),
-        song({id: 42, name: 'О, Сюзанна', by: 'С. Фостер (1826–1864)', style: 'pop', bpm: 132, spb: 2, bpb: 4, lead: 'harp',
+        song({id: 42, name: L('О, Сюзанна'), by: L('С. Фостер (1826–1864)'), style: 'pop', bpm: 132, spb: 2, bpb: 4, lead: 'harp',
             mel: "e - g - g - - a | g - e - c - - d | e - e - d - c - | d - - - - - c d |" +
                  "e - g - g - - a | g - e - c - - d | e - e - d - d - | c - - - - - c d",
             ch: 'C C C G C C G C'}),
-        song({id: 43, name: 'Сюрприз (симфония № 94)', by: 'Й. Гайдн (1732–1809)', style: 'orch', gain: 2.7, bpm: 120, spb: 2, bpb: 2,
+        song({id: 43, name: L('Сюрприз (симфония № 94)'), by: L('Й. Гайдн (1732–1809)'), style: 'orch', gain: 2.7, bpm: 120, spb: 2, bpb: 2,
             mel: "c - c - | e - e - | g - g - | e - - - | f - f - | d - d - | b, - b, - | g, - - - |" +
                  "c - c - | e - e - | g - g - | e - - - | f - f - | d - d - | b, - b, - | g, - - . ",
             ch: 'C C C C G7 G7 G G C C C C G7 G7 G G', o: 12,
             sec: [{lead: 'pizz', pad: 'strings', pv: 0.5, bass: 'beat', bi: 'pizz', dp: null, dr: 'none',
                     fill: null},
                 {lead: 'strings', l2: 'flute', o2: 12, pad: 'strings', pv: 0.7, bass: 'beat', bi: 'pizz', arp: 'harp', av: 0.6, dr: 'waltz', crash: 1}]}),
-        song({id: 44, name: 'Зелёные рукава', by: 'английская народная песня', style: 'orch', bpm: 92, spb: 3, bpb: 2, lead: 'flute',
+        song({id: 44, name: L('Зелёные рукава'), by: L('английская народная песня'), style: 'orch', bpm: 92, spb: 3, bpb: 2, lead: 'flute',
             mel: "c' - d' e' f' e' | d' - b g a b | c' - a a g# a | b - g# e - a |" +
                  "c' - d' e' f' e' | d' - b g a b | c' b a g# f# g# | a - - a - -",
             ch: 'Am G Am E Am G E Am'}),
-        song({id: 45, name: 'Мне радостно (кантата 147)', by: 'И. С. Бах (1685–1750)', style: 'pop', bpm: 92, spb: 3, bpb: 3, lead: 'piano',
+        song({id: 45, name: L('Мне радостно (кантата 147)'), by: L('И. С. Бах (1685–1750)'), style: 'pop', bpm: 92, spb: 3, bpb: 3, lead: 'piano',
             mel: "g a b d' c' c' e' d' d' | g' f#' g' d' b g a b c' | d' e' d' c' b a b g f# | g a d f# a c' b a b",
             ch: 'G G D D'}),
-        song({id: 46, name: 'Аллилуйя', by: 'Г. Ф. Гендель (1685–1759)', style: 'epic', bpm: 92, spb: 4, bpb: 4, lead: 'choir',
+        song({id: 46, name: L('Аллилуйя'), by: L('Г. Ф. Гендель (1685–1759)'), style: 'epic', bpm: 92, spb: 4, bpb: 4, lead: 'choir',
             mel: "d' - - - a - - b a - - - . . . . | d' - - - a - - b a - - - . . . . |" +
                  "a - b - a - b - a - - - . . . . | a - - b c#' - - - d' - - - . . . .",
             ch: 'D D G A'}),
-        song({id: 47, name: 'Братец Жак', by: 'французская народная песня', style: 'gallop', gain: 1.7, bpm: 132, spb: 2, bpb: 4,
+        song({id: 47, name: L('Братец Жак'), by: L('французская народная песня'), style: 'gallop', gain: 1.7, bpm: 132, spb: 2, bpb: 4,
             mel: "c - d - e - c - | c - d - e - c - | e - f - g - - - | e - f - g - - - |" +
                  "g a g f e - c - | g a g f e - c - | c - g, - c - - - | c - g, - c - - -",
             ch: 'C C C C C C G C', o: 12}),
-        song({id: 48, name: 'Ода к радости', by: 'Л. ван Бетховен (1770–1827)', style: 'disco', bpm: 120, spb: 2, bpb: 4,
+        song({id: 48, name: L('Ода к радости'), by: L('Л. ван Бетховен (1770–1827)'), style: 'disco', bpm: 120, spb: 2, bpb: 4,
             mel: "f# - f# - g - a - | a - g - f# - e - | d - d - e - f# - | f# - - e e - - - |" +
                  "f# - f# - g - a - | a - g - f# - e - | d - d - e - f# - | e - - d d - - -",
             ch: 'D D A A D D D A D D A A D D A D'}),
-        song({id: 49, name: 'Звёздочка (вариации)', by: 'В. А. Моцарт (1756–1791)', style: 'edm', bpm: 124, spb: 2, bpb: 4, lead: 'bell',
+        song({id: 49, name: L('Звёздочка (вариации)'), by: L('В. А. Моцарт (1756–1791)'), style: 'edm', bpm: 124, spb: 2, bpb: 4, lead: 'bell',
             mel: "c - c - g - g - | a - a - g - - - | f - f - e - e - | d - d - c - - - |" +
                  "g - g - f - f - | e - e - d - - - | g - g - f - f - | e - e - d - - -",
             ch: 'C C F C F C G C C F C G C F C G', o: 12}),
-        song({id: 50, name: 'Бубенцы', by: 'Дж. Пирпонт (1822–1893)', style: 'swing', bpm: 176, spb: 2, bpb: 4, swing: 1, lead: 'bell',
+        song({id: 50, name: L('Бубенцы'), by: L('Дж. Пирпонт (1822–1893)'), style: 'swing', bpm: 176, spb: 2, bpb: 4, swing: 1, lead: 'bell',
             mel: "e - e - e - - - | e - e - e - - - | e - g - c - d - | e - - - - - - - |" +
                  "f - f - f - f - | f - e - e - e e | e - d - d - e - | d - - - g - - -",
             ch: 'C C C C F C D7 G', o: 12})
@@ -986,28 +988,28 @@
 
     var LOBBY = [
         // Dvorak, Symphony No. 9, Largo
-        song({id: 1, name: 'Симфония «Из Нового Света», ларго', by: 'А. Дворжак (1841–1904)', style: 'lofi', bpm: 70, spb: 2, bpb: 4, lead: 'epiano',
+        song({id: 1, name: L('Симфония «Из Нового Света», ларго'), by: L('А. Дворжак (1841–1904)'), style: 'lofi', bpm: 70, spb: 2, bpb: 4, lead: 'epiano',
             mel: "e - - g g - - - | e - - d c - - - | d - - e g - - e | d - - - - - - - |" +
                  "e - - g g - - - | e - - d c - - - | d - - e d - - c | c - - - - - - -",
             ch: 'D Bm A A D Bm A D', o: 2}),
         // Satie, Gymnopedie No. 1
-        song({id: 2, name: 'Гимнопедия № 1', by: 'Э. Сати (1866–1925)', style: 'lofi', bpm: 84, spb: 2, bpb: 3, lead: 'epiano',
+        song({id: 2, name: L('Гимнопедия № 1'), by: L('Э. Сати (1866–1925)'), style: 'lofi', bpm: 84, spb: 2, bpb: 3, lead: 'epiano',
             mel: ". . f#'' - a'' - | g'' - f#'' - c#'' - | b' - c#'' - d'' - | a' - - - - - |" +
                  "f#' - - - - - | - - - - - - | . . . . . . | . . . . . .",
             ch: 'GM7 DM7 GM7 DM7 GM7 DM7 GM7 DM7', o: -12}),
         // Strauss II, The Blue Danube
-        song({id: 3, name: 'На прекрасном голубом Дунае', by: 'И. Штраус-сын (1825–1899)', style: 'lofi', bpm: 120, spb: 2, bpb: 3, lead: 'bell',
+        song({id: 3, name: L('На прекрасном голубом Дунае'), by: L('И. Штраус-сын (1825–1899)'), style: 'lofi', bpm: 120, spb: 2, bpb: 3, lead: 'bell',
             mel: ". . . . d - | d - f# - a - | a - - - a' - | a' - - - f#' - | f#' - - - d - | d - f# - a - | a - - - a' - | a' - - - g' - |" +
                  "g' - - - c# - | c# - e - b - | b - - - b' - | b' - - - g' - | g' - - - c# - | c# - e - b - | b - - - b' - | b' - - - f#' - ",
             ch: 'D D D D D D A7 A7 A7 A7 A7 A7 A7 A7 D D'})
     ];
 
     var FINAL = [
-        song({id: 7, name: 'Ода к радости', by: 'Л. ван Бетховен (1770–1827)', style: 'epic', bpm: 112, spb: 2, bpb: 4, lead: 'brass',
+        song({id: 7, name: L('Ода к радости'), by: L('Л. ван Бетховен (1770–1827)'), style: 'epic', bpm: 112, spb: 2, bpb: 4, lead: 'brass',
             mel: "f# - f# - g - a - | a - g - f# - e - | d - d - e - f# - | f# - - e e - - - |" +
                  "f# - f# - g - a - | a - g - f# - e - | d - d - e - f# - | e - - d d - - -",
             ch: 'D D A A D D D A D D A A D D A D'}),
-        song({id: 8, name: 'Аллилуйя', by: 'Г. Ф. Гендель (1685–1759)', style: 'epic', bpm: 96, spb: 4, bpb: 4, lead: 'choir',
+        song({id: 8, name: L('Аллилуйя'), by: L('Г. Ф. Гендель (1685–1759)'), style: 'epic', bpm: 96, spb: 4, bpb: 4, lead: 'choir',
             mel: "d' - - - a - - b a - - - . . . . | d' - - - a - - b a - - - . . . . |" +
                  "a - b - a - b - a - - - . . . . | a - - b c#' - - - d' - - - . . . .",
             ch: 'D D G A'})

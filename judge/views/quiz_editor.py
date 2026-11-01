@@ -13,6 +13,7 @@ from django.http import Http404, HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils import timezone
+from django.utils.translation import gettext as _, gettext_lazy as _l
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.views.decorators.http import require_POST
 
@@ -27,19 +28,26 @@ KEY_ALPHABET = 'abcdefghijklmnopqrstuvwxyz0123456789'
 RESERVED_KEYS = {'my', 'join', 'new', 'qr', 'g', 'game', 'import-template', 'edit', 'api', 'copy', 'delete',
                  'launch', 'solo', 'records', 'complain', 'static', 'admin'}
 NEW_TITLE = 'Новая викторина'
+
+
+def choices(pairs):
+    """Model choices with their labels in the current language, ready for JSON."""
+    return [(value, str(label)) for value, label in pairs]
+
+
 TYPE_INFO = {
-    QuizQuestion.SINGLE: ('fa-dot-circle-o', 'Один верный из 2–4'),
-    QuizQuestion.TRUEFALSE: ('fa-adjust', 'Утверждение: верно или нет'),
-    QuizQuestion.MULTI: ('fa-check-square-o', 'Несколько верных из 2–6'),
-    QuizQuestion.WORD: ('fa-font', 'Собрать слово из букв'),
-    QuizQuestion.ORDER: ('fa-sort-amount-asc', 'Расставить 3–6 пунктов'),
-    QuizQuestion.CODE: ('fa-code', 'Код: варианты или ввод'),
-    QuizQuestion.TEXT: ('fa-keyboard-o', 'Ввести ответ с клавиатуры'),
-    QuizQuestion.SLIDER: ('fa-sliders', 'Число на шкале'),
-    QuizQuestion.PIN: ('fa-map-marker', 'Отметить место на картинке'),
-    QuizQuestion.POLL: ('fa-bar-chart', 'Мнение, без очков'),
-    QuizQuestion.CLOUD: ('fa-cloud', 'Облако слов, без очков'),
-    QuizQuestion.OPEN: ('fa-comment-o', 'Свободный ответ, без очков'),
+    QuizQuestion.SINGLE: ('fa-dot-circle-o', _l('Один верный из 2–4')),
+    QuizQuestion.TRUEFALSE: ('fa-adjust', _l('Утверждение: верно или нет')),
+    QuizQuestion.MULTI: ('fa-check-square-o', _l('Несколько верных из 2–6')),
+    QuizQuestion.WORD: ('fa-font', _l('Собрать слово из букв')),
+    QuizQuestion.ORDER: ('fa-sort-amount-asc', _l('Расставить 3–6 пунктов')),
+    QuizQuestion.CODE: ('fa-code', _l('Код: варианты или ввод')),
+    QuizQuestion.TEXT: ('fa-keyboard-o', _l('Ввести ответ с клавиатуры')),
+    QuizQuestion.SLIDER: ('fa-sliders', _l('Число на шкале')),
+    QuizQuestion.PIN: ('fa-map-marker', _l('Отметить место на картинке')),
+    QuizQuestion.POLL: ('fa-bar-chart', _l('Мнение, без очков')),
+    QuizQuestion.CLOUD: ('fa-cloud', _l('Облако слов, без очков')),
+    QuizQuestion.OPEN: ('fa-comment-o', _l('Свободный ответ, без очков')),
 }
 DEFAULTS = {
     QuizQuestion.SINGLE: ({}, 4), QuizQuestion.MULTI: ({}, 4), QuizQuestion.ORDER: ({}, 4),
@@ -71,7 +79,7 @@ def quiz_limit_reached(request):
 
 
 def message(request, text, status=400, back=None):
-    return render(request, 'quiz/message.html', {'title': 'Викторина', 'message': text,
+    return render(request, 'quiz/message.html', {'title': _('Викторина'), 'message': text,
                                                  'back': back or reverse('quiz_my')}, status=status)
 
 
@@ -121,13 +129,13 @@ def renumber(quiz):
 @login_required
 def new_quiz(request):
     """Create an empty quiz and open its editor. An untouched empty draft is reused instead of making another."""
-    recent = Quiz.objects.filter(author=request.profile, title=NEW_TITLE, questions__isnull=True,
+    recent = Quiz.objects.filter(author=request.profile, title__in={NEW_TITLE, _(NEW_TITLE)}, questions__isnull=True,
                                  is_deleted=False).order_by('-created').first()
     if recent is not None:
         return redirect('quiz_edit', key=recent.key)
     if quiz_limit_reached(request):
-        return message(request, 'У вас уже %d викторин. Удалите ненужные, чтобы создать новую.' % MAX_QUIZZES)
-    quiz = Quiz.objects.create(author=request.profile, title=NEW_TITLE, key=new_key())
+        return message(request, _('У вас уже %d викторин. Удалите ненужные, чтобы создать новую.') % MAX_QUIZZES)
+    quiz = Quiz.objects.create(author=request.profile, title=_(NEW_TITLE), key=new_key())
     return redirect('quiz_edit', key=quiz.key)
 
 
@@ -147,15 +155,16 @@ def edit(request, key):
     api = reverse('quiz_api_data', args=[quiz.key])
     config = {
         'quiz': quiz_dict(quiz), 'questions': [question_dict(q) for q in questions_of(quiz)],
-        'types': [{'code': code, 'name': name, 'icon': TYPE_INFO[code][0], 'hint': TYPE_INFO[code][1],
+        'types': [{'code': code, 'name': str(name), 'icon': TYPE_INFO[code][0], 'hint': str(TYPE_INFO[code][1]),
                    'scored': code not in QuizQuestion.UNSCORED} for code, name in QuizQuestion.TYPES],
-        'languages': LANGUAGES, 'themes': Quiz.THEMES, 'access': Quiz.ACCESS, 'weights': QuizQuestion.WEIGHTS,
+        'languages': LANGUAGES, 'themes': choices(Quiz.THEMES), 'access': choices(Quiz.ACCESS),
+        'weights': choices(QuizQuestion.WEIGHTS),
         'maxQuestions': MAX_QUESTIONS,
         'urls': {'api': api, 'play': reverse('quiz_detail', args=[quiz.key]),
                  'template': reverse('quiz_import_template'), 'delete': reverse('quiz_delete', args=[quiz.key]),
                  'my': reverse('quiz_my')},
     }
-    return render(request, 'quiz/editor.html', {'title': 'Редактор: %s' % quiz.title, 'quiz': quiz,
+    return render(request, 'quiz/editor.html', {'title': _('Редактор: %s') % quiz.title, 'quiz': quiz,
                                                 'config': config})
 
 
@@ -167,10 +176,10 @@ def copy_quiz(request, key):
     if not own and (source.is_hidden or source.access != Quiz.PUBLIC):
         raise Http404()
     if quiz_limit_reached(request):
-        return message(request, 'У вас уже %d викторин. Удалите ненужные, чтобы скопировать.' % MAX_QUIZZES)
+        return message(request, _('У вас уже %d викторин. Удалите ненужные, чтобы скопировать.') % MAX_QUIZZES)
     with transaction.atomic():
         quiz = Quiz.objects.create(
-            author=request.profile, title=('Копия: %s' % source.title)[:120], description=source.description,
+            author=request.profile, title=(_('Копия: %s') % source.title)[:120], description=source.description,
             subject=source.subject, theme=source.theme, access=Quiz.PUBLIC, key=new_key(), copied_from=source,
             cover=images.copy_file(source.cover))
         for question in questions_of(source):
@@ -205,12 +214,12 @@ def editor_api(method):
         @wraps(view)
         def wrapper(request, key, *args, **kwargs):
             if not request.user.is_authenticated:
-                return json_error('Войдите на сайт', 403)
+                return json_error(_('Войдите на сайт'), 403)
             if request.method != method:
                 return json_error(method, 405)
             quiz = Quiz.objects.filter(key=key).first()
             if quiz is None or not quiz.can_edit(request.user):
-                return json_error('Нет доступа к этой викторине', 404)
+                return json_error(_('Нет доступа к этой викторине'), 404)
             try:
                 return view(request, quiz, *args, **kwargs)
             except QuestionError as e:
@@ -218,7 +227,7 @@ def editor_api(method):
             except ImageError as e:
                 return json_error(str(e), field='image')
             except Http404:
-                return json_error('Вопрос не найден', 404)
+                return json_error(_('Вопрос не найден'), 404)
         return wrapper
     return decorator
 
@@ -227,9 +236,9 @@ def read_json(request):
     try:
         body = json.loads(request.body or b'{}')
     except ValueError:
-        raise QuestionError('Неверный запрос')
+        raise QuestionError(_('Неверный запрос'))
     if not isinstance(body, dict):
-        raise QuestionError('Неверный запрос')
+        raise QuestionError(_('Неверный запрос'))
     return body
 
 
@@ -251,21 +260,21 @@ def api_settings(request, quiz):
     body = read_json(request)
     title = ' '.join(str(body.get('title', quiz.title)).split())
     if not title:
-        raise QuestionError('Введите название', 'title')
+        raise QuestionError(_('Введите название'), 'title')
     if len(title) > 120:
-        raise QuestionError('Название: не больше 120 символов', 'title')
+        raise QuestionError(_('Название: не больше 120 символов'), 'title')
     description = str(body.get('description', quiz.description)).replace('\r\n', '\n').strip()
     if len(description) > 2000:
-        raise QuestionError('Описание: не больше 2000 символов', 'description')
+        raise QuestionError(_('Описание: не больше 2000 символов'), 'description')
     subject = ' '.join(str(body.get('subject', quiz.subject)).split())
     if len(subject) > 60:
-        raise QuestionError('Предмет: не больше 60 символов', 'subject')
+        raise QuestionError(_('Предмет: не больше 60 символов'), 'subject')
     theme = body.get('theme', quiz.theme)
     if theme not in dict(Quiz.THEMES):
-        raise QuestionError('Неизвестная тема', 'theme')
+        raise QuestionError(_('Неизвестная тема'), 'theme')
     access = body.get('access', quiz.access)
     if access not in dict(Quiz.ACCESS):
-        raise QuestionError('Неверный доступ', 'access')
+        raise QuestionError(_('Неверный доступ'), 'access')
     quiz.title, quiz.description, quiz.subject, quiz.theme, quiz.access = title, description, subject, theme, access
     quiz.save()
     return JsonResponse({'quiz': quiz_dict(quiz)})
@@ -302,9 +311,9 @@ def api_question_add(request, quiz):
     body = read_json(request)
     type = body.get('type')
     if type not in DEFAULTS:
-        raise QuestionError('Неизвестный тип вопроса', 'type')
+        raise QuestionError(_('Неизвестный тип вопроса'), 'type')
     if quiz.questions.count() >= MAX_QUESTIONS:
-        raise QuestionError('Не больше %d вопросов в викторине' % MAX_QUESTIONS)
+        raise QuestionError(_('Не больше %d вопросов в викторине') % MAX_QUESTIONS)
     data, option_count = DEFAULTS[type]
     with transaction.atomic():
         order = new_position(quiz, body.get('after'))
@@ -376,7 +385,7 @@ def copy_question(source, quiz, order):
 def api_question_duplicate(request, quiz, question_id):
     source = get_question(quiz, question_id)
     if quiz.questions.count() >= MAX_QUESTIONS:
-        raise QuestionError('Не больше %d вопросов в викторине' % MAX_QUESTIONS)
+        raise QuestionError(_('Не больше %d вопросов в викторине') % MAX_QUESTIONS)
     with transaction.atomic():
         question = copy_question(source, quiz, new_position(quiz, source.id))
         renumber(quiz)
@@ -393,9 +402,9 @@ def api_question_image(request, quiz, question_id):
         try:
             target = question.options.get(id=int(request.POST['option']))
         except (ValueError, QuizOption.DoesNotExist):
-            return json_error('Вариант не найден', 404)
+            return json_error(_('Вариант не найден'), 404)
         if question.type == QuizQuestion.TRUEFALSE:
-            raise ImageError('У вариантов «Верно / Неверно» нет картинок')
+            raise ImageError(_('У вариантов «Верно / Неверно» нет картинок'))
     if request.POST.get('remove'):
         images.clear(target, field)
     else:
@@ -410,7 +419,7 @@ def api_reorder(request, quiz):
     ids = read_json(request).get('ids')
     current = order_ids(quiz)
     if not isinstance(ids, list) or sorted(map(str, ids)) != sorted(map(str, current)) or len(set(ids)) != len(ids):
-        raise QuestionError('Список вопросов устарел, обновите страницу')
+        raise QuestionError(_('Список вопросов устарел, обновите страницу'))
     with transaction.atomic():
         for order, question_id in enumerate(ids):
             QuizQuestion.objects.filter(quiz=quiz, id=question_id).update(order=order)
@@ -435,7 +444,7 @@ def api_import(request, quiz):
     """multipart: file=<xlsx> → {added, errors: [{row, error}], questions: [...]}"""
     upload = request.FILES.get('file')
     if upload is None:
-        raise QuestionError('Выберите файл')
+        raise QuestionError(_('Выберите файл'))
     rows = read_rows(upload)
     room = MAX_QUESTIONS - quiz.questions.count()
     added, errors = 0, []
@@ -446,7 +455,7 @@ def api_import(request, quiz):
                 errors.append({'row': row, 'error': str(result)})
                 continue
             if added >= room:
-                errors.append({'row': row, 'error': 'Не больше %d вопросов в викторине' % MAX_QUESTIONS})
+                errors.append({'row': row, 'error': _('Не больше %d вопросов в викторине') % MAX_QUESTIONS})
                 continue
             fields, options = result
             question = QuizQuestion.objects.create(quiz=quiz, order=order, **fields)

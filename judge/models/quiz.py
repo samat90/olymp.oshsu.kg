@@ -10,8 +10,8 @@ class Quiz(models.Model):
 
     PUBLIC = 'public'
     LINK = 'link'
-    ACCESS = ((PUBLIC, 'Открытая'), (LINK, 'По ссылке'))
-    THEMES = (('steppe', 'Степь'), ('lake', 'Иссык-Куль'), ('night', 'Ночь'), ('felt', 'Шырдак'))
+    ACCESS = ((PUBLIC, _('Открытая')), (LINK, _('По ссылке')))
+    THEMES = (('steppe', _('Степь')), ('lake', _('Иссык-Куль')), ('night', _('Ночь')), ('felt', _('Шырдак')))
 
     author = models.ForeignKey(Profile, verbose_name=_('author'), related_name='quizzes', on_delete=CASCADE)
     title = models.CharField(verbose_name=_('title'), max_length=120)
@@ -72,21 +72,21 @@ class Question(models.Model):
     CLOUD = 'cloud'
     OPEN = 'open'
     TYPES = (
-        (SINGLE, 'Один вариант'),
-        (TRUEFALSE, 'Верно / Неверно'),
-        (MULTI, 'Несколько верных'),
-        (WORD, 'Собери слово'),
-        (ORDER, 'Расставь по порядку'),
-        (CODE, 'Что выведет код'),
-        (TEXT, 'Введи ответ'),
-        (SLIDER, 'Ползунок'),
-        (PIN, 'Точка на картинке'),
-        (POLL, 'Опрос'),
-        (CLOUD, 'Облако слов'),
-        (OPEN, 'Открытый ответ'),
+        (SINGLE, _('Один вариант')),
+        (TRUEFALSE, _('Верно / Неверно')),
+        (MULTI, _('Несколько верных')),
+        (WORD, _('Собери слово')),
+        (ORDER, _('Расставь по порядку')),
+        (CODE, _('Что выведет код')),
+        (TEXT, _('Введи ответ')),
+        (SLIDER, _('Ползунок')),
+        (PIN, _('Точка на картинке')),
+        (POLL, _('Опрос')),
+        (CLOUD, _('Облако слов')),
+        (OPEN, _('Открытый ответ')),
     )
     UNSCORED = (POLL, CLOUD, OPEN)
-    WEIGHTS = ((1, 'Обычный'), (2, 'Двойные очки'), (0, 'Без очков'))
+    WEIGHTS = ((1, _('Обычный')), (2, _('Двойные очки')), (0, _('Без очков')))
 
     quiz = models.ForeignKey(Quiz, verbose_name=_('quiz'), related_name='questions', on_delete=CASCADE)
     order = models.PositiveSmallIntegerField(verbose_name=_('order'), default=0)
@@ -135,17 +135,17 @@ class GameSession(models.Model):
     AUTO = 'auto'
     SOLO = 'solo'
     MODES = (
-        (HOST, 'С ведущим'),
-        (AUTO, 'Автоматически'),
-        (SOLO, 'В одиночку'),
+        (HOST, _('С ведущим')),
+        (AUTO, _('Автоматически')),
+        (SOLO, _('В одиночку')),
     )
     LOBBY = 'lobby'
     QUESTION = 'question'
     REVEAL = 'reveal'
     LEADERBOARD = 'leaderboard'
     FINISHED = 'finished'
-    STATUSES = ((LOBBY, 'Лобби'), (QUESTION, 'Вопрос'), (REVEAL, 'Разбор'), (LEADERBOARD, 'Таблица'),
-                (FINISHED, 'Завершена'))
+    STATUSES = ((LOBBY, _('Лобби')), (QUESTION, _('Вопрос')), (REVEAL, _('Разбор')), (LEADERBOARD, _('Таблица')),
+                (FINISHED, _('Завершена')))
     MAX_PLAYERS = 1000
 
     quiz = models.ForeignKey(Quiz, verbose_name=_('quiz'), related_name='games', on_delete=CASCADE)

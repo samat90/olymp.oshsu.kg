@@ -1,6 +1,8 @@
 /* Quiz editor: question list with drag-and-drop, a form per question type, autosave, preview, import. */
 (function () {
     'use strict';
+    // Interface strings in the page language (see judge/utils/quiz_i18n.py).
+    var L = window.QZ_L || function (s) { return s; };
 
     var C = window.QUIZ_EDITOR;
     if (!C) return;
@@ -81,16 +83,16 @@
             init.method = 'POST';
         }
         return fetch(C.urls.api + path, init).then(function (r) {
-            return r.json().catch(function () { return {error: 'Ошибка сервера (' + r.status + ')'}; }).then(function (data) {
+            return r.json().catch(function () { return {error: L('Ошибка сервера (') + r.status + ')'}; }).then(function (data) {
                 if (!r.ok || data.error) {
-                    var err = new Error(data.error || 'Ошибка ' + r.status);
+                    var err = new Error(data.error || L('Ошибка ') + r.status);
                     err.field = data.field || '';
                     throw err;
                 }
                 return data;
             });
         }, function () {
-            throw new Error('Нет связи с сервером');
+            throw new Error(L('Нет связи с сервером'));
         });
     }
 
@@ -98,12 +100,12 @@
         var box = $('#qe-status');
         box.className = 'qe-status';
         if (failed) {
-            box.textContent = 'Ошибка: ' + failed;
+            box.textContent = L('Ошибка: ') + failed;
             box.classList.add('qe-err');
         } else if (pending > 0) {
-            box.textContent = 'Сохраняю…';
+            box.textContent = L('Сохраняю…');
         } else {
-            box.textContent = 'Сохранено';
+            box.textContent = L('Сохранено');
             box.classList.add('qe-ok');
         }
     }
@@ -213,7 +215,7 @@
 
     function excerpt(q) {
         var text = (q.text || '').replace(/[`*_#>$\\]/g, '').replace(/\s+/g, ' ').trim();
-        return text || (q.image ? '(картинка)' : q.code ? '(код)' : '');
+        return text || (q.image ? L('(картинка)') : q.code ? L('(код)') : '');
     }
 
     function renderList() {
@@ -221,7 +223,7 @@
         list.innerHTML = '';
         $('#qe-count').textContent = questions.length + ' / ' + C.maxQuestions;
         if (!questions.length) {
-            list.appendChild(el('li', {'class': 'qe-empty-list', text: 'Вопросов пока нет. Нажмите «+ Вопрос» или загрузите Excel.'}));
+            list.appendChild(el('li', {'class': 'qe-empty-list', text: L('Вопросов пока нет. Нажмите «+ Вопрос» или загрузите Excel.')}));
         }
         questions.forEach(function (q, i) {
             var text = excerpt(q);
@@ -233,12 +235,12 @@
                 el('span', {'class': 'qe-handle', 'aria-hidden': 'true', html: '&#8942;&#8942;'}),
                 el('span', {'class': 'qe-num', text: String(i + 1)}),
                 icon(TYPES[q.type].icon),
-                el('span', {'class': 'qe-item-text' + (text ? '' : ' qe-empty'), text: text || 'Без текста'}),
+                el('span', {'class': 'qe-item-text' + (text ? '' : ' qe-empty'), text: text || L('Без текста')}),
                 q.problems && q.problems.length ? el('span', {'class': 'qe-dot', title: q.problems.join('\n')}) : null,
                 el('span', {'class': 'qe-moves'}, [
-                    el('button', {type: 'button', title: 'Выше', 'aria-label': 'Выше', disabled: i === 0,
+                    el('button', {type: 'button', title: L('Выше'), 'aria-label': L('Выше'), disabled: i === 0,
                         onclick: function (e) { e.stopPropagation(); move(i, i - 1); }}, [icon('fa-chevron-up')]),
-                    el('button', {type: 'button', title: 'Ниже', 'aria-label': 'Ниже', disabled: i === questions.length - 1,
+                    el('button', {type: 'button', title: L('Ниже'), 'aria-label': L('Ниже'), disabled: i === questions.length - 1,
                         onclick: function (e) { e.stopPropagation(); move(i, i + 1); }}, [icon('fa-chevron-down')])
                 ])
             ]);
@@ -309,7 +311,7 @@
 
     function openPicker() {
         if (questions.length >= C.maxQuestions) {
-            window.alert('Не больше ' + C.maxQuestions + ' вопросов в викторине');
+            window.alert(L('Не больше ') + C.maxQuestions + L(' вопросов в викторине'));
             return;
         }
         $('#qe-picker').hidden = false;
@@ -347,7 +349,7 @@
     }
 
     function deleteQuestion(q) {
-        if (!window.confirm('Удалить вопрос?')) return;
+        if (!window.confirm(L('Удалить вопрос?'))) return;
         if (timers[q.id]) { clearTimeout(timers[q.id]); delete timers[q.id]; pending--; }
         var index = questions.indexOf(q);
         (chains[q.id] || Promise.resolve()).catch(function () {}).then(function () {
@@ -440,7 +442,7 @@
     function renderHead(q) {
         var head = $('#qe-form-head');
         if (!head) return;
-        $('.qe-qnum', head).textContent = 'Вопрос ' + (questions.indexOf(q) + 1);
+        $('.qe-qnum', head).textContent = L('Вопрос ') + (questions.indexOf(q) + 1);
     }
 
     function renderProblems(q) {
@@ -457,31 +459,31 @@
         var q = byId(currentId);
         if (!q) {
             form.appendChild(el('div', {'class': 'qe-panel'}, [
-                el('p', {text: 'Добавьте первый вопрос: нажмите «+ Вопрос» слева или импортируйте вопросы из Excel.'}),
-                el('button', {type: 'button', 'class': 'qe-btn qe-primary', onclick: openPicker}, [icon('fa-plus'), ' Вопрос'])
+                el('p', {text: L('Добавьте первый вопрос: нажмите «+ Вопрос» слева или импортируйте вопросы из Excel.')}),
+                el('button', {type: 'button', 'class': 'qe-btn qe-primary', onclick: openPicker}, [icon('fa-plus'), L(' Вопрос')])
             ]));
             return;
         }
-        var typeSelect = el('select', {'aria-label': 'Тип вопроса', onchange: function (e) { changeType(q, e.target.value); }},
+        var typeSelect = el('select', {'aria-label': L('Тип вопроса'), onchange: function (e) { changeType(q, e.target.value); }},
             C.types.map(function (t) { return el('option', {value: t.code, text: t.name, selected: t.code === q.type}); }));
         form.appendChild(el('div', {'class': 'qe-form-head', id: 'qe-form-head'}, [
-            el('span', {'class': 'qe-qnum', text: 'Вопрос ' + (questions.indexOf(q) + 1)}),
+            el('span', {'class': 'qe-qnum', text: L('Вопрос ') + (questions.indexOf(q) + 1)}),
             typeSelect,
             el('span', {'class': 'qe-spacer'}),
             el('button', {type: 'button', 'class': 'qe-btn qe-small' + (showPreview ? ' qe-on' : ''), onclick: togglePreview},
-                [icon('fa-mobile'), ' Предпросмотр']),
-            el('button', {type: 'button', 'class': 'qe-btn qe-small', title: 'Дублировать', onclick: function () { duplicateQuestion(q); }},
-                [icon('fa-clone'), el('span', {text: ' Копия'})]),
-            el('button', {type: 'button', 'class': 'qe-btn qe-small qe-danger', title: 'Удалить вопрос', onclick: function () { deleteQuestion(q); }},
+                [icon('fa-mobile'), L(' Предпросмотр')]),
+            el('button', {type: 'button', 'class': 'qe-btn qe-small', title: L('Дублировать'), onclick: function () { duplicateQuestion(q); }},
+                [icon('fa-clone'), el('span', {text: L(' Копия')})]),
+            el('button', {type: 'button', 'class': 'qe-btn qe-small qe-danger', title: L('Удалить вопрос'), onclick: function () { deleteQuestion(q); }},
                 [icon('fa-trash')])
         ]));
         form.appendChild(el('div', {'class': 'qe-problems', id: 'qe-problems'}));
         renderProblems(q);
 
         var main = el('div', {'class': 'qe-panel'});
-        main.appendChild(field('Текст вопроса', textarea(q, {id: 'qe-text', rows: 3, maxLength: 2000,
-            placeholder: q.type === 'truefalse' ? 'Утверждение, например: «Вода кипит при 100 °C»' : 'Например: Сколько байт в килобайте?'}, 'text'),
-            'Можно **жирный**, *курсив*, `код` и формулы в $...$'));
+        main.appendChild(field(L('Текст вопроса'), textarea(q, {id: 'qe-text', rows: 3, maxLength: 2000,
+            placeholder: q.type === 'truefalse' ? L('Утверждение, например: «Вода кипит при 100 °C»') : L('Например: Сколько байт в килобайте?')}, 'text'),
+            L('Можно **жирный**, *курсив*, `код` и формулы в $...$')));
         main.appendChild(codeBlock(q));
         main.appendChild(imageBlock(q));
         form.appendChild(main);
@@ -490,13 +492,13 @@
         if (answer) form.appendChild(answer);
 
         var timeInput = el('input', {type: 'number', min: 5, max: 240, step: 1, value: q.time_limit, 'data-field': 'time_limit',
-            'aria-label': 'Секунд',
+            'aria-label': L('Секунд'),
             oninput: function (e) {
                 var v = parseInt(e.target.value, 10);
                 if (v >= 5 && v <= 240) { q.time_limit = v; markChips(); changed(q); }
             }});
         var chips = el('span', {'class': 'qe-chips'}, TIMES.map(function (t) {
-            return el('button', {type: 'button', 'class': 'qe-chip', 'data-t': t, text: t < 60 ? t + ' с' : (t / 60) + ' мин',
+            return el('button', {type: 'button', 'class': 'qe-chip', 'data-t': t, text: t < 60 ? t + L(' с') : (t / 60) + L(' мин'),
                 onclick: function () { q.time_limit = t; timeInput.value = t; markChips(); changed(q); }});
         }));
         function markChips() {
@@ -504,10 +506,10 @@
         }
         markChips();
         var settings = el('div', {'class': 'qe-panel'}, [
-            field('Время на ответ', el('div', {'class': 'qe-time'}, [chips, timeInput, el('span', {text: 'с'})]))
+            field(L('Время на ответ'), el('div', {'class': 'qe-time'}, [chips, timeInput, el('span', {text: L('с')})]))
         ]);
         if (TYPES[q.type].scored) {
-            var seg = el('div', {'class': 'qe-seg', role: 'group', 'aria-label': 'Очки'}, C.weights.map(function (w) {
+            var seg = el('div', {'class': 'qe-seg', role: 'group', 'aria-label': L('Очки')}, C.weights.map(function (w) {
                 return el('button', {type: 'button', 'class': q.weight === w[0] ? 'qe-on' : '', text: w[1],
                     onclick: function () {
                         q.weight = w[0];
@@ -516,10 +518,10 @@
                         changed(q);
                     }});
             }));
-            settings.appendChild(field('Очки', seg));
+            settings.appendChild(field(L('Очки'), seg));
         }
-        settings.appendChild(field('Пояснение после ответа', textarea(q, {rows: 2, maxLength: 2000,
-            placeholder: 'Необязательно: почему ответ именно такой'}, 'explanation')));
+        settings.appendChild(field(L('Пояснение после ответа'), textarea(q, {rows: 2, maxLength: 2000,
+            placeholder: L('Необязательно: почему ответ именно такой')}, 'explanation')));
         form.appendChild(settings);
     }
 
@@ -528,15 +530,15 @@
         var box = el('div', {'class': 'qe-field'});
         if (!need && !q.code && !q._showCode) {
             box.appendChild(el('button', {type: 'button', 'class': 'qe-btn qe-small', onclick: function () { q._showCode = true; renderForm(); }},
-                [icon('fa-code'), ' Добавить код']));
+                [icon('fa-code'), L(' Добавить код')]));
             return box;
         }
-        var lang = el('select', {'aria-label': 'Язык', style: 'width:auto', onchange: function (e) { q.code_language = e.target.value; changed(q); }},
-            [el('option', {value: '', text: 'Язык…'})].concat(C.languages.map(function (l) {
+        var lang = el('select', {'aria-label': L('Язык'), style: 'width:auto', onchange: function (e) { q.code_language = e.target.value; changed(q); }},
+            [el('option', {value: '', text: L('Язык…')})].concat(C.languages.map(function (l) {
                 return el('option', {value: l[0], text: l[1], selected: l[0] === q.code_language});
             })));
         var area = textarea(q, {rows: 6, maxLength: 4000, 'class': 'qe-code', spellcheck: 'false',
-            placeholder: need ? 'Программа, вывод которой нужно угадать' : 'Фрагмент кода к вопросу'}, 'code');
+            placeholder: need ? L('Программа, вывод которой нужно угадать') : L('Фрагмент кода к вопросу')}, 'code');
         area.addEventListener('keydown', function (e) {
             if (e.key === 'Tab' && !e.shiftKey) {
                 e.preventDefault();
@@ -548,10 +550,10 @@
             }
         });
         box.appendChild(el('div', {'class': 'qe-row', style: 'margin-bottom:5px'}, [
-            el('span', {'class': 'qe-label', style: 'margin:0', text: 'Код'}), lang,
+            el('span', {'class': 'qe-label', style: 'margin:0', text: L('Код')}), lang,
             !need ? el('button', {type: 'button', 'class': 'qe-btn qe-small qe-danger', onclick: function () {
                 q.code = ''; q._showCode = false; changed(q); renderForm();
-            }}, [icon('fa-times'), ' Убрать код']) : null
+            }}, [icon('fa-times'), L(' Убрать код')]) : null
         ]));
         box.appendChild(area);
         return box;
@@ -589,19 +591,19 @@
     }
 
     function imageBlock(q) {
-        var box = el('div', {'class': 'qe-field'}, [el('span', {'class': 'qe-label', text: q.type === 'pin' ? 'Картинка (обязательно)' : 'Картинка'})]);
+        var box = el('div', {'class': 'qe-field'}, [el('span', {'class': 'qe-label', text: q.type === 'pin' ? L('Картинка (обязательно)') : L('Картинка')})]);
         var row = el('div', {'class': 'qe-image-box'});
         if (q.image && q.type !== 'pin') row.appendChild(el('img', {src: q.image, alt: ''}));
         row.appendChild(el('button', {type: 'button', 'class': 'qe-btn qe-small', onclick: function () {
             pickFile('image/jpeg,image/png,image/gif,image/webp', function (f) { uploadImage(q, null, f); });
-        }}, [icon('fa-picture-o'), q.image ? ' Заменить' : ' Загрузить']));
+        }}, [icon('fa-picture-o'), q.image ? L(' Заменить') : L(' Загрузить')]));
         if (q.image) {
             row.appendChild(el('button', {type: 'button', 'class': 'qe-btn qe-small qe-danger', onclick: function () {
                 uploadImage(q, null, null, true);
-            }}, [icon('fa-times'), ' Убрать']));
+            }}, [icon('fa-times'), L(' Убрать')]));
         }
         box.appendChild(row);
-        box.appendChild(el('div', {'class': 'qe-hint', text: 'JPEG, PNG, GIF или WebP до 5 МБ. Картинка уменьшится до 1280 пикселей.'}));
+        box.appendChild(el('div', {'class': 'qe-hint', text: L('JPEG, PNG, GIF или WebP до 5 МБ. Картинка уменьшится до 1280 пикселей.')}));
         return box;
     }
 
@@ -612,14 +614,14 @@
         var t = q.type;
         if (t === 'code') {
             var seg = el('div', {'class': 'qe-seg'}, [
-                el('button', {type: 'button', 'class': q.data.input ? '' : 'qe-on', text: 'Варианты ответа',
+                el('button', {type: 'button', 'class': q.data.input ? '' : 'qe-on', text: L('Варианты ответа'),
                     onclick: function () { if (q.data.input) { switchCodeMode(q, false); } }}),
-                el('button', {type: 'button', 'class': q.data.input ? 'qe-on' : '', text: 'Ввод ответа',
+                el('button', {type: 'button', 'class': q.data.input ? 'qe-on' : '', text: L('Ввод ответа'),
                     onclick: function () { if (!q.data.input) { switchCodeMode(q, true); } }})
             ]);
-            panel.appendChild(field('Как отвечают', seg));
+            panel.appendChild(field(L('Как отвечают'), seg));
             if (q.data.input) {
-                panel.appendChild(answersEditor(q, 'Верный вывод программы'));
+                panel.appendChild(answersEditor(q, L('Верный вывод программы')));
                 return panel;
             }
         }
@@ -628,20 +630,20 @@
             return panel;
         }
         if (t === 'word') {
-            panel.appendChild(field('Слово', input(q, {maxLength: 24, 'data-field': 'word', style: 'text-transform:uppercase;font-weight:700;letter-spacing:.08em',
-                placeholder: 'Например: АЛГОРИТМ'}, function () { return q.data.word || ''; }, function (v) { q.data.word = v; }),
-                'Игроки получат буквы вперемешку. До 24 букв, регистр не важен.'));
+            panel.appendChild(field(L('Слово'), input(q, {maxLength: 24, 'data-field': 'word', style: 'text-transform:uppercase;font-weight:700;letter-spacing:.08em',
+                placeholder: L('Например: АЛГОРИТМ')}, function () { return q.data.word || ''; }, function (v) { q.data.word = v; }),
+                L('Игроки получат буквы вперемешку. До 24 букв, регистр не важен.')));
             return panel;
         }
         if (t === 'text') {
-            panel.appendChild(answersEditor(q, 'Допустимые ответы'));
+            panel.appendChild(answersEditor(q, L('Допустимые ответы')));
             return panel;
         }
         if (t === 'slider') return sliderEditor(q, panel);
         if (t === 'pin') return pinEditor(q, panel);
         var notes = {
-            cloud: 'Игроки пишут слово или короткую фразу (до 30 символов). Ответы складываются в облако слов. Очков нет.',
-            open: 'Игроки пишут свободный ответ (до 300 символов). Ведущий показывает выбранные ответы на экране. Очков нет.'
+            cloud: L('Игроки пишут слово или короткую фразу (до 30 символов). Ответы складываются в облако слов. Очков нет.'),
+            open: L('Игроки пишут свободный ответ (до 300 символов). Ведущий показывает выбранные ответы на экране. Очков нет.')
         };
         panel.appendChild(el('p', {style: 'margin:0', text: notes[t] || ''}));
         return panel;
@@ -666,14 +668,14 @@
         var t = q.type;
         var limits = OPTION_LIMITS[t];
         var box = el('div');
-        var titles = {order: 'Пункты в верном порядке', poll: 'Варианты (без верного)', truefalse: 'Верный ответ'};
+        var titles = {order: L('Пункты в верном порядке'), poll: L('Варианты (без верного)'), truefalse: L('Верный ответ')};
         var hints = {
-            order: 'Запишите пункты сверху вниз в правильном порядке. Игроки получат их перемешанными.',
-            single: 'Отметьте один верный вариант.', code: 'Отметьте один верный вариант.',
-            multi: 'Отметьте все верные варианты. Очки — за долю верно отмеченных.',
-            poll: 'Опрос без очков: игроки увидят, как распределились голоса.'
+            order: L('Запишите пункты сверху вниз в правильном порядке. Игроки получат их перемешанными.'),
+            single: L('Отметьте один верный вариант.'), code: L('Отметьте один верный вариант.'),
+            multi: L('Отметьте все верные варианты. Очки — за долю верно отмеченных.'),
+            poll: L('Опрос без очков: игроки увидят, как распределились голоса.')
         };
-        box.appendChild(el('div', {'class': 'qe-label', text: titles[t] || 'Варианты ответа'}));
+        box.appendChild(el('div', {'class': 'qe-label', text: titles[t] || L('Варианты ответа')}));
         var list = el('div', {'class': 'qe-options', 'data-field': 'options'});
         q.options.forEach(function (o, i) {
             list.appendChild(optionRow(q, o, i));
@@ -687,8 +689,8 @@
                     renderForm();
                     var inputs = document.querySelectorAll('.qe-opt input[type=text]');
                     if (inputs.length) inputs[inputs.length - 1].focus();
-                }}, [icon('fa-plus'), t === 'order' ? ' Пункт' : ' Вариант']) : null,
-                el('span', {'class': 'qe-hint', style: 'margin:0', text: hints[t] + ' От ' + limits[0] + ' до ' + limits[1] + '.'})
+                }}, [icon('fa-plus'), t === 'order' ? L(' Пункт') : L(' Вариант')]) : null,
+                el('span', {'class': 'qe-hint', style: 'margin:0', text: hints[t] + L(' От ') + limits[0] + L(' до ') + limits[1] + '.'})
             ]));
         }
         return box;
@@ -702,17 +704,17 @@
         if (t === 'truefalse') {
             row.appendChild(el('span', {'class': 'qe-tf-label', text: o.text}));
         } else {
-            row.appendChild(input(q, {maxLength: 300, placeholder: o.image ? 'Подпись (необязательно)' : (t === 'order' ? 'Пункт ' : 'Вариант ') + (i + 1),
-                'aria-label': 'Вариант ' + (i + 1)}, function () { return o.text; }, function (v) { o.text = v; }));
+            row.appendChild(input(q, {maxLength: 300, placeholder: o.image ? L('Подпись (необязательно)') : (t === 'order' ? L('Пункт ') : L('Вариант ')) + (i + 1),
+                'aria-label': L('Вариант ') + (i + 1)}, function () { return o.text; }, function (v) { o.text = v; }));
             if (o.image) {
                 row.appendChild(el('span', {'class': 'qe-opt-img'}, [
                     el('img', {src: o.image, alt: ''}),
-                    el('button', {type: 'button', 'class': 'qe-x', title: 'Убрать картинку', html: '&times;',
+                    el('button', {type: 'button', 'class': 'qe-x', title: L('Убрать картинку'), html: '&times;',
                         onclick: function () { uploadImage(q, i, null, true); }})
                 ]));
             } else {
-                row.appendChild(el('button', {type: 'button', 'class': 'qe-btn qe-icon', title: 'Картинка к варианту',
-                    'aria-label': 'Картинка к варианту', onclick: function () {
+                row.appendChild(el('button', {type: 'button', 'class': 'qe-btn qe-icon', title: L('Картинка к варианту'),
+                    'aria-label': L('Картинка к варианту'), onclick: function () {
                         pickFile('image/jpeg,image/png,image/gif,image/webp', function (f) { uploadImage(q, i, f); });
                     }}, [icon('fa-picture-o')]));
             }
@@ -725,17 +727,17 @@
                     else q.options.forEach(function (x) { x.is_correct = x === o; });
                     changed(q);
                     renderForm();
-                }}, [icon(o.is_correct ? 'fa-check' : 'fa-circle-thin'), ' верный']));
+                }}, [icon(o.is_correct ? 'fa-check' : 'fa-circle-thin'), L(' верный')]));
         }
         if (t === 'order') {
-            row.appendChild(el('button', {type: 'button', 'class': 'qe-btn qe-icon', title: 'Выше', disabled: i === 0,
+            row.appendChild(el('button', {type: 'button', 'class': 'qe-btn qe-icon', title: L('Выше'), disabled: i === 0,
                 onclick: function () { swapOptions(q, i, i - 1); }}, [icon('fa-chevron-up')]));
-            row.appendChild(el('button', {type: 'button', 'class': 'qe-btn qe-icon', title: 'Ниже', disabled: i === q.options.length - 1,
+            row.appendChild(el('button', {type: 'button', 'class': 'qe-btn qe-icon', title: L('Ниже'), disabled: i === q.options.length - 1,
                 onclick: function () { swapOptions(q, i, i + 1); }}, [icon('fa-chevron-down')]));
         }
         if (t !== 'truefalse' && q.options.length > OPTION_LIMITS[t][0]) {
-            row.appendChild(el('button', {type: 'button', 'class': 'qe-btn qe-icon qe-danger', title: 'Удалить вариант',
-                'aria-label': 'Удалить вариант', onclick: function () {
+            row.appendChild(el('button', {type: 'button', 'class': 'qe-btn qe-icon qe-danger', title: L('Удалить вариант'),
+                'aria-label': L('Удалить вариант'), onclick: function () {
                     q.options.splice(i, 1);
                     changed(q);
                     renderForm();
@@ -758,16 +760,16 @@
         function draw() {
             chips.innerHTML = '';
             (q.data.answers || []).forEach(function (a, i) {
-                chips.appendChild(el('button', {type: 'button', 'class': 'qe-chip', title: 'Убрать', onclick: function () {
+                chips.appendChild(el('button', {type: 'button', 'class': 'qe-chip', title: L('Убрать'), onclick: function () {
                     q.data.answers.splice(i, 1);
                     changed(q);
                     draw();
                 }}, [a + ' ', el('span', {html: '&times;', 'aria-hidden': 'true'})]));
             });
-            if (!(q.data.answers || []).length) chips.appendChild(el('span', {'class': 'qe-hint', style: 'margin:0', text: 'Пока нет ответов'}));
+            if (!(q.data.answers || []).length) chips.appendChild(el('span', {'class': 'qe-hint', style: 'margin:0', text: L('Пока нет ответов')}));
         }
         draw();
-        var entry = el('input', {type: 'text', maxLength: 100, 'data-field': 'answers', placeholder: 'Ответ и Enter'});
+        var entry = el('input', {type: 'text', maxLength: 100, 'data-field': 'answers', placeholder: L('Ответ и Enter')});
         function add() {
             var v = entry.value.trim();
             if (!v) return;
@@ -781,18 +783,18 @@
         entry.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); add(); } });
         box.appendChild(field(label, el('div', {}, [chips, el('div', {'class': 'qe-row'}, [
             el('div', {style: 'flex:1;min-width:160px'}, [entry]),
-            el('button', {type: 'button', 'class': 'qe-btn', onclick: add}, [icon('fa-plus'), ' Добавить'])
-        ])]), 'Регистр, «ё/е» и лишние пробелы не важны. Числа сравниваются как числа.'));
-        box.appendChild(el('div', {style: 'max-width:220px'}, [numberInput(q, 'tolerance', 'Допуск для чисел', {min: 0})]));
+            el('button', {type: 'button', 'class': 'qe-btn', onclick: add}, [icon('fa-plus'), L(' Добавить')])
+        ])]), L('Регистр, «ё/е» и лишние пробелы не важны. Числа сравниваются как числа.')));
+        box.appendChild(el('div', {style: 'max-width:220px'}, [numberInput(q, 'tolerance', L('Допуск для чисел'), {min: 0})]));
         return box;
     }
 
     function sliderEditor(q, panel) {
         var grid = el('div', {'class': 'qe-grid2'}, [
-            numberInput(q, 'min', 'Минимум'), numberInput(q, 'max', 'Максимум'),
-            numberInput(q, 'step', 'Шаг', {min: 0}), numberInput(q, 'answer', 'Верный ответ'),
-            numberInput(q, 'tolerance', 'Допуск (±)', {min: 0}),
-            field('Единица', input(q, {maxLength: 12, placeholder: 'км, °C, %…', 'data-field': 'unit'},
+            numberInput(q, 'min', L('Минимум')), numberInput(q, 'max', L('Максимум')),
+            numberInput(q, 'step', L('Шаг'), {min: 0}), numberInput(q, 'answer', L('Верный ответ')),
+            numberInput(q, 'tolerance', L('Допуск (±)'), {min: 0}),
+            field(L('Единица'), input(q, {maxLength: 12, placeholder: L('км, °C, %…'), 'data-field': 'unit'},
                 function () { return q.data.unit || ''; }, function (v) { q.data.unit = v; }))
         ]);
         panel.appendChild(grid);
@@ -806,13 +808,13 @@
         if (!view) return;
         var d = q.data;
         var ok = Number(d.min) < Number(d.max) && Number(d.step) > 0;
-        view.textContent = ok ? 'Шкала от ' + d.min + ' до ' + d.max + ' с шагом ' + d.step + '. Полные очки за ' + d.answer +
-            (d.tolerance ? ' ± ' + d.tolerance : '') + ' ' + (d.unit || '') + ', дальше — меньше.' : 'Минимум должен быть меньше максимума, шаг больше 0.';
+        view.textContent = ok ? L('Шкала от ') + d.min + L(' до ') + d.max + L(' с шагом ') + d.step + L('. Полные очки за ') + d.answer +
+            (d.tolerance ? ' ± ' + d.tolerance : '') + ' ' + (d.unit || '') + L(', дальше — меньше.') : L('Минимум должен быть меньше максимума, шаг больше 0.');
     }
 
     function pinEditor(q, panel) {
         if (!q.image) {
-            panel.appendChild(el('p', {style: 'margin:0', text: 'Загрузите картинку выше, затем нажмите на неё, чтобы отметить верное место.'}));
+            panel.appendChild(el('p', {style: 'margin:0', text: L('Загрузите картинку выше, затем нажмите на неё, чтобы отметить верное место.')}));
             return panel;
         }
         var area = el('div', {'class': 'qe-pin-area'});
@@ -839,8 +841,8 @@
         var label = el('span', {text: q.data.r + '%'});
         var range = el('input', {type: 'range', 'class': 'qe-range', min: 1, max: 50, step: 1, value: q.data.r, 'data-field': 'r',
             oninput: function (e) { q.data.r = Number(e.target.value); label.textContent = q.data.r + '%'; draw(); changed(q); }});
-        panel.appendChild(field('Верное место', wrap, 'Нажмите на картинку, чтобы перенести точку. Ответ засчитывается внутри зелёной области.'));
-        panel.appendChild(field('Размер области', el('div', {'class': 'qe-row'}, [range, label])));
+        panel.appendChild(field(L('Верное место'), wrap, L('Нажмите на картинку, чтобы перенести точку. Ответ засчитывается внутри зелёной области.')));
+        panel.appendChild(field(L('Размер области'), el('div', {'class': 'qe-row'}, [range, label])));
         return panel;
     }
 
@@ -874,28 +876,28 @@
         var phone = $('#qe-phone');
         phone.className = 'qe-phone qz-theme-' + theme;
         var h = '<div class="qe-ph-scroll"><div class="qe-ph-top"><span>' + (p.i + 1) + ' / ' + p.n + ' · ' + esc(p.type_name) +
-            '</span><span><i class="fa fa-clock-o"></i> ' + p.time + ' с' + (p.weight === 2 ? ' · x2' : '') + '</span></div>';
+            '</span><span><i class="fa fa-clock-o"></i> ' + p.time + L(' с') + (p.weight === 2 ? ' · x2' : '') + '</span></div>';
         if (p.text) h += '<div class="qe-ph-card">' + p.text + '</div>';
         if (p.code) h += '<pre class="qe-ph-code">' + esc(p.code) + '</pre>';
         if (p.image && p.type !== 'pin') h += '<img class="qe-ph-img" src="' + esc(p.image) + '" alt="">';
         var t = p.type;
         if (p.letters) {
             h += '<div class="qe-ph-letters">' + p.letters.map(function (l) { return '<span>' + esc(l) + '</span>'; }).join('') + '</div>';
-            h += '<div class="qe-ph-btn">Ответить</div>';
+            h += L('<div class="qe-ph-btn">Ответить</div>');
         } else if (p.input) {
-            h += '<div class="qe-ph-input">' + (t === 'open' ? 'Ваш ответ…' : t === 'cloud' ? 'Слово…' : 'Ответ…') + '</div><div class="qe-ph-btn">Ответить</div>';
+            h += '<div class="qe-ph-input">' + (t === 'open' ? L('Ваш ответ…') : t === 'cloud' ? L('Слово…') : L('Ответ…')) + L('</div><div class="qe-ph-btn">Ответить</div>');
         } else if (p.slider) {
             var mid = p.slider.min + Math.round((p.slider.max - p.slider.min) / 2 / p.slider.step) * p.slider.step;
             h += '<div class="qe-ph-card qe-ph-slider">' + esc(mid) + ' ' + esc(p.slider.unit) +
                 '<input type="range" disabled min="' + esc(p.slider.min) + '" max="' + esc(p.slider.max) + '" value="' + esc(mid) + '">' +
-                '<div class="qe-ph-note">' + esc(p.slider.min) + ' … ' + esc(p.slider.max) + '</div></div><div class="qe-ph-btn">Ответить</div>';
+                '<div class="qe-ph-note">' + esc(p.slider.min) + ' … ' + esc(p.slider.max) + L('</div></div><div class="qe-ph-btn">Ответить</div>');
         } else if (t === 'pin') {
             h += p.image ? '<img class="qe-ph-img" style="max-height:260px" src="' + esc(p.image) + '" alt="">' : '';
-            h += '<div class="qe-ph-note">Нажмите на картинку</div>';
+            h += L('<div class="qe-ph-note">Нажмите на картинку</div>');
         } else if (t === 'order') {
             h += '<div class="qe-ph-opts qe-one-col">' + p.options.map(function (o) {
                 return '<div class="qe-ph-opt qe-ph-row"><i class="fa fa-bars"></i> ' + optionInner(o) + '</div>';
-            }).join('') + '</div><div class="qe-ph-btn">Готово</div>';
+            }).join('') + L('</div><div class="qe-ph-btn">Готово</div>');
         } else {
             var oneCol = t === 'truefalse' ? '' : p.options.some(function (o) { return (o.text || '').length > 28; }) ? ' qe-one-col' : '';
             h += '<div class="qe-ph-opts' + oneCol + '">' + p.options.map(function (o, i) {
@@ -903,7 +905,7 @@
                 return '<div class="qe-ph-opt qz-c' + (i % 6) + '">' + shape + optionInner(o) +
                     (t === 'multi' ? '<span class="qe-check"></span>' : '') + '</div>';
             }).join('') + '</div>';
-            if (t === 'multi') h += '<div class="qe-ph-btn">Ответить</div>';
+            if (t === 'multi') h += L('<div class="qe-ph-btn">Ответить</div>');
         }
         h += '</div>';
         phone.innerHTML = h;
@@ -968,7 +970,7 @@
             this.classList.toggle('qe-on', !panel.hidden);
         });
         $('#qe-delete-form').addEventListener('submit', function (e) {
-            if (!window.confirm('Удалить викторину «' + quiz.title + '» со всеми вопросами? Это нельзя отменить.')) e.preventDefault();
+            if (!window.confirm(L('Удалить викторину «') + quiz.title + L('» со всеми вопросами? Это нельзя отменить.'))) e.preventDefault();
         });
         markSettings();
     }
@@ -984,7 +986,7 @@
         img.hidden = !quiz.cover;
         if (quiz.cover) img.src = quiz.cover;
         $('#qe-cover-remove').hidden = !quiz.cover;
-        $('#qe-cover-upload').lastChild.textContent = quiz.cover ? ' Заменить' : ' Загрузить';
+        $('#qe-cover-upload').lastChild.textContent = quiz.cover ? L(' Заменить') : L(' Загрузить');
     }
 
     function initImport() {
@@ -996,7 +998,7 @@
         $('#qe-import-file').addEventListener('click', function () {
             pickFile('.xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', function (f) {
                 var result = $('#qe-import-result');
-                result.textContent = 'Загружаю…';
+                result.textContent = L('Загружаю…');
                 var form = new FormData();
                 form.append('file', f);
                 flushAll().catch(function () {}).then(function () {
@@ -1008,10 +1010,10 @@
                     renderList();
                     renderForm();
                     result.innerHTML = '';
-                    result.appendChild(el('b', {text: 'Добавлено вопросов: ' + data.added}));
+                    result.appendChild(el('b', {text: L('Добавлено вопросов: ') + data.added}));
                     if (data.errors.length) {
                         result.appendChild(el('ul', {}, data.errors.map(function (e) {
-                            return el('li', {text: 'Строка ' + e.row + ': ' + e.error});
+                            return el('li', {text: L('Строка ') + e.row + ': ' + e.error});
                         })));
                     }
                 }).catch(function (e) {

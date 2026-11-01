@@ -12,38 +12,38 @@
 <div class="qz qz-join qz-ornament">
     <div class="qz-join-card">
         <div class="qz-join-logo" aria-hidden="true"><i class="fa fa-bolt"></i></div>
-        <h1 class="qz-h1">Викторина</h1>
+        <h1 class="qz-h1">{{ _('Викторина') }}</h1>
         {% if step == 'nick' %}
             <form method="post" action="{{ url('quiz_join') }}" class="qz-join-form" id="qz-join-nick">
                 {% csrf_token %}
                 <input type="hidden" name="pin" value="{{ pin }}">
-                <p class="qz-join-pin">PIN <b>{{ pin[:3] }} {{ pin[3:] }}</b> <a href="{{ url('quiz_join') }}">изменить</a></p>
-                <label for="qz-nick" class="qz-join-label">Ваш ник</label>
+                <p class="qz-join-pin">PIN <b>{{ pin[:3] }} {{ pin[3:] }}</b> <a href="{{ url('quiz_join') }}">{{ _('изменить') }}</a></p>
+                <label for="qz-nick" class="qz-join-label">{{ _('Ваш ник') }}</label>
                 <input id="qz-nick" name="nickname" class="qz-join-input qz-join-nick" maxlength="24" autocomplete="nickname"
-                       autocapitalize="words" autofocus required value="{{ nickname }}" placeholder="Например, Айбек">
+                       autocapitalize="words" autofocus required value="{{ nickname }}" placeholder="{{ _('Например, Айбек') }}">
                 {% if error %}<p class="qz-join-error" role="alert">{{ error }}</p>{% endif %}
-                <button type="submit" class="qz-btn qz-btn-primary qz-btn-xl">Играть</button>
+                <button type="submit" class="qz-btn qz-btn-primary qz-btn-xl">{{ _('Играть') }}</button>
                 <p class="qz-muted qz-small">
-                    <a href="{{ url('auth_login') }}?next={{ (url('quiz_join') + '?pin=' + pin)|urlencode }}">Войти с аккаунтом</a>, чтобы игра сохранилась в истории.
+                    <a href="{{ url('auth_login') }}?next={{ (url('quiz_join') + '?pin=' + pin)|urlencode }}">{{ _('Войти с аккаунтом') }}</a>{{ _(', чтобы игра сохранилась в истории.') }}
                 </p>
             </form>
         {% else %}
             <form method="post" action="{{ url('quiz_join') }}" class="qz-join-form" id="qz-join-pin"
                   data-check="{{ url('quiz_pin_lookup') }}">
                 {% csrf_token %}
-                <label for="qz-pin" class="qz-join-label">PIN игры</label>
+                <label for="qz-pin" class="qz-join-label">{{ _('PIN игры') }}</label>
                 <input id="qz-pin" name="pin" class="qz-join-input qz-join-digits" inputmode="numeric" pattern="[0-9]*"
                        maxlength="6" autocomplete="off" autofocus required value="{{ pin }}" placeholder="••••••"
                        aria-describedby="qz-pin-error">
                 <p class="qz-join-error" id="qz-pin-error" role="alert"{% if not error %} hidden{% endif %}>{{ error }}</p>
-                <button type="submit" class="qz-btn qz-btn-primary qz-btn-xl">Войти</button>
+                <button type="submit" class="qz-btn qz-btn-primary qz-btn-xl">{{ _('Войти') }}</button>
                 {% if request.user.is_authenticated %}
-                    <p class="qz-muted qz-small">Вы войдёте как <b>{{ request.user.username }}</b>.</p>
+                    <p class="qz-muted qz-small">{{ _('Вы войдёте как') }} <b>{{ request.user.username }}</b>.</p>
                 {% endif %}
             </form>
         {% endif %}
     </div>
-    <p class="qz-join-foot"><a href="{{ url('quiz_catalog') }}">Каталог викторин</a></p>
+    <p class="qz-join-foot"><a href="{{ url('quiz_catalog') }}">{{ _('Каталог викторин') }}</a></p>
 </div>
 <script>
 (function () {
@@ -72,7 +72,7 @@
             .then(function (d) {
                 busy = false;
                 if (d.ok) form.submit();
-                else fail('Игра с таким PIN не найдена');
+                else fail({{ _('Игра с таким PIN не найдена')|tojson }});
             }, function () { busy = false; form.submit(); });
     }
     input.addEventListener('input', function () {
@@ -80,7 +80,7 @@
         if (clean().length === 6) check();
     });
     form.addEventListener('submit', function (e) {
-        if (clean().length !== 6) { e.preventDefault(); fail('PIN — это 6 цифр'); }
+        if (clean().length !== 6) { e.preventDefault(); fail({{ _('PIN — это 6 цифр')|tojson }}); }
     });
 })();
 </script>

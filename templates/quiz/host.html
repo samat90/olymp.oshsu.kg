@@ -24,6 +24,7 @@
     {% if not view_chosen %}
         <script>if (window.innerWidth < 700) location.replace(window.QUIZ.urls.remote);</script>
     {% endif %}
+    {% include "quiz/i18n.html" %}
     <script src="{{ static('quiz/audio.js') }}?v={{ STATIC_VERSION }}" defer></script>
     <script src="{{ static('quiz/fx.js') }}?v={{ STATIC_VERSION }}" defer></script>
     <script src="{{ static('quiz/game.js') }}?v={{ STATIC_VERSION }}" defer></script>
@@ -36,33 +37,33 @@
         <span class="qz-bar-title">{{ quiz.title }}</span>
         <span class="qz-bar-q" id="qz-qnum"></span>
         <span class="qz-spacer"></span>
-        <span class="qz-bar-count" id="qz-count" title="Игроков"><i class="fa fa-users"></i> <b>0</b></span>
+        <span class="qz-bar-count" id="qz-count" title="{{ _('Игроков') }}"><i class="fa fa-users"></i> <b>0</b></span>
         {% if role == 'screen' %}
             <span class="qz-corner-pin" id="qz-corner" hidden>
                 <span>PIN <b>{{ pin }}</b></span>
-                <img src="{{ config.urls.qr }}" alt="QR-код для входа" width="64" height="64">
+                <img src="{{ config.urls.qr }}" alt="{{ _('QR-код для входа') }}" width="64" height="64">
             </span>
         {% else %}
             <span class="qz-bar-pin">PIN <b>{{ pin }}</b></span>
-            <img class="qz-bar-qr" src="{{ config.urls.qr }}" alt="QR-код для входа" width="40" height="40">
+            <img class="qz-bar-qr" src="{{ config.urls.qr }}" alt="{{ _('QR-код для входа') }}" width="40" height="40">
         {% endif %}
     </header>
-    <div class="qz-net" id="qz-net" role="status" hidden><i class="fa fa-wifi"></i> Нет связи, переподключаюсь…</div>
+    <div class="qz-net" id="qz-net" role="status" hidden><i class="fa fa-wifi"></i> {{ _('Нет связи, переподключаюсь…') }}</div>
     <main class="qz-screen" id="qz-screen" aria-live="polite">
         <div class="qz-center"><div class="qz-wait"><i></i><i></i><i></i></div></div>
     </main>
-    <div class="qz-controls" id="qz-controls" role="toolbar" aria-label="Управление игрой">
-        <button type="button" class="qz-ctl qz-ctl-main" data-act="next" title="Далее (пробел, →)"><i class="fa fa-forward"></i> <span>Далее</span></button>
-        <button type="button" class="qz-ctl" data-act="pause" title="Пауза (P)"><i class="fa fa-pause"></i> <span>Пауза</span></button>
-        <button type="button" class="qz-ctl" data-act="skip" title="Закрыть вопрос"><i class="fa fa-step-forward"></i> <span>Пропустить</span></button>
-        <button type="button" class="qz-ctl" data-act="sound" title="Звук (M)"><i class="fa fa-volume-up"></i> <span>Звук</span></button>
+    <div class="qz-controls" id="qz-controls" role="toolbar" aria-label="{{ _('Управление игрой') }}">
+        <button type="button" class="qz-ctl qz-ctl-main" data-act="next" title="{{ _('Далее (пробел, →)') }}"><i class="fa fa-forward"></i> <span>{{ _('Далее') }}</span></button>
+        <button type="button" class="qz-ctl" data-act="pause" title="{{ _('Пауза (P)') }}"><i class="fa fa-pause"></i> <span>{{ _('Пауза') }}</span></button>
+        <button type="button" class="qz-ctl" data-act="skip" title="{{ _('Закрыть вопрос') }}"><i class="fa fa-step-forward"></i> <span>{{ _('Пропустить') }}</span></button>
+        <button type="button" class="qz-ctl" data-act="sound" title="{{ _('Звук (M)') }}"><i class="fa fa-volume-up"></i> <span>{{ _('Звук') }}</span></button>
         {% if role == 'screen' %}
-            <button type="button" class="qz-ctl" data-act="fullscreen" title="Полный экран (F)"><i class="fa fa-expand"></i> <span>Экран</span></button>
-            <a class="qz-ctl" href="{{ url('quiz_host', pin) }}?view=remote" title="Компактный вид для телефона"><i class="fa fa-mobile"></i> <span>Телефон</span></a>
+            <button type="button" class="qz-ctl" data-act="fullscreen" title="{{ _('Полный экран (F)') }}"><i class="fa fa-expand"></i> <span>{{ _('Экран') }}</span></button>
+            <a class="qz-ctl" href="{{ url('quiz_host', pin) }}?view=remote" title="{{ _('Компактный вид для телефона') }}"><i class="fa fa-mobile"></i> <span>{{ _('Телефон') }}</span></a>
         {% else %}
-            <a class="qz-ctl" href="{{ url('quiz_host', pin) }}?view=screen" title="Большой экран: компьютер или проектор"><i class="fa fa-desktop"></i> <span>Экран</span></a>
+            <a class="qz-ctl" href="{{ url('quiz_host', pin) }}?view=screen" title="{{ _('Большой экран: компьютер или проектор') }}"><i class="fa fa-desktop"></i> <span>{{ _('Экран') }}</span></a>
         {% endif %}
-        <button type="button" class="qz-ctl qz-ctl-end" data-act="end" title="Завершить игру"><i class="fa fa-stop"></i> <span>Завершить</span></button>
+        <button type="button" class="qz-ctl qz-ctl-end" data-act="end" title="{{ _('Завершить игру') }}"><i class="fa fa-stop"></i> <span>{{ _('Завершить') }}</span></button>
     </div>
 </div>
 {% endblock %}

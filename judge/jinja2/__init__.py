@@ -8,6 +8,7 @@ from statici18n.templatetags.statici18n import inlinei18n
 
 from judge.highlight_code import highlight_code
 from judge.user_translations import gettext
+from judge.utils.quiz_i18n import js_catalog as quiz_js_catalog
 from . import (camo, datetime, filesize, format, gravatar, language, markdown, rating, reference, render, social,
                spaceless, submission, timedelta)
 from . import registry
@@ -21,6 +22,7 @@ registry.filter('roundfloat', round)
 registry.function('inlinei18n', inlinei18n)
 registry.function('mptt_tree', get_cached_trees)
 registry.function('user_trans', gettext)
+registry.function('quiz_js_catalog', quiz_js_catalog)
 
 
 @registry.function

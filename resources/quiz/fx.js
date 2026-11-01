@@ -2,6 +2,8 @@
  * window.QuizFx. No libraries; everything respects prefers-reduced-motion. */
 (function () {
     'use strict';
+    // Interface strings in the page language (see judge/utils/quiz_i18n.py).
+    var L = window.QZ_L || function (s) { return s; };
 
     // Same values as .qz-c0 ... .qz-c5 in theme.css.
     var COLORS = ['#0b7a72', '#bd4f0d', '#6a48c4', '#b42358', '#4f6b17', '#1c66a8'];
@@ -32,7 +34,7 @@
         '<path d="M2.5 21v-8C2.5 7.5 7 3 12 3s9.5 4.5 9.5 10v8h-6.5v-5.5h-6v5.5z"/>',          // yurt
         '<path d="M6.6 19.5a4.6 4.6 0 0 1-.7-9.1 6.3 6.3 0 0 1 12-1.2 5.2 5.2 0 0 1-.2 10.3z"/>' // cloud
     ];
-    var NAMES = ['звезда', 'шестиугольник', 'капля', 'полумесяц', 'юрта', 'облако'];
+    var NAMES = [L('звезда'), L('шестиугольник'), L('капля'), L('полумесяц'), L('юрта'), L('облако')];
 
     function shape(i) {
         i = ((i % 6) + 6) % 6;

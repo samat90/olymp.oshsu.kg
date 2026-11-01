@@ -1,6 +1,8 @@
 /* Quiz game client: player, solo player, host screen and host remote. HTTP polling only. */
 (function () {
     'use strict';
+    // Interface strings in the page language (see judge/utils/quiz_i18n.py).
+    var L = window.QZ_L || function (s) { return s; };
 
     var C = window.QUIZ;
     var stage = document.getElementById('qz-stage');
@@ -11,7 +13,7 @@
     var ROLE = C.role;          // player | screen | remote
     var MODE = C.mode;          // screen | remote | auto | solo
     var IS_HOST = ROLE === 'screen' || ROLE === 'remote';
-    var LETTERS = 'АБВГДЕ';
+    var LETTERS = L('АБВГДЕ');
 
     // ------------------------------------------------------------ small helpers
 
@@ -56,9 +58,9 @@
         return m ? decodeURIComponent(m[1]) : '';
     }
 
-    function place(n) { return n + '-е'; }
 
     function plural(n, one, few, many) {
+        if (document.documentElement.lang === 'en') return n === 1 ? one : many;
         var a = Math.abs(n) % 100, b = a % 10;
         if (a > 10 && a < 20) return many;
         if (b > 1 && b < 5) return few;
@@ -399,13 +401,19 @@
     function optionLabel(q, id) {
         var i = optionIndex(q, id);
         if (i < 0) return '?';
-        return q.options[i].text || 'картинка ' + (i + 1);
+        return optText(q, q.options[i]) || L('картинка ') + (i + 1);
+    }
+
+    // The fixed «Верно» / «Неверно» options are shown in the page language.
+    function optText(q, o) {
+        if (q.type !== 'truefalse') return o.text;
+        return {'Верно': L('Верно'), 'Неверно': L('Неверно')}[o.text] || o.text;
     }
 
     function questionHead(q, big) {
         var badges = [h('span', {cls: 'qz-q-type', text: q.type_name})];
         if (q.weight === 2) badges.push(h('span', {cls: 'qz-badge qz-badge-x2', text: 'x2'}));
-        if (!q.scored) badges.push(h('span', {cls: 'qz-badge', text: 'без очков'}));
+        if (!q.scored) badges.push(h('span', {cls: 'qz-badge', text: L('без очков')}));
         var text = q.text ? h('div', {cls: 'qz-q-text', html: q.text}) : null;
         var box = h('div', {cls: 'qz-q-head' + (big ? ' qz-big' : '')},
             h('div', {cls: 'qz-q-badges'}, badges),
@@ -422,7 +430,7 @@
         return [mark,
             h('span', {cls: 'qz-opt-body'},
                 o.image ? h('img', {src: o.image, alt: '', cls: 'qz-opt-img'}) : null,
-                o.text ? h('span', {cls: 'qz-opt-text', text: o.text}) : null)];
+                o.text ? h('span', {cls: 'qz-opt-text', text: optText(q, o)}) : null)];
     }
 
     function longOptions(q) {
@@ -453,8 +461,8 @@
                     h('span', {cls: 'qz-sbar-track'}, h('span', {cls: 'qz-sbar-fill qz-c' + i}),
                         h('b', {cls: 'qz-sbar-n', text: String(c)})),
                     h('span', {cls: 'qz-sbar-label'}, optionContent(q, o, i, true),
-                        mine ? h('span', {cls: 'qz-mine-tag', text: 'вы'}) : null,
-                        ok ? h('i', {cls: 'fa fa-check qz-tick', 'aria-label': 'верно'}) : null));
+                        mine ? h('span', {cls: 'qz-mine-tag', text: L('вы')}) : null,
+                        ok ? h('i', {cls: 'fa fa-check qz-tick', 'aria-label': L('верно')}) : null));
                 bars.appendChild(bar);
                 grow(bar, c / max);
             });
@@ -469,7 +477,7 @@
                 return h('span', {cls: 'qz-tile', text: ch});
             })));
         } else if (t === 'text' || t === 'code') {
-            box.appendChild(h('div', {cls: 'qz-key-text'}, h('span', {cls: 'qz-muted', text: 'Правильный ответ: '}),
+            box.appendChild(h('div', {cls: 'qz-key-text'}, h('span', {cls: 'qz-muted', text: L('Правильный ответ: ')}),
                 h('b', {text: (rv.correct || []).join(' / ') || '—'})));
             if (rv.top && rv.top.length) {
                 var accepted = (rv.correct || []).map(function (a) { return String(a).trim().toLowerCase().replace(/ё/g, 'е'); });
@@ -529,13 +537,13 @@
         cols.appendChild(h('span', {cls: 'qz-hist-mark', style: 'left:' + Math.max(0, Math.min(100, pos)) + '%'}));
         if (typeof mine === 'number') {
             cols.appendChild(h('span', {cls: 'qz-hist-mine', style: 'left:' + Math.max(0, Math.min(100, (mine - lo) / (hi - lo) * 100)) + '%',
-                title: 'Ваш ответ'}));
+                title: L('Ваш ответ')}));
         }
         return h('div', {cls: 'qz-hist-box'}, cols,
             h('div', {cls: 'qz-hist-axis'}, h('span', {text: String(lo)}), h('span', {text: String(hi)})),
-            h('div', {cls: 'qz-key-text'}, h('span', {cls: 'qz-muted', text: 'Правильно: '}),
+            h('div', {cls: 'qz-key-text'}, h('span', {cls: 'qz-muted', text: L('Правильно: ')}),
                 h('b', {text: rv.correct + (s.unit ? ' ' + s.unit : '') + (tol ? ' ± ' + tol : '')}),
-                typeof mine === 'number' ? h('span', {cls: 'qz-muted', text: ' · ваш ответ ' + mine}) : null));
+                typeof mine === 'number' ? h('span', {cls: 'qz-muted', text: L(' · ваш ответ ') + mine}) : null));
     }
 
     function pinView(q, rv, mine) {
@@ -556,7 +564,7 @@
     function cloudView(words) {
         var box = h('div', {cls: 'qz-cloud'});
         if (!words.length) {
-            box.appendChild(h('p', {cls: 'qz-muted', text: 'Слов пока нет'}));
+            box.appendChild(h('p', {cls: 'qz-muted', text: L('Слов пока нет')}));
             return box;
         }
         var max = words[0][1] || 1;
@@ -578,17 +586,17 @@
 
     function openView(texts, hideable) {
         var box = h('div', {cls: 'qz-open-list'});
-        if (!texts.length) box.appendChild(h('p', {cls: 'qz-muted', text: 'Ответов нет'}));
+        if (!texts.length) box.appendChild(h('p', {cls: 'qz-muted', text: L('Ответов нет')}));
         texts.forEach(function (row, i) {
             var card = h('div', {cls: 'qz-open-card qz-pop' + (hiddenTexts[row.id] ? ' qz-hidden-text' : ''),
                 style: 'animation-delay:' + Math.min(i * 60, 1500) + 'ms'}, h('span', {text: row.text}));
             if (hideable) {
-                card.appendChild(h('button', {type: 'button', cls: 'qz-open-hide', title: 'Скрыть ответ',
+                card.appendChild(h('button', {type: 'button', cls: 'qz-open-hide', title: L('Скрыть ответ'),
                     onclick: function () {
                         hiddenTexts[row.id] = !hiddenTexts[row.id];
                         card.classList.toggle('qz-hidden-text', hiddenTexts[row.id]);
-                        this.textContent = hiddenTexts[row.id] ? 'показать' : 'скрыть';
-                    }, text: hiddenTexts[row.id] ? 'показать' : 'скрыть'}));
+                        this.textContent = hiddenTexts[row.id] ? L('показать') : L('скрыть');
+                    }, text: hiddenTexts[row.id] ? L('показать') : L('скрыть')}));
             }
             box.appendChild(card);
         });
@@ -597,15 +605,15 @@
 
     function revealSummary(rv) {
         if (rv.type === 'poll' || rv.type === 'cloud' || rv.type === 'open') {
-            return h('p', {cls: 'qz-summary', text: 'Ответили: ' + rv.answered + ' из ' + rv.players});
+            return h('p', {cls: 'qz-summary', text: L('Ответили: ') + rv.answered + L(' из ') + rv.players});
         }
-        return h('p', {cls: 'qz-summary'}, 'Верно: ', h('b', {text: String(rv.correct_count)}), ' из ' + rv.players,
-            rv.answered < rv.players ? h('span', {cls: 'qz-muted', text: ' · не ответили ' + (rv.players - rv.answered)}) : null);
+        return h('p', {cls: 'qz-summary'}, L('Верно: '), h('b', {text: String(rv.correct_count)}), L(' из ') + rv.players,
+            rv.answered < rv.players ? h('span', {cls: 'qz-muted', text: L(' · не ответили ') + (rv.players - rv.answered)}) : null);
     }
 
     function explanation(rv) {
         if (!rv.explanation) return null;
-        var el = h('div', {cls: 'qz-explain'}, h('b', {text: 'Пояснение'}), h('div', {html: rv.explanation}));
+        var el = h('div', {cls: 'qz-explain'}, h('b', {text: L('Пояснение')}), h('div', {html: rv.explanation}));
         setTimeout(function () { typeset(el); }, 0);
         return el;
     }
@@ -659,7 +667,7 @@
     function setPaused(on) {
         var el = byId('qz-pause');
         if (!el) {
-            el = h('div', {id: 'qz-pause', cls: 'qz-pause', hidden: true}, h('div', {}, h('i', {cls: 'fa fa-pause'}), h('b', {text: 'Пауза'})));
+            el = h('div', {id: 'qz-pause', cls: 'qz-pause', hidden: true}, h('div', {}, h('i', {cls: 'fa fa-pause'}), h('b', {text: L('Пауза')})));
             stage.appendChild(el);
         }
         el.hidden = !on;
@@ -704,7 +712,7 @@
 
     function setQnum(st) {
         var el = byId('qz-qnum');
-        if (el) el.textContent = st && st.i >= 0 && st.ph !== 'finished' ? 'Вопрос ' + (st.i + 1) + ' из ' + st.n : '';
+        if (el) el.textContent = st && st.i >= 0 && st.ph !== 'finished' ? L('Вопрос ') + (st.i + 1) + L(' из ') + st.n : '';
     }
 
     // ============================================================ player (and solo)
@@ -726,7 +734,7 @@
             sound.music(null);
             P.view = 'gone';
             show(h('div', {cls: 'qz-center qz-msg'}, h('i', {cls: 'fa fa-flag-checkered qz-msg-icon'}),
-                h('h2', {text: 'Игра закончилась'}), h('a', {cls: 'qz-btn qz-btn-primary', href: U.join, text: 'Войти в другую игру'})));
+                h('h2', {text: L('Игра закончилась')}), h('a', {cls: 'qz-btn qz-btn-primary', href: U.join, text: L('Войти в другую игру')})));
         }
 
         function onState(d) {
@@ -735,8 +743,8 @@
                 sound.music(null);
                 P.view = 'kicked';
                 show(h('div', {cls: 'qz-center qz-msg'}, h('i', {cls: 'fa fa-user-times qz-msg-icon'}),
-                    h('h2', {text: 'Ведущий удалил вас из игры'}),
-                    h('a', {cls: 'qz-btn qz-btn-primary', href: U.join, text: 'Войти снова'})));
+                    h('h2', {text: L('Ведущий удалил вас из игры')}),
+                    h('a', {cls: 'qz-btn qz-btn-primary', href: U.join, text: L('Войти снова')})));
                 return;
             }
             if (!d.v) return;
@@ -861,7 +869,7 @@
             P.ui = null;
             if (key === 'lobby') return showLobby();
             if (key === 'wait') {
-                show(wait(st.ph === 'question' ? '' : 'Подсчёт…'));
+                show(wait(st.ph === 'question' ? '' : L('Подсчёт…')));
                 return;
             }
             if (key.charAt(0) === 'q' && key.charAt(1) === 'a') return showAnswered();
@@ -875,14 +883,14 @@
             sound.music('lobby');
             var box = h('div', {cls: 'qz-center qz-lobby-me'},
                 h('div', {cls: 'qz-me-badge qz-pop'}, h('i', {cls: 'fa fa-check'})),
-                h('h2', {text: MODE === 'solo' ? C.title : 'Вы в игре!'}),
+                h('h2', {text: MODE === 'solo' ? C.title : L('Вы в игре!')}),
                 h('p', {cls: 'qz-me-nick', text: C.nickname}));
             if (MODE === 'solo') {
-                box.appendChild(h('button', {type: 'button', cls: 'qz-btn qz-btn-primary qz-btn-xl', text: 'Начать',
+                box.appendChild(h('button', {type: 'button', cls: 'qz-btn qz-btn-primary qz-btn-xl', text: L('Начать'),
                     onclick: function () { soloNext(this); }}));
             } else {
                 box.appendChild(h('div', {cls: 'qz-wait'}, h('i'), h('i'), h('i')));
-                box.appendChild(h('p', {cls: 'qz-wait-text', text: 'Ждём начала игры. Смотрите на экран ведущего.'}));
+                box.appendChild(h('p', {cls: 'qz-wait-text', text: L('Ждём начала игры. Смотрите на экран ведущего.')}));
             }
             show(box);
         }
@@ -893,12 +901,12 @@
                 if (r.status === 200 && r.data.v) applyState(r.data);
                 else {
                     if (btn) btn.disabled = false;
-                    toast(r.data.error || 'Не получилось');
+                    toast(r.data.error || L('Не получилось'));
                 }
                 poller.now();
             }, function () {
                 if (btn) btn.disabled = false;
-                toast('Нет связи');
+                toast(L('Нет связи'));
             });
         }
 
@@ -909,7 +917,7 @@
             sound.music(null);
             var answer = h('div', {cls: 'qz-answer qz-locked'});
             var view = h('div', {cls: 'qz-q qz-enter'}, questionHead(q, false), answer, countdownEl(),
-                h('div', {cls: 'qz-timeup', hidden: true}, h('i', {cls: 'fa fa-clock-o'}), ' Время вышло'));
+                h('div', {cls: 'qz-timeup', hidden: true}, h('i', {cls: 'fa fa-clock-o'}), L(' Время вышло')));
             P.ui = {view: view, answer: answer, opened: false};
             buildAnswer(q, answer);
             show(view);
@@ -951,7 +959,7 @@
             request('POST', U.answer, {i: P.q.i, value: value}).then(function (r) {
                 P.sending = false;
                 if (P.ui) P.ui.answer.classList.remove('qz-sending');
-                var already = r.status === 409 && /уже принят/i.test(r.data.error || '');
+                var already = r.status === 409 && (r.data.error || '') === L('Ответ уже принят');
                 if (r.status === 200 || already) {
                     P.answered = true;
                     P.mine = value;
@@ -960,19 +968,19 @@
                     render();
                     poller.now();
                 } else {
-                    toast(r.data.error || 'Ответ не принят');
+                    toast(r.data.error || L('Ответ не принят'));
                     if (r.status === 409) poller.now();
                 }
             }, function () {
                 P.sending = false;
                 if (P.ui) P.ui.answer.classList.remove('qz-sending');
-                toast('Нет связи, попробуйте ещё раз');
+                toast(L('Нет связи, попробуйте ещё раз'));
             });
         }
 
         function submitButton(label, getValue) {
             var btn = h('button', {type: 'button', cls: 'qz-btn qz-btn-primary qz-btn-xl qz-submit', disabled: true,
-                text: label || 'Ответить'});
+                text: label || L('Ответить')});
             btn.addEventListener('click', function () {
                 var v = getValue();
                 if (v !== null && v !== undefined) submit(v);
@@ -1007,7 +1015,7 @@
 
         function multiUI(q, box) {
             var chosen = [];
-            var btn = submitButton('Ответить', function () { return chosen.length ? chosen.slice() : null; });
+            var btn = submitButton(L('Ответить'), function () { return chosen.length ? chosen.slice() : null; });
             var grid = h('div', {cls: 'qz-opts qz-opts-multi' + (longOptions(q) ? ' qz-opts-long' : '')});
             q.options.forEach(function (o, i) {
                 grid.appendChild(h('button', {type: 'button', cls: 'qz-opt qz-c' + i, 'aria-pressed': 'false',
@@ -1022,14 +1030,14 @@
                         btn.disabled = !chosen.length;
                     }}, optionContent(q, o, i), h('i', {cls: 'qz-check fa fa-check'})));
             });
-            box.appendChild(h('p', {cls: 'qz-hint', text: 'Отметьте все верные варианты'}));
+            box.appendChild(h('p', {cls: 'qz-hint', text: L('Отметьте все верные варианты')}));
             box.appendChild(grid);
             box.appendChild(btn);
         }
 
         function orderUI(q, box) {
             var list = h('ol', {cls: 'qz-order'});
-            var btn = submitButton('Ответить', function () {
+            var btn = submitButton(L('Ответить'), function () {
                 return Array.prototype.map.call(list.children, function (li) { return Number(li.getAttribute('data-id')); });
             });
             btn.disabled = false;
@@ -1048,14 +1056,14 @@
                     h('span', {cls: 'qz-opt-body'}, o.image ? h('img', {src: o.image, alt: '', cls: 'qz-opt-img'}) : null,
                         h('span', {cls: 'qz-opt-text', text: o.text})),
                     h('span', {cls: 'qz-order-btns'},
-                        h('button', {type: 'button', cls: 'qz-mini', 'aria-label': 'Выше', onclick: function () { move(li, -1); }},
+                        h('button', {type: 'button', cls: 'qz-mini', 'aria-label': L('Выше'), onclick: function () { move(li, -1); }},
                             h('i', {cls: 'fa fa-chevron-up'})),
-                        h('button', {type: 'button', cls: 'qz-mini', 'aria-label': 'Ниже', onclick: function () { move(li, 1); }},
+                        h('button', {type: 'button', cls: 'qz-mini', 'aria-label': L('Ниже'), onclick: function () { move(li, 1); }},
                             h('i', {cls: 'fa fa-chevron-down'}))));
                 dragSort(list, li);
                 list.appendChild(li);
             });
-            box.appendChild(h('p', {cls: 'qz-hint', text: 'Перетащите или двигайте стрелками'}));
+            box.appendChild(h('p', {cls: 'qz-hint', text: L('Перетащите или двигайте стрелками')}));
             box.appendChild(list);
             box.appendChild(btn);
         }
@@ -1104,18 +1112,18 @@
 
         function wordUI(q, box) {
             var picked = [];
-            var answerRow = h('div', {cls: 'qz-tiles qz-tiles-answer', 'aria-label': 'Ваше слово'});
+            var answerRow = h('div', {cls: 'qz-tiles qz-tiles-answer', 'aria-label': L('Ваше слово')});
             var pool = h('div', {cls: 'qz-tiles qz-tiles-pool'});
-            var btn = submitButton('Ответить', function () {
+            var btn = submitButton(L('Ответить'), function () {
                 return picked.length ? picked.map(function (i) { return q.letters[i]; }).join('') : null;
             });
-            var back = h('button', {type: 'button', cls: 'qz-btn qz-btn-lg', 'aria-label': 'Стереть букву',
+            var back = h('button', {type: 'button', cls: 'qz-btn qz-btn-lg', 'aria-label': L('Стереть букву'),
                 onclick: function () {
                     if (picked.length) {
                         picked.pop();
                         draw();
                     }
-                }}, h('i', {cls: 'fa fa-long-arrow-left'}), ' Стереть');
+                }}, h('i', {cls: 'fa fa-long-arrow-left'}), L(' Стереть'));
             function draw() {
                 answerRow.innerHTML = '';
                 pool.innerHTML = '';
@@ -1149,10 +1157,10 @@
         function textUI(q, box) {
             var max = q.type === 'cloud' ? 30 : q.type === 'open' ? 300 : 100;
             var field = q.type === 'open' ?
-                h('textarea', {cls: 'qz-field', rows: '3', maxlength: String(max), placeholder: 'Ваш ответ'}) :
+                h('textarea', {cls: 'qz-field', rows: '3', maxlength: String(max), placeholder: L('Ваш ответ')}) :
                 h('input', {cls: 'qz-field', type: 'text', maxlength: String(max), autocomplete: 'off', autocapitalize: 'off',
-                    spellcheck: 'false', placeholder: q.type === 'cloud' ? 'Одно-два слова' : 'Ваш ответ'});
-            var btn = submitButton('Ответить', function () {
+                    spellcheck: 'false', placeholder: q.type === 'cloud' ? L('Одно-два слова') : L('Ваш ответ')});
+            var btn = submitButton(L('Ответить'), function () {
                 var v = field.value.trim();
                 return v ? v : null;
             });
@@ -1174,11 +1182,11 @@
             var decimals = (String(step).split('.')[1] || '').length;
             var out = h('output', {cls: 'qz-slider-value'});
             var range = h('input', {type: 'range', cls: 'qz-range', min: String(lo), max: String(hi), step: String(step),
-                value: String(start), 'aria-label': 'Ответ'});
+                value: String(start), 'aria-label': L('Ответ')});
             function showValue() { out.textContent = Number(range.value).toFixed(decimals) + (s.unit ? ' ' + s.unit : ''); }
             range.addEventListener('input', showValue);
             showValue();
-            var btn = submitButton('Ответить', function () { return Number(range.value); });
+            var btn = submitButton(L('Ответить'), function () { return Number(range.value); });
             btn.disabled = false;
             box.appendChild(out);
             box.appendChild(range);
@@ -1191,7 +1199,7 @@
             var marker = h('span', {cls: 'qz-pin-marker', hidden: true});
             var img = h('img', {src: q.image, alt: '', draggable: 'false'});
             var wrap = h('div', {cls: 'qz-pin-wrap qz-pin-input'}, img, marker);
-            var btn = submitButton('Ответить', function () { return spot; });
+            var btn = submitButton(L('Ответить'), function () { return spot; });
             wrap.addEventListener('click', function (e) {
                 if (box.classList.contains('qz-locked')) return;
                 var r = img.getBoundingClientRect();
@@ -1204,7 +1212,7 @@
                 btn.disabled = false;
                 sound.sfx('tap');
             });
-            box.appendChild(h('p', {cls: 'qz-hint', text: 'Коснитесь картинки, чтобы поставить точку'}));
+            box.appendChild(h('p', {cls: 'qz-hint', text: L('Коснитесь картинки, чтобы поставить точку')}));
             box.appendChild(wrap);
             box.appendChild(btn);
         }
@@ -1213,19 +1221,19 @@
             sound.urgent(false);
             show(h('div', {cls: 'qz-center qz-answered qz-enter'},
                 h('div', {cls: 'qz-me-badge qz-pop'}, h('i', {cls: 'fa fa-paper-plane'})),
-                h('h2', {text: 'Ответ принят'}),
+                h('h2', {text: L('Ответ принят')}),
                 h('div', {cls: 'qz-wait'}, h('i'), h('i'), h('i')),
-                h('p', {cls: 'qz-wait-text', text: MODE === 'solo' ? 'Проверяем…' : 'Ждём остальных игроков'})));
+                h('p', {cls: 'qz-wait-text', text: MODE === 'solo' ? L('Проверяем…') : L('Ждём остальных игроков')})));
         }
 
         // ---------------- results
 
         function verdict(me) {
-            if (!me || !me.answered) return {cls: 'qz-v-none', title: 'Нет ответа', icon: 'fa-clock-o'};
-            if (!me.scored) return {cls: 'qz-v-info', title: 'Ответ принят', icon: 'fa-check'};
-            if (me.correct) return {cls: 'qz-v-ok', title: 'Верно!', icon: 'fa-check'};
-            if (me.points > 0) return {cls: 'qz-v-part', title: 'Частично', icon: 'fa-adjust'};
-            return {cls: 'qz-v-bad', title: 'Неверно', icon: 'fa-times'};
+            if (!me || !me.answered) return {cls: 'qz-v-none', title: L('Нет ответа'), icon: 'fa-clock-o'};
+            if (!me.scored) return {cls: 'qz-v-info', title: L('Ответ принят'), icon: 'fa-check'};
+            if (me.correct) return {cls: 'qz-v-ok', title: L('Верно!'), icon: 'fa-check'};
+            if (me.points > 0) return {cls: 'qz-v-part', title: L('Частично'), icon: 'fa-adjust'};
+            return {cls: 'qz-v-bad', title: L('Неверно'), icon: 'fa-times'};
         }
 
         function showReveal() {
@@ -1238,12 +1246,12 @@
                 h('i', {cls: 'fa ' + v.icon + ' qz-verdict-icon'}),
                 h('h2', {text: v.title}),
                 me && me.scored && me.points > 0 ? h('div', {cls: 'qz-points-row'}, '+', pts) : null,
-                me && me.scored && me.correct && me.streak >= 2 ? h('span', {cls: 'qz-streak qz-streak-big', text: '🔥 Серия ' + me.streak}) : null,
-                me && me.rank ? h('p', {cls: 'qz-place-line', text: place(me.rank) + ' место из ' + me.total}) : null);
+                me && me.scored && me.correct && me.streak >= 2 ? h('span', {cls: 'qz-streak qz-streak-big', text: L('🔥 Серия ') + me.streak}) : null,
+                me && me.rank ? h('p', {cls: 'qz-place-line', text: L('{n}-е место из {total}').replace('{n}', me.rank).replace('{total}', me.total)}) : null);
             var mine = P.mine !== null ? P.mine : (me ? me.value : null);
             var body = h('div', {cls: 'qz-reveal-body'},
                 q.text ? h('div', {cls: 'qz-q-mini', html: q.text}) : null,
-                typeof mine === 'string' ? h('p', {cls: 'qz-key-text'}, h('span', {cls: 'qz-muted', text: 'Ваш ответ: '}),
+                typeof mine === 'string' ? h('p', {cls: 'qz-key-text'}, h('span', {cls: 'qz-muted', text: L('Ваш ответ: ')}),
                     h('span', {text: mine})) : null,
                 revealView(q, rv, {mine: mine}),
                 explanation(rv));
@@ -1251,7 +1259,7 @@
             if (MODE === 'solo') {
                 var last = st.i + 1 >= st.n;
                 view.appendChild(h('div', {cls: 'qz-sticky-actions'}, h('button', {type: 'button',
-                    cls: 'qz-btn qz-btn-primary qz-btn-xl', text: last ? 'Итоги' : 'Дальше',
+                    cls: 'qz-btn qz-btn-primary qz-btn-xl', text: last ? L('Итоги') : L('Дальше'),
                     onclick: function () { soloNext(this); }})));
             }
             show(view);
@@ -1281,10 +1289,10 @@
             sound.music(null);
             var view = h('div', {cls: 'qz-board-view qz-enter'},
                 me && me.rank ? h('div', {cls: 'qz-my-place qz-pop'},
-                    h('span', {cls: 'qz-muted', text: 'Ваше место'}),
+                    h('span', {cls: 'qz-muted', text: L('Ваше место')}),
                     h('b', {text: String(me.rank)}),
-                    h('span', {text: 'из ' + me.total + ' · ' + me.score + ' ' + plural(me.score, 'очко', 'очка', 'очков')})) : null,
-                h('h3', {cls: 'qz-h3', text: 'Лидеры'}),
+                    h('span', {text: L('из ') + me.total + ' · ' + me.score + ' ' + plural(me.score, L('очко'), L('очка'), L('очков'))})) : null,
+                h('h3', {cls: 'qz-h3', text: L('Лидеры')}),
                 leaderRows(lb.top, C.player, 5),
                 h('div', {cls: 'qz-wait qz-wait-small'}, h('i'), h('i'), h('i')));
             show(view);
@@ -1295,33 +1303,33 @@
             sound.music(null);
             sound.urgent(false);
             var view = h('div', {cls: 'qz-final qz-enter'},
-                h('h2', {cls: 'qz-final-title', text: 'Итоги'}),
+                h('h2', {cls: 'qz-final-title', text: L('Итоги')}),
                 podium(fin.top, C.player),
                 me ? h('div', {cls: 'qz-my-place'},
-                    h('span', {cls: 'qz-muted', text: me.nickname + ' · ваше место'}),
+                    h('span', {cls: 'qz-muted', text: me.nickname + L(' · ваше место')}),
                     h('b', {text: me.rank ? String(me.rank) : '—'}),
-                    h('span', {text: me.score + ' ' + plural(me.score, 'очко', 'очка', 'очков') + ' · верно ' + me.correct +
-                            ' из ' + fin.questions})) : null);
+                    h('span', {text: me.score + ' ' + plural(me.score, L('очко'), L('очка'), L('очков')) + L(' · верно ') + me.correct +
+                            L(' из ') + fin.questions})) : null);
             if (fin.mistakes && fin.mistakes.length) {
-                view.appendChild(h('h3', {cls: 'qz-h3', text: 'Работа над ошибками'}));
+                view.appendChild(h('h3', {cls: 'qz-h3', text: L('Работа над ошибками')}));
                 var list = h('ol', {cls: 'qz-mistakes'}, fin.mistakes.map(function (m) {
                     return h('li', {},
                         h('span', {cls: 'qz-mistake-n', text: m.n}),
                         h('div', {},
-                            h('p', {cls: 'qz-mistake-q', text: (m.text || 'Вопрос ' + m.n).replace(/\*\*|__|`/g, '')}),
-                            h('p', {}, h('span', {cls: 'qz-muted', text: 'Ваш ответ: '}),
-                                m.given === null || m.given === undefined ? h('i', {text: 'нет ответа'}) : h('s', {text: m.given})),
-                            h('p', {}, h('span', {cls: 'qz-muted', text: 'Правильно: '}), h('b', {text: m.correct})),
+                            h('p', {cls: 'qz-mistake-q', text: (m.text || L('Вопрос ') + m.n).replace(/\*\*|__|`/g, '')}),
+                            h('p', {}, h('span', {cls: 'qz-muted', text: L('Ваш ответ: ')}),
+                                m.given === null || m.given === undefined ? h('i', {text: L('нет ответа')}) : h('s', {text: m.given})),
+                            h('p', {}, h('span', {cls: 'qz-muted', text: L('Правильно: ')}), h('b', {text: m.correct})),
                             m.explanation ? h('p', {cls: 'qz-muted qz-small', text: m.explanation.replace(/\*\*|__|`/g, '')}) : null));
                 }));
                 view.appendChild(list);
                 setTimeout(function () { typeset(list); }, 0);
             } else if (me) {
-                view.appendChild(h('p', {cls: 'qz-summary', text: 'Ни одной ошибки!'}));
+                view.appendChild(h('p', {cls: 'qz-summary', text: L('Ни одной ошибки!')}));
             }
             view.appendChild(h('div', {cls: 'qz-row qz-row-center'},
-                h('a', {cls: 'qz-btn qz-btn-primary qz-btn-lg', href: U.quiz, text: 'К викторине'}),
-                h('a', {cls: 'qz-btn qz-btn-lg', href: U.join, text: 'Другая игра'})));
+                h('a', {cls: 'qz-btn qz-btn-primary qz-btn-lg', href: U.quiz, text: L('К викторине')}),
+                h('a', {cls: 'qz-btn qz-btn-lg', href: U.join, text: L('Другая игра')})));
             show(view);
             if (me && me.rank && me.rank <= 3) {
                 sound.sfx('finale');
@@ -1344,8 +1352,8 @@
         var poller = Poller(function () {
             return U.host_state + '?v=' + H.v + '&since=' + H.since;
         }, onData, function () {
-            show(h('div', {cls: 'qz-center qz-msg'}, h('h2', {text: 'Игра не найдена'}),
-                h('a', {cls: 'qz-btn', href: U.quiz, text: 'К викторине'})));
+            show(h('div', {cls: 'qz-center qz-msg'}, h('h2', {text: L('Игра не найдена')}),
+                h('a', {cls: 'qz-btn', href: U.quiz, text: L('К викторине')})));
         }, 1000);
         var controls = byId('qz-controls');
         var corner = byId('qz-corner');
@@ -1403,7 +1411,7 @@
             els = document.querySelectorAll('.qz-players-n');
             for (i = 0; i < els.length; i++) els[i].textContent = String(H.players);
             var label = document.querySelector('.qz-lobby-count small');
-            if (label) label.textContent = plural(H.players, 'игрок', 'игрока', 'игроков');
+            if (label) label.textContent = plural(H.players, L('игрок'), L('игрока'), L('игроков'));
         }
 
         function updateControls() {
@@ -1413,12 +1421,12 @@
             var pause = controls.querySelector('[data-act="pause"]');
             var skip = controls.querySelector('[data-act="skip"]');
             var end = controls.querySelector('[data-act="end"]');
-            var label = {lobby: 'Начать', question: 'Показать ответ', reveal: 'Таблица',
-                leaderboard: st.i + 1 >= st.n ? 'Итоги' : 'Следующий вопрос', finished: 'Готово'}[st.ph] || 'Далее';
+            var label = {lobby: L('Начать'), question: L('Показать ответ'), reveal: L('Таблица'),
+                leaderboard: st.i + 1 >= st.n ? L('Итоги') : L('Следующий вопрос'), finished: L('Готово')}[st.ph] || L('Далее');
             next.querySelector('span').textContent = label;
             next.disabled = st.ph === 'finished' || (st.ph === 'lobby' && !H.players);
             pause.disabled = st.ph === 'lobby' || st.ph === 'finished';
-            pause.querySelector('span').textContent = st.paused ? 'Продолжить' : 'Пауза';
+            pause.querySelector('span').textContent = st.paused ? L('Продолжить') : L('Пауза');
             pause.querySelector('i').className = st.paused ? 'fa fa-play' : 'fa fa-pause';
             skip.disabled = st.ph !== 'question';
             end.disabled = st.ph === 'finished';
@@ -1435,7 +1443,7 @@
                 toggleFullscreen();
                 return;
             }
-            if (name === 'end' && !window.confirm('Завершить игру для всех?')) return;
+            if (name === 'end' && !window.confirm(L('Завершить игру для всех?'))) return;
             var st = game.st;
             if (!st) return;
             if (name === 'next' && st.ph === 'lobby') name = 'start';
@@ -1446,11 +1454,11 @@
             if (extra) for (var k in extra) if (extra.hasOwnProperty(k)) body[k] = extra[k];
             request('POST', U.host_action, body, true).then(function (r) {
                 H.acting = false;
-                if (r.status !== 200) toast(r.data.error || 'Не получилось');
+                if (r.status !== 200) toast(r.data.error || L('Не получилось'));
                 poller.now();
             }, function () {
                 H.acting = false;
-                toast('Нет связи');
+                toast(L('Нет связи'));
             });
         }
 
@@ -1512,16 +1520,16 @@
         }
 
         function nameChip(row, pop) {
-            return h('button', {type: 'button', cls: 'qz-name' + (pop ? ' qz-pop' : ''), title: 'Удалить игрока',
+            return h('button', {type: 'button', cls: 'qz-name' + (pop ? ' qz-pop' : ''), title: L('Удалить игрока'),
                 'data-id': String(row.id), text: row.nickname, onclick: function () {
                     var chip = this;
-                    if (!window.confirm('Удалить игрока «' + row.nickname + '»?')) return;
+                    if (!window.confirm(L('Удалить игрока «') + row.nickname + '»?')) return;
                     request('POST', U.host_action, {action: 'kick', player: String(row.id)}, true).then(function (r) {
                         if (r.status === 200) {
                             chip.remove();
                             H.names = H.names.filter(function (n) { return n.id !== row.id; });
                             poller.now();
-                        } else toast(r.data.error || 'Не получилось');
+                        } else toast(r.data.error || L('Не получилось'));
                     });
                 }});
         }
@@ -1542,7 +1550,7 @@
             if (st.ph === 'question') return ROLE === 'screen' ? screenQuestion() : remoteQuestion();
             if (st.ph === 'reveal') return ROLE === 'screen' ? screenReveal() : remoteReveal();
             if (st.ph === 'leaderboard') return ROLE === 'screen' ? screenBoard() : remoteBoard();
-            if (st.ph === 'finished') return H.fin ? (ROLE === 'screen' ? screenFinal() : remoteFinal()) : show(wait('Подводим итоги…'));
+            if (st.ph === 'finished') return H.fin ? (ROLE === 'screen' ? screenFinal() : remoteFinal()) : show(wait(L('Подводим итоги…')));
         }
 
         function namesBox() {
@@ -1553,7 +1561,7 @@
 
         function startButton() {
             return h('button', {type: 'button', cls: 'qz-btn qz-btn-primary qz-btn-xl qz-start', onclick: function () { act('start'); }},
-                h('i', {cls: 'fa fa-play'}), ' Начать');
+                h('i', {cls: 'fa fa-play'}), L(' Начать'));
         }
 
         function screenLobby() {
@@ -1562,42 +1570,42 @@
             show(h('div', {cls: 'qz-lobby qz-enter'},
                 h('div', {cls: 'qz-lobby-join'},
                     h('div', {cls: 'qz-lobby-steps'},
-                        h('p', {}, 'Откройте ', h('b', {cls: 'qz-lobby-url', text: url})),
-                        h('p', {text: 'и введите PIN'}),
+                        h('p', {}, L('Откройте '), h('b', {cls: 'qz-lobby-url', text: url})),
+                        h('p', {text: L('и введите PIN')}),
                         h('div', {cls: 'qz-lobby-pin', text: spacedPin(C.pin)}),
-                        h('p', {cls: 'qz-muted', text: 'или наведите камеру на QR-код'})),
-                    h('img', {cls: 'qz-lobby-qr', src: U.qr, alt: 'QR-код для входа'})),
+                        h('p', {cls: 'qz-muted', text: L('или наведите камеру на QR-код')})),
+                    h('img', {cls: 'qz-lobby-qr', src: U.qr, alt: L('QR-код для входа')})),
                 h('div', {cls: 'qz-lobby-players'},
                     h('div', {cls: 'qz-lobby-top'},
                         h('div', {cls: 'qz-lobby-count'}, h('b', {cls: 'qz-players-n', text: String(H.players)}),
-                            h('small', {text: plural(H.players, 'игрок', 'игрока', 'игроков')})),
+                            h('small', {text: plural(H.players, L('игрок'), L('игрока'), L('игроков'))})),
                         h('span', {cls: 'qz-spacer'}),
                         startButton()),
-                    h('p', {id: 'qz-names-empty', cls: 'qz-muted qz-names-empty', hidden: H.names.length > 0, text: 'Ждём игроков…'}),
+                    h('p', {id: 'qz-names-empty', cls: 'qz-muted qz-names-empty', hidden: H.names.length > 0, text: L('Ждём игроков…')}),
                     namesBox(),
-                    h('p', {cls: 'qz-muted qz-small', text: 'Нажмите на имя, чтобы удалить игрока.'}))));
+                    h('p', {cls: 'qz-muted qz-small', text: L('Нажмите на имя, чтобы удалить игрока.')}))));
         }
 
         function remoteLobby() {
             show(h('div', {cls: 'qz-remote qz-enter'},
                 h('div', {cls: 'qz-remote-pin'}, 'PIN ', h('b', {text: spacedPin(C.pin)})),
-                h('img', {cls: 'qz-remote-qr', src: U.qr, alt: 'QR-код для входа'}),
+                h('img', {cls: 'qz-remote-qr', src: U.qr, alt: L('QR-код для входа')}),
                 h('p', {cls: 'qz-muted qz-remote-url', text: (C.joinAbsolute || '').replace(/^https?:\/\//, '') + '?pin=' + C.pin}),
                 h('div', {cls: 'qz-lobby-count'}, h('b', {cls: 'qz-players-n', text: String(H.players)}),
-                    h('small', {text: plural(H.players, 'игрок', 'игрока', 'игроков')})),
-                h('p', {id: 'qz-names-empty', cls: 'qz-muted', hidden: H.names.length > 0, text: 'Ждём игроков…'}),
+                    h('small', {text: plural(H.players, L('игрок'), L('игрока'), L('игроков'))})),
+                h('p', {id: 'qz-names-empty', cls: 'qz-muted', hidden: H.names.length > 0, text: L('Ждём игроков…')}),
                 namesBox()));
         }
 
         function keyText(q, key) {
             if (!q || !key) return '';
             var t = q.type;
-            if (t === 'poll' || t === 'cloud' || t === 'open') return 'Нет правильного ответа';
+            if (t === 'poll' || t === 'cloud' || t === 'open') return L('Нет правильного ответа');
             if (t === 'order') return (key.correct || []).map(function (id) { return optionLabel(q, id); }).join(' → ');
             if (t === 'word') return String(key.word || '').toUpperCase();
             if (t === 'text' || (t === 'code' && q.input)) return (key.answers || []).join(' / ');
             if (t === 'slider') return key.answer + (q.slider && q.slider.unit ? ' ' + q.slider.unit : '');
-            if (t === 'pin') return 'Точка (' + key.x + '%; ' + key.y + '%), радиус ' + key.r + '%';
+            if (t === 'pin') return L('Точка (') + key.x + '%; ' + key.y + L('%), радиус ') + key.r + '%';
             return (key.correct || []).map(function (id) { return optionLabel(q, id); }).join(', ');
         }
 
@@ -1624,10 +1632,10 @@
             if (t === 'pin') return h('div', {cls: 'qz-pin-wrap'}, h('img', {src: q.image, alt: ''}));
             if (t === 'slider') {
                 var s = q.slider || {};
-                return h('p', {cls: 'qz-hint-big', text: 'Выберите число от ' + s.min + ' до ' + s.max + (s.unit ? ' ' + s.unit : '')});
+                return h('p', {cls: 'qz-hint-big', text: L('Выберите число от ') + s.min + L(' до ') + s.max + (s.unit ? ' ' + s.unit : '')});
             }
-            var hints = {cloud: 'Напишите слово на телефоне', open: 'Напишите ответ на телефоне'};
-            return h('p', {cls: 'qz-hint-big', text: hints[t] || 'Введите ответ на телефоне'});
+            var hints = {cloud: L('Напишите слово на телефоне'), open: L('Напишите ответ на телефоне')};
+            return h('p', {cls: 'qz-hint-big', text: hints[t] || L('Введите ответ на телефоне')});
         }
 
         function screenQuestion() {
@@ -1638,8 +1646,8 @@
                 h('div', {cls: 'qz-host-q-main'}, questionHead(q, true), questionBody(q)),
                 h('aside', {cls: 'qz-host-side'}, ringBox,
                     h('div', {cls: 'qz-answered-box'}, h('b', {cls: 'qz-answered-n', text: String(H.answered)}),
-                        h('span', {}, 'из ', h('span', {cls: 'qz-players-n', text: String(H.players)})),
-                        h('small', {text: 'ответили'}))),
+                        h('span', {}, L('из '), h('span', {cls: 'qz-players-n', text: String(H.players)})),
+                        h('small', {text: L('ответили')}))),
                 countdownEl());
             H.ui = {view: view, ring: null, opened: false, timeOver: false};
             show(view);
@@ -1654,9 +1662,9 @@
                 h('div', {cls: 'qz-remote-head'}, h('span', {cls: 'qz-q-type', text: q.type_name}), timer),
                 q.text ? h('div', {cls: 'qz-q-text', html: q.text}) : null,
                 q.code ? h('pre', {cls: 'qz-code'}, h('code', {text: q.code})) : null,
-                h('div', {cls: 'qz-remote-key'}, h('span', {cls: 'qz-muted', text: 'Ответ: '}), h('b', {text: keyText(q, H.key)})),
-                h('div', {cls: 'qz-answered-box qz-answered-inline'}, 'Ответили ', h('b', {cls: 'qz-answered-n', text: String(H.answered)}),
-                    ' из ', h('b', {cls: 'qz-players-n', text: String(H.players)})),
+                h('div', {cls: 'qz-remote-key'}, h('span', {cls: 'qz-muted', text: L('Ответ: ')}), h('b', {text: keyText(q, H.key)})),
+                h('div', {cls: 'qz-answered-box qz-answered-inline'}, L('Ответили '), h('b', {cls: 'qz-answered-n', text: String(H.answered)}),
+                    L(' из '), h('b', {cls: 'qz-players-n', text: String(H.players)})),
                 countdownEl());
             H.ui = {view: view, timer: timer, opened: false};
             show(view);
@@ -1714,10 +1722,10 @@
             if (!q || !rv) return show(wait());
             revealEffects();
             show(h('div', {cls: 'qz-remote qz-enter'},
-                h('div', {cls: 'qz-remote-key'}, h('span', {cls: 'qz-muted', text: 'Ответ: '}), h('b', {text: keyText(q, H.key)})),
+                h('div', {cls: 'qz-remote-key'}, h('span', {cls: 'qz-muted', text: L('Ответ: ')}), h('b', {text: keyText(q, H.key)})),
                 revealSummary(rv),
                 rv.type === 'open' ? openView(rv.texts || [], false) : null,
-                h('h3', {cls: 'qz-h3', text: 'Лидеры'}),
+                h('h3', {cls: 'qz-h3', text: L('Лидеры')}),
                 leaderRows((H.lb || {top: []}).top, null, 5)));
         }
 
@@ -1737,8 +1745,8 @@
                     row.delta ? h('span', {cls: 'qz-delta', text: '+' + row.delta}) : null,
                     h('b', {cls: 'qz-board-score', text: String(row.score - row.delta)})));
             });
-            show(h('div', {cls: 'qz-host-board qz-enter'}, h('h2', {cls: 'qz-board-title', text: 'Лидеры'}), list,
-                lb.total > 5 ? h('p', {cls: 'qz-muted', text: 'Всего игроков: ' + lb.total}) : null));
+            show(h('div', {cls: 'qz-host-board qz-enter'}, h('h2', {cls: 'qz-board-title', text: L('Лидеры')}), list,
+                lb.total > 5 ? h('p', {cls: 'qz-muted', text: L('Всего игроков: ') + lb.total}) : null));
             sound.music('board');
             H.boardTimer = setTimeout(function () {
                 beatFlash(1);
@@ -1763,14 +1771,14 @@
 
         function remoteBoard() {
             var lb = H.lb || {top: [], total: 0};
-            show(h('div', {cls: 'qz-remote qz-enter'}, h('h3', {cls: 'qz-h3', text: 'Лидеры'}), leaderRows(lb.top, null, 10)));
+            show(h('div', {cls: 'qz-remote qz-enter'}, h('h3', {cls: 'qz-h3', text: L('Лидеры')}), leaderRows(lb.top, null, 10)));
         }
 
         function finalLinks() {
             return h('div', {cls: 'qz-row qz-row-center qz-final-links'},
-                h('a', {cls: 'qz-btn qz-btn-primary qz-btn-lg', href: U.report}, h('i', {cls: 'fa fa-table'}), ' Отчёт'),
+                h('a', {cls: 'qz-btn qz-btn-primary qz-btn-lg', href: U.report}, h('i', {cls: 'fa fa-table'}), L(' Отчёт')),
                 h('a', {cls: 'qz-btn qz-btn-lg', href: U.xlsx}, h('i', {cls: 'fa fa-file-excel-o'}), ' Excel'),
-                h('a', {cls: 'qz-btn qz-btn-lg', href: U.quiz, text: 'К викторине'}));
+                h('a', {cls: 'qz-btn qz-btn-lg', href: U.quiz, text: L('К викторине')}));
         }
 
         function screenFinal() {
@@ -1782,7 +1790,7 @@
                 fin.top.length > 3 ? leaderRows(fin.top.slice(3, 10).map(function (r) {
                     return {id: r.id, nick: r.nickname, score: r.score, rank: r.rank};
                 }), null, 7) : null,
-                h('p', {cls: 'qz-muted', text: 'Игроков: ' + fin.total + ' · вопросов: ' + fin.questions}),
+                h('p', {cls: 'qz-muted', text: L('Игроков: ') + fin.total + L(' · вопросов: ') + fin.questions}),
                 finalLinks()));
             if (H.effectsFor !== 'fin') {
                 H.effectsFor = 'fin';
@@ -1794,7 +1802,7 @@
 
         function remoteFinal() {
             var fin = H.fin;
-            show(h('div', {cls: 'qz-remote qz-enter'}, h('h3', {cls: 'qz-h3', text: 'Итоги'}),
+            show(h('div', {cls: 'qz-remote qz-enter'}, h('h3', {cls: 'qz-h3', text: L('Итоги')}),
                 leaderRows(fin.top.map(function (r) { return {id: r.id, nick: r.nickname, score: r.score, rank: r.rank}; }), null, 10),
                 finalLinks()));
         }

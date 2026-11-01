@@ -13,8 +13,8 @@
         <div class="qz-message-icon" aria-hidden="true"><i class="fa fa-info-circle"></i></div>
         <p class="qz-message-text">{{ message }}</p>
         <div class="qz-actions">
-            {% if back %}<a class="qz-btn qz-btn-primary" href="{{ back }}">Назад</a>{% endif %}
-            <a class="qz-btn" href="{{ url('quiz_catalog') }}">Каталог викторин</a>
+            {% if back %}<a class="qz-btn qz-btn-primary" href="{{ back }}">{{ _('Назад') }}</a>{% endif %}
+            <a class="qz-btn" href="{{ url('quiz_catalog') }}">{{ _('Каталог викторин') }}</a>
         </div>
     </div>
 </div>

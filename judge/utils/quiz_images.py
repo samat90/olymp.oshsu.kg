@@ -7,6 +7,7 @@ from django.core.files.base import ContentFile
 from django.db import transaction
 from django.db.models.signals import post_delete
 from django.dispatch import receiver
+from django.utils.translation import gettext as _
 from PIL import Image, ImageOps, UnidentifiedImageError
 
 from judge.models.quiz import Option, Question, Quiz
@@ -52,18 +53,18 @@ def encode(image, alpha):
 def process(upload):
     """Return (bytes, extension) of a cleaned picture, or raise ImageError with a message for the user."""
     if upload is None:
-        raise ImageError('Файл не получен')
+        raise ImageError(_('Файл не получен'))
     if upload.size > MAX_UPLOAD:
-        raise ImageError('Картинка больше 5 МБ')
+        raise ImageError(_('Картинка больше 5 МБ'))
     raw = upload.read(MAX_UPLOAD + 1)
     if len(raw) > MAX_UPLOAD:
-        raise ImageError('Картинка больше 5 МБ')
+        raise ImageError(_('Картинка больше 5 МБ'))
     try:
         probe = Image.open(BytesIO(raw))
         if probe.format not in FORMATS:
-            raise ImageError('Нужна картинка JPEG, PNG, GIF или WebP')
+            raise ImageError(_('Нужна картинка JPEG, PNG, GIF или WebP'))
         if probe.width * probe.height > MAX_PIXELS:
-            raise ImageError('Слишком большая картинка')
+            raise ImageError(_('Слишком большая картинка'))
         probe.verify()
         image = Image.open(BytesIO(raw))
         image.seek(0)
@@ -72,7 +73,7 @@ def process(upload):
     except ImageError:
         raise
     except (UnidentifiedImageError, OSError, SyntaxError, ValueError, Image.DecompressionBombError):
-        raise ImageError('Это не картинка или файл повреждён')
+        raise ImageError(_('Это не картинка или файл повреждён'))
     alpha = has_alpha(image)
     image = image.convert('RGBA' if alpha else 'RGB')
     image.thumbnail((MAX_SIDE, MAX_SIDE), Image.LANCZOS)
