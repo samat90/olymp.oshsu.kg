@@ -3065,7 +3065,7 @@ msgstr "Редактировать комментарий"
 #: judge/views/contests.py:58 judge/views/contests.py:248
 #: judge/views/contests.py:251 judge/views/contests.py:458
 msgid "No such contest"
-msgstr "Контест на найден"
+msgstr "Контест не найден"
 
 #: judge/views/contests.py:59 judge/views/contests.py:249
 #, python-format

@@ -83,7 +83,8 @@
         if (monacoPromise) return monacoPromise;
         monacoPromise = new Promise(function (resolve, reject) {
             if (window.monaco && window.monaco.editor) return resolve(window.monaco);
-            var base = cfg.monacoBase || '/static/vendor/monaco/vs';
+            // Absolute: Monaco's web workers cannot resolve a path relative to the page.
+            var base = new URL(cfg.monacoBase || '/static/vendor/monaco/vs', location.href).href.replace(/\/$/, '');
             var script = document.createElement('script');
             script.src = base + '/loader.js';
             script.onerror = function () { reject(new Error('monaco loader')); };

@@ -2196,3 +2196,12 @@ msgstr "Викторина"
 
 msgid "Group games by PIN"
 msgstr "Топ менен PIN аркылуу оюндар"
+
+msgid "Problem search"
+msgstr "Маселе издөө"
+
+msgid "Random"
+msgstr "Кокус маселе"
+
+msgid "Search problems..."
+msgstr "Маселелерди издөө..."

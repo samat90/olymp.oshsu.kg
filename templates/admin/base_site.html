@@ -20,7 +20,8 @@
         {% csrf_token %}
     </form>
     <script>
-        django.jQuery(function ($) {
+        // The login page has no django.jQuery.
+        window.django && django.jQuery && django.jQuery(function ($) {
             $('.action-link').on('click', function () {
                 $('#empty-action-form').attr('action', this.href).trigger('submit');
                 return false;
