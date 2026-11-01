@@ -18,7 +18,7 @@
         suggestions: true,
         ligatures: false,
         lineNumbers: true,
-        terminal: 'light'     // light | dark | black | blue
+        terminal: 'auto'      // auto (as the site) | light | dark | black | blue
     };
 
     var ACE_TO_MONACO = {
@@ -129,7 +129,9 @@
     };
 
     function terminalTheme() {
-        return TERMINALS[loadSettings().terminal] || TERMINALS.light;
+        var name = loadSettings().terminal;
+        if (name === 'auto' || !TERMINALS[name]) name = siteIsDark() ? 'dark' : 'light';
+        return TERMINALS[name];
     }
 
     function applySettings(settings) {
@@ -498,8 +500,8 @@
             row(T.indent, '<select name="tabSize">' + [2, 4, 8].map(function (n) {
                 return '<option value="' + n + '">' + n + ' ' + T.spaces + '</option>';
             }).join('') + '</select>') +
-            row(T.terminal, '<select name="terminal">' + ['light', 'dark', 'black', 'blue'].map(function (k) {
-                return '<option value="' + k + '">' + T['term_' + k] + '</option>';
+            row(T.terminal, '<select name="terminal">' + ['auto', 'light', 'dark', 'black', 'blue'].map(function (k) {
+                return '<option value="' + k + '">' + (k === 'auto' ? T.themeAuto : T['term_' + k]) + '</option>';
             }).join('') + '</select>') +
             check('wordWrap', T.wordWrap) +
             check('minimap', T.minimap) +
