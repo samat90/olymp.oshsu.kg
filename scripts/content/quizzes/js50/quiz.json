@@ -1,0 +1,1518 @@
+{
+ "key": "js50",
+ "title": "Основы JavaScript",
+ "subject": "Программирование",
+ "theme": "night",
+ "description": "50 вопросов по основам JavaScript: приведение типов и сравнения, typeof, строки и шаблоны, массивы и их методы, объекты, деструктуризация, функции и замыкания, var и let, асинхронность и порядок выполнения. Знаменитые «странности» JS тоже здесь.",
+ "cover": "cover.png",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка на скорость: каким словом объявить переменную, которую нельзя переприсвоить?",
+   "time_limit": 10,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "const",
+     "is_correct": true
+    },
+    {
+     "text": "var",
+     "is_correct": false
+    },
+    {
+     "text": "static",
+     "is_correct": false
+    },
+    {
+     "text": "let",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "+ со строкой склеивает.",
+   "code": "console.log(\"5\" + 3);",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "8",
+     "is_correct": false
+    },
+    {
+     "text": "Ошибка",
+     "is_correct": false
+    },
+    {
+     "text": "53",
+     "is_correct": true
+    },
+    {
+     "text": "NaN",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "У минуса нет режима склейки, строка превращается в число.",
+   "code": "console.log(\"5\" - 3);",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "NaN",
+     "is_correct": false
+    },
+    {
+     "text": "53",
+     "is_correct": false
+    },
+    {
+     "text": "2",
+     "is_correct": true
+    },
+    {
+     "text": "\"2\"",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "console.log(\"5\" * \"2\");",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "55",
+     "is_correct": false
+    },
+    {
+     "text": "\"10\"",
+     "is_correct": false
+    },
+    {
+     "text": "10",
+     "is_correct": true
+    },
+    {
+     "text": "NaN",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "console.log(0.1 + 0.2 === 0.3);",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "true",
+     "is_correct": false
+    },
+    {
+     "text": "NaN",
+     "is_correct": false
+    },
+    {
+     "text": "0.3",
+     "is_correct": false
+    },
+    {
+     "text": "false",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "Историческая ошибка первой версии языка, её оставили ради совместимости.",
+   "code": "console.log(typeof null);",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "undefined",
+     "is_correct": false
+    },
+    {
+     "text": "object",
+     "is_correct": true
+    },
+    {
+     "text": "number",
+     "is_correct": false
+    },
+    {
+     "text": "null",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "NaN («не число») — значение типа number.",
+   "code": "console.log(typeof NaN);",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "undefined",
+     "is_correct": false
+    },
+    {
+     "text": "object",
+     "is_correct": false
+    },
+    {
+     "text": "number",
+     "is_correct": true
+    },
+    {
+     "text": "NaN",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "NaN не равен даже самому себе. Проверяют через Number.isNaN().",
+   "code": "console.log(NaN === NaN);",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "false",
+     "is_correct": true
+    },
+    {
+     "text": "true",
+     "is_correct": false
+    },
+    {
+     "text": "undefined",
+     "is_correct": false
+    },
+    {
+     "text": "NaN",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "== приводит типы, === сравнивает без приведения.",
+   "code": "console.log(1 == \"1\", 1 === \"1\");",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "false true",
+     "is_correct": false
+    },
+    {
+     "text": "true true",
+     "is_correct": false
+    },
+    {
+     "text": "false false",
+     "is_correct": false
+    },
+    {
+     "text": "true false",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "Массивы превращаются в строки \"\" и \"\", их склейка — пустая строка.",
+   "code": "console.log([] + []);",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "0",
+     "is_correct": false
+    },
+    {
+     "text": "undefined",
+     "is_correct": false
+    },
+    {
+     "text": "[]",
+     "is_correct": false
+    },
+    {
+     "text": "(пустая строка)",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "\"1,2\" + \"3\" = \"1,23\".",
+   "code": "console.log([1, 2] + [3]);",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "6",
+     "is_correct": false
+    },
+    {
+     "text": "1,2,3",
+     "is_correct": false
+    },
+    {
+     "text": "1,23",
+     "is_correct": true
+    },
+    {
+     "text": "[1, 2, 3]",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Непустая строка \"0\" истинна, число 0 ложно.",
+   "code": "console.log(Boolean(\"0\"), Boolean(0));",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "true false",
+     "is_correct": true
+    },
+    {
+     "text": "false false",
+     "is_correct": false
+    },
+    {
+     "text": "true true",
+     "is_correct": false
+    },
+    {
+     "text": "false true",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "let x;\nconsole.log(x);",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "0",
+     "is_correct": false
+    },
+    {
+     "text": "null",
+     "is_correct": false
+    },
+    {
+     "text": "undefined",
+     "is_correct": true
+    },
+    {
+     "text": "ReferenceError",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "Объявление var поднимается в начало (hoisting), а присваивание — нет.",
+   "code": "console.log(a);\nvar a = 5;",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "undefined",
+     "is_correct": true
+    },
+    {
+     "text": "null",
+     "is_correct": false
+    },
+    {
+     "text": "ReferenceError",
+     "is_correct": false
+    },
+    {
+     "text": "5",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что произойдёт при выполнении этого кода?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "К let нельзя обращаться до объявления («временная мёртвая зона»).",
+   "code": "console.log(b);\nlet b = 5;",
+   "code_language": "javascript",
+   "data": {},
+   "options": [
+    {
+     "text": "Выведется null",
+     "is_correct": false
+    },
+    {
+     "text": "ReferenceError",
+     "is_correct": true
+    },
+    {
+     "text": "Выведется undefined",
+     "is_correct": false
+    },
+    {
+     "text": "Выведется 5",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "const city = \"Ош\";\nconsole.log(city.length + city);",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Ош2",
+     "is_correct": false
+    },
+    {
+     "text": "2Ош",
+     "is_correct": true
+    },
+    {
+     "text": "2",
+     "is_correct": false
+    },
+    {
+     "text": "NaN",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "console.log(\"Ош\".repeat(2) + \"!\");",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Ош!Ош!",
+     "is_correct": false
+    },
+    {
+     "text": "Ош Ош!",
+     "is_correct": false
+    },
+    {
+     "text": "ОшОш!",
+     "is_correct": true
+    },
+    {
+     "text": "Ош2!",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "console.log(\"Жалал-Абад\".split(\"-\")[1]);",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Абад",
+     "is_correct": true
+    },
+    {
+     "text": "undefined",
+     "is_correct": false
+    },
+    {
+     "text": "Жалал",
+     "is_correct": false
+    },
+    {
+     "text": "-",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "const name = \"Мээрим\";\nconsole.log(`Привет, ${name}! ${2 + 3}`);",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Привет, Мээрим! 23",
+     "is_correct": false
+    },
+    {
+     "text": "Привет, Мээрим! 2 + 3",
+     "is_correct": false
+    },
+    {
+     "text": "Привет, ${name}! ${2 + 3}",
+     "is_correct": false
+    },
+    {
+     "text": "Привет, Мээрим! 5",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "После toUpperCase строка BISHKEK, первая K — на индексе 4.",
+   "code": "console.log(\"Bishkek\".toUpperCase().indexOf(\"K\"));",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "-1",
+     "is_correct": false
+    },
+    {
+     "text": "6",
+     "is_correct": false
+    },
+    {
+     "text": "3",
+     "is_correct": false
+    },
+    {
+     "text": "4",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "const запрещает переприсвоить переменную, но не менять сам массив.",
+   "code": "const arr = [1, 2, 3];\narr.push(4);\nconsole.log(arr.length);",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "TypeError: const",
+     "is_correct": false
+    },
+    {
+     "text": "3",
+     "is_correct": false
+    },
+    {
+     "text": "undefined",
+     "is_correct": false
+    },
+    {
+     "text": "4",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "sort() без функции сравнивает элементы как строки: \"10\" < \"2\". Для чисел: a.sort((x, y) => x - y).",
+   "code": "const a = [3, 1, 10, 2];\na.sort();\nconsole.log(a.join(\",\"));",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "3,1,10,2",
+     "is_correct": false
+    },
+    {
+     "text": "10,3,2,1",
+     "is_correct": false
+    },
+    {
+     "text": "1,10,2,3",
+     "is_correct": true
+    },
+    {
+     "text": "1,2,3,10",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "console.log([1, 2, 3].map(x => x * 2).join(\" \"));",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "2 4 6",
+     "is_correct": true
+    },
+    {
+     "text": "12",
+     "is_correct": false
+    },
+    {
+     "text": "1 2 3",
+     "is_correct": false
+    },
+    {
+     "text": "2,4,6",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "console.log([5, 12, 8, 130].filter(n => n > 10).length);",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "142",
+     "is_correct": false
+    },
+    {
+     "text": "1",
+     "is_correct": false
+    },
+    {
+     "text": "3",
+     "is_correct": false
+    },
+    {
+     "text": "2",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "console.log([1, 2, 3, 4].reduce((s, x) => s + x, 0));",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "1234",
+     "is_correct": false
+    },
+    {
+     "text": "10",
+     "is_correct": true
+    },
+    {
+     "text": "24",
+     "is_correct": false
+    },
+    {
+     "text": "0",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 45,
+   "weight": 2,
+   "explanation": "map передаёт (элемент, индекс), а parseInt понимает индекс как систему счисления: parseInt(\"10\", 0) = 10, parseInt(\"10\", 1) = NaN, parseInt(\"10\", 2) = 2.",
+   "code": "console.log([\"10\", \"10\", \"10\"].map(parseInt).join(\",\"));",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "10,NaN,2",
+     "is_correct": true
+    },
+    {
+     "text": "10,10,10",
+     "is_correct": false
+    },
+    {
+     "text": "NaN,NaN,NaN",
+     "is_correct": false
+    },
+    {
+     "text": "10,NaN,NaN",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "0 + 1 + 3 + 4 = 8.",
+   "code": "let s = 0;\nfor (let i = 0; i < 5; i++) {\n    if (i === 2) continue;\n    s += i;\n}\nconsole.log(s);",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "7",
+     "is_correct": false
+    },
+    {
+     "text": "1",
+     "is_correct": false
+    },
+    {
+     "text": "10",
+     "is_correct": false
+    },
+    {
+     "text": "8",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 35,
+   "weight": 2,
+   "explanation": "var одна на весь цикл, а таймеры срабатывают после его окончания, когда i = 3. С let было бы 0, 1, 2.",
+   "code": "for (var i = 0; i < 3; i++) {\n    setTimeout(() => console.log(i), 0);\n}",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "3, 3, 3",
+     "is_correct": true
+    },
+    {
+     "text": "0, 1, 2",
+     "is_correct": false
+    },
+    {
+     "text": "0, 0, 0",
+     "is_correct": false
+    },
+    {
+     "text": "2, 2, 2",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Даже с задержкой 0 таймер выполнится только после текущего кода.",
+   "code": "console.log(\"A\");\nsetTimeout(() => console.log(\"B\"), 0);\nconsole.log(\"C\");",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "B, A, C",
+     "is_correct": false
+    },
+    {
+     "text": "A, B, C",
+     "is_correct": false
+    },
+    {
+     "text": "A, C",
+     "is_correct": false
+    },
+    {
+     "text": "A, C, B",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "const obj = { city: \"Ош\", age: 3000 };\nconsole.log(Object.keys(obj).length);",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "3000",
+     "is_correct": false
+    },
+    {
+     "text": "2",
+     "is_correct": true
+    },
+    {
+     "text": "undefined",
+     "is_correct": false
+    },
+    {
+     "text": "1",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Объекты передаются по ссылке.",
+   "code": "const a = { n: 1 };\nconst b = a;\nb.n = 2;\nconsole.log(a.n);",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "2",
+     "is_correct": true
+    },
+    {
+     "text": "TypeError",
+     "is_correct": false
+    },
+    {
+     "text": "1",
+     "is_correct": false
+    },
+    {
+     "text": "undefined",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Это два разных объекта.",
+   "code": "console.log({} === {});",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "false",
+     "is_correct": true
+    },
+    {
+     "text": "true",
+     "is_correct": false
+    },
+    {
+     "text": "Ошибка",
+     "is_correct": false
+    },
+    {
+     "text": "undefined",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "const { name, age = 18 } = { name: \"Эрлан\" };\nconsole.log(name, age);",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Эрлан 18",
+     "is_correct": true
+    },
+    {
+     "text": "Эрлан undefined",
+     "is_correct": false
+    },
+    {
+     "text": "Ошибка",
+     "is_correct": false
+    },
+    {
+     "text": "undefined 18",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "const arr = [1, 2];\nconst copy = [...arr, 3];\nconsole.log(arr.length, copy.length);",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "2 2",
+     "is_correct": false
+    },
+    {
+     "text": "3 3",
+     "is_correct": false
+    },
+    {
+     "text": "2 3",
+     "is_correct": true
+    },
+    {
+     "text": "3 2",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "После return с переводом строки JS сам ставит точку с запятой.",
+   "code": "function f() {\n    return\n        42;\n}\nconsole.log(f());",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "SyntaxError",
+     "is_correct": false
+    },
+    {
+     "text": "undefined",
+     "is_correct": true
+    },
+    {
+     "text": "null",
+     "is_correct": false
+    },
+    {
+     "text": "42",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "console.log(typeof function () {});",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "function",
+     "is_correct": true
+    },
+    {
+     "text": "object",
+     "is_correct": false
+    },
+    {
+     "text": "undefined",
+     "is_correct": false
+    },
+    {
+     "text": "string",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "console.log(10 / 0, -10 / 0);",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "0 0",
+     "is_correct": false
+    },
+    {
+     "text": "Ошибка деления на ноль",
+     "is_correct": false
+    },
+    {
+     "text": "Infinity -Infinity",
+     "is_correct": true
+    },
+    {
+     "text": "NaN NaN",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "parseInt читает цифры, пока не встретит не-цифру.",
+   "code": "console.log(parseInt(\"42px\") + 1);",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "421",
+     "is_correct": false
+    },
+    {
+     "text": "43",
+     "is_correct": true
+    },
+    {
+     "text": "42px1",
+     "is_correct": false
+    },
+    {
+     "text": "NaN",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Number() требует, чтобы вся строка была числом.",
+   "code": "console.log(Number(\"42px\"));",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "0",
+     "is_correct": false
+    },
+    {
+     "text": "NaN",
+     "is_correct": true
+    },
+    {
+     "text": "undefined",
+     "is_correct": false
+    },
+    {
+     "text": "42",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 40,
+   "weight": 2,
+   "explanation": "|| заменяет любое ложное значение, а ?? — только null и undefined.",
+   "code": "console.log(null ?? \"пусто\", 0 || \"ноль\", 0 ?? \"ноль\");",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "пусто 0 0",
+     "is_correct": false
+    },
+    {
+     "text": "пусто ноль 0",
+     "is_correct": true
+    },
+    {
+     "text": "пусто ноль ноль",
+     "is_correct": false
+    },
+    {
+     "text": "null ноль 0",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "?. не падает на отсутствующем свойстве, а возвращает undefined.",
+   "code": "const user = {};\nconsole.log(user.address?.city);",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "\"\"",
+     "is_correct": false
+    },
+    {
+     "text": "null",
+     "is_correct": false
+    },
+    {
+     "text": "undefined",
+     "is_correct": true
+    },
+    {
+     "text": "TypeError",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие значения в JavaScript «ложные» (falsy)?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Строка \"0\" и пустой массив [] — истинные.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "\"0\"",
+     "is_correct": false
+    },
+    {
+     "text": "0",
+     "is_correct": true
+    },
+    {
+     "text": "NaN",
+     "is_correct": true
+    },
+    {
+     "text": "\"\"",
+     "is_correct": true
+    },
+    {
+     "text": "null",
+     "is_correct": true
+    },
+    {
+     "text": "[]",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "JavaScript работает не только в браузере, но и на сервере (Node.js).",
+   "time_limit": 10,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что вернёт document.querySelector(\"#osh\"), если такого элемента на странице нет?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "undefined",
+     "is_correct": false
+    },
+    {
+     "text": "null",
+     "is_correct": true
+    },
+    {
+     "text": "Пустой массив",
+     "is_correct": false
+    },
+    {
+     "text": "Ошибка",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте числа в том порядке, в каком код их выведет.",
+   "time_limit": 45,
+   "weight": 2,
+   "explanation": "Сначала обычный код (1, 4), затем микрозадачи Promise (3), потом таймеры (2).",
+   "code": "console.log(\"1\");\nsetTimeout(() => console.log(\"2\"), 0);\nPromise.resolve().then(() => console.log(\"3\"));\nconsole.log(\"4\");",
+   "code_language": "javascript",
+   "data": {},
+   "options": [
+    {
+     "text": "1",
+     "is_correct": false
+    },
+    {
+     "text": "4",
+     "is_correct": false
+    },
+    {
+     "text": "3",
+     "is_correct": false
+    },
+    {
+     "text": "2",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Какой метод массива добавляет элемент в конец? Введите его имя.",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "push",
+     "push()"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Функция, которая «помнит» переменные из того места, где её создали",
+   "time_limit": 35,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ЗАМЫКАНИЕ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 35,
+   "weight": 1,
+   "explanation": "Замыкание хранит n между вызовами.",
+   "code": "function counter() {\n    let n = 0;\n    return () => ++n;\n}\nconst c = counter();\nc();\nc();\nconsole.log(c());",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "1",
+     "is_correct": false
+    },
+    {
+     "text": "3",
+     "is_correct": true
+    },
+    {
+     "text": "2",
+     "is_correct": false
+    },
+    {
+     "text": "0",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Геттер вызывается как свойство, без скобок.",
+   "code": "class Yurt {\n    constructor(kanats) { this.kanats = kanats; }\n    get walls() { return this.kanats * 2; }\n}\nconsole.log(new Yurt(6).walls);",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "undefined",
+     "is_correct": false
+    },
+    {
+     "text": "function",
+     "is_correct": false
+    },
+    {
+     "text": "6",
+     "is_correct": false
+    },
+    {
+     "text": "12",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет код?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "Пробел — тоже символ.",
+   "code": "console.log([...\"Ош ГУ\"].length);",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "2",
+     "is_correct": false
+    },
+    {
+     "text": "4",
+     "is_correct": false
+    },
+    {
+     "text": "1",
+     "is_correct": false
+    },
+    {
+     "text": "5",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  }
+ ]
+}

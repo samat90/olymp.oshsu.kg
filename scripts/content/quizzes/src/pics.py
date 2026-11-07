@@ -78,6 +78,11 @@ COVERS = {
     'geografiya': ('География', '#0369a1', '#7dd3fc', 'geo'),
     'literatura': ('Литература', '#6b21a8', '#f0abfc', 'lit'),
     'english50': ('English', '#be123c', '#fda4af', 'eng'),
+    'python50': ('Python', '#166534', '#65a30d', 'code:py'),
+    'cpp50': ('C++', '#1e40af', '#60a5fa', 'code:C++'),
+    'java50': ('Java', '#9a3412', '#fb923c', 'code:java'),
+    'csharp50': ('C#', '#5b21b6', '#a78bfa', 'code:C#'),
+    'js50': ('JavaScript', '#a16207', '#fde047', 'code:JS'),
 }
 
 
@@ -118,6 +123,12 @@ def cover_icon(kind):
     if kind == 'eng':
         return (rect(510, 120, 220, 150, stroke=w, sw=8, rx=24) + poly([(560, 268), (545, 320), (610, 268)], fill=w, stroke=w) +
                 text(620, 220, 'ABC', 64, w, weight='bold'))
+    if kind.startswith('code:'):
+        mono = 'DejaVu Sans Mono'
+        return (rect(500, 110, 240, 220, fill='rgba(0,0,0,0.3)', stroke=w, sw=7, rx=16) + line(500, 160, 740, 160, w, 5) +
+                circle(530, 135, 8, fill=w, stroke=w) + circle(556, 135, 8, fill=w, stroke=w) +
+                circle(582, 135, 8, fill=w, stroke=w) + text(620, 250, kind[5:], 58, w, weight='bold', family=mono) +
+                text(522, 310, '>_', 30, w, 'start', family=mono))
     return ''
 
 

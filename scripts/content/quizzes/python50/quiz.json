@@ -1,0 +1,1486 @@
+{
+ "key": "python50",
+ "title": "Основы Python",
+ "subject": "Программирование",
+ "theme": "night",
+ "description": "50 вопросов по основам Python: типы и операторы, строки и срезы, списки, словари и множества, циклы, функции, исключения. Много коротких программ «что выведет» с подвохом, есть вопросы на двойные очки и разминки без очков на скорость.",
+ "cover": "cover.png",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка на скорость: с какого символа начинается комментарий в Python?",
+   "time_limit": 10,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "/*",
+     "is_correct": false
+    },
+    {
+     "text": "//",
+     "is_correct": false
+    },
+    {
+     "text": "#",
+     "is_correct": true
+    },
+    {
+     "text": "--",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Умножение строки на число повторяет её.",
+   "code": "city = \"Ош\"\nprint(city * 3)",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Ошибка",
+     "is_correct": false
+    },
+    {
+     "text": "Ош Ош Ош",
+     "is_correct": false
+    },
+    {
+     "text": "ОшОшОш",
+     "is_correct": true
+    },
+    {
+     "text": "Ош3",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "// — целочисленное деление, / всегда даёт float.",
+   "code": "print(7 // 2, 7 / 2)",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "3 3",
+     "is_correct": false
+    },
+    {
+     "text": "3 3.5",
+     "is_correct": true
+    },
+    {
+     "text": "3.5 3.5",
+     "is_correct": false
+    },
+    {
+     "text": "4 3.5",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "// округляет вниз (к минус бесконечности): -3.5 → -4.",
+   "code": "print(-7 // 2)",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "-3.0",
+     "is_correct": false
+    },
+    {
+     "text": "-3",
+     "is_correct": false
+    },
+    {
+     "text": "-3.5",
+     "is_correct": false
+    },
+    {
+     "text": "-4",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "Степень выполняется справа налево: 3 ** 2 = 9, затем 2 ** 9 = 512.",
+   "code": "print(2 ** 3 ** 2)",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "36",
+     "is_correct": false
+    },
+    {
+     "text": "512",
+     "is_correct": true
+    },
+    {
+     "text": "64",
+     "is_correct": false
+    },
+    {
+     "text": "18",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "0.1 + 0.2 = 0.30000000000000004: дробные числа хранятся в двоичном виде приближённо.",
+   "code": "print(0.1 + 0.2 == 0.3)",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "0.3",
+     "is_correct": false
+    },
+    {
+     "text": "True",
+     "is_correct": false
+    },
+    {
+     "text": "Ошибка",
+     "is_correct": false
+    },
+    {
+     "text": "False",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "Дефис — тоже символ: 8 + 1 + 3 = 12.",
+   "code": "s = \"Сулайман-Тоо\"\nprint(len(s))",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "11",
+     "is_correct": false
+    },
+    {
+     "text": "10",
+     "is_correct": false
+    },
+    {
+     "text": "12",
+     "is_correct": true
+    },
+    {
+     "text": "13",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Отрицательный индекс считает с конца: -1 — последний символ.",
+   "code": "s = \"ОшГУ\"\nprint(s[-1])",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "О",
+     "is_correct": false
+    },
+    {
+     "text": "У",
+     "is_correct": true
+    },
+    {
+     "text": "Ошибка",
+     "is_correct": false
+    },
+    {
+     "text": "Г",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Срез [1:4] берёт символы с индексами 1, 2, 3 — правая граница не входит.",
+   "code": "s = \"Бишкек\"\nprint(s[1:4])",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "ишке",
+     "is_correct": false
+    },
+    {
+     "text": "Бишк",
+     "is_correct": false
+    },
+    {
+     "text": "шке",
+     "is_correct": false
+    },
+    {
+     "text": "ишк",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Срез с шагом -1 переворачивает строку.",
+   "code": "print(\"Ош\"[::-1])",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Ошибка",
+     "is_correct": false
+    },
+    {
+     "text": "шО",
+     "is_correct": true
+    },
+    {
+     "text": "Ош",
+     "is_correct": false
+    },
+    {
+     "text": "ш",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "b = a не копирует список: обе переменные указывают на один и тот же объект.",
+   "code": "a = [1, 2, 3]\nb = a\nb.append(4)\nprint(a)",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Ошибка",
+     "is_correct": false
+    },
+    {
+     "text": "[1, 2, 3, 4]",
+     "is_correct": true
+    },
+    {
+     "text": "[4]",
+     "is_correct": false
+    },
+    {
+     "text": "[1, 2, 3]",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая запись создаёт кортеж из одного элемента?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "(5) — просто число 5 в скобках. Кортеж делает запятая.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "(5,)",
+     "is_correct": true
+    },
+    {
+     "text": "{5}",
+     "is_correct": false
+    },
+    {
+     "text": "[5]",
+     "is_correct": false
+    },
+    {
+     "text": "(5)",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие типы данных в Python изменяемые?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "Списки, словари и множества можно менять на месте, кортежи и строки — нет.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "str",
+     "is_correct": false
+    },
+    {
+     "text": "set",
+     "is_correct": true
+    },
+    {
+     "text": "tuple",
+     "is_correct": false
+    },
+    {
+     "text": "dict",
+     "is_correct": true
+    },
+    {
+     "text": "list",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "x = 5 внутри функции создаёт новую локальную переменную, глобальная x не меняется.",
+   "code": "x = 10\ndef f():\n    x = 5\nf()\nprint(x)",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Ошибка",
+     "is_correct": false
+    },
+    {
+     "text": "10",
+     "is_correct": true
+    },
+    {
+     "text": "5",
+     "is_correct": false
+    },
+    {
+     "text": "None",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 40,
+   "weight": 2,
+   "explanation": "Значение по умолчанию создаётся один раз при объявлении функции и потом переиспользуется.",
+   "code": "def add(item, bag=[]):\n    bag.append(item)\n    return bag\n\nadd(\"самса\")\nprint(add(\"лагман\"))",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "['самса']",
+     "is_correct": false
+    },
+    {
+     "text": "['лагман']",
+     "is_correct": false
+    },
+    {
+     "text": "Ошибка",
+     "is_correct": false
+    },
+    {
+     "text": "['самса', 'лагман']",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Любая непустая строка истинна, даже \"False\".",
+   "code": "print(bool(\"False\"))",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "None",
+     "is_correct": false
+    },
+    {
+     "text": "Ошибка",
+     "is_correct": false
+    },
+    {
+     "text": "False",
+     "is_correct": false
+    },
+    {
+     "text": "True",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Пустой список ложен, а список с одним элементом (пусть даже 0) истинен.",
+   "code": "print(bool([]), bool([0]))",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "True False",
+     "is_correct": false
+    },
+    {
+     "text": "True True",
+     "is_correct": false
+    },
+    {
+     "text": "False True",
+     "is_correct": true
+    },
+    {
+     "text": "False False",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "print(\"2\" + \"3\", 2 + 3)",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "5 5",
+     "is_correct": false
+    },
+    {
+     "text": "23 23",
+     "is_correct": false
+    },
+    {
+     "text": "23 5",
+     "is_correct": true
+    },
+    {
+     "text": "Ошибка",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "int(3.9) отбрасывает дробную часть, а не округляет: получается 3.",
+   "code": "print(int(\"12\") + int(3.9))",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "15",
+     "is_correct": true
+    },
+    {
+     "text": "16",
+     "is_correct": false
+    },
+    {
+     "text": "Ошибка",
+     "is_correct": false
+    },
+    {
+     "text": "15.9",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "round() округляет «половинки» к чётному числу (банковское округление).",
+   "code": "print(round(2.5), round(3.5))",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "3 3",
+     "is_correct": false
+    },
+    {
+     "text": "2 3",
+     "is_correct": false
+    },
+    {
+     "text": "2 4",
+     "is_correct": true
+    },
+    {
+     "text": "3 4",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Какая встроенная функция возвращает количество элементов списка? Введите её имя.",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "len",
+     "len()"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "range(1, 10, 3): 1, 4, 7 — до 10 не доходит.",
+   "code": "for i in range(1, 10, 3):\n    print(i, end=\" \")",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "0 3 6 9",
+     "is_correct": false
+    },
+    {
+     "text": "1 3 6 9",
+     "is_correct": false
+    },
+    {
+     "text": "1 4 7",
+     "is_correct": true
+    },
+    {
+     "text": "1 4 7 10",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "print(list(range(5, 0, -2)))",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "[5, 3, 1]",
+     "is_correct": true
+    },
+    {
+     "text": "[]",
+     "is_correct": false
+    },
+    {
+     "text": "[5, 3, 1, -1]",
+     "is_correct": false
+    },
+    {
+     "text": "[5, 4, 3, 2, 1]",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "n: 0 → 2 → 4 → 6, на 6 условие n < 5 ложно.",
+   "code": "n = 0\nwhile n < 5:\n    n += 2\nprint(n)",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "6",
+     "is_correct": true
+    },
+    {
+     "text": "5",
+     "is_correct": false
+    },
+    {
+     "text": "4",
+     "is_correct": false
+    },
+    {
+     "text": "7",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "У цикла for бывает else: он выполняется, если цикл закончился без break.",
+   "code": "for i in range(3):\n    if i == 5:\n        break\nelse:\n    print(\"Нет пятёрки\")",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Ничего не выведет",
+     "is_correct": false
+    },
+    {
+     "text": "Нет пятёрки",
+     "is_correct": true
+    },
+    {
+     "text": "0 1 2",
+     "is_correct": false
+    },
+    {
+     "text": "Ошибка: else без if",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Чётные x из 0..3 — это 0 и 2, их квадраты 0 и 4.",
+   "code": "print([x * x for x in range(4) if x % 2 == 0])",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "[0, 4]",
+     "is_correct": true
+    },
+    {
+     "text": "[0, 4, 16]",
+     "is_correct": false
+    },
+    {
+     "text": "[1, 9]",
+     "is_correct": false
+    },
+    {
+     "text": "[0, 1, 4, 9]",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Ключ \"Ош\" уже есть, его значение просто заменяется.",
+   "code": "d = {\"Ош\": 1, \"Бишкек\": 2}\nd[\"Ош\"] = 3\nprint(len(d), d[\"Ош\"])",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "2 3",
+     "is_correct": true
+    },
+    {
+     "text": "3 1",
+     "is_correct": false
+    },
+    {
+     "text": "2 1",
+     "is_correct": false
+    },
+    {
+     "text": "3 3",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "get() возвращает значение по умолчанию, если ключа нет.",
+   "code": "prices = {\"плов\": 250}\nprint(prices.get(\"лагман\", 0))",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "0",
+     "is_correct": true
+    },
+    {
+     "text": "None",
+     "is_correct": false
+    },
+    {
+     "text": "Ошибка KeyError",
+     "is_correct": false
+    },
+    {
+     "text": "250",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Множество хранит только уникальные значения.",
+   "code": "print(len({1, 2, 2, 3, 3, 3}))",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "6",
+     "is_correct": false
+    },
+    {
+     "text": "4",
+     "is_correct": false
+    },
+    {
+     "text": "3",
+     "is_correct": true
+    },
+    {
+     "text": "1",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте строки так, чтобы программа вывела сумму чисел от 1 до 5.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "s = 0",
+     "is_correct": false
+    },
+    {
+     "text": "for i in range(1, 6):",
+     "is_correct": false
+    },
+    {
+     "text": "s += i  (с отступом)",
+     "is_correct": false
+    },
+    {
+     "text": "print(s)  (без отступа)",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "В каком порядке Python вычисляет выражение 2 + 3 * 4 ** 2?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "4 ** 2 = 16",
+     "is_correct": false
+    },
+    {
+     "text": "3 * 16 = 48",
+     "is_correct": false
+    },
+    {
+     "text": "2 + 48 = 50",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "x = 5 и x == 5 — это одно и то же.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "= присваивает значение, == сравнивает и возвращает True или False.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "В Python остаток имеет знак делителя: -17 = 5 · (-4) + 3.",
+   "code": "print(17 % 5, -17 % 5)",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "3 2",
+     "is_correct": false
+    },
+    {
+     "text": "2 3",
+     "is_correct": true
+    },
+    {
+     "text": "2 2",
+     "is_correct": false
+    },
+    {
+     "text": "2 -2",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "Строки сравниваются по буквам, а не по длине: «О» в алфавите дальше, чем «Б» и «Н».",
+   "code": "print(max(\"Ош\", \"Бишкек\", \"Нарын\"))",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Нарын",
+     "is_correct": false
+    },
+    {
+     "text": "Бишкек",
+     "is_correct": false
+    },
+    {
+     "text": "Ошибка",
+     "is_correct": false
+    },
+    {
+     "text": "Ош",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "print(\"ош гу\".title())",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "ОШ ГУ",
+     "is_correct": false
+    },
+    {
+     "text": "ОшГу",
+     "is_correct": false
+    },
+    {
+     "text": "Ош гу",
+     "is_correct": false
+    },
+    {
+     "text": "Ош Гу",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "print(\"Ош,Узген,Ноокат\".split(\",\")[1])",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "['Узген']",
+     "is_correct": false
+    },
+    {
+     "text": "Ош",
+     "is_correct": false
+    },
+    {
+     "text": "Узген",
+     "is_correct": true
+    },
+    {
+     "text": "Ноокат",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "print(\"-\".join([\"Ош\", \"Кара-Суу\"]))",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Ош Кара-Суу",
+     "is_correct": false
+    },
+    {
+     "text": "Ош-Кара-Суу",
+     "is_correct": true
+    },
+    {
+     "text": "ОшКара-Суу",
+     "is_correct": false
+    },
+    {
+     "text": "['Ош', 'Кара-Суу']",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "name = \"Айгерим\"\nage = 19\nprint(f\"{name}: {age + 1}\")",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Айгерим: 19 + 1",
+     "is_correct": false
+    },
+    {
+     "text": "Айгерим: 20",
+     "is_correct": true
+    },
+    {
+     "text": "{name}: {age + 1}",
+     "is_correct": false
+    },
+    {
+     "text": "Айгерим: 191",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое исключение возникнет при выполнении int(\"Ош\")?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Тип аргумента правильный (строка), но значение не превращается в число — это ValueError.",
+   "code": "int(\"Ош\")",
+   "code_language": "python",
+   "data": {},
+   "options": [
+    {
+     "text": "ValueError",
+     "is_correct": true
+    },
+    {
+     "text": "TypeError",
+     "is_correct": false
+    },
+    {
+     "text": "NameError",
+     "is_correct": false
+    },
+    {
+     "text": "SyntaxError",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 35,
+   "weight": 1,
+   "explanation": "finally выполняется всегда — и после ошибки, и без неё.",
+   "code": "try:\n    print(1 / 0)\nexcept ZeroDivisionError:\n    print(\"делить на ноль нельзя\")\nfinally:\n    print(\"готово\")",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Программа упадёт с ошибкой",
+     "is_correct": false
+    },
+    {
+     "text": "Только «готово»",
+     "is_correct": false
+    },
+    {
+     "text": "Только «делить на ноль нельзя»",
+     "is_correct": false
+    },
+    {
+     "text": "«делить на ноль нельзя», потом «готово»",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие имена переменных допустимы в Python?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Имя не может начинаться с цифры и совпадать с ключевым словом. Кириллица разрешена.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Айбек2",
+     "is_correct": true
+    },
+    {
+     "text": "class",
+     "is_correct": false
+    },
+    {
+     "text": "2nd_place",
+     "is_correct": false
+    },
+    {
+     "text": "_count",
+     "is_correct": true
+    },
+    {
+     "text": "ош_гу",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Ключевое слово для короткой анонимной функции в одну строку",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "LAMBDA"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "sort() сортирует список на месте и возвращает None. Новый список даёт sorted().",
+   "code": "nums = [3, 1, 2]\nprint(nums.sort())",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "[3, 1, 2]",
+     "is_correct": false
+    },
+    {
+     "text": "Ошибка",
+     "is_correct": false
+    },
+    {
+     "text": "[1, 2, 3]",
+     "is_correct": false
+    },
+    {
+     "text": "None",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "a, b = 5, 7\na, b = b, a\nprint(a, b)",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "7 5",
+     "is_correct": true
+    },
+    {
+     "text": "5 7",
+     "is_correct": false
+    },
+    {
+     "text": "7 7",
+     "is_correct": false
+    },
+    {
+     "text": "5 5",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "* распаковывает список в отдельные аргументы print.",
+   "code": "print(*[1, 2, 3], sep=\"-\")",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "-1-2-3-",
+     "is_correct": false
+    },
+    {
+     "text": "1 2 3",
+     "is_correct": false
+    },
+    {
+     "text": "1-2-3",
+     "is_correct": true
+    },
+    {
+     "text": "[1, 2, 3]",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Срез за границами списка не вызывает ошибку, а даёт пустой список.",
+   "code": "x = [1, 2, 3]\nprint(x[5:])",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "None",
+     "is_correct": false
+    },
+    {
+     "text": "IndexError",
+     "is_correct": false
+    },
+    {
+     "text": "[3]",
+     "is_correct": false
+    },
+    {
+     "text": "[]",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "== сравнивает содержимое, is — один ли это объект. Это два разных списка.",
+   "code": "a = [1]\nb = [1]\nprint(a == b, a is b)",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "True False",
+     "is_correct": true
+    },
+    {
+     "text": "False True",
+     "is_correct": false
+    },
+    {
+     "text": "True True",
+     "is_correct": false
+    },
+    {
+     "text": "False False",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "f = lambda x: x * 2\nprint(f(f(3)))",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "12",
+     "is_correct": true
+    },
+    {
+     "text": "9",
+     "is_correct": false
+    },
+    {
+     "text": "36",
+     "is_correct": false
+    },
+    {
+     "text": "6",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Сколько будет напечатано? Введите число.",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "1 + 2 + … + 10 = 55.",
+   "code": "print(sum(range(1, 11)))",
+   "code_language": "python",
+   "data": {
+    "answers": [
+     "55"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Язык Python назван в честь змеи питона.",
+   "time_limit": 10,
+   "weight": 0,
+   "explanation": "Гвидо ван Россум назвал язык в честь комик-группы «Монти Пайтон».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  }
+ ]
+}

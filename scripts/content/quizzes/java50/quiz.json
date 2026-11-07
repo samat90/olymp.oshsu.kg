@@ -1,0 +1,1493 @@
+{
+ "key": "java50",
+ "title": "Основы Java",
+ "subject": "Программирование",
+ "theme": "night",
+ "description": "50 вопросов по основам Java: типы, приведение и переполнение, строки и сравнение через == и equals, массивы, циклы, switch, классы, наследование, static, исключения, ArrayList и HashMap. Фрагменты кода выполняются внутри метода main.",
+ "cover": "cover.png",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка на скорость: с какого метода начинается выполнение Java-программы?",
+   "time_limit": 10,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "main",
+     "is_correct": true
+    },
+    {
+     "text": "init",
+     "is_correct": false
+    },
+    {
+     "text": "start",
+     "is_correct": false
+    },
+    {
+     "text": "run",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "System.out.println(7 / 2);",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "4",
+     "is_correct": false
+    },
+    {
+     "text": "3",
+     "is_correct": true
+    },
+    {
+     "text": "3.5",
+     "is_correct": false
+    },
+    {
+     "text": "3.0",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "System.out.println(7 / 2.0);",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "3.5",
+     "is_correct": true
+    },
+    {
+     "text": "3.50",
+     "is_correct": false
+    },
+    {
+     "text": "3",
+     "is_correct": false
+    },
+    {
+     "text": "4",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "Слева направо: \"1\" + 2 = \"12\", затем \"12\" + 3 = \"123\".",
+   "code": "System.out.println(\"1\" + 2 + 3);",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "6",
+     "is_correct": false
+    },
+    {
+     "text": "Ошибка компиляции",
+     "is_correct": false
+    },
+    {
+     "text": "15",
+     "is_correct": false
+    },
+    {
+     "text": "123",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "Сначала 1 + 2 = 3 как числа, потом 3 + \"3\" = \"33\".",
+   "code": "System.out.println(1 + 2 + \"3\");",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "6",
+     "is_correct": false
+    },
+    {
+     "text": "15",
+     "is_correct": false
+    },
+    {
+     "text": "123",
+     "is_correct": false
+    },
+    {
+     "text": "33",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "Два char складываются как числа: 97 + 98 = 195. Строкой они станут только с \"\".",
+   "code": "System.out.println('a' + 'b');",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "195",
+     "is_correct": true
+    },
+    {
+     "text": "ab",
+     "is_correct": false
+    },
+    {
+     "text": "Ошибка компиляции",
+     "is_correct": false
+    },
+    {
+     "text": "\"ab\"",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "char + int = int: 65 + 1 = 66.",
+   "code": "char c = 'A';\nSystem.out.println(c + 1);",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Ошибка компиляции",
+     "is_correct": false
+    },
+    {
+     "text": "A1",
+     "is_correct": false
+    },
+    {
+     "text": "B",
+     "is_correct": false
+    },
+    {
+     "text": "66",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "System.out.println((char) ('A' + 2));",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "A2",
+     "is_correct": false
+    },
+    {
+     "text": "C",
+     "is_correct": true
+    },
+    {
+     "text": "67",
+     "is_correct": false
+    },
+    {
+     "text": "B",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "== сравнивает ссылки. new String создаёт новый объект, хотя текст тот же.",
+   "code": "String a = \"Osh\";\nString b = new String(\"Osh\");\nSystem.out.println(a == b);",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "false",
+     "is_correct": true
+    },
+    {
+     "text": "Ошибка компиляции",
+     "is_correct": false
+    },
+    {
+     "text": "Osh",
+     "is_correct": false
+    },
+    {
+     "text": "true",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "equals сравнивает содержимое строк.",
+   "code": "String a = \"Osh\";\nString b = new String(\"Osh\");\nSystem.out.println(a.equals(b));",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "true",
+     "is_correct": true
+    },
+    {
+     "text": "null",
+     "is_correct": false
+    },
+    {
+     "text": "Ошибка компиляции",
+     "is_correct": false
+    },
+    {
+     "text": "false",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "Строки неизменяемы: concat возвращает новую строку, а мы её никуда не сохранили.",
+   "code": "String s = \"Ош\";\ns.concat(\"ГУ\");\nSystem.out.println(s);",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "ОшГУ",
+     "is_correct": false
+    },
+    {
+     "text": "null",
+     "is_correct": false
+    },
+    {
+     "text": "Ош",
+     "is_correct": true
+    },
+    {
+     "text": "ГУ",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "length() считает символы, а не байты: 4 + дефис + 3 = 8.",
+   "code": "String s = \"Ысык-Көл\";\nSystem.out.println(s.length());",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "7",
+     "is_correct": false
+    },
+    {
+     "text": "16",
+     "is_correct": false
+    },
+    {
+     "text": "9",
+     "is_correct": false
+    },
+    {
+     "text": "8",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "Индексы с нуля: B0 i1 s2 h3 k4. indexOf находит первое вхождение.",
+   "code": "System.out.println(\"Bishkek\".indexOf('k'));",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "3",
+     "is_correct": false
+    },
+    {
+     "text": "4",
+     "is_correct": true
+    },
+    {
+     "text": "6",
+     "is_correct": false
+    },
+    {
+     "text": "5",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "System.out.println(\"Talas\".toUpperCase().charAt(1));",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "a",
+     "is_correct": false
+    },
+    {
+     "text": "A",
+     "is_correct": true
+    },
+    {
+     "text": "L",
+     "is_correct": false
+    },
+    {
+     "text": "T",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "Составное присваивание само приводит результат к типу x: (int) 8.7 = 8. А x = x + 3.7 не скомпилируется.",
+   "code": "int x = 5;\nx += 3.7;\nSystem.out.println(x);",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "9",
+     "is_correct": false
+    },
+    {
+     "text": "8",
+     "is_correct": true
+    },
+    {
+     "text": "8.7",
+     "is_correct": false
+    },
+    {
+     "text": "Ошибка компиляции",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "x++ отдаёт 5, после чего x = 6.",
+   "code": "int x = 5;\nSystem.out.println(x++ * 2 + \" \" + x);",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "10 6",
+     "is_correct": true
+    },
+    {
+     "text": "12 6",
+     "is_correct": false
+    },
+    {
+     "text": "12 5",
+     "is_correct": false
+    },
+    {
+     "text": "10 5",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "В Java знак остатка совпадает со знаком делимого.",
+   "code": "System.out.println(10 % 3 + \" \" + (-10) % 3);",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "1 2",
+     "is_correct": false
+    },
+    {
+     "text": "-1 1",
+     "is_correct": false
+    },
+    {
+     "text": "1 1",
+     "is_correct": false
+    },
+    {
+     "text": "1 -1",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Числовые массивы заполняются нулями.",
+   "code": "int[] a = new int[3];\nSystem.out.println(a[1]);",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "null",
+     "is_correct": false
+    },
+    {
+     "text": "Случайное число",
+     "is_correct": false
+    },
+    {
+     "text": "Ошибка компиляции",
+     "is_correct": false
+    },
+    {
+     "text": "0",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Массив объектов заполняется null. Печать null не вызывает ошибку.",
+   "code": "String[] s = new String[2];\nSystem.out.println(s[0]);",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "null",
+     "is_correct": true
+    },
+    {
+     "text": "NullPointerException",
+     "is_correct": false
+    },
+    {
+     "text": "0",
+     "is_correct": false
+    },
+    {
+     "text": "\"\"",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как узнать длину массива arr и строки str?",
+   "time_limit": 25,
+   "weight": 2,
+   "explanation": "У массива length — поле, у строки length() — метод.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "arr.size() и str.size()",
+     "is_correct": false
+    },
+    {
+     "text": "arr.length() и str.length",
+     "is_correct": false
+    },
+    {
+     "text": "arr.length и str.length()",
+     "is_correct": true
+    },
+    {
+     "text": "len(arr) и len(str)",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "b = a копирует ссылку, а не массив.",
+   "code": "int[] a = {1, 2, 3};\nint[] b = a;\nb[0] = 9;\nSystem.out.println(a[0]);",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "0",
+     "is_correct": false
+    },
+    {
+     "text": "1",
+     "is_correct": false
+    },
+    {
+     "text": "9",
+     "is_correct": true
+    },
+    {
+     "text": "Ошибка",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "for (int i = 0; i < 3; i++)\n    System.out.print(i * i + \" \");",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "1 4 9",
+     "is_correct": false
+    },
+    {
+     "text": "0 1 2",
+     "is_correct": false
+    },
+    {
+     "text": "0 1 4",
+     "is_correct": true
+    },
+    {
+     "text": "0 2 4",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "int i = 0;\nwhile (i < 10) i += 4;\nSystem.out.println(i);",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "9",
+     "is_correct": false
+    },
+    {
+     "text": "12",
+     "is_correct": true
+    },
+    {
+     "text": "10",
+     "is_correct": false
+    },
+    {
+     "text": "8",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 35,
+   "weight": 1,
+   "explanation": "После case 1 нет break, поэтому выполняется и case 2.",
+   "code": "int m = 1;\nswitch (m) {\n    case 1: System.out.print(\"Ош \");\n    case 2: System.out.print(\"Бишкек \"); break;\n    case 3: System.out.print(\"Нарын\");\n}",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Ош Бишкек Нарын",
+     "is_correct": false
+    },
+    {
+     "text": "Ош",
+     "is_correct": false
+    },
+    {
+     "text": "Ошибка компиляции",
+     "is_correct": false
+    },
+    {
+     "text": "Ош Бишкек",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "System.out.println(Math.max(3, 7) + Math.abs(-2));",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "10",
+     "is_correct": false
+    },
+    {
+     "text": "7",
+     "is_correct": false
+    },
+    {
+     "text": "9",
+     "is_correct": true
+    },
+    {
+     "text": "5",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "Math.round округляет «половинки» вверх, к большему числу: -2.5 → -2.",
+   "code": "System.out.println(Math.round(2.5) + \" \" + Math.round(-2.5));",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "3 -2",
+     "is_correct": true
+    },
+    {
+     "text": "3 -3",
+     "is_correct": false
+    },
+    {
+     "text": "2 -3",
+     "is_correct": false
+    },
+    {
+     "text": "2 -2",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Дробные числа хранятся в двоичном виде приближённо.",
+   "code": "System.out.println(0.1 + 0.2);",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "0.30",
+     "is_correct": false
+    },
+    {
+     "text": "0.3",
+     "is_correct": false
+    },
+    {
+     "text": "Ошибка",
+     "is_correct": false
+    },
+    {
+     "text": "0.30000000000000004",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "int переполняется молча и уходит в самое маленькое значение.",
+   "code": "int big = Integer.MAX_VALUE;\nSystem.out.println(big + 1);",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Ошибка переполнения",
+     "is_correct": false
+    },
+    {
+     "text": "-2147483648",
+     "is_correct": true
+    },
+    {
+     "text": "0",
+     "is_correct": false
+    },
+    {
+     "text": "2147483648",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "&& выполняется раньше ||: (true && false) || true = true.",
+   "code": "System.out.println(5 > 3 && 2 > 4 || true);",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "true",
+     "is_correct": true
+    },
+    {
+     "text": "Ошибка компиляции",
+     "is_correct": false
+    },
+    {
+     "text": "false",
+     "is_correct": false
+    },
+    {
+     "text": "1",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "Java кэширует объекты Integer только от -128 до 127. 128 — уже два разных объекта.",
+   "code": "Integer a = 128, b = 128;\nSystem.out.println(a == b);",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "false",
+     "is_correct": true
+    },
+    {
+     "text": "128",
+     "is_correct": false
+    },
+    {
+     "text": "true",
+     "is_correct": false
+    },
+    {
+     "text": "Ошибка компиляции",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое ключевое слово создаёт новый объект?",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "new",
+     "is_correct": true
+    },
+    {
+     "text": "make",
+     "is_correct": false
+    },
+    {
+     "text": "object",
+     "is_correct": false
+    },
+    {
+     "text": "create",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие из типов — примитивные?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "String и Integer — классы, их переменные хранят ссылки.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "boolean",
+     "is_correct": true
+    },
+    {
+     "text": "double",
+     "is_correct": true
+    },
+    {
+     "text": "String",
+     "is_correct": false
+    },
+    {
+     "text": "char",
+     "is_correct": true
+    },
+    {
+     "text": "Integer",
+     "is_correct": false
+    },
+    {
+     "text": "int",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Класс в Java может наследовать сразу два класса: class A extends B, C.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Класс в Java может реализовывать несколько интерфейсов.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 35,
+   "weight": 1,
+   "explanation": "Вызывается метод настоящего объекта (Horse), а не типа переменной. Это полиморфизм.",
+   "code": "class Animal {\n    String sound() { return \"...\"; }\n}\n\nclass Horse extends Animal {\n    String sound() { return \"Иго-го\"; }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Animal a = new Horse();\n        System.out.println(a.sound());\n    }\n}",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "...",
+     "is_correct": false
+    },
+    {
+     "text": "Иго-го",
+     "is_correct": true
+    },
+    {
+     "text": "null",
+     "is_correct": false
+    },
+    {
+     "text": "Ошибка компиляции",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа?",
+   "time_limit": 35,
+   "weight": 1,
+   "explanation": "static-поле одно на весь класс, его увеличивает каждый конструктор.",
+   "code": "class Counter {\n    static int count = 0;\n    Counter() { count++; }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        new Counter();\n        new Counter();\n        new Counter();\n        System.out.println(Counter.count);\n    }\n}",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "1",
+     "is_correct": false
+    },
+    {
+     "text": "3",
+     "is_correct": true
+    },
+    {
+     "text": "Ошибка компиляции",
+     "is_correct": false
+    },
+    {
+     "text": "0",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "При склейке со строкой null превращается в текст \"null\".",
+   "code": "String s = null;\nSystem.out.println(\"Ответ: \" + s);",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Ответ: ",
+     "is_correct": false
+    },
+    {
+     "text": "Ошибка компиляции",
+     "is_correct": false
+    },
+    {
+     "text": "Ответ: null",
+     "is_correct": true
+    },
+    {
+     "text": "NullPointerException",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 35,
+   "weight": 1,
+   "explanation": "Индексы массива из 2 элементов — 0 и 1.",
+   "code": "try {\n    int[] a = new int[2];\n    a[2] = 5;\n    System.out.println(\"ok\");\n} catch (ArrayIndexOutOfBoundsException e) {\n    System.out.println(\"выход за границы\");\n} finally {\n    System.out.println(\"finally\");\n}",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Только «выход за границы»",
+     "is_correct": false
+    },
+    {
+     "text": "«ok», потом «finally»",
+     "is_correct": false
+    },
+    {
+     "text": "Только «finally»",
+     "is_correct": false
+    },
+    {
+     "text": "«выход за границы», потом «finally»",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое исключение выбросит Integer.parseInt(\"Ош\")?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "Integer.parseInt(\"Ош\");",
+   "code_language": "java",
+   "data": {},
+   "options": [
+    {
+     "text": "ClassCastException",
+     "is_correct": false
+    },
+    {
+     "text": "NullPointerException",
+     "is_correct": false
+    },
+    {
+     "text": "ArithmeticException",
+     "is_correct": false
+    },
+    {
+     "text": "NumberFormatException",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "Деление double на ноль даёт бесконечность. Исключение бывает только при делении целых.",
+   "code": "System.out.println(5 / 0.0);",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "ArithmeticException",
+     "is_correct": false
+    },
+    {
+     "text": "NaN",
+     "is_correct": false
+    },
+    {
+     "text": "Infinity",
+     "is_correct": true
+    },
+    {
+     "text": "0",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что произойдёт при выполнении int x = 5 / 0; ?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "int x = 5 / 0;",
+   "code_language": "java",
+   "data": {},
+   "options": [
+    {
+     "text": "x станет 0",
+     "is_correct": false
+    },
+    {
+     "text": "x станет Infinity",
+     "is_correct": false
+    },
+    {
+     "text": "ArithmeticException во время выполнения",
+     "is_correct": true
+    },
+    {
+     "text": "Ошибка компиляции",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте модификаторы доступа от самого закрытого к самому открытому.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "private",
+     "is_correct": false
+    },
+    {
+     "text": "без модификатора (package-private)",
+     "is_correct": false
+    },
+    {
+     "text": "protected",
+     "is_correct": false
+    },
+    {
+     "text": "public",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "StringBuilder, в отличие от String, меняется на месте.",
+   "code": "StringBuilder sb = new StringBuilder(\"Ош\");\nsb.append(\"ГУ\").reverse();\nSystem.out.println(sb);",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "шОУГ",
+     "is_correct": false
+    },
+    {
+     "text": "УГшО",
+     "is_correct": true
+    },
+    {
+     "text": "ГУОш",
+     "is_correct": false
+    },
+    {
+     "text": "ОшГУ",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "add(0, x) вставляет элемент в начало и сдвигает остальные.",
+   "code": "ArrayList<String> list = new ArrayList<>();\nlist.add(\"Ош\");\nlist.add(\"Узген\");\nlist.add(0, \"Ноокат\");\nSystem.out.println(list);",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "[Ноокат, Узген]",
+     "is_correct": false
+    },
+    {
+     "text": "[Ош, Ноокат, Узген]",
+     "is_correct": false
+    },
+    {
+     "text": "[Ноокат, Ош, Узген]",
+     "is_correct": true
+    },
+    {
+     "text": "[Ош, Узген, Ноокат]",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "remove(1) с int удаляет элемент по индексу 1, а не значение 1.",
+   "code": "ArrayList<Integer> list = new ArrayList<>(List.of(10, 20, 30));\nlist.remove(1);\nSystem.out.println(list);",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "[10, 20, 30]",
+     "is_correct": false
+    },
+    {
+     "text": "Ошибка",
+     "is_correct": false
+    },
+    {
+     "text": "[10, 30]",
+     "is_correct": true
+    },
+    {
+     "text": "[20, 30]",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Повторный put по тому же ключу заменяет значение.",
+   "code": "HashMap<String, Integer> m = new HashMap<>();\nm.put(\"плов\", 1);\nm.put(\"плов\", 2);\nSystem.out.println(m.size() + \" \" + m.get(\"плов\"));",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "1 1",
+     "is_correct": false
+    },
+    {
+     "text": "1 2",
+     "is_correct": true
+    },
+    {
+     "text": "2 2",
+     "is_correct": false
+    },
+    {
+     "text": "2 1",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Какое ключевое слово запрещает менять переменную после присваивания? Введите его.",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "final"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Принцип ООП: данные прячутся внутри класса (private-поля), а наружу открываются только методы",
+   "time_limit": 40,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ИНКАПСУЛЯЦИЯ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Java и JavaScript — это один и тот же язык.",
+   "time_limit": 10,
+   "weight": 0,
+   "explanation": "Совпадение в названии — маркетинг 1995 года. Языки разные.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет фрагмент программы?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "int age = 17;\nSystem.out.println(age >= 18 ? \"может голосовать\" : \"пока рано\");",
+   "code_language": "java",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "false",
+     "is_correct": false
+    },
+    {
+     "text": "может голосовать",
+     "is_correct": false
+    },
+    {
+     "text": "пока рано",
+     "is_correct": true
+    },
+    {
+     "text": "true",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}
