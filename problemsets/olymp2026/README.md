@@ -78,6 +78,9 @@ bash tm.sh имя...    # время эталона на каждом тесте
 
 ## Загрузка на сайт
 
+На сервере это делается само: после выката `scripts/deploy.sh` вызывает `scripts/server/import_problemsets.sh`,
+который собирает тесты недостающих задач на judge.oshsu.kg и добавляет их на сайт. Вручную:
+
 ```bash
 python manage.py import_problemset /root/olymp2026/build --dry-run
 python manage.py import_problemset /root/olymp2026/build --public --author samat1

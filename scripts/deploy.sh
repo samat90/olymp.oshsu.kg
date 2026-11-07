@@ -86,6 +86,7 @@ for i in $(seq 1 30); do
     if [ "$code" = "200" ]; then
         log "OK: site answers 200. Backup: $BACKUP"
         bash scripts/server/sync_runner.sh || log "The code runner on the judge was not updated (see above)."
+        bash scripts/server/import_problemsets.sh ${OLYMP_PROBLEMSETS:-olymp2026} || log "Not every new problem set was added (see above); the site is not affected."
         "$PY" manage.py security_report || true
         exit 0
     fi
