@@ -42,13 +42,14 @@
             white-space: nowrap;
         }
 
-        .col-time, .col-mem { text-align: right; }
+        .col-points, .col-time, .col-mem { text-align: right; }
         .col-actions       { width: 70px; text-align: center; }
         .col-id            { width: 64px; }
         .col-date          { width: 140px; }
         .col-author        { width: 160px; }
         .col-lang          { width: 70px; }
         .col-verdict       { width: 220px; }
+        .col-points        { width: 76px; }
         .col-time          { width: 70px; }
         .col-mem           { width: 86px; }
     }
@@ -146,13 +147,13 @@
             &.v-G   .verdict, &.v-QU .verdict { color: #6c757d; font-weight: 500; }
         }
 
-        td.sub-time, td.sub-mem {
+        td.sub-points, td.sub-time, td.sub-mem {
             text-align: right;
             font-variant-numeric: tabular-nums;
             color: $color_primary75;
         }
 
-        td.sub-time {
+        td.sub-points, td.sub-time {
             font-weight: 500;
             color: $color_primary100;
         }

@@ -8,6 +8,7 @@ from django.core.exceptions import PermissionDenied
 from django.db.models import Q
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
+from django.template.defaultfilters import floatformat
 from django.urls import path, reverse
 from django.utils.decorators import method_decorator
 from django.utils.html import format_html
@@ -124,7 +125,7 @@ class SubmissionAdmin(VersionAdmin):
               'language', 'status', 'result', 'case_points', 'case_total', 'judged_on', 'error')
     actions = ('judge', 'recalculate_score')
     list_display = ('id', 'problem_code', 'problem_name', 'user_column', 'execution_time', 'pretty_memory',
-                    'points', 'language_column', 'status', 'result', 'judge_column')
+                    'points_column', 'language_column', 'status', 'result', 'judge_column')
     list_filter = ('language', SubmissionStatusFilter, SubmissionResultFilter)
     search_fields = ('problem__code', 'problem__name', 'user__user__username')
     actions_on_top = True
@@ -142,7 +143,7 @@ class SubmissionAdmin(VersionAdmin):
     def get_queryset(self, request):
         queryset = Submission.objects.select_related('problem', 'user__user', 'language').only(
             'problem__code', 'problem__name', 'user__user__username', 'language__name',
-            'time', 'memory', 'points', 'status', 'result',
+            'problem__points', 'time', 'memory', 'points', 'status', 'result',
         )
         use_straight_join(queryset)
         if not request.user.has_perm('judge.edit_all_problem'):
@@ -239,6 +240,12 @@ class SubmissionAdmin(VersionAdmin):
             return gettext('%d KB') % memory
         else:
             return gettext('%.2f MB') % (memory / 1024)
+
+    @admin.display(description=_('points'), ordering='points')
+    def points_column(self, obj):
+        if obj.points is None:
+            return '—'
+        return '%s/%s' % (floatformat(obj.points, -1), floatformat(obj.problem.points, -1))
 
     @admin.display(description=_('language'), ordering='language__name')
     def language_column(self, obj):
