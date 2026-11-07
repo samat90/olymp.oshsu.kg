@@ -3735,3 +3735,6 @@ msgstr "Текшерүү катасы"
 
 msgid "Skipped"
 msgstr "Өткөрүлдү"
+
+msgid "Grading"
+msgstr "Текшерилүүдө"
