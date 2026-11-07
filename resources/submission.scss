@@ -44,14 +44,14 @@
 
         .col-points, .col-time, .col-mem { text-align: right; }
         .col-actions       { width: 70px; text-align: center; }
-        .col-id            { width: 64px; }
-        .col-date          { width: 140px; }
-        .col-author        { width: 160px; }
-        .col-lang          { width: 70px; }
-        .col-verdict       { width: 220px; }
-        .col-points        { width: 76px; }
-        .col-time          { width: 70px; }
-        .col-mem           { width: 86px; }
+        .col-id            { width: 56px; }
+        .col-date          { width: 120px; }
+        .col-author        { width: 120px; }
+        .col-lang          { width: 64px; }
+        .col-verdict       { width: 150px; }
+        .col-points        { width: 64px; }
+        .col-time          { width: 56px; }
+        .col-mem           { width: 76px; }
     }
 
     tbody {
@@ -216,88 +216,96 @@ label[for="language"], label[for="status"] {
     padding-top: 0;
 }
 
-/* Mobile: hide non-critical columns rather than wrap. */
-@media (max-width: 1100px) {
-    .submissions-list-table {
-        .col-mem, td.sub-mem,
-        .col-actions, td.sub-actions {
-            display: none;
-        }
-    }
-}
-
 @media (max-width: 800px) {
-    .submissions-list-table {
-        /* Auto layout: visible columns size to content, no overflow. */
-        table-layout: auto;
-        font-size: 0.84em;
-
-        thead th, tbody > tr > td {
-            padding: 6px 8px;
-        }
-
-        .col-author, td.sub-author {
-            display: none;
-        }
-
-        /* Mobile rows should be uniform height — score on its own line
-         * inflates rows where it appears. Hide score to keep consistency. */
-        td.sub-verdict .score {
-            display: none;
-        }
-
-        /* Allow long verdict text and problem names to wrap rather than
-         * ellipsis-cut. Use tbody tr > td prefix to beat default desktop
-         * `> td { white-space: nowrap }` specificity. */
-        tbody tr > td.sub-verdict {
-            white-space: normal;
-            line-height: 1.25;
-        }
-
-        /* Problem column should take remaining space and only break
-         * truly unbreakable strings. min-width keeps it readable. */
-        tbody tr > td.sub-problem {
-            white-space: normal;
-            overflow-wrap: anywhere;
-        }
-
-        /* Min-widths so columns don't get over-squeezed at narrow viewports. */
-        .col-id,      td.sub-id      { min-width: 32px; }
-        .col-problem, td.sub-problem { min-width: 100px; }
-        .col-verdict, td.sub-verdict { min-width: 46px; }
-        .col-time,    td.sub-time    { min-width: 60px; width: 60px; }
-    }
-
     #content-right.submission {
         display: none;
     }
 }
 
-@media (max-width: 560px) {
+/* Narrow screens: one card per submission, every field visible.
+ *   #id                 date
+ *   problem
+ *   user                language
+ *   result  score  time  memory  actions */
+@media (max-width: 1200px) {
     .submissions-list-table {
-        .col-date, td.sub-date,
-        .col-lang, td.sub-lang {
+        display: block;
+        border: none;
+        border-radius: 0;
+        background: none;
+        overflow: visible;
+        font-size: 0.92em;
+
+        thead {
             display: none;
         }
 
-        .col-id, .col-verdict { width: auto; }
+        tbody {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 8px;
 
-        /* Swap long verdict text → compact code (AC/WA/RTE) для узких экранов.
-         * tbody сильнее специфичности default-правила .verdict.short {display:none}. */
-        tbody td.sub-verdict {
-            text-align: center;
+            tr.submission-row {
+                display: grid;
+                grid-template-columns: 1fr auto auto auto auto;
+                grid-template-areas:
+                    "id   id   date date date"
+                    "prob prob prob prob prob"
+                    "user user user lang lang"
+                    "verd pts  time mem  act";
+                align-items: center;
+                align-content: start;
+                padding: 6px 4px;
+                border: 1px solid $color_primary25;
+                border-radius: 6px;
 
-            .verdict.long  { display: none; }
-            .verdict.short { display: inline; font-family: $monospace-fonts; }
+                &:nth-child(even) {
+                    background: $color_primary0;
+                }
+
+                > td {
+                    display: block;
+                    padding: 2px 6px;
+                    border-bottom: none;
+                    background: none;
+                    box-shadow: none;
+                    min-width: 0;
+                }
+            }
+
+            tr.submission-mine {
+                background: rgba(76, 141, 255, .12);
+                box-shadow: inset 3px 0 0 #4c8dff;
+            }
+
+            tr.submission-just-sent {
+                background: rgba(76, 141, 255, .26);
+            }
+
+            td.sub-id      { grid-area: id; }
+            td.sub-date    { grid-area: date; text-align: right; font-size: 0.9em; }
+            td.sub-problem { grid-area: prob; white-space: normal; overflow-wrap: anywhere; }
+            td.sub-author  { grid-area: user; }
+            td.sub-lang    { grid-area: lang; text-align: right; }
+            td.sub-verdict { grid-area: verd; }
+            td.sub-points  { grid-area: pts; }
+            td.sub-time    { grid-area: time; }
+            td.sub-mem     { grid-area: mem; }
+            td.sub-actions { grid-area: act; }
+
+            tr > td.sub-problem a {
+                font-weight: 600;
+            }
+
+            tr > td.sub-verdict {
+                white-space: normal;
+                line-height: 1.25;
+            }
+
+            tr > td.sub-mem, tr > td.sub-actions {
+                display: block;
+            }
         }
-    }
-}
-
-/* На самых узких экранах (~iPhone SE/Android small ≤ 360) прячем ВРЕМЯ,
- * чтоб ID/Задача/Результат поместились без обрезки. */
-@media (max-width: 359px) {
-    .submissions-list-table {
-        .col-time, td.sub-time { display: none; }
     }
 }
 
