@@ -6,8 +6,9 @@
 #
 # The tests are not stored in git: they are generated on judge.oshsu.kg (it has g++ and python3) by the
 # set's build.py, copied back over the LAN and added with manage.py import_problemset, which never
-# changes or deletes existing problems. When a whole set is on the site, a marker file is written and
-# the set is not looked at again (renaming a problem later will not bring the old copy back).
+# changes or deletes existing problems. Problems are added one by one within a time budget; the next run
+# (scripts/server/autodeploy.sh calls this every few minutes) continues. When a whole set is on the site,
+# a marker file is written and the set is not looked at again (a renamed problem will not come back).
 set -uo pipefail
 
 APP=${OLYMP_APP:-/var/www/olymp.oshsu.kg}
@@ -17,7 +18,8 @@ SSH=${OLYMP_JUDGE_SSH:-ssh -o BatchMode=yes -o ConnectTimeout=10 -o StrictHostKe
 WORK=${OLYMP_PROBLEMSET_WORK:-/home/admin/problemsets}
 JWORK=${OLYMP_PROBLEMSET_JUDGE_WORK:-/home/admin/problemsets-build}
 AUTHOR=${OLYMP_PROBLEMSET_AUTHOR:-samat1}
-JOBS=${OLYMP_PROBLEMSET_JOBS:-6}
+BUDGET=${OLYMP_PROBLEMSET_BUDGET:-1200}  # seconds per run
+START=$(date +%s)
 
 log() { echo "[$(date +%H:%M:%S)] problemsets: $*"; }
 free_gb() { df -Pk "$1" 2>/dev/null | awk 'NR == 2 { print int($4 / 1048576) }'; }
@@ -44,38 +46,30 @@ for d in sorted(os.listdir(src)):
     fi
     log "$set: adding $(echo $missing | wc -w) problems: $missing"
 
-    if [ "$(free_gb "$WORK")" -lt 4 ]; then log "$set: less than 4 GB free in $WORK, skipped"; status=1; continue; fi
+    if [ "$(free_gb "$WORK")" -lt 1 ]; then log "$set: less than 1 GB free in $WORK, skipped"; status=1; continue; fi
     if ! $SSH "$JUDGE" true; then log "$set: no SSH access to $JUDGE, skipped"; status=1; continue; fi
     jfree=$($SSH "$JUDGE" "mkdir -p '$JWORK' && df -Pk '$JWORK' | awk 'NR == 2 { print int(\$4 / 1048576) }'")
-    if [ "${jfree:-0}" -lt 4 ]; then log "$set: less than 4 GB free on the judge, skipped"; status=1; continue; fi
+    if [ "${jfree:-0}" -lt 1 ]; then log "$set: less than 1 GB free on the judge, skipped"; status=1; continue; fi
 
-    log "$set: generating the tests on the judge"
     if ! tar cf - --exclude=./build -C "$src" . | $SSH "$JUDGE" "set -e; rm -rf '$JWORK/$set'; mkdir -p '$JWORK/$set'; tar xf - -C '$JWORK/$set'"; then
         log "$set: copying the sources failed"; status=1; continue
     fi
-    $SSH "$JUDGE" "cd '$JWORK/$set' && printf '%s\n' $missing | xargs -P $JOBS -I{} python3 build.py {} --no-stress > build.log 2>&1; \
-        grep -E '^(FAILED|[a-z0-9]+: [0-9]+ tests)' build.log" | sed 's/^/    /'
-    if $SSH "$JUDGE" "grep -q '^FAILED' '$JWORK/$set/build.log'"; then
-        log "$set: some problems were not built (see $JWORK/$set/build.log on the judge), nothing imported"
-        status=1; continue
-    fi
-
-    log "$set: copying the tests"
-    rm -rf "$WORK/$set"
-    mkdir -p "$WORK/$set"
-    if ! $SSH "$JUDGE" "tar cf - --exclude=build/.bin -C '$JWORK/$set' build" | tar xf - -C "$WORK/$set"; then
-        log "$set: copying the tests failed"; status=1; continue
-    fi
-
-    log "$set: import"
-    if (cd "$APP" && "$PY" manage.py import_problemset "$WORK/$set/build" --only $missing --public --author "$AUTHOR"); then
-        touch "$WORK/$set.done"
+    # One problem at a time, so that an interrupted run keeps what it has added; the next run continues.
+    for d in $missing; do
+        if [ $(( $(date +%s) - START )) -gt "$BUDGET" ]; then log "$set: time is up, the rest will be added by the next run"; break; fi
+        if [ -f "$WORK/$set.$d.failed" ]; then continue; fi
+        log "$set/$d: generating the tests on the judge"
+        if ! $SSH "$JUDGE" "cd '$JWORK/$set' && python3 build.py $d --no-stress --no-brute > build-$d.log 2>&1"; then
+            log "$set/$d: not built: $($SSH "$JUDGE" "tail -c 300 '$JWORK/$set/build-$d.log'")"
+            touch "$WORK/$set.$d.failed"; status=1; continue
+        fi
         rm -rf "$WORK/$set"
-        $SSH "$JUDGE" "rm -rf '$JWORK/$set/build'" || true
-        log "$set: done"
-    else
-        log "$set: import failed (the tests stay in $WORK/$set/build)"
-        status=1
-    fi
+        mkdir -p "$WORK/$set/build"
+        if ! $SSH "$JUDGE" "tar cf - -C '$JWORK/$set/build' $d && rm -rf '$JWORK/$set/build/$d'" | tar xf - -C "$WORK/$set/build"; then
+            log "$set/$d: copying the tests failed"; status=1; continue
+        fi
+        (cd "$APP" && "$PY" manage.py import_problemset "$WORK/$set/build" --only $d --public --author "$AUTHOR") | sed 's/^/    /'
+        rm -rf "$WORK/$set"
+    done
 done
 exit $status

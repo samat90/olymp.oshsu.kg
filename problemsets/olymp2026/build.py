@@ -10,7 +10,7 @@ Every problem lives in its own folder with:
     samples/N.in   samples shown in the statement
     img/           pictures for the statement
 
-Usage (inside WSL or Linux):  python3 build.py [problem ...] [--no-stress]
+Usage (inside WSL or Linux):  python3 build.py [problem ...] [--no-stress] [--no-brute]
 Output goes to build/<problem>/: tests/NN.in|out, statement.md, manifest.json.
 """
 import hashlib
@@ -82,7 +82,7 @@ def stress(name, folder, meta, sol, brute, gen):
         log('  %s: %d stress tests agree' % (name, total))
 
 
-def build(name, no_stress=False):
+def build(name, no_stress=False, no_brute=False):
     folder = os.path.join(ROOT, name)
     meta = json.load(open(os.path.join(folder, 'problem.json'), encoding='utf-8'))
     out = os.path.join(BUILD, name)
@@ -90,7 +90,7 @@ def build(name, no_stress=False):
     os.makedirs(os.path.join(out, 'tests'), exist_ok=True)
 
     sol = program(folder, 'sol')
-    brute = program(folder, 'brute')
+    brute = None if no_brute else program(folder, 'brute')
     gen = [sys.executable, os.path.join(folder, 'gen.py')]
     if brute and not no_stress:
         stress(name, folder, meta, sol, brute, gen)
@@ -188,7 +188,7 @@ def main():
     failed = []
     for name in names:
         try:
-            build(name, no_stress='--no-stress' in sys.argv)
+            build(name, no_stress='--no-stress' in sys.argv, no_brute='--no-brute' in sys.argv)
         except Exception as e:  # keep going so that one broken problem does not hide the others
             log('FAILED %s: %s' % (name, e))
             failed.append(name)

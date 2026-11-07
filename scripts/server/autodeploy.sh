@@ -41,7 +41,23 @@ G="git --git-dir=$REPO"
 $G fetch -q "$REMOTE" "+refs/heads/main:refs/remotes/origin/main" || { log "GitHub is not reachable"; exit 0; }
 new=$($G rev-parse refs/remotes/origin/main)
 current=$(cat "$APP/.deployed-revision" 2>/dev/null || $G rev-parse main)
-[ "$new" = "$current" ] && exit 0
+if [ "$new" = "$current" ]; then
+    # Nothing to deploy: use the quiet time to add new problem sets (only when no olympiad is running,
+    # the tests are generated on the judge machine).
+    pending=0
+    for set in ${OLYMP_PROBLEMSETS:-olymp2026}; do
+        [ -d "$APP/problemsets/$set" ] && [ ! -f "/home/admin/problemsets/$set.done" ] && pending=1
+    done
+    if [ "$pending" = 1 ]; then
+        busy=$(cd "$APP" && venv/bin/python manage.py shell -c "
+from django.utils import timezone
+from judge.models import Contest
+now = timezone.now()
+print(Contest.objects.filter(start_time__lte=now, end_time__gt=now).count())" 2>/dev/null)
+        [ "$busy" = "0" ] && bash "$APP/scripts/server/import_problemsets.sh" ${OLYMP_PROBLEMSETS:-olymp2026}
+    fi
+    exit 0
+fi
 
 short=${new:0:9}
 refused="$STATE/refused-$short"
