@@ -245,7 +245,7 @@ class SubmissionAdmin(VersionAdmin):
     def points_column(self, obj):
         if obj.points is None:
             return '—'
-        return '%s/%s' % (floatformat(obj.points, -1), floatformat(obj.problem.points, -1))
+        return '%s/%s' % (floatformat(obj.points, 0), floatformat(obj.problem.points, 0))
 
     @admin.display(description=_('language'), ordering='language__name')
     def language_column(self, obj):

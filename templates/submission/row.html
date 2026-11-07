@@ -46,7 +46,7 @@
 </td>
 <td class="sub-points">
     {%- if submission.is_graded and submission.status not in ('IE', 'AB') and submission.points is not none -%}
-        {{ submission.points|floatformat(-1) }}/{{ submission.problem.points|floatformat(-1) }}
+        {{ submission.points|floatformat(0) }}/{{ submission.problem.points|floatformat(0) }}
     {%- else -%}—{%- endif -%}
 </td>
 <td class="sub-time">
