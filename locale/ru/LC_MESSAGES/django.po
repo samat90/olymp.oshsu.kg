@@ -7462,3 +7462,15 @@ msgstr "Викторина"
 
 msgid "Group games by PIN"
 msgstr "Игры с группой по PIN"
+
+msgid "Wrong answer"
+msgstr "Неверный ответ"
+
+msgid "Execution error"
+msgstr "Ошибка выполнения"
+
+msgid "Judge error"
+msgstr "Ошибка проверки"
+
+msgid "Skipped"
+msgstr "Пропущено"

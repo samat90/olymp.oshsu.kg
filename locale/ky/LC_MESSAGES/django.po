@@ -3723,3 +3723,15 @@ msgstr " · суроолор: "
 
 msgid "Новая викторина"
 msgstr "Жаңы викторина"
+
+msgid "Wrong answer"
+msgstr "Туура эмес жооп"
+
+msgid "Execution error"
+msgstr "Аткаруу катасы"
+
+msgid "Judge error"
+msgstr "Текшерүү катасы"
+
+msgid "Skipped"
+msgstr "Өткөрүлдү"

@@ -28,8 +28,14 @@
 <td class="sub-lang">{{ submission.language.short_display_name }}</td>
 <td class="sub-verdict v-{{ submission.result_class }}">
     {%- if submission.is_graded -%}
-        <span class="verdict long" title="{{ submission.long_status }}">{{ submission.long_status }}</span>
-        <span class="verdict short" title="{{ submission.long_status }}">{{ submission.short_status }}</span>
+        {% set verdict = {
+            'AC': _('Accepted'), 'WA': _('Wrong answer'), 'TLE': _('Time limit exceeded'),
+            'MLE': _('Memory limit exceeded'), 'OLE': _('Output limit exceeded'), 'IR': _('Execution error'),
+            'RTE': _('Execution error'), 'CE': _('Compilation error'), 'IE': _('Judge error'),
+            'SC': _('Skipped'), 'AB': _('Aborted'),
+        }.get(submission.short_status) or submission.long_status %}
+        <span class="verdict long" title="{{ verdict }}">{{ verdict }}</span>
+        <span class="verdict short" title="{{ verdict }}">{{ submission.short_status }}</span>
     {%- elif submission.status == 'G' -%}
         <span class="verdict long"><i class="fa fa-spinner fa-pulse"></i> {{ _('Grading') }}</span>
         <span class="verdict short"><i class="fa fa-spinner fa-pulse"></i></span>
