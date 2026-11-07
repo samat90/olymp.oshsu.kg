@@ -1,0 +1,13 @@
+{
+ "name": "Ветки арчи",
+ "time": 2, "memory": 256, "difficulty": 90, "points": 100,
+ "types": ["Теория игр", "Графы", "DP"],
+ "brute_tests": [1, 2, 3, 4],
+ "stress": [[6, "rand"], [8, "rand"], [9, "star"], [10, "path"], [9, "binary"]],
+ "tests": [
+  [8, "rand", 1], [10, "rand", 2], [11, "binary", 3], [12, "caterpillar", 4],
+  [1000, "rand", 5], [200000, "rand", 6], [200000, "path", 7], [200000, "star", 8], [200000, "binary", 9],
+  [200000, "caterpillar", 10], [200000, "deep", 11], [200000, "broom", 12], [200000, "sqrt", 13], [200000, "rand", 14],
+  [199999, "binary", 15], [200000, "deep", 16], [200000, "caterpillar", 17], [1, "rand", 18], [2, "path", 19], [200000, "rand", 20]
+ ]
+}
