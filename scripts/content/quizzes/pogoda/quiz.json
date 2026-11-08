@@ -1,0 +1,698 @@
+{
+ "key": "pogoda",
+ "title": "Погода и природные явления",
+ "subject": "Природа",
+ "theme": "night",
+ "description": "25 вопросов о погоде, облаках, грозах, радуге, ураганах и полярном сиянии. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: что за явление на фото?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: United States Air Force photo by Senior Airman Joshua Strang, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Aurora_borealis_over_Eielson_Air_Force_Base,_Alaska.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Полярное сияние",
+     "is_correct": true
+    },
+    {
+     "text": "Мираж",
+     "is_correct": false
+    },
+    {
+     "text": "Радуга",
+     "is_correct": false
+    },
+    {
+     "text": "Гало",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Сколько цветов в радуге?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Eric Rolph at English Wikipedia, CC BY-SA 2.5, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Double-alaskan-rainbow.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "8",
+     "is_correct": false
+    },
+    {
+     "text": "7",
+     "is_correct": true
+    },
+    {
+     "text": "5",
+     "is_correct": false
+    },
+    {
+     "text": "6",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "order",
+   "text": "Расставьте цвета радуги по порядку, начиная с внешнего края.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Красный",
+     "is_correct": false
+    },
+    {
+     "text": "Оранжевый",
+     "is_correct": false
+    },
+    {
+     "text": "Жёлтый",
+     "is_correct": false
+    },
+    {
+     "text": "Зелёный",
+     "is_correct": false
+    },
+    {
+     "text": "Голубой",
+     "is_correct": false
+    },
+    {
+     "text": "Синий",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Почему мы сначала видим молнию, а потом слышим гром?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Гром рождается позже",
+     "is_correct": false
+    },
+    {
+     "text": "Свет быстрее звука",
+     "is_correct": true
+    },
+    {
+     "text": "Уши медленнее глаз",
+     "is_correct": false
+    },
+    {
+     "text": "Звук идёт по земле",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Сколько секунд нужно звуку, чтобы пройти 1 км (примерно)?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 1,
+    "max": 10,
+    "step": 1,
+    "answer": 3,
+    "unit": "с",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что за облака на фото — высокие «перья»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: PiccoloNamek, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:CirrusField-color.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Грозовые",
+     "is_correct": false
+    },
+    {
+     "text": "Перистые",
+     "is_correct": true
+    },
+    {
+     "text": "Слоистые",
+     "is_correct": false
+    },
+    {
+     "text": "Кучевые",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "А эти — огромные грозовые башни?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Kamil Nowacki, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cumulonimbus_incus_over_Warsaw,_Poland.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Слоистые",
+     "is_correct": false
+    },
+    {
+     "text": "Перистые",
+     "is_correct": false
+    },
+    {
+     "text": "Кучево-дождевые",
+     "is_correct": true
+    },
+    {
+     "text": "Высококучевые",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Молния никогда не бьёт в одно и то же место дважды.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Бьёт! В высокие здания — много раз в год.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется вращающийся столб воздуха от облака до земли?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Justin Hobson (Justin1569 at English Wikipedia), CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:F5_tornado_Elie_Manitoba_2007.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Муссон",
+     "is_correct": false
+    },
+    {
+     "text": "Мираж",
+     "is_correct": false
+    },
+    {
+     "text": "Торнадо (смерч)",
+     "is_correct": true
+    },
+    {
+     "text": "Бриз",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чем измеряют атмосферное давление?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Барометром",
+     "is_correct": true
+    },
+    {
+     "text": "Анемометром",
+     "is_correct": false
+    },
+    {
+     "text": "Гигрометром",
+     "is_correct": false
+    },
+    {
+     "text": "Термометром",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие приборы есть на метеостанции?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Телескоп",
+     "is_correct": false
+    },
+    {
+     "text": "Термометр",
+     "is_correct": true
+    },
+    {
+     "text": "Осадкомер",
+     "is_correct": true
+    },
+    {
+     "text": "Анемометр (ветер)",
+     "is_correct": true
+    },
+    {
+     "text": "Барометр",
+     "is_correct": true
+    },
+    {
+     "text": "Микроскоп",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Почему небо голубое?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Отражает океан",
+     "is_correct": false
+    },
+    {
+     "text": "Воздух сильнее рассеивает синий свет",
+     "is_correct": true
+    },
+    {
+     "text": "Из-за облаков",
+     "is_correct": false
+    },
+    {
+     "text": "Так окрашен кислород",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется тёплый сухой ветер с гор, который бывает в Кыргызстане?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сирокко",
+     "is_correct": false
+    },
+    {
+     "text": "Бора",
+     "is_correct": false
+    },
+    {
+     "text": "Фён",
+     "is_correct": true
+    },
+    {
+     "text": "Мистраль",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется явление, когда в жаркой пустыне вдали видно «озеро», которого нет?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Brocken Inaglory, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Farallon_Islands_at_inferior_mirage_no_mirage_and_superior_mirage.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мираж",
+     "is_correct": true
+    },
+    {
+     "text": "Радуга",
+     "is_correct": false
+    },
+    {
+     "text": "Туман",
+     "is_correct": false
+    },
+    {
+     "text": "Полярное сияние",
+     "is_correct": false
+    }
+   ],
+   "image": "q14.jpg"
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: тропический ураган в Тихом океане.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ТАЙФУН"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется самая холодная точка, где жили люди, — посёлок в Якутии?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Ilya Varlamov, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Oymyakon_-_190228_DSC_5642.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верхоянск",
+     "is_correct": false
+    },
+    {
+     "text": "Норильск",
+     "is_correct": false
+    },
+    {
+     "text": "Мирный",
+     "is_correct": false
+    },
+    {
+     "text": "Оймякон",
+     "is_correct": true
+    }
+   ],
+   "image": "q16.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Каждая снежинка шестиугольная.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Почти все снежинки имеют шесть лучей или граней.\n\n*Фото: Janek Lass, CC BY 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Snowflake_%28lumehelves%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется град?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ледяные шарики из грозового облака",
+     "is_correct": true
+    },
+    {
+     "text": "Мокрый снег",
+     "is_correct": false
+    },
+    {
+     "text": "Роса",
+     "is_correct": false
+    },
+    {
+     "text": "Иней",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется капля воды на траве утром?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Иней",
+     "is_correct": false
+    },
+    {
+     "text": "Туман",
+     "is_correct": false
+    },
+    {
+     "text": "Изморозь",
+     "is_correct": false
+    },
+    {
+     "text": "Роса",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Какая самая высокая температура воздуха на Земле (°C, Долина Смерти, 1913)?",
+   "time_limit": 25,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 40,
+    "max": 70,
+    "step": 1,
+    "answer": 57,
+    "unit": "°C",
+    "tolerance": 1
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Как называется прибор для измерения температуры? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "термометр",
+     "Термометр",
+     "градусник"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Что из этого — осадки?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Снег",
+     "is_correct": true
+    },
+    {
+     "text": "Дождь",
+     "is_correct": true
+    },
+    {
+     "text": "Град",
+     "is_correct": true
+    },
+    {
+     "text": "Ветер",
+     "is_correct": false
+    },
+    {
+     "text": "Молния",
+     "is_correct": false
+    },
+    {
+     "text": "Морось",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что такое «гало» вокруг солнца?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Mitchell Underwood, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Solar_Halo_Feb_13_2021.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Полярное сияние",
+     "is_correct": false
+    },
+    {
+     "text": "Затмение",
+     "is_correct": false
+    },
+    {
+     "text": "Дым от пожара",
+     "is_correct": false
+    },
+    {
+     "text": "Кольцо из-за льдинок в высоких облаках",
+     "is_correct": true
+    }
+   ],
+   "image": "q23.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Где на Земле самое сухое место?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: NASA, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Atacama.png)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Каракумы",
+     "is_correct": false
+    },
+    {
+     "text": "Гоби",
+     "is_correct": false
+    },
+    {
+     "text": "Сахара",
+     "is_correct": false
+    },
+    {
+     "text": "Пустыня Атакама",
+     "is_correct": true
+    }
+   ],
+   "image": "q24.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Что вызывает полярное сияние?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Отражение льда",
+     "is_correct": false
+    },
+    {
+     "text": "Луна",
+     "is_correct": false
+    },
+    {
+     "text": "Частицы солнечного ветра в магнитном поле Земли",
+     "is_correct": true
+    },
+    {
+     "text": "Вулканы",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

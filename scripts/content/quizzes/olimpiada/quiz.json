@@ -1,0 +1,689 @@
+{
+ "key": "olimpiada",
+ "title": "Олимпийские игры",
+ "subject": "Спорт",
+ "theme": "steppe",
+ "description": "25 вопросов об Олимпийских играх: символы, города, рекорды и чемпионы. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: сколько колец на олимпийском флаге?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Original author: Pierre de Coubertin (1863-1937), Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Olympic_rings_without_rims.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "6",
+     "is_correct": false
+    },
+    {
+     "text": "7",
+     "is_correct": false
+    },
+    {
+     "text": "4",
+     "is_correct": false
+    },
+    {
+     "text": "5",
+     "is_correct": true
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Где проводились Олимпийские игры в древности?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: John Karakatsanis from Athens, Greece, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ancient_Olympia,_Greece2.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В Риме",
+     "is_correct": false
+    },
+    {
+     "text": "В Афинах",
+     "is_correct": false
+    },
+    {
+     "text": "В Олимпии, Греция",
+     "is_correct": true
+    },
+    {
+     "text": "В Спарте",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "В каком году прошли первые современные Олимпийские игры?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 1850,
+    "max": 1950,
+    "step": 2,
+    "answer": 1896,
+    "unit": "",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В каком городе прошли первые современные Олимпийские игры?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лондон",
+     "is_correct": false
+    },
+    {
+     "text": "Афины",
+     "is_correct": true
+    },
+    {
+     "text": "Олимпия",
+     "is_correct": false
+    },
+    {
+     "text": "Париж",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто на фото — самый быстрый человек на планете?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Erik van Leeuwen, GFDL, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Usain_Bolt_smiling_Berlin_2009.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тайсон Гэй",
+     "is_correct": false
+    },
+    {
+     "text": "Усэйн Болт",
+     "is_correct": true
+    },
+    {
+     "text": "Карл Льюис",
+     "is_correct": false
+    },
+    {
+     "text": "Йохан Блейк",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Этот пловец — рекордсмен по числу олимпийских золотых медалей (23). Кто он?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Agência Brasil Fotografias, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Michael_Phelps_Rio_Olympics_2016.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ян Торп",
+     "is_correct": false
+    },
+    {
+     "text": "Райан Лохте",
+     "is_correct": false
+    },
+    {
+     "text": "Марк Спитц",
+     "is_correct": false
+    },
+    {
+     "text": "Майкл Фелпс",
+     "is_correct": true
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Где проходили летние Олимпийские игры 2024 года?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Токио",
+     "is_correct": false
+    },
+    {
+     "text": "Лос-Анджелес",
+     "is_correct": false
+    },
+    {
+     "text": "Лондон",
+     "is_correct": false
+    },
+    {
+     "text": "Париж",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Олимпийские медали «золото» делают целиком из чистого золота.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Это позолоченное серебро.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие виды спорта входят в зимние Олимпийские игры?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Плавание",
+     "is_correct": false
+    },
+    {
+     "text": "Бокс",
+     "is_correct": false
+    },
+    {
+     "text": "Биатлон",
+     "is_correct": true
+    },
+    {
+     "text": "Хоккей",
+     "is_correct": true
+    },
+    {
+     "text": "Кёрлинг",
+     "is_correct": true
+    },
+    {
+     "text": "Фигурное катание",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой город принимал и летние (2008), и зимние (2022) Олимпийские игры?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пекин",
+     "is_correct": true
+    },
+    {
+     "text": "Токио",
+     "is_correct": false
+    },
+    {
+     "text": "Лондон",
+     "is_correct": false
+    },
+    {
+     "text": "Сочи",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Этот стадион в Пекине прозвали «Птичьим гнездом». Для каких игр его построили?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: CEphoto, Uwe Aranas, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Beijing_China_Beijing-National-Stadium-01.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чемпионат мира по футболу",
+     "is_correct": false
+    },
+    {
+     "text": "Летние Олимпийские игры 2008",
+     "is_correct": true
+    },
+    {
+     "text": "Зимние игры 1998",
+     "is_correct": false
+    },
+    {
+     "text": "Азиатские игры 1990",
+     "is_correct": false
+    }
+   ],
+   "image": "q11.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется девиз Олимпийских игр?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Быстрее, выше, сильнее — вместе»",
+     "is_correct": true
+    },
+    {
+     "text": "«Мир и дружба»",
+     "is_correct": false
+    },
+    {
+     "text": "«Спорт для всех»",
+     "is_correct": false
+    },
+    {
+     "text": "«Победа любой ценой»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какую медаль получает спортсмен за третье место?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Медную",
+     "is_correct": false
+    },
+    {
+     "text": "Никакую",
+     "is_correct": false
+    },
+    {
+     "text": "Бронзовую",
+     "is_correct": true
+    },
+    {
+     "text": "Серебряную",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте города по годам проведения летних Игр, от ранних к поздним.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Москва",
+     "is_correct": false
+    },
+    {
+     "text": "Атланта",
+     "is_correct": false
+    },
+    {
+     "text": "Лондон",
+     "is_correct": false
+    },
+    {
+     "text": "Токио",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В каком виде спорта кыргызские спортсмены чаще всего завоёвывали олимпийские медали?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Вольная и греко-римская борьба — главный олимпийский вид Кыргызстана.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Фехтование",
+     "is_correct": false
+    },
+    {
+     "text": "Гребля",
+     "is_correct": false
+    },
+    {
+     "text": "Борьба",
+     "is_correct": true
+    },
+    {
+     "text": "Плавание",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Олимпийский огонь зажигают от солнечных лучей в греческой Олимпии.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "С помощью параболического зеркала.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто на фото — легенда гимнастики, первая получившая «10» на Олимпиаде (1976)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Nuță Lucian, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Nadia_Com%C4%83neci_at_Sports_Festival_2026.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ольга Корбут",
+     "is_correct": false
+    },
+    {
+     "text": "Надя Команечи",
+     "is_correct": true
+    },
+    {
+     "text": "Лариса Латынина",
+     "is_correct": false
+    },
+    {
+     "text": "Симона Байлз",
+     "is_correct": false
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "Раз в сколько лет проводятся летние Олимпийские игры?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 1,
+    "max": 8,
+    "step": 1,
+    "answer": 4,
+    "unit": "года",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называются игры для спортсменов с инвалидностью?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Паралимпийские игры",
+     "is_correct": true
+    },
+    {
+     "text": "Всемирные игры кочевников",
+     "is_correct": false
+    },
+    {
+     "text": "Игры доброй воли",
+     "is_correct": false
+    },
+    {
+     "text": "Юношеские игры",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: олимпийскую чашу зажигают с помощью…",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "*Фото: RuinDig/Yuki Uchida, CC BY 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tokyo2020_The-Olympic-Flame_01.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ФАКЕЛ"
+   },
+   "options": [],
+   "image": "q20.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Где пройдут летние Олимпийские игры 2028 года?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Брисбен",
+     "is_correct": false
+    },
+    {
+     "text": "Мадрид",
+     "is_correct": false
+    },
+    {
+     "text": "Стамбул",
+     "is_correct": false
+    },
+    {
+     "text": "Лос-Анджелес",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие цвета есть на олимпийских кольцах?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Фиолетовый",
+     "is_correct": false
+    },
+    {
+     "text": "Синий",
+     "is_correct": true
+    },
+    {
+     "text": "Красный",
+     "is_correct": true
+    },
+    {
+     "text": "Жёлтый",
+     "is_correct": true
+    },
+    {
+     "text": "Чёрный",
+     "is_correct": true
+    },
+    {
+     "text": "Зелёный",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Как называется бег на 42 км 195 м? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "марафон",
+     "Марафон"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Симона Байлз прославилась в каком виде спорта?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Ocoudis, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Simone_Biles_National_Team_2024.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Спортивная гимнастика",
+     "is_correct": true
+    },
+    {
+     "text": "Лёгкая атлетика",
+     "is_correct": false
+    },
+    {
+     "text": "Плавание",
+     "is_correct": false
+    },
+    {
+     "text": "Теннис",
+     "is_correct": false
+    }
+   ],
+   "image": "q24.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Кто основатель современного олимпийского движения?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: автор неизвестен, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Pierre_de_Coubertin_Anefo.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Томас Бах",
+     "is_correct": false
+    },
+    {
+     "text": "Хуан Антонио Самаранч",
+     "is_correct": false
+    },
+    {
+     "text": "Пьер де Кубертен",
+     "is_correct": true
+    },
+    {
+     "text": "Наполеон",
+     "is_correct": false
+    }
+   ],
+   "image": "q25.jpg"
+  }
+ ]
+}

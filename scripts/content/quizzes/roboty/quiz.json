@@ -1,0 +1,692 @@
+{
+ "key": "roboty",
+ "title": "Роботы и искусственный интеллект",
+ "subject": "Технологии",
+ "theme": "night",
+ "description": "25 вопросов о роботах, марсоходах, нейросетях и машинах, которые учатся сами. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: откуда слово «робот»?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "Слово «robota» по-чешски — «тяжёлый труд».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Из пьесы чешского писателя Карела Чапека",
+     "is_correct": true
+    },
+    {
+     "text": "Из японского",
+     "is_correct": false
+    },
+    {
+     "text": "Из латыни",
+     "is_correct": false
+    },
+    {
+     "text": "Из английского «rob»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется робот-марсоход, прилетевший на Марс в 2021 году вместе с вертолётом?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: NASA/JPL-Caltech, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Perseverance-Selfie-at-Rochette-Horizontal-V2.gif)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Луноход-2",
+     "is_correct": false
+    },
+    {
+     "text": "Opportunity",
+     "is_correct": false
+    },
+    {
+     "text": "Perseverance",
+     "is_correct": true
+    },
+    {
+     "text": "Curiosity",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как назывался маленький вертолёт, впервые полетевший на другой планете?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: NASA, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mars_helicopter_on_sol_46.png)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ingenuity",
+     "is_correct": true
+    },
+    {
+     "text": "Dragonfly",
+     "is_correct": false
+    },
+    {
+     "text": "Spirit",
+     "is_correct": false
+    },
+    {
+     "text": "Sputnik",
+     "is_correct": false
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой советский аппарат первым ездил по Луне (1970)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Petar Milošević, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Soviet_moonrover.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Буран»",
+     "is_correct": false
+    },
+    {
+     "text": "«Восток»",
+     "is_correct": false
+    },
+    {
+     "text": "«Луноход-1»",
+     "is_correct": true
+    },
+    {
+     "text": "«Марс-3»",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Робот-пылесос — тоже робот.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто сформулировал «три закона робототехники»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Phillip Leonian  1  from New York World-Telegram & Sun. 2, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Isaac.Asimov01.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Карел Чапек",
+     "is_correct": false
+    },
+    {
+     "text": "Илон Маск",
+     "is_correct": false
+    },
+    {
+     "text": "Айзек Азимов",
+     "is_correct": true
+    },
+    {
+     "text": "Алан Тьюринг",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой тест проверяет, может ли машина говорить так, что её не отличить от человека?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Elliott & Fry, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Alan_turing_header.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тест Азимова",
+     "is_correct": false
+    },
+    {
+     "text": "Тест IQ",
+     "is_correct": false
+    },
+    {
+     "text": "Тест Бине",
+     "is_correct": false
+    },
+    {
+     "text": "Тест Тьюринга",
+     "is_correct": true
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая программа в 2016 году обыграла одного из сильнейших игроков мира в го?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Watson",
+     "is_correct": false
+    },
+    {
+     "text": "Siri",
+     "is_correct": false
+    },
+    {
+     "text": "Deep Blue",
+     "is_correct": false
+    },
+    {
+     "text": "AlphaGo",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что такое нейронная сеть?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Программа, которая учится на примерах, похоже на мозг",
+     "is_correct": true
+    },
+    {
+     "text": "Интернет для роботов",
+     "is_correct": false
+    },
+    {
+     "text": "Вид Wi-Fi",
+     "is_correct": false
+    },
+    {
+     "text": "Сеть проводов в голове робота",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Где работают роботы уже сегодня?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "На заводах",
+     "is_correct": true
+    },
+    {
+     "text": "Робот стал президентом",
+     "is_correct": false
+    },
+    {
+     "text": "В космосе",
+     "is_correct": true
+    },
+    {
+     "text": "На складах",
+     "is_correct": true
+    },
+    {
+     "text": "В больницах (хирургия)",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется робот-собака компании Boston Dynamics?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Web Summit, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:SpotMini,_Boston_Dynamics,_Robot.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Laika",
+     "is_correct": false
+    },
+    {
+     "text": "Spot",
+     "is_correct": true
+    },
+    {
+     "text": "Rex",
+     "is_correct": false
+    },
+    {
+     "text": "Aibo",
+     "is_correct": false
+    }
+   ],
+   "image": "q11.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Японский робот-собака от Sony называется…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Marco Wydmuch, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Red_Dot_Award_Product_Design_2000-2018_Aibos.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Aibo",
+     "is_correct": true
+    },
+    {
+     "text": "ASIMO",
+     "is_correct": false
+    },
+    {
+     "text": "Pepper",
+     "is_correct": false
+    },
+    {
+     "text": "Spot",
+     "is_correct": false
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как назывался знаменитый человекоподобный робот Honda, который ходил по лестницам?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Morio, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Honda_ASIMO_%28ver._2011%29_2011_Tokyo_Motor_Show.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Sophia",
+     "is_correct": false
+    },
+    {
+     "text": "Atlas",
+     "is_correct": false
+    },
+    {
+     "text": "ASIMO",
+     "is_correct": true
+    },
+    {
+     "text": "R2-D2",
+     "is_correct": false
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "order",
+   "text": "Расставьте события по времени.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Слово «робот» в пьесе Чапека",
+     "is_correct": false
+    },
+    {
+     "text": "Deep Blue обыграл Каспарова",
+     "is_correct": false
+    },
+    {
+     "text": "AlphaGo обыграл мастера го",
+     "is_correct": false
+    },
+    {
+     "text": "Perseverance сел на Марс",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: устройство на роботе, которое «видит».",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "КАМЕРА"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Искусственный интеллект понимает мир так же, как человек.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется машина, которая ездит сама, без водителя?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кабриолет",
+     "is_correct": false
+    },
+    {
+     "text": "Беспилотный автомобиль",
+     "is_correct": true
+    },
+    {
+     "text": "Электромобиль",
+     "is_correct": false
+    },
+    {
+     "text": "Гибрид",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "В каком году вышел ChatGPT?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 2015,
+    "max": 2025,
+    "step": 1,
+    "answer": 2022,
+    "unit": "",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что делает робот-манипулятор на заводе?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: KUKA Roboter GmbH, Bachmann, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Automation_of_foundry_with_robot.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пишет книги",
+     "is_correct": false
+    },
+    {
+     "text": "Собирает и сваривает детали",
+     "is_correct": true
+    },
+    {
+     "text": "Готовит обед рабочим",
+     "is_correct": false
+    },
+    {
+     "text": "Поёт песни",
+     "is_correct": false
+    }
+   ],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется соревнование роботов, где школьники собирают их из конструктора?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Евровидение",
+     "is_correct": false
+    },
+    {
+     "text": "Олимпийские игры",
+     "is_correct": false
+    },
+    {
+     "text": "Чемпионат мира по футболу",
+     "is_correct": false
+    },
+    {
+     "text": "Робототехнические олимпиады (например, WRO)",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Как называется наука о создании роботов? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "робототехника",
+     "Робототехника",
+     "роботехника"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Что нужно роботу, чтобы двигаться?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Моторы",
+     "is_correct": true
+    },
+    {
+     "text": "Еда",
+     "is_correct": false
+    },
+    {
+     "text": "Программа",
+     "is_correct": true
+    },
+    {
+     "text": "Датчики",
+     "is_correct": true
+    },
+    {
+     "text": "Источник энергии",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой известный робот-гуманоид получила гражданство Саудовской Аравии (2017)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: ITU Pictures from Geneva, Switzerland, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sophia_at_the_AI_for_Good_Global_Summit_2018_%2827254369347%29_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ameca",
+     "is_correct": false
+    },
+    {
+     "text": "ASIMO",
+     "is_correct": false
+    },
+    {
+     "text": "Pepper",
+     "is_correct": false
+    },
+    {
+     "text": "София",
+     "is_correct": true
+    }
+   ],
+   "image": "q23.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что такое «дипфейк»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Поддельное видео или голос, созданные нейросетью",
+     "is_correct": true
+    },
+    {
+     "text": "Глубокий сон",
+     "is_correct": false
+    },
+    {
+     "text": "Видеоигра",
+     "is_correct": false
+    },
+    {
+     "text": "Вид робота",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Кто считается «отцом информатики» и взломщиком «Энигмы»?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Джон фон Нейман",
+     "is_correct": false
+    },
+    {
+     "text": "Алан Тьюринг",
+     "is_correct": true
+    },
+    {
+     "text": "Чарльз Бэббидж",
+     "is_correct": false
+    },
+    {
+     "text": "Билл Гейтс",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

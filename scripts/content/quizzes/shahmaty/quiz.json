@@ -1,0 +1,699 @@
+{
+ "key": "shahmaty",
+ "title": "Шахматы",
+ "subject": "Спорт",
+ "theme": "night",
+ "description": "25 вопросов о шахматах: фигуры, правила, чемпионы мира и знаменитые партии. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: сколько клеток на шахматной доске?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Wilfredor, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Modern_Fianchetto_Setup._Chess_game_Staunton_No._6.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "64",
+     "is_correct": true
+    },
+    {
+     "text": "100",
+     "is_correct": false
+    },
+    {
+     "text": "81",
+     "is_correct": false
+    },
+    {
+     "text": "48",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая фигура может прыгать через другие?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: MichaelMaggs, CC BY-SA 2.5, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Chess_piece_-_White_knight.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ладья",
+     "is_correct": false
+    },
+    {
+     "text": "Ферзь",
+     "is_correct": false
+    },
+    {
+     "text": "Слон",
+     "is_correct": false
+    },
+    {
+     "text": "Конь",
+     "is_correct": true
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как ходит слон?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Cburnett, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Chess_blt45.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Прямо",
+     "is_correct": false
+    },
+    {
+     "text": "Буквой «Г»",
+     "is_correct": false
+    },
+    {
+     "text": "На одну клетку",
+     "is_correct": false
+    },
+    {
+     "text": "По диагонали",
+     "is_correct": true
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая фигура самая сильная? Она на картинке.",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Cburnett, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Chess_qlt45.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Конь",
+     "is_correct": false
+    },
+    {
+     "text": "Ферзь",
+     "is_correct": true
+    },
+    {
+     "text": "Ладья",
+     "is_correct": false
+    },
+    {
+     "text": "Король",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Пешка может ходить назад.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что такое «рокировка»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Обмен ферзей",
+     "is_correct": false
+    },
+    {
+     "text": "Одновременный ход короля и ладьи",
+     "is_correct": true
+    },
+    {
+     "text": "Превращение пешки",
+     "is_correct": false
+    },
+    {
+     "text": "Ничья",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Во что превращается пешка, дойдя до последней горизонтали?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В короля",
+     "is_correct": false
+    },
+    {
+     "text": "Ни во что",
+     "is_correct": false
+    },
+    {
+     "text": "В любую фигуру, кроме короля",
+     "is_correct": true
+    },
+    {
+     "text": "Только в ферзя",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто на фото — самый высокорейтинговый шахматист в истории, из Норвегии?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Frans Peeters Photography, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Magnus_Carlsen_Tata_2023_-_71_%28cropped_v4%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Хикару Накамура",
+     "is_correct": false
+    },
+    {
+     "text": "Гарри Каспаров",
+     "is_correct": false
+    },
+    {
+     "text": "Магнус Карлсен",
+     "is_correct": true
+    },
+    {
+     "text": "Фабиано Каруана",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто на фото — 13-й чемпион мира, многолетний лидер рейтинга?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Fryta 73 from Strzegom, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Garri_Kasparow_%2818776605665%29_%28cropped%29_2.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Анатолий Карпов",
+     "is_correct": false
+    },
+    {
+     "text": "Гарри Каспаров",
+     "is_correct": true
+    },
+    {
+     "text": "Бобби Фишер",
+     "is_correct": false
+    },
+    {
+     "text": "Владимир Крамник",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой компьютер обыграл Каспарова в матче 1997 года?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: James the photographer, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Deep_Blue.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Deep Blue",
+     "is_correct": true
+    },
+    {
+     "text": "AlphaZero",
+     "is_correct": false
+    },
+    {
+     "text": "Stockfish",
+     "is_correct": false
+    },
+    {
+     "text": "Watson",
+     "is_correct": false
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется положение, когда королю шах и уйти некуда?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Цугцванг",
+     "is_correct": false
+    },
+    {
+     "text": "Пат",
+     "is_correct": false
+    },
+    {
+     "text": "Гамбит",
+     "is_correct": false
+    },
+    {
+     "text": "Мат",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "А когда ходить нечем, но шаха нет?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Проигрыш",
+     "is_correct": false
+    },
+    {
+     "text": "Мат",
+     "is_correct": false
+    },
+    {
+     "text": "Пат (ничья)",
+     "is_correct": true
+    },
+    {
+     "text": "Шах",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие фигуры есть у каждого игрока в начале партии?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "2 короля",
+     "is_correct": false
+    },
+    {
+     "text": "3 ладьи",
+     "is_correct": false
+    },
+    {
+     "text": "1 ферзь",
+     "is_correct": true
+    },
+    {
+     "text": "8 пешек",
+     "is_correct": true
+    },
+    {
+     "text": "2 коня",
+     "is_correct": true
+    },
+    {
+     "text": "2 слона",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте фигуры по силе, от слабой к сильной.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пешка",
+     "is_correct": false
+    },
+    {
+     "text": "Конь",
+     "is_correct": false
+    },
+    {
+     "text": "Ладья",
+     "is_correct": false
+    },
+    {
+     "text": "Ферзь",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется ход пешки с битьём «на проходе»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Вилка",
+     "is_correct": false
+    },
+    {
+     "text": "Связка",
+     "is_correct": false
+    },
+    {
+     "text": "Взятие на проходе",
+     "is_correct": true
+    },
+    {
+     "text": "Рокировка",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Где придумали предка шахмат — чатурангу?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Darkness1089 at English Wikipedia, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Radha-Krishna_chess.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Китай",
+     "is_correct": false
+    },
+    {
+     "text": "Индия",
+     "is_correct": true
+    },
+    {
+     "text": "Персия",
+     "is_correct": false
+    },
+    {
+     "text": "Египет",
+     "is_correct": false
+    }
+   ],
+   "image": "q16.jpg"
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: начало партии, изученное теорией.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ДЕБЮТ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Сколько всего фигур (с пешками) на доске в начале партии?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 16,
+    "max": 40,
+    "step": 1,
+    "answer": 32,
+    "unit": "фигуры",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Американский гений, ставший чемпионом мира в 1972 году в Рейкьявике, — это…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Bert Verhoeff for Anefo, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bobby_Fischer_1972.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бобби Фишер",
+     "is_correct": true
+    },
+    {
+     "text": "Хикару Накамура",
+     "is_correct": false
+    },
+    {
+     "text": "Пол Морфи",
+     "is_correct": false
+    },
+    {
+     "text": "Фабиано Каруана",
+     "is_correct": false
+    }
+   ],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Белые в шахматах ходят первыми.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется атака конём на две фигуры сразу?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Вилка",
+     "is_correct": true
+    },
+    {
+     "text": "Гамбит",
+     "is_correct": false
+    },
+    {
+     "text": "Связка",
+     "is_correct": false
+    },
+    {
+     "text": "Батарея",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Какую фигуру в народе называют «тура»? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "ладья",
+     "Ладья"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой сериал 2020 года о шахматистке Бет Хармон вызвал бум шахмат?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Ход королевы»",
+     "is_correct": true
+    },
+    {
+     "text": "«Гамбит»",
+     "is_correct": false
+    },
+    {
+     "text": "«Мат»",
+     "is_correct": false
+    },
+    {
+     "text": "«Шахматистка»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Что из этого — шахматные термины?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Офсайд",
+     "is_correct": false
+    },
+    {
+     "text": "Цейтнот",
+     "is_correct": true
+    },
+    {
+     "text": "Цугцванг",
+     "is_correct": true
+    },
+    {
+     "text": "Гамбит",
+     "is_correct": true
+    },
+    {
+     "text": "Эндшпиль",
+     "is_correct": true
+    },
+    {
+     "text": "Пенальти",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Сколько ходов в самом коротком возможном мате («дурацкий мат»)?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Белые 1.f3 и 2.g4 позволяют 2…Фh4×.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "10 ходов",
+     "is_correct": false
+    },
+    {
+     "text": "1 ход",
+     "is_correct": false
+    },
+    {
+     "text": "4 хода белых",
+     "is_correct": false
+    },
+    {
+     "text": "2 хода чёрных (4 полухода)",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  }
+ ]
+}

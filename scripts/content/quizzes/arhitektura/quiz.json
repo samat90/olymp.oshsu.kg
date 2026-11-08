@@ -1,0 +1,699 @@
+{
+ "key": "arhitektura",
+ "title": "Знаменитые здания",
+ "subject": "Искусство",
+ "theme": "lake",
+ "description": "25 вопросов об архитектуре: небоскрёбы, соборы, дворцы и мечети. Угадайте здание по фото. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: как называется это самое высокое здание мира?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: imran shahabuddin, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Burj_Khalifa_%28worlds_tallest_building%29_and_the_Dubai_skyline_%2825781049892%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Эмпайр-стейт-билдинг",
+     "is_correct": false
+    },
+    {
+     "text": "Бурдж-Халифа",
+     "is_correct": true
+    },
+    {
+     "text": "Тайбэй 101",
+     "is_correct": false
+    },
+    {
+     "text": "Шанхайская башня",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "Какая высота Бурдж-Халифы (м)?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 300,
+    "max": 1000,
+    "step": 1,
+    "answer": 828,
+    "unit": "м",
+    "tolerance": 20
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что за собор на фото — в Барселоне, строят с 1882 года?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Canaan, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:SF_maig_2_cropped.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Нотр-Дам",
+     "is_correct": false
+    },
+    {
+     "text": "Миланский собор",
+     "is_correct": false
+    },
+    {
+     "text": "Собор Святого Петра",
+     "is_correct": false
+    },
+    {
+     "text": "Саграда Фамилия",
+     "is_correct": true
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто архитектор Саграда Фамилии?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Микеланджело",
+     "is_correct": false
+    },
+    {
+     "text": "Захи Хадид",
+     "is_correct": false
+    },
+    {
+     "text": "Антони Гауди",
+     "is_correct": true
+    },
+    {
+     "text": "Ле Корбюзье",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что за башня падает уже 800 лет и не падает?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Arne Müseler, CC BY-SA 3.0 de, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Italy_-_Pisa_-_Leaning_Tower.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бурана",
+     "is_correct": false
+    },
+    {
+     "text": "Эйфелева",
+     "is_correct": false
+    },
+    {
+     "text": "Пизанская",
+     "is_correct": true
+    },
+    {
+     "text": "Биг-Бен",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Башня Бурана тоже наклонена и была когда-то выше.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Её высота была около 40 м, после землетрясений осталось около 24 м.\n\n*Фото: Bernard Gagnon, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Burana_Tower,_Kyrgyzstan.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что за собор на фото в Париже — горел в 2019 году?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Ali Sabbagh, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Notre-Dame_de_Paris,_4_October_2017.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Нотр-Дам-де-Пари",
+     "is_correct": true
+    },
+    {
+     "text": "Сакре-Кёр",
+     "is_correct": false
+    },
+    {
+     "text": "Пантеон",
+     "is_correct": false
+    },
+    {
+     "text": "Сент-Шапель",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "В какой стране мечеть Шейха Зайда — огромная, белая?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Wikiemirati, CC-BY-SA-4.0, [Wikipedia](https://en.wikipedia.org/wiki/File:Sheikh_Zayed_Mosque_view.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "ОАЭ",
+     "is_correct": true
+    },
+    {
+     "text": "Турция",
+     "is_correct": false
+    },
+    {
+     "text": "Египет",
+     "is_correct": false
+    },
+    {
+     "text": "Иран",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется собор в Стамбуле, позже мечеть, с огромным куполом VI века?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Adli Wahid, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hagia_Sophia_%28228968325%29.jpeg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сулеймание",
+     "is_correct": false
+    },
+    {
+     "text": "Топкапы",
+     "is_correct": false
+    },
+    {
+     "text": "Голубая мечеть",
+     "is_correct": false
+    },
+    {
+     "text": "Айя-София",
+     "is_correct": true
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чей дворец на фото — зимняя резиденция русских царей, теперь Эрмитаж?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Godot13, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:RUS-2016-Aerial-SPB-Winter_Palace_%28crop%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Букингемский",
+     "is_correct": false
+    },
+    {
+     "text": "Версаль",
+     "is_correct": false
+    },
+    {
+     "text": "Петергоф",
+     "is_correct": false
+    },
+    {
+     "text": "Зимний дворец",
+     "is_correct": true
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Какие здания находятся в Лондоне?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Собор Святого Павла",
+     "is_correct": true
+    },
+    {
+     "text": "Тауэр",
+     "is_correct": true
+    },
+    {
+     "text": "Биг-Бен",
+     "is_correct": true
+    },
+    {
+     "text": "Колизей",
+     "is_correct": false
+    },
+    {
+     "text": "Букингемский дворец",
+     "is_correct": true
+    },
+    {
+     "text": "Лувр",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой дворец на фото — с Зеркальной галереей и садами, под Парижем?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: ToucanWings, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Versailles_Palace_%28FRA%29_%E2%80%93_Equestrian_Olympic_Venue.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лувр",
+     "is_correct": false
+    },
+    {
+     "text": "Прадо",
+     "is_correct": false
+    },
+    {
+     "text": "Версаль",
+     "is_correct": true
+    },
+    {
+     "text": "Шёнбрунн",
+     "is_correct": false
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Это здание-«стеклянная пирамида». Перед каким музеем она стоит?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Hteink.min, CC-BY-SA-3.0, [Wikipedia](https://en.wikipedia.org/wiki/File:Louvre_Pyramid.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Эрмитаж",
+     "is_correct": false
+    },
+    {
+     "text": "Лувр",
+     "is_correct": true
+    },
+    {
+     "text": "Британский музей",
+     "is_correct": false
+    },
+    {
+     "text": "Прадо",
+     "is_correct": false
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Этот небоскрёб в Нью-Йорке был самым высоким в мире почти 40 лет. Что это?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: Sam Valadi, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Empire_State_Building_%28aerial_view%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Всемирный торговый центр",
+     "is_correct": false
+    },
+    {
+     "text": "Эмпайр-стейт-билдинг",
+     "is_correct": true
+    },
+    {
+     "text": "Рокфеллер-центр",
+     "is_correct": false
+    },
+    {
+     "text": "Крайслер-билдинг",
+     "is_correct": false
+    }
+   ],
+   "image": "q14.jpg"
+  },
+  {
+   "type": "order",
+   "text": "Расставьте здания по высоте, от низкого к высокому.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пизанская башня",
+     "is_correct": false
+    },
+    {
+     "text": "Эйфелева башня",
+     "is_correct": false
+    },
+    {
+     "text": "Эмпайр-стейт-билдинг",
+     "is_correct": false
+    },
+    {
+     "text": "Бурдж-Халифа",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: высокое здание в городе — «скрёбет небо».",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "НЕБОСКРЁБ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто проектировал здания с «волнами» — Центр Гейдара Алиева в Баку?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Original architectural work: Zaha Hadid Depiction: Interfase, PD, [Wikipedia](https://en.wikipedia.org/wiki/File:Heydar_Aliyev_Cultural_Center.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Фрэнк Гери",
+     "is_correct": false
+    },
+    {
+     "text": "Заха Хадид",
+     "is_correct": true
+    },
+    {
+     "text": "Норман Фостер",
+     "is_correct": false
+    },
+    {
+     "text": "Антони Гауди",
+     "is_correct": false
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что за здание в Бишкеке — с флагштоком и почётным караулом?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Vilya Shoni, CC BY 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kyrgyz_State_Historical_Museum,_Ala_Too_Square,_Bishkek,_Kyrgyzstan.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Белый дом",
+     "is_correct": false
+    },
+    {
+     "text": "Цирк",
+     "is_correct": false
+    },
+    {
+     "text": "Филармония",
+     "is_correct": false
+    },
+    {
+     "text": "Государственный исторический музей на площади Ала-Тоо",
+     "is_correct": true
+    }
+   ],
+   "image": "q18.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Купол собора Святого Петра в Риме проектировал Микеланджело.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "*Фото: Alvesgaspar, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Basilica_di_San_Pietro_in_Vaticano_September_2015-1a.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется самый большой дворец мира по площади — в Пекине?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Pixelflake, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:The_Forbidden_City_-_View_from_Coal_Hill.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Запретный город",
+     "is_correct": true
+    },
+    {
+     "text": "Версаль",
+     "is_correct": false
+    },
+    {
+     "text": "Летний дворец",
+     "is_correct": false
+    },
+    {
+     "text": "Потала",
+     "is_correct": false
+    }
+   ],
+   "image": "q20.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Дворец Потала в Тибете стоит на высоте…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Lhasa Government, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Potala_Palace_HQ.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Около 3700 м",
+     "is_correct": true
+    },
+    {
+     "text": "Около 7000 м",
+     "is_correct": false
+    },
+    {
+     "text": "На уровне моря",
+     "is_correct": false
+    },
+    {
+     "text": "Около 100 м",
+     "is_correct": false
+    }
+   ],
+   "image": "q21.jpg"
+  },
+  {
+   "type": "text",
+   "text": "Как называется башня у мечети, с которой зовут на молитву? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "минарет",
+     "Минарет"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие здания — культовые?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Вокзал",
+     "is_correct": false
+    },
+    {
+     "text": "Стадион",
+     "is_correct": false
+    },
+    {
+     "text": "Мечеть",
+     "is_correct": true
+    },
+    {
+     "text": "Собор",
+     "is_correct": true
+    },
+    {
+     "text": "Пагода",
+     "is_correct": true
+    },
+    {
+     "text": "Храм",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что за высокая башня в Торонто с ресторанами наверху?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Wladyslaw, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Toronto_-_ON_-_Toronto_Harbourfront7.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Останкинская",
+     "is_correct": false
+    },
+    {
+     "text": "Токийская башня",
+     "is_correct": false
+    },
+    {
+     "text": "Си-Эн Тауэр",
+     "is_correct": true
+    },
+    {
+     "text": "Спейс-Нидл",
+     "is_correct": false
+    }
+   ],
+   "image": "q24.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! В каком городе стоят башни-близнецы «Петронас»?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: CEphoto, Uwe Aranas, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kuala_Lumpur_Malaysia_Petronas-Twin-Towers-01.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Куала-Лумпур",
+     "is_correct": true
+    },
+    {
+     "text": "Бангкок",
+     "is_correct": false
+    },
+    {
+     "text": "Сингапур",
+     "is_correct": false
+    },
+    {
+     "text": "Джакарта",
+     "is_correct": false
+    }
+   ],
+   "image": "q25.jpg"
+  }
+ ]
+}

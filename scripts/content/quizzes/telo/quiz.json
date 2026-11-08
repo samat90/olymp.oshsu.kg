@@ -1,0 +1,689 @@
+{
+ "key": "telo",
+ "title": "Человеческое тело",
+ "subject": "Биология",
+ "theme": "lake",
+ "description": "25 вопросов о том, как устроен человек: кости, мышцы, сердце, мозг и органы чувств. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: как называется этот рисунок Леонардо да Винчи о пропорциях человека?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Leonardo da Vinci, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Da_Vinci_Vitruve_Luc_Viatour.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Мона Лиза»",
+     "is_correct": false
+    },
+    {
+     "text": "«Человек-круг»",
+     "is_correct": false
+    },
+    {
+     "text": "«Витрувианский человек»",
+     "is_correct": true
+    },
+    {
+     "text": "«Анатомия»",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "Сколько костей у взрослого человека?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 100,
+    "max": 300,
+    "step": 1,
+    "answer": 206,
+    "unit": "костей",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой орган качает кровь?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Jerm, CC BY 2.5, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Heart_anterior_exterior_view.png)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Печень",
+     "is_correct": false
+    },
+    {
+     "text": "Почки",
+     "is_correct": false
+    },
+    {
+     "text": "Лёгкие",
+     "is_correct": false
+    },
+    {
+     "text": "Сердце",
+     "is_correct": true
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой самый большой орган человека?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Ловушка: печень — самый большой внутренний орган.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Печень",
+     "is_correct": false
+    },
+    {
+     "text": "Лёгкие",
+     "is_correct": false
+    },
+    {
+     "text": "Мозг",
+     "is_correct": false
+    },
+    {
+     "text": "Кожа",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая кость самая длинная?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Плечевая",
+     "is_correct": false
+    },
+    {
+     "text": "Бедренная",
+     "is_correct": true
+    },
+    {
+     "text": "Позвоночник",
+     "is_correct": false
+    },
+    {
+     "text": "Большеберцовая",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "У новорождённого костей больше, чем у взрослого.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Около 270–300: потом часть срастается.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько зубов у взрослого человека (вместе с зубами мудрости)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: dozenist, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:06-10-06smile.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "32",
+     "is_correct": true
+    },
+    {
+     "text": "30",
+     "is_correct": false
+    },
+    {
+     "text": "28",
+     "is_correct": false
+    },
+    {
+     "text": "36",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что изображено на этом рисунке?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Sklmsta, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Human-Skeleton.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Скелет человека",
+     "is_correct": true
+    },
+    {
+     "text": "Кровеносная система",
+     "is_correct": false
+    },
+    {
+     "text": "Мышцы",
+     "is_correct": false
+    },
+    {
+     "text": "Нервная система",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Какие из этих органов чувств есть у человека?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Вкус",
+     "is_correct": true
+    },
+    {
+     "text": "Слух",
+     "is_correct": true
+    },
+    {
+     "text": "Обоняние",
+     "is_correct": true
+    },
+    {
+     "text": "Зрение",
+     "is_correct": true
+    },
+    {
+     "text": "Осязание",
+     "is_correct": true
+    },
+    {
+     "text": "Эхолокация",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Где находится самая маленькая кость?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: I enjoy sandwiches, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Temporal_bone_-_The_Hungry_Artist_Multimedia.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В пальце ноги",
+     "is_correct": false
+    },
+    {
+     "text": "В носу",
+     "is_correct": false
+    },
+    {
+     "text": "В запястье",
+     "is_correct": false
+    },
+    {
+     "text": "В ухе (стремечко)",
+     "is_correct": true
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая группа крови подходит всем как донорская (в красных клетках)?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Четвёртая положительная",
+     "is_correct": false
+    },
+    {
+     "text": "Первая отрицательная (O−)",
+     "is_correct": true
+    },
+    {
+     "text": "Третья",
+     "is_correct": false
+    },
+    {
+     "text": "Вторая",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой газ мы вдыхаем, чтобы жить?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кислород",
+     "is_correct": true
+    },
+    {
+     "text": "Водород",
+     "is_correct": false
+    },
+    {
+     "text": "Углекислый газ",
+     "is_correct": false
+    },
+    {
+     "text": "Азот",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что на фото — клетки крови под микроскопом?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Scootdive, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Red_blood_cells_%282%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пыльца",
+     "is_correct": false
+    },
+    {
+     "text": "Бактерии",
+     "is_correct": false
+    },
+    {
+     "text": "Эритроциты (красные кровяные тельца)",
+     "is_correct": true
+    },
+    {
+     "text": "Капли воды",
+     "is_correct": false
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "order",
+   "text": "Расставьте путь еды по порядку.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Рот",
+     "is_correct": false
+    },
+    {
+     "text": "Пищевод",
+     "is_correct": false
+    },
+    {
+     "text": "Желудок",
+     "is_correct": false
+    },
+    {
+     "text": "Тонкий кишечник",
+     "is_correct": false
+    },
+    {
+     "text": "Толстый кишечник",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: орган, которым мы думаем.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "МОЗГ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Сколько примерно раз в минуту бьётся сердце взрослого в покое?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 30,
+    "max": 150,
+    "step": 1,
+    "answer": 70,
+    "unit": "ударов",
+    "tolerance": 10
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Отпечатки пальцев у близнецов одинаковые.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "*Фото: Cyrillic at English Wikipedia, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Fingerprintforcriminologystubs.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой витамин организм получает от солнца?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Витамин D",
+     "is_correct": true
+    },
+    {
+     "text": "Витамин B12",
+     "is_correct": false
+    },
+    {
+     "text": "Витамин A",
+     "is_correct": false
+    },
+    {
+     "text": "Витамин C",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько примерно литров крови в теле взрослого?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "1",
+     "is_correct": false
+    },
+    {
+     "text": "10",
+     "is_correct": false
+    },
+    {
+     "text": "20",
+     "is_correct": false
+    },
+    {
+     "text": "5",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая мышца самая сильная по отношению к размеру?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бицепс",
+     "is_correct": false
+    },
+    {
+     "text": "Икроножная",
+     "is_correct": false
+    },
+    {
+     "text": "Жевательная",
+     "is_correct": true
+    },
+    {
+     "text": "Сердце",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Как называется жидкость, которая помогает переваривать еду во рту? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "слюна",
+     "Слюна"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Что относится к кровеносной системе?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Артерии",
+     "is_correct": true
+    },
+    {
+     "text": "Капилляры",
+     "is_correct": true
+    },
+    {
+     "text": "Вены",
+     "is_correct": true
+    },
+    {
+     "text": "Сердце",
+     "is_correct": true
+    },
+    {
+     "text": "Желудок",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто открыл группы крови?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Bachrach Studios, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Karl_Landsteiner_nobel.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Луи Пастер",
+     "is_correct": false
+    },
+    {
+     "text": "Уильям Гарвей",
+     "is_correct": false
+    },
+    {
+     "text": "Карл Ландштейнер",
+     "is_correct": true
+    },
+    {
+     "text": "Иван Павлов",
+     "is_correct": false
+    }
+   ],
+   "image": "q23.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что изображено на модели?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Zephyris, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:DNA_Structure%2BKey%2BLabelled.pn_NoBB.png)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пружина",
+     "is_correct": false
+    },
+    {
+     "text": "Молекула ДНК",
+     "is_correct": true
+    },
+    {
+     "text": "Белок",
+     "is_correct": false
+    },
+    {
+     "text": "Лестница",
+     "is_correct": false
+    }
+   ],
+   "image": "q24.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Какие клетки защищают нас от микробов?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Нейроны",
+     "is_correct": false
+    },
+    {
+     "text": "Лейкоциты (белые кровяные тельца)",
+     "is_correct": true
+    },
+    {
+     "text": "Тромбоциты",
+     "is_correct": false
+    },
+    {
+     "text": "Эритроциты",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

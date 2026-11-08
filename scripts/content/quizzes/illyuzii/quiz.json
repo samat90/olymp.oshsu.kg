@@ -1,0 +1,695 @@
+{
+ "key": "illyuzii",
+ "title": "Оптические иллюзии и загадки",
+ "subject": "Разное",
+ "theme": "night",
+ "description": "25 вопросов-ловушек: оптические иллюзии, логические загадки и задачки на внимание. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: что видно на этой картинке?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Ataturk.svg: Nevit Nevit Dilmen, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Face_or_vase_ata_01.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бабочка",
+     "is_correct": false
+    },
+    {
+     "text": "Ваза или два лица — смотря как смотреть",
+     "is_correct": true
+    },
+    {
+     "text": "Только ваза",
+     "is_correct": false
+    },
+    {
+     "text": "Только лица",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кого видно на этом рисунке 1888 года?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: W. E. Hill, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:My_Wife_and_My_Mother-in-Law.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Только старушку",
+     "is_correct": false
+    },
+    {
+     "text": "И молодую девушку, и старушку",
+     "is_correct": true
+    },
+    {
+     "text": "Мужчину с бородой",
+     "is_correct": false
+    },
+    {
+     "text": "Кошку",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая линия длиннее на иллюзии Мюллер-Лайера?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Franz Müller-Lyer, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:M%C3%BCller-Lyer_Illusion_-_MathWorld_version.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верхняя",
+     "is_correct": false
+    },
+    {
+     "text": "Нижняя",
+     "is_correct": false
+    },
+    {
+     "text": "Они одинаковые",
+     "is_correct": true
+    },
+    {
+     "text": "Зависит от цвета",
+     "is_correct": false
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой из центральных кругов больше на иллюзии Эббингауза?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: No machine-readable author provided. Phrood~commonswiki assumed (based on copyright claims)., Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mond-vergleich.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тот, что среди больших",
+     "is_correct": false
+    },
+    {
+     "text": "Никакого нет",
+     "is_correct": false
+    },
+    {
+     "text": "Тот, что среди маленьких",
+     "is_correct": false
+    },
+    {
+     "text": "Они одинаковые",
+     "is_correct": true
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что за фигура на рисунке — её нельзя построить в реальности?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Tobias R. – Metoc, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Penrose-dreieck.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Куб Рубика",
+     "is_correct": false
+    },
+    {
+     "text": "Пирамида",
+     "is_correct": false
+    },
+    {
+     "text": "Лента Мёбиуса",
+     "is_correct": false
+    },
+    {
+     "text": "Треугольник Пенроуза",
+     "is_correct": true
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "У ленты Мёбиуса только одна сторона.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "*Фото: David Benbennick, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:M%C3%B6bius_Strip.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Сколько месяцев в году имеют 28 дней?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Один",
+     "is_correct": false
+    },
+    {
+     "text": "Все 12",
+     "is_correct": true
+    },
+    {
+     "text": "Ни одного",
+     "is_correct": false
+    },
+    {
+     "text": "Два",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что тяжелее: килограмм ваты или килограмм железа?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Железо",
+     "is_correct": false
+    },
+    {
+     "text": "Зависит от погоды",
+     "is_correct": false
+    },
+    {
+     "text": "Одинаково",
+     "is_correct": true
+    },
+    {
+     "text": "Вата",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "У отца Айгерим пять дочерей: Чынара, Чолпон, Чинара, Чыйбылдай… Как зовут пятую?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чынаркүл",
+     "is_correct": false
+    },
+    {
+     "text": "Чачыкей",
+     "is_correct": false
+    },
+    {
+     "text": "Айгерим",
+     "is_correct": true
+    },
+    {
+     "text": "Нет ответа",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Вы обогнали второго в забеге. Какой вы теперь?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Последний",
+     "is_correct": false
+    },
+    {
+     "text": "Первый",
+     "is_correct": false
+    },
+    {
+     "text": "Третий",
+     "is_correct": false
+    },
+    {
+     "text": "Второй",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Сколько концов у трёх с половиной палок?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 2,
+    "max": 10,
+    "step": 1,
+    "answer": 8,
+    "unit": "концов",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что можно сломать, не прикасаясь?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Стекло",
+     "is_correct": false
+    },
+    {
+     "text": "Лёд",
+     "is_correct": false
+    },
+    {
+     "text": "Палку",
+     "is_correct": false
+    },
+    {
+     "text": "Обещание",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Что из этого — оптические иллюзии?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Радуга",
+     "is_correct": false
+    },
+    {
+     "text": "Эхо",
+     "is_correct": false
+    },
+    {
+     "text": "Ваза Рубина",
+     "is_correct": true
+    },
+    {
+     "text": "Треугольник Пенроуза",
+     "is_correct": true
+    },
+    {
+     "text": "Иллюзия Мюллер-Лайера",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Если у Бекзата 3 яблока, а он отдал 2 Нурайым, сколько яблок у Нурайым?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Нельзя сказать — мы не знаем, сколько у неё было",
+     "is_correct": true
+    },
+    {
+     "text": "2",
+     "is_correct": false
+    },
+    {
+     "text": "3",
+     "is_correct": false
+    },
+    {
+     "text": "1",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Продолжите ряд: расставьте числа по закону 1, 1, 2, 3, 5…",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "8",
+     "is_correct": false
+    },
+    {
+     "text": "13",
+     "is_correct": false
+    },
+    {
+     "text": "21",
+     "is_correct": false
+    },
+    {
+     "text": "34",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: это всегда впереди, но его никогда не видно.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "БУДУЩЕЕ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что поднимается, но никогда не спускается?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Цены",
+     "is_correct": false
+    },
+    {
+     "text": "Возраст",
+     "is_correct": true
+    },
+    {
+     "text": "Лифт",
+     "is_correct": false
+    },
+    {
+     "text": "Солнце",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Если смотреть на красный квадрат 30 секунд, а потом на белую стену, увидишь зелёный.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Это остаточное изображение в дополнительном цвете.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какие картины рисовал мастер невозможных лестниц и рук, рисующих друг друга?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Hans Peters for Anefo, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Maurits_Cornelis_Escher.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сальвадор Дали",
+     "is_correct": false
+    },
+    {
+     "text": "Рене Магритт",
+     "is_correct": false
+    },
+    {
+     "text": "Мауриц Эшер",
+     "is_correct": true
+    },
+    {
+     "text": "Пабло Пикассо",
+     "is_correct": false
+    }
+   ],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "single",
+   "text": "В комнате 4 угла. В каждом углу сидит кошка, напротив каждой кошки — 3 кошки. Сколько кошек?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "4",
+     "is_correct": true
+    },
+    {
+     "text": "16",
+     "is_correct": false
+    },
+    {
+     "text": "12",
+     "is_correct": false
+    },
+    {
+     "text": "7",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Что принадлежит вам, но другие пользуются им чаще? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "имя",
+     "Имя"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая полоска на «иллюзии кафе» — наклонная?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Fibonacci, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Caf%C3%A9_wall.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Все горизонтальные, наклон кажется",
+     "is_correct": true
+    },
+    {
+     "text": "Нижняя",
+     "is_correct": false
+    },
+    {
+     "text": "Средняя",
+     "is_correct": false
+    },
+    {
+     "text": "Верхняя",
+     "is_correct": false
+    }
+   ],
+   "image": "q22.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Какие числа — простые?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "7",
+     "is_correct": true
+    },
+    {
+     "text": "9",
+     "is_correct": false
+    },
+    {
+     "text": "11",
+     "is_correct": true
+    },
+    {
+     "text": "15",
+     "is_correct": false
+    },
+    {
+     "text": "2",
+     "is_correct": true
+    },
+    {
+     "text": "3",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько раз можно вычесть 5 из 25?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Один раз — потом это уже 20",
+     "is_correct": true
+    },
+    {
+     "text": "Бесконечно",
+     "is_correct": false
+    },
+    {
+     "text": "Четыре",
+     "is_correct": false
+    },
+    {
+     "text": "Пять",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Пастух Азамат: у него было 17 баранов, все, кроме 9, убежали. Сколько осталось?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "9",
+     "is_correct": true
+    },
+    {
+     "text": "0",
+     "is_correct": false
+    },
+    {
+     "text": "8",
+     "is_correct": false
+    },
+    {
+     "text": "17",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

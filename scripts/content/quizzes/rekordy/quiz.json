@@ -1,0 +1,682 @@
+{
+ "key": "rekordy",
+ "title": "Рекорды планеты",
+ "subject": "Разное",
+ "theme": "steppe",
+ "description": "25 вопросов о самом-самом: самое высокое, глубокое, быстрое, старое и большое на Земле. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: какая пустыня — самая большая жаркая?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Project Apollo Archive, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sahara_real_color.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Атакама",
+     "is_correct": false
+    },
+    {
+     "text": "Сахара",
+     "is_correct": true
+    },
+    {
+     "text": "Каракумы",
+     "is_correct": false
+    },
+    {
+     "text": "Гоби",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "А самая большая пустыня вообще?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Пустыня — место с очень малым количеством осадков. Антарктида именно такая.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Аравийская",
+     "is_correct": false
+    },
+    {
+     "text": "Антарктида",
+     "is_correct": true
+    },
+    {
+     "text": "Гоби",
+     "is_correct": false
+    },
+    {
+     "text": "Сахара",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая страна самая большая по площади?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Китай",
+     "is_correct": false
+    },
+    {
+     "text": "Россия",
+     "is_correct": true
+    },
+    {
+     "text": "Канада",
+     "is_correct": false
+    },
+    {
+     "text": "США",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая страна самая маленькая в мире?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Goran tek-en, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_Vatican_City_%282023%E2%80%93present%29.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лихтенштейн",
+     "is_correct": false
+    },
+    {
+     "text": "Сан-Марино",
+     "is_correct": false
+    },
+    {
+     "text": "Монако",
+     "is_correct": false
+    },
+    {
+     "text": "Ватикан",
+     "is_correct": true
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая страна самая населённая (с 2023 года)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "США",
+     "is_correct": false
+    },
+    {
+     "text": "Индонезия",
+     "is_correct": false
+    },
+    {
+     "text": "Индия",
+     "is_correct": true
+    },
+    {
+     "text": "Китай",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой самый большой остров?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Jeffrey Connell (IceKarma), Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_Greenland.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мадагаскар",
+     "is_correct": false
+    },
+    {
+     "text": "Гренландия",
+     "is_correct": true
+    },
+    {
+     "text": "Австралия",
+     "is_correct": false
+    },
+    {
+     "text": "Борнео",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Передышка без очков: как зовут самое высокое дерево мира — секвойю в Калифорнии высотой 116 м?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мафусаил",
+     "is_correct": false
+    },
+    {
+     "text": "Прометей",
+     "is_correct": false
+    },
+    {
+     "text": "Генерал Шерман",
+     "is_correct": false
+    },
+    {
+     "text": "Гиперион",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое животное самое ядовитое? Ловушка: медузы тоже в списке.",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Avispa marina.jpg: Guido Gautsch, Toyota, Japan derivative work: Mithril, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Avispa_marina_cropped.png)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Морская оса (кубомедуза)",
+     "is_correct": true
+    },
+    {
+     "text": "Скорпион",
+     "is_correct": false
+    },
+    {
+     "text": "Кобра",
+     "is_correct": false
+    },
+    {
+     "text": "Тарантул",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Самый высокий человек в истории был ростом больше 2,7 м.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Роберт Уодлоу — 272 см.\n\n*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Robert_Wadlow_postcard.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "Какая самая низкая температура (°C) зарегистрирована на Земле (станция «Восток»)?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": -100,
+    "max": 0,
+    "step": 1,
+    "answer": -89,
+    "unit": "°C",
+    "tolerance": 2
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Что из этого — правда?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Луна удаляется от Земли на ~4 см в год",
+     "is_correct": true
+    },
+    {
+     "text": "Тихий океан — самый большой",
+     "is_correct": true
+    },
+    {
+     "text": "Гора Эверест растёт на 1 м в год",
+     "is_correct": false
+    },
+    {
+     "text": "Самая длинная река — Нил или Амазонка",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое озеро самое высокое судоходное в мире?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: European Space Agency, Attribution, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lake_Titicaca_ESA22522896.jpeg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Намцо",
+     "is_correct": false
+    },
+    {
+     "text": "Байкал",
+     "is_correct": false
+    },
+    {
+     "text": "Титикака",
+     "is_correct": true
+    },
+    {
+     "text": "Иссык-Куль",
+     "is_correct": false
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой самый длинный мост в мире?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Даньян-Куньшаньский виадук (Китай)",
+     "is_correct": true
+    },
+    {
+     "text": "Мост Босфор",
+     "is_correct": false
+    },
+    {
+     "text": "Крымский мост",
+     "is_correct": false
+    },
+    {
+     "text": "Золотые Ворота",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте страны по площади, от большой к маленькой.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Россия",
+     "is_correct": false
+    },
+    {
+     "text": "Канада",
+     "is_correct": false
+    },
+    {
+     "text": "Казахстан",
+     "is_correct": false
+    },
+    {
+     "text": "Кыргызстан",
+     "is_correct": false
+    },
+    {
+     "text": "Ватикан",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Где находится самый большой в мире природный ореховый лес?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Иран",
+     "is_correct": false
+    },
+    {
+     "text": "Турция",
+     "is_correct": false
+    },
+    {
+     "text": "Калифорния",
+     "is_correct": false
+    },
+    {
+     "text": "Арсланбоб, Кыргызстан",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: книга рекордов «…», куда вносят самое-самое.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ГИННЕСС"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое самое большое и тяжёлое животное, когда-либо жившее на Земле?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мамонт",
+     "is_correct": false
+    },
+    {
+     "text": "Мегалодон",
+     "is_correct": false
+    },
+    {
+     "text": "Синий кит",
+     "is_correct": true
+    },
+    {
+     "text": "Аргентинозавр",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько лет самому старому подтверждённому человеку — Жанне Кальман?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Gustave Ouvière, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:JeanneCalmentaged40.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "108",
+     "is_correct": false
+    },
+    {
+     "text": "115",
+     "is_correct": false
+    },
+    {
+     "text": "130",
+     "is_correct": false
+    },
+    {
+     "text": "122",
+     "is_correct": true
+    }
+   ],
+   "image": "q18.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Иссык-Куль — второе по величине горное озеро мира после Титикаки.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Где находится самая глубокая пещера мира?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Китай",
+     "is_correct": false
+    },
+    {
+     "text": "Мексика",
+     "is_correct": false
+    },
+    {
+     "text": "Абхазия (Веревкина)",
+     "is_correct": true
+    },
+    {
+     "text": "Кыргызстан",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Как называется самая высокая гора мира? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "Эверест",
+     "эверест",
+     "Джомолунгма"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Сколько километров в час — рекорд скорости Усэйна Болта (примерно)?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 20,
+    "max": 60,
+    "step": 1,
+    "answer": 44,
+    "unit": "км/ч",
+    "tolerance": 2
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Что из этого — правда о Кыргызстане?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пик Победы выше 7000 м",
+     "is_correct": true
+    },
+    {
+     "text": "У страны есть выход к морю",
+     "is_correct": false
+    },
+    {
+     "text": "Здесь самое глубокое озеро мира",
+     "is_correct": false
+    },
+    {
+     "text": "Здесь растёт самый большой ореховый лес",
+     "is_correct": true
+    },
+    {
+     "text": "Иссык-Куль не замерзает",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой самый маленький океан?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Северный Ледовитый",
+     "is_correct": true
+    },
+    {
+     "text": "Индийский",
+     "is_correct": false
+    },
+    {
+     "text": "Южный",
+     "is_correct": false
+    },
+    {
+     "text": "Атлантический",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Какое самое быстрое животное в воде?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: Kawahara Keiga, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Naturalis_Biodiversity_Center_-_RMNH.ART.194_-_Istiophorus_platypterus_%28Shaw_and_Nodder%29_-_Kawahara_Keiga_-_1823_-_1829_-_Siebold_Collection_-_new_version.jpeg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Рыба-парусник",
+     "is_correct": true
+    },
+    {
+     "text": "Тунец",
+     "is_correct": false
+    },
+    {
+     "text": "Акула мако",
+     "is_correct": false
+    },
+    {
+     "text": "Дельфин",
+     "is_correct": false
+    }
+   ],
+   "image": "q25.jpg"
+  }
+ ]
+}

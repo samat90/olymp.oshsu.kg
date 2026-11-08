@@ -1,0 +1,698 @@
+{
+ "key": "aviaciya",
+ "title": "Авиация",
+ "subject": "Техника",
+ "theme": "lake",
+ "description": "25 вопросов о самолётах и вертолётах: первые полёты, гиганты неба, рекорды и аэропорты. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: какой самолёт — двухпалубный гигант — на фото?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Maarten Visser from Capelle aan den IJssel, Nederland, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:A6-EDY_A380_Emirates_31_jan_2013_jfk_%288442269364%29_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ту-154",
+     "is_correct": false
+    },
+    {
+     "text": "Ан-225",
+     "is_correct": false
+    },
+    {
+     "text": "Airbus A380",
+     "is_correct": true
+    },
+    {
+     "text": "Boeing 737",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто совершил первый полёт на самолёте с мотором в 1903 году?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Orville Wright and Wilbur Wright (credited as photographers)  1 ,  2, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Orville_Wright_1905-crop.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Луи Блерио",
+     "is_correct": false
+    },
+    {
+     "text": "Игорь Сикорский",
+     "is_correct": false
+    },
+    {
+     "text": "Братья Райт",
+     "is_correct": true
+    },
+    {
+     "text": "Отто Лилиенталь",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой самолёт на фото — сверхзвуковой пассажирский лайнер?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Eduard Marmet, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:British_Airways_Concorde_G-BOAC_03.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Конкорд",
+     "is_correct": true
+    },
+    {
+     "text": "Boeing 747",
+     "is_correct": false
+    },
+    {
+     "text": "SR-71",
+     "is_correct": false
+    },
+    {
+     "text": "Ту-144",
+     "is_correct": false
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "У СССР тоже был сверхзвуковой пассажирский самолёт — Ту-144.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется главный аэропорт Кыргызстана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Манас»",
+     "is_correct": true
+    },
+    {
+     "text": "«Иссык-Куль»",
+     "is_correct": false
+    },
+    {
+     "text": "«Ала-Тоо»",
+     "is_correct": false
+    },
+    {
+     "text": "«Ош»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто сконструировал первый серийный вертолёт?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: SDASM Archives, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sikorsky,_Igor.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Игорь Сикорский",
+     "is_correct": true
+    },
+    {
+     "text": "Николай Камов",
+     "is_correct": false
+    },
+    {
+     "text": "Андрей Туполев",
+     "is_correct": false
+    },
+    {
+     "text": "Михаил Миль",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что на фото?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Igor Dvurekov, CC BY 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mil_Mi-8P,_Baltic_Airlines_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Самолёт Ан-2",
+     "is_correct": false
+    },
+    {
+     "text": "Дрон",
+     "is_correct": false
+    },
+    {
+     "text": "Автожир",
+     "is_correct": false
+    },
+    {
+     "text": "Вертолёт Ми-8",
+     "is_correct": true
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется «чёрный ящик» на самом деле?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бортовой самописец (он оранжевый)",
+     "is_correct": true
+    },
+    {
+     "text": "Двигатель",
+     "is_correct": false
+    },
+    {
+     "text": "Сейф с деньгами",
+     "is_correct": false
+    },
+    {
+     "text": "Кухня самолёта",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие компании строят пассажирские самолёты?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Nike",
+     "is_correct": false
+    },
+    {
+     "text": "Airbus",
+     "is_correct": true
+    },
+    {
+     "text": "COMAC",
+     "is_correct": true
+    },
+    {
+     "text": "Boeing",
+     "is_correct": true
+    },
+    {
+     "text": "Embraer",
+     "is_correct": true
+    },
+    {
+     "text": "Toyota",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой самолёт был самым большим в мире по грузоподъёмности?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Myroslav Kaplun, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Antonov_Design_Bureau_Antonov_An-225_Mriya_at_Leipzig_Halle_%28EDDP-LEJ%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Boeing 747",
+     "is_correct": false
+    },
+    {
+     "text": "Ан-225 «Мрия»",
+     "is_correct": true
+    },
+    {
+     "text": "Ил-76",
+     "is_correct": false
+    },
+    {
+     "text": "Airbus A380",
+     "is_correct": false
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "На какой высоте (км) обычно летают пассажирские самолёты?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 1,
+    "max": 20,
+    "step": 1,
+    "answer": 10,
+    "unit": "км",
+    "tolerance": 2
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Почему самолёт держится в воздухе?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Двигатели толкают вверх",
+     "is_correct": false
+    },
+    {
+     "text": "Он легче воздуха",
+     "is_correct": false
+    },
+    {
+     "text": "Крыло создаёт подъёмную силу",
+     "is_correct": true
+    },
+    {
+     "text": "Его тянут магниты",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что на фото — воздушное судно легче воздуха?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: AngMoKio, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Zeppellin_NT_amk.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ракета",
+     "is_correct": false
+    },
+    {
+     "text": "Дирижабль",
+     "is_correct": true
+    },
+    {
+     "text": "Вертолёт",
+     "is_correct": false
+    },
+    {
+     "text": "Планер",
+     "is_correct": false
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "order",
+   "text": "Расставьте летательные аппараты по времени появления.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Воздушный шар",
+     "is_correct": false
+    },
+    {
+     "text": "Самолёт братьев Райт",
+     "is_correct": false
+    },
+    {
+     "text": "Реактивный самолёт",
+     "is_correct": false
+    },
+    {
+     "text": "Конкорд",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: человек, который управляет самолётом.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ПИЛОТ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой самолёт на фото — «Джамбо»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Iberia Airlines, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:B-747_Iberia.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Boeing 787",
+     "is_correct": false
+    },
+    {
+     "text": "Boeing 747",
+     "is_correct": true
+    },
+    {
+     "text": "Airbus A320",
+     "is_correct": false
+    },
+    {
+     "text": "Ил-96",
+     "is_correct": false
+    }
+   ],
+   "image": "q16.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Скорость пассажирского лайнера — около 900 км/ч.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется место, где стоят самолёты и куда их ставят на ремонт?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Депо",
+     "is_correct": false
+    },
+    {
+     "text": "Гараж",
+     "is_correct": false
+    },
+    {
+     "text": "Ангар",
+     "is_correct": true
+    },
+    {
+     "text": "Док",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется первый реактивный пассажирский самолёт (1949)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Boeing 707",
+     "is_correct": false
+    },
+    {
+     "text": "De Havilland Comet",
+     "is_correct": true
+    },
+    {
+     "text": "Конкорд",
+     "is_correct": false
+    },
+    {
+     "text": "Ту-104",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Как называется беспилотный летательный аппарат? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "дрон",
+     "Дрон",
+     "квадрокоптер",
+     "беспилотник",
+     "БПЛА"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Что есть у самолёта?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Гусеницы",
+     "is_correct": false
+    },
+    {
+     "text": "Киль",
+     "is_correct": true
+    },
+    {
+     "text": "Крыло",
+     "is_correct": true
+    },
+    {
+     "text": "Фюзеляж",
+     "is_correct": true
+    },
+    {
+     "text": "Шасси",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто первым перелетел Ла-Манш на самолёте (1909)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Louis_Bleriot.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Луи Блерио",
+     "is_correct": true
+    },
+    {
+     "text": "Чарльз Линдберг",
+     "is_correct": false
+    },
+    {
+     "text": "Братья Райт",
+     "is_correct": false
+    },
+    {
+     "text": "Амелия Эрхарт",
+     "is_correct": false
+    }
+   ],
+   "image": "q22.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Эта лётчица первой из женщин в одиночку перелетела Атлантику. Кто она?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Underwood & Underwood (active 1880 – c. 1950) 1, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Amelia_Earhart_standing_under_nose_of_her_Lockheed_Model_10-E_Electra,_small_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Марина Раскова",
+     "is_correct": false
+    },
+    {
+     "text": "Валентина Гризодубова",
+     "is_correct": false
+    },
+    {
+     "text": "Бесси Коулман",
+     "is_correct": false
+    },
+    {
+     "text": "Амелия Эрхарт",
+     "is_correct": true
+    }
+   ],
+   "image": "q23.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется самый оживлённый аэропорт мира по числу пассажиров (до 2024)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пекин",
+     "is_correct": false
+    },
+    {
+     "text": "Хитроу",
+     "is_correct": false
+    },
+    {
+     "text": "Дубай",
+     "is_correct": false
+    },
+    {
+     "text": "Атланта (Хартсфилд — Джексон)",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Какой самолёт на фото — советский «кукурузник»-биплан?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: Artem Katranzhi, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Antonov_An-2_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ил-14",
+     "is_correct": false
+    },
+    {
+     "text": "Як-40",
+     "is_correct": false
+    },
+    {
+     "text": "По-2",
+     "is_correct": false
+    },
+    {
+     "text": "Ан-2",
+     "is_correct": true
+    }
+   ],
+   "image": "q25.jpg"
+  }
+ ]
+}

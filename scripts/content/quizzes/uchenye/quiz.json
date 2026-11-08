@@ -1,0 +1,699 @@
+{
+ "key": "uchenye",
+ "title": "Великие учёные",
+ "subject": "Наука и техника",
+ "theme": "lake",
+ "description": "25 вопросов об учёных, которые изменили наш взгляд на мир. Узнайте их по портретам. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: кто на фото — автор теории относительности?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Oren Jack Turner, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Albert_Einstein_Head_cleaned.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Никола Тесла",
+     "is_correct": false
+    },
+    {
+     "text": "Альберт Эйнштейн",
+     "is_correct": true
+    },
+    {
+     "text": "Макс Планк",
+     "is_correct": false
+    },
+    {
+     "text": "Нильс Бор",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто открыл закон всемирного тяготения?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Godfrey Kneller, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Portrait_of_Sir_Isaac_Newton,_1689_%28brightened%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Иоганн Кеплер",
+     "is_correct": false
+    },
+    {
+     "text": "Галилео Галилей",
+     "is_correct": false
+    },
+    {
+     "text": "Архимед",
+     "is_correct": false
+    },
+    {
+     "text": "Исаак Ньютон",
+     "is_correct": true
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Эта женщина дважды получила Нобелевскую премию — по физике и химии. Кто она?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Henri Manuel, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Marie_Curie_c._1920s.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Софья Ковалевская",
+     "is_correct": false
+    },
+    {
+     "text": "Розалинд Франклин",
+     "is_correct": false
+    },
+    {
+     "text": "Ада Лавлейс",
+     "is_correct": false
+    },
+    {
+     "text": "Мария Склодовская-Кюри",
+     "is_correct": true
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто выкрикнул «Эврика!» в ванне, открыв закон о выталкивающей силе?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Аристотель",
+     "is_correct": false
+    },
+    {
+     "text": "Евклид",
+     "is_correct": false
+    },
+    {
+     "text": "Архимед",
+     "is_correct": true
+    },
+    {
+     "text": "Пифагор",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто на портрете — автор теории эволюции «Происхождение видов»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Charles Darwin seated.jpg: Henry Maull (1829–1914) and John Fox (1832–1907) (Maull & Fox)  3  derivative work: Beao, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Charles_Darwin_seated_crop.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чарлз Дарвин",
+     "is_correct": true
+    },
+    {
+     "text": "Карл Линней",
+     "is_correct": false
+    },
+    {
+     "text": "Луи Пастер",
+     "is_correct": false
+    },
+    {
+     "text": "Грегор Мендель",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто доказал, что Земля вращается вокруг Солнца, а не наоборот?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Nikolaus_Kopernikus_MOT.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тихо Браге",
+     "is_correct": false
+    },
+    {
+     "text": "Птолемей",
+     "is_correct": false
+    },
+    {
+     "text": "Аристотель",
+     "is_correct": false
+    },
+    {
+     "text": "Николай Коперник",
+     "is_correct": true
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Ньютону на голову упало яблоко — так говорит легенда, которую он сам рассказывал.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Этого великого учёного из Хорезма называют «отцом алгебры». Кто он?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "От его имени произошло слово «алгоритм».\n\n*Фото: Zarateman, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Madrid_-_Ciudad_Universitaria,_Monumento_a_Muhammad_al-Juarismi_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Аль-Бируни",
+     "is_correct": false
+    },
+    {
+     "text": "Ибн Сина",
+     "is_correct": false
+    },
+    {
+     "text": "Аль-Хорезми",
+     "is_correct": true
+    },
+    {
+     "text": "Улугбек",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто написал «Канон врачебной науки», по которому учились врачи 600 лет?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: National Library of Medicine, No restrictions, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Avicenna_Bust,_left_profile_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Гален",
+     "is_correct": false
+    },
+    {
+     "text": "Гиппократ",
+     "is_correct": false
+    },
+    {
+     "text": "Аль-Фараби",
+     "is_correct": false
+    },
+    {
+     "text": "Ибн Сина (Авиценна)",
+     "is_correct": true
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Учёный и правитель Самарканда, построивший огромную обсерваторию — это…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Victoria, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:A_model_of_Ulug_Beg_obsrvatory_in_the_Uzbek_National_Muzeum.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тимур",
+     "is_correct": false
+    },
+    {
+     "text": "Улугбек",
+     "is_correct": true
+    },
+    {
+     "text": "Аль-Бируни",
+     "is_correct": false
+    },
+    {
+     "text": "Бабур",
+     "is_correct": false
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто написал поэму «Кутадгу билиг» (XI век) — один из первых больших тюркских трудов?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Юсуф родился в Баласагуне — городище рядом с башней Бурана в Кыргызстане.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Юсуф Баласагуни",
+     "is_correct": true
+    },
+    {
+     "text": "Аль-Фараби",
+     "is_correct": false
+    },
+    {
+     "text": "Махмуд Кашгари",
+     "is_correct": false
+    },
+    {
+     "text": "Алишер Навои",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Кто из учёных получил Нобелевскую премию?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Нильс Бор",
+     "is_correct": true
+    },
+    {
+     "text": "Исаак Ньютон",
+     "is_correct": false
+    },
+    {
+     "text": "Альберт Эйнштейн",
+     "is_correct": true
+    },
+    {
+     "text": "Мария Кюри",
+     "is_correct": true
+    },
+    {
+     "text": "Галилей",
+     "is_correct": false
+    },
+    {
+     "text": "Чарлз Дарвин",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто открыл, что микробы вызывают болезни, и придумал прививку от бешенства?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Paul Nadar, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Louis_Pasteur,_foto_av_Paul_Nadar,_Crisco_edit.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Луи Пастер",
+     "is_correct": true
+    },
+    {
+     "text": "Александр Флеминг",
+     "is_correct": false
+    },
+    {
+     "text": "Эдвард Дженнер",
+     "is_correct": false
+    },
+    {
+     "text": "Роберт Кох",
+     "is_correct": false
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто в инвалидном кресле изучал чёрные дыры и написал «Краткую историю времени»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: NASA, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Stephen_Hawking.StarChild.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Карл Саган",
+     "is_correct": false
+    },
+    {
+     "text": "Стивен Хокинг",
+     "is_correct": true
+    },
+    {
+     "text": "Роджер Пенроуз",
+     "is_correct": false
+    },
+    {
+     "text": "Ричард Фейнман",
+     "is_correct": false
+    }
+   ],
+   "image": "q14.jpg"
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: учёный, который изучает звёзды.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "АСТРОНОМ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как зовут первую программистку в истории, которая писала программы для машины Бэббиджа?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Antoine Claudet, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ada_Lovelace_daguerreotype_by_Antoine_Claudet_1843_-_cropped.png)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Хеди Ламарр",
+     "is_correct": false
+    },
+    {
+     "text": "Мария Кюри",
+     "is_correct": false
+    },
+    {
+     "text": "Ада Лавлейс",
+     "is_correct": true
+    },
+    {
+     "text": "Грейс Хоппер",
+     "is_correct": false
+    }
+   ],
+   "image": "q16.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Леонардо да Винчи был не только художником, но и изобретателем и анатомом.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "*Фото: Attributed to Francesco Melzi, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Francesco_Melzi_-_Portrait_of_Leonardo_%28colour_correction%29.png)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "order",
+   "text": "Расставьте учёных по времени жизни, от древнего к современному.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Архимед",
+     "is_correct": false
+    },
+    {
+     "text": "Ибн Сина",
+     "is_correct": false
+    },
+    {
+     "text": "Ньютон",
+     "is_correct": false
+    },
+    {
+     "text": "Эйнштейн",
+     "is_correct": false
+    },
+    {
+     "text": "Хокинг",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что открыл Грегор Мендель, выращивая горох?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Gregor_Mendel_2.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Законы наследственности",
+     "is_correct": true
+    },
+    {
+     "text": "Клетку",
+     "is_correct": false
+    },
+    {
+     "text": "Фотосинтез",
+     "is_correct": false
+    },
+    {
+     "text": "Витамины",
+     "is_correct": false
+    }
+   ],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "Сколько химических элементов было в таблице Менделеева в 1869 году (примерно)?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 30,
+    "max": 118,
+    "step": 1,
+    "answer": 63,
+    "unit": "элемента",
+    "tolerance": 3
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как звали учёного, который первым увидел клетки в микроскоп (1665)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Роберт Гук",
+     "is_correct": true
+    },
+    {
+     "text": "Антони ван Левенгук",
+     "is_correct": false
+    },
+    {
+     "text": "Луи Пастер",
+     "is_correct": false
+    },
+    {
+     "text": "Роберт Броун",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Как фамилия учёного, в честь которого названа единица силы — Н? ",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "Ньютон",
+     "ньютон"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие учёные жили на территории Средней Азии?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ибн Сина",
+     "is_correct": true
+    },
+    {
+     "text": "Улугбек",
+     "is_correct": true
+    },
+    {
+     "text": "Аль-Хорезми",
+     "is_correct": true
+    },
+    {
+     "text": "Ньютон",
+     "is_correct": false
+    },
+    {
+     "text": "Аль-Бируни",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто изобрёл переменный ток и мечтал о беспроводной передаче энергии?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Napoleon Sarony, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tesla_circa_1890.jpeg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Томас Эдисон",
+     "is_correct": false
+    },
+    {
+     "text": "Андре Ампер",
+     "is_correct": false
+    },
+    {
+     "text": "Никола Тесла",
+     "is_correct": true
+    },
+    {
+     "text": "Майкл Фарадей",
+     "is_correct": false
+    }
+   ],
+   "image": "q24.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Знаменитая формула Эйнштейна:",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "a² + b² = c²",
+     "is_correct": false
+    },
+    {
+     "text": "E = mc²",
+     "is_correct": true
+    },
+    {
+     "text": "F = ma",
+     "is_correct": false
+    },
+    {
+     "text": "E = hν",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

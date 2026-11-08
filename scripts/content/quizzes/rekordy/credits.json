@@ -1,0 +1,83 @@
+{
+ "cover.jpg": {
+  "author": "Project Apollo Archive",
+  "file": "Sahara real color.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Sahara_real_color.jpg",
+  "spec": "en:Sahara",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Sahara_real_color.jpg/960px-Sahara_real_color.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q01.jpg": {
+  "author": "Project Apollo Archive",
+  "file": "Sahara real color.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Sahara_real_color.jpg",
+  "spec": "en:Sahara",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Sahara_real_color.jpg/960px-Sahara_real_color.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q04.jpg": {
+  "author": "Goran_tek-en",
+  "file": "Flag of Vatican City (2023–present).svg",
+  "license": "Public domain",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Vatican_City_(2023%E2%80%93present).svg",
+  "spec": "en:Vatican City",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Flag_of_Vatican_City_%282023%E2%80%93present%29.svg/960px-Flag_of_Vatican_City_%282023%E2%80%93present%29.svg.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q06.jpg": {
+  "author": "Jeffrey Connell (IceKarma)",
+  "file": "Flag of Greenland.svg",
+  "license": "Public domain",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Greenland.svg",
+  "spec": "en:Greenland",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_Greenland.svg/960px-Flag_of_Greenland.svg.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q08.jpg": {
+  "author": "Avispa marina.jpg: Guido Gautsch, Toyota, Japan derivative work: Mithril (talk)",
+  "file": "Avispa marina cropped.png",
+  "license": "CC BY-SA 2.0",
+  "mime": "image/png",
+  "page": "https://commons.wikimedia.org/wiki/File:Avispa_marina_cropped.png",
+  "spec": "en:Chironex fleckeri",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/b/bc/Avispa_marina_cropped.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q09.jpg": {
+  "author": "Unknown authorUnknown author",
+  "file": "Robert Wadlow postcard.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Robert_Wadlow_postcard.jpg",
+  "spec": "en:Robert Wadlow",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Robert_Wadlow_postcard.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q12.jpg": {
+  "author": "European Space Agency",
+  "file": "Lake Titicaca ESA22522896.jpeg",
+  "license": "Attribution",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Lake_Titicaca_ESA22522896.jpeg",
+  "spec": "en:Lake Titicaca",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Lake_Titicaca_ESA22522896.jpeg/960px-Lake_Titicaca_ESA22522896.jpeg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q18.jpg": {
+  "author": "Gustave Ouvière",
+  "file": "JeanneCalmentaged40.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:JeanneCalmentaged40.jpg",
+  "spec": "en:Jeanne Calment",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/JeanneCalmentaged40.jpg/960px-JeanneCalmentaged40.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q25.jpg": {
+  "author": "Kawahara Keiga",
+  "file": "Naturalis Biodiversity Center - RMNH.ART.194 - Istiophorus platypterus (Shaw and Nodder) - Kawahara Keiga - 1823 - 1829 - Siebold Collection - new version.jpeg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Naturalis_Biodiversity_Center_-_RMNH.ART.194_-_Istiophorus_platypterus_(Shaw_and_Nodder)_-_Kawahara_Keiga_-_1823_-_1829_-_Siebold_Collection_-_new_version.jpeg",
+  "spec": "en:Sailfish",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/65/Naturalis_Biodiversity_Center_-_RMNH.ART.194_-_Istiophorus_platypterus_%28Shaw_and_Nodder%29_-_Kawahara_Keiga_-_1823_-_1829_-_Siebold_Collection_-_new_version.jpeg/960px-Naturalis_Biodiversity_Center_-_RMNH.ART.194_-_Istiophorus_platypterus_%28Shaw_and_Nodder%29_-_Kawahara_Keiga_-_1823_-_1829_-_Siebold_Collection_-_new_version.jpeg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ }
+}

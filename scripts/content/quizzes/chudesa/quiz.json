@@ -1,0 +1,685 @@
+{
+ "key": "chudesa",
+ "title": "Чудеса света",
+ "subject": "География",
+ "theme": "felt",
+ "description": "25 вопросов о древних и новых чудесах света, великих стенах, храмах и пирамидах. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: что на фото?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Yann; edited by Jim Carter, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Taj_Mahal_%28Edited%29.jpeg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Голубая мечеть",
+     "is_correct": false
+    },
+    {
+     "text": "Ангкор-Ват",
+     "is_correct": false
+    },
+    {
+     "text": "Тадж-Махал",
+     "is_correct": true
+    },
+    {
+     "text": "Регистан",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Тадж-Махал — это…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Дворец султана",
+     "is_correct": false
+    },
+    {
+     "text": "Обсерватория",
+     "is_correct": false
+    },
+    {
+     "text": "Крепость",
+     "is_correct": false
+    },
+    {
+     "text": "Мавзолей, построенный шахом в память о жене",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое из семи древних чудес света сохранилось до наших дней?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Douwe C. van der Zee, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Great_Pyramid_of_Giza_-_Pyramid_of_Khufu.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Колосс Родосский",
+     "is_correct": false
+    },
+    {
+     "text": "Александрийский маяк",
+     "is_correct": false
+    },
+    {
+     "text": "Висячие сады Семирамиды",
+     "is_correct": false
+    },
+    {
+     "text": "Пирамида Хеопса",
+     "is_correct": true
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что на фото?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Severin.stalder, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:The_Great_Wall_of_China_at_Jinshanling-edit.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Берлинская стена",
+     "is_correct": false
+    },
+    {
+     "text": "Великая Китайская стена",
+     "is_correct": true
+    },
+    {
+     "text": "Стена Адриана",
+     "is_correct": false
+    },
+    {
+     "text": "Стена Плача",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Великую Китайскую стену видно невооружённым глазом с Луны.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Это миф: она слишком узкая.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Где находится Мачу-Пикчу?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Draceane, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Machu_Picchu,_2023_%28012%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Боливия",
+     "is_correct": false
+    },
+    {
+     "text": "Перу",
+     "is_correct": true
+    },
+    {
+     "text": "Мексика",
+     "is_correct": false
+    },
+    {
+     "text": "Чили",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что это за античная арена?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: FeaturedPics, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Colosseo_2020.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Колизей",
+     "is_correct": true
+    },
+    {
+     "text": "Акрополь",
+     "is_correct": false
+    },
+    {
+     "text": "Парфенон",
+     "is_correct": false
+    },
+    {
+     "text": "Пантеон",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "В какой стране Петра — город, высеченный в розовых скалах?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Azurfrog, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Al_Deir_Petra.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сирия",
+     "is_correct": false
+    },
+    {
+     "text": "Египет",
+     "is_correct": false
+    },
+    {
+     "text": "Иордания",
+     "is_correct": true
+    },
+    {
+     "text": "Израиль",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чичен-Ица — пирамида какого народа?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Daniel Schwen, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Chichen_Itza_3.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Майя",
+     "is_correct": true
+    },
+    {
+     "text": "Ацтеков",
+     "is_correct": false
+    },
+    {
+     "text": "Египтян",
+     "is_correct": false
+    },
+    {
+     "text": "Инков",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Что входит в список «Новых семи чудес света» (2007)?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Колизей",
+     "is_correct": true
+    },
+    {
+     "text": "Тадж-Махал",
+     "is_correct": true
+    },
+    {
+     "text": "Великая Китайская стена",
+     "is_correct": true
+    },
+    {
+     "text": "Мачу-Пикчу",
+     "is_correct": true
+    },
+    {
+     "text": "Статуя Свободы",
+     "is_correct": false
+    },
+    {
+     "text": "Эйфелева башня",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Это крупнейший храм мира. Где он?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Bjørn Christian Tørrissen, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Angkor_Wat.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ангкор-Ват, Камбоджа",
+     "is_correct": true
+    },
+    {
+     "text": "Боробудур, Индонезия",
+     "is_correct": false
+    },
+    {
+     "text": "Таиланд",
+     "is_correct": false
+    },
+    {
+     "text": "Мьянма",
+     "is_correct": false
+    }
+   ],
+   "image": "q11.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называются каменные статуи острова Пасхи?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Ian Sewell, CC BY 2.5, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:AhuTongariki.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сфинксы",
+     "is_correct": false
+    },
+    {
+     "text": "Балбалы",
+     "is_correct": false
+    },
+    {
+     "text": "Моаи",
+     "is_correct": true
+    },
+    {
+     "text": "Тики",
+     "is_correct": false
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "single",
+   "text": "А как называются древние каменные изваяния в степях Кыргызстана, похожие на них?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: Richard Mortel, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Balbal,_6th-10th_cents.,_Burana,_Kyrgyzstan_%283%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Менгиры",
+     "is_correct": false
+    },
+    {
+     "text": "Моаи",
+     "is_correct": false
+    },
+    {
+     "text": "Тотемы",
+     "is_correct": false
+    },
+    {
+     "text": "Балбалы",
+     "is_correct": true
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Стоунхендж находится в Англии.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "*Фото: garethwiscombe, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Stonehenge2007_07_30.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q14.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "Сколько тысяч километров длина Великой Китайской стены (со всеми ответвлениями)?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 1,
+    "max": 30,
+    "step": 1,
+    "answer": 21,
+    "unit": "тыс. км",
+    "tolerance": 3
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что охраняет Сфинкс в Гизе?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Hesham Ebaid, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sphinx_with_the_third_pyramid.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Реку Нил",
+     "is_correct": false
+    },
+    {
+     "text": "Пирамиды",
+     "is_correct": true
+    },
+    {
+     "text": "Город Каир",
+     "is_correct": false
+    },
+    {
+     "text": "Храм Луксор",
+     "is_correct": false
+    }
+   ],
+   "image": "q16.jpg"
+  },
+  {
+   "type": "order",
+   "text": "Расставьте постройки по возрасту, от самой древней.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пирамида Хеопса",
+     "is_correct": false
+    },
+    {
+     "text": "Колизей",
+     "is_correct": false
+    },
+    {
+     "text": "Тадж-Махал",
+     "is_correct": false
+    },
+    {
+     "text": "Эйфелева башня",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Это водопад на границе Аргентины и Бразилии. Как он называется?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Mariordo (Mario Roberto Durán Ortiz), CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Aerial_Foz_de_Igua%C3%A7u_26_Nov_2005.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ниагара",
+     "is_correct": false
+    },
+    {
+     "text": "Игуасу",
+     "is_correct": true
+    },
+    {
+     "text": "Анхель",
+     "is_correct": false
+    },
+    {
+     "text": "Виктория",
+     "is_correct": false
+    }
+   ],
+   "image": "q18.jpg"
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: египетская гробница фараона.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ПИРАМИДА"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая крепость на Тянь-Шане — караван-сарай Великого шёлкового пути в Нарыне?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Firespeaker, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tash_Rabat_in_mountains.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бурана",
+     "is_correct": false
+    },
+    {
+     "text": "Узген",
+     "is_correct": false
+    },
+    {
+     "text": "Кошой-Коргон",
+     "is_correct": false
+    },
+    {
+     "text": "Таш-Рабат",
+     "is_correct": true
+    }
+   ],
+   "image": "q20.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется каньон в США глубиной более 1,5 км?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Lennart Sikkema, CC BY 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Canyon_River_Tree_%28165872763%29.jpeg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Гранд-Каньон",
+     "is_correct": true
+    },
+    {
+     "text": "Ущелье Ала-Арча",
+     "is_correct": false
+    },
+    {
+     "text": "Каньон Чарын",
+     "is_correct": false
+    },
+    {
+     "text": "Каньон Колка",
+     "is_correct": false
+    }
+   ],
+   "image": "q21.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Какие чудеса света древнего списка находились в Египте?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Колосс Родосский",
+     "is_correct": false
+    },
+    {
+     "text": "Висячие сады",
+     "is_correct": false
+    },
+    {
+     "text": "Александрийский маяк",
+     "is_correct": true
+    },
+    {
+     "text": "Пирамиды Гизы",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Как зовут фараона, для которого построили самую большую пирамиду? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "Хеопс",
+     "Хуфу",
+     "хеопс",
+     "хуфу"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Статуя Свободы была подарком Франции.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Сколько лет назад примерно построена пирамида Хеопса?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Около 1000 лет",
+     "is_correct": false
+    },
+    {
+     "text": "Около 2000 лет",
+     "is_correct": false
+    },
+    {
+     "text": "Около 4500 лет",
+     "is_correct": true
+    },
+    {
+     "text": "Около 10000 лет",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

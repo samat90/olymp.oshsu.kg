@@ -1,0 +1,83 @@
+{
+ "cover.jpg": {
+  "author": "ScottRobertAnselmo",
+  "file": "Tyrannosaurus Rex Holotype.jpg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Tyrannosaurus_Rex_Holotype.jpg",
+  "spec": "en:Tyrannosaurus",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Tyrannosaurus_Rex_Holotype.jpg/960px-Tyrannosaurus_Rex_Holotype.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q01.jpg": {
+  "author": "ScottRobertAnselmo",
+  "file": "Tyrannosaurus Rex Holotype.jpg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Tyrannosaurus_Rex_Holotype.jpg",
+  "spec": "en:Tyrannosaurus",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Tyrannosaurus_Rex_Holotype.jpg/960px-Tyrannosaurus_Rex_Holotype.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q02.jpg": {
+  "author": "Source: Allie_Caulfield Derivative: User:MathKnight",
+  "file": "LA-Triceratops mount-2.jpg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:LA-Triceratops_mount-2.jpg",
+  "spec": "en:Triceratops",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/LA-Triceratops_mount-2.jpg/960px-LA-Triceratops_mount-2.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q03.jpg": {
+  "author": "Susannah Maidment et al. & Natural History Museum, London",
+  "file": "Journal.pone.0138352.g001A.jpg",
+  "license": "CC BY 4.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Journal.pone.0138352.g001A.jpg",
+  "spec": "en:Stegosaurus",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Journal.pone.0138352.g001A.jpg/960px-Journal.pone.0138352.g001A.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q08.jpg": {
+  "author": "Matt Martyniuk",
+  "file": "Pteranodon amnh martyniuk.jpg",
+  "license": "CC BY 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Pteranodon_amnh_martyniuk.jpg",
+  "spec": "en:Pteranodon",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Pteranodon_amnh_martyniuk.jpg/960px-Pteranodon_amnh_martyniuk.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q09.jpg": {
+  "author": "Matt Wedel",
+  "file": "Brachiosaurus mount.jpg",
+  "license": "CC BY 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Brachiosaurus_mount.jpg",
+  "spec": "en:Brachiosaurus",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Brachiosaurus_mount.jpg/960px-Brachiosaurus_mount.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q13.jpg": {
+  "author": "H. Raab (User: Vesta)",
+  "file": "Archaeopteryx lithographica (Berlin specimen).jpg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Archaeopteryx_lithographica_(Berlin_specimen).jpg",
+  "spec": "en:Archaeopteryx",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Archaeopteryx_lithographica_%28Berlin_specimen%29.jpg/960px-Archaeopteryx_lithographica_%28Berlin_specimen%29.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q15.jpg": {
+  "author": "Lou.gruber",
+  "file": "Siegsdorfer Mammut.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Siegsdorfer_Mammut.jpg",
+  "spec": "en:Woolly mammoth",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Siegsdorfer_Mammut.jpg/960px-Siegsdorfer_Mammut.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q18.jpg": {
+  "author": "Kim Alaniz",
+  "file": "Paleo Hall at HMNS plesiosaur.jpg",
+  "license": "CC BY 2.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Paleo_Hall_at_HMNS_plesiosaur.jpg",
+  "spec": "en:Plesiosauria",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Paleo_Hall_at_HMNS_plesiosaur.jpg/960px-Paleo_Hall_at_HMNS_plesiosaur.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ }
+}

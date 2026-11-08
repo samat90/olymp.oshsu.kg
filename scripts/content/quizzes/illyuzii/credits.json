@@ -1,0 +1,83 @@
+{
+ "cover.jpg": {
+  "author": "Original: Edward H. Adelson, vectorized by Pbroks13.",
+  "file": "Checker shadow illusion.svg",
+  "license": "CC BY-SA 4.0",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Checker_shadow_illusion.svg",
+  "spec": "en:Optical illusion",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Checker_shadow_illusion.svg/960px-Checker_shadow_illusion.svg.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q01.jpg": {
+  "author": "Ataturk.svg: Nevit Nevit Dilmen",
+  "file": "Face or vase ata 01.svg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Face_or_vase_ata_01.svg",
+  "spec": "en:Rubin vase",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Face_or_vase_ata_01.svg/960px-Face_or_vase_ata_01.svg.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q02.jpg": {
+  "author": "W. E. Hill",
+  "file": "My Wife and My Mother-in-Law.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:My_Wife_and_My_Mother-in-Law.jpg",
+  "spec": "en:My Wife and My Mother-in-Law",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/My_Wife_and_My_Mother-in-Law.jpg/960px-My_Wife_and_My_Mother-in-Law.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q03.jpg": {
+  "author": "Franz Müller-Lyer",
+  "file": "Müller-Lyer Illusion - MathWorld version.svg",
+  "license": "Public domain",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:M%C3%BCller-Lyer_Illusion_-_MathWorld_version.svg",
+  "spec": "en:Müller-Lyer illusion",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/M%C3%BCller-Lyer_Illusion_-_MathWorld_version.svg/960px-M%C3%BCller-Lyer_Illusion_-_MathWorld_version.svg.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q04.jpg": {
+  "author": "No machine-readable author provided. Phrood~commonswiki assumed (based on copyright claims).",
+  "file": "Mond-vergleich.svg",
+  "license": "Public domain",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Mond-vergleich.svg",
+  "spec": "en:Ebbinghaus illusion",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Mond-vergleich.svg/960px-Mond-vergleich.svg.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q05.jpg": {
+  "author": "Tobias R. – Metoc",
+  "file": "Penrose-dreieck.svg",
+  "license": "Public domain",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Penrose-dreieck.svg",
+  "spec": "en:Penrose triangle",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Penrose-dreieck.svg/960px-Penrose-dreieck.svg.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q06.jpg": {
+  "author": "David Benbennick",
+  "file": "Möbius Strip.jpg",
+  "license": "CC BY-SA 2.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:M%C3%B6bius_Strip.jpg",
+  "spec": "en:Möbius strip",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/M%C3%B6bius_Strip.jpg/960px-M%C3%B6bius_Strip.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q19.jpg": {
+  "author": "Hans Peters for Anefo",
+  "file": "Maurits Cornelis Escher.jpg",
+  "license": "CC0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Maurits_Cornelis_Escher.jpg",
+  "spec": "en:M. C. Escher",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Maurits_Cornelis_Escher.jpg/960px-Maurits_Cornelis_Escher.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q22.jpg": {
+  "author": "Fibonacci",
+  "file": "Café wall.svg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Caf%C3%A9_wall.svg",
+  "spec": "en:Café wall illusion",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Caf%C3%A9_wall.svg/960px-Caf%C3%A9_wall.svg.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ }
+}

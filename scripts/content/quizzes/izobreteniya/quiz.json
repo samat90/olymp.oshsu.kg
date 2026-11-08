@@ -1,0 +1,697 @@
+{
+ "key": "izobreteniya",
+ "title": "Великие изобретения",
+ "subject": "Наука и техника",
+ "theme": "night",
+ "description": "25 вопросов об изобретениях, которые изменили мир: колесо, книга, лампочка, телефон, интернет. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: кто изобрёл телефон?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: автор неизвестен, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Alexander_Graham_Bell_1895_NPG_77_363.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Гульельмо Маркони",
+     "is_correct": false
+    },
+    {
+     "text": "Томас Эдисон",
+     "is_correct": false
+    },
+    {
+     "text": "Александр Белл",
+     "is_correct": true
+    },
+    {
+     "text": "Никола Тесла",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто на фото — изобретатель лампы накаливания и фонографа?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Louis Bachrach, Bachrach Studios, restored by Michel Vuijlsteke, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Thomas_Edison2.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Томас Эдисон",
+     "is_correct": true
+    },
+    {
+     "text": "Генри Форд",
+     "is_correct": false
+    },
+    {
+     "text": "Никола Тесла",
+     "is_correct": false
+    },
+    {
+     "text": "Александр Белл",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "В какой стране изобрели бумагу?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Греция",
+     "is_correct": false
+    },
+    {
+     "text": "Египет",
+     "is_correct": false
+    },
+    {
+     "text": "Индия",
+     "is_correct": false
+    },
+    {
+     "text": "Китай",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что изобрёл Иоганн Гутенберг около 1440 года?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Kenneth C. Zirkel, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mainz_Gutenbergdenkmal_2016_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Часы",
+     "is_correct": false
+    },
+    {
+     "text": "Бумагу",
+     "is_correct": false
+    },
+    {
+     "text": "Микроскоп",
+     "is_correct": false
+    },
+    {
+     "text": "Печатный станок с наборными буквами",
+     "is_correct": true
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Какие изобретения пришли из Древнего Китая?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Паровоз",
+     "is_correct": false
+    },
+    {
+     "text": "Бумага",
+     "is_correct": true
+    },
+    {
+     "text": "Телевизор",
+     "is_correct": false
+    },
+    {
+     "text": "Порох",
+     "is_correct": true
+    },
+    {
+     "text": "Компас",
+     "is_correct": true
+    },
+    {
+     "text": "Книгопечатание",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто первым поднялся в воздух на самолёте с мотором (1903)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: John T. Daniels, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:First_flight2.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Братья Райт",
+     "is_correct": true
+    },
+    {
+     "text": "Братья Монгольфье",
+     "is_correct": false
+    },
+    {
+     "text": "Игорь Сикорский",
+     "is_correct": false
+    },
+    {
+     "text": "Луи Блерио",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Братья Монгольфье подняли в небо первый воздушный шар.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "*Фото: Unidentified painter, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Joseph-montgolfier.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто изобрёл радио? Тут спорят две страны. Кого называют в России?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Никола Тесла",
+     "is_correct": false
+    },
+    {
+     "text": "Александр Попов",
+     "is_correct": true
+    },
+    {
+     "text": "Генрих Герц",
+     "is_correct": false
+    },
+    {
+     "text": "Гульельмо Маркони",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто придумал первый современный автомобиль с бензиновым двигателем (1886)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: supplied by Carl Benz to William Worby Beaumont, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Benz_Patent-Motorwagen_Nr_2.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Карл Бенц",
+     "is_correct": true
+    },
+    {
+     "text": "Генри Форд",
+     "is_correct": false
+    },
+    {
+     "text": "Энцо Феррари",
+     "is_correct": false
+    },
+    {
+     "text": "Рудольф Дизель",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как звали учёного, открывшего пенициллин — первый антибиотик?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Official photographer, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Synthetic_Production_of_Penicillin_TR1468.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Эдвард Дженнер",
+     "is_correct": false
+    },
+    {
+     "text": "Луи Пастер",
+     "is_correct": false
+    },
+    {
+     "text": "Александр Флеминг",
+     "is_correct": true
+    },
+    {
+     "text": "Роберт Кох",
+     "is_correct": false
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "order",
+   "text": "Расставьте изобретения по времени появления, от древнего к новому.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Колесо",
+     "is_correct": false
+    },
+    {
+     "text": "Книгопечатание",
+     "is_correct": false
+    },
+    {
+     "text": "Паровоз",
+     "is_correct": false
+    },
+    {
+     "text": "Телефон",
+     "is_correct": false
+    },
+    {
+     "text": "Интернет",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто придумал всемирную паутину (WWW)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Summit, CC BY 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tim_Berners-Lee_at_the_2025_Web_Summit_%28Cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Стив Джобс",
+     "is_correct": false
+    },
+    {
+     "text": "Тим Бернерс-Ли",
+     "is_correct": true
+    },
+    {
+     "text": "Билл Гейтс",
+     "is_correct": false
+    },
+    {
+     "text": "Марк Цукерберг",
+     "is_correct": false
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто изобрёл динамит, а потом учредил премию его имени?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Alfred_Nobel3.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Майкл Фарадей",
+     "is_correct": false
+    },
+    {
+     "text": "Альфред Нобель",
+     "is_correct": true
+    },
+    {
+     "text": "Дмитрий Менделеев",
+     "is_correct": false
+    },
+    {
+     "text": "Никола Тесла",
+     "is_correct": false
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Первый паровоз построил Джордж Стефенсон.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Ловушка: первый паровоз построил Ричард Тревитик (1804), а Стефенсон сделал знаменитую «Ракету» и первую железную дорогу.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что изобрёл Галилей, чтобы открыть спутники Юпитера?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Justus Sustermans, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Galileo_Galilei_%281564-1642%29_RMG_BHC2700.tiff)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Глобус",
+     "is_correct": false
+    },
+    {
+     "text": "Барометр",
+     "is_correct": false
+    },
+    {
+     "text": "Телескоп (он его усовершенствовал)",
+     "is_correct": true
+    },
+    {
+     "text": "Микроскоп",
+     "is_correct": false
+    }
+   ],
+   "image": "q15.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "В каком году Стив Джобс показал первый iPhone?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 1995,
+    "max": 2015,
+    "step": 1,
+    "answer": 2007,
+    "unit": "",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: прибор, который показывает север.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "КОМПАС"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто сделал первую фотографию (около 1826 года)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Nicéphore Niépce, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Untitled_%28point_de_vue%29,_Ni%C3%A9pce_1827_%E2%80%94_HRC_2020_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Джордж Истмен",
+     "is_correct": false
+    },
+    {
+     "text": "Луи Дагер",
+     "is_correct": false
+    },
+    {
+     "text": "Жозеф Нисефор Ньепс",
+     "is_correct": true
+    },
+    {
+     "text": "Братья Люмьер",
+     "is_correct": false
+    }
+   ],
+   "image": "q18.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что изобрёл Никола Тесла?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Napoleon Sarony, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tesla_circa_1890.jpeg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Двигатель переменного тока",
+     "is_correct": true
+    },
+    {
+     "text": "Телефон",
+     "is_correct": false
+    },
+    {
+     "text": "Лампочку",
+     "is_correct": false
+    },
+    {
+     "text": "Самолёт",
+     "is_correct": false
+    }
+   ],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Что из этого изобрели в XX веке?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Компьютер",
+     "is_correct": true
+    },
+    {
+     "text": "Телевизор",
+     "is_correct": true
+    },
+    {
+     "text": "Порох",
+     "is_correct": false
+    },
+    {
+     "text": "Паровая машина",
+     "is_correct": false
+    },
+    {
+     "text": "Пенициллин",
+     "is_correct": true
+    },
+    {
+     "text": "Лазер",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто изобрёл таблицу, по которой мы изучаем химические элементы?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Original: Unknown authorUnknown author Upload: Germansociety2014, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Dmitri_Mendeleev.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мария Кюри",
+     "is_correct": false
+    },
+    {
+     "text": "Роберт Бойль",
+     "is_correct": false
+    },
+    {
+     "text": "Антуан Лавуазье",
+     "is_correct": false
+    },
+    {
+     "text": "Дмитрий Менделеев",
+     "is_correct": true
+    }
+   ],
+   "image": "q21.jpg"
+  },
+  {
+   "type": "text",
+   "text": "Как называется изобретение Блеза Паскаля для вычислений (1642)? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "паскалина",
+     "Паскалина",
+     "арифмометр",
+     "калькулятор"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что такое «Энигма»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Alessandro Nassiri, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Enigma_%28crittografia%29_-_Museo_scienza_e_tecnologia_Milano.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Первый компьютер",
+     "is_correct": false
+    },
+    {
+     "text": "Советский спутник",
+     "is_correct": false
+    },
+    {
+     "text": "Космическая ракета",
+     "is_correct": false
+    },
+    {
+     "text": "Немецкая шифровальная машина",
+     "is_correct": true
+    }
+   ],
+   "image": "q23.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Застёжку-молнию изобрели раньше, чем самолёт.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Первые «молнии» появились в 1890-х, самолёт — в 1903 году.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Какое изобретение древних шумеров сделало возможными телеги и колесницы?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Седло",
+     "is_correct": false
+    },
+    {
+     "text": "Колесо",
+     "is_correct": true
+    },
+    {
+     "text": "Плуг",
+     "is_correct": false
+    },
+    {
+     "text": "Парус",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

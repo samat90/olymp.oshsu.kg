@@ -1,0 +1,698 @@
+{
+ "key": "skazki",
+ "title": "Сказки народов мира",
+ "subject": "Сказки",
+ "theme": "felt",
+ "description": "25 вопросов о сказках: русские, кыргызские, европейские и восточные. Иллюстрации старых мастеров — Билибина, Доре, Тенниела. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: кто это на иллюстрации Ивана Билибина — в ступе и с метлой?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Ivan Bilibin, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bilibin._Baba_Yaga.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Леший",
+     "is_correct": false
+    },
+    {
+     "text": "Василиса Премудрая",
+     "is_correct": false
+    },
+    {
+     "text": "Кощей Бессмертный",
+     "is_correct": false
+    },
+    {
+     "text": "Баба-Яга",
+     "is_correct": true
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто на этой гравюре Гюстава Доре встретил волка в лесу?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Gustave Dore, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Dore_ridinghood.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Белоснежка",
+     "is_correct": false
+    },
+    {
+     "text": "Гретель",
+     "is_correct": false
+    },
+    {
+     "text": "Золушка",
+     "is_correct": false
+    },
+    {
+     "text": "Красная Шапочка",
+     "is_correct": true
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Где спрятана смерть Кощея Бессмертного?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "На конце иглы, игла в яйце",
+     "is_correct": true
+    },
+    {
+     "text": "В его короне",
+     "is_correct": false
+    },
+    {
+     "text": "В золотом сундуке под троном",
+     "is_correct": false
+    },
+    {
+     "text": "В волшебном зеркале",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кого встретила Алиса на этой иллюстрации Джона Тенниела — на ветке, с широкой улыбкой?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Alice_par_John_Tenniel_24.png)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чеширского кота",
+     "is_correct": true
+    },
+    {
+     "text": "Шляпника",
+     "is_correct": false
+    },
+    {
+     "text": "Белого кролика",
+     "is_correct": false
+    },
+    {
+     "text": "Мартовского зайца",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что потеряла Золушка на балу?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Веер",
+     "is_correct": false
+    },
+    {
+     "text": "Хрустальную туфельку",
+     "is_correct": true
+    },
+    {
+     "text": "Корону",
+     "is_correct": false
+    },
+    {
+     "text": "Золотое кольцо",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Сказку «Кот в сапогах» записал Шарль Перро.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "*Фото: Carl Offterdinger, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Offterdinger_Der_gestiefelte_Kater_%281%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как звали деревянного мальчика, у которого рос нос, когда он лгал?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Буратино — пересказ Алексея Толстого, но нос рос от лжи именно у Пиноккио.\n\n*Фото: Enrico Mazzanti (1852-1910), Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Pinocchio.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Карлсон",
+     "is_correct": false
+    },
+    {
+     "text": "Пиноккио",
+     "is_correct": true
+    },
+    {
+     "text": "Чиполлино",
+     "is_correct": false
+    },
+    {
+     "text": "Буратино",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какие братья собрали «Белоснежку», «Гензеля и Гретель» и «Бременских музыкантов»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Elisabeth Baumann, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Grimm.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Братья Райт",
+     "is_correct": false
+    },
+    {
+     "text": "Братья Люмьер",
+     "is_correct": false
+    },
+    {
+     "text": "Братья Карамазовы",
+     "is_correct": false
+    },
+    {
+     "text": "Братья Гримм",
+     "is_correct": true
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "order",
+   "text": "Расставьте героев «Репки» в порядке, в котором они приходили тянуть репку.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Дедка",
+     "is_correct": false
+    },
+    {
+     "text": "Бабка",
+     "is_correct": false
+    },
+    {
+     "text": "Внучка",
+     "is_correct": false
+    },
+    {
+     "text": "Жучка",
+     "is_correct": false
+    },
+    {
+     "text": "Кошка",
+     "is_correct": false
+    },
+    {
+     "text": "Мышка",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кого Кыргызстан знает по сказкам и анекдотам: хитрец на ишаке, который всех перехитрит?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Апенди (Насреддин)",
+     "is_correct": true
+    },
+    {
+     "text": "Алдар Косе из Казахстана",
+     "is_correct": false
+    },
+    {
+     "text": "Кожомкул",
+     "is_correct": false
+    },
+    {
+     "text": "Манас",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чем закончилась сказка о Колобке?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Его съел медведь",
+     "is_correct": false
+    },
+    {
+     "text": "Он вернулся к деду и бабе",
+     "is_correct": false
+    },
+    {
+     "text": "Его съела лиса",
+     "is_correct": true
+    },
+    {
+     "text": "Он убежал в лес навсегда",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие сказки написал Ганс Христиан Андерсен?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "*Фото: Thora Hallager, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:HCA_by_Thora_Hallager_1869_crop.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Красная Шапочка»",
+     "is_correct": false
+    },
+    {
+     "text": "«Гадкий утёнок»",
+     "is_correct": true
+    },
+    {
+     "text": "«Золушка»",
+     "is_correct": false
+    },
+    {
+     "text": "«Русалочка»",
+     "is_correct": true
+    },
+    {
+     "text": "«Снежная королева»",
+     "is_correct": true
+    },
+    {
+     "text": "«Огниво»",
+     "is_correct": true
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто помог Ивану-царевичу: на картине Виктора Васнецова он скачет на звере сквозь лес. Кто этот зверь?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Pierre André Leclercq, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Moscou,_galerie_Tretiakov_Ivan-Tsarevitch_at_the_Grey_Wolf_%28Vasnetsov%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Жар-птица",
+     "is_correct": false
+    },
+    {
+     "text": "Серый Волк",
+     "is_correct": true
+    },
+    {
+     "text": "Конёк-Горбунок",
+     "is_correct": false
+    },
+    {
+     "text": "Медведь",
+     "is_correct": false
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "В сказке «Три поросёнка» самым крепким оказался домик из соломы.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Устоял только каменный (кирпичный) домик.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: светящаяся волшебная птица, за пером которой отправлялся Иван-царевич.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ЖАРПТИЦА"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько лет старик со старухой жили у самого синего моря у Пушкина?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "«Жил старик со своею старухой у самого синего моря; они жили в ветхой землянке ровно тридцать лет и три года».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "13 лет",
+     "is_correct": false
+    },
+    {
+     "text": "100 лет",
+     "is_correct": false
+    },
+    {
+     "text": "30 лет и 3 года",
+     "is_correct": true
+    },
+    {
+     "text": "33 года ровно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое желание НЕ загадывала старуха золотой рыбке?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Стать красивой",
+     "is_correct": true
+    },
+    {
+     "text": "Новое корыто",
+     "is_correct": false
+    },
+    {
+     "text": "Стать царицей",
+     "is_correct": false
+    },
+    {
+     "text": "Стать владычицей морскою",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Из какого сборника сказки об Аладдине и Али-Бабе?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: René Bull, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Alad.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Калила и Димна»",
+     "is_correct": false
+    },
+    {
+     "text": "«Тысяча и одна ночь»",
+     "is_correct": true
+    },
+    {
+     "text": "«Панчатантра»",
+     "is_correct": false
+    },
+    {
+     "text": "«Сказки Андерсена»",
+     "is_correct": false
+    }
+   ],
+   "image": "q18.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "Сколько ночей Шахерезада рассказывала сказки?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 100,
+    "max": 2000,
+    "step": 1,
+    "answer": 1001,
+    "unit": "ночь",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что случилось с Царевной-лягушкой, когда Иван сжёг её лягушачью кожу?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ничего",
+     "is_correct": false
+    },
+    {
+     "text": "Она превратилась в лебедя",
+     "is_correct": false
+    },
+    {
+     "text": "Она исчезла, и Ивану пришлось искать её у Кощея",
+     "is_correct": true
+    },
+    {
+     "text": "Она стала человеком навсегда",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Кто сказал: «Свет мой, зеркальце! скажи…»? Ответ одним-двумя словами.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "царица",
+     "мачеха",
+     "злая царица",
+     "королева",
+     "злая мачеха"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "На этой картине Виктора Васнецова три всадника. Как она называется?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Viktor Vasnetsov, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Die_drei_Bogatyr.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Ковёр-самолёт»",
+     "is_correct": false
+    },
+    {
+     "text": "«Витязь на распутье»",
+     "is_correct": false
+    },
+    {
+     "text": "«Богатыри»",
+     "is_correct": true
+    },
+    {
+     "text": "«Иван-царевич на Сером Волке»",
+     "is_correct": false
+    }
+   ],
+   "image": "q22.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Какие предметы бывают волшебными в русских сказках?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сапоги-скороходы",
+     "is_correct": true
+    },
+    {
+     "text": "Скатерть-самобранка",
+     "is_correct": true
+    },
+    {
+     "text": "Телефон-автомат",
+     "is_correct": false
+    },
+    {
+     "text": "Ковёр-самолёт",
+     "is_correct": true
+    },
+    {
+     "text": "Шапка-невидимка",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "В «Спящей красавице» принцесса уколола палец веретеном.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Кто разбудил Белоснежку в версии братьев Гримм?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Добрая фея",
+     "is_correct": false
+    },
+    {
+     "text": "Поцелуй принца",
+     "is_correct": false
+    },
+    {
+     "text": "Гномы облили её водой",
+     "is_correct": false
+    },
+    {
+     "text": "Её никто не целовал: кусочек яблока выпал, когда гроб уронили",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  }
+ ]
+}

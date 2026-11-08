@@ -1,0 +1,686 @@
+{
+ "key": "kosmos",
+ "title": "Астрономия: планеты и звёзды",
+ "subject": "Астрономия",
+ "theme": "night",
+ "description": "25 вопросов о Солнечной системе, звёздах и галактиках. Угадывайте планеты по фото, расставляйте их по порядку и ловите ловушки. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: какая планета изображена на фото?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: NASA / JPL / Space Science Institute, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Saturn_during_Equinox.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сатурн",
+     "is_correct": true
+    },
+    {
+     "text": "Юпитер",
+     "is_correct": false
+    },
+    {
+     "text": "Уран",
+     "is_correct": false
+    },
+    {
+     "text": "Нептун",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "А эта планета?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Большое красное пятно — гигантский ураган, который бушует уже сотни лет.\n\n*Фото: NASA, ESA, and A. Simon (Goddard Space Flight Center), Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Jupiter_and_its_shrunken_Great_Red_Spot.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Венера",
+     "is_correct": false
+    },
+    {
+     "text": "Марс",
+     "is_correct": false
+    },
+    {
+     "text": "Юпитер",
+     "is_correct": true
+    },
+    {
+     "text": "Сатурн",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "order",
+   "text": "Расставьте планеты по удалённости от Солнца, начиная с ближайшей.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Меркурий",
+     "is_correct": false
+    },
+    {
+     "text": "Венера",
+     "is_correct": false
+    },
+    {
+     "text": "Земля",
+     "is_correct": false
+    },
+    {
+     "text": "Марс",
+     "is_correct": false
+    },
+    {
+     "text": "Юпитер",
+     "is_correct": false
+    },
+    {
+     "text": "Сатурн",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая планета самая горячая в Солнечной системе?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Хитро: Меркурий ближе к Солнцу, но у Венеры плотная атмосфера из CO₂ и парниковый эффект, около 465 °C.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Меркурий",
+     "is_correct": false
+    },
+    {
+     "text": "Марс",
+     "is_correct": false
+    },
+    {
+     "text": "Венера",
+     "is_correct": true
+    },
+    {
+     "text": "Юпитер",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что изображено на этом снимке телескопа «Хаббл»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Credit: NASA, Jeff Hester, and Paul Scowen (Arizona State University), Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Eagle_nebula_pillars.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Столпы Творения — облака газа, где рождаются звёзды",
+     "is_correct": true
+    },
+    {
+     "text": "Чёрная дыра",
+     "is_correct": false
+    },
+    {
+     "text": "Кольца Сатурна",
+     "is_correct": false
+    },
+    {
+     "text": "Хвост кометы",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Звёзды на небе мерцают, потому что их свет дрожит в земной атмосфере.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется наша галактика?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Млечный Путь",
+     "is_correct": true
+    },
+    {
+     "text": "Андромеда",
+     "is_correct": false
+    },
+    {
+     "text": "Треугольник",
+     "is_correct": false
+    },
+    {
+     "text": "Магеллановы Облака",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Это ближайшая к нам большая галактика. Как она называется?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Adam Evans, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Andromeda_Galaxy_%28with_h-alpha%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сомбреро",
+     "is_correct": false
+    },
+    {
+     "text": "Туманность Андромеды",
+     "is_correct": true
+    },
+    {
+     "text": "Водоворот",
+     "is_correct": false
+    },
+    {
+     "text": "Млечный Путь",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "Сколько минут (примерно) идёт свет от Солнца до Земли?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "Около 8 минут 20 секунд.",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 1,
+    "max": 30,
+    "step": 1,
+    "answer": 8,
+    "unit": "мин",
+    "tolerance": 1
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какую планету называют «красной»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Красный цвет дают оксиды железа — по сути, ржавчина.\n\n*Фото: ESA & MPS for OSIRIS Team MPS/UPD/LAM/IAA/RSSD/INTA/UPM/DASP/IDA, CC BY-SA 3.0 IGO, CC BY-SA 3.0 igo, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:OSIRIS_Mars_true_color.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Венера",
+     "is_correct": false
+    },
+    {
+     "text": "Марс",
+     "is_correct": true
+    },
+    {
+     "text": "Юпитер",
+     "is_correct": false
+    },
+    {
+     "text": "Меркурий",
+     "is_correct": false
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Какие из этих небесных тел — планеты-гиганты?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Уран",
+     "is_correct": true
+    },
+    {
+     "text": "Сатурн",
+     "is_correct": true
+    },
+    {
+     "text": "Нептун",
+     "is_correct": true
+    },
+    {
+     "text": "Плутон",
+     "is_correct": false
+    },
+    {
+     "text": "Юпитер",
+     "is_correct": true
+    },
+    {
+     "text": "Марс",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Плутон и сегодня считается девятой планетой Солнечной системы.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "С 2006 года Плутон — карликовая планета.\n\n*Фото: NASA/Johns Hopkins University Applied Physics Laboratory/Southwest Research Institute/Alex Parker, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Pluto_in_True_Color_-_High-Res.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что это за объект — первое в истории фото такого рода (2019 год)?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: Event Horizon Telescope, uploader cropped and converted TIF to JPG, CC BY 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Black_hole_-_Messier_87_crop_max_res.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кольцо Сатурна",
+     "is_correct": false
+    },
+    {
+     "text": "Солнечное затмение",
+     "is_correct": false
+    },
+    {
+     "text": "Глаз урагана",
+     "is_correct": false
+    },
+    {
+     "text": "Тень чёрной дыры в галактике M87",
+     "is_correct": true
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Почему на Луне видно всегда одну и ту же сторону?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Луна не вращается вовсе",
+     "is_correct": false
+    },
+    {
+     "text": "Обратная сторона всегда в тени",
+     "is_correct": false
+    },
+    {
+     "text": "Луна поворачивается вокруг оси за то же время, за которое облетает Землю",
+     "is_correct": true
+    },
+    {
+     "text": "Обратную сторону закрывает Земля",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое созвездие изображено: семь ярких звёзд в форме ковша?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: BreakdownDiode, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Big_Dipper_20210116.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Орион",
+     "is_correct": false
+    },
+    {
+     "text": "Большая Медведица",
+     "is_correct": true
+    },
+    {
+     "text": "Лебедь",
+     "is_correct": false
+    },
+    {
+     "text": "Кассиопея",
+     "is_correct": false
+    }
+   ],
+   "image": "q15.jpg"
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: звезда, вокруг которой вращается Земля.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "СОЛНЦЕ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой спутник Юпитера больше планеты Меркурий?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Ганимед — самый большой спутник в Солнечной системе.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ганимед",
+     "is_correct": true
+    },
+    {
+     "text": "Титан Сатурна",
+     "is_correct": false
+    },
+    {
+     "text": "Фобос",
+     "is_correct": false
+    },
+    {
+     "text": "Луна",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "На каком спутнике есть плотная атмосфера и озёра из жидкого метана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: NASA/JPL-Caltech/Space Science Institute, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Titan_in_true_color.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Луна",
+     "is_correct": false
+    },
+    {
+     "text": "Деймос",
+     "is_correct": false
+    },
+    {
+     "text": "Европа",
+     "is_correct": false
+    },
+    {
+     "text": "Титан",
+     "is_correct": true
+    }
+   ],
+   "image": "q18.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "В космосе абсолютно тихо: звук не распространяется в вакууме.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что такое световой год?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Год, когда видно комету",
+     "is_correct": false
+    },
+    {
+     "text": "Время, за которое Земля облетает Солнце",
+     "is_correct": false
+    },
+    {
+     "text": "Расстояние, которое свет проходит за год",
+     "is_correct": true
+    },
+    {
+     "text": "Скорость света за час",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое явление на фото?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Luc Viatour, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Solar_eclipse_1999_4.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лунное затмение",
+     "is_correct": false
+    },
+    {
+     "text": "Северное сияние",
+     "is_correct": false
+    },
+    {
+     "text": "Вспышка сверхновой",
+     "is_correct": false
+    },
+    {
+     "text": "Полное солнечное затмение",
+     "is_correct": true
+    }
+   ],
+   "image": "q21.jpg"
+  },
+  {
+   "type": "text",
+   "text": "Как называется ближайшая к Солнцу звезда (кроме самого Солнца)? Напишите одним-двумя словами.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "Проксима Центавра",
+     "Проксима",
+     "проксима центавра"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Сколько планет в Солнечной системе?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 5,
+    "max": 12,
+    "step": 1,
+    "answer": 8,
+    "unit": "",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Что из этого бывает на небе Земли?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Полярное сияние",
+     "is_correct": true
+    },
+    {
+     "text": "Кольца, как у Сатурна",
+     "is_correct": false
+    },
+    {
+     "text": "Метеор («падающая звезда»)",
+     "is_correct": true
+    },
+    {
+     "text": "Лунное затмение",
+     "is_correct": true
+    },
+    {
+     "text": "Комета",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Какая планета вращается «лёжа на боку» — её ось наклонена почти на 98°?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: NASA/JPL-Caltech, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Uranus2.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Венера",
+     "is_correct": false
+    },
+    {
+     "text": "Уран",
+     "is_correct": true
+    },
+    {
+     "text": "Нептун",
+     "is_correct": false
+    },
+    {
+     "text": "Сатурн",
+     "is_correct": false
+    }
+   ],
+   "image": "q25.jpg"
+  }
+ ]
+}

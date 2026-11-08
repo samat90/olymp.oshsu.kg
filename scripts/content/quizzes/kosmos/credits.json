@@ -1,0 +1,110 @@
+{
+ "cover.jpg": {
+  "author": "Credit: NASA, Jeff Hester, and Paul Scowen (Arizona State University)",
+  "file": "Eagle nebula pillars.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Eagle_nebula_pillars.jpg",
+  "spec": "en:Pillars of Creation",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Eagle_nebula_pillars.jpg/960px-Eagle_nebula_pillars.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q01.jpg": {
+  "author": "NASA / JPL / Space Science Institute",
+  "file": "Saturn during Equinox.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Saturn_during_Equinox.jpg",
+  "spec": "c:Saturn during Equinox.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Saturn_during_Equinox.jpg/960px-Saturn_during_Equinox.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q02.jpg": {
+  "author": "NASA, ESA, and A. Simon (Goddard Space Flight Center)",
+  "file": "Jupiter and its shrunken Great Red Spot.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Jupiter_and_its_shrunken_Great_Red_Spot.jpg",
+  "spec": "c:Jupiter and its shrunken Great Red Spot.jpg",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Jupiter_and_its_shrunken_Great_Red_Spot.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q05.jpg": {
+  "author": "Credit: NASA, Jeff Hester, and Paul Scowen (Arizona State University)",
+  "file": "Eagle nebula pillars.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Eagle_nebula_pillars.jpg",
+  "spec": "en:Pillars of Creation",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Eagle_nebula_pillars.jpg/960px-Eagle_nebula_pillars.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q08.jpg": {
+  "author": "Adam Evans",
+  "file": "Andromeda Galaxy (with h-alpha).jpg",
+  "license": "CC BY 2.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Andromeda_Galaxy_(with_h-alpha).jpg",
+  "spec": "c:Andromeda Galaxy (with h-alpha).jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Andromeda_Galaxy_%28with_h-alpha%29.jpg/960px-Andromeda_Galaxy_%28with_h-alpha%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q10.jpg": {
+  "author": "ESA & MPS for OSIRIS Team MPS/UPD/LAM/IAA/RSSD/INTA/UPM/DASP/IDA, CC BY-SA 3.0 IGO",
+  "file": "OSIRIS Mars true color.jpg",
+  "license": "CC BY-SA 3.0 igo",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:OSIRIS_Mars_true_color.jpg",
+  "spec": "c:OSIRIS Mars true color.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/02/OSIRIS_Mars_true_color.jpg/960px-OSIRIS_Mars_true_color.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q12.jpg": {
+  "author": "NASA/Johns Hopkins University Applied Physics Laboratory/Southwest Research Institute/Alex Parker",
+  "file": "Pluto in True Color - High-Res.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Pluto_in_True_Color_-_High-Res.jpg",
+  "spec": "c:Pluto in True Color - High-Res.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Pluto_in_True_Color_-_High-Res.jpg/960px-Pluto_in_True_Color_-_High-Res.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q13.jpg": {
+  "author": "Event Horizon Telescope, uploader cropped and converted TIF to JPG",
+  "file": "Black hole - Messier 87 crop max res.jpg",
+  "license": "CC BY 4.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Black_hole_-_Messier_87_crop_max_res.jpg",
+  "spec": "c:Black hole - Messier 87 crop max res.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Black_hole_-_Messier_87_crop_max_res.jpg/960px-Black_hole_-_Messier_87_crop_max_res.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q15.jpg": {
+  "author": "BreakdownDiode",
+  "file": "Big Dipper 20210116.jpg",
+  "license": "CC BY-SA 4.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Big_Dipper_20210116.jpg",
+  "spec": "c:Big Dipper 20210116.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Big_Dipper_20210116.jpg/960px-Big_Dipper_20210116.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q18.jpg": {
+  "author": "NASA/JPL-Caltech/Space Science Institute",
+  "file": "Titan in true color.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Titan_in_true_color.jpg",
+  "spec": "c:Titan in true color.jpg",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/4/45/Titan_in_true_color.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q21.jpg": {
+  "author": "Luc Viatour",
+  "file": "Solar eclipse 1999 4 NR.jpg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Solar_eclipse_1999_4.jpg",
+  "spec": "c:Solar eclipse 1999 4 NR.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Solar_eclipse_1999_4.jpg/960px-Solar_eclipse_1999_4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q25.jpg": {
+  "author": "NASA/JPL-Caltech",
+  "file": "Uranus2.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Uranus2.jpg",
+  "spec": "c:Uranus2.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3d/Uranus2.jpg/960px-Uranus2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ }
+}

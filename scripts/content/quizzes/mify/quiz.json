@@ -1,0 +1,695 @@
+{
+ "key": "mify",
+ "title": "Мифы Древней Греции",
+ "subject": "История",
+ "theme": "night",
+ "description": "25 вопросов о богах и героях Олимпа: Зевс, Геракл, Одиссей, Медуза и другие. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: какой храм на фото — на Акрополе в Афинах?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Steve Swayne, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:The_Parthenon_in_Athens.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Храм Артемиды",
+     "is_correct": false
+    },
+    {
+     "text": "Пантеон",
+     "is_correct": false
+    },
+    {
+     "text": "Парфенон",
+     "is_correct": true
+    },
+    {
+     "text": "Колизей",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто был главным богом Олимпа?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Zeus_Otricoli_Pio-Clementino_Inv257.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Аполлон",
+     "is_correct": false
+    },
+    {
+     "text": "Посейдон",
+     "is_correct": false
+    },
+    {
+     "text": "Зевс",
+     "is_correct": true
+    },
+    {
+     "text": "Аид",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто бог морей с трезубцем?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: —DerHexer (Talk), CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Statue_of_Poseidon_NAMA_235_%28DerHexer%29,_part_2.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Посейдон",
+     "is_correct": true
+    },
+    {
+     "text": "Арес",
+     "is_correct": false
+    },
+    {
+     "text": "Гермес",
+     "is_correct": false
+    },
+    {
+     "text": "Зевс",
+     "is_correct": false
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто совершил 12 подвигов?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Glycon of Athens (copy), Lysippos (original type), CC BY 2.5, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Herakles_Farnese_MAN_Napoli_Inv6001_n01.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ахилл",
+     "is_correct": false
+    },
+    {
+     "text": "Геракл",
+     "is_correct": true
+    },
+    {
+     "text": "Тесей",
+     "is_correct": false
+    },
+    {
+     "text": "Персей",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кому отрубил голову Персей?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: user:shakko, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Gorgona_pushkin.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Гидре",
+     "is_correct": false
+    },
+    {
+     "text": "Циклопу",
+     "is_correct": false
+    },
+    {
+     "text": "Минотавру",
+     "is_correct": false
+    },
+    {
+     "text": "Медузе Горгоне",
+     "is_correct": true
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Где было уязвимое место Ахилла?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Спина",
+     "is_correct": false
+    },
+    {
+     "text": "Пятка",
+     "is_correct": true
+    },
+    {
+     "text": "Шея",
+     "is_correct": false
+    },
+    {
+     "text": "Глаз",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Минотавр жил в лабиринте на острове Крит.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто убил Минотавра?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ясон",
+     "is_correct": false
+    },
+    {
+     "text": "Геракл",
+     "is_correct": false
+    },
+    {
+     "text": "Тесей",
+     "is_correct": true
+    },
+    {
+     "text": "Одиссей",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто 10 лет добирался домой после Троянской войны?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Одиссей",
+     "is_correct": true
+    },
+    {
+     "text": "Ахилл",
+     "is_correct": false
+    },
+    {
+     "text": "Агамемнон",
+     "is_correct": false
+    },
+    {
+     "text": "Парис",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как греки взяли Трою?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Travelling Runes, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mykonos_vase.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сделали подкоп",
+     "is_correct": false
+    },
+    {
+     "text": "Спрятались в деревянном коне",
+     "is_correct": true
+    },
+    {
+     "text": "Подкупили царя",
+     "is_correct": false
+    },
+    {
+     "text": "Перелетели стены",
+     "is_correct": false
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Кто из этих — олимпийские боги?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Афина",
+     "is_correct": true
+    },
+    {
+     "text": "Ра",
+     "is_correct": false
+    },
+    {
+     "text": "Аполлон",
+     "is_correct": true
+    },
+    {
+     "text": "Гермес",
+     "is_correct": true
+    },
+    {
+     "text": "Гера",
+     "is_correct": true
+    },
+    {
+     "text": "Тор",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто украл огонь у богов для людей?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Прометей",
+     "is_correct": true
+    },
+    {
+     "text": "Гефест",
+     "is_correct": false
+    },
+    {
+     "text": "Икар",
+     "is_correct": false
+    },
+    {
+     "text": "Атлас",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Почему упал Икар?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Dosseman, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Gaziantep_Zeugma_Museum_Daedalus_mosaic_1873.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Его сбил Зевс",
+     "is_correct": false
+    },
+    {
+     "text": "Устал",
+     "is_correct": false
+    },
+    {
+     "text": "Подлетел к солнцу — воск на крыльях растаял",
+     "is_correct": true
+    },
+    {
+     "text": "Порвалась верёвка",
+     "is_correct": false
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто держит небо на плечах?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Прометей",
+     "is_correct": false
+    },
+    {
+     "text": "Атлант",
+     "is_correct": true
+    },
+    {
+     "text": "Геракл",
+     "is_correct": false
+    },
+    {
+     "text": "Кронос",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте поколения богов, от древнейших.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Хаос",
+     "is_correct": false
+    },
+    {
+     "text": "Уран и Гея",
+     "is_correct": false
+    },
+    {
+     "text": "Кронос и титаны",
+     "is_correct": false
+    },
+    {
+     "text": "Зевс и олимпийцы",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: одноглазый великан, которого ослепил Одиссей.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ЦИКЛОП"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как звали богиню мудрости, в честь которой назвали Афины?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Jastrow, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mattei_Athena_Louvre_Ma530_n2.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Афродита",
+     "is_correct": false
+    },
+    {
+     "text": "Артемида",
+     "is_correct": false
+    },
+    {
+     "text": "Деметра",
+     "is_correct": false
+    },
+    {
+     "text": "Афина",
+     "is_correct": true
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Сколько голов у Лернейской гидры, если отрубить одну?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Она умирает",
+     "is_correct": false
+    },
+    {
+     "text": "Ничего не меняется",
+     "is_correct": false
+    },
+    {
+     "text": "Вырастает одна",
+     "is_correct": false
+    },
+    {
+     "text": "Вырастают две новые",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как звали трёхголового пса, охранявшего вход в подземное царство?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сфинкс",
+     "is_correct": false
+    },
+    {
+     "text": "Пегас",
+     "is_correct": false
+    },
+    {
+     "text": "Химера",
+     "is_correct": false
+    },
+    {
+     "text": "Цербер",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Пегас — крылатый конь.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "*Фото: The J. Paul Getty Museum, Villa Collection, Malibu, California Digital image courtesy of the Getty's Open Content Progra, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lakonian_Black-Figure_Kylix;_detached_fragments.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q20.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что получил Мидас — всё, к чему он прикасался?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Превращалось в золото",
+     "is_correct": true
+    },
+    {
+     "text": "Исчезало",
+     "is_correct": false
+    },
+    {
+     "text": "Превращалось в камень",
+     "is_correct": false
+    },
+    {
+     "text": "Оживало",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Как звали бога войны у греков? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "Арес",
+     "арес"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Сколько подвигов совершил Геракл?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 1,
+    "max": 20,
+    "step": 1,
+    "answer": 12,
+    "unit": "подвигов",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие слова пришли из греческих мифов?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Компьютер",
+     "is_correct": false
+    },
+    {
+     "text": "Эхо",
+     "is_correct": true
+    },
+    {
+     "text": "Музыка (от муз)",
+     "is_correct": true
+    },
+    {
+     "text": "Атлас",
+     "is_correct": true
+    },
+    {
+     "text": "Паника (от Пана)",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Что открыла Пандора, выпустив беды в мир?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "На дне осталась только Надежда.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сосуд (ящик), подарок богов",
+     "is_correct": true
+    },
+    {
+     "text": "Сундук Зевса",
+     "is_correct": false
+    },
+    {
+     "text": "Клетку с Минотавром",
+     "is_correct": false
+    },
+    {
+     "text": "Дверь в Аид",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

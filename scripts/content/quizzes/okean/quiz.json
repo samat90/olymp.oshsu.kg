@@ -1,0 +1,690 @@
+{
+ "key": "okean",
+ "title": "Жители океана",
+ "subject": "Природа",
+ "theme": "lake",
+ "description": "25 вопросов о морских обитателях: киты, акулы, медузы, кораллы и тайны глубин. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: кто на фото?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Ritiks, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Clown_fish_in_the_Andaman_Coral_Reef.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Золотая рыбка",
+     "is_correct": false
+    },
+    {
+     "text": "Скалярия",
+     "is_correct": false
+    },
+    {
+     "text": "Рыба-клоун",
+     "is_correct": true
+    },
+    {
+     "text": "Барракуда",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется крупнейший коралловый риф на Земле?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: NASA/Kjell Lindgren, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:ISS-45_StoryOfWater,_Great_Barrier_Reef,_Australia.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Красноморский риф",
+     "is_correct": false
+    },
+    {
+     "text": "Большой Барьерный риф",
+     "is_correct": true
+    },
+    {
+     "text": "Риф Белиза",
+     "is_correct": false
+    },
+    {
+     "text": "Мальдивский риф",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто самая большая рыба в мире?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Хитро: кит — не рыба, а млекопитающее.\n\n*Фото: Abe Khao Lak, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Similan_Dive_Center_-_great_whale_shark.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Синий кит",
+     "is_correct": false
+    },
+    {
+     "text": "Белая акула",
+     "is_correct": false
+    },
+    {
+     "text": "Рыба-луна",
+     "is_correct": false
+    },
+    {
+     "text": "Китовая акула",
+     "is_correct": true
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто это?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Hans Hillewaert, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hippocampus_hippocampus_%28on_Ascophyllum_nodosum%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Морская игла",
+     "is_correct": false
+    },
+    {
+     "text": "Угорь",
+     "is_correct": false
+    },
+    {
+     "text": "Морской конёк",
+     "is_correct": true
+    },
+    {
+     "text": "Креветка",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "У морских коньков детёнышей вынашивает папа.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько щупалец у осьминога?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "8",
+     "is_correct": true
+    },
+    {
+     "text": "12",
+     "is_correct": false
+    },
+    {
+     "text": "10",
+     "is_correct": false
+    },
+    {
+     "text": "6",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как дельфины спят?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Вообще не спят",
+     "is_correct": false
+    },
+    {
+     "text": "Спит по очереди то одно, то другое полушарие мозга",
+     "is_correct": true
+    },
+    {
+     "text": "Ложатся на дно",
+     "is_correct": false
+    },
+    {
+     "text": "Спят на берегу",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто на фото — медуза или нет?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Dan90266, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Jelly_cc11.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Медуза",
+     "is_correct": true
+    },
+    {
+     "text": "Губка",
+     "is_correct": false
+    },
+    {
+     "text": "Морская звезда",
+     "is_correct": false
+    },
+    {
+     "text": "Кальмар",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Медузы на 95% состоят из воды.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется самый глубокий жёлоб в океане?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пуэрто-Риканский жёлоб",
+     "is_correct": false
+    },
+    {
+     "text": "Марианская впадина",
+     "is_correct": true
+    },
+    {
+     "text": "Большой каньон",
+     "is_correct": false
+    },
+    {
+     "text": "Желоб Тонга",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Какая глубина (км) Марианской впадины?",
+   "time_limit": 25,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 1,
+    "max": 15,
+    "step": 1,
+    "answer": 11,
+    "unit": "км",
+    "tolerance": 1
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Кто из этих животных — млекопитающие?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тюлень",
+     "is_correct": true
+    },
+    {
+     "text": "Кит",
+     "is_correct": true
+    },
+    {
+     "text": "Акула",
+     "is_correct": false
+    },
+    {
+     "text": "Морж",
+     "is_correct": true
+    },
+    {
+     "text": "Дельфин",
+     "is_correct": true
+    },
+    {
+     "text": "Осьминог",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто на фото — морской зверь с бивнями?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Nixette, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Walrus_in_the_Russian_Arctic_National_Park,_Novaya_Zemlya_2015-2.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ламантин",
+     "is_correct": false
+    },
+    {
+     "text": "Тюлень",
+     "is_correct": false
+    },
+    {
+     "text": "Морж",
+     "is_correct": true
+    },
+    {
+     "text": "Морской лев",
+     "is_correct": false
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что умеет делать каракатица и осьминог, чтобы спрятаться?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Выпускать чернила и менять цвет",
+     "is_correct": true
+    },
+    {
+     "text": "Зарываться в лёд",
+     "is_correct": false
+    },
+    {
+     "text": "Превращаться в камень",
+     "is_correct": false
+    },
+    {
+     "text": "Летать",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая акула на фото — самая известная хищница?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Pterantula (Terry Goss) at en.wikipedia, CC BY 2.5, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:White_shark.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Китовая акула",
+     "is_correct": false
+    },
+    {
+     "text": "Акула-молот",
+     "is_correct": false
+    },
+    {
+     "text": "Тигровая акула",
+     "is_correct": false
+    },
+    {
+     "text": "Большая белая акула",
+     "is_correct": true
+    }
+   ],
+   "image": "q15.jpg"
+  },
+  {
+   "type": "order",
+   "text": "Расставьте океаны по площади, от самого большого.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тихий",
+     "is_correct": false
+    },
+    {
+     "text": "Атлантический",
+     "is_correct": false
+    },
+    {
+     "text": "Индийский",
+     "is_correct": false
+    },
+    {
+     "text": "Южный",
+     "is_correct": false
+    },
+    {
+     "text": "Северный Ледовитый",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: у этой рыбы голова похожа на молот.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "МОЛОТ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто это?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Top left: Klaus Rassinger (Museum Wiesbaden) Top right: Katie Ahlfeld Bottom right: Jon Zander (Digon3) Bottom left: Esp, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Starfish_montage.png)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Морской ёж",
+     "is_correct": false
+    },
+    {
+     "text": "Коралл",
+     "is_correct": false
+    },
+    {
+     "text": "Морская звезда",
+     "is_correct": true
+    },
+    {
+     "text": "Актиния",
+     "is_correct": false
+    }
+   ],
+   "image": "q18.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Морская звезда может вырастить новый луч взамен потерянного.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как кит выпускает фонтан?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Это пот кита",
+     "is_correct": false
+    },
+    {
+     "text": "Пьёт и выплёвывает воду",
+     "is_correct": false
+    },
+    {
+     "text": "Чихает",
+     "is_correct": false
+    },
+    {
+     "text": "Выдыхает воздух через дыхало на голове",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто на фото — самое умное беспозвоночное, умеет открывать банки?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: albert kok, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Octopus2.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Медуза",
+     "is_correct": false
+    },
+    {
+     "text": "Краб",
+     "is_correct": false
+    },
+    {
+     "text": "Улитка",
+     "is_correct": false
+    },
+    {
+     "text": "Осьминог",
+     "is_correct": true
+    }
+   ],
+   "image": "q21.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Что из этого — кораллы?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Растения",
+     "is_correct": false
+    },
+    {
+     "text": "Животные",
+     "is_correct": true
+    },
+    {
+     "text": "Камни, которые растут сами",
+     "is_correct": false
+    },
+    {
+     "text": "Строят рифы",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Как называется рыба, которая надувается шаром? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "фугу",
+     "рыба-ёж",
+     "иглобрюх",
+     "Фугу",
+     "рыба-шар"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Почему море солёное?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Из-за слёз китов",
+     "is_correct": false
+    },
+    {
+     "text": "Реки миллионы лет приносят соли из горных пород",
+     "is_correct": true
+    },
+    {
+     "text": "Его солят вулканы",
+     "is_correct": false
+    },
+    {
+     "text": "Из-за рыбы",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Какое озеро Кыргызстана — солоноватое и не замерзает зимой?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: Қайырқан Әсем, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Issykkul_plyag.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Иссык-Куль",
+     "is_correct": true
+    },
+    {
+     "text": "Чатыр-Куль",
+     "is_correct": false
+    },
+    {
+     "text": "Сон-Куль",
+     "is_correct": false
+    },
+    {
+     "text": "Сары-Челек",
+     "is_correct": false
+    }
+   ],
+   "image": "q25.jpg"
+  }
+ ]
+}

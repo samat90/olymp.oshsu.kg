@@ -1,0 +1,692 @@
+{
+ "key": "kg-madaniyat",
+ "title": "Кыргызская культура и «Манас»",
+ "subject": "Кыргызстан",
+ "theme": "felt",
+ "description": "25 вопросов о культуре кыргызов: эпос «Манас», юрта, калпак, комуз, праздники и традиции. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: что на фото?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Myrzabek Ozubekov, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:SK_yurt_camp_%281_of_1%29-8.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чум",
+     "is_correct": false
+    },
+    {
+     "text": "Иглу",
+     "is_correct": false
+    },
+    {
+     "text": "Юрта (боз үй)",
+     "is_correct": true
+    },
+    {
+     "text": "Вигвам",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется верхний круг юрты, изображённый на флаге Кыргызстана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Босого",
+     "is_correct": false
+    },
+    {
+     "text": "Түндүк",
+     "is_correct": true
+    },
+    {
+     "text": "Уук",
+     "is_correct": false
+    },
+    {
+     "text": "Кереге",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется величайший кыргызский эпос?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Hans Birger Nilsen, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Manas_statue_%282%29_%2830420693171%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Джангар»",
+     "is_correct": false
+    },
+    {
+     "text": "«Манас»",
+     "is_correct": true
+    },
+    {
+     "text": "«Алпамыш»",
+     "is_correct": false
+    },
+    {
+     "text": "«Шахнаме»",
+     "is_correct": false
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "Сколько примерно строк в самом длинном варианте эпоса «Манас» (Саякбая Каралаева)?",
+   "time_limit": 25,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 100000,
+    "max": 600000,
+    "step": 10000,
+    "answer": 500000,
+    "unit": "строк",
+    "tolerance": 50000
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называют сказителя «Манаса»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: No machine-readable author provided. SiGarb assumed (based on copyright claims)., Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kyrgyz_Manaschi,_Karakol.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Акын",
+     "is_correct": false
+    },
+    {
+     "text": "Комузчу",
+     "is_correct": false
+    },
+    {
+     "text": "Манасчы",
+     "is_correct": true
+    },
+    {
+     "text": "Жомокчу",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как звали сына Манаса?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Семетей — сын, Сейтек — внук Манаса.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бакай",
+     "is_correct": false
+    },
+    {
+     "text": "Сейтек",
+     "is_correct": false
+    },
+    {
+     "text": "Семетей",
+     "is_correct": true
+    },
+    {
+     "text": "Алмамбет",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как звали жену Манаса?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Жаныл Мырза",
+     "is_correct": false
+    },
+    {
+     "text": "Чолпон",
+     "is_correct": false
+    },
+    {
+     "text": "Айчурек",
+     "is_correct": false
+    },
+    {
+     "text": "Каныкей",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется трёхструнный кыргызский музыкальный инструмент?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Nichelle Anderson, U.S. Air Force, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Girl_komuz.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Дутар",
+     "is_correct": false
+    },
+    {
+     "text": "Кыл-кыяк",
+     "is_correct": false
+    },
+    {
+     "text": "Домбра",
+     "is_correct": false
+    },
+    {
+     "text": "Комуз",
+     "is_correct": true
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что за головной убор на фото?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Petar Milošević, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kyrgyz_man_with_ak-kalpak_hat_%28%D0%B0%D0%BA-%D0%BA%D0%B0%D0%BB%D0%BF%D0%B0%D0%BA_%D1%88%D0%B0%D0%BF%D0%BAa%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ак калпак",
+     "is_correct": true
+    },
+    {
+     "text": "Тебетей",
+     "is_correct": false
+    },
+    {
+     "text": "Тюбетейка",
+     "is_correct": false
+    },
+    {
+     "text": "Элечек",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Искусство кыргызских акынов-импровизаторов и сказителей внесено ЮНЕСКО в список шедевров нематериального наследия.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется войлочный ковёр с мозаичными узорами?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Firespeaker, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Shyrdak_on_floor.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Туш-кийиз",
+     "is_correct": false
+    },
+    {
+     "text": "Ала-кийиз",
+     "is_correct": false
+    },
+    {
+     "text": "Шырдак",
+     "is_correct": true
+    },
+    {
+     "text": "Килем",
+     "is_correct": false
+    }
+   ],
+   "image": "q11.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Какие блюда относятся к кыргызской кухне?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Боорсок",
+     "is_correct": true
+    },
+    {
+     "text": "Суши",
+     "is_correct": false
+    },
+    {
+     "text": "Ашлянфу",
+     "is_correct": true
+    },
+    {
+     "text": "Пицца",
+     "is_correct": false
+    },
+    {
+     "text": "Бешбармак",
+     "is_correct": true
+    },
+    {
+     "text": "Куурдак",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется кисломолочный напиток из кобыльего молока?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: A.Savin, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kumys-bottle.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кымыз",
+     "is_correct": true
+    },
+    {
+     "text": "Бозо",
+     "is_correct": false
+    },
+    {
+     "text": "Айран",
+     "is_correct": false
+    },
+    {
+     "text": "Максым",
+     "is_correct": false
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется конная игра, где две команды борются за тушу козла?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Helen Owl, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:World_Nomad_Games,_Kok-boru.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кок-бору",
+     "is_correct": true
+    },
+    {
+     "text": "Кыз куумай",
+     "is_correct": false
+    },
+    {
+     "text": "Ордо",
+     "is_correct": false
+    },
+    {
+     "text": "Эр эниш",
+     "is_correct": false
+    }
+   ],
+   "image": "q14.jpg"
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: праздник весны 21 марта, когда готовят сумолок.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "НООРУЗ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется игра в бабки (альчики) — древняя кыргызская игра?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ордо",
+     "is_correct": true
+    },
+    {
+     "text": "Кок-бору",
+     "is_correct": false
+    },
+    {
+     "text": "Ак-терек",
+     "is_correct": false
+    },
+    {
+     "text": "Тогуз коргоол",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "В игре «Тогуз коргоол» у каждого игрока 9 лунок.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто написал роман «Белый пароход» и повесть «Джамиля»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tschingis_Ajtmatow.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Аалы Токомбаев",
+     "is_correct": false
+    },
+    {
+     "text": "Чингиз Айтматов",
+     "is_correct": true
+    },
+    {
+     "text": "Токтогул Сатылганов",
+     "is_correct": false
+    },
+    {
+     "text": "Касым Тыныстанов",
+     "is_correct": false
+    }
+   ],
+   "image": "q18.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто такой Токтогул Сатылганов?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Kyrgyz Express Post, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Portrait_of_Toktogul_Satylganov_the_stamp_of_Kyrgyzstan_%282014%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Хан кыргызов",
+     "is_correct": false
+    },
+    {
+     "text": "Герой эпоса",
+     "is_correct": false
+    },
+    {
+     "text": "Первый космонавт",
+     "is_correct": false
+    },
+    {
+     "text": "Великий акын и комузист",
+     "is_correct": true
+    }
+   ],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "order",
+   "text": "Расставьте героев трилогии в порядке поколений.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Манас",
+     "is_correct": false
+    },
+    {
+     "text": "Семетей",
+     "is_correct": false
+    },
+    {
+     "text": "Сейтек",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что такое «айтыш»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Песенное состязание акынов",
+     "is_correct": true
+    },
+    {
+     "text": "Вид юрты",
+     "is_correct": false
+    },
+    {
+     "text": "Свадебный обряд",
+     "is_correct": false
+    },
+    {
+     "text": "Конная скачка",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется большое угощение-праздник по поводу свадьбы или рождения ребёнка?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Аш — поминки, ашар — общая помощь соседей.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Айт",
+     "is_correct": false
+    },
+    {
+     "text": "Той",
+     "is_correct": true
+    },
+    {
+     "text": "Аш",
+     "is_correct": false
+    },
+    {
+     "text": "Ашар",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Как называется день, в который отмечают День кыргызского калпака? Месяц и число, например «5 марта».",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "5 марта",
+     "5-марта",
+     "5 март"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Что относится к элементам юрты?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Уук",
+     "is_correct": true
+    },
+    {
+     "text": "Минарет",
+     "is_correct": false
+    },
+    {
+     "text": "Кереге",
+     "is_correct": true
+    },
+    {
+     "text": "Эшик",
+     "is_correct": true
+    },
+    {
+     "text": "Түндүк",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Как называется женский головной убор — высокий белый тюрбан замужних кыргызок?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Шөкүлө",
+     "is_correct": false
+    },
+    {
+     "text": "Тебетей",
+     "is_correct": false
+    },
+    {
+     "text": "Калпак",
+     "is_correct": false
+    },
+    {
+     "text": "Элечек",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  }
+ ]
+}

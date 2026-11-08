@@ -1,0 +1,691 @@
+{
+ "key": "rasteniya",
+ "title": "Растения и цветы",
+ "subject": "Природа",
+ "theme": "steppe",
+ "description": "25 вопросов о растениях: цветы, деревья-рекордсмены, хищные растения и орехи Арсланбоба. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: какой цветок на фото?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Dina L, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:%D7%A6%D7%91%D7%A2%D7%95%D7%A0%D7%99%D7%9D.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тюльпан",
+     "is_correct": true
+    },
+    {
+     "text": "Пион",
+     "is_correct": false
+    },
+    {
+     "text": "Роза",
+     "is_correct": false
+    },
+    {
+     "text": "Мак",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Многие садовые тюльпаны происходят от диких тюльпанов Тянь-Шаня и Памира.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "В горах Кыргызстана растут дикие тюльпаны Грейга и Кауфмана.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как растения получают энергию от солнца?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Дыханием",
+     "is_correct": false
+    },
+    {
+     "text": "Испарением",
+     "is_correct": false
+    },
+    {
+     "text": "Опылением",
+     "is_correct": false
+    },
+    {
+     "text": "Фотосинтезом",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое дерево на фото — самое высокое в мире (больше 110 м)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Acroterion, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:US_199_Redwood_Highway.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Эвкалипт",
+     "is_correct": false
+    },
+    {
+     "text": "Тянь-шанская ель",
+     "is_correct": false
+    },
+    {
+     "text": "Баобаб",
+     "is_correct": false
+    },
+    {
+     "text": "Секвойя вечнозелёная",
+     "is_correct": true
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Это африканское дерево с толстым стволом хранит воду. Что это?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Muhammad Mahdi Karim, GFDL 1.2, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Baobab_Adansonia_digitata.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кактус",
+     "is_correct": false
+    },
+    {
+     "text": "Баобаб",
+     "is_correct": true
+    },
+    {
+     "text": "Пальма",
+     "is_correct": false
+    },
+    {
+     "text": "Дуб",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какое растение ловит мух?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Noah Elhardt, CC BY-SA 2.5, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Venus_Flytrap_showing_trigger_hairs.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Венерина мухоловка",
+     "is_correct": true
+    },
+    {
+     "text": "Ромашка",
+     "is_correct": false
+    },
+    {
+     "text": "Кактус",
+     "is_correct": false
+    },
+    {
+     "text": "Подсолнух",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется самый большой цветок в мире — он ещё и пахнет гнилым мясом?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: LukeTriton, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Rafflesia_arnoldii,_Sumatra.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Магнолия",
+     "is_correct": false
+    },
+    {
+     "text": "Раффлезия",
+     "is_correct": true
+    },
+    {
+     "text": "Лотос",
+     "is_correct": false
+    },
+    {
+     "text": "Подсолнух",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какие орехи растут в лесах Арсланбоба?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Thesupermat, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Noyer_centenaire_en_automne.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Арахис",
+     "is_correct": false
+    },
+    {
+     "text": "Грецкие",
+     "is_correct": true
+    },
+    {
+     "text": "Кокосовые",
+     "is_correct": false
+    },
+    {
+     "text": "Кешью",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Что из этого — на самом деле ягоды (по ботанике)?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "Клубника и малина — не ягоды, а банан, арбуз и томат — ягоды.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Малина",
+     "is_correct": false
+    },
+    {
+     "text": "Арбуз",
+     "is_correct": true
+    },
+    {
+     "text": "Томат",
+     "is_correct": true
+    },
+    {
+     "text": "Банан",
+     "is_correct": true
+    },
+    {
+     "text": "Клубника",
+     "is_correct": false
+    },
+    {
+     "text": "Виноград",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой цветок на фото поворачивается за солнцем?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Fir0002, GFDL 1.2, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sunflower_sky_backdrop.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ромашка",
+     "is_correct": false
+    },
+    {
+     "text": "Хризантема",
+     "is_correct": false
+    },
+    {
+     "text": "Одуванчик",
+     "is_correct": false
+    },
+    {
+     "text": "Подсолнух",
+     "is_correct": true
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Почти все дикие кактусы родом из Америки.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое дерево — символ Японии, весной цветёт розовым?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: TANAKA Juuyoh (田中十洋), CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sakura_and_Moss_Pink_-_%E6%A1%9C%28%E3%81%95%E3%81%8F%E3%82%89%29%E3%81%A8%E8%8A%9D%E6%A1%9C%28%E3%81%97%E3%81%B0%E3%81%96%E3%81%8F%E3%82%89%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сакура",
+     "is_correct": true
+    },
+    {
+     "text": "Бамбук",
+     "is_correct": false
+    },
+    {
+     "text": "Сосна",
+     "is_correct": false
+    },
+    {
+     "text": "Клён",
+     "is_correct": false
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Тянь-шанская ель растёт в Ала-Арче. Какой у неё силуэт?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Jonas Satkauskas, Attribution, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:IMG_9369-Kaindy.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Без хвои",
+     "is_correct": false
+    },
+    {
+     "text": "Круглый, как шар",
+     "is_correct": false
+    },
+    {
+     "text": "Плоский, как зонтик",
+     "is_correct": false
+    },
+    {
+     "text": "Узкий, как колонна",
+     "is_correct": true
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "order",
+   "text": "Расставьте этапы жизни растения по порядку.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Семя",
+     "is_correct": false
+    },
+    {
+     "text": "Росток",
+     "is_correct": false
+    },
+    {
+     "text": "Цветок",
+     "is_correct": false
+    },
+    {
+     "text": "Плод",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: зелёный пигмент листьев.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ХЛОРОФИЛЛ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой цветок на фото — символ Индии и чистоты?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: T.Voekler, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sacred_lotus_Nelumbo_nucifera.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лотос",
+     "is_correct": true
+    },
+    {
+     "text": "Кувшинка",
+     "is_correct": false
+    },
+    {
+     "text": "Орхидея",
+     "is_correct": false
+    },
+    {
+     "text": "Магнолия",
+     "is_correct": false
+    }
+   ],
+   "image": "q16.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "Сколько лет может жить сосна долговечная в Калифорнии (самое старое дерево)?",
+   "time_limit": 25,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 100,
+    "max": 6000,
+    "step": 100,
+    "answer": 4800,
+    "unit": "лет",
+    "tolerance": 400
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Из чего делают шоколад?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Luisovalles, CC BY 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Matadecacao.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Из ореха",
+     "is_correct": false
+    },
+    {
+     "text": "Из сахарной свёклы",
+     "is_correct": false
+    },
+    {
+     "text": "Из бобов какао",
+     "is_correct": true
+    },
+    {
+     "text": "Из кофе",
+     "is_correct": false
+    }
+   ],
+   "image": "q18.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какое растение используют для производства бумаги в Древнем Египте?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Bernard DUPONT from FRANCE, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Papyrus_%28Cyperus_papyrus%29_%287079191471%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лён",
+     "is_correct": false
+    },
+    {
+     "text": "Хлопок",
+     "is_correct": false
+    },
+    {
+     "text": "Папирус",
+     "is_correct": true
+    },
+    {
+     "text": "Бамбук",
+     "is_correct": false
+    }
+   ],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Бамбук — это трава, а не дерево.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "*Фото: Kamakura, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bamboo_forest.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q20.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что даёт хлопок?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:CottonPlant.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Масло для машин",
+     "is_correct": false
+    },
+    {
+     "text": "Сахар",
+     "is_correct": false
+    },
+    {
+     "text": "Волокно для ткани",
+     "is_correct": true
+    },
+    {
+     "text": "Резину",
+     "is_correct": false
+    }
+   ],
+   "image": "q21.jpg"
+  },
+  {
+   "type": "text",
+   "text": "Как называется цветок, который становится белым пушистым шариком? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "одуванчик",
+     "Одуванчик"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие растения — хвойные?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Дуб",
+     "is_correct": false
+    },
+    {
+     "text": "Сосна",
+     "is_correct": true
+    },
+    {
+     "text": "Берёза",
+     "is_correct": false
+    },
+    {
+     "text": "Арча (можжевельник)",
+     "is_correct": true
+    },
+    {
+     "text": "Ель",
+     "is_correct": true
+    },
+    {
+     "text": "Лиственница",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Почему осенью листья желтеют?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Их красит мороз",
+     "is_correct": false
+    },
+    {
+     "text": "Хлорофилл разрушается, и видны другие пигменты",
+     "is_correct": true
+    },
+    {
+     "text": "Их едят насекомые",
+     "is_correct": false
+    },
+    {
+     "text": "Они высыхают на солнце",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Как по-русски называется арча — вечнозелёное дерево гор Кыргызстана?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пихта",
+     "is_correct": false
+    },
+    {
+     "text": "Тис",
+     "is_correct": false
+    },
+    {
+     "text": "Можжевельник",
+     "is_correct": true
+    },
+    {
+     "text": "Ель",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

@@ -1,0 +1,699 @@
+{
+ "key": "multfilmy",
+ "title": "Мультфильмы",
+ "subject": "Мультфильмы",
+ "theme": "steppe",
+ "description": "25 вопросов о мультфильмах: советская классика, Дисней, Pixar и японское аниме. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: какой мышонок на этом кадре 1928 года?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Walt Disney / Ub Iwerks, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mickey_Mouse_-_Steamboat_Willie_%281928%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Микки Маус",
+     "is_correct": true
+    },
+    {
+     "text": "Джерри",
+     "is_correct": false
+    },
+    {
+     "text": "Спиди Гонзалес",
+     "is_correct": false
+    },
+    {
+     "text": "Стюарт Литтл",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто на фото — создатель Микки Мауса?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Boy Scouts of America, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Walt_Disney_1946_%28cropped2%29.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Джон Лассетер",
+     "is_correct": false
+    },
+    {
+     "text": "Чарли Чаплин",
+     "is_correct": false
+    },
+    {
+     "text": "Хаяо Миядзаки",
+     "is_correct": false
+    },
+    {
+     "text": "Уолт Дисней",
+     "is_correct": true
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как зовут волка и зайца из «Ну, погоди!»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Шарик и Матроскин",
+     "is_correct": false
+    },
+    {
+     "text": "Волк и Заяц — у них нет имён",
+     "is_correct": true
+    },
+    {
+     "text": "Вольф и Ханс",
+     "is_correct": false
+    },
+    {
+     "text": "Серый и Ушастик",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В каком мультфильме живут кот Матроскин и пёс Шарик?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Трое из Простоквашино»",
+     "is_correct": true
+    },
+    {
+     "text": "«Малыш и Карлсон»",
+     "is_correct": false
+    },
+    {
+     "text": "«Ёжик в тумане»",
+     "is_correct": false
+    },
+    {
+     "text": "«Бременские музыканты»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как зовут снеговика из «Холодного сердца»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Олаф",
+     "is_correct": true
+    },
+    {
+     "text": "Ханс",
+     "is_correct": false
+    },
+    {
+     "text": "Свен",
+     "is_correct": false
+    },
+    {
+     "text": "Кристофф",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется японская студия, которая сняла «Унесённых призраками» и «Мой сосед Тоторо»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Natasha Baucas at https://www.flickr.com/photos/sdnatasha/, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:HayaoMiyazakiCCJuly09.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "DreamWorks",
+     "is_correct": false
+    },
+    {
+     "text": "Studio Ghibli",
+     "is_correct": true
+    },
+    {
+     "text": "Toei",
+     "is_correct": false
+    },
+    {
+     "text": "Pixar",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как звали первого полнометражного героя Pixar — ковбоя-игрушку?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Рекс",
+     "is_correct": false
+    },
+    {
+     "text": "Слинки",
+     "is_correct": false
+    },
+    {
+     "text": "Вуди",
+     "is_correct": true
+    },
+    {
+     "text": "Базз",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "«Белоснежка и семь гномов» (1937) — первый полнометражный рисованный мультфильм Диснея.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как зовут жёлтую губку, живущую в ананасе на дне океана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мистер Крабс",
+     "is_correct": false
+    },
+    {
+     "text": "Губка Боб",
+     "is_correct": true
+    },
+    {
+     "text": "Сквидвард",
+     "is_correct": false
+    },
+    {
+     "text": "Патрик",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кого озвучивал Евгений Леонов в мультфильме «Винни-Пух» студии «Союзмультфильм»?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пятачка",
+     "is_correct": false
+    },
+    {
+     "text": "Иа",
+     "is_correct": false
+    },
+    {
+     "text": "Винни-Пуха",
+     "is_correct": true
+    },
+    {
+     "text": "Кролика",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте мультфильмы Диснея по году выхода, от старых к новым.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Белоснежка»",
+     "is_correct": false
+    },
+    {
+     "text": "«Король Лев»",
+     "is_correct": false
+    },
+    {
+     "text": "«Холодное сердце»",
+     "is_correct": false
+    },
+    {
+     "text": "«Энканто»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Кто из этих персонажей — из мультфильмов Pixar?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Немо",
+     "is_correct": true
+    },
+    {
+     "text": "ВАЛЛ-И",
+     "is_correct": true
+    },
+    {
+     "text": "Кунг-фу Панда",
+     "is_correct": false
+    },
+    {
+     "text": "Шрек",
+     "is_correct": false
+    },
+    {
+     "text": "Базз Лайтер",
+     "is_correct": true
+    },
+    {
+     "text": "Молния Маккуин",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая студия создала «Шрека»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Disney",
+     "is_correct": false
+    },
+    {
+     "text": "Pixar",
+     "is_correct": false
+    },
+    {
+     "text": "DreamWorks",
+     "is_correct": true
+    },
+    {
+     "text": "Illumination",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как зовут жёлтых помощников Грю в «Гадком я»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Миньоны",
+     "is_correct": true
+    },
+    {
+     "text": "Лунтики",
+     "is_correct": false
+    },
+    {
+     "text": "Фиксики",
+     "is_correct": false
+    },
+    {
+     "text": "Смурфики",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: рыбка-клоун, которую искал папа Марлин.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "НЕМО"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Мультфильм «Ёжик в тумане» Юрия Норштейна не раз признавали одним из лучших мультфильмов мира.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Это кот Феликс — один из первых звёзд мультипликации. В какую эпоху он появился?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Original: en:Otto Messmer Vector: Own work, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Felix_for_Judy_-_Svg.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В 1990-е",
+     "is_correct": false
+    },
+    {
+     "text": "В 1960-е",
+     "is_correct": false
+    },
+    {
+     "text": "В 2010-е",
+     "is_correct": false
+    },
+    {
+     "text": "В эпоху немого кино, 1919 год",
+     "is_correct": true
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как зовут кота и мышонка, которые вечно гоняются друг за другом?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сильвестр и Твити",
+     "is_correct": false
+    },
+    {
+     "text": "Том и Джерри",
+     "is_correct": true
+    },
+    {
+     "text": "Леопольд и мыши",
+     "is_correct": false
+    },
+    {
+     "text": "Гарфилд и Оди",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто сказал: «Ребята, давайте жить дружно!»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кот Матроскин",
+     "is_correct": false
+    },
+    {
+     "text": "Чебурашка",
+     "is_correct": false
+    },
+    {
+     "text": "Кот Леопольд",
+     "is_correct": true
+    },
+    {
+     "text": "Волк из «Ну, погоди!»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Сколько гномов было у Белоснежки?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 3,
+    "max": 12,
+    "step": 1,
+    "answer": 7,
+    "unit": "гномов",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Как зовут ушастого друга крокодила Гены? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "Чебурашка",
+     "чебурашка"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой мультфильм Pixar рассказывает о чувствах в голове девочки Райли?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Головоломка»",
+     "is_correct": true
+    },
+    {
+     "text": "«Тайна Коко»",
+     "is_correct": false
+    },
+    {
+     "text": "«Вверх»",
+     "is_correct": false
+    },
+    {
+     "text": "«Душа»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие герои — из советских мультфильмов?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кот Леопольд",
+     "is_correct": true
+    },
+    {
+     "text": "Крокодил Гена",
+     "is_correct": true
+    },
+    {
+     "text": "Карлсон",
+     "is_correct": true
+    },
+    {
+     "text": "Чебурашка",
+     "is_correct": true
+    },
+    {
+     "text": "Губка Боб",
+     "is_correct": false
+    },
+    {
+     "text": "Олаф",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как зовут девочку, которая дружит с Медведем в популярном российском мультсериале?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Алёнка",
+     "is_correct": false
+    },
+    {
+     "text": "Аня",
+     "is_correct": false
+    },
+    {
+     "text": "Даша",
+     "is_correct": false
+    },
+    {
+     "text": "Маша",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Кто такой «Тоторо»?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Робот из «Трансформеров»",
+     "is_correct": false
+    },
+    {
+     "text": "Дракон из «Шрека»",
+     "is_correct": false
+    },
+    {
+     "text": "Покемон",
+     "is_correct": false
+    },
+    {
+     "text": "Лесной дух из мультфильма Миядзаки",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  }
+ ]
+}

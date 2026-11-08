@@ -1,0 +1,689 @@
+{
+ "key": "reki-ozera",
+ "title": "Реки, озёра и моря",
+ "subject": "География",
+ "theme": "lake",
+ "description": "25 вопросов о водах планеты: великие реки, глубокие озёра, водопады и моря. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: какой водопад на фото — на границе Замбии и Зимбабве?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Diego Delso, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cataratas_Victoria,_Zambia-Zimbabue,_2018-07-27,_DD_04.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Игуасу",
+     "is_correct": false
+    },
+    {
+     "text": "Ниагара",
+     "is_correct": false
+    },
+    {
+     "text": "Анхель",
+     "is_correct": false
+    },
+    {
+     "text": "Виктория",
+     "is_correct": true
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая река — самая длинная в мире (по большинству данных)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Fiktube, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Beautiful_nature_along_Nile_River_01.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Янцзы",
+     "is_correct": false
+    },
+    {
+     "text": "Миссисипи",
+     "is_correct": false
+    },
+    {
+     "text": "Амазонка",
+     "is_correct": false
+    },
+    {
+     "text": "Нил",
+     "is_correct": true
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая река — самая полноводная?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: European Space Agency, CC BY-SA 3.0 igo, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Amazon_River_ESA387332.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Амазонка",
+     "is_correct": true
+    },
+    {
+     "text": "Обь",
+     "is_correct": false
+    },
+    {
+     "text": "Конго",
+     "is_correct": false
+    },
+    {
+     "text": "Нил",
+     "is_correct": false
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какое озеро самое глубокое в мире?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Jacques Descloitres, MODIS Land Rapid Response Team, NASA/GSFC, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Baikal.A2001296.0420.250m-NASA.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Байкал",
+     "is_correct": true
+    },
+    {
+     "text": "Танганьика",
+     "is_correct": false
+    },
+    {
+     "text": "Каспийское",
+     "is_correct": false
+    },
+    {
+     "text": "Иссык-Куль",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "Какая наибольшая глубина Иссык-Куля (м)?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 100,
+    "max": 1000,
+    "step": 10,
+    "answer": 668,
+    "unit": "м",
+    "tolerance": 30
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое «море» на самом деле — самое большое озеро мира?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Jeff Schmaltz, MODIS Rapid Response Team, NASA/GSFC, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Caspian_Sea_from_orbit.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мёртвое",
+     "is_correct": false
+    },
+    {
+     "text": "Аральское",
+     "is_correct": false
+    },
+    {
+     "text": "Каспийское",
+     "is_correct": true
+    },
+    {
+     "text": "Чёрное",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "В Мёртвом море можно лежать на воде и читать газету — так сильна соль.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "*Фото: لا روسا, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Dead_Sea_beach_00.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что случилось с Аральским морем?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: National Aeronautics and Space Administration (NASA), collage by Dylan240., Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Aral_Sea_1964_vs._August_25,_2026.png)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Оно слилось с Каспием",
+     "is_correct": false
+    },
+    {
+     "text": "Оно замёрзло",
+     "is_correct": false
+    },
+    {
+     "text": "Оно стало пресным",
+     "is_correct": false
+    },
+    {
+     "text": "Оно почти высохло из-за полива хлопка",
+     "is_correct": true
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какие две реки образуют Сырдарью в Ферганской долине?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чу и Талас",
+     "is_correct": false
+    },
+    {
+     "text": "Иртыш и Обь",
+     "is_correct": false
+    },
+    {
+     "text": "Нарын и Карадарья",
+     "is_correct": true
+    },
+    {
+     "text": "Амударья и Вахш",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется самый высокий водопад мира — в Венесуэле?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Rich Childs, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:SaltoAngel1.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ниагара",
+     "is_correct": false
+    },
+    {
+     "text": "Игуасу",
+     "is_correct": false
+    },
+    {
+     "text": "Виктория",
+     "is_correct": false
+    },
+    {
+     "text": "Анхель",
+     "is_correct": true
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Какие реки текут в Кыргызстане?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кара-Дарья",
+     "is_correct": true
+    },
+    {
+     "text": "Волга",
+     "is_correct": false
+    },
+    {
+     "text": "Чу",
+     "is_correct": true
+    },
+    {
+     "text": "Талас",
+     "is_correct": true
+    },
+    {
+     "text": "Нарын",
+     "is_correct": true
+    },
+    {
+     "text": "Нил",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что на фото — водопад на границе США и Канады?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Saffron Blaze, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:3Falls_Niagara.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Анхель",
+     "is_correct": false
+    },
+    {
+     "text": "Виктория",
+     "is_correct": false
+    },
+    {
+     "text": "Ниагарский",
+     "is_correct": true
+    },
+    {
+     "text": "Йосемитский",
+     "is_correct": false
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется река, на которой стоят Лондон и Оксфорд?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Diliff, CC BY 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:London_Thames_Sunset_panorama_-_Feb_2008.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Рейн",
+     "is_correct": false
+    },
+    {
+     "text": "Темза",
+     "is_correct": true
+    },
+    {
+     "text": "Дунай",
+     "is_correct": false
+    },
+    {
+     "text": "Сена",
+     "is_correct": false
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Через сколько стран течёт Дунай — больше всех в мире?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "3",
+     "is_correct": false
+    },
+    {
+     "text": "10",
+     "is_correct": true
+    },
+    {
+     "text": "5",
+     "is_correct": false
+    },
+    {
+     "text": "15",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте озёра по площади, от большого к маленькому.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Каспийское",
+     "is_correct": false
+    },
+    {
+     "text": "Байкал",
+     "is_correct": false
+    },
+    {
+     "text": "Иссык-Куль",
+     "is_correct": false
+    },
+    {
+     "text": "Сон-Куль",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: место, где река впадает в море или озеро.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "УСТЬЕ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Река Чу течёт из Кыргызстана в Казахстан.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое море самое солёное из этих?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мёртвое",
+     "is_correct": true
+    },
+    {
+     "text": "Балтийское",
+     "is_correct": false
+    },
+    {
+     "text": "Чёрное",
+     "is_correct": false
+    },
+    {
+     "text": "Азовское",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Передышка без очков: как переводится «Иссык-Куль»?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Синее озеро",
+     "is_correct": false
+    },
+    {
+     "text": "Тёплое (горячее) озеро",
+     "is_correct": true
+    },
+    {
+     "text": "Большое озеро",
+     "is_correct": false
+    },
+    {
+     "text": "Солёное озеро",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что за озеро на фото — горное, в заповеднике Джалал-Абадской области?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Kondephy, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sary_Chelek_Nature_Reserve.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сары-Челек",
+     "is_correct": true
+    },
+    {
+     "text": "Сон-Куль",
+     "is_correct": false
+    },
+    {
+     "text": "Иссык-Куль",
+     "is_correct": false
+    },
+    {
+     "text": "Кёль-Суу",
+     "is_correct": false
+    }
+   ],
+   "image": "q20.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "Сколько процентов поверхности Земли покрыто водой (примерно)?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 30,
+    "max": 90,
+    "step": 1,
+    "answer": 71,
+    "unit": "%",
+    "tolerance": 3
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Какая самая большая река Европы? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "Волга",
+     "волга"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Что из этого — океаны?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Индийский",
+     "is_correct": true
+    },
+    {
+     "text": "Атлантический",
+     "is_correct": true
+    },
+    {
+     "text": "Тихий",
+     "is_correct": true
+    },
+    {
+     "text": "Северный Ледовитый",
+     "is_correct": true
+    },
+    {
+     "text": "Средиземный",
+     "is_correct": false
+    },
+    {
+     "text": "Каспийский",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называют реку Янцзы — самую длинную в Азии?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Andrew Hitchcock, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Dusk_on_the_Yangtze_River.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Жёлтая река",
+     "is_correct": false
+    },
+    {
+     "text": "Голубая река (Чанцзян)",
+     "is_correct": true
+    },
+    {
+     "text": "Красная река",
+     "is_correct": false
+    },
+    {
+     "text": "Белая река",
+     "is_correct": false
+    }
+   ],
+   "image": "q24.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Сколько рек впадает в Иссык-Куль и сколько вытекает?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Одна впадает, одна вытекает",
+     "is_correct": false
+    },
+    {
+     "text": "Ни одной не впадает",
+     "is_correct": false
+    },
+    {
+     "text": "Больше 100 впадает, ни одна не вытекает",
+     "is_correct": true
+    },
+    {
+     "text": "10 впадает, 2 вытекает",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

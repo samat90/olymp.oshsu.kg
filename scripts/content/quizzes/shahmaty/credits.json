@@ -1,0 +1,92 @@
+{
+ "cover.jpg": {
+  "author": "Alan Light",
+  "file": "ChessSet.jpg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:ChessSet.jpg",
+  "spec": "en:Chess",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/6/6f/ChessSet.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q01.jpg": {
+  "author": "Wilfredor",
+  "file": "Modern Fianchetto Setup. Chess game Staunton No. 6.jpg",
+  "license": "CC0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Modern_Fianchetto_Setup._Chess_game_Staunton_No._6.jpg",
+  "spec": "en:Chessboard",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Modern_Fianchetto_Setup._Chess_game_Staunton_No._6.jpg/960px-Modern_Fianchetto_Setup._Chess_game_Staunton_No._6.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q02.jpg": {
+  "author": "MichaelMaggs",
+  "file": "Chess piece - White knight.JPG",
+  "license": "CC BY-SA 2.5",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Chess_piece_-_White_knight.JPG",
+  "spec": "en:Knight (chess)",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Chess_piece_-_White_knight.JPG/960px-Chess_piece_-_White_knight.JPG?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q03.jpg": {
+  "author": "Cburnett",
+  "file": "Chess blt45.svg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Chess_blt45.svg",
+  "spec": "c:Chess blt45.svg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Chess_blt45.svg/960px-Chess_blt45.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q04.jpg": {
+  "author": "Cburnett",
+  "file": "Chess qlt45.svg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Chess_qlt45.svg",
+  "spec": "c:Chess qlt45.svg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Chess_qlt45.svg/960px-Chess_qlt45.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q08.jpg": {
+  "author": "Frans Peeters Photography",
+  "file": "Magnus Carlsen Tata 2023 - 71 (cropped v4).jpg",
+  "license": "CC BY-SA 2.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Magnus_Carlsen_Tata_2023_-_71_(cropped_v4).jpg",
+  "spec": "en:Magnus Carlsen",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Magnus_Carlsen_Tata_2023_-_71_%28cropped_v4%29.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q09.jpg": {
+  "author": "Fryta 73 from Strzegom",
+  "file": "Garri Kasparow (18776605665) (cropped) 2.jpg",
+  "license": "CC BY-SA 2.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Garri_Kasparow_(18776605665)_(cropped)_2.jpg",
+  "spec": "en:Garry Kasparov",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Garri_Kasparow_%2818776605665%29_%28cropped%29_2.jpg/960px-Garri_Kasparow_%2818776605665%29_%28cropped%29_2.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q10.jpg": {
+  "author": "James the photographer",
+  "file": "Deep Blue.jpg",
+  "license": "CC BY 2.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Deep_Blue.jpg",
+  "spec": "en:Deep Blue (chess computer)",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/b/be/Deep_Blue.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q16.jpg": {
+  "author": "Darkness1089 at English Wikipedia",
+  "file": "Radha-Krishna chess.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Radha-Krishna_chess.jpg",
+  "spec": "en:Chaturanga",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Radha-Krishna_chess.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q19.jpg": {
+  "author": "Bert Verhoeff for Anefo",
+  "file": "Bobby Fischer 1972.jpg",
+  "license": "CC0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Bobby_Fischer_1972.jpg",
+  "spec": "en:Bobby Fischer",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Bobby_Fischer_1972.jpg/960px-Bobby_Fischer_1972.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ }
+}

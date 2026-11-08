@@ -1,0 +1,692 @@
+{
+ "key": "klassika",
+ "title": "Классическая музыка",
+ "subject": "Музыка",
+ "theme": "night",
+ "description": "25 вопросов о композиторах и их произведениях: Моцарт, Бетховен, Чайковский, Бах и другие. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: кто на портрете — вундеркинд из Зальцбурга?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Johann Nepomuk della Croce, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:The_Mozart_Family_-_Wolfgang_Amadeus_Mozart_headshot.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Йозеф Гайдн",
+     "is_correct": false
+    },
+    {
+     "text": "Вольфганг Амадей Моцарт",
+     "is_correct": true
+    },
+    {
+     "text": "Людвиг ван Бетховен",
+     "is_correct": false
+    },
+    {
+     "text": "Иоганн Себастьян Бах",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто сочинял музыку, будучи почти полностью глухим?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Joseph Karl Stieler, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Joseph_Karl_Stieler%27s_Beethoven_mit_dem_Manuskript_der_Missa_solemnis.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Людвиг ван Бетховен",
+     "is_correct": true
+    },
+    {
+     "text": "Шопен",
+     "is_correct": false
+    },
+    {
+     "text": "Моцарт",
+     "is_correct": false
+    },
+    {
+     "text": "Вивальди",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто написал балет «Лебединое озеро»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Émile Reutlinger, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tchaikovsky_by_Reutlinger_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сергей Прокофьев",
+     "is_correct": false
+    },
+    {
+     "text": "Пётр Чайковский",
+     "is_correct": true
+    },
+    {
+     "text": "Игорь Стравинский",
+     "is_correct": false
+    },
+    {
+     "text": "Николай Римский-Корсаков",
+     "is_correct": false
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется цикл скрипичных концертов Антонио Вивальди?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Unidentified painter, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Vivaldi.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Карнавал животных»",
+     "is_correct": false
+    },
+    {
+     "text": "«Шехеразада»",
+     "is_correct": false
+    },
+    {
+     "text": "«Времена года»",
+     "is_correct": true
+    },
+    {
+     "text": "«Картинки с выставки»",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чей это портрет — композитора, написавшего «Токкату и фугу ре минор»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Elias Gottlob Haussmann, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Johann_Sebastian_Bach.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Георг Гендель",
+     "is_correct": false
+    },
+    {
+     "text": "Бетховен",
+     "is_correct": false
+    },
+    {
+     "text": "Брамс",
+     "is_correct": false
+    },
+    {
+     "text": "Иоганн Себастьян Бах",
+     "is_correct": true
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Моцарт написал свою первую музыку в 5 лет.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто из композиторов — поляк, «поэт фортепиано»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Louis-Auguste Bisson, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Frederic_Chopin_photo.jpeg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Фредерик Шопен",
+     "is_correct": true
+    },
+    {
+     "text": "Роберт Шуман",
+     "is_correct": false
+    },
+    {
+     "text": "Ференц Лист",
+     "is_correct": false
+    },
+    {
+     "text": "Эдвард Григ",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какую мелодию Бетховена знают все начинающие пианисты?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "«Турецкий марш» — это Моцарт.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Турецкий марш»",
+     "is_correct": false
+    },
+    {
+     "text": "«Свадебный марш»",
+     "is_correct": false
+    },
+    {
+     "text": "«Лунная соната»",
+     "is_correct": false
+    },
+    {
+     "text": "«К Элизе»",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой балет Чайковского показывают под Новый год с Мышиным королём?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Щелкунчик»",
+     "is_correct": true
+    },
+    {
+     "text": "«Жизель»",
+     "is_correct": false
+    },
+    {
+     "text": "«Лебединое озеро»",
+     "is_correct": false
+    },
+    {
+     "text": "«Спящая красавица»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие из этих произведений написал Чайковский?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Евгений Онегин»",
+     "is_correct": true
+    },
+    {
+     "text": "«Щелкунчик»",
+     "is_correct": true
+    },
+    {
+     "text": "«Спящая красавица»",
+     "is_correct": true
+    },
+    {
+     "text": "«Времена года» Вивальди",
+     "is_correct": false
+    },
+    {
+     "text": "«Болеро»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Где находится знаменитый оперный театр Ла Скала?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: John Picken, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Exterior_Teatro_Alla_Scala_high_quality_01.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Милан",
+     "is_correct": true
+    },
+    {
+     "text": "Париж",
+     "is_correct": false
+    },
+    {
+     "text": "Рим",
+     "is_correct": false
+    },
+    {
+     "text": "Вена",
+     "is_correct": false
+    }
+   ],
+   "image": "q11.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Сколько симфоний написал Бетховен?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "У Моцарта — 41.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "12",
+     "is_correct": false
+    },
+    {
+     "text": "9",
+     "is_correct": true
+    },
+    {
+     "text": "41",
+     "is_correct": false
+    },
+    {
+     "text": "5",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Это здание с «ракушками» — один из знаменитых концертных залов мира. Где оно?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: BAVhah, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sydney_Opera_House_2026.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Нью-Йорк",
+     "is_correct": false
+    },
+    {
+     "text": "Вена",
+     "is_correct": false
+    },
+    {
+     "text": "Москва",
+     "is_correct": false
+    },
+    {
+     "text": "Сидней",
+     "is_correct": true
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "order",
+   "text": "Расставьте композиторов по времени жизни.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бах",
+     "is_correct": false
+    },
+    {
+     "text": "Моцарт",
+     "is_correct": false
+    },
+    {
+     "text": "Бетховен",
+     "is_correct": false
+    },
+    {
+     "text": "Чайковский",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: человек, который руководит оркестром с палочкой.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ДИРИЖЁР"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется главный оперный театр Бишкека?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Davide Mauro, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kyrgyz_Opera_and_Ballet_Theatre,_Bishkek.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Филармония имени Токтогула",
+     "is_correct": false
+    },
+    {
+     "text": "Театр оперы и балета имени А. Малдыбаева",
+     "is_correct": true
+    },
+    {
+     "text": "Театр «Ала-Тоо»",
+     "is_correct": false
+    },
+    {
+     "text": "Большой театр",
+     "is_correct": false
+    }
+   ],
+   "image": "q16.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чья «Ода к радости» стала гимном Евросоюза?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Шуберт",
+     "is_correct": false
+    },
+    {
+     "text": "Бах",
+     "is_correct": false
+    },
+    {
+     "text": "Бетховен",
+     "is_correct": true
+    },
+    {
+     "text": "Моцарт",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Сколько клавиш у обычного рояля?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 50,
+    "max": 100,
+    "step": 1,
+    "answer": 88,
+    "unit": "клавиш",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Слово «симфония» означает по-гречески «созвучие».",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто написал «Болеро» — музыку, которая 15 минут повторяет одну мелодию?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Эрик Сати",
+     "is_correct": false
+    },
+    {
+     "text": "Клод Дебюсси",
+     "is_correct": false
+    },
+    {
+     "text": "Морис Равель",
+     "is_correct": true
+    },
+    {
+     "text": "Жорж Бизе",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется опера Жоржа Бизе о цыганке из Севильи?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Кармен»",
+     "is_correct": true
+    },
+    {
+     "text": "«Травиата»",
+     "is_correct": false
+    },
+    {
+     "text": "«Тоска»",
+     "is_correct": false
+    },
+    {
+     "text": "«Аида»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Какой композитор написал «Полёт шмеля»? Фамилия.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "Римский-Корсаков",
+     "Римский Корсаков",
+     "римский-корсаков"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие инструменты входят в симфонический оркестр?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Литавры",
+     "is_correct": true
+    },
+    {
+     "text": "Скрипка",
+     "is_correct": true
+    },
+    {
+     "text": "Флейта",
+     "is_correct": true
+    },
+    {
+     "text": "Виолончель",
+     "is_correct": true
+    },
+    {
+     "text": "Электрогитара",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется песня, которую поёт одна певица в опере?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Увертюра",
+     "is_correct": false
+    },
+    {
+     "text": "Хор",
+     "is_correct": false
+    },
+    {
+     "text": "Ария",
+     "is_correct": true
+    },
+    {
+     "text": "Дуэт",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Кто написал музыку к первой кыргызской опере «Айчурек» (вместе с Власовым и Фере)?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Калый Молдобасанов",
+     "is_correct": false
+    },
+    {
+     "text": "Токтогул Сатылганов",
+     "is_correct": false
+    },
+    {
+     "text": "Мурат Бегалиев",
+     "is_correct": false
+    },
+    {
+     "text": "Абдылас Малдыбаев",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  }
+ ]
+}

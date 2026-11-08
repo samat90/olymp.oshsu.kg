@@ -1,0 +1,703 @@
+{
+ "key": "karta",
+ "title": "Узнай страну по карте",
+ "subject": "География",
+ "theme": "lake",
+ "description": "25 вопросов: угадайте страну по её очертаниям на карте мира. Соседи, гиганты и острова. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: какая страна выделена на карте?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: UN, The original uploader was RaviC at English Wikipedia., Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kyrgyzstan_%28orthographic_projection%29.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Казахстан",
+     "is_correct": false
+    },
+    {
+     "text": "Кыргызстан",
+     "is_correct": true
+    },
+    {
+     "text": "Узбекистан",
+     "is_correct": false
+    },
+    {
+     "text": "Таджикистан",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая страна выделена?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Turkish Flame, CC BY 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kazakhstan_%28orthographic_projection%29.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Монголия",
+     "is_correct": false
+    },
+    {
+     "text": "Россия",
+     "is_correct": false
+    },
+    {
+     "text": "Казахстан",
+     "is_correct": true
+    },
+    {
+     "text": "Туркменистан",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая страна выделена — похожа на сапог?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Neq00, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Italy_%28orthographic_projection%29.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Испания",
+     "is_correct": false
+    },
+    {
+     "text": "Хорватия",
+     "is_correct": false
+    },
+    {
+     "text": "Италия",
+     "is_correct": true
+    },
+    {
+     "text": "Греция",
+     "is_correct": false
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая страна выделена?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Connormah, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Japan_%28orthographic_projection%29.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Индонезия",
+     "is_correct": false
+    },
+    {
+     "text": "Филиппины",
+     "is_correct": false
+    },
+    {
+     "text": "Япония",
+     "is_correct": true
+    },
+    {
+     "text": "Тайвань",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая страна выделена — очень узкая и длинная?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Addicted04, CC BY 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Chile_%28orthographic_projection%29.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Эквадор",
+     "is_correct": false
+    },
+    {
+     "text": "Чили",
+     "is_correct": true
+    },
+    {
+     "text": "Перу",
+     "is_correct": false
+    },
+    {
+     "text": "Аргентина",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая страна выделена?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: This W3C-unspecified vector image was created with Inkscape ., CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Australia_%28orthographic_projection%29.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Австралия",
+     "is_correct": true
+    },
+    {
+     "text": "Новая Зеландия",
+     "is_correct": false
+    },
+    {
+     "text": "Индонезия",
+     "is_correct": false
+    },
+    {
+     "text": "Папуа — Новая Гвинея",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая страна выделена?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Ssolbergj, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:India_%28orthographic_projection%29.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бангладеш",
+     "is_correct": false
+    },
+    {
+     "text": "Индия",
+     "is_correct": true
+    },
+    {
+     "text": "Непал",
+     "is_correct": false
+    },
+    {
+     "text": "Пакистан",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая страна выделена?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: No machine-readable author provided. Семён Владимирович assumed (based on copyright claims)., CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:%D0%A3%D0%B7%D0%B1%D0%B5%D0%BA%D0%B8%D1%81%D1%82%D0%B0%D0%BD_%D0%BD%D0%B0_%D0%B3%D0%BB%D0%BE%D0%B1%D1%83%D1%81%D0%B5.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Афганистан",
+     "is_correct": false
+    },
+    {
+     "text": "Узбекистан",
+     "is_correct": true
+    },
+    {
+     "text": "Таджикистан",
+     "is_correct": false
+    },
+    {
+     "text": "Туркменистан",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая страна выделена?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Africa (orthographic projection).svg: Martin23230 derivative work: Nableezy, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Egypt_%28orthographic_projection%29.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Египет",
+     "is_correct": true
+    },
+    {
+     "text": "Саудовская Аравия",
+     "is_correct": false
+    },
+    {
+     "text": "Судан",
+     "is_correct": false
+    },
+    {
+     "text": "Ливия",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая страна выделена?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Ssolbergj, CC BY 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Brazil_%28orthographic_projection%29.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бразилия",
+     "is_correct": true
+    },
+    {
+     "text": "Аргентина",
+     "is_correct": false
+    },
+    {
+     "text": "Колумбия",
+     "is_correct": false
+    },
+    {
+     "text": "Венесуэла",
+     "is_correct": false
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая страна выделена?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: UN, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tajikistan_%28orthographic_projection%29.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Афганистан",
+     "is_correct": false
+    },
+    {
+     "text": "Непал",
+     "is_correct": false
+    },
+    {
+     "text": "Кыргызстан",
+     "is_correct": false
+    },
+    {
+     "text": "Таджикистан",
+     "is_correct": true
+    }
+   ],
+   "image": "q11.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая страна выделена — огромный остров у Африки?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Connormah, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Madagascar_%28orthographic_projection%29.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мальта",
+     "is_correct": false
+    },
+    {
+     "text": "Шри-Ланка",
+     "is_correct": false
+    },
+    {
+     "text": "Кипр",
+     "is_correct": false
+    },
+    {
+     "text": "Мадагаскар",
+     "is_correct": true
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая страна выделена?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: ASDFGHJ, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mongolia_%28orthographic_projection%29.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Казахстан",
+     "is_correct": false
+    },
+    {
+     "text": "Монголия",
+     "is_correct": true
+    },
+    {
+     "text": "Китай",
+     "is_correct": false
+    },
+    {
+     "text": "Бурятия",
+     "is_correct": false
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая страна выделена?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Own work, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Turkey_%28orthographic_projection%29.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Иран",
+     "is_correct": false
+    },
+    {
+     "text": "Сирия",
+     "is_correct": false
+    },
+    {
+     "text": "Турция",
+     "is_correct": true
+    },
+    {
+     "text": "Греция",
+     "is_correct": false
+    }
+   ],
+   "image": "q14.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая страна выделена?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Ssolbergj, GFDL, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Canada_%28orthographic_projection%29.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Гренландия",
+     "is_correct": false
+    },
+    {
+     "text": "США",
+     "is_correct": false
+    },
+    {
+     "text": "Россия",
+     "is_correct": false
+    },
+    {
+     "text": "Канада",
+     "is_correct": true
+    }
+   ],
+   "image": "q15.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая страна выделена?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Rob, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:United_Kingdom_%28orthographic_projection%29.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Великобритания",
+     "is_correct": true
+    },
+    {
+     "text": "Норвегия",
+     "is_correct": false
+    },
+    {
+     "text": "Исландия",
+     "is_correct": false
+    },
+    {
+     "text": "Ирландия",
+     "is_correct": false
+    }
+   ],
+   "image": "q16.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая страна выделена?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Ssolbergj, CC BY 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mexico_%28orthographic_projection%29.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Гватемала",
+     "is_correct": false
+    },
+    {
+     "text": "Куба",
+     "is_correct": false
+    },
+    {
+     "text": "Мексика",
+     "is_correct": true
+    },
+    {
+     "text": "США",
+     "is_correct": false
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Кыргызстан не имеет выхода к морю.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "С какими странами граничит Китай?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Казахстан",
+     "is_correct": true
+    },
+    {
+     "text": "Россия",
+     "is_correct": true
+    },
+    {
+     "text": "Монголия",
+     "is_correct": true
+    },
+    {
+     "text": "Туркменистан",
+     "is_correct": false
+    },
+    {
+     "text": "Узбекистан",
+     "is_correct": false
+    },
+    {
+     "text": "Кыргызстан",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте страны с запада на восток.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Португалия",
+     "is_correct": false
+    },
+    {
+     "text": "Польша",
+     "is_correct": false
+    },
+    {
+     "text": "Казахстан",
+     "is_correct": false
+    },
+    {
+     "text": "Монголия",
+     "is_correct": false
+    },
+    {
+     "text": "Япония",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "На каком материке нет ни одной страны?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Южная Америка",
+     "is_correct": false
+    },
+    {
+     "text": "Африка",
+     "is_correct": false
+    },
+    {
+     "text": "Австралия",
+     "is_correct": false
+    },
+    {
+     "text": "Антарктида",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Сколько стран в мире — членов ООН?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 100,
+    "max": 250,
+    "step": 1,
+    "answer": 193,
+    "unit": "стран",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: модель Земли в виде шара.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ГЛОБУС"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Какая страна — самая большая в Африке по площади? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "Алжир",
+     "алжир"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Сколько стран граничат с Кыргызстаном?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "4",
+     "is_correct": true
+    },
+    {
+     "text": "6",
+     "is_correct": false
+    },
+    {
+     "text": "3",
+     "is_correct": false
+    },
+    {
+     "text": "5",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

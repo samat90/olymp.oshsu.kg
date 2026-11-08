@@ -1,0 +1,92 @@
+{
+ "cover.jpg": {
+  "author": "The original uploader was TexasDex at English Wikipedia.",
+  "file": "ENIAC Penn1.jpg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:ENIAC_Penn1.jpg",
+  "spec": "en:ENIAC",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/ENIAC_Penn1.jpg/960px-ENIAC_Penn1.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q01.jpg": {
+  "author": "The original uploader was TexasDex at English Wikipedia.",
+  "file": "ENIAC Penn1.jpg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:ENIAC_Penn1.jpg",
+  "spec": "en:ENIAC",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/ENIAC_Penn1.jpg/960px-ENIAC_Penn1.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q02.jpg": {
+  "author": "Matthew Yohe",
+  "file": "Steve Jobs Headshot 2010 (cropped 6).jpg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Steve_Jobs_Headshot_2010_(cropped_6).jpg",
+  "spec": "en:Steve Jobs",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Steve_Jobs_Headshot_2010_%28cropped_6%29.jpg/960px-Steve_Jobs_Headshot_2010_%28cropped_6%29.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q03.jpg": {
+  "author": "Bogdan Hoyaux / European Union",
+  "file": "Bill Gates at the European Commission - P067383-987995 (cropped) 5.jpg",
+  "license": "CC BY 4.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Bill_Gates_at_the_European_Commission_-_P067383-987995_(cropped)_5.jpg",
+  "spec": "en:Bill Gates",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Bill_Gates_at_the_European_Commission_-_P067383-987995_%28cropped%29_5.jpg/960px-Bill_Gates_at_the_European_Commission_-_P067383-987995_%28cropped%29_5.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q07.jpg": {
+  "author": "SRI International",
+  "file": "SRI Computer Mouse.jpg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:SRI_Computer_Mouse.jpg",
+  "spec": "c:SRI Computer Mouse.jpg",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/c/cc/SRI_Computer_Mouse.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q08.jpg": {
+  "author": "The White House",
+  "file": "P20260929DT-1655 (55561811540) (cropped 2).jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:P20260929DT-1655_(55561811540)_(cropped_2).jpg",
+  "spec": "en:Mark Zuckerberg",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/1/12/P20260929DT-1655_%2855561811540%29_%28cropped_2%29.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q12.jpg": {
+  "author": "George Chernilevsky",
+  "file": "Floppy disk 2009 G1.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Floppy_disk_2009_G1.jpg",
+  "spec": "en:Floppy disk",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Floppy_disk_2009_G1.jpg/960px-Floppy_disk_2009_G1.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q13.jpg": {
+  "author": "Michael Brandtner",
+  "file": "Nokia 3310 blue.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Nokia_3310_blue.jpg",
+  "spec": "c:Nokia 3310 blue.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Nokia_3310_blue.jpg/960px-Nokia_3310_blue.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q17.jpg": {
+  "author": "Pstrahl",
+  "file": "Intel i9-14900KF CPU.jpg",
+  "license": "CC BY-SA 4.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Intel_i9-14900KF_CPU.jpg",
+  "spec": "en:Central processing unit",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Intel_i9-14900KF_CPU.jpg/960px-Intel_i9-14900KF_CPU.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q19.jpg": {
+  "author": "Brdall",
+  "file": "QR code for mobile English Wikipedia.svg",
+  "license": "Public domain",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:QR_code_for_mobile_English_Wikipedia.svg",
+  "spec": "en:QR code",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/960px-QR_code_for_mobile_English_Wikipedia.svg.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ }
+}

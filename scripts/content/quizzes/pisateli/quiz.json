@@ -1,0 +1,700 @@
+{
+ "key": "pisateli",
+ "title": "Писатели и книги",
+ "subject": "Литература",
+ "theme": "felt",
+ "description": "25 вопросов о великих писателях и их книгах: Пушкин, Толстой, Шекспир, Айтматов и другие. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: кто на портрете — автор «Ромео и Джульетты»?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Attributed to John Taylor, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:William_Shakespeare_by_John_Taylor,_edited.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мольер",
+     "is_correct": false
+    },
+    {
+     "text": "Уильям Шекспир",
+     "is_correct": true
+    },
+    {
+     "text": "Чарльз Диккенс",
+     "is_correct": false
+    },
+    {
+     "text": "Данте",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто на портрете — автор «Евгения Онегина» и «Сказки о рыбаке и рыбке»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Orest Kiprensky, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Orest_Kiprensky_-_%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82_%D0%BF%D0%BE%D1%8D%D1%82%D0%B0_%D0%90.%D0%A1.%D0%9F%D1%83%D1%88%D0%BA%D0%B8%D0%BD%D0%B0_-_Google_Art_Project.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Александр Пушкин",
+     "is_correct": true
+    },
+    {
+     "text": "Иван Крылов",
+     "is_correct": false
+    },
+    {
+     "text": "Николай Гоголь",
+     "is_correct": false
+    },
+    {
+     "text": "Михаил Лермонтов",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто написал «Войну и мир»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Sergei Prokudin-Gorskii, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Leo_Tolstoy_1908_Portrait_%283x4_cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лев Толстой",
+     "is_correct": true
+    },
+    {
+     "text": "Фёдор Достоевский",
+     "is_correct": false
+    },
+    {
+     "text": "Антон Чехов",
+     "is_correct": false
+    },
+    {
+     "text": "Иван Тургенев",
+     "is_correct": false
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто написал роман «Плаха» и «И дольше века длится день»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tschingis_Ajtmatow.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Аалы Токомбаев",
+     "is_correct": false
+    },
+    {
+     "text": "Касымалы Баялинов",
+     "is_correct": false
+    },
+    {
+     "text": "Тугельбай Сыдыкбеков",
+     "is_correct": false
+    },
+    {
+     "text": "Чингиз Айтматов",
+     "is_correct": true
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто из героев Айтматова — мальчик, мечтавший уплыть рыбой к белому пароходу?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Данияр",
+     "is_correct": false
+    },
+    {
+     "text": "Танабай",
+     "is_correct": false
+    },
+    {
+     "text": "Едигей",
+     "is_correct": false
+    },
+    {
+     "text": "Мальчик без имени из «Белого парохода»",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как зовут героя Сервантеса, сражавшегося с ветряными мельницами?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Attributed to Juan de Jáuregui, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cervantes_J%C3%A1uregui.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Д’Артаньян",
+     "is_correct": false
+    },
+    {
+     "text": "Дон Кихот",
+     "is_correct": true
+    },
+    {
+     "text": "Гулливер",
+     "is_correct": false
+    },
+    {
+     "text": "Робин Гуд",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Джоан Роулинг написала первую книгу о Гарри Поттере в кафе.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "*Фото: Daniel Ogren, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:J._K._Rowling_2010.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто написал «Приключения Тома Сойера»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: A.F. Bradley, New York, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mark_Twain_by_AF_Bradley_%28cropped_2%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Эрнест Хемингуэй",
+     "is_correct": false
+    },
+    {
+     "text": "Марк Твен",
+     "is_correct": true
+    },
+    {
+     "text": "Джек Лондон",
+     "is_correct": false
+    },
+    {
+     "text": "Жюль Верн",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто придумал капитана Немо и «20 000 льё под водой»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Étienne Carjat / Adam Cuerden, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Jules_Verne_by_%C3%89tienne_Carjat.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Герберт Уэллс",
+     "is_correct": false
+    },
+    {
+     "text": "Александр Дюма",
+     "is_correct": false
+    },
+    {
+     "text": "Жюль Верн",
+     "is_correct": true
+    },
+    {
+     "text": "Виктор Гюго",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Какие книги написал Александр Дюма?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Робинзон Крузо»",
+     "is_correct": false
+    },
+    {
+     "text": "«Три мушкетёра»",
+     "is_correct": true
+    },
+    {
+     "text": "«Королева Марго»",
+     "is_correct": true
+    },
+    {
+     "text": "«Граф Монте-Кристо»",
+     "is_correct": true
+    },
+    {
+     "text": "«Отверженные»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто написал «Маленького принца»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Жюль Верн",
+     "is_correct": false
+    },
+    {
+     "text": "Ганс Андерсен",
+     "is_correct": false
+    },
+    {
+     "text": "Виктор Гюго",
+     "is_correct": false
+    },
+    {
+     "text": "Антуан де Сент-Экзюпери",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как зовут сыщика с Бейкер-стрит, 221Б?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Walter Benington, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Arthur_Conan_Doyle_by_Walter_Benington,_1914.png)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Эркюль Пуаро",
+     "is_correct": false
+    },
+    {
+     "text": "Комиссар Мегрэ",
+     "is_correct": false
+    },
+    {
+     "text": "Шерлок Холмс",
+     "is_correct": true
+    },
+    {
+     "text": "Мисс Марпл",
+     "is_correct": false
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "order",
+   "text": "Расставьте писателей по времени жизни.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Шекспир",
+     "is_correct": false
+    },
+    {
+     "text": "Пушкин",
+     "is_correct": false
+    },
+    {
+     "text": "Толстой",
+     "is_correct": false
+    },
+    {
+     "text": "Айтматов",
+     "is_correct": false
+    },
+    {
+     "text": "Роулинг",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: писатель стихов.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ПОЭТ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто написал «Преступление и наказание»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Vasily Perov, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Vasily_Perov_-_%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82_%D0%A4.%D0%9C.%D0%94%D0%BE%D1%81%D1%82%D0%BE%D0%B5%D0%B2%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_-_Google_Art_Project.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Фёдор Достоевский",
+     "is_correct": true
+    },
+    {
+     "text": "Максим Горький",
+     "is_correct": false
+    },
+    {
+     "text": "Лев Толстой",
+     "is_correct": false
+    },
+    {
+     "text": "Николай Гоголь",
+     "is_correct": false
+    }
+   ],
+   "image": "q15.jpg"
+  },
+  {
+   "type": "single",
+   "text": "На каком острове 28 лет жил Робинзон Крузо?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "На Сахалине",
+     "is_correct": false
+    },
+    {
+     "text": "На необитаемом острове у берегов Южной Америки",
+     "is_correct": true
+    },
+    {
+     "text": "В Англии",
+     "is_correct": false
+    },
+    {
+     "text": "На Мадагаскаре",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какую повесть Айтматова Луи Арагон назвал «самой прекрасной повестью о любви на свете»?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Джамиля»",
+     "is_correct": true
+    },
+    {
+     "text": "«Материнское поле»",
+     "is_correct": false
+    },
+    {
+     "text": "«Первый учитель»",
+     "is_correct": false
+    },
+    {
+     "text": "«Тополёк мой в красной косынке»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "«Хоббит» написал Дж. Р. Р. Толкин.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:J._R._R._Tolkien,_ca._1925.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q18.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто автор книги «Алиса в Стране чудес»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Lewis Carroll, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:LewisCarrollSelfPhoto.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Редьярд Киплинг",
+     "is_correct": false
+    },
+    {
+     "text": "Алан Милн",
+     "is_correct": false
+    },
+    {
+     "text": "Льюис Кэрролл",
+     "is_correct": true
+    },
+    {
+     "text": "Джеймс Барри",
+     "is_correct": false
+    }
+   ],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто написал «Книгу джунглей» о Маугли?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Elliott & Fry, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Rudyard_Kipling_%28portrait%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Редьярд Киплинг",
+     "is_correct": true
+    },
+    {
+     "text": "Эдгар Берроуз",
+     "is_correct": false
+    },
+    {
+     "text": "Марк Твен",
+     "is_correct": false
+    },
+    {
+     "text": "Джек Лондон",
+     "is_correct": false
+    }
+   ],
+   "image": "q20.jpg"
+  },
+  {
+   "type": "text",
+   "text": "Как зовут мальчика, который не хотел взрослеть и жил в Неверленде? Два слова.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "Питер Пэн",
+     "питер пэн",
+     "Питер Пен"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Сколько книг в основной серии о Гарри Поттере?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 3,
+    "max": 12,
+    "step": 1,
+    "answer": 7,
+    "unit": "книг",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Кто из этих писателей — русские классики XIX века?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Гоголь",
+     "is_correct": true
+    },
+    {
+     "text": "Чехов",
+     "is_correct": true
+    },
+    {
+     "text": "Лермонтов",
+     "is_correct": true
+    },
+    {
+     "text": "Тургенев",
+     "is_correct": true
+    },
+    {
+     "text": "Шекспир",
+     "is_correct": false
+    },
+    {
+     "text": "Айтматов",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто из героев «Мастера и Маргариты» — огромный чёрный кот?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Воланд",
+     "is_correct": false
+    },
+    {
+     "text": "Коровьев",
+     "is_correct": false
+    },
+    {
+     "text": "Бегемот",
+     "is_correct": true
+    },
+    {
+     "text": "Азазелло",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! На скольких языках опубликованы книги Айтматова (примерно)?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Около 10",
+     "is_correct": false
+    },
+    {
+     "text": "Около 30",
+     "is_correct": false
+    },
+    {
+     "text": "Только на двух",
+     "is_correct": false
+    },
+    {
+     "text": "Больше 150",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  }
+ ]
+}

@@ -1,0 +1,695 @@
+{
+ "key": "avto",
+ "title": "Автомобили",
+ "subject": "Техника",
+ "theme": "night",
+ "description": "25 вопросов о машинах: марки, легендарные модели, гонки и устройство автомобиля. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: как называется эта легендарная машина 1908 года?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: ModelTMitch, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:1925_Ford_Model_T_touring.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ford Model T",
+     "is_correct": true
+    },
+    {
+     "text": "Мини",
+     "is_correct": false
+    },
+    {
+     "text": "Mercedes 300SL",
+     "is_correct": false
+    },
+    {
+     "text": "Volkswagen Жук",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая машина на фото — «Жук»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Vwexport1300, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:VW_K%C3%A4fer_Baujahr_1966.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Fiat 500",
+     "is_correct": false
+    },
+    {
+     "text": "Volkswagen Beetle",
+     "is_correct": true
+    },
+    {
+     "text": "Mini",
+     "is_correct": false
+    },
+    {
+     "text": "Citroën 2CV",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Из какой страны марка Toyota?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "США",
+     "is_correct": false
+    },
+    {
+     "text": "Япония",
+     "is_correct": true
+    },
+    {
+     "text": "Южная Корея",
+     "is_correct": false
+    },
+    {
+     "text": "Китай",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чья эмблема — гарцующий конь?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Mustang",
+     "is_correct": false
+    },
+    {
+     "text": "Lamborghini",
+     "is_correct": false
+    },
+    {
+     "text": "Porsche",
+     "is_correct": false
+    },
+    {
+     "text": "Ferrari",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "А у какой марки на эмблеме бык?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Bugatti",
+     "is_correct": false
+    },
+    {
+     "text": "Ferrari",
+     "is_correct": false
+    },
+    {
+     "text": "Lamborghini",
+     "is_correct": true
+    },
+    {
+     "text": "Maserati",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется самая известная гонка автомобилей с открытыми колёсами?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Формула-1",
+     "is_correct": true
+    },
+    {
+     "text": "Ралли Дакар",
+     "is_correct": false
+    },
+    {
+     "text": "Ле-Ман",
+     "is_correct": false
+    },
+    {
+     "text": "NASCAR",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто на фото — семикратный чемпион Формулы-1 из Великобритании?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Picture by Lauren Hurley / No 10 Downing Street, OGL 3, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Prime_Minister_Keir_Starmer_meets_Sir_Lewis_Hamilton_%2854566928382%29_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Макс Ферстаппен",
+     "is_correct": false
+    },
+    {
+     "text": "Льюис Хэмилтон",
+     "is_correct": true
+    },
+    {
+     "text": "Михаэль Шумахер",
+     "is_correct": false
+    },
+    {
+     "text": "Фернандо Алонсо",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Tesla выпускает электромобили.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "*Фото: Alexander-93, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tesla_Model_3_%282023%29_Autofr%C3%BChling_Ulm_IMG_9282.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая советская машина на фото — «копейка»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Forrexp, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:1980_-_VAZ_2101.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "ГАЗ-21 «Волга»",
+     "is_correct": false
+    },
+    {
+     "text": "ВАЗ-2101 «Жигули»",
+     "is_correct": true
+    },
+    {
+     "text": "«Запорожец»",
+     "is_correct": false
+    },
+    {
+     "text": "«Москвич-412»",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Какие марки — немецкие?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Audi",
+     "is_correct": true
+    },
+    {
+     "text": "Mercedes-Benz",
+     "is_correct": true
+    },
+    {
+     "text": "Volkswagen",
+     "is_correct": true
+    },
+    {
+     "text": "Renault",
+     "is_correct": false
+    },
+    {
+     "text": "BMW",
+     "is_correct": true
+    },
+    {
+     "text": "Hyundai",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что означают буквы «4×4» у машины?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Полный привод на все четыре колеса",
+     "is_correct": true
+    },
+    {
+     "text": "Четыре цилиндра",
+     "is_correct": false
+    },
+    {
+     "text": "Четыре передачи",
+     "is_correct": false
+    },
+    {
+     "text": "Четыре двери и четыре места",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Где находится мотор у большинства легковых машин?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Под сиденьем водителя",
+     "is_correct": false
+    },
+    {
+     "text": "В багажнике",
+     "is_correct": false
+    },
+    {
+     "text": "Спереди, под капотом",
+     "is_correct": true
+    },
+    {
+     "text": "В колёсах",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется гонка по пустыням, где участвуют и грузовики «КАМАЗ»?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: Daniel Peppes Gauer, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kamaz_43269,_Dakar_2011_Copiap%C3%B3.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Формула-1",
+     "is_correct": false
+    },
+    {
+     "text": "Монако",
+     "is_correct": false
+    },
+    {
+     "text": "Ралли Дакар",
+     "is_correct": true
+    },
+    {
+     "text": "Инди-500",
+     "is_correct": false
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "С какого возраста в Кыргызстане можно получить водительские права категории B?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 14,
+    "max": 25,
+    "step": 1,
+    "answer": 18,
+    "unit": "лет",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой прибор полиция использует, чтобы измерить скорость машины?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тахометр",
+     "is_correct": false
+    },
+    {
+     "text": "Компас",
+     "is_correct": false
+    },
+    {
+     "text": "Радар",
+     "is_correct": true
+    },
+    {
+     "text": "Барометр",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте эти изобретения в машине по времени появления.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Двигатель внутреннего сгорания",
+     "is_correct": false
+    },
+    {
+     "text": "Ремень безопасности",
+     "is_correct": false
+    },
+    {
+     "text": "Подушка безопасности",
+     "is_correct": false
+    },
+    {
+     "text": "GPS-навигатор",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: прибор на панели, показывающий скорость.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "СПИДОМЕТР"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто начал выпускать машины на конвейере?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Fred Hartsook, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Henry_ford_1919.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Энцо Феррари",
+     "is_correct": false
+    },
+    {
+     "text": "Карл Бенц",
+     "is_correct": false
+    },
+    {
+     "text": "Фердинанд Порше",
+     "is_correct": false
+    },
+    {
+     "text": "Генри Форд",
+     "is_correct": true
+    }
+   ],
+   "image": "q18.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "В Великобритании и Японии ездят по левой стороне дороги.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая машина на фото — американская «мускул-кар»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Alexander Migl, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ford_Mustang_VII_GT_Rutesheimer_Autoschau_2025_DSC_9234.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ford Mustang",
+     "is_correct": true
+    },
+    {
+     "text": "Lada Niva",
+     "is_correct": false
+    },
+    {
+     "text": "Toyota Corolla",
+     "is_correct": false
+    },
+    {
+     "text": "Fiat Panda",
+     "is_correct": false
+    }
+   ],
+   "image": "q20.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какое топливо НЕ используют автомобили?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Уголь",
+     "is_correct": true
+    },
+    {
+     "text": "Дизель",
+     "is_correct": false
+    },
+    {
+     "text": "Бензин",
+     "is_correct": false
+    },
+    {
+     "text": "Газ",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Как называется прибор, который считает, сколько километров проехала машина? (начинается на «одо…»)",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "одометр",
+     "Одометр"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Что относится к тормозной системе?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тормозные колодки",
+     "is_correct": true
+    },
+    {
+     "text": "Руль",
+     "is_correct": false
+    },
+    {
+     "text": "Фары",
+     "is_correct": false
+    },
+    {
+     "text": "Тормозной диск",
+     "is_correct": true
+    },
+    {
+     "text": "Педаль тормоза",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Это самый продаваемый автомобиль в истории. Какой?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Alexander Migl, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Toyota_Corolla_Hybrid_%28E210%29_IMG_4338.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "VW Golf",
+     "is_correct": false
+    },
+    {
+     "text": "Ford Model T",
+     "is_correct": false
+    },
+    {
+     "text": "Lada 2107",
+     "is_correct": false
+    },
+    {
+     "text": "Toyota Corolla",
+     "is_correct": true
+    }
+   ],
+   "image": "q24.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Какой цвет светофора разрешает движение?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Красный",
+     "is_correct": false
+    },
+    {
+     "text": "Синий",
+     "is_correct": false
+    },
+    {
+     "text": "Жёлтый",
+     "is_correct": false
+    },
+    {
+     "text": "Зелёный",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  }
+ ]
+}

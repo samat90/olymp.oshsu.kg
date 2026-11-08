@@ -1,0 +1,699 @@
+{
+ "key": "yazyki",
+ "title": "Языки и письменность",
+ "subject": "Разное",
+ "theme": "felt",
+ "description": "25 вопросов о языках мира, алфавитах и древних письменах: от орхонских рун до эмодзи. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: на каком языке говорит больше всего людей как на родном?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Английский",
+     "is_correct": false
+    },
+    {
+     "text": "Китайский (мандарин)",
+     "is_correct": true
+    },
+    {
+     "text": "Испанский",
+     "is_correct": false
+    },
+    {
+     "text": "Хинди",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой язык — государственный в Кыргызстане?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Русский — официальный.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Казахский",
+     "is_correct": false
+    },
+    {
+     "text": "Кыргызский",
+     "is_correct": true
+    },
+    {
+     "text": "Русский",
+     "is_correct": false
+    },
+    {
+     "text": "Узбекский",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Это древние надписи тюрков VIII века. Как называется это письмо?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Vezirtonyukuk, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kultigin_Monument_of_Orkhon_Inscriptions.jpeg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Орхоно-енисейское (руническое)",
+     "is_correct": true
+    },
+    {
+     "text": "Латиница",
+     "is_correct": false
+    },
+    {
+     "text": "Арабское",
+     "is_correct": false
+    },
+    {
+     "text": "Санскрит",
+     "is_correct": false
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "На древнетюркских надписях найдено слово «кыргыз».",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Кыргызы упоминаются в орхонских надписях.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько букв в кыргызском алфавите?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "33 русских буквы плюс Ң, Ө, Ү.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "26",
+     "is_correct": false
+    },
+    {
+     "text": "42",
+     "is_correct": false
+    },
+    {
+     "text": "33",
+     "is_correct": false
+    },
+    {
+     "text": "36",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какие три буквы есть в кыргызском алфавите, но нет в русском?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ң, Ө, Ү",
+     "is_correct": true
+    },
+    {
+     "text": "Ä, Ö, Ü",
+     "is_correct": false
+    },
+    {
+     "text": "Ў, Ҳ, Қ",
+     "is_correct": false
+    },
+    {
+     "text": "Ә, Ғ, Қ",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько букв в английском алфавите?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "28",
+     "is_correct": false
+    },
+    {
+     "text": "33",
+     "is_correct": false
+    },
+    {
+     "text": "24",
+     "is_correct": false
+    },
+    {
+     "text": "26",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется японская слоговая азбука?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: TealComet, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hiragana_Chart_Seion_Dakuon_Yoon.png)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Хангыль",
+     "is_correct": false
+    },
+    {
+     "text": "Кириллица",
+     "is_correct": false
+    },
+    {
+     "text": "Хирагана и катакана",
+     "is_correct": true
+    },
+    {
+     "text": "Деванагари",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чьё письмо на фото — корейский алфавит, придуманный королём Седжоном?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: metalslick, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hangul_chosongul_fontembed.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Хангыль",
+     "is_correct": true
+    },
+    {
+     "text": "Иероглифы",
+     "is_correct": false
+    },
+    {
+     "text": "Хирагана",
+     "is_correct": false
+    },
+    {
+     "text": "Тибетское",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто, по преданию, создал славянскую азбуку?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: painted by Zahari Zograf (Захарий Христович Димитров), Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sv_Kiril_Metodij_Zahari_Zograf_Trojanski_mon_1848.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ломоносов",
+     "is_correct": false
+    },
+    {
+     "text": "Пушкин",
+     "is_correct": false
+    },
+    {
+     "text": "Пётр I",
+     "is_correct": false
+    },
+    {
+     "text": "Кирилл и Мефодий",
+     "is_correct": true
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Какие языки — тюркские?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Монгольский",
+     "is_correct": false
+    },
+    {
+     "text": "Казахский",
+     "is_correct": true
+    },
+    {
+     "text": "Таджикский",
+     "is_correct": false
+    },
+    {
+     "text": "Турецкий",
+     "is_correct": true
+    },
+    {
+     "text": "Узбекский",
+     "is_correct": true
+    },
+    {
+     "text": "Кыргызский",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "На каком языке написана надпись: «Hola»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Итальянский",
+     "is_correct": false
+    },
+    {
+     "text": "Испанский",
+     "is_correct": true
+    },
+    {
+     "text": "Португальский",
+     "is_correct": false
+    },
+    {
+     "text": "Французский",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что значит «Рахмат»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "До свидания",
+     "is_correct": false
+    },
+    {
+     "text": "Спасибо",
+     "is_correct": true
+    },
+    {
+     "text": "Да",
+     "is_correct": false
+    },
+    {
+     "text": "Привет",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте приветствия по языкам: кыргызский, английский, французский, японский.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Саламатсызбы",
+     "is_correct": false
+    },
+    {
+     "text": "Hello",
+     "is_correct": false
+    },
+    {
+     "text": "Bonjour",
+     "is_correct": false
+    },
+    {
+     "text": "Konnichiwa",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой язык придумали специально, чтобы все люди мира могли общаться (1887)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Zamenhof_portreto.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Латынь",
+     "is_correct": false
+    },
+    {
+     "text": "Идиш",
+     "is_correct": false
+    },
+    {
+     "text": "Эсперанто",
+     "is_correct": true
+    },
+    {
+     "text": "Санскрит",
+     "is_correct": false
+    }
+   ],
+   "image": "q15.jpg"
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: «спасибо» по-кыргызски.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "РАХМАТ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Арабский язык пишут справа налево.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "*Фото: Serg!o, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Arabic-script.png)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой азбукой пользуются слепые, читая пальцами?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Stefan Malmesjö, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Reading_Braille.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Шрифт Брайля",
+     "is_correct": true
+    },
+    {
+     "text": "Азбука Морзе",
+     "is_correct": false
+    },
+    {
+     "text": "Семафор",
+     "is_correct": false
+    },
+    {
+     "text": "Клинопись",
+     "is_correct": false
+    }
+   ],
+   "image": "q18.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что означает «SOS» азбукой Морзе?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Mathew Benjamin Brady, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Samuel_Morse.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "··· ——— ···",
+     "is_correct": true
+    },
+    {
+     "text": "——— ··· ———",
+     "is_correct": false
+    },
+    {
+     "text": "————",
+     "is_correct": false
+    },
+    {
+     "text": "·—·—·—",
+     "is_correct": false
+    }
+   ],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "Сколько примерно языков в мире?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 500,
+    "max": 10000,
+    "step": 100,
+    "answer": 7000,
+    "unit": "языков",
+    "tolerance": 500
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Как будет «вода» по-кыргызски? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "суу",
+     "Суу"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие языки — официальные в ООН?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Китайский",
+     "is_correct": true
+    },
+    {
+     "text": "Английский",
+     "is_correct": true
+    },
+    {
+     "text": "Арабский",
+     "is_correct": true
+    },
+    {
+     "text": "Испанский",
+     "is_correct": true
+    },
+    {
+     "text": "Русский",
+     "is_correct": true
+    },
+    {
+     "text": "Французский",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется самый древний вид письма — значки на глиняных табличках шумеров?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Bjørn Christian Tørrissen, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Xerxes_Cuneiform_Van.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кириллица",
+     "is_correct": false
+    },
+    {
+     "text": "Иероглифы",
+     "is_correct": false
+    },
+    {
+     "text": "Руны",
+     "is_correct": false
+    },
+    {
+     "text": "Клинопись",
+     "is_correct": true
+    }
+   ],
+   "image": "q23.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой символ эмодзи — самый популярный в мире по данным Unicode?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "😭",
+     "is_correct": false
+    },
+    {
+     "text": "❤️",
+     "is_correct": false
+    },
+    {
+     "text": "😂 «слёзы радости»",
+     "is_correct": true
+    },
+    {
+     "text": "👍",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! На каком алфавите кыргызы писали в 1928–1940 годах?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "На рунах",
+     "is_correct": false
+    },
+    {
+     "text": "На арабском",
+     "is_correct": false
+    },
+    {
+     "text": "На латинице",
+     "is_correct": true
+    },
+    {
+     "text": "На кириллице",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

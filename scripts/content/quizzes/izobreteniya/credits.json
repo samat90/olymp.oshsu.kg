@@ -1,0 +1,137 @@
+{
+ "cover.jpg": {
+  "author": "NYC Wanderer (Kevin Eng)",
+  "file": "Gutenberg Bible, Lenox Copy, New York Public Library, 2009. Pic 01.jpg",
+  "license": "CC BY-SA 2.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Gutenberg_Bible,_Lenox_Copy,_New_York_Public_Library,_2009._Pic_01.jpg",
+  "spec": "en:Gutenberg Bible",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg/960px-Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q01.jpg": {
+  "author": "Unknown authorUnknown author",
+  "file": "Alexander Graham Bell 1895 NPG 77 363.jpg",
+  "license": "CC0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Alexander_Graham_Bell_1895_NPG_77_363.jpg",
+  "spec": "en:Alexander Graham Bell",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Alexander_Graham_Bell_1895_NPG_77_363.jpg/960px-Alexander_Graham_Bell_1895_NPG_77_363.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q02.jpg": {
+  "author": "Louis Bachrach, Bachrach Studios, restored by Michel Vuijlsteke",
+  "file": "Thomas Edison2.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Thomas_Edison2.jpg",
+  "spec": "en:Thomas Edison",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Thomas_Edison2.jpg/960px-Thomas_Edison2.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q04.jpg": {
+  "author": "Kenneth C. Zirkel",
+  "file": "Mainz Gutenbergdenkmal 2016 (cropped).jpg",
+  "license": "CC BY-SA 4.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Mainz_Gutenbergdenkmal_2016_(cropped).jpg",
+  "spec": "en:Johannes Gutenberg",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Mainz_Gutenbergdenkmal_2016_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q06.jpg": {
+  "author": "John T. Daniels",
+  "file": "First flight2.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:First_flight2.jpg",
+  "spec": "c:First flight2.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/First_flight2.jpg/960px-First_flight2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q07.jpg": {
+  "author": "Unidentified painter",
+  "file": "Joseph-montgolfier.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Joseph-montgolfier.jpg",
+  "spec": "en:Montgolfier brothers",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/5/53/Joseph-montgolfier.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q09.jpg": {
+  "author": "supplied by Carl Benz to William Worby Beaumont",
+  "file": "Benz Patent-Motorwagen Nr 2.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Benz_Patent-Motorwagen_Nr_2.jpg",
+  "spec": "en:Benz Patent-Motorwagen",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Benz_Patent-Motorwagen_Nr_2.jpg/960px-Benz_Patent-Motorwagen_Nr_2.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q10.jpg": {
+  "author": "Official photographer",
+  "file": "Synthetic Production of Penicillin TR1468.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Synthetic_Production_of_Penicillin_TR1468.jpg",
+  "spec": "en:Alexander Fleming",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Synthetic_Production_of_Penicillin_TR1468.jpg/960px-Synthetic_Production_of_Penicillin_TR1468.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q12.jpg": {
+  "author": "Summit",
+  "file": "Tim Berners-Lee at the 2025 Web Summit (Cropped).jpg",
+  "license": "CC BY 4.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Tim_Berners-Lee_at_the_2025_Web_Summit_(Cropped).jpg",
+  "spec": "en:Tim Berners-Lee",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Tim_Berners-Lee_at_the_2025_Web_Summit_%28Cropped%29.jpg/960px-Tim_Berners-Lee_at_the_2025_Web_Summit_%28Cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q13.jpg": {
+  "author": "Unknown authorUnknown author",
+  "file": "Alfred Nobel3.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Alfred_Nobel3.jpg",
+  "spec": "en:Alfred Nobel",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/0/07/Alfred_Nobel3.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q15.jpg": {
+  "author": "Justus Sustermans",
+  "file": "Galileo Galilei (1564-1642) RMG BHC2700.tiff",
+  "license": "Public domain",
+  "mime": "image/tiff",
+  "page": "https://commons.wikimedia.org/wiki/File:Galileo_Galilei_(1564-1642)_RMG_BHC2700.tiff",
+  "spec": "en:Galileo Galilei",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Galileo_Galilei_%281564-1642%29_RMG_BHC2700.tiff/lossy-page1-960px-Galileo_Galilei_%281564-1642%29_RMG_BHC2700.tiff.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q18.jpg": {
+  "author": "Nicéphore Niépce",
+  "file": "Untitled (point de vue), Niépce 1827 — HRC 2020 (cropped).jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Untitled_(point_de_vue),_Ni%C3%A9pce_1827_%E2%80%94_HRC_2020_(cropped).jpg",
+  "spec": "en:View from the Window at Le Gras",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Untitled_%28point_de_vue%29%2C_Ni%C3%A9pce_1827_%E2%80%94_HRC_2020_%28cropped%29.jpg/960px-Untitled_%28point_de_vue%29%2C_Ni%C3%A9pce_1827_%E2%80%94_HRC_2020_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q19.jpg": {
+  "author": "Napoleon Sarony",
+  "file": "Tesla circa 1890.jpeg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Tesla_circa_1890.jpeg",
+  "spec": "en:Nikola Tesla",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/7/79/Tesla_circa_1890.jpeg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q21.jpg": {
+  "author": "Original: Unknown authorUnknown author Upload: Germansociety2014",
+  "file": "Dmitri Mendeleev.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Dmitri_Mendeleev.jpg",
+  "spec": "en:Dmitri Mendeleev",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Dmitri_Mendeleev.jpg/960px-Dmitri_Mendeleev.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q23.jpg": {
+  "author": "Alessandro Nassiri",
+  "file": "Enigma (crittografia) - Museo scienza e tecnologia Milano.jpg",
+  "license": "CC BY-SA 4.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Enigma_(crittografia)_-_Museo_scienza_e_tecnologia_Milano.jpg",
+  "spec": "en:Enigma machine",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Enigma_%28crittografia%29_-_Museo_scienza_e_tecnologia_Milano.jpg/960px-Enigma_%28crittografia%29_-_Museo_scienza_e_tecnologia_Milano.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ }
+}

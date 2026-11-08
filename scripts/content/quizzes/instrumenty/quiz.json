@@ -1,0 +1,699 @@
+{
+ "key": "instrumenty",
+ "title": "Музыкальные инструменты",
+ "subject": "Музыка",
+ "theme": "steppe",
+ "description": "25 вопросов о музыкальных инструментах мира: от комуза и кыл-кыяка до органа и синтезатора. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: какой инструмент на фото?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Jo Dusepo, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Dusepo_komuz_front.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мандолина",
+     "is_correct": false
+    },
+    {
+     "text": "Балалайка",
+     "is_correct": false
+    },
+    {
+     "text": "Комуз",
+     "is_correct": true
+    },
+    {
+     "text": "Домбра",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Сколько струн у кыргызского комуза?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "6",
+     "is_correct": false
+    },
+    {
+     "text": "3",
+     "is_correct": true
+    },
+    {
+     "text": "2",
+     "is_correct": false
+    },
+    {
+     "text": "4",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется кыргызский смычковый инструмент?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Frank Kovalchek from Anchorage, Alaska, USA, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Musical_instruments_on_display_at_the_MIM_%2814351816715%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Темир-комуз",
+     "is_correct": false
+    },
+    {
+     "text": "Чоор",
+     "is_correct": false
+    },
+    {
+     "text": "Комуз",
+     "is_correct": false
+    },
+    {
+     "text": "Кыл-кыяк",
+     "is_correct": true
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что такое темир-комуз?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: No machine-readable author provided. LoganCale assumed (based on copyright claims)., Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Jew%27s_harp.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Колокольчик",
+     "is_correct": false
+    },
+    {
+     "text": "Варган — металлический язычковый инструмент во рту",
+     "is_correct": true
+    },
+    {
+     "text": "Барабан",
+     "is_correct": false
+    },
+    {
+     "text": "Металлическая гитара",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что за инструмент на фото?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Georg Feitscher, CC BY 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cello_front_side.png)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Виолончель",
+     "is_correct": true
+    },
+    {
+     "text": "Скрипка",
+     "is_correct": false
+    },
+    {
+     "text": "Контрабас",
+     "is_correct": false
+    },
+    {
+     "text": "Альт",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой инструмент называют «королём инструментов» — у него тысячи труб?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Ermell, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Neunkirchen_am_Brand_Kirche_Orgel-20210411-RM-155230.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Туба",
+     "is_correct": false
+    },
+    {
+     "text": "Арфа",
+     "is_correct": false
+    },
+    {
+     "text": "Орган",
+     "is_correct": true
+    },
+    {
+     "text": "Рояль",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Казахская домбра — родственница комуза, но у неё две струны.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "*Фото: User:Mizu basyo, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kazakh_Dombra2.png)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что на фото?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Harp.png)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лира",
+     "is_correct": false
+    },
+    {
+     "text": "Арфа",
+     "is_correct": true
+    },
+    {
+     "text": "Гусли",
+     "is_correct": false
+    },
+    {
+     "text": "Цитра",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Какие инструменты — ударные?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тарелки",
+     "is_correct": true
+    },
+    {
+     "text": "Барабан",
+     "is_correct": true
+    },
+    {
+     "text": "Литавры",
+     "is_correct": true
+    },
+    {
+     "text": "Флейта",
+     "is_correct": false
+    },
+    {
+     "text": "Труба",
+     "is_correct": false
+    },
+    {
+     "text": "Ксилофон",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Из какой страны ситар?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sitar,_late_19th_Century.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Индия",
+     "is_correct": true
+    },
+    {
+     "text": "Китай",
+     "is_correct": false
+    },
+    {
+     "text": "Иран",
+     "is_correct": false
+    },
+    {
+     "text": "Турция",
+     "is_correct": false
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что на фото?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Jonathanischoice, CC BY 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Eight_saxophone_sizes_smaller.png)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Саксофон",
+     "is_correct": true
+    },
+    {
+     "text": "Труба",
+     "is_correct": false
+    },
+    {
+     "text": "Кларнет",
+     "is_correct": false
+    },
+    {
+     "text": "Тромбон",
+     "is_correct": false
+    }
+   ],
+   "image": "q11.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется кыргызская глиняная или деревянная дудка пастухов?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Курай",
+     "is_correct": false
+    },
+    {
+     "text": "Зурна",
+     "is_correct": false
+    },
+    {
+     "text": "Сурнай",
+     "is_correct": false
+    },
+    {
+     "text": "Чоор",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте струнные смычковые от маленького к большому.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Скрипка",
+     "is_correct": false
+    },
+    {
+     "text": "Альт",
+     "is_correct": false
+    },
+    {
+     "text": "Виолончель",
+     "is_correct": false
+    },
+    {
+     "text": "Контрабас",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Сколько струн у классической гитары?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 3,
+    "max": 12,
+    "step": 1,
+    "answer": 6,
+    "unit": "струн",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что на фото?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Necz0r, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:A_converter_free-bass_piano-accordion_and_a_Russian_bayan.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Аккордеон",
+     "is_correct": true
+    },
+    {
+     "text": "Орган",
+     "is_correct": false
+    },
+    {
+     "text": "Фисгармония",
+     "is_correct": false
+    },
+    {
+     "text": "Синтезатор",
+     "is_correct": false
+    }
+   ],
+   "image": "q15.jpg"
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: русский струнный инструмент с треугольным корпусом.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "БАЛАЛАЙКА"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется японский барабан, на котором играют палками целой командой?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Taiko-Kaiser-Drums, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Miya_Daiko_drum_-_Taiko_drums.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Табла",
+     "is_correct": false
+    },
+    {
+     "text": "Тайко",
+     "is_correct": true
+    },
+    {
+     "text": "Джембе",
+     "is_correct": false
+    },
+    {
+     "text": "Бонго",
+     "is_correct": false
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой инструмент из Африки на фото — барабан в форме кубка?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Djembe Art, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lenke_djembe_from_Mali.jpeg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Литавры",
+     "is_correct": false
+    },
+    {
+     "text": "Конга",
+     "is_correct": false
+    },
+    {
+     "text": "Тамтам",
+     "is_correct": false
+    },
+    {
+     "text": "Джембе",
+     "is_correct": true
+    }
+   ],
+   "image": "q18.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "У скрипки 4 струны.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "*Фото: Just plain Bill, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Violin_VL100.png)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой инструмент первым изобрели — ему около 40 000 лет?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Барабан",
+     "is_correct": false
+    },
+    {
+     "text": "Арфа",
+     "is_correct": false
+    },
+    {
+     "text": "Флейта из кости",
+     "is_correct": true
+    },
+    {
+     "text": "Скрипка",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "В каких инструментах звук рождается от дыхания?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Труба",
+     "is_correct": true
+    },
+    {
+     "text": "Чоор",
+     "is_correct": true
+    },
+    {
+     "text": "Саксофон",
+     "is_correct": true
+    },
+    {
+     "text": "Комуз",
+     "is_correct": false
+    },
+    {
+     "text": "Рояль",
+     "is_correct": false
+    },
+    {
+     "text": "Флейта",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чем отличается рояль от пианино?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Рояль электрический",
+     "is_correct": false
+    },
+    {
+     "text": "У пианино больше клавиш",
+     "is_correct": false
+    },
+    {
+     "text": "У рояля струны лежат горизонтально",
+     "is_correct": true
+    },
+    {
+     "text": "Ничем",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Как называется инструмент шотландских волынщиков? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "волынка",
+     "Волынка"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что на фото — деревянные пластины и палочки?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "У металлофона пластины металлические.\n\n*Фото: SweetCanadianMullet, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Xylophone_%28PSF%29.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Гусли",
+     "is_correct": false
+    },
+    {
+     "text": "Металлофон",
+     "is_correct": false
+    },
+    {
+     "text": "Кастаньеты",
+     "is_correct": false
+    },
+    {
+     "text": "Ксилофон",
+     "is_correct": true
+    }
+   ],
+   "image": "q24.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Как называется кыргызская игра на комузе без пения?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Күү",
+     "is_correct": true
+    },
+    {
+     "text": "Термечи",
+     "is_correct": false
+    },
+    {
+     "text": "Айтыш",
+     "is_correct": false
+    },
+    {
+     "text": "Кошок",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

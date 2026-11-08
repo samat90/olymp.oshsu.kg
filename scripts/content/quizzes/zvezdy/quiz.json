@@ -1,0 +1,698 @@
+{
+ "key": "zvezdy",
+ "title": "Звёзды музыки и шоу",
+ "subject": "Знаменитости",
+ "theme": "night",
+ "description": "25 вопросов о знаменитых певцах, группах и шоуменах. Узнайте звезду по фото! Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: кто на фото — «Король поп-музыки»?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Matthew Rolston; Distributed by Epic Records, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Michael_Jackson_1983_%283x4_cropped%29_%28contrast%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Принс",
+     "is_correct": false
+    },
+    {
+     "text": "Элвис Пресли",
+     "is_correct": false
+    },
+    {
+     "text": "Майкл Джексон",
+     "is_correct": true
+    },
+    {
+     "text": "Джастин Тимберлейк",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "А кого называют «Королём рок-н-ролла»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Metro-Goldwyn-Mayer, Inc. Reproduction Number: LC-USZ6-2067 Location: NYWTS -- BIOG, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Elvis_Presley_promoting_Jailhouse_Rock.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Элвис Пресли",
+     "is_correct": true
+    },
+    {
+     "text": "Чак Берри",
+     "is_correct": false
+    },
+    {
+     "text": "Мик Джаггер",
+     "is_correct": false
+    },
+    {
+     "text": "Литл Ричард",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Из какого города группа The Beatles?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Dezo Hoffmann, Distributed by Capitol Records, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:The_Beatles_1963_Dezo_Hoffman_Capitol_Records_press_photo_2.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Дублин",
+     "is_correct": false
+    },
+    {
+     "text": "Лондон",
+     "is_correct": false
+    },
+    {
+     "text": "Ливерпуль",
+     "is_correct": true
+    },
+    {
+     "text": "Манчестер",
+     "is_correct": false
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто был солистом группы Queen?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Carl Lender, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Freddie_Mercury_performing_in_New_Haven,_CT,_November_1977.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мик Джаггер",
+     "is_correct": false
+    },
+    {
+     "text": "Брайан Мэй",
+     "is_correct": false
+    },
+    {
+     "text": "Фредди Меркьюри",
+     "is_correct": true
+    },
+    {
+     "text": "Элтон Джон",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Эта певица — рекордсменка премии «Грэмми» за «Альбом года». Кто она?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: iHeartRadioCA, CC BY 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Taylor_Swift_at_the_2023_MTV_Video_Music_Awards_%283%29.png)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Билли Айлиш",
+     "is_correct": false
+    },
+    {
+     "text": "Тейлор Свифт",
+     "is_correct": true
+    },
+    {
+     "text": "Бейонсе",
+     "is_correct": false
+    },
+    {
+     "text": "Адель",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Эта колумбийская певица спела «Waka Waka» для чемпионата мира 2010. Кто она?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Junta de Andalucía, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:2023-11-16_Gala_de_los_Latin_Grammy,_03_%28cropped%2902.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Каро Эмеральд",
+     "is_correct": false
+    },
+    {
+     "text": "Шакира",
+     "is_correct": true
+    },
+    {
+     "text": "Анитта",
+     "is_correct": false
+    },
+    {
+     "text": "Дженнифер Лопес",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Из какой страны группа BTS?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: The White House, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:BTS_during_a_White_House_press_conference_May_31,_2022_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Китай",
+     "is_correct": false
+    },
+    {
+     "text": "Таиланд",
+     "is_correct": false
+    },
+    {
+     "text": "Япония",
+     "is_correct": false
+    },
+    {
+     "text": "Южная Корея",
+     "is_correct": true
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Эд Ширан — британский певец, автор хита «Shape of You».",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "*Фото: Number 10, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ed_Sheeran_2022_%283x4_crop%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какую песню считают самой исполняемой в мире?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Jingle Bells»",
+     "is_correct": false
+    },
+    {
+     "text": "«Yesterday»",
+     "is_correct": false
+    },
+    {
+     "text": "«Let It Be»",
+     "is_correct": false
+    },
+    {
+     "text": "«Happy Birthday to You»",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Кто из этих музыкантов был участником The Beatles?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пол Маккартни",
+     "is_correct": true
+    },
+    {
+     "text": "Джон Леннон",
+     "is_correct": true
+    },
+    {
+     "text": "Мик Джаггер",
+     "is_correct": false
+    },
+    {
+     "text": "Ринго Старр",
+     "is_correct": true
+    },
+    {
+     "text": "Фредди Меркьюри",
+     "is_correct": false
+    },
+    {
+     "text": "Джордж Харрисон",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто на фото — певица с хитом «Hello» и «Rolling in the Deep»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Marc E., CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Adele_2016.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Леди Гага",
+     "is_correct": false
+    },
+    {
+     "text": "Эми Уайнхаус",
+     "is_correct": false
+    },
+    {
+     "text": "Дуа Липа",
+     "is_correct": false
+    },
+    {
+     "text": "Адель",
+     "is_correct": true
+    }
+   ],
+   "image": "q11.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется самая престижная музыкальная премия США?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Грэмми»",
+     "is_correct": true
+    },
+    {
+     "text": "«Эмми»",
+     "is_correct": false
+    },
+    {
+     "text": "«Тони»",
+     "is_correct": false
+    },
+    {
+     "text": "«Оскар»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Этот танцевальный приём Майкла Джексона, будто он идёт вперёд, а скользит назад, называется…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лунная походка",
+     "is_correct": true
+    },
+    {
+     "text": "Шаффл",
+     "is_correct": false
+    },
+    {
+     "text": "Брейк-данс",
+     "is_correct": false
+    },
+    {
+     "text": "Тектоник",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте этих звёзд по году рождения, от старших к младшим.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Элвис Пресли",
+     "is_correct": false
+    },
+    {
+     "text": "Майкл Джексон",
+     "is_correct": false
+    },
+    {
+     "text": "Бейонсе",
+     "is_correct": false
+    },
+    {
+     "text": "Билли Айлиш",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Эту ямайскую легенду регги звали…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Not credited, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bob_Marley_circa_1976_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Шегги",
+     "is_correct": false
+    },
+    {
+     "text": "Боб Марли",
+     "is_correct": true
+    },
+    {
+     "text": "Шон Пол",
+     "is_correct": false
+    },
+    {
+     "text": "Джимми Клифф",
+     "is_correct": false
+    }
+   ],
+   "image": "q15.jpg"
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: большой концерт звезды на стадионе — это…",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ШОУ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто спел «Bohemian Rhapsody»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Queen",
+     "is_correct": true
+    },
+    {
+     "text": "Coldplay",
+     "is_correct": false
+    },
+    {
+     "text": "The Beatles",
+     "is_correct": false
+    },
+    {
+     "text": "ABBA",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Из какой страны группа ABBA?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: AVRO, CC BY-SA 3.0 nl, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:ABBA_-_TopPop_1974_5.png)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Норвегия",
+     "is_correct": false
+    },
+    {
+     "text": "Дания",
+     "is_correct": false
+    },
+    {
+     "text": "Нидерланды",
+     "is_correct": false
+    },
+    {
+     "text": "Швеция",
+     "is_correct": true
+    }
+   ],
+   "image": "q18.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Леди Гага — настоящее имя певицы.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Её зовут Стефани Джерманотта.\n\n*Фото: Carlos M. Vazquez II, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lady_Gaga_at_Joe_Biden%27s_inauguration_%28cropped_5%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "Сколько участников было в группе ABBA?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 2,
+    "max": 8,
+    "step": 1,
+    "answer": 4,
+    "unit": "",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая певица прославилась песней «Single Ladies» и была в группе Destiny's Child?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: Raph PH, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Beyonc%C3%A9_-_Tottenham_Hotspur_Stadium_-_1st_June_2023_%2810_of_118%29_%2852946364598%29_%28best_crop%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бейонсе",
+     "is_correct": true
+    },
+    {
+     "text": "Рианна",
+     "is_correct": false
+    },
+    {
+     "text": "Мэрайя Кэри",
+     "is_correct": false
+    },
+    {
+     "text": "Кэти Перри",
+     "is_correct": false
+    }
+   ],
+   "image": "q21.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Этот композитор и пианист с гигантскими очками спел «Rocket Man». Кто он?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Raph PH, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:EltonDocBFILFF101024_%284_of_17%29_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Стиви Уандер",
+     "is_correct": false
+    },
+    {
+     "text": "Элтон Джон",
+     "is_correct": true
+    },
+    {
+     "text": "Билли Джоэл",
+     "is_correct": false
+    },
+    {
+     "text": "Рэй Чарльз",
+     "is_correct": false
+    }
+   ],
+   "image": "q22.jpg"
+  },
+  {
+   "type": "text",
+   "text": "Как называется музыкальный жанр, который начинали в 1970-х в Бронксе: речитатив под бит? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "рэп",
+     "хип-хоп",
+     "хипхоп",
+     "Рэп",
+     "Хип-хоп"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Кто из этих звёзд — рэперы?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Джей-Зи",
+     "is_correct": true
+    },
+    {
+     "text": "Эд Ширан",
+     "is_correct": false
+    },
+    {
+     "text": "Эминем",
+     "is_correct": true
+    },
+    {
+     "text": "Адель",
+     "is_correct": false
+    },
+    {
+     "text": "Канье Уэст",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Какой альбом — самый продаваемый в истории?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«1989» Тейлор Свифт",
+     "is_correct": false
+    },
+    {
+     "text": "«21» Адель",
+     "is_correct": false
+    },
+    {
+     "text": "«Thriller» Майкла Джексона",
+     "is_correct": true
+    },
+    {
+     "text": "«Abbey Road» The Beatles",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

@@ -1,0 +1,690 @@
+{
+ "key": "poezda",
+ "title": "Поезда и транспорт",
+ "subject": "Техника",
+ "theme": "steppe",
+ "description": "25 вопросов о поездах, метро, кораблях и всём, что возит людей и грузы. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: как называется японский скоростной поезд на фото?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: MaedaAkihiko, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Series-N700S-J2.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сапсан",
+     "is_correct": false
+    },
+    {
+     "text": "TGV",
+     "is_correct": false
+    },
+    {
+     "text": "Синкансэн",
+     "is_correct": true
+    },
+    {
+     "text": "Маглев",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как назывался паровоз Стефенсона, выигравший соревнование в 1829 году?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Stephenson%27s_Rocket_drawing.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Ракета»",
+     "is_correct": true
+    },
+    {
+     "text": "«Молния»",
+     "is_correct": false
+    },
+    {
+     "text": "«Комета»",
+     "is_correct": false
+    },
+    {
+     "text": "«Стрела»",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая железная дорога — самая длинная в мире?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Канадская Тихоокеанская",
+     "is_correct": false
+    },
+    {
+     "text": "Байкало-Амурская",
+     "is_correct": false
+    },
+    {
+     "text": "Транссибирская магистраль",
+     "is_correct": true
+    },
+    {
+     "text": "Пекин — Лхаса",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Сколько примерно километров длина Транссиба (Москва — Владивосток)?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 2000,
+    "max": 15000,
+    "step": 100,
+    "answer": 9300,
+    "unit": "км",
+    "tolerance": 500
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В каком городе открыли первое в мире метро (1863)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Metropolitan_Railway,_Baker_Street_Station.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лондон",
+     "is_correct": true
+    },
+    {
+     "text": "Нью-Йорк",
+     "is_correct": false
+    },
+    {
+     "text": "Москва",
+     "is_correct": false
+    },
+    {
+     "text": "Париж",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется поезд, который парит над рельсами на магнитах?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Saruno Hirobano, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:L0-950.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Монорельс",
+     "is_correct": false
+    },
+    {
+     "text": "Маглев",
+     "is_correct": true
+    },
+    {
+     "text": "Трамвай",
+     "is_correct": false
+    },
+    {
+     "text": "Фуникулёр",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Станции московского метро украшены как дворцы — мрамором и мозаикой.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "*Фото: A.Savin, FAL, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:MosMetro_KomsomolskayaKL_img2_asv2018-01.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что на фото — канатная дорога, которая тянет вагон вверх по склону по рельсам?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: AlixSaz, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Baku_Funicular.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Монорельс",
+     "is_correct": false
+    },
+    {
+     "text": "Фуникулёр",
+     "is_correct": true
+    },
+    {
+     "text": "Трамвай",
+     "is_correct": false
+    },
+    {
+     "text": "Метро",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой транспорт на фото — двухэтажный красный автобус?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Dietmar Rabich, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:London_%28UK%29,_Bus_--_2010_--_6.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лондонский автобус",
+     "is_correct": true
+    },
+    {
+     "text": "Нью-Йоркский",
+     "is_correct": false
+    },
+    {
+     "text": "Берлинский трамвай",
+     "is_correct": false
+    },
+    {
+     "text": "Бишкекский троллейбус",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Какие виды транспорта ходят по рельсам?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Троллейбус",
+     "is_correct": false
+    },
+    {
+     "text": "Метро",
+     "is_correct": true
+    },
+    {
+     "text": "Поезд",
+     "is_correct": true
+    },
+    {
+     "text": "Автобус",
+     "is_correct": false
+    },
+    {
+     "text": "Фуникулёр",
+     "is_correct": true
+    },
+    {
+     "text": "Трамвай",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой транспорт работает в Бишкеке от проводов, но ездит без рельсов?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Метро",
+     "is_correct": false
+    },
+    {
+     "text": "Трамвай",
+     "is_correct": false
+    },
+    {
+     "text": "Троллейбус",
+     "is_correct": true
+    },
+    {
+     "text": "Монорельс",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Где проходит железная дорога Бишкек — Балыкчы?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В Таласе",
+     "is_correct": false
+    },
+    {
+     "text": "В Оше",
+     "is_correct": false
+    },
+    {
+     "text": "В Нарыне",
+     "is_correct": false
+    },
+    {
+     "text": "В Чуйской и Иссык-Кульской областях",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте виды транспорта по времени появления.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Телега",
+     "is_correct": false
+    },
+    {
+     "text": "Паровоз",
+     "is_correct": false
+    },
+    {
+     "text": "Автомобиль",
+     "is_correct": false
+    },
+    {
+     "text": "Самолёт",
+     "is_correct": false
+    },
+    {
+     "text": "Электромобиль Tesla",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется самый большой пассажирский корабль на фото, на котором утонули люди в 1912 году?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Francis Godolphin Osbourne Stuart, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:RMS_Titanic_3_%28cropped_to_ship%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Британник»",
+     "is_correct": false
+    },
+    {
+     "text": "«Куин Мэри»",
+     "is_correct": false
+    },
+    {
+     "text": "«Лузитания»",
+     "is_correct": false
+    },
+    {
+     "text": "«Титаник»",
+     "is_correct": true
+    }
+   ],
+   "image": "q14.jpg"
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: вагон метро ходит по подземному…",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ТОННЕЛЬ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется канал, соединяющий Средиземное и Красное моря?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: NASA, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Iss016e019375.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кильский",
+     "is_correct": false
+    },
+    {
+     "text": "Беломорский",
+     "is_correct": false
+    },
+    {
+     "text": "Панамский",
+     "is_correct": false
+    },
+    {
+     "text": "Суэцкий",
+     "is_correct": true
+    }
+   ],
+   "image": "q16.jpg"
+  },
+  {
+   "type": "single",
+   "text": "А Панамский канал соединяет…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: User:Stan Shebs, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Panama_Canal_Miraflores_Locks.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Индийский и Тихий",
+     "is_correct": false
+    },
+    {
+     "text": "Атлантический и Тихий океаны",
+     "is_correct": true
+    },
+    {
+     "text": "Красное и Средиземное моря",
+     "is_correct": false
+    },
+    {
+     "text": "Чёрное и Каспийское моря",
+     "is_correct": false
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Велосипед изобрели раньше автомобиля.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Первые велосипеды появились в начале XIX века.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой самый быстрый серийный поезд в мире (до 2024)?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Шанхайский маглев",
+     "is_correct": true
+    },
+    {
+     "text": "Сапсан",
+     "is_correct": false
+    },
+    {
+     "text": "TGV",
+     "is_correct": false
+    },
+    {
+     "text": "Синкансэн",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что на фото — транспорт без колёс, который едет на подушке воздуха?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Thomas Philipp, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Formel1_hovercraft.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Подводная лодка",
+     "is_correct": false
+    },
+    {
+     "text": "Катамаран",
+     "is_correct": false
+    },
+    {
+     "text": "Судно на воздушной подушке",
+     "is_correct": true
+    },
+    {
+     "text": "Гидроплан",
+     "is_correct": false
+    }
+   ],
+   "image": "q20.jpg"
+  },
+  {
+   "type": "text",
+   "text": "Как называется транспорт, который плавает под водой? Два слова.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "подводная лодка",
+     "Подводная лодка",
+     "субмарина"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Что из этого — водный транспорт?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Танкер",
+     "is_correct": true
+    },
+    {
+     "text": "Яхта",
+     "is_correct": true
+    },
+    {
+     "text": "Паром",
+     "is_correct": true
+    },
+    {
+     "text": "Дирижабль",
+     "is_correct": false
+    },
+    {
+     "text": "Байдарка",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое животное называют «кораблём пустыни»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лошадь",
+     "is_correct": false
+    },
+    {
+     "text": "Верблюд",
+     "is_correct": true
+    },
+    {
+     "text": "Осёл",
+     "is_correct": false
+    },
+    {
+     "text": "Як",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Какая колея (ширина между рельсами) у железных дорог СНГ, в мм?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 1000,
+    "max": 1600,
+    "step": 10,
+    "answer": 1520,
+    "unit": "мм",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Какая страна построила больше всех скоростных железных дорог в мире?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Япония",
+     "is_correct": false
+    },
+    {
+     "text": "Германия",
+     "is_correct": false
+    },
+    {
+     "text": "Франция",
+     "is_correct": false
+    },
+    {
+     "text": "Китай",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  }
+ ]
+}

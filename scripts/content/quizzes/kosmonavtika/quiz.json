@@ -1,0 +1,673 @@
+{
+ "key": "kosmonavtika",
+ "title": "Покорение космоса",
+ "subject": "Космонавтика",
+ "theme": "night",
+ "description": "25 вопросов о ракетах, космонавтах и полётах к Луне и Марсу. От Гагарина до марсоходов. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: кто первым полетел в космос?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Александр Моклецов / СовИнформБюро, CC BY 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Yuri_Gagarin_with_awards_%28cropped%29_2.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Герман Титов",
+     "is_correct": false
+    },
+    {
+     "text": "Нил Армстронг",
+     "is_correct": false
+    },
+    {
+     "text": "Юрий Гагарин",
+     "is_correct": true
+    },
+    {
+     "text": "Алексей Леонов",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "В каком году Гагарин полетел в космос?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "12 апреля 1961 года, корабль «Восток-1».",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 1950,
+    "max": 1975,
+    "step": 1,
+    "answer": 1961,
+    "unit": "",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто первым ступил на Луну (1969)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Neil_Armstrong_pose.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Майкл Коллинз",
+     "is_correct": false
+    },
+    {
+     "text": "Юрий Гагарин",
+     "is_correct": false
+    },
+    {
+     "text": "Базз Олдрин",
+     "is_correct": false
+    },
+    {
+     "text": "Нил Армстронг",
+     "is_correct": true
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто на этом знаменитом снимке с Луны (1969)?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Армстронга на этом кадре нет: он держит камеру и отражается в стекле шлема.\n\n*Фото: Neil Armstrong, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Aldrin_Apollo_11_original.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Нил Армстронг",
+     "is_correct": false
+    },
+    {
+     "text": "Базз Олдрин",
+     "is_correct": true
+    },
+    {
+     "text": "Юрий Гагарин",
+     "is_correct": false
+    },
+    {
+     "text": "Майкл Коллинз",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как звали собак, которые в 1960 году слетали в космос и вернулись живыми?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лайка и Жучка",
+     "is_correct": false
+    },
+    {
+     "text": "Найда и Пальма",
+     "is_correct": false
+    },
+    {
+     "text": "Белка и Стрелка",
+     "is_correct": true
+    },
+    {
+     "text": "Тузик и Шарик",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто первая женщина-космонавт?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: This file comes from the website of the President of the Russian Federation and is licensed under the Creative Commons A, CC BY 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Valentina_Tereshkova_%282024-02-29%29_crop.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Елена Кондакова",
+     "is_correct": false
+    },
+    {
+     "text": "Светлана Савицкая",
+     "is_correct": false
+    },
+    {
+     "text": "Валентина Терешкова",
+     "is_correct": true
+    },
+    {
+     "text": "Салли Райд",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что изображено на фото?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: NASA, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:The_station_pictured_from_the_SpaceX_Crew_Dragon_5.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Международная космическая станция",
+     "is_correct": true
+    },
+    {
+     "text": "Телескоп «Хаббл»",
+     "is_correct": false
+    },
+    {
+     "text": "Спутник связи",
+     "is_correct": false
+    },
+    {
+     "text": "Станция «Мир» на Земле",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется первый искусственный спутник Земли (1957)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: NSSDC, NASA 1, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sputnik_asm.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Луна-1»",
+     "is_correct": false
+    },
+    {
+     "text": "«Восток»",
+     "is_correct": false
+    },
+    {
+     "text": "«Аполлон»",
+     "is_correct": false
+    },
+    {
+     "text": "«Спутник-1»",
+     "is_correct": true
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Алексей Леонов первым в мире вышел в открытый космос.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "18 марта 1965 года, корабль «Восход-2».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Это ракета «Сатурн-5». Куда она отправляла людей?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: NASA, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Apollo_11_Launch_-_GPN-2000-000630.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "На Луну",
+     "is_correct": true
+    },
+    {
+     "text": "На МКС",
+     "is_correct": false
+    },
+    {
+     "text": "На Марс",
+     "is_correct": false
+    },
+    {
+     "text": "К Венере",
+     "is_correct": false
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется космодром в Казахстане, откуда стартовал Гагарин?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Восточный",
+     "is_correct": false
+    },
+    {
+     "text": "Мыс Канаверал",
+     "is_correct": false
+    },
+    {
+     "text": "Плесецк",
+     "is_correct": false
+    },
+    {
+     "text": "Байконур",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется марсоход NASA на этом фото-«селфи»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: NASA, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Curiosity_Self-Portrait_at_%27Big_Sky%27_Drilling_Site.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Луноход-1",
+     "is_correct": false
+    },
+    {
+     "text": "Curiosity",
+     "is_correct": true
+    },
+    {
+     "text": "Спутник",
+     "is_correct": false
+    },
+    {
+     "text": "Вояджер",
+     "is_correct": false
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Какие страны сами отправляли людей в космос на своих ракетах?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Франция",
+     "is_correct": false
+    },
+    {
+     "text": "СССР/Россия",
+     "is_correct": true
+    },
+    {
+     "text": "США",
+     "is_correct": true
+    },
+    {
+     "text": "Бразилия",
+     "is_correct": false
+    },
+    {
+     "text": "Япония",
+     "is_correct": false
+    },
+    {
+     "text": "Китай",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте события по времени, от раннего к позднему.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Запуск первого спутника",
+     "is_correct": false
+    },
+    {
+     "text": "Полёт Гагарина",
+     "is_correct": false
+    },
+    {
+     "text": "Высадка на Луну",
+     "is_correct": false
+    },
+    {
+     "text": "Запуск МКС",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "На МКС космонавты видят около 16 рассветов за сутки.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Станция облетает Землю примерно за 90 минут.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что такое «Вояджер-1»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: NASA/JPL, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Voyager_spacecraft.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Зонд, который улетел дальше всех рукотворных объектов",
+     "is_correct": true
+    },
+    {
+     "text": "Российская станция",
+     "is_correct": false
+    },
+    {
+     "text": "Корабль для полётов на Луну",
+     "is_correct": false
+    },
+    {
+     "text": "Первый марсоход",
+     "is_correct": false
+    }
+   ],
+   "image": "q16.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется космический телескоп, запущенный в 2021 году, преемник «Хаббла»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: NASA, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:JWST_spacecraft_model_3.png)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Кеплер»",
+     "is_correct": false
+    },
+    {
+     "text": "«Джеймс Уэбб»",
+     "is_correct": true
+    },
+    {
+     "text": "«Галилео»",
+     "is_correct": false
+    },
+    {
+     "text": "«Гагарин»",
+     "is_correct": false
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: человек, летающий в космос (так говорят в России).",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "КОСМОНАВТ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что делает невесомость с ростом космонавта?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Человек худеет вдвое",
+     "is_correct": false
+    },
+    {
+     "text": "Ничего не меняется",
+     "is_correct": false
+    },
+    {
+     "text": "Рост увеличивается на несколько сантиметров",
+     "is_correct": true
+    },
+    {
+     "text": "Рост уменьшается",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Примерно на какой высоте (км) летает МКС?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 100,
+    "max": 1000,
+    "step": 10,
+    "answer": 400,
+    "unit": "км",
+    "tolerance": 30
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая компания делает многоразовые ракеты Falcon 9, которые садятся обратно?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Joel Kowsky, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:SpaceX_Demo-2_Launch_%28NHQ202005300044%29_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "SpaceX",
+     "is_correct": true
+    },
+    {
+     "text": "Airbus",
+     "is_correct": false
+    },
+    {
+     "text": "Boeing",
+     "is_correct": false
+    },
+    {
+     "text": "Роскосмос",
+     "is_correct": false
+    }
+   ],
+   "image": "q21.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Этот космонавт родился в Узгене. Как его зовут?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Салижан Шарипов родился в Узгене, летал на «Шаттле» и на МКС.\n\n*Фото: NASA, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sharipov.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Юрий Гагарин",
+     "is_correct": false
+    },
+    {
+     "text": "Салижан Шарипов",
+     "is_correct": true
+    },
+    {
+     "text": "Тохтар Аубакиров",
+     "is_correct": false
+    },
+    {
+     "text": "Герман Титов",
+     "is_correct": false
+    }
+   ],
+   "image": "q22.jpg"
+  },
+  {
+   "type": "text",
+   "text": "Как зовут первого космонавта Земли? Напишите фамилию.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "Гагарин",
+     "Юрий Гагарин"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Флаги, оставленные на Луне, развеваются на ветру.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "На Луне нет ветра: флаг держит горизонтальная планка.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Какое животное первым облетело Землю на орбите (1957)?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Черепахи",
+     "is_correct": false
+    },
+    {
+     "text": "Кошка Фелисетт",
+     "is_correct": false
+    },
+    {
+     "text": "Обезьяна Альберт",
+     "is_correct": false
+    },
+    {
+     "text": "Собака Лайка",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  }
+ ]
+}

@@ -394,6 +394,7 @@ textarea.qz-field { font-size: 18px; resize: vertical; }
 .qz-key-text { margin: 0; font-size: 18px; text-align: center; overflow-wrap: anywhere; }
 .qz-explain { padding: 10px 12px; border-left: 4px solid #0b7a72; border-radius: 8px; background: rgba(127, 127, 127, .12); }
 .qz-explain p { margin: 4px 0 0; }
+.qz-explain a { color: inherit !important; text-decoration: underline; }
 .qz-summary { margin: 0; text-align: center; font-size: 18px; }
 .qz-sticky-actions { position: sticky; bottom: 0; display: flex; justify-content: center; padding: 10px 0 4px; }
 .qz-sticky-actions .qz-btn { width: 100%; max-width: 420px; }

@@ -1,0 +1,689 @@
+{
+ "key": "prazdniki",
+ "title": "Праздники мира",
+ "subject": "Разное",
+ "theme": "steppe",
+ "description": "25 вопросов о праздниках: Нооруз, Новый год, китайский Новый год, Холи, Хэллоуин и другие. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: какого числа празднуют Нооруз?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "31 августа",
+     "is_correct": false
+    },
+    {
+     "text": "21 марта",
+     "is_correct": true
+    },
+    {
+     "text": "1 января",
+     "is_correct": false
+    },
+    {
+     "text": "8 марта",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое блюдо варят всю ночь на Нооруз из проросшей пшеницы?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Myone63, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Samanu_for_7_sin.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Плов",
+     "is_correct": false
+    },
+    {
+     "text": "Боорсок",
+     "is_correct": false
+    },
+    {
+     "text": "Сумолок",
+     "is_correct": true
+    },
+    {
+     "text": "Бешбармак",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Когда отмечают День независимости Кыргызстана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "21 марта",
+     "is_correct": false
+    },
+    {
+     "text": "31 августа",
+     "is_correct": true
+    },
+    {
+     "text": "1 мая",
+     "is_correct": false
+    },
+    {
+     "text": "7 ноября",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой праздник отмечают красками, бросая цветной порошок, в Индии?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Original: Sachinghai09 Derivative work: Radomianin, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lathmar_Holi_2022_in_Nandgaon,_Uttar_Pradesh_%28edited%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Холи",
+     "is_correct": true
+    },
+    {
+     "text": "Дивали",
+     "is_correct": false
+    },
+    {
+     "text": "Рамадан",
+     "is_correct": false
+    },
+    {
+     "text": "Песах",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "А индийский «праздник огней» с лампадами — это…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Subharnab Majumdar, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:The_Rangoli_of_Lights.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Навруз",
+     "is_correct": false
+    },
+    {
+     "text": "Дивали",
+     "is_correct": true
+    },
+    {
+     "text": "Холи",
+     "is_correct": false
+    },
+    {
+     "text": "Ханука",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "В каком месяце китайский Новый год?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Michael Elleray from England, United Kingdom, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kung_Hei_Fat_Choi!_%286834861529%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Всегда 1 января",
+     "is_correct": false
+    },
+    {
+     "text": "В марте",
+     "is_correct": false
+    },
+    {
+     "text": "В январе или феврале (по Луне)",
+     "is_correct": true
+    },
+    {
+     "text": "В сентябре",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какое животное — символ 2026 года по восточному календарю?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лошадь (Огненная)",
+     "is_correct": true
+    },
+    {
+     "text": "Змея",
+     "is_correct": false
+    },
+    {
+     "text": "Дракон",
+     "is_correct": false
+    },
+    {
+     "text": "Коза",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "В Австралии Новый год встречают летом.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется праздник 31 октября с тыквами-фонарями?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Man vyi, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Balle-%C3%A0-leunettes_10.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "День благодарения",
+     "is_correct": false
+    },
+    {
+     "text": "Масленица",
+     "is_correct": false
+    },
+    {
+     "text": "Пасха",
+     "is_correct": false
+    },
+    {
+     "text": "Хэллоуин",
+     "is_correct": true
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что едят на Масленицу?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Boris Kustodiev, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Maslenitsa_kustodiev.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пельмени",
+     "is_correct": false
+    },
+    {
+     "text": "Плов",
+     "is_correct": false
+    },
+    {
+     "text": "Блины",
+     "is_correct": true
+    },
+    {
+     "text": "Куличи",
+     "is_correct": false
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Какие праздники связаны с весной?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Холи",
+     "is_correct": true
+    },
+    {
+     "text": "Масленица (проводы зимы)",
+     "is_correct": true
+    },
+    {
+     "text": "День благодарения",
+     "is_correct": false
+    },
+    {
+     "text": "Хэллоуин",
+     "is_correct": false
+    },
+    {
+     "text": "Нооруз",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой праздник в Мексике — День мёртвых — с сахарными черепами?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Paolaricaurte, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Catrina_3.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Хэллоуин",
+     "is_correct": false
+    },
+    {
+     "text": "Синко де Майо",
+     "is_correct": false
+    },
+    {
+     "text": "Карнавал",
+     "is_correct": false
+    },
+    {
+     "text": "Диа де лос Муэртос",
+     "is_correct": true
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Где проходит самый знаменитый карнавал с танцами самбы?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Fernando Frazão/Agência Brasil, CC BY 3.0 br, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Desfile_Portela_2014_%28906185%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Венеция",
+     "is_correct": false
+    },
+    {
+     "text": "Новый Орлеан",
+     "is_correct": false
+    },
+    {
+     "text": "Барселона",
+     "is_correct": false
+    },
+    {
+     "text": "Рио-де-Жанейро",
+     "is_correct": true
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Венецианский карнавал знаменит…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Масками",
+     "is_correct": true
+    },
+    {
+     "text": "Фонариками",
+     "is_correct": false
+    },
+    {
+     "text": "Тыквами",
+     "is_correct": false
+    },
+    {
+     "text": "Самбой",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте праздники Кыргызстана по календарю (от начала года).",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Новый год",
+     "is_correct": false
+    },
+    {
+     "text": "Нооруз",
+     "is_correct": false
+    },
+    {
+     "text": "День Победы",
+     "is_correct": false
+    },
+    {
+     "text": "День независимости",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: праздник, который мусульмане отмечают после поста Рамадан, — Орозо…",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "АЙТ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется праздник благодарения в США с индейкой?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Ms Jones from California, USA, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Our_%28Almost_Traditional%29_Thanksgiving_Dinner.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "День труда",
+     "is_correct": false
+    },
+    {
+     "text": "День благодарения",
+     "is_correct": true
+    },
+    {
+     "text": "День независимости",
+     "is_correct": false
+    },
+    {
+     "text": "Рождество",
+     "is_correct": false
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "День кыргызского калпака отмечают 5 марта.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Сколько дней длится пост Рамадан (примерно)?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 10,
+    "max": 40,
+    "step": 1,
+    "answer": 30,
+    "unit": "дней",
+    "tolerance": 1
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется японский праздник любования цветущей сакурой?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Castle_Himeji_sakura02.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ханами",
+     "is_correct": true
+    },
+    {
+     "text": "Обон",
+     "is_correct": false
+    },
+    {
+     "text": "Танабата",
+     "is_correct": false
+    },
+    {
+     "text": "Сэцубун",
+     "is_correct": false
+    }
+   ],
+   "image": "q20.jpg"
+  },
+  {
+   "type": "text",
+   "text": "Как называется ёлочный дедушка в Кыргызстане и России? Два слова.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "Дед Мороз",
+     "дед мороз",
+     "Аяз ата",
+     "Аяз-ата"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "В какие праздники запускают фейерверки во многих странах?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "День учителя",
+     "is_correct": false
+    },
+    {
+     "text": "Новый год",
+     "is_correct": true
+    },
+    {
+     "text": "День независимости",
+     "is_correct": true
+    },
+    {
+     "text": "Китайский Новый год",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой праздник в Шотландии называется Хогманай?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Новый год",
+     "is_correct": true
+    },
+    {
+     "text": "Рождество",
+     "is_correct": false
+    },
+    {
+     "text": "Пасха",
+     "is_correct": false
+    },
+    {
+     "text": "День святого Патрика",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Цвет праздника Святого Патрика в Ирландии?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Andreas F. Borchert, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kilbennan_St._Benin%27s_Church_Window_St._Patrick_Detail_2010_09_16.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Синий",
+     "is_correct": false
+    },
+    {
+     "text": "Оранжевый",
+     "is_correct": false
+    },
+    {
+     "text": "Красный",
+     "is_correct": false
+    },
+    {
+     "text": "Зелёный",
+     "is_correct": true
+    }
+   ],
+   "image": "q24.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Как называется кыргызский праздник жертвоприношения?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Той",
+     "is_correct": false
+    },
+    {
+     "text": "Орозо айт",
+     "is_correct": false
+    },
+    {
+     "text": "Курман айт",
+     "is_correct": true
+    },
+    {
+     "text": "Нооруз",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

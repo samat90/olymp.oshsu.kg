@@ -1,0 +1,686 @@
+{
+ "key": "futbol",
+ "title": "Футбол: звёзды и клубы",
+ "subject": "Футбол",
+ "theme": "steppe",
+ "description": "25 вопросов о футболистах, клубах и правилах игры. Узнайте звёзд по фото и не попадитесь на ловушки. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: сколько игроков одной команды одновременно на поле?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "11",
+     "is_correct": true
+    },
+    {
+     "text": "10",
+     "is_correct": false
+    },
+    {
+     "text": "12",
+     "is_correct": false
+    },
+    {
+     "text": "9",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто на фото?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Bryan Berlin, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Leo_Messi_Argentina_v_Egypt_7_July_2026-1.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Луис Суарес",
+     "is_correct": false
+    },
+    {
+     "text": "Серхио Агуэро",
+     "is_correct": false
+    },
+    {
+     "text": "Лионель Месси",
+     "is_correct": true
+    },
+    {
+     "text": "Неймар",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "А это кто?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Bryan Berlin, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cristiano_Ronaldo_Croatia_v_Portugal_2_July_2026-075_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Криштиану Роналду",
+     "is_correct": true
+    },
+    {
+     "text": "Гарет Бейл",
+     "is_correct": false
+    },
+    {
+     "text": "Лука Модрич",
+     "is_correct": false
+    },
+    {
+     "text": "Карим Бензема",
+     "is_correct": false
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Узнаёте этого форварда сборной Франции?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Bryan Berlin, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kylian_Mbappe_France_v_Senegal_16_June_2026-391_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Поль Погба",
+     "is_correct": false
+    },
+    {
+     "text": "Оливье Жиру",
+     "is_correct": false
+    },
+    {
+     "text": "Антуан Гризманн",
+     "is_correct": false
+    },
+    {
+     "text": "Килиан Мбаппе",
+     "is_correct": true
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Этот норвежский нападающий забивает голы как машина. Кто он?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Bryan Berlin, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Erling_Haaland_Morocco_v_Norway_7_June_2026-51.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мартин Эдегор",
+     "is_correct": false
+    },
+    {
+     "text": "Эрлинг Холанд",
+     "is_correct": true
+    },
+    {
+     "text": "Роберт Левандовски",
+     "is_correct": false
+    },
+    {
+     "text": "Златан Ибрагимович",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой клуб называют «Королевским» и играет на стадионе «Сантьяго Бернабеу»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Badefa, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Estadio_Santiago_Bernab%C3%A9u_%E2%80%94_Real_Madrid_Juvenil_A_-_Santiago_Wanderers_Sub-20_%28Intercontinental_Sub-20_2026%29_%E2%80%94_R%C3%A9cord_de_asistencia_en_un_partido_de_juveniles.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Барселона",
+     "is_correct": false
+    },
+    {
+     "text": "Атлетико Мадрид",
+     "is_correct": false
+    },
+    {
+     "text": "Севилья",
+     "is_correct": false
+    },
+    {
+     "text": "Реал Мадрид",
+     "is_correct": true
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется стадион «Барселоны»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Oh-Barcelona.com from Barcelona, Spain, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Camp_Nou_aerial.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Олд Траффорд",
+     "is_correct": false
+    },
+    {
+     "text": "Сан-Сиро",
+     "is_correct": false
+    },
+    {
+     "text": "Камп Ноу",
+     "is_correct": true
+    },
+    {
+     "text": "Энфилд",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Вратарь может брать мяч руками в любой точке поля.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Только в своей штрафной площади.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Сколько минут длится основное время футбольного матча (без добавленного)?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 60,
+    "max": 120,
+    "step": 5,
+    "answer": 90,
+    "unit": "мин",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько раз Лионель Месси получал «Золотой мяч» (до 2024 года)?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "8",
+     "is_correct": true
+    },
+    {
+     "text": "10",
+     "is_correct": false
+    },
+    {
+     "text": "5",
+     "is_correct": false
+    },
+    {
+     "text": "6",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что показывает судья игроку, удаляя его с поля?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Жёлтую карточку",
+     "is_correct": false
+    },
+    {
+     "text": "Красную карточку",
+     "is_correct": true
+    },
+    {
+     "text": "Зелёную карточку",
+     "is_correct": false
+    },
+    {
+     "text": "Синюю карточку",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие клубы из Англии?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "ПСЖ",
+     "is_correct": false
+    },
+    {
+     "text": "Ювентус",
+     "is_correct": false
+    },
+    {
+     "text": "Манчестер Сити",
+     "is_correct": true
+    },
+    {
+     "text": "Арсенал",
+     "is_correct": true
+    },
+    {
+     "text": "Бавария",
+     "is_correct": false
+    },
+    {
+     "text": "Ливерпуль",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто на фото — бразильская легенда, трёхкратный чемпион мира?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Pele_con_brasil_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Роналдиньо",
+     "is_correct": false
+    },
+    {
+     "text": "Пеле",
+     "is_correct": true
+    },
+    {
+     "text": "Кафу",
+     "is_correct": false
+    },
+    {
+     "text": "Роналдо",
+     "is_correct": false
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется самый престижный турнир европейских клубов?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Премьер-лига",
+     "is_correct": false
+    },
+    {
+     "text": "Лига Европы",
+     "is_correct": false
+    },
+    {
+     "text": "Лига чемпионов УЕФА",
+     "is_correct": true
+    },
+    {
+     "text": "Кубок Либертадорес",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "В футболе за гол головой дают 2 очка.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Любой гол — одно очко.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется положение, когда атакующий игрок ближе к воротам, чем предпоследний защитник, в момент паса?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Угловой",
+     "is_correct": false
+    },
+    {
+     "text": "Аут",
+     "is_correct": false
+    },
+    {
+     "text": "Пенальти",
+     "is_correct": false
+    },
+    {
+     "text": "Офсайд (вне игры)",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "С какого расстояния (в метрах) бьют пенальти?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 5,
+    "max": 20,
+    "step": 1,
+    "answer": 11,
+    "unit": "м",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: главный судья на поле держит во рту…",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "СВИСТОК"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой стадион на фото — домашняя арена сборной Кыргызстана в Бишкеке?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: FromMorningToMidnight, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kyrgyzstan_vs._India_%282018%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Уэмбли",
+     "is_correct": false
+    },
+    {
+     "text": "Лужники",
+     "is_correct": false
+    },
+    {
+     "text": "Маракана",
+     "is_correct": false
+    },
+    {
+     "text": "Стадион имени Долена Омурзакова",
+     "is_correct": true
+    }
+   ],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Этот игрок — капитан сборной Египта и звезда «Ливерпуля». Кто он?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Bryan Berlin, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mohamed_Salah_Argentina_v_Egypt_7_July_2026-163_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мохамед Салах",
+     "is_correct": true
+    },
+    {
+     "text": "Ашраф Хакими",
+     "is_correct": false
+    },
+    {
+     "text": "Рияд Марез",
+     "is_correct": false
+    },
+    {
+     "text": "Садио Мане",
+     "is_correct": false
+    }
+   ],
+   "image": "q20.jpg"
+  },
+  {
+   "type": "order",
+   "text": "Расставьте позиции от своих ворот к чужим.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Вратарь",
+     "is_correct": false
+    },
+    {
+     "text": "Защитник",
+     "is_correct": false
+    },
+    {
+     "text": "Полузащитник",
+     "is_correct": false
+    },
+    {
+     "text": "Нападающий",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что такое «хет-трик»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Три победы подряд",
+     "is_correct": false
+    },
+    {
+     "text": "Три гола одного игрока в одном матче",
+     "is_correct": true
+    },
+    {
+     "text": "Три жёлтые карточки",
+     "is_correct": false
+    },
+    {
+     "text": "Гол через себя",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Что из этого — легальный способ возобновить игру?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Удар от ворот",
+     "is_correct": true
+    },
+    {
+     "text": "Подача рукой вратаря соперника",
+     "is_correct": false
+    },
+    {
+     "text": "Вбрасывание из аута",
+     "is_correct": true
+    },
+    {
+     "text": "Спорный мяч",
+     "is_correct": true
+    },
+    {
+     "text": "Угловой удар",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "В какой стране придумали современный футбол? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "Англия",
+     "Англии",
+     "Великобритания"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Какая сборная выигрывала чемпионат мира больше всех раз?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Бразилия — 5 титулов.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Аргентина",
+     "is_correct": false
+    },
+    {
+     "text": "Италия",
+     "is_correct": false
+    },
+    {
+     "text": "Бразилия",
+     "is_correct": true
+    },
+    {
+     "text": "Германия",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

@@ -1,0 +1,705 @@
+{
+ "key": "nomad-games",
+ "title": "Игры кочевников",
+ "subject": "Спорт",
+ "theme": "steppe",
+ "description": "25 вопросов о национальных играх и спорте кочевников: кок-бору, ордо, тогуз коргоол, борьба и соколиная охота. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: как называется конная игра на фото?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Helen Owl, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:World_Nomad_Games,_Kok-boru.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кыз куумай",
+     "is_correct": false
+    },
+    {
+     "text": "Ат чабыш",
+     "is_correct": false
+    },
+    {
+     "text": "Поло",
+     "is_correct": false
+    },
+    {
+     "text": "Кок-бору",
+     "is_correct": true
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называются Всемирные игры, которые придумал и впервые провёл Кыргызстан в 2014 году?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Save the Dream from Doha, Qatar, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:World_Nomad_Games_athlete_and_falcon_%2829917694421%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тюркские игры",
+     "is_correct": false
+    },
+    {
+     "text": "Игры степей",
+     "is_correct": false
+    },
+    {
+     "text": "Азиатские игры",
+     "is_correct": false
+    },
+    {
+     "text": "Всемирные игры кочевников",
+     "is_correct": true
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Где проходили первые три Всемирные игры кочевников?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чолпон-Ата, Кыргызстан",
+     "is_correct": true
+    },
+    {
+     "text": "Ташкент",
+     "is_correct": false
+    },
+    {
+     "text": "Улан-Батор",
+     "is_correct": false
+    },
+    {
+     "text": "Астана",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая страна приняла пятые Всемирные игры кочевников в 2024 году?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Казахстан",
+     "is_correct": true
+    },
+    {
+     "text": "Кыргызстан",
+     "is_correct": false
+    },
+    {
+     "text": "Турция",
+     "is_correct": false
+    },
+    {
+     "text": "Узбекистан",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что такое «кыз куумай»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: SSGT JEREMY T. LOCK, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Catchthegirl.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Игра в альчики",
+     "is_correct": false
+    },
+    {
+     "text": "Скачки, где джигит догоняет девушку",
+     "is_correct": true
+    },
+    {
+     "text": "Борьба на конях",
+     "is_correct": false
+    },
+    {
+     "text": "Стрельба из лука",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что такое «эр эниш»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Метание камня",
+     "is_correct": false
+    },
+    {
+     "text": "Охота с беркутом",
+     "is_correct": false
+    },
+    {
+     "text": "Скачки на 20 км",
+     "is_correct": false
+    },
+    {
+     "text": "Борьба всадников на конях",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется древняя кыргызская игра с альчиками?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ордо",
+     "is_correct": true
+    },
+    {
+     "text": "Жамбы атмай",
+     "is_correct": false
+    },
+    {
+     "text": "Ак-терек",
+     "is_correct": false
+    },
+    {
+     "text": "Тогуз коргоол",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько лунок у каждого игрока в тогуз коргоол?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Arthoum, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:%D0%A2%D0%BE%D0%B3%D1%83%D0%B7%D0%BA%D0%BE%D1%80%D0%B3%D0%BE%D0%BE%D0%BB.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "6",
+     "is_correct": false
+    },
+    {
+     "text": "7",
+     "is_correct": false
+    },
+    {
+     "text": "9",
+     "is_correct": true
+    },
+    {
+     "text": "12",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "В тогуз коргоол у каждого игрока в начале по 81 камешку (коргоол).",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "9 лунок по 9 камешков.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется охота с ловчими птицами?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Photographer; SiGarb, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:KyrgyzEagleHuntsman.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кок-бору",
+     "is_correct": false
+    },
+    {
+     "text": "Ат чабыш",
+     "is_correct": false
+    },
+    {
+     "text": "Салбуурун",
+     "is_correct": true
+    },
+    {
+     "text": "Жигит оюну",
+     "is_correct": false
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Какие игры — конные?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кыз куумай",
+     "is_correct": true
+    },
+    {
+     "text": "Тогуз коргоол",
+     "is_correct": false
+    },
+    {
+     "text": "Эр эниш",
+     "is_correct": true
+    },
+    {
+     "text": "Ордо",
+     "is_correct": false
+    },
+    {
+     "text": "Ат чабыш",
+     "is_correct": true
+    },
+    {
+     "text": "Кок-бору",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется кыргызская национальная борьба на поясах?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Якупов Рамиль, CC BY 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:%D0%9A%D3%A9%D1%80%D3%99%D1%88.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Дзюдо",
+     "is_correct": false
+    },
+    {
+     "text": "Сумо",
+     "is_correct": false
+    },
+    {
+     "text": "Самбо",
+     "is_correct": false
+    },
+    {
+     "text": "Курёш",
+     "is_correct": true
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что такое «ат чабыш»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бег",
+     "is_correct": false
+    },
+    {
+     "text": "Скачки на длинную дистанцию",
+     "is_correct": true
+    },
+    {
+     "text": "Перетягивание каната",
+     "is_correct": false
+    },
+    {
+     "text": "Стрельба из лука",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Сколько килограммов весит туша козла в кок-бору примерно?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 5,
+    "max": 60,
+    "step": 1,
+    "answer": 30,
+    "unit": "кг",
+    "tolerance": 8
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте Всемирные игры кочевников по годам.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чолпон-Ата 2014",
+     "is_correct": false
+    },
+    {
+     "text": "Чолпон-Ата 2016",
+     "is_correct": false
+    },
+    {
+     "text": "Чолпон-Ата 2018",
+     "is_correct": false
+    },
+    {
+     "text": "Изник (Турция) 2022",
+     "is_correct": false
+    },
+    {
+     "text": "Астана 2024",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: охотник с беркутом.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "БЕРКУТЧИ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая стрельба популярна на играх кочевников?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Antoine Taveneaux, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:People_of_Tibet54.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Биатлон",
+     "is_correct": false
+    },
+    {
+     "text": "Стрельба из пушки",
+     "is_correct": false
+    },
+    {
+     "text": "Стрельба из лука, в том числе с коня",
+     "is_correct": true
+    },
+    {
+     "text": "Пейнтбол",
+     "is_correct": false
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что такое «жамбы атмай»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ловля рыбы",
+     "is_correct": false
+    },
+    {
+     "text": "Стрельба из лука на скаку по слитку серебра",
+     "is_correct": true
+    },
+    {
+     "text": "Танец с саблей",
+     "is_correct": false
+    },
+    {
+     "text": "Метание ножей",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "В кок-бору команды забивают тушу в большой котёл «казан».",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что такое «тыйын энмей»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "На скаку поднять монету с земли",
+     "is_correct": true
+    },
+    {
+     "text": "Бег в мешках",
+     "is_correct": false
+    },
+    {
+     "text": "Перетягивание ремня",
+     "is_correct": false
+    },
+    {
+     "text": "Борьба детей",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Как по-кыргызски «лошадь»? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "ат",
+     "жылкы",
+     "Ат",
+     "Жылкы"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие виды есть на Всемирных играх кочевников?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кок-бору",
+     "is_correct": true
+    },
+    {
+     "text": "Салбуурун",
+     "is_correct": true
+    },
+    {
+     "text": "Ордо",
+     "is_correct": true
+    },
+    {
+     "text": "Хоккей на льду",
+     "is_correct": false
+    },
+    {
+     "text": "Курёш",
+     "is_correct": true
+    },
+    {
+     "text": "Гольф",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Передышка без очков: как переводится «кок-бору»?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Серый (синий) волк",
+     "is_correct": true
+    },
+    {
+     "text": "Небесный орёл",
+     "is_correct": false
+    },
+    {
+     "text": "Горный козёл",
+     "is_correct": false
+    },
+    {
+     "text": "Быстрый конь",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется беговая лошадь, которая идёт иноходью?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Буурул",
+     "is_correct": false
+    },
+    {
+     "text": "Жорго",
+     "is_correct": true
+    },
+    {
+     "text": "Тулпар",
+     "is_correct": false
+    },
+    {
+     "text": "Тай",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Как называется крылатый конь в кыргызских легендах?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пегас",
+     "is_correct": false
+    },
+    {
+     "text": "Аргамак",
+     "is_correct": false
+    },
+    {
+     "text": "Тулпар",
+     "is_correct": true
+    },
+    {
+     "text": "Буракы",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

@@ -1,0 +1,697 @@
+{
+ "key": "nasekomye",
+ "title": "Насекомые и пауки",
+ "subject": "Природа",
+ "theme": "steppe",
+ "description": "25 вопросов о насекомых и паукообразных: бабочки, пчёлы, муравьи, жуки и стрекозы. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: кто на фото?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Photo by and (c)2007 Derek Ramsey (Ram-Man), GFDL 1.2, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Monarch_Butterfly_Danaus_plexippus_Male_2664px.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Павлиний глаз",
+     "is_correct": false
+    },
+    {
+     "text": "Махаон",
+     "is_correct": false
+    },
+    {
+     "text": "Капустница",
+     "is_correct": false
+    },
+    {
+     "text": "Бабочка монарх",
+     "is_correct": true
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Сколько ног у насекомого?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "10",
+     "is_correct": false
+    },
+    {
+     "text": "8",
+     "is_correct": false
+    },
+    {
+     "text": "4",
+     "is_correct": false
+    },
+    {
+     "text": "6",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Паук — это насекомое.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "У паука 8 ног: он паукообразный.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется превращение гусеницы в бабочку?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Линька",
+     "is_correct": false
+    },
+    {
+     "text": "Мутация",
+     "is_correct": false
+    },
+    {
+     "text": "Метаморфоз",
+     "is_correct": true
+    },
+    {
+     "text": "Фотосинтез",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте этапы жизни бабочки по порядку.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Яйцо",
+     "is_correct": false
+    },
+    {
+     "text": "Гусеница",
+     "is_correct": false
+    },
+    {
+     "text": "Куколка",
+     "is_correct": false
+    },
+    {
+     "text": "Бабочка",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто это?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Francisco Welter-Schultes, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Coccinella-septempunctata-15-fws.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Божья коровка",
+     "is_correct": true
+    },
+    {
+     "text": "Клоп-солдатик",
+     "is_correct": false
+    },
+    {
+     "text": "Светлячок",
+     "is_correct": false
+    },
+    {
+     "text": "Колорадский жук",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Зачем пчёлы танцуют в улье?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Показывают другим путь к цветам",
+     "is_correct": true
+    },
+    {
+     "text": "Играют",
+     "is_correct": false
+    },
+    {
+     "text": "Отгоняют ос",
+     "is_correct": false
+    },
+    {
+     "text": "Греются",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто откладывает яйца в улье?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Andreas Trepte, CC BY-SA 2.5, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Apis_mellifera_Western_honey_bee.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Трутни",
+     "is_correct": false
+    },
+    {
+     "text": "Все пчёлы",
+     "is_correct": false
+    },
+    {
+     "text": "Матка",
+     "is_correct": true
+    },
+    {
+     "text": "Рабочие пчёлы",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто на фото — охотник с огромными глазами, умеющий летать назад?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Charles J. Sharp, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Red_grasshawk_%28Neurothemis_fluctuans%29_male_Phuket_2.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Стрекоза",
+     "is_correct": true
+    },
+    {
+     "text": "Комар",
+     "is_correct": false
+    },
+    {
+     "text": "Оса",
+     "is_correct": false
+    },
+    {
+     "text": "Муха",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Кто из них — насекомые?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Муравей",
+     "is_correct": true
+    },
+    {
+     "text": "Клещ",
+     "is_correct": false
+    },
+    {
+     "text": "Скорпион",
+     "is_correct": false
+    },
+    {
+     "text": "Кузнечик",
+     "is_correct": true
+    },
+    {
+     "text": "Таракан",
+     "is_correct": true
+    },
+    {
+     "text": "Комар",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто на фото — «молится», хотя на самом деле охотится?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Mihai C. Popa, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mantis_%28European%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кузнечик",
+     "is_correct": false
+    },
+    {
+     "text": "Палочник",
+     "is_correct": false
+    },
+    {
+     "text": "Богомол",
+     "is_correct": true
+    },
+    {
+     "text": "Саранча",
+     "is_correct": false
+    }
+   ],
+   "image": "q11.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто это — притворяется веточкой?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Fritz Geller-Grimm and Felix Grimm, CC BY-SA 2.5, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Le_Caylar_fg01.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Гусеница",
+     "is_correct": false
+    },
+    {
+     "text": "Палочник",
+     "is_correct": true
+    },
+    {
+     "text": "Стрекоза",
+     "is_correct": false
+    },
+    {
+     "text": "Богомол",
+     "is_correct": false
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Во сколько раз больше своего веса может поднять муравей?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В 1000 раз",
+     "is_correct": false
+    },
+    {
+     "text": "В 2 раза",
+     "is_correct": false
+    },
+    {
+     "text": "Не может",
+     "is_correct": false
+    },
+    {
+     "text": "В 10–50 раз",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Сколько глаз у большинства пауков?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 2,
+    "max": 12,
+    "step": 1,
+    "answer": 8,
+    "unit": "глаз",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какие комары кусают людей?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Только самцы",
+     "is_correct": false
+    },
+    {
+     "text": "Все",
+     "is_correct": false
+    },
+    {
+     "text": "Никакие",
+     "is_correct": false
+    },
+    {
+     "text": "Только самки",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто на фото — жук с огромными «рогами»-челюстями?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: J.F. Gaffard, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lucanus_cervus.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Майский жук",
+     "is_correct": false
+    },
+    {
+     "text": "Жук-олень",
+     "is_correct": true
+    },
+    {
+     "text": "Скарабей",
+     "is_correct": false
+    },
+    {
+     "text": "Жук-носорог",
+     "is_correct": false
+    }
+   ],
+   "image": "q16.jpg"
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: насекомое, которое светится ночью.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "СВЕТЛЯЧОК"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Шелкопряд даёт людям шёлк.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "*Фото: Oakenking at en.wikipedia, CC BY-SA 2.5, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Pairedmoths.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q18.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чем стрекочет кузнечик?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ртом",
+     "is_correct": false
+    },
+    {
+     "text": "Крыльями друг о друга во рту",
+     "is_correct": false
+    },
+    {
+     "text": "Трёт лапкой о крыло",
+     "is_correct": true
+    },
+    {
+     "text": "Хвостом",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто на фото — паук-птицеед?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Carlos Valenzuela Montuy, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Brachypelma_vagans_p1.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Каракурт",
+     "is_correct": false
+    },
+    {
+     "text": "Тарантул/птицеед",
+     "is_correct": true
+    },
+    {
+     "text": "Скорпион",
+     "is_correct": false
+    },
+    {
+     "text": "Паук-крестовик",
+     "is_correct": false
+    }
+   ],
+   "image": "q20.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой ядовитый паук встречается и в Кыргызстане — чёрный с красными пятнами?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Птицеед",
+     "is_correct": false
+    },
+    {
+     "text": "Каракурт",
+     "is_correct": true
+    },
+    {
+     "text": "Крестовик",
+     "is_correct": false
+    },
+    {
+     "text": "Тарантул",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Как называется домик ос и пчёл из сот? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "улей",
+     "гнездо",
+     "Улей",
+     "Гнездо"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Кто опыляет цветы?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пчёлы",
+     "is_correct": true
+    },
+    {
+     "text": "Мухи-журчалки",
+     "is_correct": true
+    },
+    {
+     "text": "Клещи",
+     "is_correct": false
+    },
+    {
+     "text": "Шмели",
+     "is_correct": true
+    },
+    {
+     "text": "Бабочки",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Куда летят бабочки монарх каждую осень?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В Мексику — за тысячи километров",
+     "is_correct": true
+    },
+    {
+     "text": "В Антарктиду",
+     "is_correct": false
+    },
+    {
+     "text": "В Африку",
+     "is_correct": false
+    },
+    {
+     "text": "Никуда",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Сколько примерно видов насекомых описано учёными?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Около 1 миллиона",
+     "is_correct": true
+    },
+    {
+     "text": "Около 1000",
+     "is_correct": false
+    },
+    {
+     "text": "Около 10 000",
+     "is_correct": false
+    },
+    {
+     "text": "Около 100",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

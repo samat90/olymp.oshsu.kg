@@ -1,0 +1,103 @@
+{
+ "cover.jpg": {
+  "author": "Boris Kustodiev",
+  "file": "1901. Portrait of Ivan Bilibin by B. Kustodiev.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:1901._Portrait_of_Ivan_Bilibin_by_B._Kustodiev.jpg",
+  "spec": "en:Ivan Bilibin",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/2/2a/1901._Portrait_of_Ivan_Bilibin_by_B._Kustodiev.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q01.jpg": {
+  "author": "Ivan Bilibin",
+  "file": "Bilibin. Baba Yaga.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Bilibin._Baba_Yaga.jpg",
+  "spec": "c:Bilibin. Baba Yaga.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Bilibin._Baba_Yaga.jpg/960px-Bilibin._Baba_Yaga.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q02.jpg": {
+  "author": "Gustave Dore",
+  "file": "Dore ridinghood.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Dore_ridinghood.jpg",
+  "spec": "c:Dore ridinghood.jpg",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Dore_ridinghood.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q04.jpg": {
+  "author": "",
+  "file": "Alice par John Tenniel 24.png",
+  "license": "Public domain",
+  "mime": "image/png",
+  "page": "https://commons.wikimedia.org/wiki/File:Alice_par_John_Tenniel_24.png",
+  "spec": "c:Alice par John Tenniel 24.png",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Alice_par_John_Tenniel_24.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q06.jpg": {
+  "author": "Carl Offterdinger",
+  "file": "Offterdinger Der gestiefelte Kater (1).jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Offterdinger_Der_gestiefelte_Kater_(1).jpg",
+  "spec": "en:Puss in Boots",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5e/Offterdinger_Der_gestiefelte_Kater_%281%29.jpg/960px-Offterdinger_Der_gestiefelte_Kater_%281%29.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q07.jpg": {
+  "author": "Enrico Mazzanti (1852-1910)",
+  "file": "Pinocchio.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Pinocchio.jpg",
+  "spec": "en:The Adventures of Pinocchio",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/6/65/Pinocchio.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q08.jpg": {
+  "author": "Elisabeth Baumann",
+  "file": "Grimm.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Grimm.jpg",
+  "spec": "en:Brothers Grimm",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Grimm.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q12.jpg": {
+  "author": "Thora Hallager",
+  "file": "HCA by Thora Hallager 1869 crop.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:HCA_by_Thora_Hallager_1869_crop.jpg",
+  "spec": "en:Hans Christian Andersen",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/HCA_by_Thora_Hallager_1869_crop.jpg/960px-HCA_by_Thora_Hallager_1869_crop.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q13.jpg": {
+  "author": "Pierre André Leclercq",
+  "file": "Moscou, galerie Tretiakov Ivan-Tsarevitch at the Grey Wolf (Vasnetsov).jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "note": "search",
+  "page": "https://commons.wikimedia.org/wiki/File:Moscou,_galerie_Tretiakov_Ivan-Tsarevitch_at_the_Grey_Wolf_(Vasnetsov).jpg",
+  "spec": "c:Ivan Tsarevich riding the Grey Wolf.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Moscou%2C_galerie_Tretiakov_Ivan-Tsarevitch_at_the_Grey_Wolf_%28Vasnetsov%29.jpg/960px-Moscou%2C_galerie_Tretiakov_Ivan-Tsarevitch_at_the_Grey_Wolf_%28Vasnetsov%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q18.jpg": {
+  "author": "René Bull",
+  "file": "Alad.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Alad.jpg",
+  "spec": "en:Aladdin",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/6/66/Alad.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q22.jpg": {
+  "author": "Viktor Vasnetsov",
+  "file": "Die drei Bogatyr.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "note": "search",
+  "page": "https://commons.wikimedia.org/wiki/File:Die_drei_Bogatyr.jpg",
+  "spec": "c:Vasnetsov Bogatyri.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Die_drei_Bogatyr.jpg/960px-Die_drei_Bogatyr.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ }
+}

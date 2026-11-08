@@ -1,0 +1,674 @@
+{
+ "key": "dinozavry",
+ "title": "Динозавры",
+ "subject": "Природа",
+ "theme": "steppe",
+ "description": "25 вопросов о динозаврах и древних животных: скелеты в музеях, хищники, гиганты и вымирание. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: скелет какого хищника на фото?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: ScottRobertAnselmo, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tyrannosaurus_Rex_Holotype.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тираннозавр",
+     "is_correct": true
+    },
+    {
+     "text": "Стегозавр",
+     "is_correct": false
+    },
+    {
+     "text": "Трицератопс",
+     "is_correct": false
+    },
+    {
+     "text": "Диплодок",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "А это кто — с тремя рогами и костяным воротником?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Source: Allie Caulfield Derivative: User:MathKnight, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:LA-Triceratops_mount-2.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Стегозавр",
+     "is_correct": false
+    },
+    {
+     "text": "Анкилозавр",
+     "is_correct": false
+    },
+    {
+     "text": "Паразауролоф",
+     "is_correct": false
+    },
+    {
+     "text": "Трицератопс",
+     "is_correct": true
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "У кого на спине пластины, а на хвосте шипы?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Susannah Maidment et al. & Natural History Museum, London, CC BY 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Journal.pone.0138352.g001A.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Стегозавр",
+     "is_correct": true
+    },
+    {
+     "text": "Спинозавр",
+     "is_correct": false
+    },
+    {
+     "text": "Велоцираптор",
+     "is_correct": false
+    },
+    {
+     "text": "Брахиозавр",
+     "is_correct": false
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "Сколько миллионов лет назад вымерли динозавры?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 1,
+    "max": 200,
+    "step": 1,
+    "answer": 66,
+    "unit": "млн лет",
+    "tolerance": 3
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что, по главной версии учёных, погубило динозавров?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Болезнь",
+     "is_correct": false
+    },
+    {
+     "text": "Ледниковый период",
+     "is_correct": false
+    },
+    {
+     "text": "Падение огромного астероида",
+     "is_correct": true
+    },
+    {
+     "text": "Люди",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Люди и динозавры жили в одно время.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Между ними более 60 миллионов лет.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что означает слово «динозавр» по-гречески?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ужасный ящер",
+     "is_correct": true
+    },
+    {
+     "text": "Древний зверь",
+     "is_correct": false
+    },
+    {
+     "text": "Каменная птица",
+     "is_correct": false
+    },
+    {
+     "text": "Большой хвост",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто это — летающий ящер, но НЕ динозавр?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: Matt Martyniuk, CC BY 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Pteranodon_amnh_martyniuk.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ихтиозавр",
+     "is_correct": false
+    },
+    {
+     "text": "Птеранодон",
+     "is_correct": true
+    },
+    {
+     "text": "Велоцираптор",
+     "is_correct": false
+    },
+    {
+     "text": "Археоптерикс",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой из этих гигантов питался растениями?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Matt Wedel, CC BY 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Brachiosaurus_mount.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Велоцираптор",
+     "is_correct": false
+    },
+    {
+     "text": "Брахиозавр",
+     "is_correct": true
+    },
+    {
+     "text": "Тираннозавр",
+     "is_correct": false
+    },
+    {
+     "text": "Аллозавр",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Кто из них — хищники?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Трицератопс",
+     "is_correct": false
+    },
+    {
+     "text": "Велоцираптор",
+     "is_correct": true
+    },
+    {
+     "text": "Тираннозавр",
+     "is_correct": true
+    },
+    {
+     "text": "Спинозавр",
+     "is_correct": true
+    },
+    {
+     "text": "Стегозавр",
+     "is_correct": false
+    },
+    {
+     "text": "Диплодок",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется учёный, который изучает окаменелости?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Геолог",
+     "is_correct": false
+    },
+    {
+     "text": "Археолог",
+     "is_correct": false
+    },
+    {
+     "text": "Зоолог",
+     "is_correct": false
+    },
+    {
+     "text": "Палеонтолог",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте периоды эры динозавров по порядку.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Триасовый",
+     "is_correct": false
+    },
+    {
+     "text": "Юрский",
+     "is_correct": false
+    },
+    {
+     "text": "Меловой",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Это древний «зверь-птица» с перьями и зубами. Как его зовут?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: H. Raab (User: Vesta), CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Archaeopteryx_lithographica_%28Berlin_specimen%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Птеродактиль",
+     "is_correct": false
+    },
+    {
+     "text": "Колибри",
+     "is_correct": false
+    },
+    {
+     "text": "Археоптерикс",
+     "is_correct": true
+    },
+    {
+     "text": "Дронт",
+     "is_correct": false
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "У тираннозавра были очень короткие передние лапы с двумя пальцами.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто это — гигантский шерстистый родственник слона, вымерший после ледникового периода?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Мамонт — не динозавр, а млекопитающее.\n\n*Фото: Lou.gruber, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Siegsdorfer_Mammut.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мастодонт",
+     "is_correct": false
+    },
+    {
+     "text": "Шерстистый носорог",
+     "is_correct": false
+    },
+    {
+     "text": "Индрикотерий",
+     "is_correct": false
+    },
+    {
+     "text": "Мамонт",
+     "is_correct": true
+    }
+   ],
+   "image": "q15.jpg"
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: окаменевшие остатки древнего животного — это…",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ОКАМЕНЕЛОСТЬ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В каком фильме оживили динозавров с помощью ДНК из комара в янтаре?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Парк юрского периода»",
+     "is_correct": true
+    },
+    {
+     "text": "«Ледниковый период»",
+     "is_correct": false
+    },
+    {
+     "text": "«Годзилла»",
+     "is_correct": false
+    },
+    {
+     "text": "«Кинг-Конг»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто плавал в морях во времена динозавров?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Kim Alaniz, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Paleo_Hall_at_HMNS_plesiosaur.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мамонт",
+     "is_correct": false
+    },
+    {
+     "text": "Плезиозавр",
+     "is_correct": true
+    },
+    {
+     "text": "Саблезубый тигр",
+     "is_correct": false
+    },
+    {
+     "text": "Додо",
+     "is_correct": false
+    }
+   ],
+   "image": "q18.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "Какой длины (в метрах) был тираннозавр?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 2,
+    "max": 30,
+    "step": 1,
+    "answer": 12,
+    "unit": "м",
+    "tolerance": 2
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Откладывали ли динозавры яйца?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Нет, рожали детёнышей",
+     "is_correct": false
+    },
+    {
+     "text": "Никто не знает",
+     "is_correct": false
+    },
+    {
+     "text": "Да, все известные динозавры откладывали яйца",
+     "is_correct": true
+    },
+    {
+     "text": "Только хищники",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Что помогает учёным узнать о динозаврах?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Окаменевшие кости",
+     "is_correct": true
+    },
+    {
+     "text": "Видеозаписи",
+     "is_correct": false
+    },
+    {
+     "text": "Следы",
+     "is_correct": true
+    },
+    {
+     "text": "Окаменевший помёт",
+     "is_correct": true
+    },
+    {
+     "text": "Яйца",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В Кыргызстане в урочище Мадыген нашли древнюю «летающую» ящерицу с перьеподобными придатками. Как её назвали?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Лонгисквама (Longisquama) жила около 230 млн лет назад.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тянь-Шаньзавр",
+     "is_correct": false
+    },
+    {
+     "text": "Лонгисквама",
+     "is_correct": true
+    },
+    {
+     "text": "Мадигенозавр",
+     "is_correct": false
+    },
+    {
+     "text": "Иссыккульзавр",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Как называется самый известный быстрый хищник из «Парка юрского периода», ростом с индюка в реальности? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "велоцираптор",
+     "Велоцираптор",
+     "раптор"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Птицы — единственные дожившие до нас динозавры.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Какой динозавр был длиннее всех из этих?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Стегозавр",
+     "is_correct": false
+    },
+    {
+     "text": "Трицератопс",
+     "is_correct": false
+    },
+    {
+     "text": "Аргентинозавр",
+     "is_correct": true
+    },
+    {
+     "text": "Тираннозавр",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

@@ -1,0 +1,702 @@
+{
+ "key": "sobaki",
+ "title": "Собаки и кошки",
+ "subject": "Природа",
+ "theme": "felt",
+ "description": "25 вопросов о породах собак и кошек: угадайте породу по фото, от тайгана до мейн-куна. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: какая порода собак на фото?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: xJaM, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Husky_L.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сибирский хаски",
+     "is_correct": true
+    },
+    {
+     "text": "Самоед",
+     "is_correct": false
+    },
+    {
+     "text": "Акита",
+     "is_correct": false
+    },
+    {
+     "text": "Немецкая овчарка",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая кыргызская борзая охотится с беркутом на волков и лис?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Jan Scotland (Jan Eduard), Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Taigan.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тайган",
+     "is_correct": true
+    },
+    {
+     "text": "Салюки",
+     "is_correct": false
+    },
+    {
+     "text": "Тазы",
+     "is_correct": false
+    },
+    {
+     "text": "Алабай",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая собака на фото — среднеазиатская овчарка?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Halalosirambankiskecskek, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:2.CAO_in_Hungary.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тибетский мастиф",
+     "is_correct": false
+    },
+    {
+     "text": "Кавказская овчарка",
+     "is_correct": false
+    },
+    {
+     "text": "Сенбернар",
+     "is_correct": false
+    },
+    {
+     "text": "Алабай",
+     "is_correct": true
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая порода на фото — самая маленькая собака?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Bonnie van den Born, http://www.bonfoto.nl. The original uploader was Cwazi at Dutch Wikipedia., CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Chihuahua1_bvdb.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Йоркширский терьер",
+     "is_correct": false
+    },
+    {
+     "text": "Той-терьер",
+     "is_correct": false
+    },
+    {
+     "text": "Мопс",
+     "is_correct": false
+    },
+    {
+     "text": "Чихуахуа",
+     "is_correct": true
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая собака на фото — спасатель в Альпах с бочонком?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Blanky, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hummel_Vedor_vd_Robandahoeve.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ньюфаундленд",
+     "is_correct": false
+    },
+    {
+     "text": "Мастиф",
+     "is_correct": false
+    },
+    {
+     "text": "Бернский зенненхунд",
+     "is_correct": false
+    },
+    {
+     "text": "Сенбернар",
+     "is_correct": true
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Это пятнистая собака из мультфильма «101…». Какая порода?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Bradlien, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sun_Dog_Dalmatian.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пойнтер",
+     "is_correct": false
+    },
+    {
+     "text": "Доберман",
+     "is_correct": false
+    },
+    {
+     "text": "Далматин",
+     "is_correct": true
+    },
+    {
+     "text": "Бигль",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Собаки различают цвета так же, как люди.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Собаки видят мир в основном в синих и жёлтых оттенках.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая порода на фото — немецкая служебная собака, работает в полиции?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: gomagoti, CC BY-SA 2.5, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:German_Shepherd_-_DSC_0346_%2810096362833%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Немецкая овчарка",
+     "is_correct": true
+    },
+    {
+     "text": "Доберман",
+     "is_correct": false
+    },
+    {
+     "text": "Ротвейлер",
+     "is_correct": false
+    },
+    {
+     "text": "Лабрадор",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая кошка на фото — без шерсти?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Dmitry Makeev, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sphynx_-_cat._img_031.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сиамская",
+     "is_correct": false
+    },
+    {
+     "text": "Ориентальная",
+     "is_correct": false
+    },
+    {
+     "text": "Сфинкс",
+     "is_correct": true
+    },
+    {
+     "text": "Корниш-рекс",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "single",
+   "text": "А эта огромная кошка с кисточками на ушах?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Own work, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:M%C3%A2le_Black_Silver_Blotched_Tabby.jpeg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сибирская",
+     "is_correct": false
+    },
+    {
+     "text": "Мейн-кун",
+     "is_correct": true
+    },
+    {
+     "text": "Рагдолл",
+     "is_correct": false
+    },
+    {
+     "text": "Норвежская лесная",
+     "is_correct": false
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая кошка на фото — с голубыми глазами и тёмной мордочкой?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Meekahoo, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Siamese_cat_Vaillante.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Персидская",
+     "is_correct": false
+    },
+    {
+     "text": "Сиамская",
+     "is_correct": true
+    },
+    {
+     "text": "Британская",
+     "is_correct": false
+    },
+    {
+     "text": "Бенгальская",
+     "is_correct": false
+    }
+   ],
+   "image": "q11.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Какие из этих пород — кошки?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Британская короткошёрстная",
+     "is_correct": true
+    },
+    {
+     "text": "Шотландская вислоухая",
+     "is_correct": true
+    },
+    {
+     "text": "Бенгальская",
+     "is_correct": true
+    },
+    {
+     "text": "Бигль",
+     "is_correct": false
+    },
+    {
+     "text": "Пудель",
+     "is_correct": false
+    },
+    {
+     "text": "Персидская",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько часов в сутки спит кошка в среднем?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Около 12–16",
+     "is_correct": true
+    },
+    {
+     "text": "Около 8",
+     "is_correct": false
+    },
+    {
+     "text": "Около 4",
+     "is_correct": false
+    },
+    {
+     "text": "Около 22",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Сколько лет в среднем живёт домашняя кошка?",
+   "time_limit": 25,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 5,
+    "max": 30,
+    "step": 1,
+    "answer": 15,
+    "unit": "лет",
+    "tolerance": 3
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В какой стране кошек считали священными и даже мумифицировали?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Gunawan Kartapranata, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bastet.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Греция",
+     "is_correct": false
+    },
+    {
+     "text": "Индия",
+     "is_correct": false
+    },
+    {
+     "text": "Китай",
+     "is_correct": false
+    },
+    {
+     "text": "Египет",
+     "is_correct": true
+    }
+   ],
+   "image": "q15.jpg"
+  },
+  {
+   "type": "order",
+   "text": "Расставьте собак по размеру, от маленькой к большой.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чихуахуа",
+     "is_correct": false
+    },
+    {
+     "text": "Бигль",
+     "is_correct": false
+    },
+    {
+     "text": "Лабрадор",
+     "is_correct": false
+    },
+    {
+     "text": "Алабай",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: детёныш кошки.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "КОТЁНОК"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Кошки мурлычут не только от удовольствия, но и когда им больно.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая порода на фото — с короткими лапами, любимица британской королевы?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Dog breed facts, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Welsh_Pembroke_Corgi.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Шпиц",
+     "is_correct": false
+    },
+    {
+     "text": "Вельш-корги",
+     "is_correct": true
+    },
+    {
+     "text": "Бассет",
+     "is_correct": false
+    },
+    {
+     "text": "Такса",
+     "is_correct": false
+    }
+   ],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какую собаку на фото придумали в Германии для охоты на барсуков в норах?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Katemil94, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:%EB%8B%A5%EC%8A%A4%ED%9B%88%ED%8A%B8%28%EB%8B%A8%EB%AA%A8%EC%A2%85%29_%28Dachshund_%28Short%29%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Терьер",
+     "is_correct": false
+    },
+    {
+     "text": "Бигль",
+     "is_correct": false
+    },
+    {
+     "text": "Такса",
+     "is_correct": true
+    },
+    {
+     "text": "Корги",
+     "is_correct": false
+    }
+   ],
+   "image": "q20.jpg"
+  },
+  {
+   "type": "text",
+   "text": "Как называется кошачья «песенка» от удовольствия? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "мурлыканье",
+     "мурчание",
+     "Мурлыканье",
+     "Мурчание",
+     "урчание"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как звали первую собаку на орбите Земли?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Стрелка",
+     "is_correct": false
+    },
+    {
+     "text": "Жучка",
+     "is_correct": false
+    },
+    {
+     "text": "Лайка",
+     "is_correct": true
+    },
+    {
+     "text": "Белка",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие породы собак — пастушьи или сторожевые?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Немецкая овчарка",
+     "is_correct": true
+    },
+    {
+     "text": "Колли",
+     "is_correct": true
+    },
+    {
+     "text": "Алабай",
+     "is_correct": true
+    },
+    {
+     "text": "Чихуахуа",
+     "is_correct": false
+    },
+    {
+     "text": "Мопс",
+     "is_correct": false
+    },
+    {
+     "text": "Кавказская овчарка",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая порода на фото — с морщинистой мордой, из Китая?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Yan Mis/&Den Rakov, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Adult_sharpei.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чау-чау",
+     "is_correct": false
+    },
+    {
+     "text": "Шарпей",
+     "is_correct": true
+    },
+    {
+     "text": "Бульдог",
+     "is_correct": false
+    },
+    {
+     "text": "Мопс",
+     "is_correct": false
+    }
+   ],
+   "image": "q24.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Как звали пса, который 9 лет ждал хозяина на вокзале в Японии?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hachiko.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Хатико",
+     "is_correct": true
+    },
+    {
+     "text": "Бетховен",
+     "is_correct": false
+    },
+    {
+     "text": "Лесси",
+     "is_correct": false
+    },
+    {
+     "text": "Белый Бим",
+     "is_correct": false
+    }
+   ],
+   "image": "q25.jpg"
+  }
+ ]
+}

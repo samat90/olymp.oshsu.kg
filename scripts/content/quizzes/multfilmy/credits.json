@@ -1,0 +1,47 @@
+{
+ "cover.jpg": {
+  "author": "Walt Disney / Ub Iwerks",
+  "file": "Mickey Mouse - Steamboat Willie (1928).jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Mickey_Mouse_-_Steamboat_Willie_(1928).jpg",
+  "spec": "c:Mickey Mouse - Steamboat Willie (1928).jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Mickey_Mouse_-_Steamboat_Willie_%281928%29.jpg/960px-Mickey_Mouse_-_Steamboat_Willie_%281928%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q01.jpg": {
+  "author": "Walt Disney / Ub Iwerks",
+  "file": "Mickey Mouse - Steamboat Willie (1928).jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Mickey_Mouse_-_Steamboat_Willie_(1928).jpg",
+  "spec": "c:Mickey Mouse - Steamboat Willie (1928).jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Mickey_Mouse_-_Steamboat_Willie_%281928%29.jpg/960px-Mickey_Mouse_-_Steamboat_Willie_%281928%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q02.jpg": {
+  "author": "Boy Scouts of America",
+  "file": "Walt Disney 1946 (cropped2).JPG",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Walt_Disney_1946_(cropped2).JPG",
+  "spec": "en:Walt Disney",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/5/50/Walt_Disney_1946_%28cropped2%29.JPG?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q06.jpg": {
+  "author": "Natasha Baucas at https://www.flickr.com/photos/sdnatasha/",
+  "file": "HayaoMiyazakiCCJuly09.jpg",
+  "license": "CC BY 2.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:HayaoMiyazakiCCJuly09.jpg",
+  "spec": "en:Hayao Miyazaki",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/f/ff/HayaoMiyazakiCCJuly09.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q17.jpg": {
+  "author": "Original: en:Otto Messmer Vector: Own work",
+  "file": "Felix for Judy - Svg.svg",
+  "license": "Public domain",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Felix_for_Judy_-_Svg.svg",
+  "spec": "en:Felix the Cat",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Felix_for_Judy_-_Svg.svg/960px-Felix_for_Judy_-_Svg.svg.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ }
+}

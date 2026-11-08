@@ -1,0 +1,701 @@
+{
+ "key": "tehnologii",
+ "title": "Гаджеты и интернет",
+ "subject": "Технологии",
+ "theme": "night",
+ "description": "25 вопросов о компьютерах, смартфонах, интернете и компаниях, которые всё это придумали. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: что на фото 1946 года?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: The original uploader was TexasDex at English Wikipedia., CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:ENIAC_Penn1.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Радиостанция",
+     "is_correct": false
+    },
+    {
+     "text": "Телефонная станция",
+     "is_correct": false
+    },
+    {
+     "text": "Ткацкий станок",
+     "is_correct": false
+    },
+    {
+     "text": "ЭНИАК — один из первых компьютеров",
+     "is_correct": true
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто основал Apple вместе со Стивом Возняком?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Matthew Yohe, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Steve_Jobs_Headshot_2010_%28cropped_6%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Илон Маск",
+     "is_correct": false
+    },
+    {
+     "text": "Билл Гейтс",
+     "is_correct": false
+    },
+    {
+     "text": "Стив Джобс",
+     "is_correct": true
+    },
+    {
+     "text": "Джефф Безос",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто основал Microsoft?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Bogdan Hoyaux / European Union, CC BY 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bill_Gates_at_the_European_Commission_-_P067383-987995_%28cropped%29_5.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Стив Джобс",
+     "is_correct": false
+    },
+    {
+     "text": "Билл Гейтс и Пол Аллен",
+     "is_correct": true
+    },
+    {
+     "text": "Ларри Пейдж и Сергей Брин",
+     "is_correct": false
+    },
+    {
+     "text": "Марк Цукерберг",
+     "is_correct": false
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как назывался поисковик, придуманный Ларри Пейджем и Сергеем Брином?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Google",
+     "is_correct": true
+    },
+    {
+     "text": "Bing",
+     "is_correct": false
+    },
+    {
+     "text": "Yahoo",
+     "is_correct": false
+    },
+    {
+     "text": "Яндекс",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Слово «Google» придумали от «гугол» — числа с сотней нулей.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что такое «Wi-Fi»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Вирус",
+     "is_correct": false
+    },
+    {
+     "text": "Тип кабеля",
+     "is_correct": false
+    },
+    {
+     "text": "Беспроводная связь с сетью по радиоволнам",
+     "is_correct": true
+    },
+    {
+     "text": "Название компьютера",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что на фото — первая компьютерная мышь (1960-е)?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: SRI International, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:SRI_Computer_Mouse.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мышь Дугласа Энгельбарта из дерева",
+     "is_correct": true
+    },
+    {
+     "text": "Пульт телевизора",
+     "is_correct": false
+    },
+    {
+     "text": "Калькулятор",
+     "is_correct": false
+    },
+    {
+     "text": "Детская игрушка",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто основал Facebook?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: The White House, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:P20260929DT-1655_%2855561811540%29_%28cropped_2%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Джек Дорси",
+     "is_correct": false
+    },
+    {
+     "text": "Марк Цукерберг",
+     "is_correct": true
+    },
+    {
+     "text": "Павел Дуров",
+     "is_correct": false
+    },
+    {
+     "text": "Илон Маск",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто создал Telegram?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сергей Брин",
+     "is_correct": false
+    },
+    {
+     "text": "Павел и Николай Дуровы",
+     "is_correct": true
+    },
+    {
+     "text": "Ян Кум",
+     "is_correct": false
+    },
+    {
+     "text": "Марк Цукерберг",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Что из этого — операционные системы?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Excel",
+     "is_correct": false
+    },
+    {
+     "text": "Windows",
+     "is_correct": true
+    },
+    {
+     "text": "iOS",
+     "is_correct": true
+    },
+    {
+     "text": "Chrome",
+     "is_correct": false
+    },
+    {
+     "text": "Linux",
+     "is_correct": true
+    },
+    {
+     "text": "Android",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Сколько бит в одном байте?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 1,
+    "max": 16,
+    "step": 1,
+    "answer": 8,
+    "unit": "бит",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что на фото — дискета. Сколько информации влезало на 3,5-дюймовую?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: George Chernilevsky, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Floppy_disk_2009_G1.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "100 МБ",
+     "is_correct": false
+    },
+    {
+     "text": "Около 1,44 МБ",
+     "is_correct": true
+    },
+    {
+     "text": "16 КБ",
+     "is_correct": false
+    },
+    {
+     "text": "1 ГБ",
+     "is_correct": false
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется кнопочный телефон Nokia, который «невозможно разбить»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Michael Brandtner, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Nokia_3310_blue.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Nokia 3310",
+     "is_correct": true
+    },
+    {
+     "text": "Nokia N95",
+     "is_correct": false
+    },
+    {
+     "text": "Nokia 6600",
+     "is_correct": false
+    },
+    {
+     "text": "Nokia Lumia",
+     "is_correct": false
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "order",
+   "text": "Расставьте носители информации по времени появления.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Перфокарта",
+     "is_correct": false
+    },
+    {
+     "text": "Дискета",
+     "is_correct": false
+    },
+    {
+     "text": "CD-диск",
+     "is_correct": false
+    },
+    {
+     "text": "Флешка",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется программа для просмотра сайтов?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Браузер",
+     "is_correct": true
+    },
+    {
+     "text": "Компилятор",
+     "is_correct": false
+    },
+    {
+     "text": "Драйвер",
+     "is_correct": false
+    },
+    {
+     "text": "Антивирус",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: устройство вывода, которое печатает на бумаге.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ПРИНТЕР"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется «мозг» компьютера?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Pstrahl, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Intel_i9-14900KF_CPU.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Жёсткий диск",
+     "is_correct": false
+    },
+    {
+     "text": "Клавиатура",
+     "is_correct": false
+    },
+    {
+     "text": "Монитор",
+     "is_correct": false
+    },
+    {
+     "text": "Процессор",
+     "is_correct": true
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Первое SMS-сообщение было «Merry Christmas» (1992).",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что такое QR-код?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Brdall, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:QR_code_for_mobile_English_Wikipedia.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Квадратный штрихкод, который читает камера",
+     "is_correct": true
+    },
+    {
+     "text": "Вид вируса",
+     "is_correct": false
+    },
+    {
+     "text": "Номер телефона",
+     "is_correct": false
+    },
+    {
+     "text": "Пароль от Wi-Fi",
+     "is_correct": false
+    }
+   ],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какое сокращение означает искусственный интеллект по-английски?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "PC",
+     "is_correct": false
+    },
+    {
+     "text": "IT",
+     "is_correct": false
+    },
+    {
+     "text": "AI",
+     "is_correct": true
+    },
+    {
+     "text": "OS",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Как называется видеохостинг, который купил Google в 2006 году? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "YouTube",
+     "Youtube",
+     "ютуб",
+     "Ютуб"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Что из этого — устройства ввода?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Монитор",
+     "is_correct": false
+    },
+    {
+     "text": "Колонки",
+     "is_correct": false
+    },
+    {
+     "text": "Клавиатура",
+     "is_correct": true
+    },
+    {
+     "text": "Сканер",
+     "is_correct": true
+    },
+    {
+     "text": "Мышь",
+     "is_correct": true
+    },
+    {
+     "text": "Микрофон",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется операционная система Google для смартфонов с зелёным роботом?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "BlackBerry",
+     "is_correct": false
+    },
+    {
+     "text": "Symbian",
+     "is_correct": false
+    },
+    {
+     "text": "Windows Phone",
+     "is_correct": false
+    },
+    {
+     "text": "Android",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что значит «@» в адресе электронной почты?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«адрес»",
+     "is_correct": false
+    },
+    {
+     "text": "«собака» — так зовут программу",
+     "is_correct": false
+    },
+    {
+     "text": "«at» — «у», «на»",
+     "is_correct": true
+    },
+    {
+     "text": "«аккаунт»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Какой домен у сайтов Кыргызстана?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": ".ky — Каймановы острова, .kr — Корея.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": ".kz",
+     "is_correct": false
+    },
+    {
+     "text": ".kr",
+     "is_correct": false
+    },
+    {
+     "text": ".ky",
+     "is_correct": false
+    },
+    {
+     "text": ".kg",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  }
+ ]
+}

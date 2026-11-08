@@ -1,0 +1,689 @@
+{
+ "key": "vidy-sporta",
+ "title": "Виды спорта",
+ "subject": "Спорт",
+ "theme": "lake",
+ "description": "25 вопросов о разных видах спорта: баскетбол, теннис, бокс, хоккей и многое другое. Узнайте звёзд по фото. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: какой мяч самый большой из этих?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Баскетбольный",
+     "is_correct": true
+    },
+    {
+     "text": "Бейсбольный",
+     "is_correct": false
+    },
+    {
+     "text": "Теннисный",
+     "is_correct": false
+    },
+    {
+     "text": "Гольф",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто на фото — легенда баскетбола, 6 раз выигравший НБА с «Чикаго Буллз»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Zach Catanzareti Photo, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Michael_jordan_admad_rashad_%2851276390562%29_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Шакил О’Нил",
+     "is_correct": false
+    },
+    {
+     "text": "Коби Брайант",
+     "is_correct": false
+    },
+    {
+     "text": "Майкл Джордан",
+     "is_correct": true
+    },
+    {
+     "text": "Леброн Джеймс",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Этот теннисист выиграл больше всех турниров Большого шлема у мужчин (24). Кто он?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Andymiah, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Novak_Djokovic_Paris_2024_Olympic_Games_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Рафаэль Надаль",
+     "is_correct": false
+    },
+    {
+     "text": "Новак Джокович",
+     "is_correct": true
+    },
+    {
+     "text": "Роджер Федерер",
+     "is_correct": false
+    },
+    {
+     "text": "Энди Маррей",
+     "is_correct": false
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Где проходит теннисный турнир на траве с клубникой и сливками?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Уимблдон",
+     "is_correct": true
+    },
+    {
+     "text": "Ролан Гаррос",
+     "is_correct": false
+    },
+    {
+     "text": "Открытый чемпионат США",
+     "is_correct": false
+    },
+    {
+     "text": "Австралия",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Сколько игроков одной команды на площадке в баскетболе?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 3,
+    "max": 11,
+    "step": 1,
+    "answer": 5,
+    "unit": "",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто придумал баскетбол (1891), прибив корзины для персиков?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Dr._James_Naismith.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пьер де Кубертен",
+     "is_correct": false
+    },
+    {
+     "text": "Уильям Морган",
+     "is_correct": false
+    },
+    {
+     "text": "Майкл Джордан",
+     "is_correct": false
+    },
+    {
+     "text": "Джеймс Нейсмит",
+     "is_correct": true
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Волейбол придумали позже баскетбола.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Волейбол — 1895, баскетбол — 1891.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто на фото — боксёр, «порхаю как бабочка, жалю как пчела»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Ira Rosenberg, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Muhammad_Ali_NYWTS.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Майк Тайсон",
+     "is_correct": false
+    },
+    {
+     "text": "Мухаммед Али",
+     "is_correct": true
+    },
+    {
+     "text": "Джо Фрейзер",
+     "is_correct": false
+    },
+    {
+     "text": "Флойд Мейвезер",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой вид спорта на льду играют с шайбой?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бенди",
+     "is_correct": false
+    },
+    {
+     "text": "Шорт-трек",
+     "is_correct": false
+    },
+    {
+     "text": "Хоккей",
+     "is_correct": true
+    },
+    {
+     "text": "Кёрлинг",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "В каких видах спорта есть ракетка?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Теннис",
+     "is_correct": true
+    },
+    {
+     "text": "Крикет",
+     "is_correct": false
+    },
+    {
+     "text": "Бадминтон",
+     "is_correct": true
+    },
+    {
+     "text": "Гольф",
+     "is_correct": false
+    },
+    {
+     "text": "Настольный теннис",
+     "is_correct": true
+    },
+    {
+     "text": "Сквош",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько очков даёт бросок из-за дуги в баскетболе?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "4",
+     "is_correct": false
+    },
+    {
+     "text": "1",
+     "is_correct": false
+    },
+    {
+     "text": "3",
+     "is_correct": true
+    },
+    {
+     "text": "2",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется японская борьба тяжеловесов?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Eckhard Pecher User:Arcimboldo, CC BY 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Asashoryu_fight_Jan08.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Карате",
+     "is_correct": false
+    },
+    {
+     "text": "Сумо",
+     "is_correct": true
+    },
+    {
+     "text": "Кендо",
+     "is_correct": false
+    },
+    {
+     "text": "Дзюдо",
+     "is_correct": false
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто придумал дзюдо?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Portrait_of_late_Mr._Kano.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Дзигоро Кано",
+     "is_correct": true
+    },
+    {
+     "text": "Брюс Ли",
+     "is_correct": false
+    },
+    {
+     "text": "Морихэй Уэсиба",
+     "is_correct": false
+    },
+    {
+     "text": "Масутацу Ояма",
+     "is_correct": false
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что это за вид спорта, где камни скользят по льду, а игроки трут лёд щётками?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Glenlarson, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Curling,_overall_view_of_the_Tim_Hortons_Brier_venue_-_Edmonton,_Canada.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Хоккей",
+     "is_correct": false
+    },
+    {
+     "text": "Биатлон",
+     "is_correct": false
+    },
+    {
+     "text": "Кёрлинг",
+     "is_correct": true
+    },
+    {
+     "text": "Бобслей",
+     "is_correct": false
+    }
+   ],
+   "image": "q14.jpg"
+  },
+  {
+   "type": "order",
+   "text": "Расставьте мячи по размеру, от маленького к большому.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Для настольного тенниса",
+     "is_correct": false
+    },
+    {
+     "text": "Теннисный",
+     "is_correct": false
+    },
+    {
+     "text": "Волейбольный",
+     "is_correct": false
+    },
+    {
+     "text": "Баскетбольный",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: вид спорта — бег на лыжах со стрельбой.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "БИАТЛОН"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется чемпионат Северной Америки по баскетболу?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "НХЛ",
+     "is_correct": false
+    },
+    {
+     "text": "НБА",
+     "is_correct": true
+    },
+    {
+     "text": "НФЛ",
+     "is_correct": false
+    },
+    {
+     "text": "МЛБ",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "В регби мяч можно передавать руками только назад.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько периодов в хоккейном матче?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "3",
+     "is_correct": true
+    },
+    {
+     "text": "5",
+     "is_correct": false
+    },
+    {
+     "text": "4",
+     "is_correct": false
+    },
+    {
+     "text": "2",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется вид спорта, где перепрыгивают планку с шестом?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Pole_Vault_Sequence_3.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тройной прыжок",
+     "is_correct": false
+    },
+    {
+     "text": "Барьерный бег",
+     "is_correct": false
+    },
+    {
+     "text": "Высотный прыжок",
+     "is_correct": false
+    },
+    {
+     "text": "Прыжок с шестом",
+     "is_correct": true
+    }
+   ],
+   "image": "q20.jpg"
+  },
+  {
+   "type": "text",
+   "text": "Как называется бой на мечах-рапирах? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "фехтование",
+     "Фехтование"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Сколько метров длина олимпийского бассейна?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 10,
+    "max": 100,
+    "step": 5,
+    "answer": 50,
+    "unit": "м",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие виды спорта — зимние?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Скелетон",
+     "is_correct": true
+    },
+    {
+     "text": "Гребля",
+     "is_correct": false
+    },
+    {
+     "text": "Сноуборд",
+     "is_correct": true
+    },
+    {
+     "text": "Регби",
+     "is_correct": false
+    },
+    {
+     "text": "Санный спорт",
+     "is_correct": true
+    },
+    {
+     "text": "Фигурное катание",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой вид спорта называют «королевой спорта»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Гимнастика",
+     "is_correct": false
+    },
+    {
+     "text": "Плавание",
+     "is_correct": false
+    },
+    {
+     "text": "Футбол",
+     "is_correct": false
+    },
+    {
+     "text": "Лёгкая атлетика",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Сколько весит стандартный мяч для боулинга максимум?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "3 кг",
+     "is_correct": false
+    },
+    {
+     "text": "15 кг",
+     "is_correct": false
+    },
+    {
+     "text": "1 кг",
+     "is_correct": false
+    },
+    {
+     "text": "Около 7 кг (16 фунтов)",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  }
+ ]
+}

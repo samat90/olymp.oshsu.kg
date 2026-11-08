@@ -1,0 +1,699 @@
+{
+ "key": "shelk-put",
+ "title": "Великий шёлковый путь",
+ "subject": "История",
+ "theme": "felt",
+ "description": "25 вопросов о караванных дорогах между Китаем и Европой: города, товары, путешественники и Кыргызстан на Шёлковом пути. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: какой главный товар дал имя Великому шёлковому пути?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Шёлк",
+     "is_correct": true
+    },
+    {
+     "text": "Чай",
+     "is_correct": false
+    },
+    {
+     "text": "Золото",
+     "is_correct": false
+    },
+    {
+     "text": "Соль",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая страна научилась первой делать шёлк?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Китай",
+     "is_correct": true
+    },
+    {
+     "text": "Персия",
+     "is_correct": false
+    },
+    {
+     "text": "Византия",
+     "is_correct": false
+    },
+    {
+     "text": "Индия",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Из чего получают шёлковую нить?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Oakenking at en.wikipedia, CC BY-SA 2.5, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Pairedmoths.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Из шерсти верблюда",
+     "is_correct": false
+    },
+    {
+     "text": "Из кокона шелкопряда",
+     "is_correct": true
+    },
+    {
+     "text": "Из хлопка",
+     "is_correct": false
+    },
+    {
+     "text": "Из льна",
+     "is_correct": false
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой венецианский путешественник, по его книге, дошёл до Китая хана Хубилая?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Frontispice_%C3%A9dition_de_Nuremberg_1477_%28cropped%29.png)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ибн Баттута",
+     "is_correct": false
+    },
+    {
+     "text": "Марко Поло",
+     "is_correct": true
+    },
+    {
+     "text": "Афанасий Никитин",
+     "is_correct": false
+    },
+    {
+     "text": "Христофор Колумб",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой древний город — столица Караханидов — был на месте башни Бурана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Bernard Gagnon, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Burana_Tower,_Kyrgyzstan.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Узген",
+     "is_correct": false
+    },
+    {
+     "text": "Суяб",
+     "is_correct": false
+    },
+    {
+     "text": "Баласагун",
+     "is_correct": true
+    },
+    {
+     "text": "Кашгар",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Город Суяб у Токмока был крупным центром на Шёлковом пути.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Городища Суяб, Баласагун и Невакет внесены в ЮНЕСКО в 2014 году.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как назывались придорожные гостиницы для караванов?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ямы",
+     "is_correct": false
+    },
+    {
+     "text": "Мотели",
+     "is_correct": false
+    },
+    {
+     "text": "Караван-сараи",
+     "is_correct": true
+    },
+    {
+     "text": "Юрты",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой караван-сарай Кыргызстана — каменный, на высоте около 3200 м?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Firespeaker, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tash_Rabat_in_mountains.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Таш-Рабат",
+     "is_correct": true
+    },
+    {
+     "text": "Бурана",
+     "is_correct": false
+    },
+    {
+     "text": "Шахристан",
+     "is_correct": false
+    },
+    {
+     "text": "Кошой-Коргон",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какое животное было главным «транспортом» каравана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Christian Ursilva from Copenhagen, Denmark, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Camelus_bactrianus_%2855026866188%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лошадь",
+     "is_correct": false
+    },
+    {
+     "text": "Двугорбый верблюд",
+     "is_correct": true
+    },
+    {
+     "text": "Як",
+     "is_correct": false
+    },
+    {
+     "text": "Слон",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Что везли из Китая на Запад?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чай",
+     "is_correct": true
+    },
+    {
+     "text": "Шёлк",
+     "is_correct": true
+    },
+    {
+     "text": "Фарфор",
+     "is_correct": true
+    },
+    {
+     "text": "Помидоры",
+     "is_correct": false
+    },
+    {
+     "text": "Бумагу",
+     "is_correct": true
+    },
+    {
+     "text": "Картофель",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой город с минаретом Калян был важным центром на пути?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Petar Milošević, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kalyan_Minaret,_Bukhara_%28%D0%9C%D0%B8%D0%BD%D0%B0%D1%80%D0%B5%D1%82_%D0%9A%D0%B0%D0%BB%D1%8F%D0%BD_%D0%B2_%D0%91%D1%83%D1%85%D0%B0%D1%80%D0%B5,_Minorai_Kalon%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бухара",
+     "is_correct": true
+    },
+    {
+     "text": "Москва",
+     "is_correct": false
+    },
+    {
+     "text": "Багдад",
+     "is_correct": false
+    },
+    {
+     "text": "Рим",
+     "is_correct": false
+    }
+   ],
+   "image": "q11.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется самая древняя часть Шёлкового пути через Кыргызстан, внесённая в ЮНЕСКО в 2014 году?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Памирский тракт",
+     "is_correct": false
+    },
+    {
+     "text": "Коридор Чанъань — Тянь-Шань",
+     "is_correct": true
+    },
+    {
+     "text": "Путь из варяг в греки",
+     "is_correct": false
+    },
+    {
+     "text": "Ферганский путь",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Узгенский архитектурный комплекс — это…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Nikolaus, CC BY 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Uzgen_Mausoleum.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Крепость Чингисхана",
+     "is_correct": false
+    },
+    {
+     "text": "Буддийский храм",
+     "is_correct": false
+    },
+    {
+     "text": "Минарет и мавзолеи Караханидов",
+     "is_correct": true
+    },
+    {
+     "text": "Казачья станица",
+     "is_correct": false
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "order",
+   "text": "Расставьте города с востока на запад по пути каравана.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чанъань (Сиань)",
+     "is_correct": false
+    },
+    {
+     "text": "Кашгар",
+     "is_correct": false
+    },
+    {
+     "text": "Самарканд",
+     "is_correct": false
+    },
+    {
+     "text": "Багдад",
+     "is_correct": false
+    },
+    {
+     "text": "Константинополь",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: группа путников с вьючными животными.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "КАРАВАН"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая религия пришла в Китай по Шёлковому пути из Индии?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Христианство",
+     "is_correct": false
+    },
+    {
+     "text": "Зороастризм",
+     "is_correct": false
+    },
+    {
+     "text": "Ислам",
+     "is_correct": false
+    },
+    {
+     "text": "Буддизм",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Передышка без очков: что из этого НЕ возили по Шёлковому пути — его тогда не знали в Азии и Европе?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "Картофель привезли из Америки только в XVI веке.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пряности",
+     "is_correct": false
+    },
+    {
+     "text": "Фарфор",
+     "is_correct": false
+    },
+    {
+     "text": "Картофель",
+     "is_correct": true
+    },
+    {
+     "text": "Шёлк",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Сколько примерно тысяч километров длина Шёлкового пути?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 1,
+    "max": 20,
+    "step": 1,
+    "answer": 7,
+    "unit": "тыс. км",
+    "tolerance": 2
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Китайцы под страхом смерти хранили секрет производства шёлка.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как назывался китайский посол, который во II веке до н. э. открыл путь на Запад?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сюаньцзан",
+     "is_correct": false
+    },
+    {
+     "text": "Чингисхан",
+     "is_correct": false
+    },
+    {
+     "text": "Конфуций",
+     "is_correct": false
+    },
+    {
+     "text": "Чжан Цянь",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто из великих учёных родился в Хорезме и описал Индию?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Аль-Бируни",
+     "is_correct": true
+    },
+    {
+     "text": "Марко Поло",
+     "is_correct": false
+    },
+    {
+     "text": "Тамерлан",
+     "is_correct": false
+    },
+    {
+     "text": "Ибн Сина",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Как называется город на юге Кыргызстана, рядом с ним — Сулайман-Тоо? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "Ош",
+     "ош"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие товары везли с Запада и из Средней Азии в Китай?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Серебро",
+     "is_correct": true
+    },
+    {
+     "text": "Шёлк",
+     "is_correct": false
+    },
+    {
+     "text": "Порох",
+     "is_correct": false
+    },
+    {
+     "text": "Стекло",
+     "is_correct": true
+    },
+    {
+     "text": "Лошадей (ферганских «небесных коней»)",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какую болезнь, по мнению историков, Шёлковый путь занёс в Европу в XIV веке?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Грипп",
+     "is_correct": false
+    },
+    {
+     "text": "Оспу",
+     "is_correct": false
+    },
+    {
+     "text": "Корь",
+     "is_correct": false
+    },
+    {
+     "text": "Чуму («Чёрную смерть»)",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Как назывались знаменитые «небесные кони», за которыми Китай ходил войной в Фергану?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пони",
+     "is_correct": false
+    },
+    {
+     "text": "Арабские скакуны",
+     "is_correct": false
+    },
+    {
+     "text": "Мустанги",
+     "is_correct": false
+    },
+    {
+     "text": "Аргамаки (ферганские кони)",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  }
+ ]
+}

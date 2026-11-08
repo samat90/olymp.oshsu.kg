@@ -1,0 +1,92 @@
+{
+ "cover.jpg": {
+  "author": "Leonardo da Vinci",
+  "file": "Da Vinci Vitruve Luc Viatour.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Da_Vinci_Vitruve_Luc_Viatour.jpg",
+  "spec": "en:Vitruvian Man",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Da_Vinci_Vitruve_Luc_Viatour.jpg/960px-Da_Vinci_Vitruve_Luc_Viatour.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q01.jpg": {
+  "author": "Leonardo da Vinci",
+  "file": "Da Vinci Vitruve Luc Viatour.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Da_Vinci_Vitruve_Luc_Viatour.jpg",
+  "spec": "en:Vitruvian Man",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Da_Vinci_Vitruve_Luc_Viatour.jpg/960px-Da_Vinci_Vitruve_Luc_Viatour.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q03.jpg": {
+  "author": "Jerm",
+  "file": "Heart anterior exterior view.png",
+  "license": "CC BY 2.5",
+  "mime": "image/png",
+  "page": "https://commons.wikimedia.org/wiki/File:Heart_anterior_exterior_view.png",
+  "spec": "en:Heart",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Heart_anterior_exterior_view.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q07.jpg": {
+  "author": "dozenist",
+  "file": "06-10-06smile.jpg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:06-10-06smile.jpg",
+  "spec": "en:Human tooth",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/06-10-06smile.jpg/960px-06-10-06smile.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q08.jpg": {
+  "author": "Sklmsta",
+  "file": "Human-Skeleton.jpg",
+  "license": "CC0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Human-Skeleton.jpg",
+  "spec": "en:Human skeleton",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/1/14/Human-Skeleton.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q10.jpg": {
+  "author": "I enjoy sandwiches",
+  "file": "Temporal bone - The Hungry Artist Multimedia.jpg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Temporal_bone_-_The_Hungry_Artist_Multimedia.jpg",
+  "spec": "en:Ossicles",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Temporal_bone_-_The_Hungry_Artist_Multimedia.jpg/960px-Temporal_bone_-_The_Hungry_Artist_Multimedia.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q13.jpg": {
+  "author": "Scootdive (talk · contribs)",
+  "file": "Red blood cells (2).jpg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Red_blood_cells_(2).jpg",
+  "spec": "c:Red blood cells (2).jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Red_blood_cells_%282%29.jpg/960px-Red_blood_cells_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q17.jpg": {
+  "author": "Cyrillic at English Wikipedia",
+  "file": "Fingerprintforcriminologystubs.jpg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Fingerprintforcriminologystubs.jpg",
+  "spec": "en:Fingerprint",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/1/10/Fingerprintforcriminologystubs.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q23.jpg": {
+  "author": "Bachrach Studios",
+  "file": "Karl Landsteiner nobel.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Karl_Landsteiner_nobel.jpg",
+  "spec": "en:Karl Landsteiner",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Karl_Landsteiner_nobel.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q24.jpg": {
+  "author": "Zephyris",
+  "file": "DNA Structure+Key+Labelled.pn NoBB.png",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/png",
+  "page": "https://commons.wikimedia.org/wiki/File:DNA_Structure%2BKey%2BLabelled.pn_NoBB.png",
+  "spec": "en:DNA",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/DNA_Structure%2BKey%2BLabelled.pn_NoBB.png/960px-DNA_Structure%2BKey%2BLabelled.pn_NoBB.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ }
+}

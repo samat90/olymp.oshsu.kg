@@ -1,0 +1,681 @@
+{
+ "key": "chm-futbol",
+ "title": "Чемпионаты мира по футболу",
+ "subject": "Футбол",
+ "theme": "lake",
+ "description": "25 вопросов о мундиалях: хозяева, победители, легендарные голы и игроки. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: что изображено на фото?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Djuradj Vujcic, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:FIFA_World_Cup_Trophy_photo_by_Djuradj_Vujcic.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Олимпийский факел",
+     "is_correct": false
+    },
+    {
+     "text": "Кубок мира ФИФА",
+     "is_correct": true
+    },
+    {
+     "text": "Кубок Лиги чемпионов",
+     "is_correct": false
+    },
+    {
+     "text": "Кубок Стэнли",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "В каком году прошёл первый чемпионат мира?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 1900,
+    "max": 1960,
+    "step": 2,
+    "answer": 1930,
+    "unit": "",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Где прошёл самый первый чемпионат мира?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Уругвай",
+     "is_correct": true
+    },
+    {
+     "text": "Италия",
+     "is_correct": false
+    },
+    {
+     "text": "Англия",
+     "is_correct": false
+    },
+    {
+     "text": "Бразилия",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто выиграл чемпионат мира 2022 года в Катаре?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бразилия",
+     "is_correct": false
+    },
+    {
+     "text": "Аргентина",
+     "is_correct": true
+    },
+    {
+     "text": "Хорватия",
+     "is_correct": false
+    },
+    {
+     "text": "Франция",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется этот стадион в Катаре, где играли финал-2022?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Palácio do Planalto from Brasilia, Brasil, CC-BY-2.0, [Wikipedia](https://en.wikipedia.org/wiki/File:17_11_2021_-_Visita_ao_Est%C3%A1dio_Lusail_%2851688270420%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ацтека",
+     "is_correct": false
+    },
+    {
+     "text": "Лужники",
+     "is_correct": false
+    },
+    {
+     "text": "Маракана",
+     "is_correct": false
+    },
+    {
+     "text": "Лусаил",
+     "is_correct": true
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая страна принимала чемпионат мира 2018 года?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бразилия",
+     "is_correct": false
+    },
+    {
+     "text": "ЮАР",
+     "is_correct": false
+    },
+    {
+     "text": "Германия",
+     "is_correct": false
+    },
+    {
+     "text": "Россия",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Это стадион «Маракана». В каком городе он находится?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Arne Müseler, CC BY-SA 3.0 de, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Maracana_2022.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Рио-де-Жанейро",
+     "is_correct": true
+    },
+    {
+     "text": "Монтевидео",
+     "is_correct": false
+    },
+    {
+     "text": "Сан-Паулу",
+     "is_correct": false
+    },
+    {
+     "text": "Буэнос-Айрес",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Германия четыре раза становилась чемпионом мира.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "1954, 1974, 1990, 2014.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто забил «руку Бога» на чемпионате мира 1986 года?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Argentina_celebrando_copa_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Марио Кемпес",
+     "is_correct": false
+    },
+    {
+     "text": "Пеле",
+     "is_correct": false
+    },
+    {
+     "text": "Габриэль Батистута",
+     "is_correct": false
+    },
+    {
+     "text": "Диего Марадона",
+     "is_correct": true
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Сколько команд будет играть на чемпионате мира 2026 года?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "24",
+     "is_correct": false
+    },
+    {
+     "text": "48",
+     "is_correct": true
+    },
+    {
+     "text": "64",
+     "is_correct": false
+    },
+    {
+     "text": "32",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какие три страны вместе принимают чемпионат мира 2026?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "США, Канада и Мексика",
+     "is_correct": true
+    },
+    {
+     "text": "США, Бразилия и Аргентина",
+     "is_correct": false
+    },
+    {
+     "text": "Япония, Корея и Китай",
+     "is_correct": false
+    },
+    {
+     "text": "Испания, Португалия и Марокко",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто лучший бомбардир в истории чемпионатов мира (16 голов)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Sven Mandel, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:2016209185719_2016-07-27_Champions_for_Charity_-_Sven_-_1D_X_-_0149_-_DV3P4742_mod.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пеле",
+     "is_correct": false
+    },
+    {
+     "text": "Роналдо",
+     "is_correct": false
+    },
+    {
+     "text": "Мирослав Клозе",
+     "is_correct": true
+    },
+    {
+     "text": "Лионель Месси",
+     "is_correct": false
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Какие сборные становились чемпионами мира?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Англия",
+     "is_correct": true
+    },
+    {
+     "text": "Нидерланды",
+     "is_correct": false
+    },
+    {
+     "text": "Уругвай",
+     "is_correct": true
+    },
+    {
+     "text": "Испания",
+     "is_correct": true
+    },
+    {
+     "text": "Португалия",
+     "is_correct": false
+    },
+    {
+     "text": "Франция",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Нидерланды ни разу не выигрывали чемпионат мира, хотя трижды играли в финале.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой счёт был в полуфинале 2014 года Бразилия — Германия?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Самое громкое поражение хозяев в истории турниров.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "0:3",
+     "is_correct": false
+    },
+    {
+     "text": "2:2",
+     "is_correct": false
+    },
+    {
+     "text": "1:7",
+     "is_correct": true
+    },
+    {
+     "text": "1:5",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте страны-хозяйки чемпионатов по годам, от ранних к поздним.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "ЮАР",
+     "is_correct": false
+    },
+    {
+     "text": "Бразилия",
+     "is_correct": false
+    },
+    {
+     "text": "Россия",
+     "is_correct": false
+    },
+    {
+     "text": "Катар",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как зовут этого вратаря-рекордсмена, который стал чемпионом мира 2014 года?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Bryan Berlin, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Manuel_Neuer_Ecuador_v_Germany_25_June_2026-148.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мануэль Нойер",
+     "is_correct": true
+    },
+    {
+     "text": "Тибо Куртуа",
+     "is_correct": false
+    },
+    {
+     "text": "Икер Касильяс",
+     "is_correct": false
+    },
+    {
+     "text": "Джанлуиджи Буффон",
+     "is_correct": false
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "single",
+   "text": "В каком году Франция впервые стала чемпионом мира?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "2018",
+     "is_correct": false
+    },
+    {
+     "text": "2006",
+     "is_correct": false
+    },
+    {
+     "text": "1984",
+     "is_correct": false
+    },
+    {
+     "text": "1998",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Раз в сколько лет проходит чемпионат мира?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 1,
+    "max": 8,
+    "step": 1,
+    "answer": 4,
+    "unit": "года",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто забил хет-трик в финале-2022, но всё равно проиграл?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Килиан Мбаппе",
+     "is_correct": true
+    },
+    {
+     "text": "Лионель Месси",
+     "is_correct": false
+    },
+    {
+     "text": "Оливье Жиру",
+     "is_correct": false
+    },
+    {
+     "text": "Анхель Ди Мария",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: так испанцы и латиноамериканцы называют чемпионат мира.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "МУНДИАЛЬ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая азиатская сборная дошла до полуфинала в 2002 году?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Саудовская Аравия",
+     "is_correct": false
+    },
+    {
+     "text": "Иран",
+     "is_correct": false
+    },
+    {
+     "text": "Южная Корея",
+     "is_correct": true
+    },
+    {
+     "text": "Япония",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Сколько раз Бразилия выигрывала чемпионат мира? Напишите цифру.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "5",
+     "пять"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая африканская сборная первой дошла до полуфинала (2022)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Камерун",
+     "is_correct": false
+    },
+    {
+     "text": "Нигерия",
+     "is_correct": false
+    },
+    {
+     "text": "Марокко",
+     "is_correct": true
+    },
+    {
+     "text": "Сенегал",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Как звали талисмана чемпионата мира 2018 года в России?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кот Футбик",
+     "is_correct": false
+    },
+    {
+     "text": "Волк Забивака",
+     "is_correct": true
+    },
+    {
+     "text": "Лев Вилли",
+     "is_correct": false
+    },
+    {
+     "text": "Медведь Миша",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

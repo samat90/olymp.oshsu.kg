@@ -1,0 +1,697 @@
+{
+ "key": "zhivotnye",
+ "title": "Животные мира",
+ "subject": "Природа",
+ "theme": "steppe",
+ "description": "25 вопросов о зверях: от снежного барса Тянь-Шаня до кенгуру и панды. Узнавайте животных по фото. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: кто на фото — символ Бишкека и гор Кыргызстана?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Irbis1983, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Irbis4.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Рысь",
+     "is_correct": false
+    },
+    {
+     "text": "Леопард",
+     "is_correct": false
+    },
+    {
+     "text": "Гепард",
+     "is_correct": false
+    },
+    {
+     "text": "Снежный барс (ирбис)",
+     "is_correct": true
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какое животное самое большое на Земле?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кашалот",
+     "is_correct": false
+    },
+    {
+     "text": "Китовая акула",
+     "is_correct": false
+    },
+    {
+     "text": "Синий кит",
+     "is_correct": true
+    },
+    {
+     "text": "Африканский слон",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто это?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Хитро: полоски как у зебры, но окапи — родственник жирафа.\n\n*Фото: Daniel Jolivet, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Saint-Aignan_%28Loir-et-Cher%29._Okapi.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Зебра",
+     "is_correct": false
+    },
+    {
+     "text": "Окапи",
+     "is_correct": true
+    },
+    {
+     "text": "Антилопа",
+     "is_correct": false
+    },
+    {
+     "text": "Жираф",
+     "is_correct": false
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какое животное самое быстрое на суше?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: AfricanConservation, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Male_cheetah_facing_left_in_South_Africa.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Гепард",
+     "is_correct": true
+    },
+    {
+     "text": "Антилопа вилорог",
+     "is_correct": false
+    },
+    {
+     "text": "Борзая",
+     "is_correct": false
+    },
+    {
+     "text": "Лев",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто это — горный баран с огромными закрученными рогами, живущий в горах Кыргызстана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Fábio Olmos, CC BY 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Marco_Polo_sheep_pair_by_F%C3%A1bio_Olmos_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сайгак",
+     "is_correct": false
+    },
+    {
+     "text": "Лось",
+     "is_correct": false
+    },
+    {
+     "text": "Як",
+     "is_correct": false
+    },
+    {
+     "text": "Архар (горный баран Марко Поло)",
+     "is_correct": true
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чем в основном питается большая панда?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: J. Patrick Fischer, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Grosser_Panda.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бамбуком",
+     "is_correct": true
+    },
+    {
+     "text": "Насекомыми",
+     "is_correct": false
+    },
+    {
+     "text": "Рыбой",
+     "is_correct": false
+    },
+    {
+     "text": "Мёдом",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Летучая мышь — единственное млекопитающее, которое умеет по-настоящему летать.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "На каком континенте живут кенгуру?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Charles J. Sharp, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Forester_kangaroo_%28Macropus_giganteus_tasmaniensis%29_juvenile_hopping_Esk_Valley.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Африка",
+     "is_correct": false
+    },
+    {
+     "text": "Австралия",
+     "is_correct": true
+    },
+    {
+     "text": "Южная Америка",
+     "is_correct": false
+    },
+    {
+     "text": "Азия",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какое из этих животных — сумчатое?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Diliff, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Koala_climbing_tree.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ленивец",
+     "is_correct": false
+    },
+    {
+     "text": "Коала",
+     "is_correct": true
+    },
+    {
+     "text": "Енот",
+     "is_correct": false
+    },
+    {
+     "text": "Панда",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Какие из этих животных — млекопитающие?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Утконос",
+     "is_correct": true
+    },
+    {
+     "text": "Акула",
+     "is_correct": false
+    },
+    {
+     "text": "Кит",
+     "is_correct": true
+    },
+    {
+     "text": "Крокодил",
+     "is_correct": false
+    },
+    {
+     "text": "Дельфин",
+     "is_correct": true
+    },
+    {
+     "text": "Летучая мышь",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто это — длинношёрстный бык, которого держат в высокогорье Нарына?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Alexandr frolov, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sarlyk_Yak2.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Як",
+     "is_correct": true
+    },
+    {
+     "text": "Овцебык",
+     "is_correct": false
+    },
+    {
+     "text": "Буйвол",
+     "is_correct": false
+    },
+    {
+     "text": "Бизон",
+     "is_correct": false
+    }
+   ],
+   "image": "q11.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "Сколько лет может прожить слон?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 10,
+    "max": 120,
+    "step": 5,
+    "answer": 70,
+    "unit": "лет",
+    "tolerance": 10
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое животное спит больше всего — до 20 часов в сутки?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кошка",
+     "is_correct": false
+    },
+    {
+     "text": "Медведь",
+     "is_correct": false
+    },
+    {
+     "text": "Коала",
+     "is_correct": true
+    },
+    {
+     "text": "Лев",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто на фото?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Утконос — млекопитающее, которое откладывает яйца.\n\n*Фото: Charles J. Sharp, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Duck-billed_platypus_%28Ornithorhynchus_anatinus%29_Scottsdale.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ехидна",
+     "is_correct": false
+    },
+    {
+     "text": "Бобр",
+     "is_correct": false
+    },
+    {
+     "text": "Выдра",
+     "is_correct": false
+    },
+    {
+     "text": "Утконос",
+     "is_correct": true
+    }
+   ],
+   "image": "q14.jpg"
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: самое высокое животное в мире.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ЖИРАФ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Белый медведь под белым мехом имеет чёрную кожу.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "*Фото: Alan Wilson, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Polar_Bear_-_Alaska_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q16.jpg"
+  },
+  {
+   "type": "order",
+   "text": "Расставьте животных по весу, от лёгкого к тяжёлому.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кролик",
+     "is_correct": false
+    },
+    {
+     "text": "Волк",
+     "is_correct": false
+    },
+    {
+     "text": "Лошадь",
+     "is_correct": false
+    },
+    {
+     "text": "Слон",
+     "is_correct": false
+    },
+    {
+     "text": "Синий кит",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется детёныш лошади?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Телёнок",
+     "is_correct": false
+    },
+    {
+     "text": "Ягнёнок",
+     "is_correct": false
+    },
+    {
+     "text": "Жеребёнок",
+     "is_correct": true
+    },
+    {
+     "text": "Козлёнок",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько сердец у осьминога?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Два",
+     "is_correct": false
+    },
+    {
+     "text": "Три",
+     "is_correct": true
+    },
+    {
+     "text": "Одно",
+     "is_correct": false
+    },
+    {
+     "text": "Восемь",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Это животное занесено в Красную книгу Кыргызстана. Кто это — пятнистая кошка с кисточками на ушах?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Aconcagua, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lynx_Nationalpark_Bayerischer_Wald_01.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Рысь",
+     "is_correct": true
+    },
+    {
+     "text": "Манул",
+     "is_correct": false
+    },
+    {
+     "text": "Каракал",
+     "is_correct": false
+    },
+    {
+     "text": "Ирбис",
+     "is_correct": false
+    }
+   ],
+   "image": "q20.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Какие животные живут в Африке?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Жираф",
+     "is_correct": true
+    },
+    {
+     "text": "Белый медведь",
+     "is_correct": false
+    },
+    {
+     "text": "Лев",
+     "is_correct": true
+    },
+    {
+     "text": "Гиппопотам",
+     "is_correct": true
+    },
+    {
+     "text": "Кенгуру",
+     "is_correct": false
+    },
+    {
+     "text": "Зебра",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Как называется животное с панцирем, которое живёт сотни лет на Галапагосах? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "черепаха",
+     "Черепаха",
+     "слоновая черепаха",
+     "галапагосская черепаха"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто это?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Sander van der Wel, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Manoel.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сервал",
+     "is_correct": false
+    },
+    {
+     "text": "Лесной кот",
+     "is_correct": false
+    },
+    {
+     "text": "Манул",
+     "is_correct": true
+    },
+    {
+     "text": "Рысь",
+     "is_correct": false
+    }
+   ],
+   "image": "q23.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Хамелеон меняет цвет только для маскировки.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Чаще — чтобы показать настроение и регулировать температуру.\n\n*Фото: Rod Waddington, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Panther_Chameleon_738367_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": "q24.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Какого цвета язык у жирафа?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Жёлтый",
+     "is_correct": false
+    },
+    {
+     "text": "Зелёный",
+     "is_correct": false
+    },
+    {
+     "text": "Розовый",
+     "is_correct": false
+    },
+    {
+     "text": "Тёмно-фиолетовый",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  }
+ ]
+}

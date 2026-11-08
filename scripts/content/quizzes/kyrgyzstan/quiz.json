@@ -1,0 +1,690 @@
+{
+ "key": "kyrgyzstan",
+ "title": "Кыргызстан: природа и места",
+ "subject": "Кыргызстан",
+ "theme": "lake",
+ "description": "25 вопросов о горах, озёрах, ущельях и городах Кыргызстана. Узнайте родные места по фото. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: какое озеро на фото?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Қайырқан Әсем, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Issykkul_plyag.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Байкал",
+     "is_correct": false
+    },
+    {
+     "text": "Иссык-Куль",
+     "is_correct": true
+    },
+    {
+     "text": "Балхаш",
+     "is_correct": false
+    },
+    {
+     "text": "Сон-Куль",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая самая высокая гора Кыргызстана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Maryliflower, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Jengish_Chokusu_%28Victory_Peak,_Pik_Pobeda%29,_Southern_Inylchek_Glacier,_Tien_Shan_%E2%80%94_Golden_Hour.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пик Корженевской",
+     "is_correct": false
+    },
+    {
+     "text": "Пик Жеңиш Чокусу (Победы)",
+     "is_correct": true
+    },
+    {
+     "text": "Хан-Тенгри",
+     "is_correct": false
+    },
+    {
+     "text": "Пик Ленина",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "Какая высота пика Победы (м)?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 5000,
+    "max": 8000,
+    "step": 10,
+    "answer": 7439,
+    "unit": "м",
+    "tolerance": 50
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое высокогорное озеро на фото — с юртами чабанов, в Нарынской области?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Thomas Holbach, CC BY 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Song-Kul_2015_02.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Иссык-Куль",
+     "is_correct": false
+    },
+    {
+     "text": "Чатыр-Куль",
+     "is_correct": false
+    },
+    {
+     "text": "Сон-Куль",
+     "is_correct": true
+    },
+    {
+     "text": "Кара-Суу",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется национальный парк возле Бишкека?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: The original uploader was Garthwillis at English Wikipedia., CC BY 2.5, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ala_archa.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сары-Челек",
+     "is_correct": false
+    },
+    {
+     "text": "Каракол",
+     "is_correct": false
+    },
+    {
+     "text": "Ала-Арча",
+     "is_correct": true
+    },
+    {
+     "text": "Беш-Таш",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что это за минарет XI века под Токмоком?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Bernard Gagnon, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Burana_Tower,_Kyrgyzstan.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Башня Бурана",
+     "is_correct": true
+    },
+    {
+     "text": "Таш-Рабат",
+     "is_correct": false
+    },
+    {
+     "text": "Узгенский минарет",
+     "is_correct": false
+    },
+    {
+     "text": "Минарет Калян",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Иссык-Куль замерзает каждую зиму.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "«Иссык-Куль» значит «горячее озеро»: оно не замерзает.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая гора на фото — священная гора в центре Оша, объект ЮНЕСКО?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: A.Savin, FAL, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Osh_03-2016_img06_Sulayman_Mountain.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сулайман-Тоо",
+     "is_correct": true
+    },
+    {
+     "text": "Таш-Рабат",
+     "is_correct": false
+    },
+    {
+     "text": "Ала-Тоо",
+     "is_correct": false
+    },
+    {
+     "text": "Эки-Нарын",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется самая длинная река Кыргызстана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чу",
+     "is_correct": false
+    },
+    {
+     "text": "Кара-Дарья",
+     "is_correct": false
+    },
+    {
+     "text": "Нарын",
+     "is_correct": true
+    },
+    {
+     "text": "Талас",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Где находится ущелье с красными скалами «Семь быков» (Жети-Огуз)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Jiří Komárek, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Jeti-%C3%96g%C3%BCz_Rocks_-_Issyk-Kul_Region,_Jeti-Oguz_District.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ошская область",
+     "is_correct": false
+    },
+    {
+     "text": "Иссык-Кульская область",
+     "is_correct": true
+    },
+    {
+     "text": "Таласская область",
+     "is_correct": false
+    },
+    {
+     "text": "Баткенская область",
+     "is_correct": false
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Какие озёра находятся в Кыргызстане?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Арал",
+     "is_correct": false
+    },
+    {
+     "text": "Иссык-Куль",
+     "is_correct": true
+    },
+    {
+     "text": "Сон-Куль",
+     "is_correct": true
+    },
+    {
+     "text": "Сары-Челек",
+     "is_correct": true
+    },
+    {
+     "text": "Балхаш",
+     "is_correct": false
+    },
+    {
+     "text": "Чатыр-Куль",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько областей в Кыргызстане?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "12",
+     "is_correct": false
+    },
+    {
+     "text": "9",
+     "is_correct": false
+    },
+    {
+     "text": "5",
+     "is_correct": false
+    },
+    {
+     "text": "7",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте города с запада на восток.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Талас",
+     "is_correct": false
+    },
+    {
+     "text": "Бишкек",
+     "is_correct": false
+    },
+    {
+     "text": "Чолпон-Ата",
+     "is_correct": false
+    },
+    {
+     "text": "Каракол",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется крупнейший в мире природный ореховый лес, который растёт на юге Кыргызстана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: surrealpenguin, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Walnut_forest_in_Arslanbab.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сары-Челек",
+     "is_correct": false
+    },
+    {
+     "text": "Кара-Шоро",
+     "is_correct": false
+    },
+    {
+     "text": "Ала-Арча",
+     "is_correct": false
+    },
+    {
+     "text": "Арсланбоб",
+     "is_correct": true
+    }
+   ],
+   "image": "q14.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется крупнейшая ГЭС Кыргызстана на реке Нарын?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: heinerbischkek, Copyrighted free use, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:%D0%9F%D0%BB%D0%BE%D1%82%D0%B8%D0%BD%D0%B0_%D0%A2%D0%BE%D0%BA%D1%82%D0%BE%D0%B3%D1%83%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B9_%D0%93%D0%AD%D0%A1_-_Toktogul_dam.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Курпсайская",
+     "is_correct": false
+    },
+    {
+     "text": "Камбаратинская",
+     "is_correct": false
+    },
+    {
+     "text": "Ат-Башинская",
+     "is_correct": false
+    },
+    {
+     "text": "Токтогульская",
+     "is_correct": true
+    }
+   ],
+   "image": "q15.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Около 90% территории Кыргызстана занимают горы.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой перевал соединяет Бишкек с Ошем по главной дороге?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Торугарт",
+     "is_correct": false
+    },
+    {
+     "text": "Ыркештам",
+     "is_correct": false
+    },
+    {
+     "text": "Тоо-Ашуу",
+     "is_correct": true
+    },
+    {
+     "text": "Барскоон",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: высокогорное пастбище, куда летом откочёвывают с юртами.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ЖАЙЛОО"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Каменный караван-сарай в горах Нарына на высоте около 3200 м — что это?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Firespeaker, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tash_Rabat_in_mountains.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Таш-Рабат",
+     "is_correct": true
+    },
+    {
+     "text": "Сулайман-Тоо",
+     "is_correct": false
+    },
+    {
+     "text": "Кошой-Коргон",
+     "is_correct": false
+    },
+    {
+     "text": "Бурана",
+     "is_correct": false
+    }
+   ],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "single",
+   "text": "С какими странами граничит Кыргызстан?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Таджикистан, Афганистан, Китай, Индия",
+     "is_correct": false
+    },
+    {
+     "text": "Узбекистан, Туркменистан, Иран, Китай",
+     "is_correct": false
+    },
+    {
+     "text": "Казахстан, Россия, Китай, Монголия",
+     "is_correct": false
+    },
+    {
+     "text": "Казахстан, Узбекистан, Таджикистан, Китай",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Сколько примерно миллионов человек живёт в Кыргызстане?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 1,
+    "max": 20,
+    "step": 1,
+    "answer": 7,
+    "unit": "млн",
+    "tolerance": 1
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется горная система, в которой лежит большая часть Кыргызстана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тянь-Шань",
+     "is_correct": true
+    },
+    {
+     "text": "Гималаи",
+     "is_correct": false
+    },
+    {
+     "text": "Памир",
+     "is_correct": false
+    },
+    {
+     "text": "Алтай",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Как называется город на северном берегу Иссык-Куля, где проходили Всемирные игры кочевников? Одно-два слова.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "Чолпон-Ата",
+     "Чолпон Ата",
+     "чолпон-ата"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие из этих животных живут в горах Кыргызстана?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Архар",
+     "is_correct": true
+    },
+    {
+     "text": "Козерог (тоо теке)",
+     "is_correct": true
+    },
+    {
+     "text": "Тигр",
+     "is_correct": false
+    },
+    {
+     "text": "Снежный барс",
+     "is_correct": true
+    },
+    {
+     "text": "Жираф",
+     "is_correct": false
+    },
+    {
+     "text": "Беркут",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Какое высокогорное озеро Кыргызстана лежит у границы с Китаем, высота около 3500 м?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сон-Куль",
+     "is_correct": false
+    },
+    {
+     "text": "Чатыр-Куль",
+     "is_correct": true
+    },
+    {
+     "text": "Кёль-Суу",
+     "is_correct": false
+    },
+    {
+     "text": "Иссык-Куль",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

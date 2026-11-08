@@ -1,0 +1,700 @@
+{
+ "key": "pticy",
+ "title": "Птицы",
+ "subject": "Природа",
+ "theme": "lake",
+ "description": "25 вопросов о птицах: беркут и соколиная охота, пингвины, колибри, совы и перелётные птицы. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: какая птица на фото — гордость кыргызских беркутчи?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Giles Laurent, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:015_Wild_Golden_Eagle_in_flight_at_Pfyn-Finges_%28Switzerland%29_Photo_by_Giles_Laurent.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Беркут",
+     "is_correct": true
+    },
+    {
+     "text": "Гриф",
+     "is_correct": false
+    },
+    {
+     "text": "Сокол",
+     "is_correct": false
+    },
+    {
+     "text": "Ястреб",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется охотник с ловчей птицей в Кыргызстане?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Photographer; SiGarb, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:KyrgyzEagleHuntsman.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бүркүтчү (беркутчи)",
+     "is_correct": true
+    },
+    {
+     "text": "Манасчы",
+     "is_correct": false
+    },
+    {
+     "text": "Мергенчи",
+     "is_correct": false
+    },
+    {
+     "text": "Чабан",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая птица самая большая в мире?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Yathin S Krishnappa, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Struthio_camelus_-_Etosha_2014_%283%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кондор",
+     "is_correct": false
+    },
+    {
+     "text": "Эму",
+     "is_correct": false
+    },
+    {
+     "text": "Африканский страус",
+     "is_correct": true
+    },
+    {
+     "text": "Императорский пингвин",
+     "is_correct": false
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая птица самая маленькая?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Королёк",
+     "is_correct": false
+    },
+    {
+     "text": "Колибри-пчёлка",
+     "is_correct": true
+    },
+    {
+     "text": "Воробей",
+     "is_correct": false
+    },
+    {
+     "text": "Синица",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто на фото?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Ian Duffy from UK, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Aptenodytes_forsteri_-Snow_Hill_Island,_Antarctica_-adults_and_juvenile-8.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Альбатрос",
+     "is_correct": false
+    },
+    {
+     "text": "Тупик",
+     "is_correct": false
+    },
+    {
+     "text": "Императорский пингвин",
+     "is_correct": true
+    },
+    {
+     "text": "Баклан",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Пингвины живут и на Северном, и на Южном полюсе.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Пингвины живут только в Южном полушарии.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая птица может летать задом наперёд?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Charles J. Sharp, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Trinidad_and_Tobago_hummingbirds_composite.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Стриж",
+     "is_correct": false
+    },
+    {
+     "text": "Колибри",
+     "is_correct": true
+    },
+    {
+     "text": "Ласточка",
+     "is_correct": false
+    },
+    {
+     "text": "Орёл",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто это — птица, которая умеет говорить человеческим голосом?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Charles J. Sharp, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Scarlet_macaw_%28Ara_macao_cyanopterus%29_Copan.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Павлин",
+     "is_correct": false
+    },
+    {
+     "text": "Тукан",
+     "is_correct": false
+    },
+    {
+     "text": "Попугай ара",
+     "is_correct": true
+    },
+    {
+     "text": "Фламинго",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Почему фламинго розовые?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Valdiney Pimenta, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flamingos_Laguna_Colorada.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "От холодной воды",
+     "is_correct": false
+    },
+    {
+     "text": "Краснеют от солнца",
+     "is_correct": false
+    },
+    {
+     "text": "Такими рождаются",
+     "is_correct": false
+    },
+    {
+     "text": "Из-за еды: рачков и водорослей с пигментом",
+     "is_correct": true
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Какие из этих птиц не умеют летать?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Эму",
+     "is_correct": true
+    },
+    {
+     "text": "Киви",
+     "is_correct": true
+    },
+    {
+     "text": "Чайка",
+     "is_correct": false
+    },
+    {
+     "text": "Аист",
+     "is_correct": false
+    },
+    {
+     "text": "Страус",
+     "is_correct": true
+    },
+    {
+     "text": "Пингвин",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая птица на фото распустила хвост?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Kandukuru Nagarjun from Bangalore, India, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Peacock_on_tree_%2852077240794%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Глухарь",
+     "is_correct": false
+    },
+    {
+     "text": "Павлин",
+     "is_correct": true
+    },
+    {
+     "text": "Индюк",
+     "is_correct": false
+    },
+    {
+     "text": "Фазан",
+     "is_correct": false
+    }
+   ],
+   "image": "q11.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто подбрасывает свои яйца в чужие гнёзда?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кукушка",
+     "is_correct": true
+    },
+    {
+     "text": "Дятел",
+     "is_correct": false
+    },
+    {
+     "text": "Сорока",
+     "is_correct": false
+    },
+    {
+     "text": "Ворона",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "С какой скоростью (км/ч) пикирует сапсан — самое быстрое животное?",
+   "time_limit": 25,
+   "weight": 2,
+   "explanation": "*Фото: Mykola Swarnyk, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Falco_peregrinus_m_Humber_Bay_Park_Toronto.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 50,
+    "max": 400,
+    "step": 10,
+    "answer": 320,
+    "unit": "км/ч",
+    "tolerance": 40
+   },
+   "options": [],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: ночная птица с большими глазами, может повернуть голову почти на 270°.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "СОВА"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто стучит клювом по деревьям в поисках жуков?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Charles J. Sharp, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Great_spotted_woodpecker_%28Dendrocopos_major%29_male_Drenthe.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Дятел",
+     "is_correct": true
+    },
+    {
+     "text": "Сойка",
+     "is_correct": false
+    },
+    {
+     "text": "Снегирь",
+     "is_correct": false
+    },
+    {
+     "text": "Скворец",
+     "is_correct": false
+    }
+   ],
+   "image": "q15.jpg"
+  },
+  {
+   "type": "order",
+   "text": "Расставьте птиц по размеру, от маленькой к большой.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Колибри",
+     "is_correct": false
+    },
+    {
+     "text": "Воробей",
+     "is_correct": false
+    },
+    {
+     "text": "Голубь",
+     "is_correct": false
+    },
+    {
+     "text": "Гусь",
+     "is_correct": false
+    },
+    {
+     "text": "Страус",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Птицы — потомки динозавров.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая птица — символ мира?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Аист",
+     "is_correct": false
+    },
+    {
+     "text": "Журавль",
+     "is_correct": false
+    },
+    {
+     "text": "Лебедь",
+     "is_correct": false
+    },
+    {
+     "text": "Голубь",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Куда улетают зимовать многие ласточки из Кыргызстана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В Арктику",
+     "is_correct": false
+    },
+    {
+     "text": "Никуда не улетают",
+     "is_correct": false
+    },
+    {
+     "text": "В Африку и Южную Азию",
+     "is_correct": true
+    },
+    {
+     "text": "В Сибирь",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Это редкий горный гусь, который перелетает через Гималаи. Как он называется?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Tisha Mukherjee, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bar-headed_Goose_in_Kaziranga_National_Park_March_2025_by_Tisha_Mukherjee_02.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лебедь-кликун",
+     "is_correct": false
+    },
+    {
+     "text": "Серый гусь",
+     "is_correct": false
+    },
+    {
+     "text": "Казарка",
+     "is_correct": false
+    },
+    {
+     "text": "Горный гусь",
+     "is_correct": true
+    }
+   ],
+   "image": "q20.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Какие птицы живут на Иссык-Куле зимой?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Фламинго из Африки",
+     "is_correct": false
+    },
+    {
+     "text": "Лысухи",
+     "is_correct": true
+    },
+    {
+     "text": "Утки",
+     "is_correct": true
+    },
+    {
+     "text": "Лебеди",
+     "is_correct": true
+    },
+    {
+     "text": "Пингвины",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Как называется самая крупная летающая птица Южной Америки — гриф с размахом крыльев около 3 м? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "кондор",
+     "Кондор",
+     "андский кондор"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой птицы нет в природе?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Феникс",
+     "is_correct": true
+    },
+    {
+     "text": "Удод",
+     "is_correct": false
+    },
+    {
+     "text": "Тукан",
+     "is_correct": false
+    },
+    {
+     "text": "Колпица",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто это?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Giles Laurent, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:006_Toco_toucan_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Попугай",
+     "is_correct": false
+    },
+    {
+     "text": "Зимородок",
+     "is_correct": false
+    },
+    {
+     "text": "Удод",
+     "is_correct": false
+    },
+    {
+     "text": "Тукан",
+     "is_correct": true
+    }
+   ],
+   "image": "q24.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Какая птица делает самый длинный перелёт — с Арктики в Антарктиду и обратно?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: Charles J. Sharp, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Arctic_tern_%28Sterna_paradisaea%29_Flatey_3.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Серый журавль",
+     "is_correct": false
+    },
+    {
+     "text": "Полярная крачка",
+     "is_correct": true
+    },
+    {
+     "text": "Альбатрос",
+     "is_correct": false
+    },
+    {
+     "text": "Аист",
+     "is_correct": false
+    }
+   ],
+   "image": "q25.jpg"
+  }
+ ]
+}

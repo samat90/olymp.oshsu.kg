@@ -1,0 +1,703 @@
+{
+ "key": "mineraly",
+ "title": "Камни и минералы",
+ "subject": "Природа",
+ "theme": "night",
+ "description": "25 вопросов о драгоценных камнях, кристаллах, металлах и полезных ископаемых. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: какой фиолетовый камень на фото?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Gonzalo Devia, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Amatista_Laye_2.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Рубин",
+     "is_correct": false
+    },
+    {
+     "text": "Сапфир",
+     "is_correct": false
+    },
+    {
+     "text": "Аметист",
+     "is_correct": true
+    },
+    {
+     "text": "Изумруд",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой минерал самый твёрдый?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Гранит",
+     "is_correct": false
+    },
+    {
+     "text": "Корунд",
+     "is_correct": false
+    },
+    {
+     "text": "Кварц",
+     "is_correct": false
+    },
+    {
+     "text": "Алмаз",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется шкала твёрдости минералов от 1 до 10?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Шкала Мооса",
+     "is_correct": true
+    },
+    {
+     "text": "Шкала Рихтера",
+     "is_correct": false
+    },
+    {
+     "text": "Шкала Бофорта",
+     "is_correct": false
+    },
+    {
+     "text": "Шкала Цельсия",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой минерал самый мягкий (1 по Моосу)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Графит",
+     "is_correct": false
+    },
+    {
+     "text": "Тальк",
+     "is_correct": true
+    },
+    {
+     "text": "Гипс",
+     "is_correct": false
+    },
+    {
+     "text": "Мел",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что на фото — зелёный драгоценный камень?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Géry PARENT, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:B%C3%A9ryl_var._%C3%A9meraude_sur_gangue_%28Muzo_Mine_Boyaca_-_Colombie%29_2.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Изумруд",
+     "is_correct": true
+    },
+    {
+     "text": "Аметист",
+     "is_correct": false
+    },
+    {
+     "text": "Топаз",
+     "is_correct": false
+    },
+    {
+     "text": "Рубин",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Красный драгоценный камень — это…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Robert M. Lavinsky, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Corundum-215330.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Изумруд",
+     "is_correct": false
+    },
+    {
+     "text": "Рубин",
+     "is_correct": true
+    },
+    {
+     "text": "Сапфир",
+     "is_correct": false
+    },
+    {
+     "text": "Бирюза",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Алмаз и графит в карандаше состоят из одного элемента — углерода.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое крупнейшее золоторудное месторождение Кыргызстана?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: Michael Karavanov, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kumtor_Gold_Mine_-_panoramio_-_Michael_Karavanov.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Макмал",
+     "is_correct": false
+    },
+    {
+     "text": "Талды-Булак",
+     "is_correct": false
+    },
+    {
+     "text": "Кумтор",
+     "is_correct": true
+    },
+    {
+     "text": "Джеруй",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что на фото — голубой камень, который любят в украшениях Востока?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Robert M. Lavinsky, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Turquoise-40031.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Малахит",
+     "is_correct": false
+    },
+    {
+     "text": "Сапфир",
+     "is_correct": false
+    },
+    {
+     "text": "Бирюза",
+     "is_correct": true
+    },
+    {
+     "text": "Лазурит",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Зелёный камень с узорами-полосами, из которого сделаны колонны Исаакиевского собора?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: JJ Harrison (https://www.jjharrison.com.au/), CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Malachite,_Zaire.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Малахит",
+     "is_correct": true
+    },
+    {
+     "text": "Нефрит",
+     "is_correct": false
+    },
+    {
+     "text": "Яшма",
+     "is_correct": false
+    },
+    {
+     "text": "Изумруд",
+     "is_correct": false
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Что из этого — металлы?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Железо",
+     "is_correct": true
+    },
+    {
+     "text": "Золото",
+     "is_correct": true
+    },
+    {
+     "text": "Гранит",
+     "is_correct": false
+    },
+    {
+     "text": "Кварц",
+     "is_correct": false
+    },
+    {
+     "text": "Медь",
+     "is_correct": true
+    },
+    {
+     "text": "Ртуть",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой металл жидкий при комнатной температуре?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Свинец",
+     "is_correct": false
+    },
+    {
+     "text": "Ртуть",
+     "is_correct": true
+    },
+    {
+     "text": "Олово",
+     "is_correct": false
+    },
+    {
+     "text": "Алюминий",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется окаменевшая смола деревьев, иногда с насекомыми внутри?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Anders L. Damgaard - www.amber-inclusions.dk - Baltic-amber-beetle, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Amber2.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Янтарь",
+     "is_correct": true
+    },
+    {
+     "text": "Опал",
+     "is_correct": false
+    },
+    {
+     "text": "Коралл",
+     "is_correct": false
+    },
+    {
+     "text": "Жемчуг",
+     "is_correct": false
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Жемчуг — это минерал?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: MASAYUKI KATO, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Various_pearls.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Да, его добывают в шахтах",
+     "is_correct": false
+    },
+    {
+     "text": "Это кристалл соли",
+     "is_correct": false
+    },
+    {
+     "text": "Это застывшая лава",
+     "is_correct": false
+    },
+    {
+     "text": "Нет, его выращивают моллюски",
+     "is_correct": true
+    }
+   ],
+   "image": "q14.jpg"
+  },
+  {
+   "type": "order",
+   "text": "Расставьте минералы по твёрдости, от мягкого к твёрдому.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тальк",
+     "is_correct": false
+    },
+    {
+     "text": "Гипс",
+     "is_correct": false
+    },
+    {
+     "text": "Кварц",
+     "is_correct": false
+    },
+    {
+     "text": "Корунд",
+     "is_correct": false
+    },
+    {
+     "text": "Алмаз",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: камень с кристаллами внутри, похожий на пещерку.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ЖЕОДА"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется самый большой найденный алмаз (3106 карат)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Rough_cullinan_diamond.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Хоуп»",
+     "is_correct": false
+    },
+    {
+     "text": "«Орлов»",
+     "is_correct": false
+    },
+    {
+     "text": "«Кохинур»",
+     "is_correct": false
+    },
+    {
+     "text": "«Куллинан»",
+     "is_correct": true
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "Сколько граммов в одном карате?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 0.1,
+    "max": 1,
+    "step": 0.1,
+    "answer": 0.2,
+    "unit": "г",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Соль, которую мы едим, — это минерал галит.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что такое сталактит?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Jacek Halicki, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:2015_Jaskinia_Nied%C5%BAwiedzia_w_Kletnie,_szata_naciekowa_26.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Вид кристалла соли",
+     "is_correct": false
+    },
+    {
+     "text": "Застывшая лава",
+     "is_correct": false
+    },
+    {
+     "text": "Каменная «сосулька», растущая с потолка пещеры",
+     "is_correct": true
+    },
+    {
+     "text": "Растущий с пола столб",
+     "is_correct": false
+    }
+   ],
+   "image": "q20.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется вулканическое чёрное стекло?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Ji-Elle It feels nice and warm It feels like a love storm, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lipari-Obsidienne_%285%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мрамор",
+     "is_correct": false
+    },
+    {
+     "text": "Обсидиан",
+     "is_correct": true
+    },
+    {
+     "text": "Базальт",
+     "is_correct": false
+    },
+    {
+     "text": "Гранит",
+     "is_correct": false
+    }
+   ],
+   "image": "q21.jpg"
+  },
+  {
+   "type": "text",
+   "text": "Какой металл — самый ценный жёлтый металл? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "золото",
+     "Золото"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие камни — драгоценные первого класса?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Алмаз",
+     "is_correct": true
+    },
+    {
+     "text": "Кварц",
+     "is_correct": false
+    },
+    {
+     "text": "Изумруд",
+     "is_correct": true
+    },
+    {
+     "text": "Сапфир",
+     "is_correct": true
+    },
+    {
+     "text": "Рубин",
+     "is_correct": true
+    },
+    {
+     "text": "Гранит",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Из какой горной породы сделан Тадж-Махал?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Rajesnewdelhi, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Art_Work_inside_Taj_Mahal_01.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Гранит",
+     "is_correct": false
+    },
+    {
+     "text": "Известняк",
+     "is_correct": false
+    },
+    {
+     "text": "Песчаник",
+     "is_correct": false
+    },
+    {
+     "text": "Белый мрамор",
+     "is_correct": true
+    }
+   ],
+   "image": "q24.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Сапфир и рубин — это один и тот же минерал. Какой?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Корунд",
+     "is_correct": true
+    },
+    {
+     "text": "Топаз",
+     "is_correct": false
+    },
+    {
+     "text": "Кварц",
+     "is_correct": false
+    },
+    {
+     "text": "Берилл",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

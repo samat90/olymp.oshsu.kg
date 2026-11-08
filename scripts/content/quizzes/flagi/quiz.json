@@ -1,0 +1,698 @@
+{
+ "key": "flagi",
+ "title": "Флаги стран",
+ "subject": "География",
+ "theme": "steppe",
+ "description": "25 вопросов: угадайте страну по флагу! Флаги соседей, гигантов и самые необычные. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: чей это флаг?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Shakiev N.T., Primov U.B., Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_Kyrgyzstan.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Китай",
+     "is_correct": false
+    },
+    {
+     "text": "Кыргызстан",
+     "is_correct": true
+    },
+    {
+     "text": "Турция",
+     "is_correct": false
+    },
+    {
+     "text": "Вьетнам",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Сколько лучей у солнца на флаге Кыргызстана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "40 лучей — 40 кыргызских племён.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "40",
+     "is_correct": true
+    },
+    {
+     "text": "12",
+     "is_correct": false
+    },
+    {
+     "text": "30",
+     "is_correct": false
+    },
+    {
+     "text": "24",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чей это флаг?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, PD, [Wikipedia](https://en.wikipedia.org/wiki/File:Flag_of_Japan.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бангладеш",
+     "is_correct": false
+    },
+    {
+     "text": "Палау",
+     "is_correct": false
+    },
+    {
+     "text": "Южная Корея",
+     "is_correct": false
+    },
+    {
+     "text": "Япония",
+     "is_correct": true
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чей это флаг?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Shaken Niyazbekop, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_Kazakhstan.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Казахстан",
+     "is_correct": true
+    },
+    {
+     "text": "Узбекистан",
+     "is_correct": false
+    },
+    {
+     "text": "Монголия",
+     "is_correct": false
+    },
+    {
+     "text": "Таджикистан",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чей это флаг?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, PD, [Wikipedia](https://en.wikipedia.org/wiki/File:Flag_of_Brazil.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мексика",
+     "is_correct": false
+    },
+    {
+     "text": "Аргентина",
+     "is_correct": false
+    },
+    {
+     "text": "Португалия",
+     "is_correct": false
+    },
+    {
+     "text": "Бразилия",
+     "is_correct": true
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чей это флаг — с кленовым листом?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Original: George F. G. Stanley Modified by: The original uploader was Illegitimate Barrister at Wikimedia Commons. The c, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_Canada_%28Pantone%29.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Австрия",
+     "is_correct": false
+    },
+    {
+     "text": "Перу",
+     "is_correct": false
+    },
+    {
+     "text": "Ливан",
+     "is_correct": false
+    },
+    {
+     "text": "Канада",
+     "is_correct": true
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чей это флаг?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Farhod Yoʻldoshev, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_Uzbekistan.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Азербайджан",
+     "is_correct": false
+    },
+    {
+     "text": "Туркменистан",
+     "is_correct": false
+    },
+    {
+     "text": "Узбекистан",
+     "is_correct": true
+    },
+    {
+     "text": "Казахстан",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чей это флаг?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_Tajikistan.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Индия",
+     "is_correct": false
+    },
+    {
+     "text": "Венгрия",
+     "is_correct": false
+    },
+    {
+     "text": "Иран",
+     "is_correct": false
+    },
+    {
+     "text": "Таджикистан",
+     "is_correct": true
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Флаг какой страны НЕ прямоугольный?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Непальский флаг — два треугольника.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Непал",
+     "is_correct": true
+    },
+    {
+     "text": "Ватикан",
+     "is_correct": false
+    },
+    {
+     "text": "Бутан",
+     "is_correct": false
+    },
+    {
+     "text": "Швейцария",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чей это флаг?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, PD-India, [Wikipedia](https://en.wikipedia.org/wiki/File:Flag_of_India.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Нигер",
+     "is_correct": false
+    },
+    {
+     "text": "Кот-д’Ивуар",
+     "is_correct": false
+    },
+    {
+     "text": "Индия",
+     "is_correct": true
+    },
+    {
+     "text": "Ирландия",
+     "is_correct": false
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "На флаге Монголии изображён символ «Соёмбо».",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "*Фото: See File history below for details., Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_Mongolia.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q11.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чей это флаг — с драконом?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: See File history below for details., Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_Bhutan.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мальта",
+     "is_correct": false
+    },
+    {
+     "text": "Бутан",
+     "is_correct": true
+    },
+    {
+     "text": "Уэльс",
+     "is_correct": false
+    },
+    {
+     "text": "Китай",
+     "is_correct": false
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чей это флаг?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: David Benbennick (original author), Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_Turkey.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пакистан",
+     "is_correct": false
+    },
+    {
+     "text": "Турция",
+     "is_correct": true
+    },
+    {
+     "text": "Тунис",
+     "is_correct": false
+    },
+    {
+     "text": "Алжир",
+     "is_correct": false
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "На флагах каких стран есть полумесяц?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Туркменистан",
+     "is_correct": true
+    },
+    {
+     "text": "Пакистан",
+     "is_correct": true
+    },
+    {
+     "text": "Кыргызстан",
+     "is_correct": false
+    },
+    {
+     "text": "Турция",
+     "is_correct": true
+    },
+    {
+     "text": "Узбекистан",
+     "is_correct": true
+    },
+    {
+     "text": "Япония",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чей это флаг?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Ловушка: у Ирландии оранжевый вместо красного, у Мексики есть герб.\n\n*Фото: автор неизвестен, PD, [Wikipedia](https://en.wikipedia.org/wiki/File:Flag_of_Italy.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Италия",
+     "is_correct": true
+    },
+    {
+     "text": "Мексика",
+     "is_correct": false
+    },
+    {
+     "text": "Ирландия",
+     "is_correct": false
+    },
+    {
+     "text": "Венгрия",
+     "is_correct": false
+    }
+   ],
+   "image": "q15.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чей это флаг?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, PD, [Wikipedia](https://en.wikipedia.org/wiki/File:Flag_of_Germany.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Россия",
+     "is_correct": false
+    },
+    {
+     "text": "Нидерланды",
+     "is_correct": false
+    },
+    {
+     "text": "Германия",
+     "is_correct": true
+    },
+    {
+     "text": "Бельгия",
+     "is_correct": false
+    }
+   ],
+   "image": "q16.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чей это флаг?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_Turkmenistan.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Саудовская Аравия",
+     "is_correct": false
+    },
+    {
+     "text": "Алжир",
+     "is_correct": false
+    },
+    {
+     "text": "Туркменистан",
+     "is_correct": true
+    },
+    {
+     "text": "Пакистан",
+     "is_correct": false
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "Сколько звёзд на флаге США?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 10,
+    "max": 60,
+    "step": 1,
+    "answer": 50,
+    "unit": "звёзд",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько полос на флаге США?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "10",
+     "is_correct": false
+    },
+    {
+     "text": "7",
+     "is_correct": false
+    },
+    {
+     "text": "13",
+     "is_correct": true
+    },
+    {
+     "text": "50",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: как называется изображение на флаге Кыргызстана в центре солнца — верх юрты.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ТҮНДҮК"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чей это флаг?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Zeng Liansong, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_the_People%27s_Republic_of_China.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Северная Корея",
+     "is_correct": false
+    },
+    {
+     "text": "Китай",
+     "is_correct": true
+    },
+    {
+     "text": "Вьетнам",
+     "is_correct": false
+    },
+    {
+     "text": "СССР",
+     "is_correct": false
+    }
+   ],
+   "image": "q21.jpg"
+  },
+  {
+   "type": "order",
+   "text": "Расставьте цвета флага России сверху вниз.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Белый",
+     "is_correct": false
+    },
+    {
+     "text": "Синий",
+     "is_correct": false
+    },
+    {
+     "text": "Красный",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чей это флаг — с кедром?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Henri Pharaon, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_Lebanon.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Канада",
+     "is_correct": false
+    },
+    {
+     "text": "Ливан",
+     "is_correct": true
+    },
+    {
+     "text": "Израиль",
+     "is_correct": false
+    },
+    {
+     "text": "Кипр",
+     "is_correct": false
+    }
+   ],
+   "image": "q23.jpg"
+  },
+  {
+   "type": "text",
+   "text": "Флаг какой страны — красный с белым крестом? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "Швейцария",
+     "Швейцарии",
+     "швейцария",
+     "Дания",
+     "дания"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Чей это флаг?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: Original: Government of the Republic of Korea Vector: Great Brightstar and others, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_South_Korea.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Южная Корея",
+     "is_correct": true
+    },
+    {
+     "text": "Монголия",
+     "is_correct": false
+    },
+    {
+     "text": "Япония",
+     "is_correct": false
+    },
+    {
+     "text": "Тайвань",
+     "is_correct": false
+    }
+   ],
+   "image": "q25.jpg"
+  }
+ ]
+}

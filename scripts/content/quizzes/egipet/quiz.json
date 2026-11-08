@@ -1,0 +1,696 @@
+{
+ "key": "egipet",
+ "title": "Древний Египет",
+ "subject": "История",
+ "theme": "felt",
+ "description": "25 вопросов о фараонах, пирамидах, мумиях и богах Древнего Египта. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: чья золотая маска на фото?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Roland Unger, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:CairoEgMuseumTaaMaskMostlyPhotographed.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Рамзеса II",
+     "is_correct": false
+    },
+    {
+     "text": "Хеопса",
+     "is_correct": false
+    },
+    {
+     "text": "Клеопатры",
+     "is_correct": false
+    },
+    {
+     "text": "Тутанхамона",
+     "is_correct": true
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто нашёл гробницу Тутанхамона в 1922 году?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Chicago Daily News, Inc., photographer, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Howard_carter.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Жан-Франсуа Шампольон",
+     "is_correct": false
+    },
+    {
+     "text": "Генрих Шлиман",
+     "is_correct": false
+    },
+    {
+     "text": "Говард Картер",
+     "is_correct": true
+    },
+    {
+     "text": "Индиана Джонс",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как назывались египетские знаки-письмена?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Copyrighted free use, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hieroglyphs_from_the_tomb_of_Seti_I.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Иероглифы",
+     "is_correct": true
+    },
+    {
+     "text": "Руны",
+     "is_correct": false
+    },
+    {
+     "text": "Клинопись",
+     "is_correct": false
+    },
+    {
+     "text": "Глаголица",
+     "is_correct": false
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой камень помог расшифровать иероглифы?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Hans Hillewaert, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Rosetta_Stone.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чёрный",
+     "is_correct": false
+    },
+    {
+     "text": "Розеттский",
+     "is_correct": true
+    },
+    {
+     "text": "Лунный",
+     "is_correct": false
+    },
+    {
+     "text": "Философский",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто расшифровал иероглифы (1822)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Наполеон",
+     "is_correct": false
+    },
+    {
+     "text": "Говард Картер",
+     "is_correct": false
+    },
+    {
+     "text": "Геродот",
+     "is_correct": false
+    },
+    {
+     "text": "Жан-Франсуа Шампольон",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Пирамиды строили рабы-пленники, которых держали в цепях.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Археологи выяснили: строили наёмные рабочие, их кормили и лечили.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "На какой реке стоял Древний Египет?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Fiktube, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Beautiful_nature_along_Nile_River_01.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Нил",
+     "is_correct": true
+    },
+    {
+     "text": "Иордан",
+     "is_correct": false
+    },
+    {
+     "text": "Тигр",
+     "is_correct": false
+    },
+    {
+     "text": "Евфрат",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто это — бог с головой сокола?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Jeff Dahl, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Horus_standing.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Гор",
+     "is_correct": true
+    },
+    {
+     "text": "Анубис",
+     "is_correct": false
+    },
+    {
+     "text": "Ра",
+     "is_correct": false
+    },
+    {
+     "text": "Тот",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "А бог с головой шакала, хранитель мёртвых?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Jeff Dahl, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Anubis_standing.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Гор",
+     "is_correct": false
+    },
+    {
+     "text": "Анубис",
+     "is_correct": true
+    },
+    {
+     "text": "Сет",
+     "is_correct": false
+    },
+    {
+     "text": "Осирис",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как египтяне сохраняли тела умерших?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Хоронили в море",
+     "is_correct": false
+    },
+    {
+     "text": "Замораживали",
+     "is_correct": false
+    },
+    {
+     "text": "Сжигали",
+     "is_correct": false
+    },
+    {
+     "text": "Делали мумии",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие животные были священными в Египте?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Скарабей",
+     "is_correct": true
+    },
+    {
+     "text": "Панда",
+     "is_correct": false
+    },
+    {
+     "text": "Ибис",
+     "is_correct": true
+    },
+    {
+     "text": "Крокодил",
+     "is_correct": true
+    },
+    {
+     "text": "Кошка",
+     "is_correct": true
+    },
+    {
+     "text": "Кенгуру",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называлась последняя царица Египта?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Клеопатра VII",
+     "is_correct": true
+    },
+    {
+     "text": "Хатшепсут",
+     "is_correct": false
+    },
+    {
+     "text": "Исида",
+     "is_correct": false
+    },
+    {
+     "text": "Нефертити",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чей это знаменитый бюст — царицы с синей короной?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Philip Pikart, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Nofretete_Neues_Museum.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Хатшепсут",
+     "is_correct": false
+    },
+    {
+     "text": "Исиды",
+     "is_correct": false
+    },
+    {
+     "text": "Клеопатры",
+     "is_correct": false
+    },
+    {
+     "text": "Нефертити",
+     "is_correct": true
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "Сколько метров была первоначальная высота пирамиды Хеопса?",
+   "time_limit": 25,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 50,
+    "max": 300,
+    "step": 1,
+    "answer": 146,
+    "unit": "м",
+    "tolerance": 5
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте события по времени, от древнего к новому.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Строительство пирамид Гизы",
+     "is_correct": false
+    },
+    {
+     "text": "Правление Тутанхамона",
+     "is_correct": false
+    },
+    {
+     "text": "Правление Клеопатры",
+     "is_correct": false
+    },
+    {
+     "text": "Находка гробницы Тутанхамона",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: египетский царь.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ФАРАОН"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как назывался главный бог солнца?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Один",
+     "is_correct": false
+    },
+    {
+     "text": "Ра",
+     "is_correct": true
+    },
+    {
+     "text": "Зевс",
+     "is_correct": false
+    },
+    {
+     "text": "Тенгри",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "На чём писали египтяне?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Papyrus.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "На шёлке",
+     "is_correct": false
+    },
+    {
+     "text": "На папирусе",
+     "is_correct": true
+    },
+    {
+     "text": "На берёсте",
+     "is_correct": false
+    },
+    {
+     "text": "На бумаге",
+     "is_correct": false
+    }
+   ],
+   "image": "q18.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Египтяне играли в настольную игру «сенет».",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "*Фото: Charles Edwin Wilbour Fund, No restrictions, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Gaming_Board_Inscribed_for_Amenhotep_III_with_Separate_Sliding_Drawer,_ca._1390-1353_B.C.E.,49.56a-b.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что это за храм, высеченный в скале с огромными статуями Рамзеса II?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: youssef alam, CC BY 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ramsis,_Aswan_Governorate,_Egypt_-_panoramio.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Саккара",
+     "is_correct": false
+    },
+    {
+     "text": "Луксор",
+     "is_correct": false
+    },
+    {
+     "text": "Абу-Симбел",
+     "is_correct": true
+    },
+    {
+     "text": "Карнак",
+     "is_correct": false
+    }
+   ],
+   "image": "q20.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется пирамида с «ступеньками» фараона Джосера — самая древняя?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: Olaf Tausch, CC BY 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sakkara_01.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ступенчатая пирамида",
+     "is_correct": true
+    },
+    {
+     "text": "Великая пирамида",
+     "is_correct": false
+    },
+    {
+     "text": "Красная пирамида",
+     "is_correct": false
+    },
+    {
+     "text": "Ломаная пирамида",
+     "is_correct": false
+    }
+   ],
+   "image": "q21.jpg"
+  },
+  {
+   "type": "text",
+   "text": "Как называется долина, где хоронили фараонов Нового царства? Три слова: «Долина …»",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "Долина царей",
+     "долина царей",
+     "царей"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Что клали в гробницу фараона?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Фигурки слуг (ушебти)",
+     "is_correct": true
+    },
+    {
+     "text": "Компьютер",
+     "is_correct": false
+    },
+    {
+     "text": "Украшения",
+     "is_correct": true
+    },
+    {
+     "text": "Мебель",
+     "is_correct": true
+    },
+    {
+     "text": "Еду",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой музей в Каире открыли около пирамид Гизы в 2025 году?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Эрмитаж",
+     "is_correct": false
+    },
+    {
+     "text": "Британский музей",
+     "is_correct": false
+    },
+    {
+     "text": "Большой египетский музей",
+     "is_correct": true
+    },
+    {
+     "text": "Лувр Абу-Даби",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Сколько примерно лет было Тутанхамону, когда он умер?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Около 90",
+     "is_correct": false
+    },
+    {
+     "text": "Около 50",
+     "is_correct": false
+    },
+    {
+     "text": "Около 19",
+     "is_correct": true
+    },
+    {
+     "text": "Около 7",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

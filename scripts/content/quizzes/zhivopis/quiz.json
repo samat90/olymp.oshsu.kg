@@ -1,0 +1,695 @@
+{
+ "key": "zhivopis",
+ "title": "Шедевры живописи",
+ "subject": "Искусство",
+ "theme": "felt",
+ "description": "25 вопросов о великих картинах и художниках: Леонардо, Ван Гог, Шишкин, Айвазовский и Чуйков. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: как называется эта картина?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Leonardo da Vinci, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Венера»",
+     "is_correct": false
+    },
+    {
+     "text": "«Мона Лиза»",
+     "is_correct": true
+    },
+    {
+     "text": "«Дама с горностаем»",
+     "is_correct": false
+    },
+    {
+     "text": "«Девушка с жемчужной серёжкой»",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто написал «Мону Лизу»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Боттичелли",
+     "is_correct": false
+    },
+    {
+     "text": "Микеланджело",
+     "is_correct": false
+    },
+    {
+     "text": "Леонардо да Винчи",
+     "is_correct": true
+    },
+    {
+     "text": "Рафаэль",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В каком музее хранится «Мона Лиза»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Benh LIEU SONG (Flickr), CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Louvre_Museum_Wikimedia_Commons.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лувр (Париж)",
+     "is_correct": true
+    },
+    {
+     "text": "Британский музей",
+     "is_correct": false
+    },
+    {
+     "text": "Эрмитаж",
+     "is_correct": false
+    },
+    {
+     "text": "Прадо",
+     "is_correct": false
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто написал эту картину — «Звёздная ночь»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Vincent van Gogh, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Поль Гоген",
+     "is_correct": false
+    },
+    {
+     "text": "Клод Моне",
+     "is_correct": false
+    },
+    {
+     "text": "Эдвар Мунк",
+     "is_correct": false
+    },
+    {
+     "text": "Винсент ван Гог",
+     "is_correct": true
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется эта картина Эдварда Мунка?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Edvard Munch, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Edvard_Munch,_1893,_The_Scream,_oil,_tempera_and_pastel_on_cardboard,_91_x_73_cm,_National_Gallery_of_Norway.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Крик»",
+     "is_correct": true
+    },
+    {
+     "text": "«Страх»",
+     "is_correct": false
+    },
+    {
+     "text": "«Мост»",
+     "is_correct": false
+    },
+    {
+     "text": "«Ночь»",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чья это картина с огромной волной?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Katsushika Hokusai, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tsunami_by_hokusai_19th_century.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тёрнер",
+     "is_correct": false
+    },
+    {
+     "text": "Кацусика Хокусай",
+     "is_correct": true
+    },
+    {
+     "text": "Айвазовский",
+     "is_correct": false
+    },
+    {
+     "text": "Утагава Хиросигэ",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется картина Айвазовского о буре и людях на обломках мачты?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Hovhannes Aivazovsky (1817 - 1900) – painter (Russian) Born in Rossiiskaya imperiya, Feodosia. Died in Rossiiskaya imper, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hovhannes_Aivazovsky_-_The_Ninth_Wave_-_Google_Art_Project.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Чёрное море»",
+     "is_correct": false
+    },
+    {
+     "text": "«Буря»",
+     "is_correct": false
+    },
+    {
+     "text": "«Девятый вал»",
+     "is_correct": true
+    },
+    {
+     "text": "«Радуга»",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Ван Гог при жизни продал сотни картин и был богат.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "При жизни он продал совсем мало работ и жил бедно.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какие животные на картине Шишкина и Савицкого?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Ivan Shishkin / Konstantin Savitsky, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Utro_v_sosnovom_lesu.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Медведи",
+     "is_correct": true
+    },
+    {
+     "text": "Олени",
+     "is_correct": false
+    },
+    {
+     "text": "Волки",
+     "is_correct": false
+    },
+    {
+     "text": "Лисы",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется картина «Утро в сосновом лесу» в народе?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Тайга»",
+     "is_correct": false
+    },
+    {
+     "text": "«Три медведя» («Мишки»)",
+     "is_correct": true
+    },
+    {
+     "text": "«Медвежий угол»",
+     "is_correct": false
+    },
+    {
+     "text": "«Лесная сказка»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой известный кыргызский художник написал «Дочь Советской Киргизии»?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Теодор Герцен",
+     "is_correct": false
+    },
+    {
+     "text": "Гапар Айтиев",
+     "is_correct": false
+    },
+    {
+     "text": "Суйменкул Чокморов",
+     "is_correct": false
+    },
+    {
+     "text": "Семён Чуйков",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чьи кувшинки — художник-импрессионист, писавший свой сад в Живерни?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Claude Monet, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Reflections_of_Clouds_on_the_Water-Lily_Pond.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Клод Моне",
+     "is_correct": true
+    },
+    {
+     "text": "Огюст Ренуар",
+     "is_correct": false
+    },
+    {
+     "text": "Эдуард Мане",
+     "is_correct": false
+    },
+    {
+     "text": "Поль Сезанн",
+     "is_correct": false
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Кто из художников — итальянцы эпохи Возрождения?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ван Гог",
+     "is_correct": false
+    },
+    {
+     "text": "Пикассо",
+     "is_correct": false
+    },
+    {
+     "text": "Рафаэль",
+     "is_correct": true
+    },
+    {
+     "text": "Боттичелли",
+     "is_correct": true
+    },
+    {
+     "text": "Микеланджело",
+     "is_correct": true
+    },
+    {
+     "text": "Леонардо да Винчи",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чья это картина — «Рождение Венеры»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Sandro Botticelli, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Рафаэль",
+     "is_correct": false
+    },
+    {
+     "text": "Тициан",
+     "is_correct": false
+    },
+    {
+     "text": "Сандро Боттичелли",
+     "is_correct": true
+    },
+    {
+     "text": "Караваджо",
+     "is_correct": false
+    }
+   ],
+   "image": "q14.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто расписал потолок Сикстинской капеллы?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Antoine Taveneaux, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sistine_Chapel_ceiling_02_%28brightened%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Рафаэль",
+     "is_correct": false
+    },
+    {
+     "text": "Леонардо да Винчи",
+     "is_correct": false
+    },
+    {
+     "text": "Джотто",
+     "is_correct": false
+    },
+    {
+     "text": "Микеланджело",
+     "is_correct": true
+    }
+   ],
+   "image": "q15.jpg"
+  },
+  {
+   "type": "order",
+   "text": "Расставьте художников по времени жизни, от раннего к позднему.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Леонардо да Винчи",
+     "is_correct": false
+    },
+    {
+     "text": "Рембрандт",
+     "is_correct": false
+    },
+    {
+     "text": "Ван Гог",
+     "is_correct": false
+    },
+    {
+     "text": "Пикассо",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется эта картина Яна Вермеера?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Johannes Vermeer, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:1665_Girl_with_a_Pearl_Earring.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Молочница»",
+     "is_correct": false
+    },
+    {
+     "text": "«Девушка с веером»",
+     "is_correct": false
+    },
+    {
+     "text": "«Мона Лиза»",
+     "is_correct": false
+    },
+    {
+     "text": "«Девушка с жемчужной серёжкой»",
+     "is_correct": true
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: деревянная дощечка, на которой художник смешивает краски.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ПАЛИТРА"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чья это картина «Ночной дозор»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Rembrandt, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:La_ronda_de_noche,_por_Rembrandt_van_Rijn.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Вермеер",
+     "is_correct": false
+    },
+    {
+     "text": "Рембрандт",
+     "is_correct": true
+    },
+    {
+     "text": "Рубенс",
+     "is_correct": false
+    },
+    {
+     "text": "Ван Дейк",
+     "is_correct": false
+    }
+   ],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Кубизм придумал Пабло Пикассо вместе с Жоржем Браком.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "В каком веке написана «Мона Лиза»?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 10,
+    "max": 20,
+    "step": 1,
+    "answer": 16,
+    "unit": "век",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется эта картина Ивана Шишкина?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Ivan Shishkin, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ivan_Ivanovich_Shishkin_-_Rye_field,_1878.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Рожь»",
+     "is_correct": true
+    },
+    {
+     "text": "«Зима»",
+     "is_correct": false
+    },
+    {
+     "text": "«Корабельная роща»",
+     "is_correct": false
+    },
+    {
+     "text": "«Утро в сосновом лесу»",
+     "is_correct": false
+    }
+   ],
+   "image": "q22.jpg"
+  },
+  {
+   "type": "text",
+   "text": "Как называется жанр картины, где изображена природа? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "пейзаж",
+     "Пейзаж"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Что относится к жанрам живописи?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Натюрморт",
+     "is_correct": true
+    },
+    {
+     "text": "Пейзаж",
+     "is_correct": true
+    },
+    {
+     "text": "Марина",
+     "is_correct": true
+    },
+    {
+     "text": "Портрет",
+     "is_correct": true
+    },
+    {
+     "text": "Сонет",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Что изображено на картине Сальвадора Дали «Постоянство памяти»?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Горящие жирафы",
+     "is_correct": false
+    },
+    {
+     "text": "Яблоко вместо лица",
+     "is_correct": false
+    },
+    {
+     "text": "Растекающиеся часы",
+     "is_correct": true
+    },
+    {
+     "text": "Слон на ходулях",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

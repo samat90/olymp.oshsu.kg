@@ -1,0 +1,689 @@
+{
+ "key": "gory",
+ "title": "Горы и вулканы",
+ "subject": "География",
+ "theme": "lake",
+ "description": "25 вопросов о вершинах, хребтах и вулканах: Эверест, Хан-Тенгри, Фудзи, Килиманджаро. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: как называется самая высокая гора мира?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Rdevany, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mt._Everest_from_Gokyo_Ri_November_5,_2012.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Канченджанга",
+     "is_correct": false
+    },
+    {
+     "text": "Эверест (Джомолунгма)",
+     "is_correct": true
+    },
+    {
+     "text": "Пик Победы",
+     "is_correct": false
+    },
+    {
+     "text": "К2",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "Какая высота Эвереста (м)?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 6000,
+    "max": 10000,
+    "step": 10,
+    "answer": 8849,
+    "unit": "м",
+    "tolerance": 50
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто первым поднялся на Эверест (1953)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: SAS Scandinavian Airlines, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tenzing_Norgay_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Джордж Мэллори",
+     "is_correct": false
+    },
+    {
+     "text": "Райнхольд Месснер",
+     "is_correct": false
+    },
+    {
+     "text": "Эдмунд Хиллари и Тенцинг Норгей",
+     "is_correct": true
+    },
+    {
+     "text": "Юрий Гагарин",
+     "is_correct": false
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что за гора на фото — символ Японии?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Suicasmo, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:View_of_Mount_Fuji_from_%C5%8Cwakudani_20211202.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Эльбрус",
+     "is_correct": false
+    },
+    {
+     "text": "Килиманджаро",
+     "is_correct": false
+    },
+    {
+     "text": "Фудзи",
+     "is_correct": true
+    },
+    {
+     "text": "Арарат",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая гора — высочайшая в Африке?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Sergey Pesterev, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kilimanjaro_from_Amboseli.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Килиманджаро",
+     "is_correct": true
+    },
+    {
+     "text": "Табл",
+     "is_correct": false
+    },
+    {
+     "text": "Кения",
+     "is_correct": false
+    },
+    {
+     "text": "Атлас",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что за мраморная пирамида на границе Кыргызстана, Казахстана и Китая?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Frederic Heymes, CC BY-SA 2.0 fr, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Vue_globale_du_versant_N_du_khan_Tengri.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пик Ленина",
+     "is_correct": false
+    },
+    {
+     "text": "Хан-Тенгри",
+     "is_correct": true
+    },
+    {
+     "text": "Пик Победы",
+     "is_correct": false
+    },
+    {
+     "text": "Музтаг-Ата",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как пик Ленина называют в Таджикистане после переименования (2006)?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: Nihongarden, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lenin_peak_from_Sary-mogol.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пик Абу Али ибн Сина",
+     "is_correct": true
+    },
+    {
+     "text": "Пик Коммунизма",
+     "is_correct": false
+    },
+    {
+     "text": "Пик Корженевской",
+     "is_correct": false
+    },
+    {
+     "text": "Пик Победы",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Вулкан Везувий уничтожил город Помпеи в 79 году н. э.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "*Фото: pietro scerrato, CC BY 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Il_cratere_del_Vulcano_-_panoramio.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется расплавленная порода, которая выходит из вулкана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Магма — пока под землёй; на поверхности это лава.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Магма",
+     "is_correct": false
+    },
+    {
+     "text": "Пемза",
+     "is_correct": false
+    },
+    {
+     "text": "Лава",
+     "is_correct": true
+    },
+    {
+     "text": "Гейзер",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая горная система — самая длинная на суше?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Diego Delso, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Panoramic_view_Andes-Chile.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Урал",
+     "is_correct": false
+    },
+    {
+     "text": "Скалистые горы",
+     "is_correct": false
+    },
+    {
+     "text": "Гималаи",
+     "is_correct": false
+    },
+    {
+     "text": "Анды",
+     "is_correct": true
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Какие горы находятся в Азии?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Алтай",
+     "is_correct": true
+    },
+    {
+     "text": "Альпы",
+     "is_correct": false
+    },
+    {
+     "text": "Анды",
+     "is_correct": false
+    },
+    {
+     "text": "Памир",
+     "is_correct": true
+    },
+    {
+     "text": "Тянь-Шань",
+     "is_correct": true
+    },
+    {
+     "text": "Гималаи",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что за гора на фото — с острыми зубцами, в Альпах, на границе Швейцарии и Италии?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Photo: chil, on Camptocamp.org Derivative work:Zacharie Grossen, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Matterhorn_from_Domh%C3%BCtte_-_2.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Эльбрус",
+     "is_correct": false
+    },
+    {
+     "text": "Эйгер",
+     "is_correct": false
+    },
+    {
+     "text": "Маттерхорн",
+     "is_correct": true
+    },
+    {
+     "text": "Монблан",
+     "is_correct": false
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая вершина — высочайшая в Европе (по одной из версий)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Aleksandr Markin, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mount_Elbrus_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Эльбрус",
+     "is_correct": true
+    },
+    {
+     "text": "Маттерхорн",
+     "is_correct": false
+    },
+    {
+     "text": "Казбек",
+     "is_correct": false
+    },
+    {
+     "text": "Монблан",
+     "is_correct": false
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "order",
+   "text": "Расставьте вершины по высоте, от самой высокой.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Эверест",
+     "is_correct": false
+    },
+    {
+     "text": "Пик Победы",
+     "is_correct": false
+    },
+    {
+     "text": "Хан-Тенгри",
+     "is_correct": false
+    },
+    {
+     "text": "Килиманджаро",
+     "is_correct": false
+    },
+    {
+     "text": "Монблан",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: горячий источник, который выбрасывает струю воды.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ГЕЙЗЕР"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В какой стране больше всего действующих вулканов?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Исландия",
+     "is_correct": false
+    },
+    {
+     "text": "Индонезия",
+     "is_correct": true
+    },
+    {
+     "text": "Япония",
+     "is_correct": false
+    },
+    {
+     "text": "Италия",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называют пояс вулканов вокруг Тихого океана, где много землетрясений?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Пояс астероидов»",
+     "is_correct": false
+    },
+    {
+     "text": "«Великий разлом»",
+     "is_correct": false
+    },
+    {
+     "text": "«Чёрный треугольник»",
+     "is_correct": false
+    },
+    {
+     "text": "«Огненное кольцо»",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Горы Тянь-Шаня продолжают расти и сегодня.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Их поднимает столкновение Индийской и Евразийской плит.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько на Земле вершин выше 8000 м?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "7",
+     "is_correct": false
+    },
+    {
+     "text": "14",
+     "is_correct": true
+    },
+    {
+     "text": "21",
+     "is_correct": false
+    },
+    {
+     "text": "3",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называют альпиниста, покорившего все вершины-восьмитысячники?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чемпион мира",
+     "is_correct": false
+    },
+    {
+     "text": "Горный орёл",
+     "is_correct": false
+    },
+    {
+     "text": "Снежный барс",
+     "is_correct": false
+    },
+    {
+     "text": "Член клуба «Корона Гималаев»",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется знак альпинистов СНГ за пять пиков выше 7000 м, включая пик Победы?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Снежный барс»",
+     "is_correct": true
+    },
+    {
+     "text": "«Белый орёл»",
+     "is_correct": false
+    },
+    {
+     "text": "«Горный козёл»",
+     "is_correct": false
+    },
+    {
+     "text": "«Ледоруб»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Что носят альпинисты на ботинках, чтобы не скользить по льду? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "кошки",
+     "Кошки"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие из этих вулканов — действующие?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Килауэа",
+     "is_correct": true
+    },
+    {
+     "text": "Этна",
+     "is_correct": true
+    },
+    {
+     "text": "Хан-Тенгри",
+     "is_correct": false
+    },
+    {
+     "text": "Эверест",
+     "is_correct": false
+    },
+    {
+     "text": "Ключевская Сопка",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "На сколько примерно градусов падает температура при подъёме на каждый километр?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 1,
+    "max": 15,
+    "step": 1,
+    "answer": 6,
+    "unit": "°C",
+    "tolerance": 1
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Как называется крупнейший ледник Кыргызстана у подножия пика Победы и Хан-Тенгри?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Балторо",
+     "is_correct": false
+    },
+    {
+     "text": "Алечский",
+     "is_correct": false
+    },
+    {
+     "text": "Федченко",
+     "is_correct": false
+    },
+    {
+     "text": "Южный Иныльчек",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  }
+ ]
+}

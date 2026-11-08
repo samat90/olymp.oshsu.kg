@@ -1,0 +1,703 @@
+{
+ "key": "stolicy",
+ "title": "Столицы и города мира",
+ "subject": "География",
+ "theme": "lake",
+ "description": "25 вопросов о столицах и знаменитых городах. Угадайте город по фото достопримечательности. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: в каком городе эта башня?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Benh LIEU SONG, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tour_Eiffel_Wikimedia_Commons_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лондон",
+     "is_correct": false
+    },
+    {
+     "text": "Берлин",
+     "is_correct": false
+    },
+    {
+     "text": "Рим",
+     "is_correct": false
+    },
+    {
+     "text": "Париж",
+     "is_correct": true
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой город на фото?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Christian David, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Elizabeth_Tower_and_the_north_front_of_the_Palace_of_Westminster,_London.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Нью-Йорк",
+     "is_correct": false
+    },
+    {
+     "text": "Лондон",
+     "is_correct": true
+    },
+    {
+     "text": "Прага",
+     "is_correct": false
+    },
+    {
+     "text": "Париж",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Столица Австралии — это…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Ловушка: Сидней больше и известнее, но столица — Канберра.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мельбурн",
+     "is_correct": false
+    },
+    {
+     "text": "Сидней",
+     "is_correct": false
+    },
+    {
+     "text": "Перт",
+     "is_correct": false
+    },
+    {
+     "text": "Канберра",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Где стоит статуя Христа-Искупителя?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Arne Müseler, CC BY-SA 3.0 de, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Christ_the_Redeemer_-_Cristo_Redentor.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лиссабон",
+     "is_correct": false
+    },
+    {
+     "text": "Буэнос-Айрес",
+     "is_correct": false
+    },
+    {
+     "text": "Рио-де-Жанейро",
+     "is_correct": true
+    },
+    {
+     "text": "Мехико",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Столица Турции — это…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Стамбул",
+     "is_correct": false
+    },
+    {
+     "text": "Анкара",
+     "is_correct": true
+    },
+    {
+     "text": "Измир",
+     "is_correct": false
+    },
+    {
+     "text": "Анталья",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В каком городе эта площадь и храм Василия Блаженного?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Tsy1980, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Saint_Basil%27s_Cathedral_in_Moscow.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Москва",
+     "is_correct": true
+    },
+    {
+     "text": "Минск",
+     "is_correct": false
+    },
+    {
+     "text": "Киев",
+     "is_correct": false
+    },
+    {
+     "text": "Санкт-Петербург",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Это самое высокое здание мира — Бурдж-Халифа. В каком оно городе?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: imran shahabuddin, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Burj_Khalifa_%28worlds_tallest_building%29_and_the_Dubai_skyline_%2825781049892%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Абу-Даби",
+     "is_correct": false
+    },
+    {
+     "text": "Эр-Рияд",
+     "is_correct": false
+    },
+    {
+     "text": "Дубай",
+     "is_correct": true
+    },
+    {
+     "text": "Доха",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Столица Казахстана — это…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Алматы",
+     "is_correct": false
+    },
+    {
+     "text": "Шымкент",
+     "is_correct": false
+    },
+    {
+     "text": "Астана",
+     "is_correct": true
+    },
+    {
+     "text": "Караганда",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая площадь в Бишкеке на фото — с флагом и Историческим музеем?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: t y l, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bishkek_P9170507_014_%2840103613941%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Победы",
+     "is_correct": false
+    },
+    {
+     "text": "Ала-Тоо",
+     "is_correct": true
+    },
+    {
+     "text": "Регистан",
+     "is_correct": false
+    },
+    {
+     "text": "Красная",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Где находится ансамбль Регистан?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Registan - Gusjer.jpg: Gustavo Jeronimo from Aranjuez, Spain derivative work: MrPanyGoff, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:RegistanSquare_Samarkand.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Самарканд",
+     "is_correct": true
+    },
+    {
+     "text": "Ташкент",
+     "is_correct": false
+    },
+    {
+     "text": "Бухара",
+     "is_correct": false
+    },
+    {
+     "text": "Хива",
+     "is_correct": false
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Нью-Йорк — столица США.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Столица США — Вашингтон.\n\n*Фото: AskALotl, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Front_view_of_Statue_of_Liberty_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": "q11.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой город стоит на двух континентах — в Европе и Азии?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Стамбул",
+     "is_correct": true
+    },
+    {
+     "text": "Москва",
+     "is_correct": false
+    },
+    {
+     "text": "Баку",
+     "is_correct": false
+    },
+    {
+     "text": "Каир",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие из этих городов — столицы?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Токио",
+     "is_correct": true
+    },
+    {
+     "text": "Пекин",
+     "is_correct": true
+    },
+    {
+     "text": "Шанхай",
+     "is_correct": false
+    },
+    {
+     "text": "Сеул",
+     "is_correct": true
+    },
+    {
+     "text": "Душанбе",
+     "is_correct": true
+    },
+    {
+     "text": "Осака",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой город называют «Вечным»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: FeaturedPics, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Colosseo_2020.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Париж",
+     "is_correct": false
+    },
+    {
+     "text": "Афины",
+     "is_correct": false
+    },
+    {
+     "text": "Рим",
+     "is_correct": true
+    },
+    {
+     "text": "Иерусалим",
+     "is_correct": false
+    }
+   ],
+   "image": "q14.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что это за мост — символ Сан-Франциско?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Frank Schulenburg, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Golden_Gate_Bridge_as_seen_from_Battery_East.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Золотые Ворота",
+     "is_correct": true
+    },
+    {
+     "text": "Мост Харбор-Бридж",
+     "is_correct": false
+    },
+    {
+     "text": "Бруклинский мост",
+     "is_correct": false
+    },
+    {
+     "text": "Тауэрский мост",
+     "is_correct": false
+    }
+   ],
+   "image": "q15.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "Сколько метров высота Эйфелевой башни (со шпилем)?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 100,
+    "max": 600,
+    "step": 10,
+    "answer": 330,
+    "unit": "м",
+    "tolerance": 20
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте города с запада на восток.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лондон",
+     "is_correct": false
+    },
+    {
+     "text": "Москва",
+     "is_correct": false
+    },
+    {
+     "text": "Бишкек",
+     "is_correct": false
+    },
+    {
+     "text": "Пекин",
+     "is_correct": false
+    },
+    {
+     "text": "Токио",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Столица Канады — это…",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Монреаль",
+     "is_correct": false
+    },
+    {
+     "text": "Торонто",
+     "is_correct": false
+    },
+    {
+     "text": "Ванкувер",
+     "is_correct": false
+    },
+    {
+     "text": "Оттава",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Этот оперный театр с «парусами» — символ какого города?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: BAVhah, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sydney_Opera_House_2026.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Окленд",
+     "is_correct": false
+    },
+    {
+     "text": "Сидней",
+     "is_correct": true
+    },
+    {
+     "text": "Мельбурн",
+     "is_correct": false
+    },
+    {
+     "text": "Канберра",
+     "is_correct": false
+    }
+   ],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: столица Кыргызстана.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "БИШКЕК"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой город Кыргызстана — один из древнейших, ему больше 3000 лет?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: A.Savin, FAL, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Osh_03-2016_img06_Sulayman_Mountain.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ош",
+     "is_correct": true
+    },
+    {
+     "text": "Каракол",
+     "is_correct": false
+    },
+    {
+     "text": "Нарын",
+     "is_correct": false
+    },
+    {
+     "text": "Бишкек",
+     "is_correct": false
+    }
+   ],
+   "image": "q21.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Город Каракол раньше назывался Пржевальск.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Столица Японии? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "Токио",
+     "токио"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие города стоят на реке Дунай?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Варшава",
+     "is_correct": false
+    },
+    {
+     "text": "Белград",
+     "is_correct": true
+    },
+    {
+     "text": "Париж",
+     "is_correct": false
+    },
+    {
+     "text": "Будапешт",
+     "is_correct": true
+    },
+    {
+     "text": "Братислава",
+     "is_correct": true
+    },
+    {
+     "text": "Вена",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Какая столица — самая высокогорная в мире?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Правительство Боливии сидит в Ла-Пасе на высоте около 3600 м.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кито",
+     "is_correct": false
+    },
+    {
+     "text": "Катманду",
+     "is_correct": false
+    },
+    {
+     "text": "Бишкек",
+     "is_correct": false
+    },
+    {
+     "text": "Ла-Пас (Боливия)",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  }
+ ]
+}

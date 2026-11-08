@@ -1,0 +1,691 @@
+{
+ "key": "kuhni",
+ "title": "Кухни мира",
+ "subject": "Кухня",
+ "theme": "felt",
+ "description": "25 вопросов о еде разных стран: угадайте блюдо по фото и узнайте, откуда оно родом. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: какое блюдо на фото?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Pannet, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:%D0%91%D0%B5%D1%88%D0%B1%D0%B0%D1%80%D0%BC%D0%B0%D0%BA_%D0%B8%D0%B7_%D0%B3%D0%BE%D0%B2%D1%8F%D0%B4%D0%B8%D0%BD%D1%8B_01.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лагман",
+     "is_correct": false
+    },
+    {
+     "text": "Бешбармак",
+     "is_correct": true
+    },
+    {
+     "text": "Манты",
+     "is_correct": false
+    },
+    {
+     "text": "Плов",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "А это блюдо — с тянутой лапшой и подливой?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Армен Авакян, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:%D0%9B%D0%B0%D0%B3%D0%BC%D0%B0%D0%BD.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Рамен",
+     "is_correct": false
+    },
+    {
+     "text": "Лагман",
+     "is_correct": true
+    },
+    {
+     "text": "Спагетти",
+     "is_correct": false
+    },
+    {
+     "text": "Пад-тай",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Из какой страны пицца?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: igorovsyannykov, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Pizza-3007395.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Франция",
+     "is_correct": false
+    },
+    {
+     "text": "США",
+     "is_correct": false
+    },
+    {
+     "text": "Греция",
+     "is_correct": false
+    },
+    {
+     "text": "Италия",
+     "is_correct": true
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется японское блюдо из риса и сырой рыбы?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: chidorian from Japan, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sushi_platter.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Суши",
+     "is_correct": true
+    },
+    {
+     "text": "Мисо",
+     "is_correct": false
+    },
+    {
+     "text": "Темпура",
+     "is_correct": false
+    },
+    {
+     "text": "Рамен",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что на фото?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Peretz Partensky from San Francisco, USA, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Manty_%283968046229%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Манты",
+     "is_correct": true
+    },
+    {
+     "text": "Пельмени",
+     "is_correct": false
+    },
+    {
+     "text": "Хинкали",
+     "is_correct": false
+    },
+    {
+     "text": "Дим-самы",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Из какой страны тако и буррито?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Larry Miller, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:001_Tacos_de_carnitas,_carne_asada_y_al_pastor.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Аргентина",
+     "is_correct": false
+    },
+    {
+     "text": "Бразилия",
+     "is_correct": false
+    },
+    {
+     "text": "Мексика",
+     "is_correct": true
+    },
+    {
+     "text": "Испания",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется холодный испанский суп из помидоров?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Окрошка",
+     "is_correct": false
+    },
+    {
+     "text": "Минестроне",
+     "is_correct": false
+    },
+    {
+     "text": "Борщ",
+     "is_correct": false
+    },
+    {
+     "text": "Гаспачо",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Круассан — национальная выпечка Франции, но придумали его, по легенде, в Австрии.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "*Фото: Petr Kratochvil, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Croissant-Petr_Kratochvil.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется кыргызское блюдо из жареного мяса с субпродуктами?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Куурдак",
+     "is_correct": true
+    },
+    {
+     "text": "Чучук",
+     "is_correct": false
+    },
+    {
+     "text": "Самса",
+     "is_correct": false
+    },
+    {
+     "text": "Ашлянфу",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Ашлянфу — холодное острое блюдо. В каком городе Кыргызстана им особенно славятся?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Каракол",
+     "is_correct": true
+    },
+    {
+     "text": "Талас",
+     "is_correct": false
+    },
+    {
+     "text": "Ош",
+     "is_correct": false
+    },
+    {
+     "text": "Нарын",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие блюда — итальянские?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Паэлья",
+     "is_correct": false
+    },
+    {
+     "text": "Ризотто",
+     "is_correct": true
+    },
+    {
+     "text": "Паста карбонара",
+     "is_correct": true
+    },
+    {
+     "text": "Фалафель",
+     "is_correct": false
+    },
+    {
+     "text": "Лазанья",
+     "is_correct": true
+    },
+    {
+     "text": "Тирамису",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что на фото — испанское блюдо с рисом и морепродуктами?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Jan Harenburg, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:01_Paella_Valenciana_original.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ризотто",
+     "is_correct": false
+    },
+    {
+     "text": "Паэлья",
+     "is_correct": true
+    },
+    {
+     "text": "Бирьяни",
+     "is_correct": false
+    },
+    {
+     "text": "Плов",
+     "is_correct": false
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Откуда родом пельмени-«дамплинги» в виде полумесяца — цзяоцзы?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Yeepunchmen, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:%E5%8F%B0%E7%81%A3%E5%8D%97%E6%8A%95%E8%8D%89%E5%B1%AF%E6%B0%B4%E9%A4%83Nantou,_Taiwan_Caotun_dumplings.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Вьетнам",
+     "is_correct": false
+    },
+    {
+     "text": "Корея",
+     "is_correct": false
+    },
+    {
+     "text": "Китай",
+     "is_correct": true
+    },
+    {
+     "text": "Япония",
+     "is_correct": false
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется лепёшка из тандыра?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Moonsun1981, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Az_Tandoor_e-citizen.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тортилья",
+     "is_correct": false
+    },
+    {
+     "text": "Пита",
+     "is_correct": false
+    },
+    {
+     "text": "Лаваш",
+     "is_correct": false
+    },
+    {
+     "text": "Нан (тандыр нан)",
+     "is_correct": true
+    }
+   ],
+   "image": "q14.jpg"
+  },
+  {
+   "type": "order",
+   "text": "Соберите плов по шагам, как его делают в казане.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Раскалить масло",
+     "is_correct": false
+    },
+    {
+     "text": "Обжарить мясо",
+     "is_correct": false
+    },
+    {
+     "text": "Добавить лук и морковь",
+     "is_correct": false
+    },
+    {
+     "text": "Засыпать рис и залить водой",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что на фото?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Vidor, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Boortsog.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пончики",
+     "is_correct": false
+    },
+    {
+     "text": "Боорсок",
+     "is_correct": true
+    },
+    {
+     "text": "Хворост",
+     "is_correct": false
+    },
+    {
+     "text": "Чак-чак",
+     "is_correct": false
+    }
+   ],
+   "image": "q16.jpg"
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: кыргызский кисломолочный напиток из кобыльего молока.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "КЫМЫЗ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Из какой страны блюдо фо — суп с рисовой лапшой?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: SerraKnightz, CC BY 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bowl_of_Meatball_pho.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Корея",
+     "is_correct": false
+    },
+    {
+     "text": "Таиланд",
+     "is_correct": false
+    },
+    {
+     "text": "Китай",
+     "is_correct": false
+    },
+    {
+     "text": "Вьетнам",
+     "is_correct": true
+    }
+   ],
+   "image": "q18.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "При какой температуре (°C) кипит вода на уровне моря?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 50,
+    "max": 150,
+    "step": 1,
+    "answer": 100,
+    "unit": "°C",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "В горах вода кипит при более высокой температуре, чем на уровне моря.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Наоборот: в горах давление ниже, и вода кипит раньше, около 90 °C на 3000 м.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое блюдо — «визитная карточка» Кореи из квашеной капусты?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: 국립국어원, CC BY-SA 2.0 kr, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Various_kimchi.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Токпокки",
+     "is_correct": false
+    },
+    {
+     "text": "Пулькоги",
+     "is_correct": false
+    },
+    {
+     "text": "Кимчи",
+     "is_correct": true
+    },
+    {
+     "text": "Бибимбап",
+     "is_correct": false
+    }
+   ],
+   "image": "q21.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой сыр делают кочевники, сушат шариками на солнце?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Adam Harangozó, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kurt_in_Osh_market.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сулугуни",
+     "is_correct": false
+    },
+    {
+     "text": "Брынза",
+     "is_correct": false
+    },
+    {
+     "text": "Курут",
+     "is_correct": true
+    },
+    {
+     "text": "Моцарелла",
+     "is_correct": false
+    }
+   ],
+   "image": "q22.jpg"
+  },
+  {
+   "type": "text",
+   "text": "Как называется индийская смесь пряностей, жёлтый соус? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "карри",
+     "Карри"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Что едят палочками в Китае, Японии и Корее?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Суши",
+     "is_correct": true
+    },
+    {
+     "text": "Рис",
+     "is_correct": true
+    },
+    {
+     "text": "Лапшу",
+     "is_correct": true
+    },
+    {
+     "text": "Суп без лапши, только палочками",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Из какой страны родом хумус?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: Beyrouthhh at English Wikipedia, CC BY 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lebanese_style_hummus.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "С Ближнего Востока (Левант)",
+     "is_correct": true
+    },
+    {
+     "text": "Греция",
+     "is_correct": false
+    },
+    {
+     "text": "Мексика",
+     "is_correct": false
+    },
+    {
+     "text": "Индия",
+     "is_correct": false
+    }
+   ],
+   "image": "q25.jpg"
+  }
+ ]
+}
