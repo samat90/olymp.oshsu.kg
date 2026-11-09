@@ -1,3 +1,4 @@
+import json
 import os
 import shutil
 import tempfile
@@ -39,7 +40,8 @@ class LoadQuizzesTest(TestCase):
         for quiz in Quiz.objects.all():
             self.assertEqual(quiz.access, Quiz.PUBLIC)
             self.assertTrue(quiz.cover)
-            self.assertEqual(quiz.questions.count(), 50 if quiz.key == 'english50' else 30)
+            with open(os.path.join(DEFAULT_DIR, quiz.key, 'quiz.json'), encoding='utf-8') as f:
+                self.assertEqual(quiz.questions.count(), len(json.load(f)['questions']), quiz.key)
         for question in QuizQuestion.objects.prefetch_related('options'):
             key = build_key(question)
             if question.type in ('single', 'code', 'truefalse'):
