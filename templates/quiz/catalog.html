@@ -89,7 +89,7 @@
             {% endfor %}
         </div>
         {% if page.paginator.num_pages > 1 %}
-            <nav class="qz-pages" data-infinite="#qz-cards" aria-label="{{ _('Страницы') }}">
+            <div class="qz-pages" role="navigation" data-infinite="#qz-cards" aria-label="{{ _('Страницы') }}">
                 {% if page.has_previous() %}<a href="{{ page_link(page.previous_page_number()) }}">&larr;</a>{% endif %}
                 {% for n in page.paginator.page_range %}
                     {% if n == page.number %}<span class="qz-on">{{ n }}</span>
@@ -97,7 +97,7 @@
                     {% elif n == 3 or n == page.paginator.num_pages - 2 %}<span>…</span>{% endif %}
                 {% endfor %}
                 {% if page.has_next() %}<a rel="next" href="{{ page_link(page.next_page_number()) }}">&rarr;</a>{% endif %}
-            </nav>
+            </div>
         {% endif %}
     {% else %}
         <div class="qz-empty">
