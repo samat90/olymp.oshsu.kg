@@ -31,7 +31,31 @@
             var box = n.querySelector && n.querySelector('input.action-select');
             if (box) { box.checked = true; n.classList.add('selected'); }
         });
+        if (toggle) admin_sync(toggle, false);
         document.dispatchEvent(new CustomEvent('infinite:append', {detail: {list: list, nodes: nodes}}));
+    }
+
+    // Django admin knows only the rows it was rendered with: "select all" and the counter
+    // are brought up to date for the rows added later (runs after Django's own handlers).
+    function admin_sync(toggle, from_toggle) {
+        var boxes = document.querySelectorAll('#result_list tbody input.action-select');
+        if (from_toggle) Array.prototype.forEach.call(boxes, function (b) {
+            b.checked = toggle.checked;
+            b.closest('tr').classList.toggle('selected', toggle.checked);
+        });
+        var sel = Array.prototype.filter.call(boxes, function (b) { return b.checked; }).length;
+        var counter = document.querySelector('.actions .action-counter');
+        if (counter && window.interpolate && window.ngettext) {
+            counter.setAttribute('data-actions-icnt', boxes.length);
+            counter.textContent = interpolate(ngettext('%(sel)s of %(cnt)s selected', '%(sel)s of %(cnt)s selected', sel),
+                {sel: sel, cnt: boxes.length}, true);
+        }
+        toggle.checked = !!boxes.length && sel === boxes.length;
+        if (!toggle.checked) {
+            Array.prototype.forEach.call(document.querySelectorAll('.actions input.select-across'), function (i) { i.value = 0; });
+            Array.prototype.forEach.call(document.querySelectorAll('.actions .question, .actions .all, .actions .clear'),
+                function (el) { el.style.display = 'none'; });
+        }
     }
 
     function setup(pager, selector) {
@@ -135,12 +159,27 @@
             setup(pager, pager.getAttribute('data-infinite'));
         });
         // Django admin: not for editable lists, their form counts the rows it was rendered with.
-        var admin = document.querySelector('#changelist p.paginator');
+        // The theme shows the paginator above and below the list: rows are loaded at the lower one.
+        var pagers = document.querySelectorAll('#changelist p.paginator');
+        var admin = pagers[pagers.length - 1];
         if (admin && document.querySelector('#result_list tbody') &&
             !document.querySelector('#changelist-form input[name$="TOTAL_FORMS"]')) {
             setup(admin, '#result_list tbody');
-            Array.prototype.forEach.call(admin.childNodes, function (n) {
-                if (n.nodeType === 3 && /…|\.\.\./.test(n.nodeValue)) n.nodeValue = n.nodeValue.replace(/…|\.\.\./g, '');
+            if (!admin.classList.contains('inf-admin')) return;
+            Array.prototype.forEach.call(pagers, function (p) {
+                p.classList.add('inf-admin');
+                Array.prototype.forEach.call(p.childNodes, function (n) {
+                    if (n.nodeType === 3 && /…|\.\.\./.test(n.nodeValue)) n.nodeValue = n.nodeValue.replace(/…|\.\.\./g, '');
+                });
+            });
+            document.addEventListener('click', function (e) {
+                if (e.target && e.target.id === 'action-toggle') admin_sync(e.target, true);
+            });
+            document.addEventListener('change', function (e) {
+                var toggle = document.getElementById('action-toggle');
+                if (toggle && e.target && e.target.classList && e.target.classList.contains('action-select')) {
+                    admin_sync(toggle, false);
+                }
             });
         }
     }

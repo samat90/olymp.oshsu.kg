@@ -104,7 +104,7 @@ def _compute_static_version():
                  os.path.join(settings.BASE_DIR, 'resources')):
         if not root or not os.path.isdir(root):
             continue
-        paths = [os.path.join(root, name) for name in ('style.css', 'modern.css', 'common.js')]
+        paths = [os.path.join(root, name) for name in ('style.css', 'modern.css', 'common.js', 'infinite-scroll.js')]
         editor = os.path.join(root, 'editor')
         if os.path.isdir(editor):
             paths += [os.path.join(editor, name) for name in os.listdir(editor)]

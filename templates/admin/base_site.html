@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extrahead %}{{ block.super }}
-    <script src="{% static 'infinite-scroll.js' %}" defer></script>
+    <script src="{% static 'infinite-scroll.js' %}?v={{ STATIC_VERSION }}" defer></script>
     <script>
         // Sync admin dark mode with main site preference (oshsu-theme localStorage).
         (function() {
@@ -22,6 +22,8 @@
         {% csrf_token %}
     </form>
     <script>
+        // The admin theme still calls the old jQuery actions plugin; Django's actions.js starts by itself.
+        if (window.django && django.jQuery && !django.jQuery.fn.actions) django.jQuery.fn.actions = function () { return this; };
         // The login page has no django.jQuery.
         window.django && django.jQuery && django.jQuery(function ($) {
             $(document).on('click', '.action-link', function () {

@@ -627,6 +627,9 @@ DMOJ_RUNNER_SECRET_FILE = None
 # Admin URL prefix — override in local_settings.py for security through obscurity.
 ADMIN_URL_PREFIX = 'admin'
 
+# Admin lists load more rows while scrolling, so one action may carry a few thousand selected rows.
+DATA_UPLOAD_MAX_NUMBER_FIELDS = 20000
+
 try:
     with open(os.path.join(os.path.dirname(__file__), 'local_settings.py'), encoding='utf-8') as f:
         exec(f.read(), globals())
