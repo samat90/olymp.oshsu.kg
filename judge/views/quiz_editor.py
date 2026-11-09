@@ -1,13 +1,17 @@
 """Quiz editor: creating, editing, copying and deleting quizzes; a JSON API for the editor page."""
 import copy
 import json
+import logging
+import random
 import secrets
+import threading
 from functools import wraps
 from types import SimpleNamespace
 
 from django.contrib.auth.decorators import login_required
+from django.core.cache import cache
 from django.core.exceptions import PermissionDenied
-from django.db import transaction
+from django.db import close_old_connections, transaction
 from django.db.models import Max
 from django.http import Http404, HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
@@ -18,7 +22,7 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from django.views.decorators.http import require_POST
 
 from judge.models import Quiz, QuizOption, QuizQuestion
-from judge.utils import quiz_images as images
+from judge.utils import quiz_ai, quiz_images as images
 from judge.utils.quiz_images import ImageError
 from judge.utils.quiz_import import LANGUAGES, MAX_QUESTIONS, QuestionError, clean_question, problems, read_rows, \
     template_bytes
@@ -26,7 +30,7 @@ from judge.utils.quiz_import import LANGUAGES, MAX_QUESTIONS, QuestionError, cle
 MAX_QUIZZES = 50
 KEY_ALPHABET = 'abcdefghijklmnopqrstuvwxyz0123456789'
 RESERVED_KEYS = {'my', 'join', 'new', 'qr', 'g', 'game', 'import-template', 'edit', 'api', 'copy', 'delete',
-                 'launch', 'solo', 'records', 'complain', 'static', 'admin'}
+                 'launch', 'solo', 'records', 'complain', 'static', 'admin', 'ai'}
 NEW_TITLE = 'Новая викторина'
 
 
@@ -468,3 +472,120 @@ def api_import(request, quiz):
         touch(quiz)
     return JsonResponse({'added': added, 'errors': errors,
                          'questions': [question_dict(q) for q in questions_of(quiz)]})
+
+
+# ---------------------------------------------------------------- quizzes written by AI
+
+logger = logging.getLogger('judge.quiz_ai')
+AI_LEVELS = ('easy', 'medium', 'hard')
+AI_LANGUAGES = ('ru', 'ky', 'en')
+AI_COUNTS = (5, 10, 15, 20, 25, 30)
+AI_ERRORS = {
+    'failed': _l('ИИ сейчас не отвечает. Попробуйте ещё раз через минуту.'),
+    'limit': _l('Лимит на сегодня исчерпан, попробуйте завтра.'),
+    'lost': _l('Генерация прервалась. Попробуйте ещё раз.'),
+}
+
+
+def ai_limit(name, misc_key, default):
+    try:
+        return int(quiz_ai.config(name, misc_key, str(default)))
+    except ValueError:
+        return default
+
+
+def ai_take_quota(request):
+    """Count one generation for the user and the site today; False when a daily limit is reached."""
+    day = timezone.localdate().isoformat()
+    keys = [('qz:ai:site:' + day, ai_limit('QUIZ_AI_SITE_LIMIT', 'ai_site_limit', 200))]
+    if not request.user.is_superuser:
+        keys.append(('qz:ai:user:%d:%s' % (request.profile.id, day),
+                     ai_limit('QUIZ_AI_USER_LIMIT', 'ai_user_limit', 10)))
+    for key, limit in keys:
+        cache.add(key, 0, 2 * 86400)
+        if cache.get(key, 0) >= limit:
+            return False
+    for key, _limit in keys:
+        try:
+            cache.incr(key)
+        except ValueError:
+            cache.set(key, 1, 2 * 86400)
+    return True
+
+
+def save_ai_quiz(profile_id, result):
+    with transaction.atomic():
+        quiz = Quiz.objects.create(
+            author_id=profile_id, title=result['title'] or _(NEW_TITLE), description=result['description'],
+            subject=result['subject'], theme=random.choice([code for code, _name in Quiz.THEMES]),
+            access=Quiz.LINK, key=new_key())
+        for order, (fields, options) in enumerate(result['questions']):
+            question = QuizQuestion.objects.create(quiz=quiz, order=order, **fields)
+            QuizOption.objects.bulk_create([QuizOption(question=question, order=i, text=o['text'],
+                                                       is_correct=o['is_correct']) for i, o in enumerate(options)])
+    return quiz
+
+
+def run_ai_job(job, profile_id, params):
+    """Runs in a thread: the request has already answered, the page asks ai_status every few seconds."""
+    key = 'qz:ai:job:' + job
+    close_old_connections()
+    try:
+        quiz = save_ai_quiz(profile_id, quiz_ai.generate(**params))
+        cache.set(key, {'profile': profile_id, 'status': 'done', 'key': quiz.key}, 3600)
+    except quiz_ai.AIError:
+        cache.set(key, {'profile': profile_id, 'status': 'error', 'error': 'failed'}, 3600)
+    except Exception:
+        logger.exception('quiz AI job failed')
+        cache.set(key, {'profile': profile_id, 'status': 'error', 'error': 'failed'}, 3600)
+    finally:
+        cache.delete('qz:ai:busy:%d' % profile_id)
+        close_old_connections()
+
+
+@login_required
+@require_POST
+def ai_start(request):
+    """{topic, details, count, language, level} → {job}; the quiz is written in the background."""
+    try:
+        body = read_json(request)
+    except QuestionError as e:
+        return json_error(str(e))
+    topic = ' '.join(str(body.get('topic') or '').split())[:200]
+    details = str(body.get('details') or '').strip()[:1000]
+    if not topic:
+        return json_error(_('Напишите тему'), field='topic')
+    try:
+        count = int(body.get('count') or 10)
+    except (TypeError, ValueError):
+        count = 10
+    count = min(AI_COUNTS, key=lambda c: abs(c - count))
+    language = body.get('language') if body.get('language') in AI_LANGUAGES else 'ru'
+    level = body.get('level') if body.get('level') in AI_LEVELS else 'medium'
+    if not quiz_ai.is_configured():
+        return json_error(_('ИИ пока не подключён. Обратитесь к администратору.'), 503)
+    if quiz_limit_reached(request):
+        return json_error(_('У вас уже %d викторин. Удалите ненужные, чтобы создать новую.') % MAX_QUIZZES)
+    busy = 'qz:ai:busy:%d' % request.profile.id
+    if not cache.add(busy, 1, 300):
+        return json_error(_('Предыдущая викторина ещё создаётся, подождите.'), 429)
+    if not ai_take_quota(request):
+        cache.delete(busy)
+        return json_error(str(AI_ERRORS['limit']), 429)
+    job = secrets.token_urlsafe(12)
+    cache.set('qz:ai:job:' + job, {'profile': request.profile.id, 'status': 'running'}, 3600)
+    params = {'topic': topic, 'details': details, 'count': count, 'language': language, 'level': level}
+    threading.Thread(target=run_ai_job, args=(job, request.profile.id, params), daemon=True).start()
+    return JsonResponse({'job': job, 'status': reverse('quiz_ai_status', args=[job])})
+
+
+@login_required
+def ai_status(request, job):
+    state = cache.get('qz:ai:job:' + job)
+    if not state or state.get('profile') != request.profile.id:
+        return JsonResponse({'status': 'error', 'error': str(AI_ERRORS['lost'])})
+    if state['status'] == 'done':
+        return JsonResponse({'status': 'done', 'url': reverse('quiz_edit', args=[state['key']])})
+    if state['status'] == 'error':
+        return JsonResponse({'status': 'error', 'error': str(AI_ERRORS.get(state.get('error'), AI_ERRORS['failed']))})
+    return JsonResponse({'status': 'running'})

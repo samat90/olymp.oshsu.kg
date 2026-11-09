@@ -1,0 +1,94 @@
+{# «Создать с ИИ»: the button opens this dialog; the quiz is written on the server and opens in the editor. #}
+<dialog class="qz-ai" id="qz-ai" aria-labelledby="qz-ai-title">
+    <form class="qz-ai-form" method="dialog" novalidate>
+        {% csrf_token %}
+        <h2 class="qz-h2" id="qz-ai-title"><i class="fa fa-magic"></i> {{ _('Создать с ИИ') }}</h2>
+        <label class="qz-ai-label" for="qz-ai-topic">{{ _('Тема') }}</label>
+        <input class="qz-input" id="qz-ai-topic" name="topic" maxlength="200" required autocomplete="off"
+               placeholder="{{ _('Например: эпос «Манас», дроби, циклы в Python') }}">
+        <label class="qz-ai-label" for="qz-ai-details"><span>{{ _('Подробности') }} <span class="qz-muted">{{ _('(необязательно)') }}</span></span></label>
+        <textarea class="qz-input" id="qz-ai-details" name="details" rows="2" maxlength="1000"
+                  placeholder="{{ _('Класс или курс, направление, что важно') }}"></textarea>
+        <div class="qz-ai-grid">
+            <label class="qz-ai-label">{{ _('Вопросов') }}
+                <select class="qz-input" name="count">
+                    {% for n in (5, 10, 15, 20, 25, 30) %}<option value="{{ n }}"{% if n == 10 %} selected{% endif %}>{{ n }}</option>{% endfor %}
+                </select>
+            </label>
+            <label class="qz-ai-label">{{ _('Сложность') }}
+                <select class="qz-input" name="level">
+                    <option value="easy">{{ _('Лёгкая') }}</option>
+                    <option value="medium" selected>{{ _('Средняя') }}</option>
+                    <option value="hard">{{ _('Сложная') }}</option>
+                </select>
+            </label>
+            <label class="qz-ai-label">{{ _('Язык') }}
+                <select class="qz-input" name="language">
+                    <option value="ru"{% if LANGUAGE_CODE not in ('ky', 'en') %} selected{% endif %}>Русский</option>
+                    <option value="ky"{% if LANGUAGE_CODE == 'ky' %} selected{% endif %}>Кыргызча</option>
+                    <option value="en"{% if LANGUAGE_CODE == 'en' %} selected{% endif %}>English</option>
+                </select>
+            </label>
+        </div>
+        <p class="qz-muted qz-small">{{ _('Викторина откроется в редакторе с доступом «По ссылке». Проверьте ответы, добавьте картинки и откройте её для всех.') }}</p>
+        <p class="qz-ai-status" id="qz-ai-status" role="status" hidden></p>
+        <div class="qz-actions">
+            <button type="button" class="qz-btn" value="cancel" id="qz-ai-cancel">{{ _('Отмена') }}</button>
+            <button type="submit" class="qz-btn qz-btn-accent" id="qz-ai-go"><i class="fa fa-magic"></i> {{ _('Сгенерировать') }}</button>
+        </div>
+    </form>
+</dialog>
+<script>
+(function () {
+    var dialog = document.getElementById('qz-ai'), form = dialog.querySelector('form'),
+        status = document.getElementById('qz-ai-status'), go = document.getElementById('qz-ai-go'), working = false;
+    var T = {wait: {{ _('ИИ сочиняет вопросы… Обычно это занимает до минуты.')|tojson }},
+             topic: {{ _('Напишите тему')|tojson }}, net: {{ _('Нет связи с сайтом. Попробуйте ещё раз.')|tojson }},
+             slow: {{ _('Генерация прервалась. Попробуйте ещё раз.')|tojson }}};
+    function csrf() {
+        var m = document.cookie.match(/(?:^|;\s*)csrftoken=([^;]+)/);
+        return m ? decodeURIComponent(m[1]) : form.csrfmiddlewaretoken.value;
+    }
+    function show(text, error) {
+        status.hidden = !text; status.textContent = text || '';
+        status.classList.toggle('qz-ai-error', !!error);
+    }
+    function busy(on) {
+        working = on; go.disabled = on;
+        Array.prototype.forEach.call(form.elements, function (el) { if (el.id !== 'qz-ai-cancel') el.disabled = on; });
+        dialog.classList.toggle('qz-ai-busy', on);
+    }
+    function fail(text) { busy(false); show(text, true); }
+    function poll(url, started) {
+        if (!dialog.open) return busy(false);
+        if (Date.now() - started > 330000) return fail(T.slow);
+        setTimeout(function () {
+            fetch(url, {credentials: 'same-origin', cache: 'no-store'}).then(function (r) { return r.json(); }).then(function (d) {
+                if (d.status === 'done') { location.href = d.url; return; }
+                if (d.status === 'error') return fail(d.error);
+                poll(url, started);
+            }).catch(function () { poll(url, started); });
+        }, 3000);
+    }
+    document.addEventListener('click', function (e) {
+        if (e.target.closest('[data-qz-ai]')) { e.preventDefault(); show(''); dialog.showModal(); form.topic.focus(); }
+    });
+    document.getElementById('qz-ai-cancel').addEventListener('click', function () { dialog.close(); });
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        e.stopImmediatePropagation();  // common.js would disable every submit button on the page for good
+        if (working) return;
+        var topic = form.topic.value.trim();
+        if (!topic) { show(T.topic, true); form.topic.focus(); return; }
+        var body = {topic: topic, details: form.details.value, count: +form.count.value,
+                    level: form.level.value, language: form.language.value};
+        busy(true); show(T.wait);
+        fetch({{ url('quiz_ai_start')|tojson }}, {method: 'POST', credentials: 'same-origin',
+              headers: {'Content-Type': 'application/json', 'X-CSRFToken': csrf()}, body: JSON.stringify(body)})
+            .then(function (r) { return r.json(); }).then(function (d) {
+                if (d.error) return fail(d.error);
+                poll(d.status, Date.now());
+            }).catch(function () { fail(T.net); });
+    });
+})();
+</script>

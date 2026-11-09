@@ -8142,3 +8142,70 @@ msgstr " · questions: "
 
 msgid "Новая викторина"
 msgstr "New quiz"
+
+# AI quiz generator
+msgid "Создать с ИИ"
+msgstr "Create with AI"
+
+msgid "Тема"
+msgstr "Topic"
+
+msgid "Например: эпос «Манас», дроби, циклы в Python"
+msgstr "For example: the Manas epic, fractions, loops in Python"
+
+msgid "Подробности"
+msgstr "Details"
+
+msgid "(необязательно)"
+msgstr "(optional)"
+
+msgid "Класс или курс, направление, что важно"
+msgstr "Grade or year, field, what matters"
+
+msgid "Вопросов"
+msgstr "Questions"
+
+msgid "Сложность"
+msgstr "Difficulty"
+
+msgid "Лёгкая"
+msgstr "Easy"
+
+msgid "Средняя"
+msgstr "Medium"
+
+msgid "Сложная"
+msgstr "Hard"
+
+msgid "Викторина откроется в редакторе с доступом «По ссылке». Проверьте ответы, добавьте картинки и откройте её для всех."
+msgstr "The quiz opens in the editor with “By link” access. Check the answers, add pictures and then open it to everyone."
+
+msgid "Отмена"
+msgstr "Cancel"
+
+msgid "Сгенерировать"
+msgstr "Generate"
+
+msgid "ИИ сочиняет вопросы… Обычно это занимает до минуты."
+msgstr "The AI is writing the questions… This usually takes up to a minute."
+
+msgid "Напишите тему"
+msgstr "Enter a topic"
+
+msgid "Нет связи с сайтом. Попробуйте ещё раз."
+msgstr "No connection to the site. Please try again."
+
+msgid "Генерация прервалась. Попробуйте ещё раз."
+msgstr "Generation was interrupted. Please try again."
+
+msgid "ИИ сейчас не отвечает. Попробуйте ещё раз через минуту."
+msgstr "The AI is not responding right now. Try again in a minute."
+
+msgid "Лимит на сегодня исчерпан, попробуйте завтра."
+msgstr "Today's limit is used up, try again tomorrow."
+
+msgid "ИИ пока не подключён. Обратитесь к администратору."
+msgstr "AI is not connected yet. Contact the administrator."
+
+msgid "Предыдущая викторина ещё создаётся, подождите."
+msgstr "Your previous quiz is still being created, please wait."

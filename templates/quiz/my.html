@@ -25,6 +25,7 @@
         <span class="qz-spacer"></span>
         <a class="qz-btn" href="{{ url('quiz_join') }}"><i class="fa fa-sign-in"></i> {{ _('Войти по PIN') }}</a>
         <a class="qz-btn qz-btn-primary" href="{{ url('quiz_new') }}"><i class="fa fa-plus"></i> {{ _('Создать викторину') }}</a>
+        <button type="button" class="qz-btn qz-btn-accent" data-qz-ai><i class="fa fa-magic"></i> {{ _('Создать с ИИ') }}</button>
     </div>
 
     {% if quizzes %}
@@ -106,4 +107,5 @@
         <p class="qz-muted">{{ _('Пока нет.') }}</p>
     {% endif %}
 </div>
+{% include 'quiz/ai_dialog.html' %}
 {% endblock %}

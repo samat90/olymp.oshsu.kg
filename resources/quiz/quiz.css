@@ -716,3 +716,23 @@ button.qz-btn-accent:hover, button.qz-btn-accent:focus { background: #0a6b64; }
 .qz-btn.qz-btn-danger { color: #c4366a !important; border-color: rgba(196, 54, 106, .45); }
 .qz-btn.qz-btn-danger:hover { background: #c4366a !important; color: #fff !important; border-color: #c4366a; }
 .qz-delete-form { display: inline; margin: 0; }
+
+/* ---------- «Создать с ИИ» dialog ---------- */
+.qz-ai { box-sizing: border-box; width: min(560px, calc(100vw - 32px)); max-height: calc(100vh - 32px); padding: 0; border: 1px solid var(--ui-border);
+    border-radius: 16px; background: var(--ui-surface, #fff); color: var(--ui-text, #1b2430); box-shadow: 0 20px 60px rgba(0, 0, 0, .3); }
+.qz-ai::backdrop { background: rgba(10, 14, 22, .55); }
+.qz-ai-form { display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; }
+.qz-ai-form .qz-h2 { margin: 0 0 8px; }
+.qz-ai-form .fa-magic { color: #0b7a72; }
+.qz-ai-form .qz-btn .fa-magic { color: inherit; }
+.qz-ai-label { display: flex; flex-direction: column; gap: 4px; margin-top: 6px; font-weight: 600; font-size: 14px; }
+.qz-ai-label .qz-muted { font-weight: 400; }
+.qz-ai-form .qz-input { width: 100%; }
+.qz-ai-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.qz-ai-status { margin: 4px 0 0; padding: 10px 12px; border-radius: 10px; background: var(--qz-soft, #f0f3f7); font-weight: 600; }
+.qz-ai-busy .qz-ai-status::before { content: ''; display: inline-block; width: 14px; height: 14px; margin-right: 8px; vertical-align: -2px;
+    border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: qz-ai-spin .8s linear infinite; }
+.qz-ai-status.qz-ai-error { background: rgba(201, 58, 82, .12); color: var(--qz-bad, #c93a52); }
+.qz-ai .qz-actions { justify-content: flex-end; }
+@keyframes qz-ai-spin { to { transform: rotate(360deg); } }
+@media (max-width: 520px) { .qz-ai-grid { grid-template-columns: 1fr 1fr; } .qz-ai-form { padding: 16px; } }
