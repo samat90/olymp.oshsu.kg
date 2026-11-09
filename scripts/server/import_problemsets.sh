@@ -20,6 +20,8 @@ JWORK=${OLYMP_PROBLEMSET_JUDGE_WORK:-/home/admin/problemsets-build}
 AUTHOR=${OLYMP_PROBLEMSET_AUTHOR:-samat1}
 BUDGET=${OLYMP_PROBLEMSET_BUDGET:-1200}  # seconds per run
 BUILD_TIMEOUT=${OLYMP_PROBLEMSET_BUILD_TIMEOUT:-1500}  # seconds for the tests of one problem
+# Memory for one build (the judge has 4 GB; a runaway generator once made the kernel kill processes there).
+BUILD_MEMORY_KB=${OLYMP_PROBLEMSET_BUILD_MEMORY_KB:-2000000}
 START=$(date +%s)
 
 log() { echo "[$(date +%H:%M:%S)] problemsets: $*"; }
@@ -62,7 +64,7 @@ for d in sorted(os.listdir(src)):
         log "$set/$d: generating the tests on the judge"
         # A build that hangs must not hold the auto-deploy forever: it is stopped after BUILD_TIMEOUT and the
         # problem is marked as failed (delete $WORK/$set.$d.failed to try it again).
-        if ! $SSH "$JUDGE" "cd '$JWORK/$set' && timeout -k 30 $BUILD_TIMEOUT python3 build.py $d --no-stress --no-brute > build-$d.log 2>&1"; then
+        if ! $SSH "$JUDGE" "cd '$JWORK/$set' && ulimit -v $BUILD_MEMORY_KB; timeout -k 30 $BUILD_TIMEOUT python3 build.py $d --no-stress --no-brute > build-$d.log 2>&1"; then
             log "$set/$d: not built: $($SSH "$JUDGE" "tail -c 300 '$JWORK/$set/build-$d.log'")"
             touch "$WORK/$set.$d.failed"; status=1; continue
         fi

@@ -1,0 +1,2 @@
+# Copies the problem tests to judge.oshsu.kg every minute. Installed from git (scripts/server/sync_system.sh).
+* * * * * admin flock -n /tmp/olymp-problems-sync.lock rsync -a --delete -e "ssh -o StrictHostKeyChecking=no" /var/www/olymp.oshsu.kg/problems/ admin@10.10.8.227:~/problems/ > /dev/null 2>&1

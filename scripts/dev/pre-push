@@ -1,6 +1,9 @@
 #!/bin/bash
-# Git hook (copy to .git/hooks/pre-push): before pushing to the server, run the checks in WSL.
-# A failed check stops the push, so a broken version never reaches the site.
+# Git hook (copy to .git/hooks/pre-push):
+#   - before pushing to the server, run the checks in WSL; a failed check stops the push, so a broken
+#     version never reaches the site;
+#   - refuse a push to main that sends more than 5 MB: the server downloads from GitHub at ~10 KB/s and the
+#     download is cut after ~20 minutes (docs/OBSLUZHIVANIE-2026-11.md, "Большой коммит").
 remote="$1"
 if [ "$remote" = "server" ]; then
     echo "Running checks before deploying (scripts/ci_check.sh)..."
@@ -9,4 +12,24 @@ if [ "$remote" = "server" ]; then
         exit 1
     fi
 fi
+
+LIMIT=$((5 * 1024 * 1024))
+zero=0000000000000000000000000000000000000000
+while read -r local_ref local_sha remote_ref remote_sha; do
+    [ "$remote_ref" = "refs/heads/main" ] || continue
+    [ "${OLYMP_BIG_PUSH:-}" = 1 ] && continue
+    [ "$local_sha" = "$zero" ] && continue   # deleting the branch sends nothing
+    if [ "$remote_sha" != "$zero" ] && git cat-file -e "$remote_sha^{commit}" 2>/dev/null; then
+        range=("$remote_sha..$local_sha")
+    else
+        range=("$local_sha" --not "--remotes=$remote")
+    fi
+    bytes=$(git rev-list --objects "${range[@]}" | cut -d' ' -f1 |
+            git cat-file --batch-check='%(objectsize:disk)' | awk '{ s += $1 } END { printf "%d\n", s }')
+    if [ "$bytes" -gt "$LIMIT" ]; then
+        echo "Коммит больше 5 МБ: сервер не скачает его с GitHub (канал ОшГУ медленный). Разбейте на части или привезите по сети ОшГУ (docs/OBSLUZHIVANIE-2026-11.md, «Большой коммит»). Пропустить проверку: OLYMP_BIG_PUSH=1 git push ..."
+        echo "(к отправке: $((bytes / 1024)) КБ)"
+        exit 1
+    fi
+done
 exit 0

@@ -1,0 +1,15 @@
+[Unit]
+Description=OshSU Olymp Django (gunicorn)
+After=network.target postgresql.service redis-server.service
+
+[Service]
+User=admin
+Group=admin
+WorkingDirectory=/var/www/olymp.oshsu.kg
+Environment=DJANGO_SETTINGS_MODULE=dmoj.settings
+ExecStart=/var/www/olymp.oshsu.kg/venv/bin/gunicorn -c /var/www/olymp.oshsu.kg/dmoj/gunicorn_conf.py -b 127.0.0.1:8000 dmoj.wsgi:application
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

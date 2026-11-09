@@ -1,0 +1,2 @@
+# Daily backup of olymp.oshsu.kg (03:30 UTC)
+30 3 * * * root /usr/local/bin/olymp-backup.sh >> /var/log/olymp-backup.log 2>&1

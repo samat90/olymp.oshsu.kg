@@ -46,7 +46,7 @@ elif mode == 'rect':
         pts.add((random.randint(0, a), random.randint(0, b)))
 elif mode == 'line':
     dx, dy = random.randint(1, 5), random.randint(-5, 5)
-    t = list(range(-R // 6, R // 6))
+    t = range(-R // 6, R // 6)  # a range, not a list: for R = 1e9 a list takes gigabytes (the judge ran out of memory)
     for v in random.sample(t, min(n, len(t))):
         pts.add((v * dx // 1 if abs(v * dx) <= R else v, v * dy if abs(v * dy) <= R else 0))
     while len(pts) < n:

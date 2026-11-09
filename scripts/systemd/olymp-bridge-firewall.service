@@ -1,4 +1,3 @@
-# On olymp.oshsu.kg: the judge bridge port 9999 accepts connections only from judge.oshsu.kg.
 [Unit]
 Description=OshSU Olymp: allow judge bridge port 9999 only from judge server
 After=network-pre.target

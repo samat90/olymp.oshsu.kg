@@ -101,3 +101,13 @@ ssh admin@10.10.8.226 'sudo bash /var/www/olymp.oshsu.kg/scripts/server/status.s
 - Снаружи университета: телефон на мобильном интернете (не Wi-Fi ОшГУ) открывает сайт, вход работает,
   компилятор запускает Hello World. Вечером, когда ноутбук дома, повторяю проверку с ноутбука.
 - Пробный коммит (только документация) с ноутбука выкатывается сам за 5–10 минут: значит, автовыкат жив.
+
+## Большой коммит (больше 5 МБ)
+
+Сервер скачивает с GitHub со скоростью около 10 КБ/с, и загрузка обрывается примерно через 20 минут, поэтому
+коммит больше ~10 МБ (например, с картинками) сам не доедет. Так было с 50 викторинами 8–9 ноября.
+Такой коммит привозится с ноутбука по сети ОшГУ: на ноутбуке `git bundle create main.bundle <выкаченный коммит>..main`,
+файл копируется на сайт в /tmp, затем там
+`sudo systemctl stop olymp-autodeploy` и запуск выката из файла:
+`sudo systemd-run --uid=admin --unit=olymp-manual-deploy -p TimeoutStartSec=4h /bin/bash -c 'OLYMP_REMOTE=/tmp/main.bundle bash /var/www/olymp.oshsu.kg/scripts/server/autodeploy.sh >> /var/log/olymp/deploy.log 2>&1'`.
+Тот же коммит должен быть и в GitHub main, тогда следующие загрузки с GitHub будут маленькими.

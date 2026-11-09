@@ -1,0 +1,14 @@
+[Unit]
+Description=OshSU Olymp Judge
+After=network.target
+
+[Service]
+User=admin
+Group=admin
+WorkingDirectory=/home/admin/judge-server
+ExecStart=/home/admin/judge-server/venv/bin/dmoj -c /home/admin/judge-config/judge.yml -p 9999 --skip-self-test 10.10.8.226
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

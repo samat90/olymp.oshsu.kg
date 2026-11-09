@@ -21,7 +21,7 @@ SSH=${OLYMP_JUDGE_SSH:-ssh -o BatchMode=yes -o ConnectTimeout=10 -o StrictHostKe
 JS=${OLYMP_JUDGE_SERVER:-/home/admin/judge-server}
 STAMP_FILE=/home/admin/.olymp-judge-version
 EXECUTORS="CSHARP.py FSHARP.py SB3.py"
-JUDGE_UNITS="olymp-runner.service olymp-runner-firewall.service olymp-judge@.service"
+JUDGE_UNITS="olymp-judge.service olymp-judge2.service olymp-runner.service olymp-runner-firewall.service"
 CHECK=0
 [ "${1:-}" = "--check" ] && CHECK=1
 

@@ -19,7 +19,8 @@ ROOT=${OLYMP_SYSTEM_ROOT:-}            # tests install into a scratch folder ins
 BACKUP=${OLYMP_SYSTEM_BACKUPS:-$ROOT/var/backups/olymp/system}/$(date +%Y%m%d-%H%M%S)
 CHECK=0
 [ "${1:-}" = "--check" ] && CHECK=1
-WEB_UNITS="olymp-autodeploy.service olymp-autodeploy.timer olymp-bridge-firewall.service
+WEB_UNITS="olymp-web.service olymp-bridge.service olymp-event.service
+           olymp-autodeploy.service olymp-autodeploy.timer olymp-bridge-firewall.service
            olymp-publish-problems.service olymp-publish-problems.timer"
 
 log() { echo "[$(date +%H:%M:%S)] system: $*"; }

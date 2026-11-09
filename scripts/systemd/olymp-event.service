@@ -1,0 +1,14 @@
+[Unit]
+Description=OshSU Olymp Event Daemon (websocket)
+After=network.target
+
+[Service]
+User=admin
+Group=admin
+WorkingDirectory=/var/www/olymp.oshsu.kg/websocket
+ExecStart=/usr/bin/node daemon.js
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

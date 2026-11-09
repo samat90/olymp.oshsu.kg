@@ -38,8 +38,8 @@ if [ "$ROLE" = web ]; then
 
     code=$(curl -s -o /dev/null -m 15 -w '%{http_code}' -H 'Host: olymp.oshsu.kg' http://127.0.0.1:8000/)
     [ "$code" = 200 ] && ok "site answers 200 (gunicorn)" || bad "site answers $code (gunicorn)"
-    code=$(curl -s -o /dev/null -m 15 -w '%{http_code}' -H 'Host: olymp.oshsu.kg' http://127.0.0.1/)
-    [ "$code" = 200 ] && ok "site answers 200 (nginx)" || bad "site answers $code (nginx)"
+    code=$(curl -sk -o /dev/null -m 15 -w '%{http_code}' --resolve olymp.oshsu.kg:443:127.0.0.1 https://olymp.oshsu.kg/)
+    [ "$code" = 200 ] && ok "site answers 200 (nginx, https)" || bad "site answers $code (nginx, https)"
     rh=$(curl -s -m 8 http://10.10.8.227:9910/health)
     echo "$rh" | grep -q '"ok": *true' && ok "code runner on the judge: $rh" || bad "code runner does not answer: ${rh:-no answer}"
 
@@ -88,8 +88,9 @@ if [ "$ROLE" = judge ]; then
         if active "$u"; then ok "service $u is running"; else bad "service $u is NOT running"; fi
     done
     if active olymp-runner-firewall.service; then ok "olymp-runner-firewall is on"; else info "olymp-runner-firewall is not active"; fi
-    rh=$(curl -s -m 8 http://127.0.0.1:9910/health)
-    echo "$rh" | grep -q '"ok": *true' && ok "code runner: $rh" || bad "code runner does not answer: ${rh:-no answer}"
+    # The runner firewall lets only the site in (even loopback is closed), so check that it listens;
+    # the site checks its answer (status.sh web).
+    if ss -Hltn 'sport = :9910' | grep -q .; then ok "code runner listens on port 9910"; else bad "code runner does not listen on port 9910"; fi
     if timeout 5 bash -c 'echo > /dev/tcp/10.10.8.226/9999' 2>/dev/null; then ok "judge bridge on the site (10.10.8.226:9999) is reachable"; else bad "cannot reach the judge bridge 10.10.8.226:9999"; fi
     info "judge files version: $(cat /home/admin/.olymp-judge-version 2>/dev/null || echo 'not set yet')"
     info "problem-set builds: $(du -sh /home/admin/problemsets-build 2>/dev/null | cut -f1 || echo none); running builds: $(pgrep -fc 'build.py' 2>/dev/null || echo 0)"

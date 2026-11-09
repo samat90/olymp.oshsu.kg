@@ -1,0 +1,15 @@
+[Unit]
+Description=OshSU Olymp Judge Bridge
+After=network.target postgresql.service
+
+[Service]
+User=admin
+Group=admin
+WorkingDirectory=/var/www/olymp.oshsu.kg
+Environment=DJANGO_SETTINGS_MODULE=dmoj.settings
+ExecStart=/var/www/olymp.oshsu.kg/venv/bin/python manage.py runbridged
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

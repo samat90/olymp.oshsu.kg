@@ -1,12 +1,20 @@
-# Logs of olymp.oshsu.kg (deploy, health, backups). Installed from git by scripts/server/sync_system.sh.
+# Logs of olymp.oshsu.kg (gunicorn, deploy, health). Installed from git by scripts/server/sync_system.sh.
 /var/log/olymp/*.log {
-    su admin admin
     weekly
     rotate 8
-    maxsize 50M
+    maxsize 100M
     compress
     delaycompress
     missingok
     notifempty
     copytruncate
+    su admin admin
+}
+# The daily backup writes here as root.
+/var/log/olymp-backup.log {
+    monthly
+    rotate 6
+    compress
+    missingok
+    notifempty
 }

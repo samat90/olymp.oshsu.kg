@@ -54,13 +54,17 @@ exec 9> "$STATE/lock"
 flock -n 9 || exit 0
 
 G="git --git-dir=$REPO"
-# The link into the university network is slow (sometimes 30-60 KB/s): a push with pictures can take
-# tens of minutes to download. Give the download its own generous limit, give up only when it stalls
-# for 5 minutes, and log how long it took, so a slow fetch is visible in the log.
+# The link into the university network is slow (10-60 KB/s in November 2026) and long downloads are cut
+# after about 20 minutes, so keep every push small (scripts/dev/pre-push warns above 5 MB). A bigger push
+# is brought in over the university network instead (docs/OBSLUZHIVANIE-2026-11.md, "Большой коммит").
+# Give the download its own generous limit, give up when it stalls for 5 minutes, and log how long it took.
 fetch_start=$(date +%s)
 if ! timeout "${OLYMP_FETCH_TIMEOUT:-7200}" $G -c http.lowSpeedLimit=1000 -c http.lowSpeedTime=300 \
         fetch -q "$REMOTE" "+refs/heads/main:refs/remotes/origin/main"; then
     log "GitHub is not reachable or the download stalled (after $(( $(date +%s) - fetch_start )) s), will retry"
+    # An interrupted download leaves its partial pack behind (10-15 MB each time); only this run fetches
+    # (flock above), so every leftover is garbage now.
+    find "$REPO/objects/pack" -maxdepth 1 -name 'tmp_pack_*' -delete 2>/dev/null
     exit 0
 fi
 fetch_secs=$(( $(date +%s) - fetch_start ))
