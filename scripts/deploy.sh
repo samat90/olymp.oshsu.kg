@@ -37,7 +37,8 @@ fi
 
 log "Checkout"
 git --git-dir="$REPO" --work-tree="$APP" checkout -f "$REF" -- .
-git --git-dir="$REPO" rev-parse "$REF" > "$APP/.deployed-revision"
+# .deployed-revision is written only after the site answers (below): if this run is interrupted half
+# way (timeout, reboot, lost power), the next auto-deploy run sees the old revision and repeats it.
 
 cd "$APP"
 
@@ -85,8 +86,13 @@ for i in $(seq 1 30); do
     code=$(curl -s -o /dev/null -w '%{http_code}' -H 'Host: olymp.oshsu.kg' "$SITE" || true)
     if [ "$code" = "200" ]; then
         log "OK: site answers 200. Backup: $BACKUP"
+        git --git-dir="$REPO" rev-parse "$REF" > "$APP/.deployed-revision"
+        # Server settings kept in git (systemd units, cron, logrotate, nginx): installed when they changed.
+        bash scripts/server/sync_system.sh || log "Some server settings were not updated (see above); the site is not affected."
         bash scripts/server/sync_runner.sh || log "The code runner on the judge was not updated (see above)."
-        bash scripts/server/import_problemsets.sh ${OLYMP_PROBLEMSETS:-olymp2026} || log "Not every new problem set was added (see above); the site is not affected."
+        bash scripts/server/sync_judge.sh || log "The judge machine was not updated (see above); grading goes on with the old files."
+        # New problem sets are added by scripts/server/autodeploy.sh in the quiet runs after the deploy,
+        # so a long test generation never holds back the next update.
         "$PY" manage.py security_report || true
         exit 0
     fi

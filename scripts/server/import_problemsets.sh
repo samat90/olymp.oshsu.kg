@@ -19,6 +19,7 @@ WORK=${OLYMP_PROBLEMSET_WORK:-/home/admin/problemsets}
 JWORK=${OLYMP_PROBLEMSET_JUDGE_WORK:-/home/admin/problemsets-build}
 AUTHOR=${OLYMP_PROBLEMSET_AUTHOR:-samat1}
 BUDGET=${OLYMP_PROBLEMSET_BUDGET:-1200}  # seconds per run
+BUILD_TIMEOUT=${OLYMP_PROBLEMSET_BUILD_TIMEOUT:-1500}  # seconds for the tests of one problem
 START=$(date +%s)
 
 log() { echo "[$(date +%H:%M:%S)] problemsets: $*"; }
@@ -59,17 +60,19 @@ for d in sorted(os.listdir(src)):
         if [ $(( $(date +%s) - START )) -gt "$BUDGET" ]; then log "$set: time is up, the rest will be added by the next run"; break; fi
         if [ -f "$WORK/$set.$d.failed" ]; then continue; fi
         log "$set/$d: generating the tests on the judge"
-        if ! $SSH "$JUDGE" "cd '$JWORK/$set' && python3 build.py $d --no-stress --no-brute > build-$d.log 2>&1"; then
+        # A build that hangs must not hold the auto-deploy forever: it is stopped after BUILD_TIMEOUT and the
+        # problem is marked as failed (delete $WORK/$set.$d.failed to try it again).
+        if ! $SSH "$JUDGE" "cd '$JWORK/$set' && timeout -k 30 $BUILD_TIMEOUT python3 build.py $d --no-stress --no-brute > build-$d.log 2>&1"; then
             log "$set/$d: not built: $($SSH "$JUDGE" "tail -c 300 '$JWORK/$set/build-$d.log'")"
             touch "$WORK/$set.$d.failed"; status=1; continue
         fi
-        rm -rf "$WORK/$set"
+        rm -rf "${WORK:?}/$set"
         mkdir -p "$WORK/$set/build"
         if ! $SSH "$JUDGE" "tar cf - -C '$JWORK/$set/build' $d && rm -rf '$JWORK/$set/build/$d'" | tar xf - -C "$WORK/$set/build"; then
             log "$set/$d: copying the tests failed"; status=1; continue
         fi
         (cd "$APP" && "$PY" manage.py import_problemset "$WORK/$set/build" --only $d --public --author "$AUTHOR") | sed 's/^/    /'
-        rm -rf "$WORK/$set"
+        rm -rf "${WORK:?}/$set"
     done
 done
 exit $status

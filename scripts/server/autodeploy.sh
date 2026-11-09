@@ -32,29 +32,55 @@ notify() {
     fi
 }
 
+# Keys of the olympiads going on right now. A contest open for longer than OLYMP_LONG_CONTEST_HOURS
+# (default 48) is a training or practice contest: it does not hold back updates, otherwise one forgotten
+# month-long contest would stop every deploy. If the database cannot be asked, nothing is printed (a
+# broken site must still get its fix), only a warning in the log.
+running_olympiads() {
+    (cd "$APP" && venv/bin/python manage.py shell -c "
+from datetime import timedelta
+from django.db.models import F
+from django.utils import timezone
+from judge.models import Contest
+now = timezone.now()
+qs = Contest.objects.filter(start_time__lte=now, end_time__gt=now,
+                            end_time__lte=F('start_time') + timedelta(hours=${OLYMP_LONG_CONTEST_HOURS:-48}))
+print(','.join(qs.values_list('key', flat=True)))" 2>/dev/null) || log "WARN: could not check for running olympiads" >&2
+}
+
 [ -f "$PAUSED" ] && exit 0
 mkdir -p "$STATE"
 exec 9> "$STATE/lock"
 flock -n 9 || exit 0
 
 G="git --git-dir=$REPO"
-$G fetch -q "$REMOTE" "+refs/heads/main:refs/remotes/origin/main" || { log "GitHub is not reachable"; exit 0; }
+# The link into the university network is slow (sometimes 30-60 KB/s): a push with pictures can take
+# tens of minutes to download. Give the download its own generous limit, give up only when it stalls
+# for 5 minutes, and log how long it took, so a slow fetch is visible in the log.
+fetch_start=$(date +%s)
+if ! timeout "${OLYMP_FETCH_TIMEOUT:-7200}" $G -c http.lowSpeedLimit=1000 -c http.lowSpeedTime=300 \
+        fetch -q "$REMOTE" "+refs/heads/main:refs/remotes/origin/main"; then
+    log "GitHub is not reachable or the download stalled (after $(( $(date +%s) - fetch_start )) s), will retry"
+    exit 0
+fi
+fetch_secs=$(( $(date +%s) - fetch_start ))
+[ "$fetch_secs" -gt 60 ] && log "fetch from GitHub took $fetch_secs s"
 new=$($G rev-parse refs/remotes/origin/main)
 current=$(cat "$APP/.deployed-revision" 2>/dev/null || $G rev-parse main)
 if [ "$new" = "$current" ]; then
     # Nothing to deploy: use the quiet time to add new problem sets (only when no olympiad is running,
     # the tests are generated on the judge machine).
+    # Files of the judge machine (executors, its systemd units) that waited for a quiet moment.
+    bash "$APP/scripts/server/sync_judge.sh" 2>&1 | grep -v "no SSH access" || true
     pending=0
     for set in ${OLYMP_PROBLEMSETS:-olymp2026}; do
         [ -d "$APP/problemsets/$set" ] && [ ! -f "/home/admin/problemsets/$set.done" ] && pending=1
     done
     if [ "$pending" = 1 ]; then
-        busy=$(cd "$APP" && venv/bin/python manage.py shell -c "
-from django.utils import timezone
-from judge.models import Contest
-now = timezone.now()
-print(Contest.objects.filter(start_time__lte=now, end_time__gt=now).count())" 2>/dev/null)
-        [ "$busy" = "0" ] && bash "$APP/scripts/server/import_problemsets.sh" ${OLYMP_PROBLEMSETS:-olymp2026}
+        busy=$(running_olympiads 2>/dev/null)
+        if [ -z "$busy" ]; then
+            bash "$APP/scripts/server/import_problemsets.sh" ${OLYMP_PROBLEMSETS:-olymp2026}
+        fi
     fi
     exit 0
 fi
@@ -75,11 +101,7 @@ if ! $G -c gpg.format=ssh -c gpg.ssh.allowedSignersFile="$SIGNERS" verify-commit
     exit 1
 fi
 
-running=$(cd "$APP" && venv/bin/python manage.py shell -c "
-from django.utils import timezone
-from judge.models import Contest
-now = timezone.now()
-print(','.join(Contest.objects.filter(start_time__lte=now, end_time__gt=now).values_list('key', flat=True)))" 2>/dev/null)
+running=$(running_olympiads)
 if [ -n "$running" ]; then
     log "olympiad running ($running), deploy of $short postponed"
     exit 0
@@ -99,6 +121,13 @@ else
     $G update-ref refs/heads/main "$current"
     bash "$STATE/rollback.sh" "$backup"
     echo "$current" > "$APP/.deployed-revision"
-    touch "$refused"
+    # A failure can be passing (the slow link broke a download): try the same commit up to 3 times,
+    # then wait for a new commit.
+    tries=$(( $(cat "$STATE/failed-$short" 2>/dev/null || echo 0) + 1 ))
+    echo "$tries" > "$STATE/failed-$short"
+    if [ "$tries" -ge "${OLYMP_DEPLOY_TRIES:-3}" ]; then
+        notify "коммит $short не выкатился $tries раза, жду нового коммита"
+        touch "$refused"
+    fi
     exit 1
 fi
