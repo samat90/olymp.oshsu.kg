@@ -132,6 +132,11 @@ class QuizAIViewTest(TestCase):
         # Three quizzes a day by default.
         self.assertEqual(self.generate_times(4), [200, 200, 200, 429])
 
+    def test_superusers_have_the_limit_too(self):
+        self.user.is_superuser = True
+        self.user.save()
+        self.assertEqual(self.generate_times(4), [200, 200, 200, 429])
+
     def test_unlimited_users(self):
         self.user.username = 'samat1'
         self.user.save()

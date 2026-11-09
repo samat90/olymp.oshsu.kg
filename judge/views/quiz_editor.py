@@ -495,9 +495,7 @@ def ai_limit(name, misc_key, default):
 
 
 def ai_unlimited(user):
-    """Superusers and the usernames in `ai_unlimited_users` (comma-separated) have no daily limit."""
-    if user.is_superuser:
-        return True
+    """Only the usernames in `ai_unlimited_users` (comma-separated) have no daily limit, superusers included."""
     names = quiz_ai.config('QUIZ_AI_UNLIMITED_USERS', 'ai_unlimited_users', 'samat1')
     return user.username.lower() in {name.strip().lower() for name in names.split(',') if name.strip()}
 
