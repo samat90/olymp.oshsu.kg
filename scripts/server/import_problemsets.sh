@@ -28,6 +28,9 @@ log() { echo "[$(date +%H:%M:%S)] problemsets: $*"; }
 free_gb() { df -Pk "$1" 2>/dev/null | awk 'NR == 2 { print int($4 / 1048576) }'; }
 
 mkdir -p "$WORK"
+# One import at a time: two imports at once (a manual one and the auto-deploy) broke a build on 2026-11-09.
+exec 8> "$WORK/.lock"
+flock -n 8 || { log "another import is running, skipped"; exit 0; }
 status=0
 for set in "$@"; do
     src=$APP/problemsets/$set
