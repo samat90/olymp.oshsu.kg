@@ -133,13 +133,13 @@ class OrganizationUsers(QueryStringSortMixin, DiggPaginatorMixin, BaseOrganizati
     context_object_name = 'users'
 
     def get_queryset(self):
-        return self.object.members.filter(is_unlisted=False).order_by(self.order).select_related('user') \
+        return self.object.members.filter(is_unlisted=False).order_by(self.order, 'id').select_related('user') \
             .defer('about', 'user_script', 'notes')
 
     def get_context_data(self, **kwargs):
         context = super(OrganizationUsers, self).get_context_data(**kwargs)
         context['title'] = _('%s Members') % self.object.name
-        context['users'] = ranker(context['users'])
+        context['users'] = ranker(context['users'], rank=self.paginate_by * (context['page_obj'].number - 1))
         context['partial'] = True
         context['is_admin'] = self.can_edit_organization()
         context['kick_url'] = reverse('organization_user_kick', args=[self.object.id, self.object.slug])

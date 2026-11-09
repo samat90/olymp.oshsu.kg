@@ -67,7 +67,7 @@
     {% endif %}
 
     {% if page.object_list %}
-        <div class="qz-cards" data-infinite-items>
+        <div class="qz-cards" id="qz-cards">
             {% for quiz in page.object_list %}
                 <a class="qz-card" href="{{ url('quiz_detail', quiz.key) }}">
                     {% if quiz.cover %}
@@ -89,7 +89,7 @@
             {% endfor %}
         </div>
         {% if page.paginator.num_pages > 1 %}
-            <nav class="qz-pages" aria-label="{{ _('Страницы') }}">
+            <nav class="qz-pages" data-infinite="#qz-cards" aria-label="{{ _('Страницы') }}">
                 {% if page.has_previous() %}<a href="{{ page_link(page.previous_page_number()) }}">&larr;</a>{% endif %}
                 {% for n in page.paginator.page_range %}
                     {% if n == page.number %}<span class="qz-on">{{ n }}</span>

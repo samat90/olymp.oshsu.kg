@@ -1,6 +1,8 @@
 {% extends "admin/base_site.html" %}
+{% load static %}
 
 {% block extrahead %}{{ block.super }}
+    <script src="{% static 'infinite-scroll.js' %}" defer></script>
     <script>
         // Sync admin dark mode with main site preference (oshsu-theme localStorage).
         (function() {
@@ -22,7 +24,7 @@
     <script>
         // The login page has no django.jQuery.
         window.django && django.jQuery && django.jQuery(function ($) {
-            $('.action-link').on('click', function () {
+            $(document).on('click', '.action-link', function () {
                 $('#empty-action-form').attr('action', this.href).trigger('submit');
                 return false;
             });

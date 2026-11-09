@@ -50,7 +50,7 @@
     <div id="blog-container">
         <div class="blog-content sidebox">
             <h3>{{ _('News') }} <i class="fa fa-terminal"></i></h3>
-            <div class="sidebox-content" data-infinite-items>
+            <div class="sidebox-content" id="blog-posts">
                 {% for post in posts %}
                     <section class="{% if post.sticky %}sticky {% endif %}post">
                         <h2 class="title">
@@ -85,7 +85,7 @@
                 {% endfor %}
             </div>
             {% if page_obj.has_other_pages() %}
-                <div class="bottom-pagination-bar">{% include "list-pages.html" %}</div>
+                <div class="bottom-pagination-bar" data-infinite="#blog-posts">{% include "list-pages.html" %}</div>
             {% endif %}
         </div>
 
