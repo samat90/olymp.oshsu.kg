@@ -1,8 +1,12 @@
 /* Quiz sounds and music. Everything is synthesized with the Web Audio API: no audio files.
- * Instruments: drum kit (kick, snare, claps, hats, crash, toms, epic booms), synth and acoustic basses,
- * piano, electric piano, supersaw, chiptune, brass, strings, choir, organ, bells, guitar; a hall reverb.
+ * Instruments: drum kit (kick, 808, snare, claps, hats, crash, toms, epic booms, cowbell, tambourine, frame drum),
+ * synth, 808, slap, fingered and acoustic basses, piano, electric piano, supersaw, analog lead, chiptune, brass,
+ * trumpet, sax, clarinet, violin, strings, choir, organ, accordion, flute, whistle, bells, vibraphone, celesta,
+ * kalimba, steel drum, clavinet, harpsichord, banjo, nylon and electric guitars; a hall reverb, a stereo echo, EQ.
+ * Question tunes play in a shuffled order per game, with no repeats until the whole list has played.
  * Repertoire: public-domain melodies only (classical composers and traditional folk tunes, authors died
- * more than 70 years ago), in modern arrangements: epic, rock, EDM, disco, pop, lo-fi, 8-bit, swing, latin.
+ * more than 70 years ago), in modern arrangements: epic, rock, EDM, disco, pop, lo-fi, 8-bit, swing, latin, synthwave, house, funk, reggae,
+ * trap, celtic, march, habanera, bossa nova; plus a few original tunes written for this site.
  * window.QuizAudio: unlock, setMuted, isMuted, setVolume, getVolume, music, urgent, sfx, vibrate, state,
  * beat (0..1 pulse of the current kick, for visuals), tracks (titles). */
 (function () {
@@ -93,14 +97,20 @@
         if (ctx || !AC) return ctx;
         try {
             ctx = new AC();
-            var comp = ctx.createDynamicsCompressor();
-            comp.threshold.value = -12;
-            comp.knee.value = 8;
-            comp.ratio.value = 5;
-            comp.attack.value = 0.003;
-            comp.release.value = 0.18;
+            var cmp = ctx.createDynamicsCompressor();
+            cmp.threshold.value = -12;
+            cmp.knee.value = 8;
+            cmp.ratio.value = 5;
+            cmp.attack.value = 0.003;
+            cmp.release.value = 0.18;
             bus.master = ctx.createGain();
-            comp.connect(bus.master);
+            // Gentle master EQ before the compressor: a little more low end and air.
+            var comp = ctx.createBiquadFilter(), hi = ctx.createBiquadFilter();
+            comp.type = 'lowshelf'; comp.frequency.value = 110; comp.gain.value = 2.5;
+            hi.type = 'highshelf'; hi.frequency.value = 8500; hi.gain.value = 2;
+            comp.connect(hi);
+            hi.connect(cmp);
+            cmp.connect(bus.master);
             bus.master.connect(ctx.destination);
             bus.comp = comp;
             bus.verb = ctx.createConvolver();
@@ -109,6 +119,33 @@
             wet.gain.value = 0.32;
             bus.verb.connect(wet);
             wet.connect(comp);
+            // Stereo ping-pong echo for lead lines (two delay lines, darker on every repeat).
+            bus.echo = ctx.createGain();
+            var dl = ctx.createDelay(2), dr = ctx.createDelay(2), fl = gain(dr, 0.38), fr = ctx.createGain(),
+                damp = filter('lowpass', 3200, 0.5, dl), el = ctx.createGain();
+            fr.gain.value = 0.38;
+            dl.delayTime.value = 0.36;
+            dr.delayTime.value = 0.36;
+            bus.echo.connect(damp);
+            dl.connect(fl);
+            dr.connect(fr);
+            fr.connect(damp);
+            el.gain.value = 0.9;
+            if (ctx.createStereoPanner) {
+                var pl = ctx.createStereoPanner(), pr = ctx.createStereoPanner();
+                pl.pan.value = -0.7;
+                pr.pan.value = 0.7;
+                dl.connect(pl);
+                dr.connect(pr);
+                pl.connect(el);
+                pr.connect(el);
+            } else {
+                dl.connect(el);
+                dr.connect(el);
+            }
+            el.connect(comp);
+            bus.dl = dl;
+            bus.dr = dr;
             bus.music = ctx.createGain();
             bus.music.gain.value = 0.55;
             bus.music.connect(comp);
@@ -302,28 +339,64 @@
         tone('sine', f * 2.7, t, 0.02, v * 0.4, o, 0, 0.001);
     }
 
+    function cowbell(t, v, o) {
+        var g = ctx.createGain(), bp = filter('bandpass', 800, 3, g);
+        env(g, t, 0.001, v, 0.25);
+        g.connect(o);
+        osc('square', 540, t, t + 0.3, bp);
+        osc('square', 800, t, t + 0.3, bp);
+    }
+    function tambourine(t, v, o) {
+        hiss(t, 0.09, v, o, 'highpass', 9000, 0.7, 0.004);
+        hiss(t + 0.012, 0.06, v * 0.6, o, 'bandpass', 6500, 3);
+    }
+    function snap(t, v, o) { hiss(t, 0.03, v, o, 'bandpass', 2200, 2.5, 0.001); }
+    // Frame drum (bodhran): a soft low thud.
+    function frame(t, f, v, o) {
+        var g = ctx.createGain(), s = osc('sine', f, t, t + 0.3, g);
+        s.frequency.setValueAtTime(f * 1.4, t);
+        s.frequency.exponentialRampToValueAtTime(f, t + 0.04);
+        env(g, t, 0.002, v, 0.22);
+        g.connect(o);
+        hiss(t, 0.03, v * 0.25, o, 'lowpass', 1200);
+    }
+    // Deep, long electronic kick.
+    function kick808(t, v, o) {
+        var g = ctx.createGain(), s = osc('sine', 120, t, t + 0.75, g);
+        s.frequency.setValueAtTime(130, t);
+        s.frequency.exponentialRampToValueAtTime(42, t + 0.14);
+        env(g, t, 0.002, v, 0.65);
+        g.connect(o);
+        hiss(t, 0.006, v * 0.4, o, 'highpass', 3000);
+        beats.push({t: t, v: Math.min(1, v * 1.2)});
+    }
+
     /* ---------------- melodic instruments ---------------- */
 
     // Karplus-Strong string (pizzicato, guitar, harp), rendered once per period into a small buffer.
+    // bright: 0..1, how sharp the pluck is (soft nylon .. harpsichord); sec: how long it rings.
     var KS_SR = 22050, ksCache = {};
-    function ksBuffer(f) {
-        var n = Math.max(4, Math.floor(KS_SR / f - 0.5)), c = ksCache[n];
+    function ksBuffer(f, bright, sec) {
+        bright = bright || 0.6;
+        sec = sec || 1.3;
+        var n = Math.max(4, Math.floor(KS_SR / f - 0.5)), key = n + ':' + bright + ':' + sec, c = ksCache[key];
         if (!c) {
-            var len = Math.floor(KS_SR * 1.4), buf = ctx.createBuffer(1, len, KS_SR), d = buf.getChannelData(0),
-                r = rng(n * 7919), i, lp = 0, peak = 0, loss = Math.pow(0.001, 1 / (1.3 * f));
-            for (i = 0; i < n; i++) { lp += (r() * 2 - 1 - lp) * 0.6; d[i] = lp; }
+            var len = Math.floor(KS_SR * (sec + 0.1)), buf = ctx.createBuffer(1, len, KS_SR), d = buf.getChannelData(0),
+                r = rng(n * 7919), i, lp = 0, peak = 0, loss = Math.pow(0.001, 1 / (sec * f));
+            for (i = 0; i < n; i++) { lp += (r() * 2 - 1 - lp) * bright; d[i] = lp; }
             for (i = 0; i < n; i++) peak = Math.max(peak, Math.abs(d[i]));
             for (i = 0; i < n; i++) d[i] *= 0.9 / (peak || 1);
             d[n] = loss * 0.5 * (d[0] + d[n - 1]);
             for (i = n + 1; i < len; i++) d[i] = loss * 0.5 * (d[i - n] + d[i - n - 1]);
             var fade = Math.floor(KS_SR * 0.1);
             for (i = 0; i < fade; i++) d[len - 1 - i] *= i / fade;
-            c = ksCache[n] = {buf: buf, n: n};
+            c = ksCache[key] = {buf: buf, n: n};
         }
         return {buf: c.buf, rate: f * (c.n + 0.5) / KS_SR};
     }
-    function string(f, t, dur, vol, out) {
-        var b = ksBuffer(f), s = ctx.createBufferSource(), g = ctx.createGain(), end = t + Math.min(1.3, dur + 0.25);
+    function string(f, t, dur, vol, out, bright, sec) {
+        var b = ksBuffer(f, bright, sec), s = ctx.createBufferSource(), g = ctx.createGain(),
+            end = t + Math.min(sec || 1.3, dur + 0.25);
         s.buffer = b.buf;
         s.playbackRate.value = b.rate;
         g.gain.setValueAtTime(0, t);
@@ -477,6 +550,147 @@
         });
     };
 
+    // Saxophone: buzzy reed through a vocal-like filter, a small scoop into the note, breath and vibrato.
+    I.sax = function (f, t, dur, vol, out) {
+        var g = ctx.createGain(), bp = filter('peaking', 1300, 1.2, null), lp = filter('lowpass', 2000, 1.4, g),
+            end = t + dur + 0.1;
+        bp.gain.value = 7;
+        bp.connect(lp);
+        lp.frequency.setValueAtTime(Math.min(5000, f * 3), t);
+        lp.frequency.linearRampToValueAtTime(Math.min(7000, f * 7), t + 0.07);
+        lp.frequency.setTargetAtTime(Math.min(4500, f * 4), t + 0.08, 0.3);
+        hold(g, t, dur + 0.05, vol, 0.025, 0.07);
+        g.connect(out);
+        var o = osc('sawtooth', f, t, end, bp);
+        o.frequency.setValueAtTime(f * 0.97, t);
+        o.frequency.linearRampToValueAtTime(f, t + 0.06);
+        osc('square', f, t, end, gain(bp, 0.35), 4);
+        if (dur > 0.25) vib(o, t, f, 0.007, 5.2, 0.18, end);
+        hiss(t, Math.min(0.12, dur), vol * 0.35, out, 'bandpass', Math.min(8000, f * 3), 2);
+    };
+    // Clarinet: hollow square wave (odd harmonics), soft attack.
+    I.clarinet = function (f, t, dur, vol, out) {
+        var g = ctx.createGain(), lp = filter('lowpass', Math.min(6000, f * 4.5), 0.8, g), end = t + dur + 0.1;
+        hold(g, t, dur + 0.05, vol, 0.035, 0.07);
+        g.connect(out);
+        var o = osc('square', f, t, end, lp);
+        if (dur > 0.3) vib(o, t, f, 0.004, 5, 0.25, end);
+        osc('sine', f, t, end, gain(g, 0.5));
+    };
+    // Solo violin: bowed saw through body resonances, delayed vibrato.
+    I.violin = function (f, t, dur, vol, out) {
+        var g = ctx.createGain(), lp = filter('lowpass', 7000, 0.6, g), b1 = filter('peaking', 520, 2, null),
+            b2 = filter('peaking', 2900, 1.6, null), end = t + dur + 0.15, att = Math.min(0.07, dur * 0.3);
+        b1.gain.value = 6;
+        b2.gain.value = 5;
+        b1.connect(b2);
+        b2.connect(lp);
+        g.gain.setValueAtTime(0.0001, t);
+        g.gain.linearRampToValueAtTime(vol, t + att);
+        g.gain.setValueAtTime(vol, t + dur);
+        g.gain.linearRampToValueAtTime(0.0001, t + dur + 0.12);
+        g.connect(out);
+        var o = osc('sawtooth', f, t, end, b1, -3);
+        osc('sawtooth', f, t, end, gain(b1, 0.6), 4);
+        if (dur > 0.2) vib(o, t, f, 0.006, 5.6, 0.15, end);
+        hiss(t, Math.min(0.08, dur), vol * 0.2, out, 'bandpass', 3500, 1.5);
+    };
+    // Accordion: two reeds tuned slightly apart (the "musette" shimmer).
+    I.accordion = function (f, t, dur, vol, out) {
+        var g = ctx.createGain(), lp = filter('lowpass', Math.min(5000, f * 6), 0.7, g), end = t + dur + 0.08;
+        hold(g, t, dur + 0.05, vol, 0.02, 0.05);
+        g.connect(out);
+        osc('pulse', f, t, end, lp, -9);
+        osc('sawtooth', f, t, end, gain(lp, 0.6), 9);
+        osc('pulse', f * 2, t, end, gain(lp, 0.25));
+    };
+    // Plucked strings of different kinds.
+    I.nylon = function (f, t, dur, vol, out) { string(f, t, Math.max(dur, 0.6), vol * 1.5, out, 0.35, 1.6); };
+    I.harpsi = function (f, t, dur, vol, out) {
+        string(f, t, Math.min(dur + 0.2, 0.9), vol * 1.2, out, 0.97, 1.1);
+        string(f * 2, t + 0.003, 0.5, vol * 0.45, out, 0.97, 0.7);
+    };
+    I.banjo = function (f, t, dur, vol, out) { string(f, t, 0.35, vol * 1.5, out, 0.9, 0.5); };
+    // Vibraphone: soft sine bars with the motor tremolo.
+    I.vibes = function (f, t, dur, vol, out) {
+        var g = ctx.createGain(), tr = ctx.createGain(), lfo = ctx.createOscillator(), lg = ctx.createGain(),
+            ring = Math.max(0.8, Math.min(2, dur + 0.6)), end = t + ring + 0.05;
+        env(g, t, 0.003, vol, ring);
+        g.connect(tr);
+        tr.connect(out);
+        lfo.frequency.value = 5.5;
+        lg.gain.value = 0.25;
+        lfo.connect(lg);
+        lg.connect(tr.gain);
+        lfo.start(t);
+        lfo.stop(end);
+        osc('sine', f, t, end, g);
+        tone('sine', f * 4, t, 0.25, vol * 0.18, out, 0, 0.002);
+    };
+    // Steel drum: a few inharmonic partials, quick bright attack.
+    I.steel = function (f, t, dur, vol, out) {
+        tone('sine', f, t, 0.7, vol, out, f * 0.995, 0.004);
+        tone('sine', f * 2, t, 0.35, vol * 0.5, out, 0, 0.003);
+        tone('sine', f * 3.01, t, 0.18, vol * 0.25, out, 0, 0.002);
+        tone('triangle', f * 4.2, t, 0.06, vol * 0.12, out, 0, 0.001);
+    };
+    // Kalimba / music box: pure tine with a click.
+    I.kalimba = function (f, t, dur, vol, out) {
+        tone('sine', f, t, 0.9, vol, out, 0, 0.002);
+        tone('sine', f * 5.4, t, 0.05, vol * 0.25, out, 0, 0.001);
+        tone('sine', f * 2, t, 0.2, vol * 0.15, out, 0, 0.002);
+    };
+    // Clavinet: a short funky pulse through a narrow band.
+    I.clav = function (f, t, dur, vol, out) {
+        var g = ctx.createGain(), bp = filter('bandpass', Math.min(5000, f * 3), 1.4, g), d = Math.min(0.28, dur + 0.05);
+        env(g, t, 0.002, vol, d);
+        g.connect(out);
+        osc('pulse', f, t, t + d + 0.05, bp);
+        osc('sawtooth', f * 2, t, t + d + 0.05, gain(bp, 0.3));
+    };
+    // Analog synth lead (synthwave): saw + square, a resonant filter sweep, vibrato.
+    I.lead = function (f, t, dur, vol, out) {
+        var g = ctx.createGain(), lp = filter('lowpass', 2000, 4, g), end = t + dur + 0.1;
+        lp.frequency.setValueAtTime(Math.min(9000, f * 8), t);
+        lp.frequency.setTargetAtTime(Math.min(5000, f * 3), t + 0.02, 0.15);
+        hold(g, t, dur + 0.05, vol, 0.006, 0.07);
+        g.connect(out);
+        var o = osc('sawtooth', f, t, end, lp, -5);
+        osc('square', f * 1.003, t, end, gain(lp, 0.6), 5);
+        if (dur > 0.3) vib(o, t, f, 0.005, 5.5, 0.25, end);
+    };
+    // Tin whistle: breathy sine with a quick ornamental vibrato.
+    I.whistle = function (f, t, dur, vol, out) {
+        var g = ctx.createGain(), end = t + dur + 0.08;
+        hold(g, t, dur + 0.04, vol, 0.02, 0.05);
+        g.connect(out);
+        var o = osc('sine', f, t, end, g);
+        o.frequency.setValueAtTime(f * 1.03, t);
+        o.frequency.linearRampToValueAtTime(f, t + 0.03);
+        if (dur > 0.25) vib(o, t, f, 0.008, 6.5, 0.12, end);
+        osc('triangle', f * 2, t, end, gain(g, 0.08));
+        hiss(t, Math.min(0.1, dur), vol * 0.3, out, 'bandpass', Math.min(9000, f * 2), 4);
+    };
+    // Trumpet: brighter than the brass section, with vibrato on long notes.
+    I.trumpet = function (f, t, dur, vol, out) {
+        var g = ctx.createGain(), lp = filter('lowpass', 500, 1.3, g), end = t + dur + 0.08;
+        lp.frequency.setValueAtTime(600, t);
+        lp.frequency.linearRampToValueAtTime(Math.min(8000, f * 9), t + 0.04);
+        lp.frequency.setTargetAtTime(Math.min(6000, f * 6), t + 0.06, 0.2);
+        hold(g, t, dur + 0.04, vol, 0.02, 0.06);
+        g.connect(out);
+        var o = osc('sawtooth', f, t, end, lp);
+        o.frequency.setValueAtTime(f * 0.98, t);
+        o.frequency.linearRampToValueAtTime(f, t + 0.04);
+        if (dur > 0.3) vib(o, t, f, 0.006, 5.5, 0.2, end);
+        osc('square', f, t, end, gain(lp, 0.25), 6);
+    };
+    I.celesta = function (f, t, dur, vol, out) {
+        tone('sine', f, t, 1.1, vol, out, 0, 0.002);
+        tone('sine', f * 4, t, 0.3, vol * 0.3, out, 0, 0.001);
+        tone('sine', f * 2, t, 0.5, vol * 0.2, out, 0, 0.002);
+    };
+
     // Basses: root note in MIDI (the caller already chose the octave).
     var BASS = {
         synth: function (m, t, dur, vol, out) {
@@ -508,6 +722,36 @@
             osc('triangle', f, t, end, g);
             osc('sine', f / 2, t, end, gain(g, 0.6));
             hiss(t, 0.02, vol * 0.2, out, 'lowpass', 900);
+        },
+        // Slap bass: bright "pop" that closes quickly, and a thump.
+        slap: function (m, t, dur, vol, out) {
+            var f = mhz(m + 12), g = ctx.createGain(), lp = filter('lowpass', 3000, 2, g), end = t + Math.min(dur, 0.5) + 0.06;
+            lp.frequency.setValueAtTime(3500, t);
+            lp.frequency.exponentialRampToValueAtTime(400, t + 0.15);
+            env(g, t, 0.002, vol * 1.2, Math.min(dur, 0.5));
+            g.connect(out);
+            osc('sawtooth', f, t, end, lp);
+            osc('sine', f / 2, t, end, gain(g, 0.9));
+            hiss(t, 0.015, vol * 0.5, out, 'bandpass', 2200, 1.5);
+        },
+        // 808: long sine with a pitch drop, lightly driven.
+        b808: function (m, t, dur, vol, out) {
+            var f = mhz(m), g = ctx.createGain(), ws = ctx.createWaveShaper(), end = t + dur + 0.1;
+            ws.curve = curve;
+            ws.connect(g);
+            hold(g, t, dur + 0.06, vol * 1.1, 0.004, 0.08);
+            g.connect(out);
+            var pre = gain(ws, 0.8), o = osc('sine', f, t, end, pre);
+            o.frequency.setValueAtTime(f * 1.6, t);
+            o.frequency.exponentialRampToValueAtTime(f, t + 0.06);
+        },
+        // Round fingered bass.
+        finger: function (m, t, dur, vol, out) {
+            var f = mhz(m + 12), g = ctx.createGain(), lp = filter('lowpass', 900, 1, g), end = t + dur + 0.06;
+            hold(g, t, dur + 0.03, vol * 1.3, 0.005, 0.05);
+            g.connect(out);
+            osc('triangle', f, t, end, lp);
+            osc('sine', f / 2, t, end, gain(g, 0.7));
         },
         pizz: function (m, t, dur, vol, out) { string(mhz(m + 12), t, Math.min(dur, 0.5), vol * 2, out); }
     };
@@ -569,14 +813,59 @@
         },
         harp: function (notes, t, dur, vol, out) {
             notes.forEach(function (m, i) { string(mhz(m), t + i * 0.03, 1.2, vol * 1.2, out); });
+        },
+        // Acoustic guitar strum: the chord's strings one after another.
+        strum: function (notes, t, dur, vol, out, cd) {
+            var ns = cd ? [cd.r, cd.r + 7].concat(notes) : notes;
+            ns.forEach(function (m, i) { string(mhz(m), t + i * 0.012, Math.max(dur, 0.4), vol * (i < 2 ? 0.8 : 1), out, 0.4, 1.4); });
+        },
+        clav: function (notes, t, dur, vol, out) {
+            notes.forEach(function (m) { I.clav(mhz(m), t, dur, vol, out); });
+        },
+        vibes: function (notes, t, dur, vol, out) {
+            notes.forEach(function (m) { I.vibes(mhz(m), t, dur, vol * 0.7, out); });
+        },
+        accordion: function (notes, t, dur, vol, out) {
+            notes.forEach(function (m) { I.accordion(mhz(m), t, dur, vol * 0.6, out); });
+        },
+        harpsi: function (notes, t, dur, vol, out) {
+            notes.forEach(function (m, i) { string(mhz(m), t + i * 0.008, Math.min(dur + 0.2, 0.8), vol, out, 0.97, 1); });
+        },
+        // House piano/organ stab: short, bright, filtered.
+        stab: function (notes, t, dur, vol, out) {
+            var g = ctx.createGain(), lp = filter('lowpass', 2600, 1.5, g), d = Math.min(0.3, dur), end = t + d + 0.08;
+            env(g, t, 0.003, vol, d);
+            g.connect(out);
+            notes.forEach(function (m) {
+                osc('square', mhz(m), t, end, lp, -6);
+                osc('sawtooth', mhz(m), t, end, lp, 6);
+            });
+        },
+        // Warm analog pad that slowly opens (synthwave).
+        warm: function (notes, t, dur, vol, out) {
+            var g = ctx.createGain(), lp = filter('lowpass', 600, 1.2, g), end = t + dur + 0.6;
+            lp.frequency.setValueAtTime(500, t);
+            lp.frequency.linearRampToValueAtTime(2200, t + dur * 0.6);
+            g.gain.setValueAtTime(0.0001, t);
+            g.gain.linearRampToValueAtTime(vol, t + Math.min(0.3, dur * 0.3));
+            g.gain.setValueAtTime(vol, t + dur);
+            g.gain.linearRampToValueAtTime(0.0001, t + dur + 0.5);
+            g.connect(out);
+            notes.forEach(function (m) {
+                osc('sawtooth', mhz(m), t, end, lp, -12);
+                osc('sawtooth', mhz(m), t, end, lp, 12);
+            });
         }
     };
 
     // Relative loudness of every instrument.
     var LEVEL = {piano: 0.2, epiano: 0.17, bell: 0.1, mallet: 0.22, pluck: 0.1, saw: 0.05, square: 0.075, brass: 0.09,
-        strings: 0.065, pizz: 0.28, harp: 0.24, guitar: 0.06, organ: 0.06, flute: 0.13, choir: 0.08};
+        strings: 0.065, pizz: 0.28, harp: 0.24, guitar: 0.06, organ: 0.06, flute: 0.13, choir: 0.08,
+        sax: 0.07, clarinet: 0.08, violin: 0.06, accordion: 0.06, nylon: 0.22, harpsi: 0.17, banjo: 0.2, vibes: 0.16,
+        steel: 0.16, kalimba: 0.18, clav: 0.11, lead: 0.06, whistle: 0.12, trumpet: 0.07, celesta: 0.15};
     var PADLEVEL = {pad: 0.03, strings: 0.045, choir: 0.05, saw: 0.017, organ: 0.04, brass: 0.06, piano: 0.12, epiano: 0.11,
-        pluck: 0.08, guitar: 0.05, harp: 0.12};
+        pluck: 0.08, guitar: 0.05, harp: 0.12, strum: 0.11, clav: 0.07, vibes: 0.1, accordion: 0.035, harpsi: 0.09,
+        stab: 0.03, warm: 0.022};
 
     /* ---------------- grooves ---------------- */
 
@@ -649,6 +938,45 @@
         } else if (name === 'ticks') {
             every(e, 'i');
             on(0, 'k');
+        } else if (name === 'synth') {            // synthwave: steady kick, big snare on 2 and 4
+            for (k = 0; k < bpb; k++) on(k, k % 2 ? 'S' : 'k');
+            every(e, 'h');
+        } else if (name === 'house') {
+            for (k = 0; k < bpb; k++) { on(k, 'k'); on(k + half, 'o'); if (k % 2) on(k, 'c'); }
+            if (spb === 4) every(1, 'i');
+            on(bpb - 1 + half, 'j');
+        } else if (name === 'funk') {
+            for (k = 0; k < bpb; k += 2) {
+                on(k, 'k'); on(k + 0.75, 'k'); on(k + 1, 's'); on(k + 1.75, 'G'); on(k + 0.5, 'G');
+            }
+            every(spb === 4 ? 1 : e, 'h');
+            on(bpb - 0.5, 'o');
+        } else if (name === 'reggae') {           // one drop: kick and rim on beat 3
+            on(bpb >= 4 ? 2 : 1, 'k');
+            on(bpb >= 4 ? 2 : 1, 'r');
+            every(e, 'i');
+            on(bpb - 1 + half, 'o');
+        } else if (name === 'trap') {
+            on(0, 'K'); on(1 + half, 'K');
+            if (bpb >= 4) { on(1, 'S'); on(3, 'S'); on(2 + half, 'K'); } else on(1, 'S');
+            every(1, 'y');
+            on(bpb - half, 'Y');
+            on(1 + half, 'Y');
+        } else if (name === 'jig') {              // celtic frame drum
+            for (k = 0; k < bpb; k++) { on(k, 'u'); for (var q = 1; q < spb; q++) a[k * spb + q] += 'v'; }
+            every(e, 'z');
+            on(bpb - 1, 'j');
+        } else if (name === 'march') {
+            for (k = 0; k < bpb; k++) { on(k, k % 2 ? 's' : 'k'); on(k + half, 'G'); }
+            every(e, 'i');
+        } else if (name === 'habanera') {         // dotted-eighth, sixteenth, two eighths
+            for (k = 0; k < bpb; k += 2) { on(k, 'k'); on(k + 0.75, 'r'); on(k + 1, 'k'); on(k + 1.5, 'r'); }
+            every(e, 'z');
+            on(bpb - 1, 'j');
+        } else if (name === 'bossa') {
+            for (k = 0; k < bpb; k += 2) { on(k, 'k'); on(k + 1.5, 'k'); }
+            [0, 1.5, 3].forEach(function (x) { on(x, 'r'); });
+            every(spb === 4 ? 1 : e, 'i');
         }
         return a;
     }
@@ -727,6 +1055,11 @@
                         var w = Math.floor(pos / v.spb) % 4, nx = chs[(Math.floor(j / slot) + 1) % chs.length].r - 12;
                         b = [bn, bn + cd.iv[1], bn + 7, nx + (nx > bn ? -1 : 1)][w];
                         bl = sd * v.spb * 0.9;
+                    } else if (BASSRHY.hasOwnProperty(bp)) {
+                        // Rhythms given in beats within two beats: [beat, interval above the root, length in beats].
+                        var rb = (pos / v.spb) % 2, hit = null;
+                        BASSRHY[bp].forEach(function (x) { if (Math.abs(x[0] - rb) < 0.01) hit = x; });
+                        if (hit) { b = bn + hit[1]; bl = sd * v.spb * hit[2]; }
                     }
                     if (b !== null) bi(b, t, bl, bv * acc, p.out);
                 }
@@ -750,9 +1083,9 @@
                 }
                 // melody
                 if (mel.fresh[j] && sec.lead) {
-                    var dur = mel.len[j] * sd, note = mel.note[j] + (sec.o || 0) + (v.o || 0);
-                    I[sec.lead](mhz(note), t, dur, LEVEL[sec.lead] * (sec.lv || 1) * acc, H);
-                    if (sec.l2) I[sec.l2](mhz(note + (sec.o2 || 0)), t, dur, LEVEL[sec.l2] * 0.7 * (sec.l2v || 1) * acc, H);
+                    var dur = mel.len[j] * sd, note = mel.note[j] + (sec.o || 0) + (v.o || 0), LO = sec.dl ? echoOut(p, H, sec.dl) : H;
+                    I[sec.lead](mhz(note), t, dur, LEVEL[sec.lead] * (sec.lv || 1) * acc, LO);
+                    if (sec.l2) I[sec.l2](mhz(note + (sec.o2 || 0)), t, dur, LEVEL[sec.l2] * 0.7 * (sec.l2v || 1) * acc, LO);
                 }
                 // drums
                 var dp = p.urgent ? sec.urg : sec.dp ? sec.dp : bar === bars - 1 ? sec.last : sec.base, codes = dp[pos] || '';
@@ -760,6 +1093,27 @@
                 hits(p, codes, t, sd, (v.dv || 1) * (sec.dv || 1), acc * (isBeat ? 1 : 0.85), cd);
             }
         };
+    }
+
+    // The lead's route with a send into the stereo echo; one per destination and amount.
+    function echoOut(p, H, amount) {
+        var key = (H === p.pump ? 'ep' : 'eh') + amount;
+        if (!p[key]) {
+            p[key] = gain(H);
+            var s = ctx.createGain();
+            s.gain.value = amount;
+            p[key].connect(s);
+            if (!p.eo) {
+                p.eo = ctx.createGain();
+                p.eo.connect(bus.echo);
+                p.lvl = p.lvl || 1;
+                p.eo.gain.value = p.lvl;
+                (p.sends = p.sends || []).push(p.eo);
+            }
+            s.connect(p.eo);
+            (p.sends = p.sends || []).push(s);
+        }
+        return p[key];
     }
 
     function hits(p, codes, t, sd, dv, acc, cd) {
@@ -788,6 +1142,16 @@
             else if (c === 'g') conga(t, 200, 0.32 * v, p.L);
             else if (c === 'q') conga(t, 320, 0.26 * v, p.R);
             else if (c === 'R') riser(t, sd * 16, 0.08 * dv, p.dr);
+            else if (c === 'K') kick808(t, 0.9 * dv, o);
+            else if (c === 'G') snare(t, 0.1 * v, p.dr);                          // ghost note
+            else if (c === 'S') { snare(t, 0.4 * v, p.dr); clap(t, 0.22 * v, p.dr); }   // big snare + clap
+            else if (c === 'y') { hat(t, 0.05 * v, p.R); hat(t + sd / 2, 0.035 * v, p.R); }
+            else if (c === 'Y') { for (var y = 0; y < 3; y++) hat(t + y * sd / 3, (0.03 + 0.012 * y) * v, p.R); }
+            else if (c === 'w') cowbell(t, 0.05 * v, p.L);
+            else if (c === 'j') tambourine(t, 0.06 * v, p.R);
+            else if (c === 'p') snap(t, 0.3 * v, p.dr);
+            else if (c === 'u') frame(t, 110, 0.35 * v, p.dr);
+            else if (c === 'v') frame(t, 160, 0.2 * v, p.dr);
             else if (c === 'X') {
                 boom(t, 0.9 * dv, p.dr);
                 kick(t, 0.8 * dv, o);
@@ -797,11 +1161,21 @@
         }
     }
 
+    var BASSRHY = {
+        haba: [[0, 0, 0.7], [0.75, 7, 0.22], [1, 0, 0.45], [1.5, 7, 0.45]],
+        funk: [[0, 0, 0.4], [0.75, 12, 0.2], [1, 0, 0.2], [1.5, 10, 0.2], [1.75, 12, 0.2]],
+        trap: [[0, 0, 1.4], [1.5, 0, 0.45]],
+        drop: [[0, 0, 0.9], [1, 7, 0.4], [1.5, 12, 0.4]],
+        bossa: [[0, 0, 1.4], [1.5, 7, 0.45]]
+    };
+
     var STYLE_LEAD = {epic: 'strings', rock: 'guitar', edm: 'saw', disco: 'strings', pop: 'pluck', lofi: 'epiano', chip: 'square',
-        orch: 'pizz', latin: 'brass', swing: 'piano', gallop: 'mallet'};
+        orch: 'pizz', latin: 'trumpet', swing: 'piano', gallop: 'mallet', synthwave: 'lead', house: 'pluck', funk: 'clav',
+        reggae: 'organ', trap: 'bell', celtic: 'violin', march: 'trumpet', habanera: 'violin', bossa: 'nylon'};
 
     // Loudness match between styles (measured), so no tune is much louder than the next one.
-    var STYLE_GAIN = {epic: 0.8, swing: 1.8, latin: 1.9, orch: 1.8, chip: 1.2, gallop: 1.15, lofi: 1.05, pop: 0.95, disco: 0.9};
+    var STYLE_GAIN = {epic: 0.8, swing: 1.8, latin: 1.9, orch: 1.8, chip: 1.2, gallop: 1.15, lofi: 1.05, pop: 0.95, disco: 0.9,
+        habanera: 1.9, funk: 2.2, march: 2.2, bossa: 1.8, trap: 0.7, celtic: 0.8, reggae: 0.82, synthwave: 1.1, house: 1.05};
 
     var STYLES = {
         epic: [
@@ -814,18 +1188,18 @@
             {lead: 'saw', l2: '*', o2: -12, comp: 'guitar', cr: 'eighth', pad: 'strings', pv: 0.6, bass: 'eighth', dr: 'rock', fill: 'tom', crash: 1}],
         edm: [
             {lead: 'pluck', pad: 'pad', bass: 'root', bi: 'sub', bv: 0.7, dr: 'ticks', arp: 'pluck', fill: 'riser'},
-            {lead: '*', l2: 'pluck', o2: 12, pad: 'saw', pump: 1, bass: 'off', dr: 'four', fill: 'snare', crash: 1},
-            {lead: 'saw', l2: 'bell', o2: 12, pad: 'saw', pump: 1, bass: 'off', arp: 'pluck', dr: 'four', fill: 'riser', crash: 1}],
+            {lead: '*', l2: 'pluck', o2: 12, pad: 'saw', pump: 1, bass: 'off', dr: 'four', fill: 'snare', crash: 1, dl: 0.25},
+            {lead: 'saw', l2: 'bell', o2: 12, pad: 'saw', pump: 1, bass: 'off', arp: 'pluck', dr: 'four', fill: 'riser', crash: 1, dl: 0.3}],
         disco: [
             {lead: '*', pad: 'strings', pv: 0.6, bass: 'oct', dr: 'disco', comp: 'epiano', cr: 'off', fill: 'snare'},
-            {lead: 'brass', l2: 'strings', o2: 12, bass: 'oct', dr: 'disco', comp: 'guitar', cr: 'off', cv: 0.5, arp: 'bell', av: 0.6, fill: 'snare', crash: 1}],
+            {lead: 'brass', l2: 'strings', o2: 12, bass: 'oct', dr: 'disco', comp: 'clav', cr: 'off', cv: 0.8, arp: 'bell', av: 0.6, fill: 'snare', crash: 1}],
         pop: [
             {lead: 'piano', pad: 'pad', pv: 0.8, bass: 'root', dr: 'half'},
             {lead: '*', pad: 'pad', bass: 'eighth', dr: 'pop', comp: 'piano', cr: 'off', cv: 0.6, fill: 'snare', crash: 1},
-            {lead: '*', l2: 'bell', o2: 12, pad: 'strings', pv: 0.8, bass: 'eighth', arp: 'pluck', dr: 'pop', fill: 'snare', crash: 1}],
+            {lead: '*', l2: 'bell', o2: 12, pad: 'strings', pv: 0.8, bass: 'eighth', arp: 'pluck', dr: 'pop', fill: 'snare', crash: 1, dl: 0.2}],
         lofi: [
-            {lead: '*', pad: 'pad', pv: 0.9, bass: 'root', bi: 'sub', bv: 0.7, dr: 'lofi', dv: 0.8},
-            {lead: '*', l2: 'bell', o2: 12, l2v: 0.6, pad: 'pad', bass: 'beat', bi: 'sub', bv: 0.7, arp: 'epiano', av: 0.5, dr: 'lofi', dv: 0.8}],
+            {lead: '*', pad: 'pad', pv: 0.9, bass: 'root', bi: 'sub', bv: 0.7, dr: 'lofi', dv: 0.8, dl: 0.18},
+            {lead: '*', l2: 'vibes', o2: 12, l2v: 0.6, pad: 'pad', bass: 'beat', bi: 'sub', bv: 0.7, arp: 'epiano', av: 0.5, dr: 'lofi', dv: 0.8, dl: 0.18}],
         chip: [
             {lead: 'square', bass: 'eighth', bi: 'chip', dr: 'pop', arp: 'square', av: 0.5, fill: 'snare'},
             {lead: 'square', l2: 'square', o2: 12, l2v: 0.5, bass: 'eighth', bi: 'chip', dr: 'pop', arp: 'square', av: 0.5, fill: 'snare', crash: 1}],
@@ -835,14 +1209,48 @@
             {lead: 'brass', l2: 'strings', o2: 12, pad: 'strings', bass: 'beat', bi: 'sub', dr: 'epic', arp: 'bell', av: 0.5, fill: 'tom', crash: 1}],
         latin: [
             {lead: '*', comp: 'piano', cr: 'off', bass: 'oompa', bi: 'upright', dr: 'latin'},
-            {lead: 'brass', l2: 'brass', o2: -12, comp: 'piano', cr: 'off', bass: 'oompa', bi: 'upright', dr: 'latin', fill: 'snare', crash: 1}],
+            {lead: 'trumpet', l2: 'brass', o2: -12, comp: 'piano', cr: 'off', bass: 'oompa', bi: 'upright', dr: 'latin', fill: 'snare', crash: 1}],
         swing: [
             {lead: '*', comp: 'piano', cr: 'beats', cv: 0.6, bass: 'walk', bi: 'upright', dr: 'swing'},
-            {lead: 'brass', l2: 'brass', o2: -12, comp: 'piano', cr: 'beats', cv: 0.6, bass: 'walk', bi: 'upright', dr: 'swing', fill: 'snare', crash: 1}],
+            {lead: 'sax', l2: 'brass', o2: -12, l2v: 0.6, comp: 'piano', cr: 'beats', cv: 0.6, bass: 'walk', bi: 'upright', dr: 'swing', fill: 'snare', crash: 1}],
         gallop: [
             {lead: '*', bass: 'oompa', bi: 'pizz', dr: 'gallop', comp: 'pluck', cr: 'off', cv: 0.6},
             {lead: 'strings', l2: 'mallet', o2: 12, pad: 'strings', pv: 0.6, bass: 'oompa', dr: 'gallop', fill: 'snare', crash: 1},
-            {lead: 'brass', l2: 'strings', o2: 12, bass: 'oompa', dr: 'gallop', comp: 'brass', cr: 'off', cv: 0.5, fill: 'snare', crash: 1}]
+            {lead: 'brass', l2: 'strings', o2: 12, bass: 'oompa', dr: 'gallop', comp: 'brass', cr: 'off', cv: 0.5, fill: 'snare', crash: 1}],
+        synthwave: [
+            {lead: '*', pad: 'warm', bass: 'eighth', bi: 'synth', bv: 0.8, dr: 'ticks', arp: 'pluck', av: 0.6, dl: 0.35, fill: 'riser'},
+            {lead: '*', l2: 'saw', o2: 12, l2v: 0.4, pad: 'warm', bass: 'eighth', bi: 'synth', dr: 'synth', arp: 'pluck', av: 0.6, dl: 0.35, fill: 'tom', crash: 1},
+            {lead: 'saw', l2: 'lead', o2: -12, pad: 'warm', bass: 'oct', bi: 'synth', dr: 'synth', arp: 'bell', av: 0.5, dl: 0.3, fill: 'snare', crash: 1}],
+        house: [
+            {lead: '*', pad: 'warm', pv: 0.8, bass: 'off', bi: 'sub', dr: 'ticks', comp: 'stab', cr: 'off', cv: 0.6, dl: 0.25, fill: 'riser'},
+            {lead: '*', l2: 'bell', o2: 12, l2v: 0.6, comp: 'stab', cr: 'off', pump: 1, bass: 'off', bi: 'synth', dr: 'house', dl: 0.25, fill: 'snare', crash: 1},
+            {lead: 'piano', l2: 'pluck', o2: 12, comp: 'piano', cr: 'push', pad: 'warm', pump: 1, bass: 'off', bi: 'synth', dr: 'house', dl: 0.2, fill: 'riser', crash: 1}],
+        funk: [
+            {lead: '*', bass: 'funk', bi: 'slap', dr: 'funk', comp: 'clav', cr: 'off', cv: 0.7, dv: 0.7},
+            {lead: 'sax', l2: 'brass', o2: -12, l2v: 0.6, bass: 'funk', bi: 'slap', dr: 'funk', comp: 'clav', cr: 'eighth', cv: 0.6, fill: 'snare', crash: 1, dv: 0.7},
+            {lead: 'trumpet', l2: 'sax', o2: -12, pad: 'organ', pv: 0.6, bass: 'funk', bi: 'slap', dr: 'funk', comp: 'clav', cr: 'off', fill: 'snare', crash: 1, dv: 0.7}],
+        reggae: [
+            {lead: '*', bass: 'drop', bi: 'sub', dr: 'reggae', comp: 'organ', cr: 'off', cv: 0.8, dl: 0.3},
+            {lead: 'steel', l2: 'organ', o2: -12, l2v: 0.5, bass: 'drop', bi: 'sub', dr: 'reggae', comp: 'strum', cr: 'off', cv: 0.5, dl: 0.3, crash: 1},
+            {lead: 'trumpet', l2: 'sax', o2: -12, bass: 'drop', bi: 'sub', dr: 'reggae', comp: 'clav', cr: 'off', dl: 0.25, fill: 'snare', crash: 1}],
+        trap: [
+            {lead: '*', pad: 'warm', pv: 0.8, bass: 'trap', bi: 'b808', dr: 'half', dl: 0.3},
+            {lead: '*', l2: 'pluck', o2: -12, l2v: 0.6, pad: 'choir', pv: 0.5, bass: 'trap', bi: 'b808', dr: 'trap', dl: 0.3, crash: 1},
+            {lead: 'saw', l2: 'bell', o2: 12, l2v: 0.6, pad: 'strings', pv: 0.6, bass: 'trap', bi: 'b808', dr: 'trap', arp: 'pluck', av: 0.5, dl: 0.25, fill: 'riser', crash: 1}],
+        celtic: [
+            {lead: '*', pad: 'strings', pv: 0.5, bass: 'beat', bi: 'finger', dr: 'jig', arp: 'harp', av: 0.6},
+            {lead: 'whistle', l2: 'violin', o2: -12, l2v: 0.6, comp: 'strum', cr: 'beats', bass: 'beat', bi: 'finger', dr: 'jig', fill: 'tom', crash: 1},
+            {lead: 'accordion', l2: 'whistle', o2: 12, l2v: 0.6, comp: 'strum', cr: 'beats', bass: 'beat', bi: 'finger', dr: 'jig', arp: 'harp', av: 0.5, crash: 1}],
+        march: [
+            {lead: '*', bass: 'oompa', bi: 'upright', dr: 'march', comp: 'brass', cr: 'off', cv: 0.4, dv: 0.7},
+            {lead: 'trumpet', l2: 'clarinet', o2: 12, l2v: 0.6, bass: 'oompa', bi: 'upright', dr: 'march', comp: 'brass', cr: 'off', cv: 0.5, arp: 'bell', av: 0.5, fill: 'snare', crash: 1, dv: 0.7}],
+        habanera: [
+            {lead: '*', bass: 'haba', bi: 'upright', dr: 'habanera', comp: 'strum', cr: 'beats', cv: 0.7, dv: 0.7},
+            {lead: 'accordion', l2: 'violin', o2: -12, l2v: 0.6, bass: 'haba', bi: 'upright', dr: 'habanera', comp: 'strum', cr: 'beats', cv: 0.6, pad: 'strings', pv: 0.5, fill: 'snare', crash: 1, dv: 0.7},
+            {lead: 'trumpet', l2: 'violin', o2: 12, l2v: 0.5, bass: 'haba', bi: 'upright', dr: 'habanera', comp: 'piano', cr: 'beats', cv: 0.6, pad: 'strings', pv: 0.6, crash: 1, dv: 0.7}],
+        bossa: [
+            {lead: '*', bass: 'bossa', bi: 'upright', dr: 'bossa', comp: 'strum', cr: 'push', cv: 0.7, pad: 'pad', pv: 0.5, dv: 0.7},
+            {lead: 'sax', l2: 'vibes', o2: 12, l2v: 0.5, bass: 'bossa', bi: 'upright', dr: 'bossa', comp: 'epiano', cr: 'push', cv: 0.7, pad: 'strings', pv: 0.4, dl: 0.2, crash: 1, dv: 0.7}]
     };
 
     function at(n, pos, tok, fill) {
@@ -983,7 +1391,89 @@
         song({id: 50, name: L('Бубенцы'), by: L('Дж. Пирпонт (1822–1893)'), style: 'swing', bpm: 176, spb: 2, bpb: 4, swing: 1, lead: 'bell',
             mel: "e - e - e - - - | e - e - e - - - | e - g - c - d - | e - - - - - - - |" +
                  "f - f - f - f - | f - e - e - e e | e - d - d - e - | d - - - g - - -",
-            ch: 'C C C C F C D7 G', o: 12})
+            ch: 'C C C C F C D7 G', o: 12}),
+        // ---- added in November 2026 ----
+        song({id: 51, name: L('Хабанера («Кармен»)'), by: L('Ж. Бизе (1838–1875)'), style: 'habanera', bpm: 104, spb: 4, bpb: 2, o: -12,
+            mel: "d'' - - c#'' c'' - c'' - | b' - - bb' a' - a' - | ab' - - g' f' - f' - | e' - f' - e' - . . |" +
+                 "d'' - - c#'' c'' - c'' - | b' - - bb' a' - a' - | ab' - - g' f' - e' - | d' - - - . . . .",
+            ch: 'Dm Dm Dm A7 Dm Dm A7 Dm'}),
+        song({id: 52, name: L('Свадебный хор («Лоэнгрин»)'), by: L('Р. Вагнер (1813–1883)'), style: 'synthwave', bpm: 100, spb: 2, bpb: 4, o: 12,
+            mel: "f - - f f - c - | g - - e f - c - | f - bb - - bb a g | f - e f g - c - |" +
+                 "f - - f f - c - | g - - e f - c - | f - bb - - a g e | f - - - . . c -",
+            ch: 'F C7 Bb C7 F C7 Bb F'}),
+        song({id: 53, name: L('Шутка (Бадинери)'), by: L('И. С. Бах (1685–1750)'), style: 'house', bpm: 122, spb: 4, bpb: 2, o: -12,
+            mel: "b' - d'' b' f#' - b' f#' | d' - f#' d' b - . . | c#' - b c#' d' - c#' d' | e' - d' e' f#' - . . |" +
+                 "b' - d'' b' f#' - b' f#' | d' - f#' d' b - . . | g' f#' e' d' c#' b a# c#' | b - - - f#' - b' -",
+            ch: 'Bm Bm F# Bm Bm Bm F# Bm'}),
+        song({id: 54, name: L('Лунная соната, 3-я часть'), by: L('Л. ван Бетховен (1770–1827)'), style: 'rock', bpm: 132, spb: 4, bpb: 4, lead: 'harpsi',
+            mel: "g#, c# e g# c#' e g# c#' e' g# c#' e' g#' - g#' - | g#, c# e g# c#' e g# c#' e' g# c#' e' g#' - g#' - |" +
+                 "a, c# e a c#' e a c#' e' a c#' e' a' - a' - | g#, c d# g# c' d# g# c' d#' g# c' d#' g#' - g#' -",
+            ch: 'C#m C#m A G#7'}),
+        song({id: 55, name: L('Соната № 16 до мажор'), by: L('В. А. Моцарт (1756–1791)'), style: 'funk', gain: 2.6, bpm: 104, spb: 2, bpb: 4, o: -12, lead: 'clav',
+            mel: "c'' - - - e'' - g'' - | b' - - c'' d'' c'' - - | a'' - - - g'' - c''' - | g'' - f'' g'' e'' f'' e'' - |" +
+                 "a' b' c'' d'' e'' f'' g'' a'' | g'' f'' e'' d'' c'' b' a' g' | f' g' a' b' c'' d'' e'' f'' | e'' d'' c'' b' c'' - - -",
+            ch: 'C G F C F C G C'}),
+        song({id: 56, name: L('Ярмарка в Скарборо'), by: L('английская народная песня'), style: 'celtic', bpm: 120, spb: 2, bpb: 3,
+            mel: "d - - - d - | a - - - a - | e - - f e - | d - - - - - | . . a - c' - | d' - - - c' - | a - b - g - | a - - - - - |" +
+                 "d' - - - d' - | c' - a - a - | g - f - e - | c - - - . . | d - a - g - | f - e - d - | c - e - d - | d - - - - - ",
+            ch: 'Dm Dm C Dm Dm Dm G Dm Dm Am C C Dm C C Dm'}),
+        song({id: 57, name: L('Старое доброе время'), by: L('шотландская народная песня'), style: 'reggae', bpm: 80, spb: 2, bpb: 4, swing: 1, o: 12,
+            mel: "f - - f f - a - | g - - f g - a g | f - - f a - c' - | d' - - - - - d' - |" +
+                 "c' - - a a - f - | g - - f g - a - | f - - d d - c - | f - - - - - c -",
+            ch: 'F C7 F Bb F C7 Bb F'}),
+        song({id: 58, name: L('Янки-дудл'), by: L('американская народная песня'), style: 'march', gain: 3, bpm: 120, spb: 2, bpb: 4, o: 12,
+            mel: "c c d e c e d g, | c c d e c - b, - | c c d e f e d c | b, g, a, b, c - c - |" +
+                 "a - b a g a b c' | g - a g f e g - | a b a g a b c' a | g c' b d' c' - c' -",
+            ch: 'C G C G F C F C'}),
+        song({id: 59, name: L('Сакура'), by: L('японская народная песня'), style: 'trap', bpm: 74, spb: 2, bpb: 4, o: 12,
+            mel: "a - a - b - - - | a - a - b - - - | a - b - c' - b - | a - b a f - - - |" +
+                 "e - c - e - f - | e - e c b, - - - | a - b a f - - - | e - - - . . . .",
+            ch: 'Am Am F Dm Am E Dm Am'}),
+        song({id: 60, name: L('Ариран'), by: L('корейская народная песня'), style: 'pop', bpm: 96, spb: 2, bpb: 3, lead: 'flute',
+            mel: "g - - a g a | c' - - d' c' d' | e' d' c' a g a | c' - - - - - |" +
+                 "g' - - g' e' d' | e' d' c' a g a | c' - - d' c' d' | c' - - - - -",
+            ch: 'C F Am C C Am F C'}),
+        song({id: 61, name: L('Ирландская прачка'), by: L('ирландская народная мелодия'), style: 'celtic', bpm: 112, spb: 3, bpb: 2, lead: 'violin',
+            mel: "b g g d g g | b g b d' c' b | c' a a e a a | c' a c' e' d' c' |" +
+                 "b g g d g g | b g b d' c' b | c' e' d' c' b a | g - - g - -",
+            ch: 'G G Am D G G D G'}),
+        song({id: 62, name: L('Тарантелла'), by: L('итальянская народная мелодия'), style: 'gallop', bpm: 152, spb: 3, bpb: 2, lead: 'accordion',
+            mel: "e - e e d# e | f# - f# f# e f# | g - f# e - d# | e - - b, - - |" +
+                 "e - e e d# e | f# - f# f# e f# | g f# e d# e f# | e - - - - -",
+            ch: 'Em B7 B7 Em Em B7 B7 Em', o: 12}),
+        song({id: 63, name: L('Сердце красавицы («Риголетто»)'), by: L('Дж. Верди (1813–1901)'), style: 'disco', gain: 1.3, bpm: 112, spb: 3, bpb: 2, o: 12,
+            mel: "g g g b - a | f - - . . . | f a g e - d | c - - . . . |" +
+                 "e e e g - f | d - - . . . | d f e c - b, | c - - . . .",
+            ch: 'C G7 G7 C C G7 G7 C'}),
+        song({id: 64, name: L('Скачки в Кэмптауне'), by: L('С. Фостер (1826–1864)'), style: 'gallop', bpm: 160, spb: 2, bpb: 4, lead: 'banjo', o: 12,
+            mel: "g - g - e - g - | a - g - e - - - | e - d - - - - - | e - d - - - - - |" +
+                 "g - g - e - g - | a - g - e - - - | d - - - e - d - | c - - - . . . .",
+            ch: 'C C G G C C G C'}),
+        song({id: 65, name: L('Огни Оша'), by: L('собственная мелодия'), style: 'synthwave', bpm: 100, spb: 2, bpb: 4,
+            mel: "a - c' - e' - d' c' | b - - - g - - - | a - c' - e' - g' e' | d' - - - - - . . |" +
+                 "f' - e' - d' - c' - | b - c' - d' - e' - | c' - b - a - g - | a - - - - - - -",
+            ch: 'Am G Am Dm F G C Am'}),
+        song({id: 66, name: L('Иссык-Куль'), by: L('собственная мелодия'), style: 'house', bpm: 124, spb: 2, bpb: 4,
+            mel: "g - bb - g d' - c' | bb - a - g - - - | g - bb - g d' - f' | eb' - d' - c' - - - |" +
+                 "g - bb - g d' - c' | bb - a - g - bb - | c' - bb - a - f - | g - - - - - - -",
+            ch: 'Gm Gm Gm Cm Gm Gm F Gm'}),
+        song({id: 67, name: L('Ала-Тоо'), by: L('собственная мелодия'), style: 'funk', gain: 2.8, bpm: 108, spb: 4, bpb: 2, o: -12, lead: 'sax',
+            mel: "e' . e' g' . a' . b' | . a' g' . e' - d' - | e' . e' g' . a' . d'' | . b' a' . g' - . . |" +
+                 "e' . e' g' . a' . b' | . a' g' . e' - d' e' | g' - e' - d' - b - | e' - - - . . . .",
+            ch: 'Em A Em G Em A D Em'}),
+        song({id: 68, name: L('Нарын'), by: L('собственная мелодия'), style: 'reggae', bpm: 76, spb: 2, bpb: 4, lead: 'steel',
+            mel: "f#' - - e' d' - a - | b - - a b - d' - | f#' - - e' d' - e' - | e' - - - . . . . |" +
+                 "f#' - - e' d' - a - | b - - a b - d' - | e' - d' - b - a - | d' - - - . . . .",
+            ch: 'D G D A D G A D'}),
+        song({id: 69, name: L('Сулайман-Тоо'), by: L('собственная мелодия'), style: 'trap', bpm: 74, spb: 2, bpb: 4, o: -12,
+            mel: "c'' - g' - eb' - g' - | ab' - g' - eb' - d' - | c'' - g' - eb' - g' - | bb' - ab' - g' - - - |" +
+                 "c'' - g' - eb' - g' - | ab' - g' - eb' - f' - | g' - eb' - d' - b - | c' - - - . . . .",
+            ch: 'Cm Ab Cm Eb Cm Ab G Cm'}),
+        song({id: 70, name: L('Ветер Тянь-Шаня'), by: L('собственная мелодия'), style: 'bossa', bpm: 132, spb: 2, bpb: 4,
+            mel: "e' - - c' - a - b | c' - - - - - . . | d' - - b - g - a | b - - - - - . . |" +
+                 "c' - - a - f - g | a - - e - - . . | b - - g# - e - f# | g# - - - - - . .",
+            ch: 'Am Am G G F F E E'})
+
     ];
 
     var LOBBY = [
@@ -1001,7 +1491,20 @@
         song({id: 3, name: L('На прекрасном голубом Дунае'), by: L('И. Штраус-сын (1825–1899)'), style: 'lofi', bpm: 120, spb: 2, bpb: 3, lead: 'bell',
             mel: ". . . . d - | d - f# - a - | a - - - a' - | a' - - - f#' - | f#' - - - d - | d - f# - a - | a - - - a' - | a' - - - g' - |" +
                  "g' - - - c# - | c# - e - b - | b - - - b' - | b' - - - g' - | g' - - - c# - | c# - e - b - | b - - - b' - | b' - - - f#' - ",
-            ch: 'D D D D D D A7 A7 A7 A7 A7 A7 A7 A7 D D'})
+            ch: 'D D D D D D A7 A7 A7 A7 A7 A7 A7 A7 D D'}),
+        song({id: 4, name: L('Колыбельная'), by: L('И. Брамс (1833–1897)'), style: 'lofi', bpm: 92, spb: 2, bpb: 3, lead: 'vibes', o: 12,
+            mel: "e e g - - - | e e g - - - | e g c' - b - | a - a - g - | d e f - - - | d e f - - - | d f b a g - | b - c' - - -",
+            ch: 'C C C F G G G7 C'}),
+        song({id: 5, name: L('Прелюдия до мажор'), by: L('И. С. Бах (1685–1750)'), style: 'lofi', bpm: 64, spb: 4, bpb: 4, lead: 'harp',
+            mel: "c e g c' e' g c' e' c e g c' e' g c' e' | c d a d' f' a d' f' c d a d' f' a d' f' |" +
+                 "b, d g d' f' g d' f' b, d g d' f' g d' f' | c e g c' e' g c' e' c e g c' e' g c' e' |" +
+                 "c e a e' a' a e' a' c e a e' a' a e' a' | c d f# a d' f# a d' c d f# a d' f# a d' |" +
+                 "b, d g d' g' g d' g' b, d g d' g' g d' g' | b, c e g c' e g c' b, c e g c' e g c'",
+            ch: 'C Dm7 G7 C Am D7 G CM7'}),
+        song({id: 6, name: L('О, благодать'), by: L('американская народная мелодия'), style: 'lofi', bpm: 80, spb: 2, bpb: 3, lead: 'nylon', o: 12,
+            mel: ". . . . d - | g - - - b g | b - - - a - | g - - - e - | d - - - d - | g - - - b g | b - - - a b | d' - - - - -",
+            ch: 'G G D C G G Em D'})
+
     ];
 
     var FINAL = [
@@ -1012,7 +1515,12 @@
         song({id: 8, name: L('Аллилуйя'), by: L('Г. Ф. Гендель (1685–1759)'), style: 'epic', bpm: 96, spb: 4, bpb: 4, lead: 'choir',
             mel: "d' - - - a - - b a - - - . . . . | d' - - - a - - b a - - - . . . . |" +
                  "a - b - a - b - a - - - . . . . | a - - b c#' - - - d' - - - . . . .",
-            ch: 'D D G A'})
+            ch: 'D D G A'}),
+        song({id: 10, name: L('Куплеты Тореадора («Кармен»)'), by: L('Ж. Бизе (1838–1875)'), style: 'epic', bpm: 112, spb: 2, bpb: 4, lead: 'trumpet',
+            mel: "c' - d' c' a - a - | a g a bb a - - - | bb - g - c' - a - | f - d - c - - - |" +
+                 "c' - d' c' a - a - | a g a bb a - - - | g - c' - f - a g | f - - - . . . .",
+            ch: 'F F C7 Bb F F C7 F'})
+
     ];
 
     // After the leaderboard hit: a short bright groove in D.
@@ -1063,7 +1571,11 @@
         playing = playing.filter(function (p) {
             if (p.end && p.end <= now) {
                 urgentOff(p);
-                try { p.out.disconnect(); p.h.disconnect(); } catch (e) { /* ignore */ }
+                try {
+                    p.out.disconnect();
+                    p.h.disconnect();
+                    (p.sends || []).forEach(function (s) { s.disconnect(); });
+                } catch (e) { /* ignore */ }
                 return false;
             }
             return true;
@@ -1091,12 +1603,50 @@
         param.linearRampToValueAtTime(Math.max(value, 0.0001), now + seconds);
     }
 
+    // Shuffle bag: the k-th tune of a game. The list is shuffled with the game's seed and played to the end
+    // before it is shuffled again, so no tune repeats until all have played. Neighbours differ in style,
+    // also across the end of a round. Same seed, same order: a reloaded page keeps playing in step.
+    var bags = {};
+    function bag(name, arr, seed, k) {
+        var n = arr.length, round = Math.floor(k / n), key = name + ':' + seed + ':' + round;
+        if (!bags[key]) {
+            var r = rng((seed * 7919 + round * 104729 + 17) >>> 0), o = [], i, j, x;
+            for (i = 0; i < n; i++) o.push(i);
+            for (i = n - 1; i > 0; i--) { j = Math.floor(r() * (i + 1)); x = o[i]; o[i] = o[j]; o[j] = x; }
+            var before = -1, pk = name + ':' + seed + ':' + (round - 1);
+            if (round > 0) {
+                if (!bags[pk]) bag(name, arr, seed, k - n);
+                before = bags[pk][n - 1];
+            }
+            for (i = 0; i < n; i++) {
+                var last = i ? o[i - 1] : before;
+                if (last < 0 || (o[i] !== last && styleOf(arr[o[i]]) !== styleOf(arr[last]))) continue;
+                for (j = i + 1; j < n; j++) {
+                    if (o[j] !== last && styleOf(arr[o[j]]) !== styleOf(arr[last])) { x = o[i]; o[i] = o[j]; o[j] = x; break; }
+                }
+            }
+            bags[key] = o;
+        }
+        return bags[key][k % n];
+    }
+    function styleOf(d) { return d && d.v ? d.v.style || d.v.name : ''; }
+
+    // Fade a track and its echo send together.
+    function fadeTrack(p, value, seconds) {
+        p.lvl = value;
+        fadeTo(p.out.gain, value, seconds);
+        if (p.eo) fadeTo(p.eo.gain, value, seconds);
+    }
+
     function resolve() {
         var def = want.name && TRACKS.hasOwnProperty(want.name) ? TRACKS[want.name] : null;
         if (!def) return null;
         if (!def.length) return {def: def, v: 0};
         var n = def.length, v = +want.variant, last = lastVariant.hasOwnProperty(want.name) ? lastVariant[want.name] : -1;
-        if (want.variant !== null && want.variant !== undefined && isFinite(v)) v = ((Math.floor(v) % n) + n) % n;
+        if (want.variant !== null && want.variant !== undefined && isFinite(v)) {
+            v = Math.max(0, Math.floor(v));
+            v = want.seed !== null && isFinite(+want.seed) ? bag(want.name, def, +want.seed, v) : v % n;
+        }
         else if (current && current.name === want.name) v = current.variant;
         else v = last < 0 ? Math.floor(Math.random() * n) : (last + 1) % n;
         return {def: def[v], v: v, multi: true};
@@ -1125,12 +1675,12 @@
         if (!ctx) return;
         var r = resolve(), level = (want.quiet ? 0.28 : 1) * (r && r.def.gain || 1);
         if (current && r && current.name === want.name && current.variant === r.v) {
-            fadeTo(current.out.gain, level, 0.4);
+            fadeTrack(current, level, 0.4);
             return;
         }
         var same = !!(current && r && current.name === want.name), keepUrgent = same && current.urgent;
         if (current) {
-            fadeTo(current.out.gain, 0.0001, r ? 0.9 : 1.2);
+            fadeTrack(current, 0.0001, r ? 0.9 : 1.2);
             current.end = ctx.currentTime + (r ? 0.95 : 1.25);
             urgentOff(current);
             current = null;
@@ -1144,11 +1694,17 @@
         current.name = want.name;
         current.variant = r.v;
         current.def = r.def;
+        if (r.def.bpm && bus.dl) {
+            // Echo in time with the tune: a dotted eighth.
+            var et = Math.min(1.5, 45 / r.def.bpm);
+            bus.dl.delayTime.setTargetAtTime(et, ctx.currentTime, 0.05);
+            bus.dr.delayTime.setTargetAtTime(et, ctx.currentTime, 0.05);
+        }
         current.count = 0;
         current.next = ctx.currentTime + 0.06;
         current.end = 0;
         current.urgent = false;
-        fadeTo(out.gain, level, same ? 0.35 : want.name === 'board' ? 0.05 : 0.6);
+        fadeTrack(current, level, same ? 0.35 : want.name === 'board' ? 0.05 : 0.6);
         playing.push(current);
         if (keepUrgent) urgentOn(current);
         if (!timer) timer = setInterval(schedule, TICK_MS);
@@ -1383,9 +1939,11 @@
             save('qz-volume', String(v));
             try { applyVolume(); } catch (e) { /* ignore */ }
         },
-        // music('question', {variant: n}) picks n % count; without a variant the next one in turn.
+        // music('question', {variant: n, seed: s}) plays the n-th tune of the game shuffled with seed s (no repeats
+        // until the whole list has played); without a seed n % count; without a variant the next one in turn.
         music: function (name, opts) {
-            want = {name: name || null, quiet: !!(opts && opts.quiet), variant: opts && opts.variant !== undefined ? opts.variant : null};
+            want = {name: name || null, quiet: !!(opts && opts.quiet), variant: opts && opts.variant !== undefined ? opts.variant : null,
+                seed: opts && opts.seed !== undefined ? opts.seed : null};
             try { if (ctx && unlocked) startMusic(); } catch (e) { /* ignore */ }
         },
         urgent: function (on) {

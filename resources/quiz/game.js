@@ -202,8 +202,11 @@
         music: function (name, variant) {
             if (!this.musicAllowed()) name = null;
             var opts = ROLE === 'player' ? {quiet: true} : {};
-            // Each game starts at its own place in the list, so the same quiz sounds different next time.
-            if (typeof variant === 'number') opts.variant = variant + (name === 'question' ? GAME_SEED : 0);
+            // Each game shuffles the tune list with its own seed and plays it through without repeats.
+            if (typeof variant === 'number') {
+                opts.variant = variant;
+                if (name === 'question') opts.seed = GAME_SEED;
+            }
             var want = name ? name + ':' + (typeof variant === 'number' ? variant : '') : null;
             if (want === this.want) return;
             this.want = want;
