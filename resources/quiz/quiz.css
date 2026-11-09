@@ -729,10 +729,15 @@ button.qz-btn-accent:hover, button.qz-btn-accent:focus { background: #0a6b64; }
 .qz-ai-label .qz-muted { font-weight: 400; }
 .qz-ai-form .qz-input { width: 100%; }
 .qz-ai-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-.qz-ai-status { margin: 4px 0 0; padding: 10px 12px; border-radius: 10px; background: var(--qz-soft, #f0f3f7); font-weight: 600; }
+/* The dialog lives outside .qz, so it gets the quiz colours itself (they follow the light/dark site theme). */
+.qz-ai { --qz-soft: var(--ui-surface-2, #f0f3f7); --qz-bad: #c93a52; }
+:root[data-theme="dark"] .qz-ai { --qz-bad: #ff8a9b; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .qz-ai { --qz-bad: #ff8a9b; } }
+.qz-ai-status { margin: 4px 0 0; padding: 10px 12px; border-radius: 10px; background: var(--qz-soft); color: var(--ui-text, #1b2430);
+    font-weight: 600; }
 .qz-ai-busy .qz-ai-status::before { content: ''; display: inline-block; width: 14px; height: 14px; margin-right: 8px; vertical-align: -2px;
     border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: qz-ai-spin .8s linear infinite; }
-.qz-ai-status.qz-ai-error { background: rgba(201, 58, 82, .12); color: var(--qz-bad, #c93a52); }
+.qz-ai-status.qz-ai-error { background: rgba(201, 58, 82, .14); color: var(--qz-bad); }
 .qz-ai .qz-actions { justify-content: flex-end; }
 @keyframes qz-ai-spin { to { transform: rotate(360deg); } }
 @media (max-width: 520px) { .qz-ai-grid { grid-template-columns: 1fr 1fr; } .qz-ai-form { padding: 16px; } }
