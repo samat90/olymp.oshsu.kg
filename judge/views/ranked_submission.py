@@ -43,12 +43,12 @@ class RankedSubmissions(ProblemSubmissions):
             subquery="""
                 SELECT MIN(sub.id) AS id
                 FROM (
-                    SELECT sub.user_id AS uid, MAX(sub.points) AS points
+                    SELECT sub.user_id AS uid, MAX({points}) AS points
                     FROM judge_submission AS sub {contest_join}
                     WHERE sub.problem_id = %s AND NOT sub.is_archived AND {points} > 0 {constraint}
                     GROUP BY sub.user_id
                 ) AS highscore {join_kw} (
-                    SELECT sub.user_id AS uid, sub.points, MIN(sub.time) as time
+                    SELECT sub.user_id AS uid, {points} AS points, MIN(sub.time) as time
                     FROM judge_submission AS sub {contest_join}
                     WHERE sub.problem_id = %s AND NOT sub.is_archived AND {points} > 0 {constraint}
                     GROUP BY sub.user_id, {points}

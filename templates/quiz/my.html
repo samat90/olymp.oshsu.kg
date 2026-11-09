@@ -73,7 +73,7 @@
                     <td class="qz-num">{{ g.player_count }}</td>
                     <td>{{ g.get_status_display() }}</td>
                     <td class="qz-nowrap">
-                        {% if g.is_active %}<a href="{{ url('quiz_host', g.pin) }}">{{ _('Открыть') }}</a> · {% endif %}
+                        {% if g.can_open %}<a href="{{ url('quiz_host', g.pin) }}">{{ _('Открыть') }}</a> · {% endif %}
                         <a href="{{ url('quiz_game_report', g.id) }}">{{ _('Отчёт') }}</a>
                     </td>
                 </tr>

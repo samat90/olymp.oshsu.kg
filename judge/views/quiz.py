@@ -4,6 +4,7 @@ import json
 import logging
 import re
 import secrets
+from datetime import timedelta
 from io import BytesIO
 
 from django.conf import settings
@@ -19,6 +20,7 @@ from django.middleware.csrf import CsrfViewMiddleware
 from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.views.decorators.http import require_POST
+from django.utils import timezone
 from django.utils.translation import gettext as _
 
 from judge.models import GameSession, Quiz, QuizAnswer, QuizPlayer, QuizQuestion, QuizReport
@@ -132,6 +134,11 @@ def my_quizzes(request):
         .annotate(player_count=Count('players')).order_by('-created')[:30]
     played = QuizPlayer.objects.filter(profile=profile).select_related('game__quiz') \
         .order_by('-joined')[:30]
+    # The host page works only while the game state lives (engine.get_state looks back 12 hours); older unfinished
+    # games and solo games have no host page.
+    cutoff = timezone.now() - timedelta(hours=12)
+    for game in hosted:
+        game.can_open = game.is_active and game.mode != GameSession.SOLO and game.created >= cutoff
     return render(request, 'quiz/my.html', {
         'title': _('Мои викторины'), 'quizzes': quizzes, 'hosted': hosted, 'played': played,
     })
