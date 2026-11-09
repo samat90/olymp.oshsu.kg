@@ -28,6 +28,7 @@ GROQ_MODELS = ('openai/gpt-oss-120b',)  # spare only: fast, but weaker on facts,
 BATCH = 10            # questions asked in one request: shorter answers, fewer broken ones
 TIMEOUT = 60          # seconds for one request (10 questions take ~15 s; an overloaded model may never answer)
 MIN_COUNT, MAX_COUNT = 3, 30
+MAX_DETAILS = 5000    # characters of the author's description (may hold ready questions)
 LANGUAGE_NAMES = {'ru': 'русском', 'ky': 'кыргызском (кириллица)', 'en': 'английском'}
 LEVELS = {'easy': 'лёгкие, для начинающих', 'medium': 'средней сложности', 'hard': 'сложные, с подвохом, для сильных'}
 AI_TYPES = (Question.SINGLE, Question.TRUEFALSE, Question.MULTI, Question.ORDER, Question.TEXT, Question.SLIDER,
@@ -105,10 +106,18 @@ FORMAT = """Формат ответа:
 Варианты ответа — до 80 символов. Ответы на разные вопросы не должны подсказывать друг друга."""
 
 
+AUTHOR_RULE = (
+    'Если в описании автора есть готовые вопросы, сначала используй их: каждый — отдельным вопросом, '
+    'формулировку автора сохрани (исправь только явные опечатки), подбери подходящий тип, напиши верные '
+    'варианты или ответы и пояснение. Вопросы автора, которые ещё не использованы, идут первыми. '
+    'Только потом добавляй свои вопросы, чтобы набралось нужное количество.')
+
+
 def user_prompt(topic, details, count, language, level, done):
     lines = [
         'Тема: %s' % topic,
-        'Подробности от автора: %s' % details if details else '',
+        'Описание и пожелания автора (может содержать готовые вопросы):\n%s' % details if details else '',
+        AUTHOR_RULE if details else '',
         'Составь %d вопросов на %s языке. Сложность: %s.' % (count, LANGUAGE_NAMES[language], LEVELS[level]),
         'Типы вопросов смешивай: больше всего "single", также "truefalse", "multi", "order", "text", '
         '"slider", "word"; "code" только для тем о программировании.',

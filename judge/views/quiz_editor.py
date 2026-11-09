@@ -494,13 +494,21 @@ def ai_limit(name, misc_key, default):
         return default
 
 
+def ai_unlimited(user):
+    """Superusers and the usernames in `ai_unlimited_users` (comma-separated) have no daily limit."""
+    if user.is_superuser:
+        return True
+    names = quiz_ai.config('QUIZ_AI_UNLIMITED_USERS', 'ai_unlimited_users', 'samat1')
+    return user.username.lower() in {name.strip().lower() for name in names.split(',') if name.strip()}
+
+
 def ai_take_quota(request):
     """Count one generation for the user and the site today; False when a daily limit is reached."""
     day = timezone.localdate().isoformat()
     keys = [('qz:ai:site:' + day, ai_limit('QUIZ_AI_SITE_LIMIT', 'ai_site_limit', 200))]
-    if not request.user.is_superuser:
+    if not ai_unlimited(request.user):
         keys.append(('qz:ai:user:%d:%s' % (request.profile.id, day),
-                     ai_limit('QUIZ_AI_USER_LIMIT', 'ai_user_limit', 10)))
+                     ai_limit('QUIZ_AI_USER_LIMIT', 'ai_user_limit', 3)))
     for key, limit in keys:
         cache.add(key, 0, 2 * 86400)
         if cache.get(key, 0) >= limit:
@@ -552,7 +560,7 @@ def ai_start(request):
     except QuestionError as e:
         return json_error(str(e))
     topic = ' '.join(str(body.get('topic') or '').split())[:200]
-    details = str(body.get('details') or '').strip()[:1000]
+    details = str(body.get('details') or '').strip()[:quiz_ai.MAX_DETAILS]
     if not topic:
         return json_error(_('Напишите тему'), field='topic')
     try:

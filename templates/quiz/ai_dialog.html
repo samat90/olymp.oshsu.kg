@@ -7,8 +7,8 @@
         <input class="qz-input" id="qz-ai-topic" name="topic" maxlength="200" required autocomplete="off"
                placeholder="{{ _('Например: эпос «Манас», дроби, циклы в Python') }}">
         <label class="qz-ai-label" for="qz-ai-details"><span>{{ _('Подробности') }} <span class="qz-muted">{{ _('(необязательно)') }}</span></span></label>
-        <textarea class="qz-input" id="qz-ai-details" name="details" rows="2" maxlength="1000"
-                  placeholder="{{ _('Класс или курс, направление, что важно') }}"></textarea>
+        <textarea class="qz-input" id="qz-ai-details" name="details" rows="5" maxlength="5000"
+                  placeholder="{{ _('Опишите викторину своими словами или вставьте свои вопросы — ИИ допишет варианты ответов') }}"></textarea>
         <div class="qz-ai-grid">
             <label class="qz-ai-label">{{ _('Вопросов') }}
                 <select class="qz-input" name="count">

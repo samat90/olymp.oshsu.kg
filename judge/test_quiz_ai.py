@@ -122,14 +122,37 @@ class QuizAIViewTest(TestCase):
         self.assertEqual(status['status'], 'error')
         self.assertFalse(Quiz.objects.exists())
 
+    def generate_times(self, times):
+        with patch.object(quiz_ai, 'ask_gemini', return_value=json.dumps(ANSWER)), \
+                patch.object(quiz_editor.threading, 'Thread', SyncThread):
+            return [self.start().status_code for _i in range(times)]
+
     def test_topic_required_and_daily_limit(self):
         self.assertEqual(self.start(topic=' ').status_code, 400)
-        with patch.object(quiz_ai, 'ask_gemini', return_value=json.dumps(ANSWER)), \
-                patch.object(quiz_editor.threading, 'Thread', SyncThread), \
-                self.settings(QUIZ_AI_USER_LIMIT=2):
-            self.assertEqual(self.start().status_code, 200)
-            self.assertEqual(self.start().status_code, 200)
-            self.assertEqual(self.start().status_code, 429)
+        # Three quizzes a day by default.
+        self.assertEqual(self.generate_times(4), [200, 200, 200, 429])
+
+    def test_unlimited_users(self):
+        self.user.username = 'samat1'
+        self.user.save()
+        self.assertEqual(self.generate_times(4), [200] * 4)
+        with self.settings(QUIZ_AI_UNLIMITED_USERS='teacher1, teacher2'):
+            # samat1 is not on this list: its generations above were not counted, now the usual limit applies.
+            self.assertEqual(self.generate_times(4), [200, 200, 200, 429])
+            self.user.username = 'Teacher2'
+            self.user.save()
+            self.assertEqual(self.generate_times(1), [200])
+
+    def test_author_questions_go_into_the_prompt(self):
+        details = '1. Кто записал эпос?\n2. Сколько строк?\n3. Где Манас-Ордо?'
+        sent = []
+        with patch.object(quiz_ai, 'ask_gemini', side_effect=lambda key, model, system, prompt:
+                          sent.append(prompt) or json.dumps(ANSWER)), \
+                patch.object(quiz_editor.threading, 'Thread', SyncThread):
+            self.assertEqual(self.start(details=details + 'x' * 6000, count=5).status_code, 200)
+        self.assertIn('Описание и пожелания автора (может содержать готовые вопросы):\n' + details, sent[0])
+        self.assertIn(quiz_ai.AUTHOR_RULE, sent[0])
+        self.assertNotIn('x' * (quiz_ai.MAX_DETAILS + 1), sent[0])
 
     def test_someone_elses_job_is_not_shown(self):
         cache.set('qz:ai:job:abc', {'profile': 999999, 'status': 'done', 'key': 'x'}, 60)

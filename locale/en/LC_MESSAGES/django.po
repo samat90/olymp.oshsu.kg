@@ -8159,8 +8159,8 @@ msgstr "Details"
 msgid "(необязательно)"
 msgstr "(optional)"
 
-msgid "Класс или курс, направление, что важно"
-msgstr "Grade or year, field, what matters"
+msgid "Опишите викторину своими словами или вставьте свои вопросы — ИИ допишет варианты ответов"
+msgstr "Describe the quiz in your own words or paste your own questions — the AI will add the answer options"
 
 msgid "Вопросов"
 msgstr "Questions"
