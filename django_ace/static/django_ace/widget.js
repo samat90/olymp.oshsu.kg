@@ -96,7 +96,14 @@
 
         // options
         if (mode) {
+            // The local Ace of the Markdown editor has no other modes: take them from the CDN, same version.
+            if (ace.config && ace.version) {
+                ace.config.setModuleUrl('ace/mode/' + mode,
+                    'https://cdnjs.cloudflare.com/ajax/libs/ace/' + ace.version + '/mode-' + mode + '.js');
+            }
             editor.getSession().setMode('ace/mode/' + mode);
+            // The syntax-check worker script is not served (and not needed for short scripts).
+            editor.getSession().setUseWorker(false);
         }
         if (window.syncSiteEditorTheme) {
             window.syncSiteEditorTheme(editor);
@@ -190,6 +197,17 @@
 
     function init() {
         var widgets = document.getElementsByClassName('django-ace-widget');
+        if (!widgets.length) return;
+        if (!window.ace) {
+            var src = widgets[0].getAttribute('data-ace-src');
+            if (!src || init.loading) return;
+            init.loading = true;
+            var script = document.createElement('script');
+            script.src = src;
+            script.onload = init;
+            document.head.appendChild(script);
+            return;
+        }
 
         for (var i = 0; i < widgets.length; i++) {
             var widget = widgets[i];

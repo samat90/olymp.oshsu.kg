@@ -49,7 +49,7 @@ DMOJ_PP_STEP = 1.0
 DMOJ_PP_ENTRIES = 10000
 DMOJ_PP_BONUS_FUNCTION = lambda n: 0  # noqa: E731
 
-ACE_URL = '//cdnjs.cloudflare.com/ajax/libs/ace/1.1.3'
+ACE_URL = '//cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/'
 SELECT2_JS_URL = '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js'
 SELECT2_CSS_URL = '//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css'
 

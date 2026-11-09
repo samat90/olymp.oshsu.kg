@@ -24,9 +24,9 @@ class AceWidget(forms.Textarea):
 
     @property
     def media(self):
-        js = [urljoin(settings.ACE_URL, 'ace.js')] if self.ace_media else []
-        js.append(static('django_ace/widget.js') + '?v=20260928-theme')
-        return forms.Media(js=js)
+        # ace.js itself is loaded by widget.js only when the page has no Ace yet (the Markdown
+        # editor brings its own copy, and two copies on one page break each other).
+        return forms.Media(js=[static('django_ace/widget.js') + '?v=20261109'])
 
     def render(self, name, value, attrs=None, renderer=None):
         attrs = attrs or {}
@@ -36,6 +36,8 @@ class AceWidget(forms.Textarea):
             'style': 'width:%s; height:%s' % (self.width, self.height),
             'id': 'ace_%s' % name,
         }
+        if self.ace_media:
+            ace_attrs['data-ace-src'] = urljoin(settings.ACE_URL, 'ace.js')
         if self.mode:
             ace_attrs['data-mode'] = self.mode
         if self.theme:
