@@ -2,6 +2,7 @@
 import functools
 import json
 import logging
+import re
 import secrets
 from io import BytesIO
 
@@ -149,9 +150,26 @@ def quiz_records(quiz, limit=20):
             for place, b in enumerate(best, 1)]
 
 
+PHOTO_CREDIT = re.compile(r'^\*?\s*(Фото|Сүрөт|Photo)\s*:\s*(.+?)\*?\s*$', re.M | re.I)
+MD_LINK = re.compile(r'\[([^\]]+)\]\((https?://[^)\s]+)\)')
+
+
+def photo_credit(explanation):
+    """The 'Фото: author, license, [source](url)' line of an explanation, without the rest of it
+    (the explanation itself is not shown before the game: it may give the answer away)."""
+    m = PHOTO_CREDIT.search(explanation or '')
+    if not m:
+        return None
+    text = m.group(2).strip().strip('*').strip()
+    link = MD_LINK.search(text)
+    return {'text': MD_LINK.sub(r'\1', text), 'url': link.group(2) if link else ''}
+
+
 def quiz_detail(request, key):
     quiz = get_quiz(request, key)
     questions = list(quiz.questions.all())
+    for q in questions:
+        q.photo_credit = photo_credit(q.explanation) if q.image else None
     records = cache.get('qz:records:%d' % quiz.id)
     if records is None:
         records = quiz_records(quiz)

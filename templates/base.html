@@ -92,6 +92,7 @@
             });
         </script>
     {% endcompress %}
+    <script src="{{ static('infinite-scroll.js') }}?v={{ STATIC_VERSION }}" defer></script>
     {% if request.user.is_authenticated %}
         <script>
             /* Marks this tab of the site as the active one (used by the contest tab watcher). */

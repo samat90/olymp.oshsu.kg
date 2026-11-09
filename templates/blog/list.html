@@ -50,7 +50,7 @@
     <div id="blog-container">
         <div class="blog-content sidebox">
             <h3>{{ _('News') }} <i class="fa fa-terminal"></i></h3>
-            <div class="sidebox-content">
+            <div class="sidebox-content" data-infinite-items>
                 {% for post in posts %}
                     <section class="{% if post.sticky %}sticky {% endif %}post">
                         <h2 class="title">

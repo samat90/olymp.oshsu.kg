@@ -127,7 +127,16 @@
                 <li>
                     <span class="qz-qtype">{{ type_names[q.type] }}</span>
                     <span class="qz-qtext">{{ q.text|replace('**', '')|replace('`', '')|striptags|truncate(110, True, '…') if q.text else '—' }}</span>
-                    <span class="qz-qmeta">{{ _('%(n)s с', n=q.time_limit) }}{% if q.weight == 2 %} · x2{% elif q.weight == 0 or not q.scored %} · {{ _('без очков') }}{% endif %}{% if q.image %} · <i class="fa fa-picture-o"></i>{% endif %}</span>
+                    <span class="qz-qmeta">{{ _('%(n)s с', n=q.time_limit) }}{% if q.weight == 2 %} · x2{% elif q.weight == 0 or not q.scored %} · {{ _('без очков') }}{% endif %}</span>
+                    {% if q.image %}
+                        <figure class="qz-qimg">
+                            <a href="{{ q.image.url }}" target="_blank" rel="noopener" title="{{ _('Открыть картинку') }}">
+                                <img src="{{ q.image.url }}" alt="" loading="lazy" decoding="async"></a>
+                            {% if q.photo_credit %}
+                                <figcaption>{{ _('Фото') }}: {% if q.photo_credit.url %}<a href="{{ q.photo_credit.url }}" target="_blank" rel="noopener nofollow">{{ q.photo_credit.text }}</a>{% else %}{{ q.photo_credit.text }}{% endif %}</figcaption>
+                            {% endif %}
+                        </figure>
+                    {% endif %}
                 </li>
             {% endfor %}
         </ol>

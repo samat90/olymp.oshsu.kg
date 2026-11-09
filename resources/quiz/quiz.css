@@ -129,6 +129,12 @@ textarea.qz-input { width: 100%; resize: vertical; }
 .qz-qtype { display: inline-block; margin-right: 8px; padding: 1px 8px; border-radius: 6px; background: var(--qz-soft);
     font-size: 12px; font-weight: 700; color: var(--ui-muted); white-space: nowrap; }
 .qz-qmeta { float: right; margin-left: 8px; color: var(--ui-muted); font-size: 13px; }
+.qz-qimg { clear: both; margin: 8px 0 2px; }
+.qz-qimg a { display: inline-block; max-width: 100%; }
+.qz-qimg img { display: block; max-width: min(100%, 360px); max-height: 220px; width: auto; height: auto;
+    border-radius: 8px; border: 1px solid var(--ui-border); background: var(--qz-soft); cursor: zoom-in; }
+.qz-qimg figcaption { margin-top: 3px; font-size: 12px; color: var(--ui-muted); }
+.qz-qimg figcaption a { color: inherit; text-decoration: underline; }
 .qz-complain { margin: 18px 0 30px; color: var(--ui-muted); background: none !important; border: 0 !important; padding: 0 !important; }
 .qz-complain summary { cursor: pointer; font-size: 13px; }
 .qz-complain form { display: grid; gap: 8px; max-width: 520px; margin-top: 8px; }

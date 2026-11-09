@@ -7114,6 +7114,12 @@ msgstr "no points"
 msgid "Пожаловаться"
 msgstr "Report"
 
+msgid "Фото"
+msgstr "Photo"
+
+msgid "Открыть картинку"
+msgstr "Open the picture"
+
 msgid "Что не так с этой викториной?"
 msgstr "What is wrong with this quiz?"
 
