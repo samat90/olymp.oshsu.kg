@@ -126,6 +126,9 @@ textarea.qz-input { width: 100%; resize: vertical; }
 .qz-qlist { margin: 0; padding-left: 26px; }
 .qz-qlist li { padding: 7px 0; border-bottom: 1px solid var(--ui-border); }
 .qz-qlist li:last-child { border-bottom: 0; }
+.qz-qimg { display: block; clear: both; margin: 6px 0 2px; }
+.qz-qimg img { display: block; max-width: min(100%, 360px); max-height: 220px; border-radius: 8px;
+    border: 1px solid var(--ui-border); object-fit: contain; background: var(--ui-surface-2, transparent); }
 .qz-qtype { display: inline-block; margin-right: 8px; padding: 1px 8px; border-radius: 6px; background: var(--qz-soft);
     font-size: 12px; font-weight: 700; color: var(--ui-muted); white-space: nowrap; }
 .qz-qmeta { float: right; margin-left: 8px; color: var(--ui-muted); font-size: 13px; }

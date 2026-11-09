@@ -306,7 +306,7 @@
         </div>
     </div>
     {% if page_obj.has_other_pages() %}
-        <div class="bottom-pagination-bar">{% include "list-pages.html" %}</div>
+        <div class="bottom-pagination-bar" data-infinite="#submissions-table">{% include "list-pages.html" %}</div>
     {% endif %}
 {% endblock %}
 

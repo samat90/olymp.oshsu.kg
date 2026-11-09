@@ -106,7 +106,10 @@ def catalog(request):
     if subject:
         quizzes = quizzes.filter(subject__iexact=subject)
     order = request.GET.get('order')
-    quizzes = quizzes.order_by('-plays', '-updated') if order == 'popular' else quizzes.order_by('-updated')
+    # The id breaks ties: quizzes loaded together share one "updated" time, and without a strict order
+    # PostgreSQL may return them on different pages in a different order, so some never show up.
+    quizzes = quizzes.order_by('-plays', '-updated', '-id') if order == 'popular' else \
+        quizzes.order_by('-updated', '-id')
     page = Paginator(quizzes, CATALOG_PAGE).get_page(request.GET.get('page'))
     subjects = cache.get('qz:subjects')
     if subjects is None:

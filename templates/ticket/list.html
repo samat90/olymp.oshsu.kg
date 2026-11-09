@@ -211,6 +211,6 @@
         </main>
     </div>
     {% if page_obj.has_other_pages() %}
-        <div class="bottom-pagination-bar">{% include "list-pages.html" %}</div>
+        <div class="bottom-pagination-bar" data-infinite="#ticket-list > tbody">{% include "list-pages.html" %}</div>
     {% endif %}
 {% endblock %}

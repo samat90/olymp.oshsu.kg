@@ -29,7 +29,7 @@ class PostList(ListView):
                              orphans=orphans, allow_empty_first_page=allow_empty_first_page, **kwargs)
 
     def get_queryset(self):
-        return (BlogPost.objects.filter(visible=True, publish_on__lte=timezone.now()).order_by('-sticky', '-publish_on')
+        return (BlogPost.objects.filter(visible=True, publish_on__lte=timezone.now()).order_by('-sticky', '-publish_on', '-id')
                 .prefetch_related('authors__user'))
 
     def get_context_data(self, **kwargs):

@@ -282,7 +282,7 @@
                     {% endif %}
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="past-contest-rows">
                 {% for contest in past_contests %}
                     <tr>
                         <td>
@@ -306,7 +306,7 @@
                 </tbody>
             </table>
             {% if page_obj and page_obj.has_other_pages() %}
-                <div class="bottom-pagination-bar">{% include "list-pages.html" %}</div>
+                <div class="bottom-pagination-bar" data-infinite="#past-contest-rows">{% include "list-pages.html" %}</div>
             {% endif %}
         {% else %}
             <i>{{ _('There are no past contests.') }}</i>

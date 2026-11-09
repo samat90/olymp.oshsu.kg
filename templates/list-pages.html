@@ -24,7 +24,7 @@
     {% endfor %}
 
     {% if page_obj.has_next() %}
-        <li><a href="{{ page_prefix or '' }}{{ page_obj.next_page_number() }}{{ page_suffix or '' }}">»</a></li>
+        <li><a rel="next" href="{{ page_prefix or '' }}{{ page_obj.next_page_number() }}{{ page_suffix or '' }}">»</a></li>
     {% else %}
         <li class="disabled-page"><span>»</span></li>
     {% endif %}

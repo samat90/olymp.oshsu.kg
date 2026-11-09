@@ -84,6 +84,7 @@
         <script src="{{ static('libs/select2/select2.js') }}"></script>
         {% include "extra_js.html" %}
         <script src="{{ static('common.js') }}?v={{ STATIC_VERSION }}"></script>
+        <script src="{{ static('infinite-scroll.js') }}?v={{ STATIC_VERSION }}"></script>
         <script>
             moment.locale('{{ LANGUAGE_CODE }}');
             set_date_locale('{{ LANGUAGE_CODE }}');

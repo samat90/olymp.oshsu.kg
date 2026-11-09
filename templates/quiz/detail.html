@@ -127,7 +127,10 @@
                 <li>
                     <span class="qz-qtype">{{ type_names[q.type] }}</span>
                     <span class="qz-qtext">{{ q.text|replace('**', '')|replace('`', '')|striptags|truncate(110, True, '…') if q.text else '—' }}</span>
-                    <span class="qz-qmeta">{{ _('%(n)s с', n=q.time_limit) }}{% if q.weight == 2 %} · x2{% elif q.weight == 0 or not q.scored %} · {{ _('без очков') }}{% endif %}{% if q.image %} · <i class="fa fa-picture-o"></i>{% endif %}</span>
+                    <span class="qz-qmeta">{{ _('%(n)s с', n=q.time_limit) }}{% if q.weight == 2 %} · x2{% elif q.weight == 0 or not q.scored %} · {{ _('без очков') }}{% endif %}</span>
+                    {% if q.image %}
+                        <a class="qz-qimg" href="{{ q.image.url }}" target="_blank" rel="noopener"><img src="{{ q.image.url }}" alt="" loading="lazy"></a>
+                    {% endif %}
                 </li>
             {% endfor %}
         </ol>
