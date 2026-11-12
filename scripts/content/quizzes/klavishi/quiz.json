@@ -1,0 +1,732 @@
+{
+ "key": "klavishi",
+ "title": "Горячие клавиши: работай быстрее",
+ "subject": "Технологии",
+ "theme": "night",
+ "description": "25 вопросов о сочетаниях клавиш Windows, браузера и редакторов кода. Кто знает больше — тот работает быстрее. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: что делает Ctrl + C?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Vectorization: Mrmw, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:ISO_7000_-_Ref-No_2028.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Вырезает",
+     "is_correct": false
+    },
+    {
+     "text": "Вставляет",
+     "is_correct": false
+    },
+    {
+     "text": "Закрывает",
+     "is_correct": false
+    },
+    {
+     "text": "Копирует",
+     "is_correct": true
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "А Ctrl + V?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Отменяет",
+     "is_correct": false
+    },
+    {
+     "text": "Вставляет",
+     "is_correct": true
+    },
+    {
+     "text": "Сохраняет",
+     "is_correct": false
+    },
+    {
+     "text": "Копирует",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что делает Ctrl + Z?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Отменяет последнее действие",
+     "is_correct": true
+    },
+    {
+     "text": "Увеличивает масштаб",
+     "is_correct": false
+    },
+    {
+     "text": "Закрывает окно",
+     "is_correct": false
+    },
+    {
+     "text": "Повторяет действие",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что делает Ctrl + X?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Вырезает",
+     "is_correct": true
+    },
+    {
+     "text": "Закрывает программу",
+     "is_correct": false
+    },
+    {
+     "text": "Удаляет файл навсегда",
+     "is_correct": false
+    },
+    {
+     "text": "Копирует",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как выделить всё одним сочетанием?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ctrl + E",
+     "is_correct": false
+    },
+    {
+     "text": "Ctrl + S",
+     "is_correct": false
+    },
+    {
+     "text": "Alt + A",
+     "is_correct": false
+    },
+    {
+     "text": "Ctrl + A",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что делает Ctrl + S?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сохраняет",
+     "is_correct": true
+    },
+    {
+     "text": "Ищет",
+     "is_correct": false
+    },
+    {
+     "text": "Выделяет",
+     "is_correct": false
+    },
+    {
+     "text": "Печатает",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как открыть поиск по странице или документу?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ctrl + G",
+     "is_correct": false
+    },
+    {
+     "text": "Ctrl + F",
+     "is_correct": true
+    },
+    {
+     "text": "Ctrl + P",
+     "is_correct": false
+    },
+    {
+     "text": "Alt + F",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что делает Alt + Tab?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Shahnazi2002, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Alt_-_Lenovo.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Открывает меню «Пуск»",
+     "is_correct": false
+    },
+    {
+     "text": "Переключает между окнами",
+     "is_correct": true
+    },
+    {
+     "text": "Вставляет табуляцию",
+     "is_correct": false
+    },
+    {
+     "text": "Закрывает окно",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что делает Alt + F4?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Закрывает активное окно",
+     "is_correct": true
+    },
+    {
+     "text": "Открывает справку",
+     "is_correct": false
+    },
+    {
+     "text": "Обновляет страницу",
+     "is_correct": false
+    },
+    {
+     "text": "Делает снимок экрана",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как сразу свернуть всё и показать рабочий стол?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Alt + D",
+     "is_correct": false
+    },
+    {
+     "text": "Win + L",
+     "is_correct": false
+    },
+    {
+     "text": "Win + D",
+     "is_correct": true
+    },
+    {
+     "text": "Ctrl + D",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Ушли от компьютера. Как быстро заблокировать его?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Daniel beardsmore, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Logitech_Y-RJ20_--_Macintosh_modifiers.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ctrl + L",
+     "is_correct": false
+    },
+    {
+     "text": "Win + L",
+     "is_correct": true
+    },
+    {
+     "text": "Alt + L",
+     "is_correct": false
+    },
+    {
+     "text": "Win + D",
+     "is_correct": false
+    }
+   ],
+   "image": "q11.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как сразу открыть диспетчер задач?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Alt + Esc",
+     "is_correct": false
+    },
+    {
+     "text": "Win + Esc",
+     "is_correct": false
+    },
+    {
+     "text": "Ctrl + Shift + Esc",
+     "is_correct": true
+    },
+    {
+     "text": "Ctrl + Alt + T",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как в Windows сделать снимок части экрана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ctrl + Shift + S",
+     "is_correct": false
+    },
+    {
+     "text": "Alt + S",
+     "is_correct": false
+    },
+    {
+     "text": "Win + Shift + S",
+     "is_correct": true
+    },
+    {
+     "text": "Win + P",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как открыть новую вкладку в браузере?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ctrl + O",
+     "is_correct": false
+    },
+    {
+     "text": "Ctrl + N",
+     "is_correct": false
+    },
+    {
+     "text": "Ctrl + W",
+     "is_correct": false
+    },
+    {
+     "text": "Ctrl + T",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Случайно закрыли вкладку. Как её вернуть?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Ловушка: Ctrl + Z в браузере вкладку не вернёт.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Alt + Z",
+     "is_correct": false
+    },
+    {
+     "text": "Ctrl + Shift + T",
+     "is_correct": true
+    },
+    {
+     "text": "Ctrl + Z",
+     "is_correct": false
+    },
+    {
+     "text": "Ctrl + T",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что делает F5 в браузере?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Drawn by Mysid in CorelDRAW., CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Qwerty.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Открывает справку",
+     "is_correct": false
+    },
+    {
+     "text": "Сохраняет страницу",
+     "is_correct": false
+    },
+    {
+     "text": "Обновляет страницу",
+     "is_correct": true
+    },
+    {
+     "text": "Делает полный экран",
+     "is_correct": false
+    }
+   ],
+   "image": "q16.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Передышка без очков: какая клавиша обычно открывает справку?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Esc",
+     "is_correct": false
+    },
+    {
+     "text": "Del",
+     "is_correct": false
+    },
+    {
+     "text": "F12",
+     "is_correct": false
+    },
+    {
+     "text": "F1",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как быстро переименовать выделенный файл?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Alt + N",
+     "is_correct": false
+    },
+    {
+     "text": "F5",
+     "is_correct": false
+    },
+    {
+     "text": "F2",
+     "is_correct": true
+    },
+    {
+     "text": "Ctrl + R",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что открывает Win + . (точка)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Панель эмодзи",
+     "is_correct": true
+    },
+    {
+     "text": "Настройки",
+     "is_correct": false
+    },
+    {
+     "text": "Проводник",
+     "is_correct": false
+    },
+    {
+     "text": "Калькулятор",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что делает Ctrl + Backspace в тексте?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Отменяет действие",
+     "is_correct": false
+    },
+    {
+     "text": "Удаляет целое слово слева",
+     "is_correct": true
+    },
+    {
+     "text": "Удаляет всю строку",
+     "is_correct": false
+    },
+    {
+     "text": "Удаляет символ справа",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как в редакторе VS Code закомментировать строку?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: Microsoft, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Visual_Studio_Code_1.35_icon.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ctrl + /",
+     "is_correct": true
+    },
+    {
+     "text": "Ctrl + #",
+     "is_correct": false
+    },
+    {
+     "text": "Alt + C",
+     "is_correct": false
+    },
+    {
+     "text": "Ctrl + K",
+     "is_correct": false
+    }
+   ],
+   "image": "q21.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Какие сочетания работают с вкладками браузера?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ctrl + W",
+     "is_correct": true
+    },
+    {
+     "text": "Ctrl + Tab",
+     "is_correct": true
+    },
+    {
+     "text": "Win + D",
+     "is_correct": false
+    },
+    {
+     "text": "Ctrl + Shift + T",
+     "is_correct": true
+    },
+    {
+     "text": "Ctrl + T",
+     "is_correct": true
+    },
+    {
+     "text": "Ctrl + C",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте шаги, чтобы перенести весь текст из одного файла в другой.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ctrl + A",
+     "is_correct": false
+    },
+    {
+     "text": "Ctrl + C",
+     "is_correct": false
+    },
+    {
+     "text": "Перейти в другой файл",
+     "is_correct": false
+    },
+    {
+     "text": "Ctrl + V",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Какой клавишей включить и выключить полноэкранный режим браузера?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "F11",
+     "f11"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Какую клавишу нажимают на Mac вместо Ctrl, чтобы скопировать?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: Will Arrington, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:NeXT_Keyboard_Command_Key.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Shift",
+     "is_correct": false
+    },
+    {
+     "text": "Fn",
+     "is_correct": false
+    },
+    {
+     "text": "Option (⌥)",
+     "is_correct": false
+    },
+    {
+     "text": "Cmd (⌘)",
+     "is_correct": true
+    }
+   ],
+   "image": "q25.jpg"
+  }
+ ]
+}

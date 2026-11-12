@@ -1,0 +1,710 @@
+{
+ "key": "kg-shaary",
+ "title": "Города и сёла Кыргызстана",
+ "subject": "Кыргызстан",
+ "theme": "lake",
+ "description": "25 вопросов о городах и сёлах Кыргызстана: старые названия, история, чем знаменито каждое место. Угадывайте города по фото. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: какой город на фото?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: t y l, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bishkek_P9170507_014_%2840103613941%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бишкек",
+     "is_correct": true
+    },
+    {
+     "text": "Каракол",
+     "is_correct": false
+    },
+    {
+     "text": "Ош",
+     "is_correct": false
+    },
+    {
+     "text": "Нарын",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как назывался Бишкек с 1926 по 1991 год?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Фрунзе",
+     "is_correct": true
+    },
+    {
+     "text": "Пржевальск",
+     "is_correct": false
+    },
+    {
+     "text": "Пишпек",
+     "is_correct": false
+    },
+    {
+     "text": "Верный",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "С чего начался Бишкек в XIX веке?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "С университета",
+     "is_correct": false
+    },
+    {
+     "text": "С караван-сарая Таш-Рабат",
+     "is_correct": false
+    },
+    {
+     "text": "С русской казачьей станицы",
+     "is_correct": false
+    },
+    {
+     "text": "С кокандской крепости Пишпек",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой город назывался Пржевальском?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Там похоронен путешественник Николай Пржевальский.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Каракол",
+     "is_correct": true
+    },
+    {
+     "text": "Нарын",
+     "is_correct": false
+    },
+    {
+     "text": "Токмок",
+     "is_correct": false
+    },
+    {
+     "text": "Балыкчы",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чем знаменита Дунганская мечеть в Караколе?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Мечеть построили в 1907–1910 годах китайский мастер и дунганские плотники.\n\n*Фото: Bgag, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Minaret_of_Dungan_Mosque.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Это самая высокая мечеть в мире",
+     "is_correct": false
+    },
+    {
+     "text": "Её построили из соли",
+     "is_correct": false
+    },
+    {
+     "text": "Её построили из дерева без единого гвоздя",
+     "is_correct": true
+    },
+    {
+     "text": "Она стоит под водой",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как раньше назывался Балыкчы?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "«Балыкчы» по-кыргызски и есть «рыбак».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пишпек",
+     "is_correct": false
+    },
+    {
+     "text": "Ош",
+     "is_correct": false
+    },
+    {
+     "text": "Рыбачье",
+     "is_correct": true
+    },
+    {
+     "text": "Фрунзе",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой город — древняя столица Караханидов с минаретом и мавзолеями XI–XII веков?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Nikolaus, CC BY 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Uzgen_Mausoleum.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кант",
+     "is_correct": false
+    },
+    {
+     "text": "Узген",
+     "is_correct": true
+    },
+    {
+     "text": "Кара-Балта",
+     "is_correct": false
+    },
+    {
+     "text": "Талас",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой город стоит на реке Нарын и считается одним из самых холодных областных центров?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Талас",
+     "is_correct": false
+    },
+    {
+     "text": "Баткен",
+     "is_correct": false
+    },
+    {
+     "text": "Джалал-Абад",
+     "is_correct": false
+    },
+    {
+     "text": "Нарын",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Передышка без очков: какой город называют «южной столицей»?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Узген",
+     "is_correct": false
+    },
+    {
+     "text": "Баткен",
+     "is_correct": false
+    },
+    {
+     "text": "Джалал-Абад",
+     "is_correct": false
+    },
+    {
+     "text": "Ош",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой город на границе с Узбекистаном знаменит огромным рынком?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кант",
+     "is_correct": false
+    },
+    {
+     "text": "Кара-Суу",
+     "is_correct": true
+    },
+    {
+     "text": "Талас",
+     "is_correct": false
+    },
+    {
+     "text": "Кемин",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Город Джалал-Абад издавна славится…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Самым высоким водопадом",
+     "is_correct": false
+    },
+    {
+     "text": "Целебными горячими источниками",
+     "is_correct": true
+    },
+    {
+     "text": "Алмазными шахтами",
+     "is_correct": false
+    },
+    {
+     "text": "Морским портом",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая область самая молодая — её создали в 1999 году?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Таласская",
+     "is_correct": false
+    },
+    {
+     "text": "Нарынская",
+     "is_correct": false
+    },
+    {
+     "text": "Баткенская",
+     "is_correct": true
+    },
+    {
+     "text": "Чуйская",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой город и водохранилище названы в честь великого акына?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Манас",
+     "is_correct": false
+    },
+    {
+     "text": "Тоголок",
+     "is_correct": false
+    },
+    {
+     "text": "Токтогул",
+     "is_correct": true
+    },
+    {
+     "text": "Айтматов",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Возле какого города стоит башня Бурана — остаток древнего Баласагуна?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кант",
+     "is_correct": false
+    },
+    {
+     "text": "Каракол",
+     "is_correct": false
+    },
+    {
+     "text": "Токмок",
+     "is_correct": true
+    },
+    {
+     "text": "Кочкор",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое село на Иссык-Куле знаменито полем петроглифов и принимало Игры кочевников?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Bgag, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Petroglyph_Museum_of_Cholpon-Ata_10.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тюп",
+     "is_correct": false
+    },
+    {
+     "text": "Тамга",
+     "is_correct": false
+    },
+    {
+     "text": "Каджи-Сай",
+     "is_correct": false
+    },
+    {
+     "text": "Чолпон-Ата",
+     "is_correct": true
+    }
+   ],
+   "image": "q15.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какое село в Нарынской области славится мастерицами шырдаков?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Казарман",
+     "is_correct": false
+    },
+    {
+     "text": "Кочкор",
+     "is_correct": true
+    },
+    {
+     "text": "Ат-Баши",
+     "is_correct": false
+    },
+    {
+     "text": "Чаек",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие из этих городов — центры областей?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Узген",
+     "is_correct": false
+    },
+    {
+     "text": "Нарын",
+     "is_correct": true
+    },
+    {
+     "text": "Каракол",
+     "is_correct": true
+    },
+    {
+     "text": "Баткен",
+     "is_correct": true
+    },
+    {
+     "text": "Талас",
+     "is_correct": true
+    },
+    {
+     "text": "Балыкчы",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте города от самого низкого к самому высокому над уровнем моря.",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "Примерно: Бишкек ~800 м, Ош ~1000 м, Каракол ~1700 м, Нарын ~2000 м.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бишкек",
+     "is_correct": false
+    },
+    {
+     "text": "Ош",
+     "is_correct": false
+    },
+    {
+     "text": "Каракол",
+     "is_correct": false
+    },
+    {
+     "text": "Нарын",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В Сулюкте, Таш-Кумыре и Кок-Жангаке издавна добывают…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Нефть",
+     "is_correct": false
+    },
+    {
+     "text": "Уголь",
+     "is_correct": true
+    },
+    {
+     "text": "Золото",
+     "is_correct": false
+    },
+    {
+     "text": "Соль",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сары-Челек — это…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Kondephy, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sary_Chelek_Nature_Reserve.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Вершина Тянь-Шаня",
+     "is_correct": false
+    },
+    {
+     "text": "Река в Таласе",
+     "is_correct": false
+    },
+    {
+     "text": "Город в Чуйской долине",
+     "is_correct": false
+    },
+    {
+     "text": "Высокогорное озеро и заповедник в Джалал-Абадской области",
+     "is_correct": true
+    }
+   ],
+   "image": "q20.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Город Майлуу-Суу назван «масляной водой», потому что там нашли нефть.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "«Майлуу-Суу» — «маслянистая вода»: здесь с начала XX века добывали нефть.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите название города у Манас-Ордо, центра одноимённой области.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ТАЛАС"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Рядом с каким современным городом прошла Таласская битва 751 года между арабами и китайцами?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "У реки Талас, в Таласской долине",
+     "is_correct": true
+    },
+    {
+     "text": "У Иссык-Куля",
+     "is_correct": false
+    },
+    {
+     "text": "Под Ошем",
+     "is_correct": false
+    },
+    {
+     "text": "В Нарыне",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Сколько примерно лет городу Ошу, по официальному юбилею 2000 года?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 1000,
+    "max": 5000,
+    "step": 100,
+    "answer": 3000,
+    "unit": "лет",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! По одной из версий, откуда название «Бишкек»?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "От деревянной мешалки для кымыза",
+     "is_correct": true
+    },
+    {
+     "text": "От названия реки",
+     "is_correct": false
+    },
+    {
+     "text": "От слова «пять гор»",
+     "is_correct": false
+    },
+    {
+     "text": "От имени русского генерала",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

@@ -1,0 +1,702 @@
+{
+ "key": "kg-olimpiec",
+ "title": "Олимпийцы и борцы Кыргызстана",
+ "subject": "Спорт",
+ "theme": "lake",
+ "description": "25 вопросов о медалистах Олимпийских игр из Кыргызстана: борцы, дзюдоист и боксёр, рекорды Парижа-2024 и Токио. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: в каком стиле борьбы запрещены захваты ниже пояса?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В самбо",
+     "is_correct": false
+    },
+    {
+     "text": "В сумо",
+     "is_correct": false
+    },
+    {
+     "text": "В вольной",
+     "is_correct": false
+    },
+    {
+     "text": "В греко-римской",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто завоевал первую олимпийскую медаль для независимого Кыргызстана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Акжол Махмудов (борьба, Токио)",
+     "is_correct": false
+    },
+    {
+     "text": "Айсулуу Тыныбекова (борьба, Токио)",
+     "is_correct": false
+    },
+    {
+     "text": "Айдын Смагулов (дзюдо, Сидней-2000)",
+     "is_correct": true
+    },
+    {
+     "text": "Канат Бегалиев (борьба, Пекин-2008)",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какую медаль принёс Канатбек Бегалиев в Пекине-2008?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Серебро в тяжёлой атлетике",
+     "is_correct": false
+    },
+    {
+     "text": "Серебро в греко-римской борьбе",
+     "is_correct": true
+    },
+    {
+     "text": "Золото в боксе",
+     "is_correct": false
+    },
+    {
+     "text": "Бронзу в дзюдо",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько медалей Кыргызстан завоевал в Пекине-2008?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "0",
+     "is_correct": false
+    },
+    {
+     "text": "5",
+     "is_correct": false
+    },
+    {
+     "text": "1",
+     "is_correct": false
+    },
+    {
+     "text": "3",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто взял серебро в Токио в греко-римской борьбе до 77 кг?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Ksalizhan, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:2022_World_Championship.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Канат Бегалиев",
+     "is_correct": false
+    },
+    {
+     "text": "Узур Джузупбеков",
+     "is_correct": false
+    },
+    {
+     "text": "Жоламан Шаршенбеков",
+     "is_correct": false
+    },
+    {
+     "text": "Акжол Махмудов",
+     "is_correct": true
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "В каком году на самом деле прошли Олимпийские игры «Токио-2020»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Их перенесли на год из-за пандемии, но название оставили.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В 2021 году",
+     "is_correct": true
+    },
+    {
+     "text": "В 2020 году",
+     "is_correct": false
+    },
+    {
+     "text": "В 2019 году",
+     "is_correct": false
+    },
+    {
+     "text": "В 2022 году",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какую медаль Айсулуу Тыныбекова завоевала в Токио?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Jørgen Løken, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Aisuluu_Tynybekova_2.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бронзу",
+     "is_correct": false
+    },
+    {
+     "text": "Серебро",
+     "is_correct": true
+    },
+    {
+     "text": "Золото",
+     "is_correct": false
+    },
+    {
+     "text": "Не участвовала",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Мээрим Жуманазарова — бронза в Токио. А что в Париже-2024?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Власність Міністерства молоді та спорту України, CC BY 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Meerim_Zhumanazarova.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Снова бронза",
+     "is_correct": false
+    },
+    {
+     "text": "Золото",
+     "is_correct": false
+    },
+    {
+     "text": "Серебро",
+     "is_correct": true
+    },
+    {
+     "text": "Не участвовала",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто принёс Кыргызстану серебро Парижа-2024 в боксе?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Айдын Смагулов",
+     "is_correct": false
+    },
+    {
+     "text": "Мунарбек Сейитбек уулу",
+     "is_correct": true
+    },
+    {
+     "text": "Акжол Махмудов",
+     "is_correct": false
+    },
+    {
+     "text": "Узур Джузупбеков",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Медаль Мунарбека Сейитбек уулу — первая олимпийская медаль независимого Кыргызстана в боксе.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Сколько медалей завоевал Кыргызстан в Париже-2024 — это рекорд страны?",
+   "time_limit": 25,
+   "weight": 2,
+   "explanation": "2 серебра и 4 бронзы.",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 0,
+    "max": 12,
+    "step": 1,
+    "answer": 6,
+    "unit": "",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько всего олимпийских медалей у независимого Кыргызстана (до 2026 года)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "6",
+     "is_correct": false
+    },
+    {
+     "text": "13",
+     "is_correct": true
+    },
+    {
+     "text": "9",
+     "is_correct": false
+    },
+    {
+     "text": "25",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Ловушка на двойные очки: независимый Кыргызстан уже выигрывал олимпийское золото.",
+   "time_limit": 15,
+   "weight": 2,
+   "explanation": "Пока нет: 5 серебряных и 8 бронзовых медалей.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Передышка без очков: какой вид спорта дал Кыргызстану больше всего олимпийских медалей?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бокс",
+     "is_correct": false
+    },
+    {
+     "text": "Плавание",
+     "is_correct": false
+    },
+    {
+     "text": "Борьба",
+     "is_correct": true
+    },
+    {
+     "text": "Футбол",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто завоевал бронзу Парижа в греко-римской борьбе до 60 кг?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Жоламан Шаршенбеков",
+     "is_correct": true
+    },
+    {
+     "text": "Акжол Махмудов",
+     "is_correct": false
+    },
+    {
+     "text": "Базар Базаргуруев",
+     "is_correct": false
+    },
+    {
+     "text": "Руслан Тюменбаев",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто взял бронзу Парижа в греко-римской борьбе до 97 кг?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Airman 1st Class Daniel Decook, USAF, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:DF-SD-06-11222.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Узур Джузупбеков",
+     "is_correct": true
+    },
+    {
+     "text": "Айдын Смагулов",
+     "is_correct": false
+    },
+    {
+     "text": "Канат Бегалиев",
+     "is_correct": false
+    },
+    {
+     "text": "Мунарбек Сейитбек уулу",
+     "is_correct": false
+    }
+   ],
+   "image": "q16.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Сколько олимпийских медалей у Акжола Махмудова?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "3",
+     "is_correct": false
+    },
+    {
+     "text": "0",
+     "is_correct": false
+    },
+    {
+     "text": "2: серебро Токио и бронза Парижа",
+     "is_correct": true
+    },
+    {
+     "text": "1: золото Парижа",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько олимпийских медалей у Айсулуу Тыныбековой?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "1: золото Токио",
+     "is_correct": false
+    },
+    {
+     "text": "3: три бронзы",
+     "is_correct": false
+    },
+    {
+     "text": "2: серебро Токио и бронза Парижа",
+     "is_correct": true
+    },
+    {
+     "text": "0",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В каком виде спорта Базар Базаргуруев выиграл бронзу в Пекине?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Вольная борьба",
+     "is_correct": true
+    },
+    {
+     "text": "Бокс",
+     "is_correct": false
+    },
+    {
+     "text": "Дзюдо",
+     "is_correct": false
+    },
+    {
+     "text": "Греко-римская борьба",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Кто из них — олимпийские призёры по борьбе?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Жоламан Шаршенбеков",
+     "is_correct": true
+    },
+    {
+     "text": "Мунарбек Сейитбек уулу",
+     "is_correct": false
+    },
+    {
+     "text": "Мээрим Жуманазарова",
+     "is_correct": true
+    },
+    {
+     "text": "Айсулуу Тыныбекова",
+     "is_correct": true
+    },
+    {
+     "text": "Акжол Махмудов",
+     "is_correct": true
+    },
+    {
+     "text": "Валентина Шевченко",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте медали по времени, от самой ранней.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Айдын Смагулов, дзюдо",
+     "is_correct": false
+    },
+    {
+     "text": "Канат Бегалиев, борьба",
+     "is_correct": false
+    },
+    {
+     "text": "Акжол Махмудов, серебро",
+     "is_correct": false
+    },
+    {
+     "text": "Мунарбек Сейитбек уулу, бокс",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В каком виде спорта выступает Валентина Шевченко, уроженка Бишкека?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: MMAnytt, CC BY 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Valentina_Shevchenko_2020.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Борьба",
+     "is_correct": false
+    },
+    {
+     "text": "Бокс на Олимпиадах",
+     "is_correct": false
+    },
+    {
+     "text": "Дзюдо",
+     "is_correct": false
+    },
+    {
+     "text": "Смешанные единоборства (UFC)",
+     "is_correct": true
+    }
+   ],
+   "image": "q22.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется кыргызская борьба на поясах?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Алыш",
+     "is_correct": true
+    },
+    {
+     "text": "Самбо",
+     "is_correct": false
+    },
+    {
+     "text": "Сумо",
+     "is_correct": false
+    },
+    {
+     "text": "Кураш",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: третье место на Олимпиаде — это…",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "БРОНЗА"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! В Токио Кыргызстан выиграл 3 медали. Сколько из них — у женщин?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Серебро Тыныбековой и бронза Жуманазаровой, плюс серебро Махмудова.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "3",
+     "is_correct": false
+    },
+    {
+     "text": "2",
+     "is_correct": true
+    },
+    {
+     "text": "1",
+     "is_correct": false
+    },
+    {
+     "text": "0",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

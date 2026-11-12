@@ -1,0 +1,59 @@
+{
+ "cover.jpg": {
+  "author": "Aitenir",
+  "file": "Bishkek City's business center.jpg",
+  "license": "CC0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Bishkek_City%27s_business_center.jpg",
+  "spec": "en:Bishkek",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Bishkek_City%27s_business_center.jpg/960px-Bishkek_City%27s_business_center.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q01.jpg": {
+  "author": "t_y_l",
+  "file": "Bishkek P9170507 014 (40103613941).jpg",
+  "license": "CC BY-SA 2.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Bishkek_P9170507_014_(40103613941).jpg",
+  "spec": "en:Ala-Too Square",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Bishkek_P9170507_014_%2840103613941%29.jpg/960px-Bishkek_P9170507_014_%2840103613941%29.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q05.jpg": {
+  "author": "Bgag",
+  "file": "Minaret of Dungan Mosque.jpg",
+  "license": "CC0",
+  "mime": "image/jpeg",
+  "note": "search",
+  "page": "https://commons.wikimedia.org/wiki/File:Minaret_of_Dungan_Mosque.jpg",
+  "spec": "en:Dungan Mosque",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Minaret_of_Dungan_Mosque.jpg/960px-Minaret_of_Dungan_Mosque.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q07.jpg": {
+  "author": "Nikolaus",
+  "file": "Uzgen Mausoleum.jpg",
+  "license": "CC BY 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Uzgen_Mausoleum.jpg",
+  "spec": "en:Uzgen",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Uzgen_Mausoleum.jpg/960px-Uzgen_Mausoleum.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q15.jpg": {
+  "author": "Bgag",
+  "file": "Petroglyph Museum of Cholpon-Ata 10.jpg",
+  "license": "CC0",
+  "mime": "image/jpeg",
+  "note": "search",
+  "page": "https://commons.wikimedia.org/wiki/File:Petroglyph_Museum_of_Cholpon-Ata_10.jpg",
+  "spec": "c:Cholpon-Ata petroglyphs.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Petroglyph_Museum_of_Cholpon-Ata_10.jpg/960px-Petroglyph_Museum_of_Cholpon-Ata_10.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q20.jpg": {
+  "author": "Kondephy",
+  "file": "Sary Chelek Nature Reserve.jpg",
+  "license": "CC BY-SA 4.0",
+  "mime": "image/jpeg",
+  "note": "search",
+  "page": "https://commons.wikimedia.org/wiki/File:Sary_Chelek_Nature_Reserve.jpg",
+  "spec": "en:Sary-Chelek",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Sary_Chelek_Nature_Reserve.jpg/960px-Sary_Chelek_Nature_Reserve.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ }
+}

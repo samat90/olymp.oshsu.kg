@@ -1,0 +1,66 @@
+{
+ "cover.jpg": {
+  "author": "ThatDohDude",
+  "file": "Kyrgyz in Cyrillic and Perso-Arabic.png",
+  "license": "CC0",
+  "mime": "image/png",
+  "page": "https://commons.wikimedia.org/wiki/File:Kyrgyz_in_Cyrillic_and_Perso-Arabic.png",
+  "spec": "en:Kyrgyz language",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Kyrgyz_in_Cyrillic_and_Perso-Arabic.png/960px-Kyrgyz_in_Cyrillic_and_Perso-Arabic.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q07.jpg": {
+  "author": "Ondřej Žváček",
+  "file": "Song-Köl.jpg",
+  "license": "CC BY 2.5",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Song-K%C3%B6l.jpg",
+  "spec": "en:Song-Köl",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Song-K%C3%B6l.jpg/960px-Song-K%C3%B6l.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q08.jpg": {
+  "author": "Fir0002",
+  "file": "Sunflower sky backdrop.jpg",
+  "license": "GFDL 1.2",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Sunflower_sky_backdrop.jpg",
+  "spec": "en:Sunflower",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Sunflower_sky_backdrop.jpg/960px-Sunflower_sky_backdrop.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q17.jpg": {
+  "author": "Lilly M",
+  "file": "Cervus nippon 002.jpg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/jpeg",
+  "note": "search",
+  "page": "https://commons.wikimedia.org/wiki/File:Cervus_nippon_002.jpg",
+  "spec": "en:Maral (deer)",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Cervus_nippon_002.jpg/960px-Cervus_nippon_002.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q19.jpg": {
+  "author": "Frederic Heymes",
+  "file": "Vue globale du versant N du khan Tengri.jpg",
+  "license": "CC BY-SA 2.0 fr",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Vue_globale_du_versant_N_du_khan_Tengri.jpg",
+  "spec": "en:Khan Tengri",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Vue_globale_du_versant_N_du_khan_Tengri.jpg/960px-Vue_globale_du_versant_N_du_khan_Tengri.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q20.jpg": {
+  "author": "ESO/Y. Beletsky",
+  "file": "ESO-VLT-Laser-phot-33a-07.jpg",
+  "license": "CC BY 4.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:ESO-VLT-Laser-phot-33a-07.jpg",
+  "spec": "en:Milky Way",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/ESO-VLT-Laser-phot-33a-07.jpg/960px-ESO-VLT-Laser-phot-33a-07.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q21.jpg": {
+  "author": "Liz",
+  "file": "Elementary classroom in Alaska.jpg",
+  "license": "CC BY 2.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Elementary_classroom_in_Alaska.jpg",
+  "spec": "en:Classroom",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ce/Elementary_classroom_in_Alaska.jpg/960px-Elementary_classroom_in_Alaska.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ }
+}

@@ -1,0 +1,714 @@
+{
+ "key": "kg-insandar",
+ "title": "Известные кыргызстанцы",
+ "subject": "Кыргызстан",
+ "theme": "felt",
+ "description": "25 вопросов о людях, которыми гордится Кыргызстан: писатели, акыны, учёные, артисты, спортсмены и космонавт. Узнавайте их по фото и делам. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: кто на фото — автор «Джамили» и «Белого парохода»?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: автор неизвестен, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tschingis_Ajtmatow.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чингиз Айтматов",
+     "is_correct": true
+    },
+    {
+     "text": "Токтогул Сатылганов",
+     "is_correct": false
+    },
+    {
+     "text": "Алыкул Осмонов",
+     "is_correct": false
+    },
+    {
+     "text": "Касым Тыныстанов",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "В романе Айтматова «И дольше века длится день» появляется слово, ставшее нарицательным. Это…",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Манкурт — человек, потерявший память о своём роде",
+     "is_correct": true
+    },
+    {
+     "text": "Акын",
+     "is_correct": false
+    },
+    {
+     "text": "Батыр",
+     "is_correct": false
+    },
+    {
+     "text": "Тулпар",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кого называли «Алайской царицей»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: The original uploader was Hux at English Wikipedia., Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kurmanjan_Datka_on_50_som_note.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Каныкей",
+     "is_correct": false
+    },
+    {
+     "text": "Чыйырды",
+     "is_correct": false
+    },
+    {
+     "text": "Бюбюсару Бейшеналиеву",
+     "is_correct": false
+    },
+    {
+     "text": "Курманжан Датку",
+     "is_correct": true
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Токтогул Сатылганов — это…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Kyrgyz Express Post, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Portrait_of_Toktogul_Satylganov_the_stamp_of_Kyrgyzstan_%282014%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Первый космонавт",
+     "is_correct": false
+    },
+    {
+     "text": "Великий акын и комузчу",
+     "is_correct": true
+    },
+    {
+     "text": "Учёный-химик",
+     "is_correct": false
+    },
+    {
+     "text": "Хан Кокандского ханства",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто первым из Кыргызстана полетел в космос?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Салижан Шарипов родился в 1964 году в Узгене. Летал в 1998 году на шаттле «Индевор» и в 2004–2005 годах на МКС.\n\n*Фото: NASA, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sharipov.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Владимир Джанибеков",
+     "is_correct": false
+    },
+    {
+     "text": "Тохтар Аубакиров",
+     "is_correct": false
+    },
+    {
+     "text": "Юрий Гагарин",
+     "is_correct": false
+    },
+    {
+     "text": "Салижан Шарипов",
+     "is_correct": true
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто создал первую кыргызскую азбуку на арабской основе и первые учебники?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Касым Тыныстанов был расстрелян в 1938 году; его останки покоятся в мемориале «Ата-Бейит».\n\n*Фото: The original uploader was Hux at English Wikipedia., Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kasym_Tynystanov_on_10_som_note.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Касым Тыныстанов",
+     "is_correct": true
+    },
+    {
+     "text": "Жусуп Баласагын",
+     "is_correct": false
+    },
+    {
+     "text": "Чингиз Айтматов",
+     "is_correct": false
+    },
+    {
+     "text": "Тоголок Молдо",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Жусуп Баласагын написал поэму «Кутадгу билиг» («Благодатное знание»). Когда?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В XX веке",
+     "is_correct": false
+    },
+    {
+     "text": "В XIX веке",
+     "is_correct": false
+    },
+    {
+     "text": "В XVI веке",
+     "is_correct": false
+    },
+    {
+     "text": "В XI веке",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Этот актёр сыграл в фильме японского режиссёра Акиры Куросавы «Дерсу Узала». Кто он?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Суйменкул Чокморов",
+     "is_correct": true
+    },
+    {
+     "text": "Толомуш Океев",
+     "is_correct": false
+    },
+    {
+     "text": "Болот Шамшиев",
+     "is_correct": false
+    },
+    {
+     "text": "Муратбек Рыскулов",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто такая Бюбюсара Бейшеналиева?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Усубалиев Алтымыш, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:B%C3%BCb%C3%BCsara-Beyshenalieva_%D0%91%D1%8E%D0%B1%D1%8E%D1%81%D0%B0%D1%80%D0%B0-%D0%91%D0%B5%D0%B9%D1%88%D0%B5%D0%BD%D0%B0%D0%BB%D0%B8%D0%B5%D0%B2%D0%B0_1957_Usubaliev-Altymysh_%D0%A3%D1%81%D1%83%D0%B1%D0%B0%D0%BB%D0%B8%D0%B5%D0%B2-%D0%90%D0%BB%D1%82%D1%8B%D0%BC%D1%8B%D1%88_inBishkek-MuseumKunstGaparAitiev_20240411.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Героиня «Манаса»",
+     "is_correct": false
+    },
+    {
+     "text": "Олимпийская чемпионка",
+     "is_correct": false
+    },
+    {
+     "text": "Знаменитая кыргызская балерина",
+     "is_correct": true
+    },
+    {
+     "text": "Певица",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Именем какого художника назван Национальный музей изобразительных искусств в Бишкеке?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чингиза Айтматова",
+     "is_correct": false
+    },
+    {
+     "text": "Токтогула Сатылганова",
+     "is_correct": false
+    },
+    {
+     "text": "Гапара Айтиева",
+     "is_correct": true
+    },
+    {
+     "text": "Семёна Чуйкова",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называлась первая кыргызская опера (1939), одним из авторов которой был Абдылас Малдыбаев?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Image taken by hux, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Abdylas_Maldybaev_on_1_som_note.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Курманжан Датка»",
+     "is_correct": false
+    },
+    {
+     "text": "«Джамиля»",
+     "is_correct": false
+    },
+    {
+     "text": "«Манас»",
+     "is_correct": false
+    },
+    {
+     "text": "«Айчүрөк»",
+     "is_correct": true
+    }
+   ],
+   "image": "q11.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Передышка без очков: Валентина Шевченко, родом из Бишкека, — чемпионка…",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "По фигурному катанию",
+     "is_correct": false
+    },
+    {
+     "text": "UFC по смешанным единоборствам",
+     "is_correct": true
+    },
+    {
+     "text": "По шахматам",
+     "is_correct": false
+    },
+    {
+     "text": "По плаванию",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кожомкул — легенда Кыргызстана. Чем он прославился?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Написал первый роман",
+     "is_correct": false
+    },
+    {
+     "text": "Построил первую ГЭС",
+     "is_correct": false
+    },
+    {
+     "text": "Невероятной силой: поднимал коня, борец-силач",
+     "is_correct": true
+    },
+    {
+     "text": "Был сказителем «Манаса»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Именем какого хирурга названа Кыргызская государственная медицинская академия?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Касыма Тыныстанова",
+     "is_correct": false
+    },
+    {
+     "text": "Мирсаида Миррахимова",
+     "is_correct": false
+    },
+    {
+     "text": "Исы Ахунбаева",
+     "is_correct": true
+    },
+    {
+     "text": "Жусупа Баласагына",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Кто из них — акыны и поэты?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Айсулуу Тыныбекова",
+     "is_correct": false
+    },
+    {
+     "text": "Тоголок Молдо",
+     "is_correct": true
+    },
+    {
+     "text": "Салижан Шарипов",
+     "is_correct": false
+    },
+    {
+     "text": "Токтогул Сатылганов",
+     "is_correct": true
+    },
+    {
+     "text": "Алыкул Осмонов",
+     "is_correct": true
+    },
+    {
+     "text": "Иса Ахунбаев",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Курманжан Датка жила в XIX веке и умерла в начале XX века.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Курманжан Датка: 1811–1907.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется повесть Айтматова, которую Луи Арагон назвал «самой прекрасной повестью о любви»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Материнское поле»",
+     "is_correct": false
+    },
+    {
+     "text": "«Белый пароход»",
+     "is_correct": false
+    },
+    {
+     "text": "«Джамиля»",
+     "is_correct": true
+    },
+    {
+     "text": "«Плаха»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто сняли фильм «Белый пароход» (1975) по Айтматову?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Кончаловский снял по Айтматову «Первого учителя» (1965).",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Акира Куросава",
+     "is_correct": false
+    },
+    {
+     "text": "Толомуш Океев",
+     "is_correct": false
+    },
+    {
+     "text": "Андрей Кончаловский",
+     "is_correct": false
+    },
+    {
+     "text": "Болот Шамшиев",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте людей по году рождения, от самых ранних.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "1811, 1864, 1901, 1928, 1964.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Курманжан Датка",
+     "is_correct": false
+    },
+    {
+     "text": "Токтогул Сатылганов",
+     "is_correct": false
+    },
+    {
+     "text": "Касым Тыныстанов",
+     "is_correct": false
+    },
+    {
+     "text": "Чингиз Айтматов",
+     "is_correct": false
+    },
+    {
+     "text": "Салижан Шарипов",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как зовут кыргызскую борчиху — чемпионку мира 2019 года и призёра двух Олимпиад?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Jørgen Løken, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Aisuluu_Tynybekova_2.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Айсулуу Тыныбекова",
+     "is_correct": true
+    },
+    {
+     "text": "Валентина Шевченко",
+     "is_correct": false
+    },
+    {
+     "text": "Бюбюсара Бейшеналиева",
+     "is_correct": false
+    },
+    {
+     "text": "Мээрим Жуманазарова",
+     "is_correct": false
+    }
+   ],
+   "image": "q20.jpg"
+  },
+  {
+   "type": "word",
+   "text": "Соберите фамилию манасчы, чей вариант эпоса — самый длинный.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "КАРАЛАЕВ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как назывался фильм 2014 года о жизни Алайской царицы?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Белый пароход»",
+     "is_correct": false
+    },
+    {
+     "text": "«Курманжан Датка»",
+     "is_correct": true
+    },
+    {
+     "text": "«Каныкей»",
+     "is_correct": false
+    },
+    {
+     "text": "«Небо нашего детства»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "В каком году родился Чингиз Айтматов?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 1900,
+    "max": 1950,
+    "step": 1,
+    "answer": 1928,
+    "unit": "",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что такое «Ата-Бейит» под Бишкеком?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: A.Savin, FAL, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ata-Beyit_Memorial_near_Bishkek_03-2016_img01.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Обсерватория",
+     "is_correct": false
+    },
+    {
+     "text": "Мемориал жертвам репрессий 1938 года, где похоронен и Чингиз Айтматов",
+     "is_correct": true
+    },
+    {
+     "text": "Горнолыжная база",
+     "is_correct": false
+    },
+    {
+     "text": "Музей «Манаса»",
+     "is_correct": false
+    }
+   ],
+   "image": "q24.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Кто был отцом Чингиза Айтматова — его расстреляли в 1938 году?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Торекул Айтматов, государственный деятель, был расстрелян в 1938 году и тоже похоронен в «Ата-Бейите».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Касым Тыныстанов",
+     "is_correct": false
+    },
+    {
+     "text": "Торекул Айтматов",
+     "is_correct": true
+    },
+    {
+     "text": "Абдыкерим Сыдыков",
+     "is_correct": false
+    },
+    {
+     "text": "Жусуп Абдрахманов",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

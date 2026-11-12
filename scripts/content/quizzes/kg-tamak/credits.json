@@ -1,0 +1,66 @@
+{
+ "cover.jpg": {
+  "author": "Pannet",
+  "file": "Бешбармак из говядины 01.jpg",
+  "license": "CC BY-SA 4.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:%D0%91%D0%B5%D1%88%D0%B1%D0%B0%D1%80%D0%BC%D0%B0%D0%BA_%D0%B8%D0%B7_%D0%B3%D0%BE%D0%B2%D1%8F%D0%B4%D0%B8%D0%BD%D1%8B_01.jpg",
+  "spec": "en:Beshbarmak",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/%D0%91%D0%B5%D1%88%D0%B1%D0%B0%D1%80%D0%BC%D0%B0%D0%BA_%D0%B8%D0%B7_%D0%B3%D0%BE%D0%B2%D1%8F%D0%B4%D0%B8%D0%BD%D1%8B_01.jpg/960px-%D0%91%D0%B5%D1%88%D0%B1%D0%B0%D1%80%D0%BC%D0%B0%D0%BA_%D0%B8%D0%B7_%D0%B3%D0%BE%D0%B2%D1%8F%D0%B4%D0%B8%D0%BD%D1%8B_01.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q01.jpg": {
+  "author": "Pannet",
+  "file": "Бешбармак из говядины 01.jpg",
+  "license": "CC BY-SA 4.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:%D0%91%D0%B5%D1%88%D0%B1%D0%B0%D1%80%D0%BC%D0%B0%D0%BA_%D0%B8%D0%B7_%D0%B3%D0%BE%D0%B2%D1%8F%D0%B4%D0%B8%D0%BD%D1%8B_01.jpg",
+  "spec": "en:Beshbarmak",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/%D0%91%D0%B5%D1%88%D0%B1%D0%B0%D1%80%D0%BC%D0%B0%D0%BA_%D0%B8%D0%B7_%D0%B3%D0%BE%D0%B2%D1%8F%D0%B4%D0%B8%D0%BD%D1%8B_01.jpg/960px-%D0%91%D0%B5%D1%88%D0%B1%D0%B0%D1%80%D0%BC%D0%B0%D0%BA_%D0%B8%D0%B7_%D0%B3%D0%BE%D0%B2%D1%8F%D0%B4%D0%B8%D0%BD%D1%8B_01.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q04.jpg": {
+  "author": "Vidor",
+  "file": "Boortsog.JPG",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Boortsog.JPG",
+  "spec": "en:Baursak",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Boortsog.JPG/960px-Boortsog.JPG?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q12.jpg": {
+  "author": "Vmenkov",
+  "file": "E7870-Dordoy-laghman.jpg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/jpeg",
+  "note": "search",
+  "page": "https://commons.wikimedia.org/wiki/File:E7870-Dordoy-laghman.jpg",
+  "spec": "en:Lagman (food)",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/E7870-Dordoy-laghman.jpg/960px-E7870-Dordoy-laghman.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q16.jpg": {
+  "author": "ru:User:Sover.spb",
+  "file": "Manti in a steam cooker.jpg",
+  "license": "Copyrighted free use",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Manti_in_a_steam_cooker.jpg",
+  "spec": "c:Manti in a steam cooker.jpg",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Manti_in_a_steam_cooker.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q17.jpg": {
+  "author": "Ji-Elle",
+  "file": "Ouzbékistan-Samsas.jpg",
+  "license": "CC BY-SA 4.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Ouzb%C3%A9kistan-Samsas.jpg",
+  "spec": "en:Samsa (food)",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Ouzb%C3%A9kistan-Samsas.jpg/960px-Ouzb%C3%A9kistan-Samsas.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q22.jpg": {
+  "author": "Solijon Solayev",
+  "file": "Chak-chak shirinligi.jpg",
+  "license": "CC BY-SA 4.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Chak-chak_shirinligi.jpg",
+  "spec": "en:Chak-chak",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Chak-chak_shirinligi.jpg/960px-Chak-chak_shirinligi.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ }
+}

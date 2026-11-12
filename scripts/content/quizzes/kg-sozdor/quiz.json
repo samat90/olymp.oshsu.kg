@@ -1,0 +1,717 @@
+{
+ "key": "kg-sozdor",
+ "title": "Кыргызские слова: проверь себя",
+ "subject": "Кыргызский язык",
+ "theme": "felt",
+ "description": "25 вопросов о кыргызских словах: числа, цвета, родня, дни недели и старинные названия месяцев. Подходит и тем, кто только начал учить язык. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: что значит «Саламатсызбы»?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "До свидания",
+     "is_correct": false
+    },
+    {
+     "text": "Спасибо",
+     "is_correct": false
+    },
+    {
+     "text": "Здравствуйте",
+     "is_correct": true
+    },
+    {
+     "text": "Добро пожаловать",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что значит «Кош келиңиз»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Будьте здоровы",
+     "is_correct": false
+    },
+    {
+     "text": "Приятного аппетита",
+     "is_correct": false
+    },
+    {
+     "text": "До свидания",
+     "is_correct": false
+    },
+    {
+     "text": "Добро пожаловать",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "А «Кош болуңуз»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Здравствуйте",
+     "is_correct": false
+    },
+    {
+     "text": "Добро пожаловать",
+     "is_correct": false
+    },
+    {
+     "text": "Извините",
+     "is_correct": false
+    },
+    {
+     "text": "До свидания",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте числа по возрастанию.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "бир",
+     "is_correct": false
+    },
+    {
+     "text": "үч",
+     "is_correct": false
+    },
+    {
+     "text": "беш",
+     "is_correct": false
+    },
+    {
+     "text": "жети",
+     "is_correct": false
+    },
+    {
+     "text": "тогуз",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как по-кыргызски «сорок»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "кырк",
+     "is_correct": true
+    },
+    {
+     "text": "элүү",
+     "is_correct": false
+    },
+    {
+     "text": "төрт",
+     "is_correct": false
+    },
+    {
+     "text": "отуз",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько это — «жүз»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "90",
+     "is_correct": false
+    },
+    {
+     "text": "100",
+     "is_correct": true
+    },
+    {
+     "text": "1000",
+     "is_correct": false
+    },
+    {
+     "text": "50",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Ловушка: «көк» по-кыргызски — это…",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "«Көк асман» — синее небо, «көк чөп» — зелёная трава. Для чисто зелёного есть слово «жашыл».\n\n*Фото: Ondřej Žváček, CC BY 2.5, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Song-K%C3%B6l.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "И синий, и зелёный цвет",
+     "is_correct": true
+    },
+    {
+     "text": "Серый",
+     "is_correct": false
+    },
+    {
+     "text": "Только зелёный",
+     "is_correct": false
+    },
+    {
+     "text": "Только синий",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой цвет — «сары»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Fir0002, GFDL 1.2, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sunflower_sky_backdrop.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Белый",
+     "is_correct": false
+    },
+    {
+     "text": "Жёлтый",
+     "is_correct": true
+    },
+    {
+     "text": "Красный",
+     "is_correct": false
+    },
+    {
+     "text": "Чёрный",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Какие слова обозначают цвета?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "тоо",
+     "is_correct": false
+    },
+    {
+     "text": "ак",
+     "is_correct": true
+    },
+    {
+     "text": "суу",
+     "is_correct": false
+    },
+    {
+     "text": "сары",
+     "is_correct": true
+    },
+    {
+     "text": "кызыл",
+     "is_correct": true
+    },
+    {
+     "text": "кара",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто такая «эже»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бабушка",
+     "is_correct": false
+    },
+    {
+     "text": "Старшая сестра (и уважительное обращение к старшей женщине)",
+     "is_correct": true
+    },
+    {
+     "text": "Младшая сестра",
+     "is_correct": false
+    },
+    {
+     "text": "Тётя по отцу",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как обращаются к старшему мужчине или старшему брату?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ини",
+     "is_correct": false
+    },
+    {
+     "text": "Небере",
+     "is_correct": false
+    },
+    {
+     "text": "Байке",
+     "is_correct": true
+    },
+    {
+     "text": "Уулум",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто такой «небере»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Дедушка",
+     "is_correct": false
+    },
+    {
+     "text": "Внук или внучка",
+     "is_correct": true
+    },
+    {
+     "text": "Зять",
+     "is_correct": false
+    },
+    {
+     "text": "Племянник",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Передышка без очков: что значит «Ооба»?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Может быть",
+     "is_correct": false
+    },
+    {
+     "text": "Да",
+     "is_correct": true
+    },
+    {
+     "text": "Нет",
+     "is_correct": false
+    },
+    {
+     "text": "Спасибо",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой день недели — «жума»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Среда",
+     "is_correct": false
+    },
+    {
+     "text": "Понедельник",
+     "is_correct": false
+    },
+    {
+     "text": "Пятница",
+     "is_correct": true
+    },
+    {
+     "text": "Воскресенье",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте дни недели от понедельника.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "дүйшөмбү",
+     "is_correct": false
+    },
+    {
+     "text": "шейшемби",
+     "is_correct": false
+    },
+    {
+     "text": "шаршемби",
+     "is_correct": false
+    },
+    {
+     "text": "бейшемби",
+     "is_correct": false
+    },
+    {
+     "text": "жума",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как по-кыргызски «воскресенье»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "жума",
+     "is_correct": false
+    },
+    {
+     "text": "ишемби",
+     "is_correct": false
+    },
+    {
+     "text": "жекшемби",
+     "is_correct": true
+    },
+    {
+     "text": "дүйшөмбү",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "По старинному кыргызскому календарю январь называется «Үчтүн айы». Как называется май?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Месяцы носят имена горных зверей: бугу (олень, май), кулжа (горный баран, июнь), теке (горный козёл, июль).\n\n*Фото: Lilly M, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cervus_nippon_002.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бугу",
+     "is_correct": true
+    },
+    {
+     "text": "Жалган куран",
+     "is_correct": false
+    },
+    {
+     "text": "Кулжа",
+     "is_correct": false
+    },
+    {
+     "text": "Теке",
+     "is_correct": false
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какие месяцы по народному календарю — «Жалган куран» и «Чын куран»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "«Куран» — самец косули. «Жалган куран» — март, «Чын куран» — апрель.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Январь и февраль",
+     "is_correct": false
+    },
+    {
+     "text": "Июнь и июль",
+     "is_correct": false
+    },
+    {
+     "text": "Октябрь и ноябрь",
+     "is_correct": false
+    },
+    {
+     "text": "Март и апрель",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что значит слово «тоо»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Frederic Heymes, CC BY-SA 2.0 fr, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Vue_globale_du_versant_N_du_khan_Tengri.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Степь",
+     "is_correct": false
+    },
+    {
+     "text": "Озеро",
+     "is_correct": false
+    },
+    {
+     "text": "Гора",
+     "is_correct": true
+    },
+    {
+     "text": "Река",
+     "is_correct": false
+    }
+   ],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что значит слово «жылдыз»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Ловушка: «жыл» — год, а «жылдыз» — звезда.\n\n*Фото: ESO/Y. Beletsky, CC BY 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:ESO-VLT-Laser-phot-33a-07.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Звезда",
+     "is_correct": true
+    },
+    {
+     "text": "Год",
+     "is_correct": false
+    },
+    {
+     "text": "Ветер",
+     "is_correct": false
+    },
+    {
+     "text": "Луна",
+     "is_correct": false
+    }
+   ],
+   "image": "q20.jpg"
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово «школа» по-кыргызски.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "*Фото: Liz, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Elementary_classroom_in_Alaska.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "МЕКТЕП"
+   },
+   "options": [],
+   "image": "q21.jpg"
+  },
+  {
+   "type": "text",
+   "text": "Как по-кыргызски «учитель»? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "мугалим",
+     "мугалимдер"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "В кыргызском алфавите 36 букв.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что значит «Жакшы калыңыз»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Счастливо оставаться (говорит уходящий)",
+     "is_correct": true
+    },
+    {
+     "text": "Приятного аппетита",
+     "is_correct": false
+    },
+    {
+     "text": "Добро пожаловать",
+     "is_correct": false
+    },
+    {
+     "text": "Счастливого пути (говорит остающийся)",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Что значит «Ак жол!»?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Белый снег",
+     "is_correct": false
+    },
+    {
+     "text": "Чистая вода",
+     "is_correct": false
+    },
+    {
+     "text": "Белый дом",
+     "is_correct": false
+    },
+    {
+     "text": "Доброго пути! (буквально «белая дорога»)",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  }
+ ]
+}

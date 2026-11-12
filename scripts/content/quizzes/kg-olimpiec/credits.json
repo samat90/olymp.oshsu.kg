@@ -1,0 +1,56 @@
+{
+ "cover.jpg": {
+  "author": "Shakiev N.T., Primov U.B.",
+  "file": "Flag of Kyrgyzstan.svg",
+  "license": "Public domain",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Kyrgyzstan.svg",
+  "spec": "en:Kyrgyzstan at the Olympics",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Flag_of_Kyrgyzstan.svg/960px-Flag_of_Kyrgyzstan.svg.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q05.jpg": {
+  "author": "Ksalizhan",
+  "file": "2022 World Championship.jpg",
+  "license": "CC BY-SA 4.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:2022_World_Championship.jpg",
+  "spec": "en:Akzhol Makhmudov",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/7/7d/2022_World_Championship.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q07.jpg": {
+  "author": "Jørgen Løken",
+  "file": "Aisuluu Tynybekova 2.JPG",
+  "license": "CC BY-SA 4.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Aisuluu_Tynybekova_2.JPG",
+  "spec": "en:Aisuluu Tynybekova",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Aisuluu_Tynybekova_2.JPG/960px-Aisuluu_Tynybekova_2.JPG?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q08.jpg": {
+  "author": "Власність Міністерства молоді та спорту України",
+  "file": "Meerim Zhumanazarova.jpg",
+  "license": "CC BY 4.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Meerim_Zhumanazarova.jpg",
+  "spec": "en:Meerim Zhumanazarova",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/4/45/Meerim_Zhumanazarova.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q16.jpg": {
+  "author": "Airman 1st Class Daniel Decook, USAF",
+  "file": "DF-SD-06-11222.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:DF-SD-06-11222.jpg",
+  "spec": "en:Greco-Roman wrestling",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/DF-SD-06-11222.jpg/960px-DF-SD-06-11222.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q22.jpg": {
+  "author": "MMAnytt",
+  "file": "Valentina Shevchenko 2020.jpg",
+  "license": "CC BY 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Valentina_Shevchenko_2020.jpg",
+  "spec": "en:Valentina Shevchenko (fighter)",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/7/79/Valentina_Shevchenko_2020.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ }
+}

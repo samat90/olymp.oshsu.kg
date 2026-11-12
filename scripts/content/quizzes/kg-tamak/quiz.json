@@ -1,0 +1,716 @@
+{
+ "key": "kg-tamak",
+ "title": "Кыргызская кухня",
+ "subject": "Кыргызстан",
+ "theme": "felt",
+ "description": "25 вопросов о кыргызских блюдах, напитках и обычаях застолья: беш бармак, боорсок, максым, устукан и не только. Угадывайте блюда по фото. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: как называется это блюдо из мяса и тонкой лапши?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "«Беш бармак» значит «пять пальцев»: раньше его ели руками.\n\n*Фото: Pannet, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:%D0%91%D0%B5%D1%88%D0%B1%D0%B0%D1%80%D0%BC%D0%B0%D0%BA_%D0%B8%D0%B7_%D0%B3%D0%BE%D0%B2%D1%8F%D0%B4%D0%B8%D0%BD%D1%8B_01.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лагман",
+     "is_correct": false
+    },
+    {
+     "text": "Беш бармак",
+     "is_correct": true
+    },
+    {
+     "text": "Манты",
+     "is_correct": false
+    },
+    {
+     "text": "Плов",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что значит название «беш бармак»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пять гостей",
+     "is_correct": false
+    },
+    {
+     "text": "Пять пальцев",
+     "is_correct": true
+    },
+    {
+     "text": "Белая лапша",
+     "is_correct": false
+    },
+    {
+     "text": "Пять мясных кусков",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется нарынская версия беш бармака: очень мелко нарезанное мясо с лапшой, к которому подают бульон?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кесме",
+     "is_correct": false
+    },
+    {
+     "text": "Куурдак",
+     "is_correct": false
+    },
+    {
+     "text": "Шорпо",
+     "is_correct": false
+    },
+    {
+     "text": "Наарын",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что за кусочки жареного теста на фото — без них не обходится ни один дастархан?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Vidor, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Boortsog.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Самса",
+     "is_correct": false
+    },
+    {
+     "text": "Калама",
+     "is_correct": false
+    },
+    {
+     "text": "Боорсок",
+     "is_correct": true
+    },
+    {
+     "text": "Чак-чак",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется мясной бульон, который подают к мясу?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Жарма",
+     "is_correct": false
+    },
+    {
+     "text": "Чалап",
+     "is_correct": false
+    },
+    {
+     "text": "Каймак",
+     "is_correct": false
+    },
+    {
+     "text": "Шорпо",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что такое чучук?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Чучук готовят из конины и конского жира в натуральной оболочке.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Суп с лапшой",
+     "is_correct": false
+    },
+    {
+     "text": "Сладкая выпечка",
+     "is_correct": false
+    },
+    {
+     "text": "Колбаса из конины с жиром",
+     "is_correct": true
+    },
+    {
+     "text": "Кислое молоко",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что такое «устукан»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Порционные куски мяса на кости, которые раздают гостям по старшинству",
+     "is_correct": true
+    },
+    {
+     "text": "Лепёшка из тандыра",
+     "is_correct": false
+    },
+    {
+     "text": "Пиала для кымыза",
+     "is_correct": false
+    },
+    {
+     "text": "Сорт риса",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "По обычаю самому почётному гостю подают баранью голову, и он делит её между гостями.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Из чего делают напиток максым?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Из яблок",
+     "is_correct": false
+    },
+    {
+     "text": "Из зерна (ячменя, пшеницы)",
+     "is_correct": true
+    },
+    {
+     "text": "Из мёда",
+     "is_correct": false
+    },
+    {
+     "text": "Из кобыльего молока",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется кисловатый напиток из разбавленного айрана, который хорошо утоляет жажду в жару?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чалап",
+     "is_correct": true
+    },
+    {
+     "text": "Шорпо",
+     "is_correct": false
+    },
+    {
+     "text": "Бозо",
+     "is_correct": false
+    },
+    {
+     "text": "Кымыз",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется лёгкий хмельной напиток из проса?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бозо",
+     "is_correct": true
+    },
+    {
+     "text": "Максым",
+     "is_correct": false
+    },
+    {
+     "text": "Чалап",
+     "is_correct": false
+    },
+    {
+     "text": "Айран",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Передышка без очков: какое это блюдо — тянутая лапша с мясом и овощами?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Vmenkov, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:E7870-Dordoy-laghman.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лагман",
+     "is_correct": true
+    },
+    {
+     "text": "Наарын",
+     "is_correct": false
+    },
+    {
+     "text": "Кесме",
+     "is_correct": false
+    },
+    {
+     "text": "Беш бармак",
+     "is_correct": false
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется праздник первого кымыза весной, когда кобылиц начинают доить?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ашар",
+     "is_correct": false
+    },
+    {
+     "text": "Той",
+     "is_correct": false
+    },
+    {
+     "text": "Кымыз мурундук",
+     "is_correct": true
+    },
+    {
+     "text": "Нооруз",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что такое «талкан»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Обжаренная толчёная мука из зерна, которую смешивают с маслом или сахаром",
+     "is_correct": true
+    },
+    {
+     "text": "Сыр из молока яка",
+     "is_correct": false
+    },
+    {
+     "text": "Тесто для лапши",
+     "is_correct": false
+    },
+    {
+     "text": "Сухое мясо",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что такое «каймак»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Хлеб из тандыра",
+     "is_correct": false
+    },
+    {
+     "text": "Сушёный сыр",
+     "is_correct": false
+    },
+    {
+     "text": "Мясной соус",
+     "is_correct": false
+    },
+    {
+     "text": "Густые сливки",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Это блюдо — большие пельмени на пару. Как оно называется?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: ru:User:Sover.spb, Copyrighted free use, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Manti_in_a_steam_cooker.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чучвара",
+     "is_correct": false
+    },
+    {
+     "text": "Манты",
+     "is_correct": true
+    },
+    {
+     "text": "Хошан",
+     "is_correct": false
+    },
+    {
+     "text": "Самса",
+     "is_correct": false
+    }
+   ],
+   "image": "q16.jpg"
+  },
+  {
+   "type": "single",
+   "text": "А это — треугольные пирожки из тандыра?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Ji-Elle, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ouzb%C3%A9kistan-Samsas.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Токоч",
+     "is_correct": false
+    },
+    {
+     "text": "Манты",
+     "is_correct": false
+    },
+    {
+     "text": "Боорсок",
+     "is_correct": false
+    },
+    {
+     "text": "Самса",
+     "is_correct": true
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Что из этого — напитки?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Боорсок",
+     "is_correct": false
+    },
+    {
+     "text": "Бозо",
+     "is_correct": true
+    },
+    {
+     "text": "Куурдак",
+     "is_correct": false
+    },
+    {
+     "text": "Чалап",
+     "is_correct": true
+    },
+    {
+     "text": "Кымыз",
+     "is_correct": true
+    },
+    {
+     "text": "Максым",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется лапшичный суп, домашняя лапша в бульоне?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Куурдак",
+     "is_correct": false
+    },
+    {
+     "text": "Чучук",
+     "is_correct": false
+    },
+    {
+     "text": "Боорсок",
+     "is_correct": false
+    },
+    {
+     "text": "Кесме",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Ловушка: «Ак-чай» по-кыргызски — это чай без сахара и молока.",
+   "time_limit": 15,
+   "weight": 2,
+   "explanation": "«Ак-чай» — «белый чай»: чай с молоком, иногда с маслом и солью.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: курдючный жир барана, который ценится в кыргызской кухне.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "КУЙРУК"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что это за сладость из обжаренных кусочков теста в мёде?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Solijon Solayev, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Chak-chak_shirinligi.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Боорсок",
+     "is_correct": false
+    },
+    {
+     "text": "Чак-чак",
+     "is_correct": true
+    },
+    {
+     "text": "Пахлава",
+     "is_correct": false
+    },
+    {
+     "text": "Халва",
+     "is_correct": false
+    }
+   ],
+   "image": "q22.jpg"
+  },
+  {
+   "type": "order",
+   "text": "Расставьте приготовление беш бармака по шагам.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сварить мясо в казане",
+     "is_correct": false
+    },
+    {
+     "text": "Раскатать и нарезать тесто",
+     "is_correct": false
+    },
+    {
+     "text": "Отварить лапшу в бульоне",
+     "is_correct": false
+    },
+    {
+     "text": "Нарезать мясо и смешать с лапшой и луком",
+     "is_correct": false
+    },
+    {
+     "text": "Подать с шорпо",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой город знаменит на всю страну своим красным рисом для плова?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Узгенский рис с красноватым зерном выращивают в долине у Узгена.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Талас",
+     "is_correct": false
+    },
+    {
+     "text": "Балыкчы",
+     "is_correct": false
+    },
+    {
+     "text": "Узген",
+     "is_correct": true
+    },
+    {
+     "text": "Нарын",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Как по кыргызскому обычаю нельзя обращаться с хлебом (нан)?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Хлеб священен: лепёшку ломают руками, кладут лицевой стороной вверх и никогда не выбрасывают.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Угощать хлебом гостя",
+     "is_correct": false
+    },
+    {
+     "text": "Ломать лепёшку руками",
+     "is_correct": false
+    },
+    {
+     "text": "Класть лепёшку вверх дном и выбрасывать хлеб",
+     "is_correct": true
+    },
+    {
+     "text": "Ставить хлеб на дастархан первым",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

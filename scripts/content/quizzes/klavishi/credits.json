@@ -1,0 +1,66 @@
+{
+ "cover.jpg": {
+  "author": "NotFromUtrecht",
+  "file": "Typing example.ogv",
+  "license": "CC BY-SA 3.0",
+  "mime": "application/ogg",
+  "page": "https://commons.wikimedia.org/wiki/File:Typing_example.ogv",
+  "spec": "en:Computer keyboard",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Typing_example.ogv/330px--Typing_example.ogv.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo"
+ },
+ "q01.jpg": {
+  "author": "Vectorization: Mrmw",
+  "file": "ISO 7000 - Ref-No 2028.svg",
+  "license": "Public domain",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:ISO_7000_-_Ref-No_2028.svg",
+  "spec": "en:Control key",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/ISO_7000_-_Ref-No_2028.svg/960px-ISO_7000_-_Ref-No_2028.svg.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q08.jpg": {
+  "author": "Shahnazi2002",
+  "file": "Alt - Lenovo.jpg",
+  "license": "CC BY-SA 4.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Alt_-_Lenovo.jpg",
+  "spec": "en:Alt key",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Alt_-_Lenovo.jpg/960px-Alt_-_Lenovo.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q11.jpg": {
+  "author": "Daniel beardsmore",
+  "file": "Logitech Y-RJ20 -- Macintosh modifiers.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Logitech_Y-RJ20_--_Macintosh_modifiers.jpg",
+  "spec": "en:Windows key",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Logitech_Y-RJ20_--_Macintosh_modifiers.jpg/960px-Logitech_Y-RJ20_--_Macintosh_modifiers.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q16.jpg": {
+  "author": "Drawn by Mysid in CorelDRAW.",
+  "file": "Qwerty.svg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Qwerty.svg",
+  "spec": "en:Function key",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Qwerty.svg/960px-Qwerty.svg.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q21.jpg": {
+  "author": "Microsoft",
+  "file": "Visual Studio Code 1.35 icon.svg",
+  "license": "Public domain",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Visual_Studio_Code_1.35_icon.svg",
+  "spec": "en:Visual Studio Code",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/960px-Visual_Studio_Code_1.35_icon.svg.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q25.jpg": {
+  "author": "Will Arrington",
+  "file": "NeXT Keyboard Command Key.jpg",
+  "license": "CC BY-SA 4.0",
+  "mime": "image/jpeg",
+  "note": "search",
+  "page": "https://commons.wikimedia.org/wiki/File:NeXT_Keyboard_Command_Key.jpg",
+  "spec": "en:Command key",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/NeXT_Keyboard_Command_Key.jpg/960px-NeXT_Keyboard_Command_Key.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ }
+}
