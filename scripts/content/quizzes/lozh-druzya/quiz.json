@@ -1,0 +1,720 @@
+{
+ "key": "lozh-druzya",
+ "title": "Ложные друзья переводчика",
+ "subject": "Английский язык",
+ "theme": "night",
+ "description": "25 ловушек для тех, кто учит английский: слова, которые звучат как русские, но значат совсем другое. Плюс кыргызские «двойники» русских слов. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: что значит английское «magazine»?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "Магазин — «shop» или «store».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Газета",
+     "is_correct": false
+    },
+    {
+     "text": "Магазин",
+     "is_correct": false
+    },
+    {
+     "text": "Склад",
+     "is_correct": false
+    },
+    {
+     "text": "Журнал",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "«Accurate» — это…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Аккуратный, опрятный — «neat», «tidy».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Острый",
+     "is_correct": false
+    },
+    {
+     "text": "Точный",
+     "is_correct": true
+    },
+    {
+     "text": "Аккуратный",
+     "is_correct": false
+    },
+    {
+     "text": "Аккумулятор",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "«Fabric» — это…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Фабрика — «factory».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ткань",
+     "is_correct": true
+    },
+    {
+     "text": "Фабрика",
+     "is_correct": false
+    },
+    {
+     "text": "Кирпич",
+     "is_correct": false
+    },
+    {
+     "text": "Сказка",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "«Family» — это…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Фамилия — «surname» или «last name».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Фамилия",
+     "is_correct": false
+    },
+    {
+     "text": "Семья",
+     "is_correct": true
+    },
+    {
+     "text": "Знаменитость",
+     "is_correct": false
+    },
+    {
+     "text": "Ферма",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "«Decade» — это…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Декада (10 дней)",
+     "is_correct": false
+    },
+    {
+     "text": "Десятилетие",
+     "is_correct": true
+    },
+    {
+     "text": "Декабрь",
+     "is_correct": false
+    },
+    {
+     "text": "Упадок",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "«Data» — это…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Дата — «date».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Дача",
+     "is_correct": false
+    },
+    {
+     "text": "Данные",
+     "is_correct": true
+    },
+    {
+     "text": "Дата",
+     "is_correct": false
+    },
+    {
+     "text": "Доска",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "«Chef» — это…",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Ловушка: начальник по-английски «boss», а «chef» — только повар.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Начальник",
+     "is_correct": false
+    },
+    {
+     "text": "Повар (шеф-повар)",
+     "is_correct": true
+    },
+    {
+     "text": "Шеф полиции",
+     "is_correct": false
+    },
+    {
+     "text": "Шофёр",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "«Actual» — это…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Актуальный — «relevant» или «topical».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Актёрский",
+     "is_correct": false
+    },
+    {
+     "text": "Активный",
+     "is_correct": false
+    },
+    {
+     "text": "Актуальный, злободневный",
+     "is_correct": false
+    },
+    {
+     "text": "Настоящий, фактический",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "«Angina» у английских врачей — это…",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Ангина по-английски — «tonsillitis» или «strep throat».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Стенокардия, боль в сердце",
+     "is_correct": true
+    },
+    {
+     "text": "Грипп",
+     "is_correct": false
+    },
+    {
+     "text": "Мигрень",
+     "is_correct": false
+    },
+    {
+     "text": "Ангина, боль в горле",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "«Clay» — это…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Клей — «glue».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Клей",
+     "is_correct": false
+    },
+    {
+     "text": "Ключ",
+     "is_correct": false
+    },
+    {
+     "text": "Клетка",
+     "is_correct": false
+    },
+    {
+     "text": "Глина",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "«Complexion» — это…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Комплекция, телосложение",
+     "is_correct": false
+    },
+    {
+     "text": "Комплимент",
+     "is_correct": false
+    },
+    {
+     "text": "Комплекс",
+     "is_correct": false
+    },
+    {
+     "text": "Цвет лица",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "«Mayor» — это…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Майор — «major».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мэр",
+     "is_correct": true
+    },
+    {
+     "text": "Майор",
+     "is_correct": false
+    },
+    {
+     "text": "Май",
+     "is_correct": false
+    },
+    {
+     "text": "Мажор",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Передышка без очков: «list» — это…",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "Лист дерева — «leaf», лист бумаги — «sheet».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лиса",
+     "is_correct": false
+    },
+    {
+     "text": "Лист",
+     "is_correct": false
+    },
+    {
+     "text": "Список",
+     "is_correct": true
+    },
+    {
+     "text": "Письмо",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "«Pathetic» — это…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Торжественный, возвышенный — «solemn» или «lofty».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Патриотичный",
+     "is_correct": false
+    },
+    {
+     "text": "Пафосный",
+     "is_correct": false
+    },
+    {
+     "text": "Жалкий",
+     "is_correct": true
+    },
+    {
+     "text": "Патетический, торжественный",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "«Sympathetic» — это…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Симпатичный — «nice-looking», «pretty».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сочувствующий",
+     "is_correct": true
+    },
+    {
+     "text": "Симпатичный",
+     "is_correct": false
+    },
+    {
+     "text": "Синтетический",
+     "is_correct": false
+    },
+    {
+     "text": "Симметричный",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "«Novel» как существительное — это…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Роман (книга)",
+     "is_correct": true
+    },
+    {
+     "text": "Новость",
+     "is_correct": false
+    },
+    {
+     "text": "Новелла",
+     "is_correct": false
+    },
+    {
+     "text": "Новичок",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "«Cabinet» в доме — это…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Комната-кабинет — «study» или «office».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Шкаф",
+     "is_correct": true
+    },
+    {
+     "text": "Кабинет",
+     "is_correct": false
+    },
+    {
+     "text": "Кабель",
+     "is_correct": false
+    },
+    {
+     "text": "Кабина",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "«Intelligent» — это…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Интеллигентный, воспитанный",
+     "is_correct": false
+    },
+    {
+     "text": "Интересный",
+     "is_correct": false
+    },
+    {
+     "text": "Умный",
+     "is_correct": true
+    },
+    {
+     "text": "Интенсивный",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие пары — ложные друзья (звучат похоже, а значат разное)?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "magazine — магазин",
+     "is_correct": true
+    },
+    {
+     "text": "accurate — аккуратный",
+     "is_correct": true
+    },
+    {
+     "text": "football — футбол",
+     "is_correct": false
+    },
+    {
+     "text": "fabric — фабрика",
+     "is_correct": true
+    },
+    {
+     "text": "telephone — телефон",
+     "is_correct": false
+    },
+    {
+     "text": "computer — компьютер",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "«Artist» по-английски — только художник.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "«Artist» — любой человек искусства: художник, певец, музыкант. Русское «артист» ближе к «performer» или «actor».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кыргызский двойник: что значит кыргызское «кулак»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "А кулак по-кыргызски — «муштум».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кулич",
+     "is_correct": false
+    },
+    {
+     "text": "Ухо",
+     "is_correct": true
+    },
+    {
+     "text": "Кулак",
+     "is_correct": false
+    },
+    {
+     "text": "Колодец",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что значит кыргызское «бал»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Танцевальный вечер",
+     "is_correct": false
+    },
+    {
+     "text": "Балл в школе",
+     "is_correct": false
+    },
+    {
+     "text": "Мяч",
+     "is_correct": false
+    },
+    {
+     "text": "Мёд",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что значит кыргызское «кара»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "По-русски «кара» — наказание, а по-кыргызски — «чёрный»: Кара-Суу — «чёрная вода».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Наказание",
+     "is_correct": false
+    },
+    {
+     "text": "Карась",
+     "is_correct": false
+    },
+    {
+     "text": "Чёрный",
+     "is_correct": true
+    },
+    {
+     "text": "Красный",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите английское слово, которое значит «магазин».",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "SHOP"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! «Prospect» по-английски — это…",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Широкая улица — «avenue». Двойная ловушка: и «проспект-брошюра» тоже не «prospect», а «brochure».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Прокурор",
+     "is_correct": false
+    },
+    {
+     "text": "Проспект, широкая улица",
+     "is_correct": false
+    },
+    {
+     "text": "Перспектива, шанс на успех",
+     "is_correct": true
+    },
+    {
+     "text": "Проспект, рекламная брошюра",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

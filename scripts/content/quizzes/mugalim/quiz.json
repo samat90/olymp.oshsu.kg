@@ -1,0 +1,710 @@
+{
+ "key": "mugalim",
+ "title": "День учителя",
+ "subject": "Праздники",
+ "theme": "lake",
+ "description": "25 вопросов о великих учителях и о школе: от Сократа до Дюйшена из «Первого учителя». Подходит для праздника в школе и вузе. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: как по-кыргызски «учитель»?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "А «устат» — наставник, мастер своего дела.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Устат",
+     "is_correct": false
+    },
+    {
+     "text": "Окуучу",
+     "is_correct": false
+    },
+    {
+     "text": "Мугалим",
+     "is_correct": true
+    },
+    {
+     "text": "Дарыгер",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Когда отмечают Всемирный день учителя (ЮНЕСКО, с 1994 года)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "8 марта",
+     "is_correct": false
+    },
+    {
+     "text": "25 мая",
+     "is_correct": false
+    },
+    {
+     "text": "1 сентября",
+     "is_correct": false
+    },
+    {
+     "text": "5 октября",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как звали первого учителя в повести Чингиза Айтматова «Первый учитель»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Едигей",
+     "is_correct": false
+    },
+    {
+     "text": "Данияр",
+     "is_correct": false
+    },
+    {
+     "text": "Дюйшен",
+     "is_correct": true
+    },
+    {
+     "text": "Танабай",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто снял фильм «Первый учитель» (1965)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Андрей Кончаловский",
+     "is_correct": true
+    },
+    {
+     "text": "Толомуш Океев",
+     "is_correct": false
+    },
+    {
+     "text": "Болот Шамшиев",
+     "is_correct": false
+    },
+    {
+     "text": "Акира Куросава",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как звали ученицу Дюйшена, которая потом стала академиком?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Алтынай",
+     "is_correct": true
+    },
+    {
+     "text": "Асель",
+     "is_correct": false
+    },
+    {
+     "text": "Каныкей",
+     "is_correct": false
+    },
+    {
+     "text": "Джамиля",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте учителей и учеников по цепочке: кто кого учил.",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сократ",
+     "is_correct": false
+    },
+    {
+     "text": "Платон",
+     "is_correct": false
+    },
+    {
+     "text": "Аристотель",
+     "is_correct": false
+    },
+    {
+     "text": "Александр Македонский",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кого из великих полководцев учил Аристотель?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Наполеона",
+     "is_correct": false
+    },
+    {
+     "text": "Чингисхана",
+     "is_correct": false
+    },
+    {
+     "text": "Александра Македонского",
+     "is_correct": true
+    },
+    {
+     "text": "Юлия Цезаря",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто придумал классно-урочную систему и написал «Великую дидактику»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Jürgen Ovens, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Jan_Amos_Comenius_%28Komensky%29_%281592-1670%29._Tsjechisch_humanist_en_pedagoog._Als_voorganger_van_de_Moravische_of_Boheemse_Broedergemeente_verdreven_en_sedert_1656_gevestigd_te_Amsterdam_Rijksmuseum_SK-A-2161.jpeg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Антон Макаренко",
+     "is_correct": false
+    },
+    {
+     "text": "Константин Ушинский",
+     "is_correct": false
+    },
+    {
+     "text": "Мария Монтессори",
+     "is_correct": false
+    },
+    {
+     "text": "Ян Амос Коменский",
+     "is_correct": true
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кого называют основоположником научной педагогики в России?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Konstantin_Dmitrievich_Ushinskii_.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Льва Толстого",
+     "is_correct": false
+    },
+    {
+     "text": "Михаила Ломоносова",
+     "is_correct": false
+    },
+    {
+     "text": "Ивана Павлова",
+     "is_correct": false
+    },
+    {
+     "text": "Константина Ушинского",
+     "is_correct": true
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая итальянская учёная создала свою систему: дети учатся сами в специально подготовленной среде?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Maria_Montessori_%28portrait%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Анна Фрейд",
+     "is_correct": false
+    },
+    {
+     "text": "Мария Кюри",
+     "is_correct": false
+    },
+    {
+     "text": "Мария Монтессори",
+     "is_correct": true
+    },
+    {
+     "text": "Хелен Келлер",
+     "is_correct": false
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как звали учительницу, которая научила слепоглухую Хелен Келлер общаться?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:AnneSullivanMacy.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Флоренс Найтингейл",
+     "is_correct": false
+    },
+    {
+     "text": "Энн Салливан",
+     "is_correct": true
+    },
+    {
+     "text": "Агата Кристи",
+     "is_correct": false
+    },
+    {
+     "text": "Мария Монтессори",
+     "is_correct": false
+    }
+   ],
+   "image": "q11.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто создал первые учебники на кыргызском языке в 1920-х годах?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Касым Тыныстанов",
+     "is_correct": true
+    },
+    {
+     "text": "Тоголок Молдо",
+     "is_correct": false
+    },
+    {
+     "text": "Жусуп Баласагын",
+     "is_correct": false
+    },
+    {
+     "text": "Чингиз Айтматов",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Передышка без очков: что звенит в конце урока?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Будильник",
+     "is_correct": false
+    },
+    {
+     "text": "Колокол на башне",
+     "is_correct": false
+    },
+    {
+     "text": "Телефон",
+     "is_correct": false
+    },
+    {
+     "text": "Звонок",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В какой стране школьники по традиции сами убирают классы, а учителей очень почитают?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "США",
+     "is_correct": false
+    },
+    {
+     "text": "Япония",
+     "is_correct": true
+    },
+    {
+     "text": "Бразилия",
+     "is_correct": false
+    },
+    {
+     "text": "Франция",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чем Финляндия известна в образовании?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Отсутствием учителей",
+     "is_correct": false
+    },
+    {
+     "text": "Короткими уроками, мало домашних заданий и очень сильными учителями",
+     "is_correct": true
+    },
+    {
+     "text": "Школой по 12 часов",
+     "is_correct": false
+    },
+    {
+     "text": "Учёбой только летом",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Ломоносов пешком пришёл из Архангельской губернии в Москву, чтобы учиться.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "*Фото: After Georg Caspar Prenner, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:M.V._Lomonosov_by_L.Miropolskiy_after_G.C.Prenner_%281787,_RAN%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q16.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Кто из них — известные педагоги?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Исаак Ньютон",
+     "is_correct": false
+    },
+    {
+     "text": "Ян Амос Коменский",
+     "is_correct": true
+    },
+    {
+     "text": "Мария Монтессори",
+     "is_correct": true
+    },
+    {
+     "text": "Леонардо да Винчи",
+     "is_correct": false
+    },
+    {
+     "text": "Константин Ушинский",
+     "is_correct": true
+    },
+    {
+     "text": "Антон Макаренко",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется ВУЗ, который вырос из учительского института 1939 года в Оше?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ошский государственный университет",
+     "is_correct": true
+    },
+    {
+     "text": "Кыргызско-Турецкий «Манас»",
+     "is_correct": false
+    },
+    {
+     "text": "КНУ имени Баласагына",
+     "is_correct": false
+    },
+    {
+     "text": "Американский университет в ЦА",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как по-кыргызски «ученик», «школьник»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Окуучу",
+     "is_correct": true
+    },
+    {
+     "text": "Мугалим",
+     "is_correct": false
+    },
+    {
+     "text": "Студент",
+     "is_correct": false
+    },
+    {
+     "text": "Устат",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называют 1 сентября — день, когда начинается учебный год?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "День выпускника",
+     "is_correct": false
+    },
+    {
+     "text": "День науки",
+     "is_correct": false
+    },
+    {
+     "text": "День знаний",
+     "is_correct": true
+    },
+    {
+     "text": "День учителя",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: человек, который ведёт урок.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "УЧИТЕЛЬ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется доска, на которой раньше писали мелом?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Планшет",
+     "is_correct": false
+    },
+    {
+     "text": "Пюпитр",
+     "is_correct": false
+    },
+    {
+     "text": "Флипчарт",
+     "is_correct": false
+    },
+    {
+     "text": "Классная доска",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто сказал: «Я знаю, что ничего не знаю»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Copy of Lysippos (?), Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Socrates_Louvre.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Аристотель",
+     "is_correct": false
+    },
+    {
+     "text": "Сократ",
+     "is_correct": true
+    },
+    {
+     "text": "Конфуций",
+     "is_correct": false
+    },
+    {
+     "text": "Пифагор",
+     "is_correct": false
+    }
+   ],
+   "image": "q23.jpg"
+  },
+  {
+   "type": "text",
+   "text": "Как зовут великого китайского учителя, чьи мысли записаны в книге «Лунь юй»?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "*Фото: Anonymous Chinese painter of the Western Han period, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Confucius,_fresco_from_a_Western_Han_tomb_of_Dongping_County,_Shandong_province,_China_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "Конфуций",
+     "конфуций",
+     "Кун-цзы"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": "q24.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Какую школу основал Платон в Афинах, откуда пошло слово для научных учреждений?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "А Аристотель основал Ликей — отсюда «лицей».\n\n*Фото: Raphael, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Гимназию",
+     "is_correct": false
+    },
+    {
+     "text": "Академию",
+     "is_correct": true
+    },
+    {
+     "text": "Лицей",
+     "is_correct": false
+    },
+    {
+     "text": "Университет",
+     "is_correct": false
+    }
+   ],
+   "image": "q25.jpg"
+  }
+ ]
+}

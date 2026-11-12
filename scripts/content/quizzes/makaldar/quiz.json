@@ -1,0 +1,705 @@
+{
+ "key": "makaldar",
+ "title": "Кыргызские макалдар: закончи пословицу",
+ "subject": "Кыргызстан",
+ "theme": "felt",
+ "description": "25 вопросов о кыргызских пословицах и поговорках: закончите фразу, найдите смысл и русский аналог. Хитрые варианты ответов прилагаются. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков. Закончите: «Жети өлчөп, …»",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "«Семь раз отмерь, один раз отрежь».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "жети кес",
+     "is_correct": false
+    },
+    {
+     "text": "эки кес",
+     "is_correct": false
+    },
+    {
+     "text": "бир көр",
+     "is_correct": false
+    },
+    {
+     "text": "бир кес",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Закончите: «Миң уккандан …»",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "«Лучше один раз увидеть, чем тысячу раз услышать».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "бир көргөн артык",
+     "is_correct": true
+    },
+    {
+     "text": "бир айткан артык",
+     "is_correct": false
+    },
+    {
+     "text": "миң көргөн артык",
+     "is_correct": false
+    },
+    {
+     "text": "бир жазган артык",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Закончите: «Ынтымак бар жерде …»",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "«Где согласие, там и счастье».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "суу бар",
+     "is_correct": false
+    },
+    {
+     "text": "душман бар",
+     "is_correct": false
+    },
+    {
+     "text": "кой бар",
+     "is_correct": false
+    },
+    {
+     "text": "ырыс бар",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Закончите: «Жакшы сөз — …»",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "«Доброе слово — половина счастья».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "жарым ачуу",
+     "is_correct": false
+    },
+    {
+     "text": "бир кашык",
+     "is_correct": false
+    },
+    {
+     "text": "жарым ырыс",
+     "is_correct": true
+    },
+    {
+     "text": "алтын казык",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово, которым заканчивается пословица: «Сабыр түбү — сары …»",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "«Сабыр түбү — сары алтын»: терпение в итоге оборачивается золотом.",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "АЛТЫН"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Закончите: «Ат — эрдин …»",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "«Конь — крылья джигита».\n\n*Фото: Bunin, N.; Imprimerie Lemercier et cie.; Merder, Ivan Karlovich; Rougeron, Vignerot & Cie.; Samokysh, Mykola; Simonov, L, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Les_races_chevalines_BHL22833020,_cropped.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "канаты",
+     "is_correct": true
+    },
+    {
+     "text": "тоосу",
+     "is_correct": false
+    },
+    {
+     "text": "досу",
+     "is_correct": false
+    },
+    {
+     "text": "үйү",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Закончите: «Өнөрлүү өлбөйт, …»",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "«Умелый не пропадёт, а без ремесла жизни не видать».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "өнөрсүз күн көрбөйт",
+     "is_correct": true
+    },
+    {
+     "text": "жалкоо тоюп калат",
+     "is_correct": false
+    },
+    {
+     "text": "акылдуу азбайт",
+     "is_correct": false
+    },
+    {
+     "text": "өнөрсүз жоголбойт",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Впишите последнее слово: «Ит үрөт, кербен …»",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "«Собака лает, а караван идёт».\n\n*Фото: Edwin Lord Weeks, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Weeks_Edwin_Lord_Arrival_of_a_Caravan_Outside_The_City_of_Morocco.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "көчөт",
+     "көчөт."
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что значит пословица «Көп түкүрсө көл болот»?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Дословно: «если плюнут многие, получится озеро». В единстве сила.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Озеро нельзя пачкать",
+     "is_correct": false
+    },
+    {
+     "text": "Не плюй в колодец",
+     "is_correct": false
+    },
+    {
+     "text": "Вместе люди могут сделать очень многое",
+     "is_correct": true
+    },
+    {
+     "text": "Много слов — мало дела",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Закончите: «Жалгыз дарак …»",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "«Одно дерево — ещё не лес».\n\n*Фото: Ivar Leidus, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Walnuts_-_whole_and_open_with_halved_kernel.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "жемиш бербейт",
+     "is_correct": false
+    },
+    {
+     "text": "суу ичпейт",
+     "is_correct": false
+    },
+    {
+     "text": "бак болот",
+     "is_correct": false
+    },
+    {
+     "text": "токой болбойт",
+     "is_correct": true
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Передышка без очков. Что значит «Ачуу — душман, акыл — дос»?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Гнев — враг, ум — друг",
+     "is_correct": true
+    },
+    {
+     "text": "Кто зол, тот умён",
+     "is_correct": false
+    },
+    {
+     "text": "Голод — враг, еда — друг",
+     "is_correct": false
+    },
+    {
+     "text": "Горькое — враг, сладкое — друг",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Закончите: «Эки кочкордун башы …»",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "«Две бараньи головы в один котёл не поместятся»: двум сильным лидерам трудно ужиться вместе.\n\n*Фото: James Eaton, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ovis_ammon_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "бир тоого чыкпайт",
+     "is_correct": false
+    },
+    {
+     "text": "бир жерде жатпайт",
+     "is_correct": false
+    },
+    {
+     "text": "бир казанга батпайт",
+     "is_correct": true
+    },
+    {
+     "text": "бир суудан ичпейт",
+     "is_correct": false
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Закончите: «Жыгылган …»",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Упавший в борьбе не насытится ею: проигравший всегда хочет реванша.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "кайра турбайт",
+     "is_correct": false
+    },
+    {
+     "text": "күрөшкө тойбойт",
+     "is_correct": true
+    },
+    {
+     "text": "атка минбейт",
+     "is_correct": false
+    },
+    {
+     "text": "жерге тийбейт",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Закончите: «Ойноп сүйлөсөң да, …»",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "«Даже шутя, говори подумав».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "аз сүйлө",
+     "is_correct": false
+    },
+    {
+     "text": "күлүп сүйлө",
+     "is_correct": false
+    },
+    {
+     "text": "ойлоп сүйлө",
+     "is_correct": true
+    },
+    {
+     "text": "катуу сүйлө",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как продолжить «Аз сөз — алтын, …»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "«Малое слово — золото, многословие — уголь».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "көп сөз — таш",
+     "is_correct": false
+    },
+    {
+     "text": "көп сөз — көмүр",
+     "is_correct": true
+    },
+    {
+     "text": "көп сөз — суу",
+     "is_correct": false
+    },
+    {
+     "text": "көп сөз — күмүш",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Закончите: «Акылдуу ойлонгуча, …»",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "«Пока умный думает, сумасброд уже перейдёт реку вброд»: иногда решительность важнее долгих раздумий.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "жоо келет",
+     "is_correct": false
+    },
+    {
+     "text": "түн болот",
+     "is_correct": false
+    },
+    {
+     "text": "ат чарчайт",
+     "is_correct": false
+    },
+    {
+     "text": "жинди суу кечип өтөт",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Соберите пословицу по порядку слов.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "«Капля за каплей — и получится озеро».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тамчы",
+     "is_correct": false
+    },
+    {
+     "text": "тамып",
+     "is_correct": false
+    },
+    {
+     "text": "көл",
+     "is_correct": false
+    },
+    {
+     "text": "болот",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие из этих пословиц — о единстве и согласии?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ит үрөт, кербен көчөт",
+     "is_correct": false
+    },
+    {
+     "text": "Жалгыз дарак токой болбойт",
+     "is_correct": true
+    },
+    {
+     "text": "Көп түкүрсө көл болот",
+     "is_correct": true
+    },
+    {
+     "text": "Таш түшкөн жерине оор",
+     "is_correct": false
+    },
+    {
+     "text": "Ынтымак бар жерде ырыс бар",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что значит «Таш түшкөн жерине оор»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Где камни, там нет травы",
+     "is_correct": false
+    },
+    {
+     "text": "Камень тяжёл там, где упал: горе сильнее всего чувствует тот, с кем оно случилось",
+     "is_correct": true
+    },
+    {
+     "text": "Тяжело только в горах",
+     "is_correct": false
+    },
+    {
+     "text": "Не поднимай тяжёлые камни",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Закончите: «Бирөөгө ор казсаң, …»",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Русский аналог: «Не рой другому яму — сам в неё попадёшь».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "өзүң түшөсүң",
+     "is_correct": true
+    },
+    {
+     "text": "жер бүтөт",
+     "is_correct": false
+    },
+    {
+     "text": "ал түшөт",
+     "is_correct": false
+    },
+    {
+     "text": "суу чыгат",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Закончите: «Атаңа эмне кылсаң, …»",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Как ты поступишь с отцом, так и с тобой поступят твои дети.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "ошол бүтөт",
+     "is_correct": false
+    },
+    {
+     "text": "балаң ошону унутат",
+     "is_correct": false
+    },
+    {
+     "text": "эл ошону айтат",
+     "is_correct": false
+    },
+    {
+     "text": "алдыңа ошол келет",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Пословица «Алтын алма, алкыш ал» учит: лучше получить благодарность людей, чем золото.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая русская пословица ближе всего к «Сүт менен кирген мүнөз, сөөк менен чыгат»?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Дословно: «характер, что вошёл с молоком матери, уйдёт только с костями».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Не всё то золото, что блестит",
+     "is_correct": false
+    },
+    {
+     "text": "Горбатого могила исправит",
+     "is_correct": true
+    },
+    {
+     "text": "Без труда не выловишь и рыбку из пруда",
+     "is_correct": false
+    },
+    {
+     "text": "Тише едешь — дальше будешь",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Закончите: «Эл ичи — …»",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "«В народе — сокровищница умений».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "ак сарай",
+     "is_correct": false
+    },
+    {
+     "text": "өнөр кенчи",
+     "is_correct": true
+    },
+    {
+     "text": "алтын казан",
+     "is_correct": false
+    },
+    {
+     "text": "бийик тоо",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Закончите: «Ден соолук — …»",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "«Здоровье — великое богатство». Ловушка: остальные концовки взяты из других пословиц этой викторины.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "жарым ырыс",
+     "is_correct": false
+    },
+    {
+     "text": "эрдин канаты",
+     "is_correct": false
+    },
+    {
+     "text": "зор байлык",
+     "is_correct": true
+    },
+    {
+     "text": "сары алтын",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

@@ -1,0 +1,692 @@
+{
+ "key": "manas-epos",
+ "title": "Эпос «Манас»: герои и сказители",
+ "subject": "Кыргызстан",
+ "theme": "felt",
+ "description": "25 вопросов о героях, конях, друзьях и врагах великого эпоса и о его сказителях-манасчы. Есть ловушки и раунды на двойные очки. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: кто стоит на коне в центре Бишкека, на площади Ала-Тоо?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Ninara from Helsinki, Finland, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bishkek,_Kyrgyzstan_%2844612463022%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Курманжан Датка",
+     "is_correct": false
+    },
+    {
+     "text": "Манас",
+     "is_correct": true
+    },
+    {
+     "text": "Токтогул",
+     "is_correct": false
+    },
+    {
+     "text": "Чингиз Айтматов",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как звали отца Манаса?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Богатый Жакып долго не имел наследника, и рождение Манаса стало для него великой радостью.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Алмамбет",
+     "is_correct": false
+    },
+    {
+     "text": "Бакай",
+     "is_correct": false
+    },
+    {
+     "text": "Кошой",
+     "is_correct": false
+    },
+    {
+     "text": "Жакып",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как звали мать Манаса?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чыйырды",
+     "is_correct": true
+    },
+    {
+     "text": "Каныкей",
+     "is_correct": false
+    },
+    {
+     "text": "Айчүрөк",
+     "is_correct": false
+    },
+    {
+     "text": "Акылай",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как зовут знаменитого коня Манаса?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Ловушка: Тайбуру — конь Семетея, «тулпар» — общее слово для крылатого скакуна, а Чубак — богатырь.\n\n*Фото: Bunin, N.; Imprimerie Lemercier et cie.; Merder, Ivan Karlovich; Rougeron, Vignerot & Cie.; Samokysh, Mykola; Simonov, L, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Les_races_chevalines_BHL22833020,_cropped.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ак-Кула",
+     "is_correct": true
+    },
+    {
+     "text": "Тайбуру",
+     "is_correct": false
+    },
+    {
+     "text": "Чубак",
+     "is_correct": false
+    },
+    {
+     "text": "Тулпар",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто в эпосе — мудрый старейшина и советник Манаса?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Конурбай",
+     "is_correct": false
+    },
+    {
+     "text": "Бакай",
+     "is_correct": true
+    },
+    {
+     "text": "Канчоро",
+     "is_correct": false
+    },
+    {
+     "text": "Жолой",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто такой Алмамбет?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Алмамбет, сын китайского хана, принял сторону Манаса и стал одним из самых близких его друзей.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Конь Семетея",
+     "is_correct": false
+    },
+    {
+     "text": "Враг-калмак, обжора",
+     "is_correct": false
+    },
+    {
+     "text": "Богатырь из Китая, перешедший к Манасу и ставший его побратимом",
+     "is_correct": true
+    },
+    {
+     "text": "Отец Каныкей",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто из врагов нанёс Манасу смертельную рану в Великом походе?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Удвоенные очки. Конурбай ранил Манаса копьём, и герой умер, вернувшись в Талас.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Жолой",
+     "is_correct": false
+    },
+    {
+     "text": "Кошой",
+     "is_correct": false
+    },
+    {
+     "text": "Алмамбет",
+     "is_correct": false
+    },
+    {
+     "text": "Конурбай",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется Великий поход Манаса на Бээжин?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Чоң казат»",
+     "is_correct": true
+    },
+    {
+     "text": "«Ала-Тоо»",
+     "is_correct": false
+    },
+    {
+     "text": "«Каныкейдин зары»",
+     "is_correct": false
+    },
+    {
+     "text": "«Көкөтөйдүн ашы»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Передышка без очков: «Көкөтөйдүн ашы» — это рассказ о поминках по хану Кокотою с большими состязаниями.",
+   "time_limit": 15,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто такой Жолой?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Калмакский великан-богатырь, знаменитый обжора, враг Манаса",
+     "is_correct": true
+    },
+    {
+     "text": "Сын Алмамбета",
+     "is_correct": false
+    },
+    {
+     "text": "Сказитель «Манаса»",
+     "is_correct": false
+    },
+    {
+     "text": "Конь Манаса",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как зовут коня Семетея?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тайбуру",
+     "is_correct": true
+    },
+    {
+     "text": "Ак-Кула",
+     "is_correct": false
+    },
+    {
+     "text": "Тору-Айгыр",
+     "is_correct": false
+    },
+    {
+     "text": "Кула-Ат",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как звали ловчего сокола Семетея?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Marek Szczepanek, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Falco_cherrug_%28Marek_Szczepanek%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тайбуру",
+     "is_correct": false
+    },
+    {
+     "text": "Ак-Кула",
+     "is_correct": false
+    },
+    {
+     "text": "Алгыр",
+     "is_correct": false
+    },
+    {
+     "text": "Акшумкар",
+     "is_correct": true
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Жена Семетея умела превращаться в белую лебедь. Как её звали?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Andreas Trepte, CC BY-SA 2.5, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cygnus_cygnus_Singschwan.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Каныкей",
+     "is_correct": false
+    },
+    {
+     "text": "Чыйырды",
+     "is_correct": false
+    },
+    {
+     "text": "Айчүрөк",
+     "is_correct": true
+    },
+    {
+     "text": "Акылай",
+     "is_correct": false
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как звали верного друга Семетея, сына Алмамбета?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Канчоро",
+     "is_correct": false
+    },
+    {
+     "text": "Күлчоро",
+     "is_correct": true
+    },
+    {
+     "text": "Сейтек",
+     "is_correct": false
+    },
+    {
+     "text": "Бакай",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто из родни предал Семетея?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Канчоро вместе с Кыязом погубили Семетея. Месть за отца — главная тема третьей части, «Сейтек».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бакай",
+     "is_correct": false
+    },
+    {
+     "text": "Күлчоро",
+     "is_correct": false
+    },
+    {
+     "text": "Кошой",
+     "is_correct": false
+    },
+    {
+     "text": "Канчоро",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как звали отца Айчүрөк?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Темир-хан",
+     "is_correct": false
+    },
+    {
+     "text": "Кокотой",
+     "is_correct": false
+    },
+    {
+     "text": "Акун-хан",
+     "is_correct": true
+    },
+    {
+     "text": "Жакып",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Кто из них — герои эпоса «Манас»?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Каныкей",
+     "is_correct": true
+    },
+    {
+     "text": "Кошой",
+     "is_correct": true
+    },
+    {
+     "text": "Курманжан Датка",
+     "is_correct": false
+    },
+    {
+     "text": "Бакай",
+     "is_correct": true
+    },
+    {
+     "text": "Алмамбет",
+     "is_correct": true
+    },
+    {
+     "text": "Токтогул",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Как по-кыргызски называют сорок верных соратников Манаса? Два слова.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "кырк чоро",
+     "кырк чоролор",
+     "кырк чоросу"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто из этих людей НЕ манасчы, а акын и комузчу?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Токтогул — великий акын-импровизатор и комузчу, а трое других — знаменитые сказители «Манаса».\n\n*Фото: Kyrgyz Express Post, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Portrait_of_Toktogul_Satylganov_the_stamp_of_Kyrgyzstan_%282014%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сагымбай Орозбаков",
+     "is_correct": false
+    },
+    {
+     "text": "Токтогул Сатылганов",
+     "is_correct": true
+    },
+    {
+     "text": "Саякбай Каралаев",
+     "is_correct": false
+    },
+    {
+     "text": "Шаабай Азизов",
+     "is_correct": false
+    }
+   ],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "word",
+   "text": "Соберите имя великого манасчы Орозбакова, чей вариант эпоса записан в 1920-х годах.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "САГЫМБАЙ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В какой области стоит Манас-Ордо с мавзолеем «Кумбез Манаса»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В Ошской",
+     "is_correct": false
+    },
+    {
+     "text": "В Иссык-Кульской",
+     "is_correct": false
+    },
+    {
+     "text": "В Таласской",
+     "is_correct": true
+    },
+    {
+     "text": "В Нарынской",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Ловушка на двойные очки: надпись на «Кумбезе Манаса» говорит, что это гробница самого Манаса.",
+   "time_limit": 15,
+   "weight": 2,
+   "explanation": "Надпись XIV века называет Кенизек-Хатун, дочь эмира Абуки. Легенда говорит, что Каныкей велела написать так, чтобы враги не нашли могилу Манаса.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "В каком году Кыргызстан отмечал 1000-летие эпоса «Манас»?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "*Фото: No machine-readable author provided. SiGarb assumed (based on copyright claims)., Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kyrgyz_Manaschi,_Karakol.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 1980,
+    "max": 2010,
+    "step": 1,
+    "answer": 1995,
+    "unit": "",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": "q23.jpg"
+  },
+  {
+   "type": "single",
+   "text": "В каком году ЮНЕСКО внесло трилогию «Манас, Семетей, Сейтек» в список нематериального наследия человечества?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "1995",
+     "is_correct": false
+    },
+    {
+     "text": "2009",
+     "is_correct": false
+    },
+    {
+     "text": "2013",
+     "is_correct": true
+    },
+    {
+     "text": "2001",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Каныкей, жена Манаса, по эпосу — дочь какого правителя?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "После гибели Манаса Каныкей с маленьким Семетеем бежала в Бухару, к своему отцу Темир-хану.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Азиз-хана из Бээжина",
+     "is_correct": false
+    },
+    {
+     "text": "Темир-хана из Бухары",
+     "is_correct": true
+    },
+    {
+     "text": "Кокотой-хана",
+     "is_correct": false
+    },
+    {
+     "text": "Акун-хана",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

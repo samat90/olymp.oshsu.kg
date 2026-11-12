@@ -1,0 +1,101 @@
+{
+ "cover.jpg": {
+  "author": "www.python.org",
+  "file": "Python-logo-notext.svg",
+  "license": "Public domain",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Python-logo-notext.svg",
+  "spec": "en:Python (programming language)",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/960px-Python-logo-notext.svg.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q01.jpg": {
+  "author": "www.python.org",
+  "file": "Python-logo-notext.svg",
+  "license": "Public domain",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Python-logo-notext.svg",
+  "spec": "c:Python-logo-notext.svg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/960px-Python-logo-notext.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q03.jpg": {
+  "author": "Chris Williams",
+  "file": "Unofficial JavaScript logo 2.svg",
+  "license": "Public domain",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Unofficial_JavaScript_logo_2.svg",
+  "spec": "c:Unofficial JavaScript logo 2.svg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/960px-Unofficial_JavaScript_logo_2.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q04.jpg": {
+  "author": "Jeremy Kratz",
+  "file": "ISO C++ Logo.svg",
+  "license": "Public domain",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:ISO_C%2B%2B_Logo.svg",
+  "spec": "c:ISO C++ Logo.svg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/ISO_C%2B%2B_Logo.svg/960px-ISO_C%2B%2B_Logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q06.jpg": {
+  "author": "™/®Rust Foundation",
+  "file": "Rust programming language black logo.svg",
+  "license": "CC BY 4.0",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Rust_programming_language_black_logo.svg",
+  "spec": "c:Rust programming language black logo.svg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Rust_programming_language_black_logo.svg/960px-Rust_programming_language_black_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q08.jpg": {
+  "author": "Yukihiro Matsumoto, Ruby Visual Identity Team",
+  "file": "Ruby logo.svg",
+  "license": "Public domain",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Ruby_logo.svg",
+  "spec": "c:Ruby logo.svg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Ruby_logo.svg/960px-Ruby_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q10.jpg": {
+  "author": "Larry Ewing, Simon Budig, Garrett LeSage",
+  "file": "Tux.svg",
+  "license": "Attribution",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Tux.svg",
+  "spec": "c:Tux.svg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/960px-Tux.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q11.jpg": {
+  "author": "Google Inc., employer for hire; designed by Irina Blok",
+  "file": "Android robot.svg",
+  "license": "CC BY 3.0",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Android_robot.svg",
+  "spec": "c:Android robot.svg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Android_robot.svg/960px-Android_robot.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q17.jpg": {
+  "author": "Darrin A Thompson; Jeffrey Wheeler",
+  "file": "Haskell-Logo.svg",
+  "license": "Public domain",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Haskell-Logo.svg",
+  "spec": "c:Haskell-Logo.svg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Haskell-Logo.svg/960px-Haskell-Logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q21.jpg": {
+  "author": "Denise Panyik-Dale",
+  "file": "Dennis Ritchie 2011.jpg",
+  "license": "CC BY 2.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Dennis_Ritchie_2011.jpg",
+  "spec": "en:Dennis Ritchie",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/2/23/Dennis_Ritchie_2011.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q25.jpg": {
+  "author": "Karen Rustad Tölva",
+  "file": "Rustacean-orig-noshadow.svg",
+  "license": "CC0",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Rustacean-orig-noshadow.svg",
+  "spec": "c:Rustacean-orig-noshadow.svg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Rustacean-orig-noshadow.svg/960px-Rustacean-orig-noshadow.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ }
+}

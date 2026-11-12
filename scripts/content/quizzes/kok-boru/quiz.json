@@ -1,0 +1,701 @@
+{
+ "key": "kok-boru",
+ "title": "Кок-бору и конные игры кыргызов",
+ "subject": "Спорт",
+ "theme": "steppe",
+ "description": "25 вопросов о кок-бору и других конных играх: правила, история, слова чабандесов. Для тех, кто болеет за улак тартыш. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: как ещё называют кок-бору?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Helen Owl, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kok-boru,_Cholpon-Ata,_Kyrgyzstan.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Улак тартыш",
+     "is_correct": true
+    },
+    {
+     "text": "Ат чабыш",
+     "is_correct": false
+    },
+    {
+     "text": "Кыз куумай",
+     "is_correct": false
+    },
+    {
+     "text": "Эр эниш",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "В каком году ЮНЕСКО внесло кок-бору в список нематериального наследия человечества?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "2009",
+     "is_correct": false
+    },
+    {
+     "text": "2022",
+     "is_correct": false
+    },
+    {
+     "text": "2014",
+     "is_correct": false
+    },
+    {
+     "text": "2017",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько игроков одной команды одновременно на поле в кок-бору?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "В заявке команды больше игроков, но на поле одновременно — четверо.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "4",
+     "is_correct": true
+    },
+    {
+     "text": "11",
+     "is_correct": false
+    },
+    {
+     "text": "2",
+     "is_correct": false
+    },
+    {
+     "text": "7",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько длится современный матч по кок-бору?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Два тайма по 45 минут",
+     "is_correct": false
+    },
+    {
+     "text": "Четыре четверти по 10 минут",
+     "is_correct": false
+    },
+    {
+     "text": "Три периода, всего 60 минут",
+     "is_correct": true
+    },
+    {
+     "text": "Пока не стемнеет",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Куда нужно забросить тушу, чтобы забить гол?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В реку",
+     "is_correct": false
+    },
+    {
+     "text": "В «казан» — большое круглое возвышение на краю поля",
+     "is_correct": true
+    },
+    {
+     "text": "В юрту соперника",
+     "is_correct": false
+    },
+    {
+     "text": "В ворота с сеткой",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой длины поле для кок-бору по современным правилам?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "20 метров",
+     "is_correct": false
+    },
+    {
+     "text": "1 километр",
+     "is_correct": false
+    },
+    {
+     "text": "50 метров",
+     "is_correct": false
+    },
+    {
+     "text": "Около 200 метров",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "По преданию, раньше в кок-бору боролись за тушу волка, напавшего на стадо.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Отсюда и название: «көк бөрү» — серый волк.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как в Афганистане называют похожую игру?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: US gov, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Afghan_Game_Buzkashi.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бузкаши",
+     "is_correct": true
+    },
+    {
+     "text": "Поло",
+     "is_correct": false
+    },
+    {
+     "text": "Кокпар",
+     "is_correct": false
+    },
+    {
+     "text": "Улак",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "А как называют её казахи?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кокпар",
+     "is_correct": true
+    },
+    {
+     "text": "Кураш",
+     "is_correct": false
+    },
+    {
+     "text": "Бузкаши",
+     "is_correct": false
+    },
+    {
+     "text": "Кок-бору",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называют наездника, всадника в конных играх?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Bunin, N.; Imprimerie Lemercier et cie.; Merder, Ivan Karlovich; Rougeron, Vignerot & Cie.; Samokysh, Mykola; Simonov, L, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Les_races_chevalines_BHL22833020,_cropped.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Комузчу",
+     "is_correct": false
+    },
+    {
+     "text": "Кербенчи",
+     "is_correct": false
+    },
+    {
+     "text": "Манасчы",
+     "is_correct": false
+    },
+    {
+     "text": "Чабандес",
+     "is_correct": true
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что такое «оодарыш»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Игра в альчики",
+     "is_correct": false
+    },
+    {
+     "text": "Скачки на 10 км",
+     "is_correct": false
+    },
+    {
+     "text": "Стрельба из лука",
+     "is_correct": false
+    },
+    {
+     "text": "Борьба верхом: нужно стащить соперника с коня",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что такое «эр сайыш»?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Танец",
+     "is_correct": false
+    },
+    {
+     "text": "Поединок всадников на копьях",
+     "is_correct": true
+    },
+    {
+     "text": "Песенное состязание",
+     "is_correct": false
+    },
+    {
+     "text": "Игра с мячом",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называются скачки на очень длинную дистанцию — десятки километров?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Аламан байге",
+     "is_correct": true
+    },
+    {
+     "text": "Кыз куумай",
+     "is_correct": false
+    },
+    {
+     "text": "Жорго салыш",
+     "is_correct": false
+    },
+    {
+     "text": "Кунан чабыш",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называются скачки для молодых лошадей-кунанов?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Эр сайыш",
+     "is_correct": false
+    },
+    {
+     "text": "Аламан байге",
+     "is_correct": false
+    },
+    {
+     "text": "Кунан чабыш",
+     "is_correct": true
+    },
+    {
+     "text": "Оодарыш",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что такое «жорго салыш»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Охота с беркутом",
+     "is_correct": false
+    },
+    {
+     "text": "Состязание иноходцев",
+     "is_correct": true
+    },
+    {
+     "text": "Перетягивание каната",
+     "is_correct": false
+    },
+    {
+     "text": "Борьба на поясах",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Передышка без очков: как называется перетягивание каната?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Эр эниш",
+     "is_correct": false
+    },
+    {
+     "text": "Аркан тартыш",
+     "is_correct": true
+    },
+    {
+     "text": "Оодарыш",
+     "is_correct": false
+    },
+    {
+     "text": "Улак тартыш",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что такое «ордо»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Конные скачки",
+     "is_correct": false
+    },
+    {
+     "text": "Охота с собаками",
+     "is_correct": false
+    },
+    {
+     "text": "Игра в альчики: битой выбивают альчики из большого круга",
+     "is_correct": true
+    },
+    {
+     "text": "Борьба верхом",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется кыргызская охотничья борзая собака?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Jan Scotland (Jan Eduard), Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Taigan.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тобет",
+     "is_correct": false
+    },
+    {
+     "text": "Тайган",
+     "is_correct": true
+    },
+    {
+     "text": "Алабай",
+     "is_correct": false
+    },
+    {
+     "text": "Бүркүт",
+     "is_correct": false
+    }
+   ],
+   "image": "q18.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что такое «салбуурун»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Праздник урожая",
+     "is_correct": false
+    },
+    {
+     "text": "Песня акынов",
+     "is_correct": false
+    },
+    {
+     "text": "Старинная охота с ловчими птицами, борзыми и луком",
+     "is_correct": true
+    },
+    {
+     "text": "Игра в альчики",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие из этих игр проходят верхом на коне?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ордо",
+     "is_correct": false
+    },
+    {
+     "text": "Эр сайыш",
+     "is_correct": true
+    },
+    {
+     "text": "Кунан чабыш",
+     "is_correct": true
+    },
+    {
+     "text": "Оодарыш",
+     "is_correct": true
+    },
+    {
+     "text": "Аркан тартыш",
+     "is_correct": false
+    },
+    {
+     "text": "Кок-бору",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте возраст лошади по порядку: от новорождённого к взрослому.",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "Кулун — жеребёнок до года, тай — годовалый, кунан — двухлетка, бышты — трёхлетка.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кулун",
+     "is_correct": false
+    },
+    {
+     "text": "Тай",
+     "is_correct": false
+    },
+    {
+     "text": "Кунан",
+     "is_correct": false
+    },
+    {
+     "text": "Бышты",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Кок-бору входит в программу Всемирных игр кочевников.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: плеть всадника.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "КАМЧЫ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Как называется козлёнок, тушу которого разыгрывают в кок-бору? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "улак",
+     "Улак"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Что значит «тартыш» в названии «улак тартыш»?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Скачка",
+     "is_correct": false
+    },
+    {
+     "text": "Победа",
+     "is_correct": false
+    },
+    {
+     "text": "Борьба, перетягивание",
+     "is_correct": true
+    },
+    {
+     "text": "Удар",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

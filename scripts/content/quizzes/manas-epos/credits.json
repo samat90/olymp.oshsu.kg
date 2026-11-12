@@ -1,0 +1,67 @@
+{
+ "cover.jpg": {
+  "author": "Ninara from Helsinki, Finland",
+  "file": "Bishkek, Kyrgyzstan (44612463022).jpg",
+  "license": "CC BY 2.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Bishkek,_Kyrgyzstan_(44612463022).jpg",
+  "spec": "c:Bishkek, Kyrgyzstan (44612463022).jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Bishkek%2C_Kyrgyzstan_%2844612463022%29.jpg/960px-Bishkek%2C_Kyrgyzstan_%2844612463022%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q01.jpg": {
+  "author": "Ninara from Helsinki, Finland",
+  "file": "Bishkek, Kyrgyzstan (44612463022).jpg",
+  "license": "CC BY 2.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Bishkek,_Kyrgyzstan_(44612463022).jpg",
+  "spec": "c:Bishkek, Kyrgyzstan (44612463022).jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/Bishkek%2C_Kyrgyzstan_%2844612463022%29.jpg/960px-Bishkek%2C_Kyrgyzstan_%2844612463022%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q04.jpg": {
+  "author": "Bunin, N.; Imprimerie Lemercier et cie.; Merder, Ivan Karlovich; Rougeron, Vignerot & Cie.; Samokysh, Mykola; Simonov, L",
+  "file": "Les races chevalines BHL22833020, cropped.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "note": "search",
+  "page": "https://commons.wikimedia.org/wiki/File:Les_races_chevalines_BHL22833020,_cropped.jpg",
+  "spec": "en:Kyrgyz horse",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Les_races_chevalines_BHL22833020%2C_cropped.jpg/960px-Les_races_chevalines_BHL22833020%2C_cropped.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q12.jpg": {
+  "author": "Marek Szczepanek",
+  "file": "Falco cherrug (Marek Szczepanek).jpg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Falco_cherrug_(Marek_Szczepanek).jpg",
+  "spec": "en:Saker falcon",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Falco_cherrug_%28Marek_Szczepanek%29.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q13.jpg": {
+  "author": "Andreas Trepte",
+  "file": "Cygnus cygnus Singschwan.jpg",
+  "license": "CC BY-SA 2.5",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Cygnus_cygnus_Singschwan.jpg",
+  "spec": "en:Whooper swan",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Cygnus_cygnus_Singschwan.jpg/960px-Cygnus_cygnus_Singschwan.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q19.jpg": {
+  "author": "Kyrgyz Express Post",
+  "file": "Portrait of Toktogul Satylganov the stamp of Kyrgyzstan (2014).jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Portrait_of_Toktogul_Satylganov_the_stamp_of_Kyrgyzstan_(2014).jpg",
+  "spec": "en:Toktogul Satylganov",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/8/81/Portrait_of_Toktogul_Satylganov_the_stamp_of_Kyrgyzstan_%282014%29.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q23.jpg": {
+  "author": "No machine-readable author provided. SiGarb assumed (based on copyright claims).",
+  "file": "Kyrgyz Manaschi, Karakol.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "note": "search",
+  "page": "https://commons.wikimedia.org/wiki/File:Kyrgyz_Manaschi,_Karakol.jpg",
+  "spec": "en:Epic of Manas",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Kyrgyz_Manaschi%2C_Karakol.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ }
+}

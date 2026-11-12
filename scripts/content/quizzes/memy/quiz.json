@@ -1,0 +1,714 @@
+{
+ "key": "memy",
+ "title": "Мемы и интернет-культура",
+ "subject": "Разное",
+ "theme": "night",
+ "description": "25 вопросов об интернете, мемах и цифровой жизни: откуда взялись слова «мем», «смайлик» и «хештег», первое видео YouTube, Rickroll и сердитый кот. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: что значит «LOL»?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Lord of lords",
+     "is_correct": false
+    },
+    {
+     "text": "Lost online",
+     "is_correct": false
+    },
+    {
+     "text": "Lots of love — люблю",
+     "is_correct": false
+    },
+    {
+     "text": "Laughing out loud — громко смеюсь",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто придумал слово «мем» и когда?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Биолог Ричард Докинз в 1976 году",
+     "is_correct": true
+    },
+    {
+     "text": "Марк Цукерберг в 2004 году",
+     "is_correct": false
+    },
+    {
+     "text": "Создатели YouTube в 2005 году",
+     "is_correct": false
+    },
+    {
+     "text": "Билл Гейтс в 1995 году",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто первым предложил смайлик :-) в 1982 году?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Scott E. Fahlman's wife, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:SEF2007a.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Билл Гейтс",
+     "is_correct": false
+    },
+    {
+     "text": "Скотт Фалман, учёный из университета Карнеги — Меллон",
+     "is_correct": true
+    },
+    {
+     "text": "Тим Бернерс-Ли",
+     "is_correct": false
+    },
+    {
+     "text": "Стив Джобс",
+     "is_correct": false
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто и где придумал первые эмодзи (1999)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Google в Индии",
+     "is_correct": false
+    },
+    {
+     "text": "Microsoft в Ирландии",
+     "is_correct": false
+    },
+    {
+     "text": "Сигэтака Курита в Японии",
+     "is_correct": true
+    },
+    {
+     "text": "Компания Apple в США",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется первое видео на YouTube (2005)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Основатель YouTube Джавед Карим рассказывает о слонах в зоопарке Сан-Диего.\n\n*Фото: Picture taken by Robin BrownOriginal uploaded by Jawed (Transfered by Quibik), Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Jawed_Karim_2008.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Gangnam Style»",
+     "is_correct": false
+    },
+    {
+     "text": "«Hello, world»",
+     "is_correct": false
+    },
+    {
+     "text": "«Me at the zoo» — «Я в зоопарке»",
+     "is_correct": true
+    },
+    {
+     "text": "«Charlie bit my finger»",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какое видео первым набрало 1 миллиард просмотров на YouTube (2012)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Me at the zoo»",
+     "is_correct": false
+    },
+    {
+     "text": "«Despacito»",
+     "is_correct": false
+    },
+    {
+     "text": "«Gangnam Style»",
+     "is_correct": true
+    },
+    {
+     "text": "«Baby Shark»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что такое «рикролл»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Raph PH, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Glasto2023_%28149_of_468%29_%2853009108914%29_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Вирус",
+     "is_correct": false
+    },
+    {
+     "text": "Игра на телефоне",
+     "is_correct": false
+    },
+    {
+     "text": "Розыгрыш: обещают что-то интересное, а открывается клип Рика Эстли «Never Gonna Give You Up»",
+     "is_correct": true
+    },
+    {
+     "text": "Рекорд скорости набора текста",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто на фото — знаменитая «сердитая кошка» из мемов?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Gage Skidmore, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Grumpy_Cat_by_Gage_Skidmore.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кот Саймона",
+     "is_correct": false
+    },
+    {
+     "text": "Nyan Cat",
+     "is_correct": false
+    },
+    {
+     "text": "Doge",
+     "is_correct": false
+    },
+    {
+     "text": "Grumpy Cat",
+     "is_correct": true
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Собака какой породы стала мемом «Doge», а потом и символом криптовалюты Dogecoin?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Takashiba at English Wikipedia, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Taka_Shiba.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Хаски",
+     "is_correct": false
+    },
+    {
+     "text": "Сиба-ину",
+     "is_correct": true
+    },
+    {
+     "text": "Корги",
+     "is_correct": false
+    },
+    {
+     "text": "Мопс",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто первым предложил использовать хештег # в Твиттере (2007)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: diginmag - Photo by Cindy Maram for Dig In Magazine www.diginmag.com, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Chris_Messina_2014.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Джек Дорси",
+     "is_correct": false
+    },
+    {
+     "text": "Павел Дуров",
+     "is_correct": false
+    },
+    {
+     "text": "Илон Маск",
+     "is_correct": false
+    },
+    {
+     "text": "Крис Мессина",
+     "is_correct": true
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какое слово Оксфордский словарь назвал словом 2013 года?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Michael Lueg, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lueg_im_SWR1_Studio.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Selfie — селфи",
+     "is_correct": true
+    },
+    {
+     "text": "Emoji",
+     "is_correct": false
+    },
+    {
+     "text": "Hashtag",
+     "is_correct": false
+    },
+    {
+     "text": "Google",
+     "is_correct": false
+    }
+   ],
+   "image": "q11.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Ради чего в 2014 году люди по всему миру обливались ледяной водой (Ice Bucket Challenge)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Это реклама напитка",
+     "is_correct": false
+    },
+    {
+     "text": "Чтобы собрать деньги на исследования болезни БАС",
+     "is_correct": true
+    },
+    {
+     "text": "Ради рекорда Гиннесса",
+     "is_correct": false
+    },
+    {
+     "text": "Чтобы закалиться",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Передышка без очков: что значит «краш» на молодёжном сленге?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Человек, в которого влюблён",
+     "is_correct": true
+    },
+    {
+     "text": "Авария",
+     "is_correct": false
+    },
+    {
+     "text": "Лучший друг",
+     "is_correct": false
+    },
+    {
+     "text": "Сломанный телефон",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что значит «кринж»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Вкусная еда",
+     "is_correct": false
+    },
+    {
+     "text": "Неловкость, «испанский стыд»",
+     "is_correct": true
+    },
+    {
+     "text": "Крик радости",
+     "is_correct": false
+    },
+    {
+     "text": "Новая игра",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Мем «This is fine» — собака пьёт кофе в горящей комнате. Кто его нарисовал?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Художник комиксов KC Green (2013)",
+     "is_correct": true
+    },
+    {
+     "text": "Банкси",
+     "is_correct": false
+    },
+    {
+     "text": "Студия Pixar",
+     "is_correct": false
+    },
+    {
+     "text": "Disney",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Откуда родом «Ждун» — грустное серое существо с хоботом?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Из рекламы банка",
+     "is_correct": false
+    },
+    {
+     "text": "Это скульптура нидерландской художницы Маргрит ван Бреворт",
+     "is_correct": true
+    },
+    {
+     "text": "Из мультфильма «Смешарики»",
+     "is_correct": false
+    },
+    {
+     "text": "Из японского аниме",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Мем-кот Grumpy Cat на самом деле не злился: такая мордочка у него была от рождения.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что значит «404» в шутках про интернет?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Не найдено, нет такого",
+     "is_correct": true
+    },
+    {
+     "text": "Секретно",
+     "is_correct": false
+    },
+    {
+     "text": "Очень быстро",
+     "is_correct": false
+    },
+    {
+     "text": "Отлично",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Что из этого — интернет-сокращения?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "LOL",
+     "is_correct": true
+    },
+    {
+     "text": "НАТО",
+     "is_correct": false
+    },
+    {
+     "text": "ООН",
+     "is_correct": false
+    },
+    {
+     "text": "ИМХО",
+     "is_correct": true
+    },
+    {
+     "text": "OMG",
+     "is_correct": true
+    },
+    {
+     "text": "BRB",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что такое «ИМХО»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Название мессенджера",
+     "is_correct": false
+    },
+    {
+     "text": "«Интернет мой хороший»",
+     "is_correct": false
+    },
+    {
+     "text": "«Иди мимо»",
+     "is_correct": false
+    },
+    {
+     "text": "«По моему скромному мнению» (In My Humble Opinion)",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте по времени, от самого раннего.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Первый смайлик :-)",
+     "is_correct": false
+    },
+    {
+     "text": "Первые эмодзи",
+     "is_correct": false
+    },
+    {
+     "text": "Первое видео на YouTube",
+     "is_correct": false
+    },
+    {
+     "text": "Gangnam Style",
+     "is_correct": false
+    },
+    {
+     "text": "Ice Bucket Challenge",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: фото, на котором человек снял сам себя.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "СЕЛФИ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое животное в 2020-х стало одним из самых популярных мемов как самый спокойный зверь на свете?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Giles Laurent, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Capybaracropped.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ленивец",
+     "is_correct": false
+    },
+    {
+     "text": "Жираф",
+     "is_correct": false
+    },
+    {
+     "text": "Панда",
+     "is_correct": false
+    },
+    {
+     "text": "Капибара",
+     "is_correct": true
+    }
+   ],
+   "image": "q23.jpg"
+  },
+  {
+   "type": "text",
+   "text": "Как называется картинка-шутка, которая быстро распространяется в интернете? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "мем",
+     "Мем",
+     "мемы"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Как на самом деле звали сердитую кошку Grumpy Cat?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Ловушка: Кабосу — имя собаки сиба-ину из мема Doge.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мурка",
+     "is_correct": false
+    },
+    {
+     "text": "Кабосу",
+     "is_correct": false
+    },
+    {
+     "text": "Тардар Соус",
+     "is_correct": true
+    },
+    {
+     "text": "Кекс",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}
