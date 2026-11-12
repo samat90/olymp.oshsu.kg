@@ -1,0 +1,715 @@
+{
+ "key": "ort-logika",
+ "title": "ОРТ: логика и закономерности",
+ "subject": "Подготовка к ОРТ",
+ "theme": "night",
+ "description": "25 задач на логику: числовые ряды, выводы из утверждений, «кто лишний», задачи про возраст, часы и взвешивания. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: продолжите ряд 2, 4, 6, 8, …",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "10",
+     "is_correct": true
+    },
+    {
+     "text": "12",
+     "is_correct": false
+    },
+    {
+     "text": "9",
+     "is_correct": false
+    },
+    {
+     "text": "16",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Продолжите ряд: 1, 4, 9, 16, …",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "24",
+     "is_correct": false
+    },
+    {
+     "text": "20",
+     "is_correct": false
+    },
+    {
+     "text": "32",
+     "is_correct": false
+    },
+    {
+     "text": "25",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Продолжите ряд: 3, 6, 12, 24, …",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "48",
+     "is_correct": true
+    },
+    {
+     "text": "30",
+     "is_correct": false
+    },
+    {
+     "text": "27",
+     "is_correct": false
+    },
+    {
+     "text": "36",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Продолжите ряд: 2, 3, 5, 7, 11, …",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Это простые числа.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "12",
+     "is_correct": false
+    },
+    {
+     "text": "17",
+     "is_correct": false
+    },
+    {
+     "text": "13",
+     "is_correct": true
+    },
+    {
+     "text": "15",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Продолжите ряд: 1, 2, 6, 24, 120, …",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Каждое следующее число — предыдущее, умноженное на 2, 3, 4, 5, 6.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "720",
+     "is_correct": true
+    },
+    {
+     "text": "240",
+     "is_correct": false
+    },
+    {
+     "text": "144",
+     "is_correct": false
+    },
+    {
+     "text": "600",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Продолжите ряд латинских букв: A, C, E, G, …",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "H",
+     "is_correct": false
+    },
+    {
+     "text": "I",
+     "is_correct": true
+    },
+    {
+     "text": "J",
+     "is_correct": false
+    },
+    {
+     "text": "K",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Все кошки — млекопитающие. Мурка — кошка. Какой вывод верен?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Вывод сделать нельзя",
+     "is_correct": false
+    },
+    {
+     "text": "Все млекопитающие — кошки",
+     "is_correct": false
+    },
+    {
+     "text": "Мурка — не кошка",
+     "is_correct": false
+    },
+    {
+     "text": "Мурка — млекопитающее",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Некоторые студенты ОшГУ — спортсмены. Все спортсмены встают рано. Что точно верно?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Все, кто встаёт рано, — спортсмены",
+     "is_correct": false
+    },
+    {
+     "text": "Некоторые студенты ОшГУ встают рано",
+     "is_correct": true
+    },
+    {
+     "text": "Все студенты встают рано",
+     "is_correct": false
+    },
+    {
+     "text": "Ни один студент не встаёт рано",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Если идёт дождь, Азамат берёт зонт. Сегодня Азамат зонт не взял. Что отсюда следует?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Идёт дождь",
+     "is_correct": false
+    },
+    {
+     "text": "Дождя нет",
+     "is_correct": true
+    },
+    {
+     "text": "Ничего нельзя сказать",
+     "is_correct": false
+    },
+    {
+     "text": "Азамат забыл зонт",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Если идёт дождь, асфальт мокрый. Асфальт мокрый. Что отсюда следует?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Асфальт могли полить из шланга. Из «если А, то Б» и «Б» не следует «А».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Шёл дождь",
+     "is_correct": false
+    },
+    {
+     "text": "Дождя не было",
+     "is_correct": false
+    },
+    {
+     "text": "Нельзя точно сказать, шёл ли дождь",
+     "is_correct": true
+    },
+    {
+     "text": "Скоро пойдёт дождь",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что лишнее в списке: Сон-Куль, Каракол, Токмок, Узген?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Сон-Куль — озеро, остальные — города.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Токмок",
+     "is_correct": false
+    },
+    {
+     "text": "Узген",
+     "is_correct": false
+    },
+    {
+     "text": "Сон-Куль",
+     "is_correct": true
+    },
+    {
+     "text": "Каракол",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая фигура лишняя?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Остальные — четырёхугольники.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Квадрат",
+     "is_correct": false
+    },
+    {
+     "text": "Прямоугольник",
+     "is_correct": false
+    },
+    {
+     "text": "Треугольник",
+     "is_correct": true
+    },
+    {
+     "text": "Ромб",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Айбек выше Бакыта, а Бакыт выше Самата. Кто самый низкий?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Нельзя определить",
+     "is_correct": false
+    },
+    {
+     "text": "Айбек",
+     "is_correct": false
+    },
+    {
+     "text": "Бакыт",
+     "is_correct": false
+    },
+    {
+     "text": "Самат",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Айгуль старше Нуриды, Нурида старше Бермет, а Чолпон старше Айгуль. Расставьте их от старшей к младшей.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чолпон",
+     "is_correct": false
+    },
+    {
+     "text": "Айгуль",
+     "is_correct": false
+    },
+    {
+     "text": "Нурида",
+     "is_correct": false
+    },
+    {
+     "text": "Бермет",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Передышка без очков: что лишнее — яблоко, груша, морковь, абрикос?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Морковь",
+     "is_correct": true
+    },
+    {
+     "text": "Груша",
+     "is_correct": false
+    },
+    {
+     "text": "Абрикос",
+     "is_correct": false
+    },
+    {
+     "text": "Яблоко",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Если послезавтра будет суббота, то какой день был вчера?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пятница",
+     "is_correct": false
+    },
+    {
+     "text": "Вторник",
+     "is_correct": false
+    },
+    {
+     "text": "Среда",
+     "is_correct": true
+    },
+    {
+     "text": "Четверг",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько раз за сутки часовая и минутная стрелки совпадают?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Ловушка: не 24. Стрелки совпадают 11 раз за 12 часов.\n\n*Фото: Phrontis, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Braun_ABW41_%28silber%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "22",
+     "is_correct": true
+    },
+    {
+     "text": "24",
+     "is_correct": false
+    },
+    {
+     "text": "12",
+     "is_correct": false
+    },
+    {
+     "text": "23",
+     "is_correct": false
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Отцу 40 лет, сыну 10. Через сколько лет отец будет ровно вдвое старше сына?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Никогда",
+     "is_correct": false
+    },
+    {
+     "text": "Через 30 лет",
+     "is_correct": false
+    },
+    {
+     "text": "Через 10 лет",
+     "is_correct": false
+    },
+    {
+     "text": "Через 20 лет",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "5 станков за 5 минут делают 5 деталей. За сколько минут 100 станков сделают 100 деталей?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "1",
+     "is_correct": false
+    },
+    {
+     "text": "5",
+     "is_correct": true
+    },
+    {
+     "text": "100",
+     "is_correct": false
+    },
+    {
+     "text": "20",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кувшинки на озере каждый день удваиваются и покрывают всё озеро за 30 дней. За сколько дней они покрыли половину озера?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Fernando Losada Rodríguez, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Nymphaea_alba.001_-_Breendonk.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "28",
+     "is_correct": false
+    },
+    {
+     "text": "29",
+     "is_correct": true
+    },
+    {
+     "text": "20",
+     "is_correct": false
+    },
+    {
+     "text": "15",
+     "is_correct": false
+    }
+   ],
+   "image": "q20.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кубик со стороной 3 см покрасили снаружи и разрезали на 27 кубиков по 1 см. Сколько кубиков с тремя окрашенными гранями?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Это угловые кубики, а у куба 8 углов.\n\n*Фото: Mike Gonzalez (TheCoffee), CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Rubiks_cube_solved.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "8",
+     "is_correct": true
+    },
+    {
+     "text": "4",
+     "is_correct": false
+    },
+    {
+     "text": "12",
+     "is_correct": false
+    },
+    {
+     "text": "6",
+     "is_correct": false
+    }
+   ],
+   "image": "q21.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Все розы — цветы. Некоторые цветы быстро вянут. Значит, некоторые розы точно быстро вянут.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Быстро вянущие цветы могут быть вовсе не розами.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Все ученики 11 «А» сдали ОРТ. Динара учится в 11 «А». Что из этого точно следует?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Динара сдала ОРТ",
+     "is_correct": true
+    },
+    {
+     "text": "Все, кто сдал ОРТ, учатся в 11 «А»",
+     "is_correct": false
+    },
+    {
+     "text": "Динара набрала больше всех",
+     "is_correct": false
+    },
+    {
+     "text": "Хотя бы один ученик 11 «А» сдал ОРТ",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Продолжите ряд: 1, 3, 7, 15, 31, …",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "63"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Из 9 одинаковых монет одна фальшивая — она легче. Сколько взвешиваний на чашечных весах без гирь точно хватит, чтобы её найти?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Делим на три кучки по 3: первое взвешивание находит лёгкую кучку, второе — монету в ней.\n\n*Фото: Photographie personnelle User:Poussin jean, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Balance_%C3%A0_tabac_1850.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "4",
+     "is_correct": false
+    },
+    {
+     "text": "3",
+     "is_correct": false
+    },
+    {
+     "text": "8",
+     "is_correct": false
+    },
+    {
+     "text": "2",
+     "is_correct": true
+    }
+   ],
+   "image": "q25.jpg"
+  }
+ ]
+}

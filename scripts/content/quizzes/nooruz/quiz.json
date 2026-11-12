@@ -1,0 +1,692 @@
+{
+ "key": "nooruz",
+ "title": "Нооруз — праздник весны",
+ "subject": "Праздники",
+ "theme": "steppe",
+ "description": "25 вопросов о Ноорузе: откуда пришёл праздник, что готовят и во что играют, как его встречают в разных странах. Ко дню весеннего равноденствия. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: что значит слово «Нооруз»?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "От персидских слов «ноу» — новый и «руз» — день.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Белая дорога»",
+     "is_correct": false
+    },
+    {
+     "text": "«Новый день»",
+     "is_correct": true
+    },
+    {
+     "text": "«Весенний цветок»",
+     "is_correct": false
+    },
+    {
+     "text": "«Большой праздник»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "С каким явлением природы связан Нооруз?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "С летним солнцестоянием",
+     "is_correct": false
+    },
+    {
+     "text": "С весенним равноденствием",
+     "is_correct": true
+    },
+    {
+     "text": "С первым снегом",
+     "is_correct": false
+    },
+    {
+     "text": "С полнолунием",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Нооруз празднуют уже более 3000 лет.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что происходит в день весеннего равноденствия?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Солнце не заходит",
+     "is_correct": false
+    },
+    {
+     "text": "Самая короткая ночь",
+     "is_correct": false
+    },
+    {
+     "text": "Самый длинный день в году",
+     "is_correct": false
+    },
+    {
+     "text": "День и ночь почти равны по длине",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В каком году ООН провозгласила 21 марта Международным днём Навруза?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "2001",
+     "is_correct": false
+    },
+    {
+     "text": "2010",
+     "is_correct": true
+    },
+    {
+     "text": "2020",
+     "is_correct": false
+    },
+    {
+     "text": "1991",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Из чего варят сумолок?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Myone63, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Samanu_for_7_sin.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Из проросших зёрен пшеницы",
+     "is_correct": true
+    },
+    {
+     "text": "Из кобыльего молока",
+     "is_correct": false
+    },
+    {
+     "text": "Из баранины",
+     "is_correct": false
+    },
+    {
+     "text": "Из риса и моркови",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Сколько примерно часов варят сумолок?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Неделю",
+     "is_correct": false
+    },
+    {
+     "text": "Час",
+     "is_correct": false
+    },
+    {
+     "text": "15 минут",
+     "is_correct": false
+    },
+    {
+     "text": "Всю ночь, 10–12 часов и больше",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как казахи называют праздничную похлёбку, которой начинают Наурыз?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бешбармак",
+     "is_correct": false
+    },
+    {
+     "text": "Наурыз-көже",
+     "is_correct": true
+    },
+    {
+     "text": "Баурсак",
+     "is_correct": false
+    },
+    {
+     "text": "Сумалак",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какие игры часто проводят на Нооруз в Кыргызстане?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: US gov, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Afghan_Game_Buzkashi.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Хоккей на льду",
+     "is_correct": false
+    },
+    {
+     "text": "Кок-бору, кыз куумай и другие конные игры",
+     "is_correct": true
+    },
+    {
+     "text": "Бейсбол",
+     "is_correct": false
+    },
+    {
+     "text": "Гольф",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "single",
+   "text": "В Иране на Новруз накрывают стол «хафт-син». Что это значит?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Например: сабзе (проростки), сиб (яблоко), сир (чеснок), серке (уксус), самону (сладкая каша из пшеницы).",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Семь гостей",
+     "is_correct": false
+    },
+    {
+     "text": "Семь видов плова",
+     "is_correct": false
+    },
+    {
+     "text": "Семь предметов, названия которых начинаются на звук «с»",
+     "is_correct": true
+    },
+    {
+     "text": "Семь дней праздника",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется иранский обычай прыгать через костёр перед Новрузом?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сумалак",
+     "is_correct": false
+    },
+    {
+     "text": "Хогманай",
+     "is_correct": false
+    },
+    {
+     "text": "Чахаршанбе-сури",
+     "is_correct": true
+    },
+    {
+     "text": "Хафт-син",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Передышка без очков: в каком месяце Нооруз?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В сентябре",
+     "is_correct": false
+    },
+    {
+     "text": "В мае",
+     "is_correct": false
+    },
+    {
+     "text": "В январе",
+     "is_correct": false
+    },
+    {
+     "text": "В марте",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "В каких странах Нооруз — государственный праздник?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Казахстан",
+     "is_correct": true
+    },
+    {
+     "text": "Таджикистан",
+     "is_correct": true
+    },
+    {
+     "text": "Узбекистан",
+     "is_correct": true
+    },
+    {
+     "text": "Иран",
+     "is_correct": true
+    },
+    {
+     "text": "Кыргызстан",
+     "is_correct": true
+    },
+    {
+     "text": "Япония",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что принято делать перед Ноорузом?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Убирать дом, возвращать долги и мириться",
+     "is_correct": true
+    },
+    {
+     "text": "Не выходить из дома",
+     "is_correct": false
+    },
+    {
+     "text": "Дарить ёлки",
+     "is_correct": false
+    },
+    {
+     "text": "Голодать неделю",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как по-казахски называют Нооруз?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Новруз — по-азербайджански, Навруз — по-узбекски и таджикски, Нооруз — по-кыргызски.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Нооруз",
+     "is_correct": false
+    },
+    {
+     "text": "Новруз",
+     "is_correct": false
+    },
+    {
+     "text": "Наурыз",
+     "is_correct": true
+    },
+    {
+     "text": "Навруз",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Нооруз каждый год приходится строго на один и тот же час.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Момент равноденствия каждый год свой: например, в 2026 году — 20 марта в 14:45 по Гринвичу.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что символизируют зелёные проростки пшеницы на праздничном столе?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Зиму",
+     "is_correct": false
+    },
+    {
+     "text": "Богатство золота",
+     "is_correct": false
+    },
+    {
+     "text": "Дождь",
+     "is_correct": false
+    },
+    {
+     "text": "Пробуждение природы и будущий урожай",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое традиционное блюдо из мяса часто варят на Нооруз в больших казанах?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Jost Wagner, CC BY-SA 1.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Afghan_Palo.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Плов",
+     "is_correct": true
+    },
+    {
+     "text": "Пицца",
+     "is_correct": false
+    },
+    {
+     "text": "Пельмени",
+     "is_correct": false
+    },
+    {
+     "text": "Суши",
+     "is_correct": false
+    }
+   ],
+   "image": "q18.jpg"
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: праздничная сладкая масса из пшеничных проростков.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "СУМОЛОК"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте весенние праздники Кыргызстана по календарю.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "5 марта, 8 марта, 21 марта, 5 мая.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "День кыргызского калпака",
+     "is_correct": false
+    },
+    {
+     "text": "Международный женский день",
+     "is_correct": false
+    },
+    {
+     "text": "Нооруз",
+     "is_correct": false
+    },
+    {
+     "text": "День Конституции",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как поздравить с праздником по-кыргызски?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Нооруз майрамыңыз менен!",
+     "is_correct": true
+    },
+    {
+     "text": "Туулган күнүңүз менен!",
+     "is_correct": false
+    },
+    {
+     "text": "Жаңы жылыңыз менен!",
+     "is_correct": false
+    },
+    {
+     "text": "Ак жол!",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что значит традиция зажигать костры на Нооруз?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Очищение и прощание с зимой",
+     "is_correct": true
+    },
+    {
+     "text": "Сигнал о врагах",
+     "is_correct": false
+    },
+    {
+     "text": "Приготовление еды для гостей",
+     "is_correct": false
+    },
+    {
+     "text": "Начало жатвы",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Сколько примерно миллионов людей в мире празднуют Нооруз?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "По оценкам ООН — более 300 миллионов человек.",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 50,
+    "max": 500,
+    "step": 10,
+    "answer": 300,
+    "unit": "млн",
+    "tolerance": 50
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Какого числа Нооруз отмечают в Кыргызстане? Число и месяц, например «5 марта».",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "21 марта",
+     "21 март",
+     "21-март"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Какое желание принято загадывать, помешивая сумолок?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Никакое: желания запрещены",
+     "is_correct": false
+    },
+    {
+     "text": "Только о деньгах",
+     "is_correct": false
+    },
+    {
+     "text": "Любое доброе желание — по поверью, оно сбудется",
+     "is_correct": true
+    },
+    {
+     "text": "Только о погоде",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

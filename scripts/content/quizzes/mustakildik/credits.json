@@ -1,0 +1,38 @@
+{
+ "cover.jpg": {
+  "author": "Shakiev N.T., Primov U.B.",
+  "file": "Flag of Kyrgyzstan.svg",
+  "license": "Public domain",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Flag_of_Kyrgyzstan.svg",
+  "spec": "en:Flag of Kyrgyzstan",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Flag_of_Kyrgyzstan.svg/960px-Flag_of_Kyrgyzstan.svg.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q02.jpg": {
+  "author": "A.Savin",
+  "file": "Askar Akaev MoscowRia 08-2016 (cropped 2).jpg",
+  "license": "FAL",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Askar_Akaev_MoscowRia_08-2016_(cropped_2).jpg",
+  "spec": "en:Askar Akayev",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Askar_Akaev_MoscowRia_08-2016_%28cropped_2%29.jpg/960px-Askar_Akaev_MoscowRia_08-2016_%28cropped_2%29.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q07.jpg": {
+  "author": "А. Абдраев (A. Abdraev), С. Дубанаев (S. Dubanaev) 1994. Standardized version:Nurbek Nasyranbekov Nargiza Kulataeva, Kan",
+  "file": "Emblem of Kyrgyzstan.svg",
+  "license": "Public domain",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Emblem_of_Kyrgyzstan.svg",
+  "spec": "en:Emblem of Kyrgyzstan",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Emblem_of_Kyrgyzstan.svg/960px-Emblem_of_Kyrgyzstan.svg.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q11.jpg": {
+  "author": "National Bank of the Kyrgyz Republic",
+  "file": "100 som 2016 ob.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:100_som_2016_ob.jpg",
+  "spec": "en:Kyrgyzstani som",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/100_som_2016_ob.jpg/960px-100_som_2016_ob.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ }
+}

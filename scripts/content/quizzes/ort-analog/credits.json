@@ -1,0 +1,56 @@
+{
+ "cover.jpg": {
+  "author": "Brighterorange",
+  "file": "Bohr atom model (mul).svg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Bohr_atom_model_(mul).svg",
+  "spec": "en:Analogy",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Bohr_atom_model_%28mul%29.svg/960px-Bohr_atom_model_%28mul%29.svg.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q04.jpg": {
+  "author": "Andreas Trepte",
+  "file": "Apis mellifera Western honey bee.jpg",
+  "license": "CC BY-SA 2.5",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Apis_mellifera_Western_honey_bee.jpg",
+  "spec": "en:Western honey bee",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Apis_mellifera_Western_honey_bee.jpg/960px-Apis_mellifera_Western_honey_bee.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q07.jpg": {
+  "author": "",
+  "file": "CottonPlant.JPG",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:CottonPlant.JPG",
+  "spec": "en:Cotton",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/CottonPlant.JPG/960px-CottonPlant.JPG?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q10.jpg": {
+  "author": "Beknazar Zh at en.wikipedia",
+  "file": "Kopuz.jpg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Kopuz.jpg",
+  "spec": "en:Komuz",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Kopuz.jpg/960px-Kopuz.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q20.jpg": {
+  "author": "Paweł Kuźniar (Jojo_1, Jojo)",
+  "file": "Raisins 01.jpg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Raisins_01.jpg",
+  "spec": "en:Raisin",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Raisins_01.jpg/960px-Raisins_01.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q21.jpg": {
+  "author": "Moose Jaw Times Herald",
+  "file": "A blacksmith at work.jpg",
+  "license": "CC BY-SA 1.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:A_blacksmith_at_work.jpg",
+  "spec": "en:Blacksmith",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/A_blacksmith_at_work.jpg/960px-A_blacksmith_at_work.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ }
+}

@@ -1,0 +1,676 @@
+{
+ "key": "oshgu-osh",
+ "title": "ОшГУ и древний Ош",
+ "subject": "Кыргызстан",
+ "theme": "lake",
+ "description": "25 вопросов об истории Ошского государственного университета и о 3000-летнем Оше: Сулайман-Тоо, Ак-Буура, Жайма базар. Хорошо подходит первокурсникам и для дней открытых дверей. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: как сокращённо называется Ошский государственный университет по-кыргызски?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "Ош мамлекеттик университети — ОшМУ. По-русски — ОшГУ, по-английски — OshSU.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "ОшТУ",
+     "is_correct": false
+    },
+    {
+     "text": "ОшГУ",
+     "is_correct": false
+    },
+    {
+     "text": "КНУ",
+     "is_correct": false
+    },
+    {
+     "text": "ОшМУ",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В каком году открылся вуз, который вырос в ОшГУ?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "1992",
+     "is_correct": false
+    },
+    {
+     "text": "1939",
+     "is_correct": true
+    },
+    {
+     "text": "1918",
+     "is_correct": false
+    },
+    {
+     "text": "1951",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как он назывался при открытии?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Это был двухгодичный институт: югу Кыргызстана очень не хватало учителей.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ошский учительский институт",
+     "is_correct": true
+    },
+    {
+     "text": "Ошский медицинский институт",
+     "is_correct": false
+    },
+    {
+     "text": "Ошский университет",
+     "is_correct": false
+    },
+    {
+     "text": "Ферганский техникум",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В каком году институт стал педагогическим?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "1992",
+     "is_correct": false
+    },
+    {
+     "text": "1939",
+     "is_correct": false
+    },
+    {
+     "text": "1965",
+     "is_correct": false
+    },
+    {
+     "text": "1951",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В каком году вуз получил статус университета?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "1992",
+     "is_correct": true
+    },
+    {
+     "text": "1951",
+     "is_correct": false
+    },
+    {
+     "text": "2000",
+     "is_correct": false
+    },
+    {
+     "text": "1939",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто был первым директором института в 1939 году?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мира Ботбаева",
+     "is_correct": false
+    },
+    {
+     "text": "Кудайберди Кожобеков",
+     "is_correct": false
+    },
+    {
+     "text": "А. Козловский",
+     "is_correct": true
+    },
+    {
+     "text": "Бакыт Бешимов",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "По каким специальностям готовили учителей в первом, 1939 году?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "История",
+     "is_correct": true
+    },
+    {
+     "text": "Медицина",
+     "is_correct": false
+    },
+    {
+     "text": "Русский язык и литература",
+     "is_correct": true
+    },
+    {
+     "text": "Кыргызский язык и литература",
+     "is_correct": true
+    },
+    {
+     "text": "Юриспруденция",
+     "is_correct": false
+    },
+    {
+     "text": "Физика и математика",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой кыргызский писатель преподавал в институте в 1939–1941 годах, ушёл на войну и погиб на фронте?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Из первых девяти преподавателей института он был единственным кыргызом.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чингиз Айтматов",
+     "is_correct": false
+    },
+    {
+     "text": "Алыкул Осмонов",
+     "is_correct": false
+    },
+    {
+     "text": "Касым Тыныстанов",
+     "is_correct": false
+    },
+    {
+     "text": "Ж. Жамгырчиев",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто стал первым ректором вуза в статусе университета (1992–1998)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "А. Козловский",
+     "is_correct": false
+    },
+    {
+     "text": "Бакыт Бешимов",
+     "is_correct": true
+    },
+    {
+     "text": "Каныбек Исаков",
+     "is_correct": false
+    },
+    {
+     "text": "Мухтар Орозбеков",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "В 1967–1973 годах вуз возглавляла женщина — Мира Ботбаева.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто стал ректором ОшГУ в 2019 году?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "До него, в 2011–2019 годах, университет возглавлял Каныбек Исаков.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Каныбек Исаков",
+     "is_correct": false
+    },
+    {
+     "text": "Бектемир Мурзубраимов",
+     "is_correct": false
+    },
+    {
+     "text": "Кудайберди Кожобеков",
+     "is_correct": true
+    },
+    {
+     "text": "Бакыт Бешимов",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Сколько примерно студентов учится в ОшГУ?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "Около 40 тысяч, из них примерно 3 тысячи — иностранцы.",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 5000,
+    "max": 80000,
+    "step": 5000,
+    "answer": 40000,
+    "unit": "студентов",
+    "tolerance": 5000
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "На каком факультете ОшГУ больше всего иностранных студентов?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "На филологическом",
+     "is_correct": false
+    },
+    {
+     "text": "На факультете искусств",
+     "is_correct": false
+    },
+    {
+     "text": "На юридическом",
+     "is_correct": false
+    },
+    {
+     "text": "На медицинском",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Передышка без очков: Ош — второй по числу жителей город Кыргызстана.",
+   "time_limit": 15,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая река течёт через Ош?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Bgag, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ak-Buura_River_in_Osh.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Нарын",
+     "is_correct": false
+    },
+    {
+     "text": "Кара-Дарья",
+     "is_correct": false
+    },
+    {
+     "text": "Ак-Буура",
+     "is_correct": true
+    },
+    {
+     "text": "Чу",
+     "is_correct": false
+    }
+   ],
+   "image": "q15.jpg"
+  },
+  {
+   "type": "single",
+   "text": "В каком году официально праздновали 3000-летие Оша?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "1978",
+     "is_correct": false
+    },
+    {
+     "text": "1991",
+     "is_correct": false
+    },
+    {
+     "text": "2000",
+     "is_correct": true
+    },
+    {
+     "text": "2010",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "С какого года Сулайман-Тоо — объект всемирного наследия ЮНЕСКО?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: A.Savin, FAL, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Osh_03-2016_img06_Sulayman_Mountain.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "2000",
+     "is_correct": false
+    },
+    {
+     "text": "2009",
+     "is_correct": true
+    },
+    {
+     "text": "2014",
+     "is_correct": false
+    },
+    {
+     "text": "1995",
+     "is_correct": false
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что необычного в музее на горе Сулайман-Тоо?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Нынешнее здание музея достроили в 1978 году.\n\n*Фото: Dave Proffer, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Stans08-341_%283134246791%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Он устроен в пещере внутри горы, вход закрыт бетонной аркой со стеклом",
+     "is_correct": true
+    },
+    {
+     "text": "В нём нет ни одного экспоната",
+     "is_correct": false
+    },
+    {
+     "text": "Он стоит под водой",
+     "is_correct": false
+    },
+    {
+     "text": "Он находится в юрте",
+     "is_correct": false
+    }
+   ],
+   "image": "q18.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой правитель, будущий основатель империи Великих Моголов, в 1510 году построил на вершине горы маленькую мечеть-худжру?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Mario Biondi, writer, CC BY-SA 2.5, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Osh.House.of.Babur.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Александр Македонский",
+     "is_correct": false
+    },
+    {
+     "text": "Бабур",
+     "is_correct": true
+    },
+    {
+     "text": "Тамерлан",
+     "is_correct": false
+    },
+    {
+     "text": "Чингисхан",
+     "is_correct": false
+    }
+   ],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "По легенде, женщина, которая проползёт через отверстие в священной скале Сулайман-Тоо, родит здорового ребёнка.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется большой старинный рынок Оша, раскинувшийся вдоль реки Ак-Буура?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Bgag, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Jayma_Bazaar,_Osh.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Жайма базар",
+     "is_correct": true
+    },
+    {
+     "text": "Ош базар",
+     "is_correct": false
+    },
+    {
+     "text": "Дордой",
+     "is_correct": false
+    },
+    {
+     "text": "Аламедин",
+     "is_correct": false
+    }
+   ],
+   "image": "q21.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Уже в X веке Ош был перекрёстком караванных путей Великого шёлкового пути.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите название священной горы в центре Оша (первая часть).",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "СУЛАЙМАН"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "На какой высоте над уровнем моря лежит Ош (примерно, м)?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "Город лежит на высоте от 870 до 1100 м.",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 300,
+    "max": 2500,
+    "step": 50,
+    "answer": 1000,
+    "unit": "м",
+    "tolerance": 150
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Финал на двойные очки! Расставьте события истории ОшГУ по порядку.",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "1939, 1951, 1992, 2019.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Учительский институт",
+     "is_correct": false
+    },
+    {
+     "text": "Педагогический институт",
+     "is_correct": false
+    },
+    {
+     "text": "Университет",
+     "is_correct": false
+    },
+    {
+     "text": "Ректор К. Кожобеков",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

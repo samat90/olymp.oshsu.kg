@@ -1,0 +1,728 @@
+{
+ "key": "ort-analog",
+ "title": "ОРТ: аналогии и дополнение предложений",
+ "subject": "Подготовка к ОРТ",
+ "theme": "felt",
+ "description": "25 заданий в духе раздела «Аналогии и дополнение предложений»: найдите пару с таким же отношением или подходящее слово. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков. ВРАЧ : БОЛЬНИЦА = ?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "учитель : школа",
+     "is_correct": true
+    },
+    {
+     "text": "лекарство : аптека",
+     "is_correct": false
+    },
+    {
+     "text": "ученик : книга",
+     "is_correct": false
+    },
+    {
+     "text": "больной : врач",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "ПТИЦА : КРЫЛО = ?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "самолёт : пилот",
+     "is_correct": false
+    },
+    {
+     "text": "рыба : вода",
+     "is_correct": false
+    },
+    {
+     "text": "рыба : плавник",
+     "is_correct": true
+    },
+    {
+     "text": "птица : гнездо",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "ХОЛОДНЫЙ : ГОРЯЧИЙ = ?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "быстрый : скорый",
+     "is_correct": false
+    },
+    {
+     "text": "холодный : лёд",
+     "is_correct": false
+    },
+    {
+     "text": "высокий : низкий",
+     "is_correct": true
+    },
+    {
+     "text": "тёплый : горячий",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "ПЧЕЛА : МЁД = ?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Andreas Trepte, CC BY-SA 2.5, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Apis_mellifera_Western_honey_bee.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "кошка : мышь",
+     "is_correct": false
+    },
+    {
+     "text": "корова : молоко",
+     "is_correct": true
+    },
+    {
+     "text": "улей : пчела",
+     "is_correct": false
+    },
+    {
+     "text": "пчела : цветок",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "КНИГА : СТРАНИЦА = ?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "страница : текст",
+     "is_correct": false
+    },
+    {
+     "text": "писатель : книга",
+     "is_correct": false
+    },
+    {
+     "text": "лестница : ступенька",
+     "is_correct": true
+    },
+    {
+     "text": "полка : книга",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "ПИСАТЕЛЬ : РОМАН = ?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "роман : глава",
+     "is_correct": false
+    },
+    {
+     "text": "читатель : книга",
+     "is_correct": false
+    },
+    {
+     "text": "художник : кисть",
+     "is_correct": false
+    },
+    {
+     "text": "композитор : симфония",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "ХЛОПОК : ТКАНЬ = ?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Отношение «сырьё : то, что из него делают».\n\n*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:CottonPlant.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "ткань : платье",
+     "is_correct": false
+    },
+    {
+     "text": "хлопок : поле",
+     "is_correct": false
+    },
+    {
+     "text": "шерсть : войлок",
+     "is_correct": true
+    },
+    {
+     "text": "игла : нитка",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "ТЕРМОМЕТР : ТЕМПЕРАТУРА = ?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "линейка : карандаш",
+     "is_correct": false
+    },
+    {
+     "text": "весы : масса",
+     "is_correct": true
+    },
+    {
+     "text": "температура : градус",
+     "is_correct": false
+    },
+    {
+     "text": "часы : стрелка",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "КУЛУН : АТ = ?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Детёныш : взрослое животное. Ловушка: «кой : козу» — в обратном порядке, а бото — верблюжонок, а не телёнок.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "козу : кой",
+     "is_correct": true
+    },
+    {
+     "text": "ат : жылкы",
+     "is_correct": false
+    },
+    {
+     "text": "бото : уй",
+     "is_correct": false
+    },
+    {
+     "text": "кой : козу",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "КОМУЗ : КОМУЗЧУ = ?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Beknazar Zh at en.wikipedia, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kopuz.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "струна : комуз",
+     "is_correct": false
+    },
+    {
+     "text": "кисть : художник",
+     "is_correct": true
+    },
+    {
+     "text": "художник : картина",
+     "is_correct": false
+    },
+    {
+     "text": "музыка : песня",
+     "is_correct": false
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "single",
+   "text": "ЗИМА : СНЕГ = ?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "весна : март",
+     "is_correct": false
+    },
+    {
+     "text": "лето : зима",
+     "is_correct": false
+    },
+    {
+     "text": "осень : листопад",
+     "is_correct": true
+    },
+    {
+     "text": "снег : холод",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Передышка без очков. ДЕНЬ : НОЧЬ = ?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "час : минута",
+     "is_correct": false
+    },
+    {
+     "text": "солнце : небо",
+     "is_correct": false
+    },
+    {
+     "text": "утро : день",
+     "is_correct": false
+    },
+    {
+     "text": "свет : тьма",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "ГЛАЗ : ЗРЕНИЕ = ?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "ухо : слух",
+     "is_correct": true
+    },
+    {
+     "text": "рука : палец",
+     "is_correct": false
+    },
+    {
+     "text": "очки : глаз",
+     "is_correct": false
+    },
+    {
+     "text": "нос : лицо",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "ЧАС : МИНУТА = ?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Большая единица : меньшая. В остальных парах — наоборот.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "метр : сантиметр",
+     "is_correct": true
+    },
+    {
+     "text": "килограмм : тонна",
+     "is_correct": false
+    },
+    {
+     "text": "секунда : минута",
+     "is_correct": false
+    },
+    {
+     "text": "день : неделя",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Дополните предложение: «Несмотря на … погоду, соревнования по кок-бору прошли успешно».",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "«Несмотря на» требует чего-то, что мешает.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "ясную",
+     "is_correct": false
+    },
+    {
+     "text": "солнечную",
+     "is_correct": false
+    },
+    {
+     "text": "тёплую",
+     "is_correct": false
+    },
+    {
+     "text": "ненастную",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "«Айпери так … готовилась к ОРТ, что получила высокий балл».",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "усердно",
+     "is_correct": true
+    },
+    {
+     "text": "неохотно",
+     "is_correct": false
+    },
+    {
+     "text": "лениво",
+     "is_correct": false
+    },
+    {
+     "text": "редко",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "«Учёный был очень …: он никогда не делал выводов, не проверив данные».",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "легкомыслен",
+     "is_correct": false
+    },
+    {
+     "text": "рассеян",
+     "is_correct": false
+    },
+    {
+     "text": "осторожен",
+     "is_correct": true
+    },
+    {
+     "text": "ленив",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "«Река в августе была такой …, что её легко перешли вброд».",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "широкой",
+     "is_correct": false
+    },
+    {
+     "text": "мелкой",
+     "is_correct": true
+    },
+    {
+     "text": "глубокой",
+     "is_correct": false
+    },
+    {
+     "text": "бурной",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "ТЮЛЬПАН : ЦВЕТОК = ?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Вид : род.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "дерево : лист",
+     "is_correct": false
+    },
+    {
+     "text": "роза : шип",
+     "is_correct": false
+    },
+    {
+     "text": "цветок : тюльпан",
+     "is_correct": false
+    },
+    {
+     "text": "беркут : птица",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "ВИНОГРАД : ИЗЮМ = ?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Свежий плод : сушёный плод. Ловушка: сок тоже делают из яблок, но это не сушка.\n\n*Фото: Paweł Kuźniar (Jojo 1, Jojo), CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Raisins_01.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "виноград : лоза",
+     "is_correct": false
+    },
+    {
+     "text": "слива : чернослив",
+     "is_correct": true
+    },
+    {
+     "text": "абрикос : косточка",
+     "is_correct": false
+    },
+    {
+     "text": "яблоко : сок",
+     "is_correct": false
+    }
+   ],
+   "image": "q20.jpg"
+  },
+  {
+   "type": "single",
+   "text": "КУЗНЕЦ : МОЛОТ = ?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Moose Jaw Times Herald, CC BY-SA 1.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:A_blacksmith_at_work.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "портной : игла",
+     "is_correct": true
+    },
+    {
+     "text": "игла : нитка",
+     "is_correct": false
+    },
+    {
+     "text": "молот : наковальня",
+     "is_correct": false
+    },
+    {
+     "text": "кузнец : подкова",
+     "is_correct": false
+    }
+   ],
+   "image": "q21.jpg"
+  },
+  {
+   "type": "single",
+   "text": "ТРУС : СМЕЛОСТЬ = ?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Человек, которому не хватает качества : это качество.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "трус : страх",
+     "is_correct": false
+    },
+    {
+     "text": "смельчак : храбрость",
+     "is_correct": false
+    },
+    {
+     "text": "учитель : знание",
+     "is_correct": false
+    },
+    {
+     "text": "невежда : знание",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие пары слов — антонимы?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "тёмный — светлый",
+     "is_correct": true
+    },
+    {
+     "text": "смелый — храбрый",
+     "is_correct": false
+    },
+    {
+     "text": "большой — огромный",
+     "is_correct": false
+    },
+    {
+     "text": "щедрый — скупой",
+     "is_correct": true
+    },
+    {
+     "text": "начало — конец",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Продолжите аналогию: Бишкек : Кыргызстан = Астана : ?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "Казахстан",
+     "казахстан"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! ПРЕДИСЛОВИЕ : КНИГА = ?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Вступление : само произведение.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "глава : книга",
+     "is_correct": false
+    },
+    {
+     "text": "увертюра : опера",
+     "is_correct": true
+    },
+    {
+     "text": "автор : роман",
+     "is_correct": false
+    },
+    {
+     "text": "финал : концерт",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

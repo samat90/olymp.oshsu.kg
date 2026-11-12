@@ -1,0 +1,714 @@
+{
+ "key": "mustakildik",
+ "title": "Независимость и символы Кыргызстана",
+ "subject": "Праздники",
+ "theme": "felt",
+ "description": "25 вопросов ко Дню независимости: даты, флаг, герб, гимн, сом и Конституция. Отличная разминка для школьных и студенческих праздников. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: когда Кыргызстан объявил независимость?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "5 мая 1993 года",
+     "is_correct": false
+    },
+    {
+     "text": "31 августа 1991 года",
+     "is_correct": true
+    },
+    {
+     "text": "1 января 1992 года",
+     "is_correct": false
+    },
+    {
+     "text": "21 марта 1991 года",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто стал первым президентом независимого Кыргызстана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: A.Savin, FAL, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Askar_Akaev_MoscowRia_08-2016_%28cropped_2%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Курманбек Бакиев",
+     "is_correct": false
+    },
+    {
+     "text": "Турдакун Усубалиев",
+     "is_correct": false
+    },
+    {
+     "text": "Аскар Акаев",
+     "is_correct": true
+    },
+    {
+     "text": "Чингиз Айтматов",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Когда принят государственный флаг?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "31 августа 1991 года",
+     "is_correct": false
+    },
+    {
+     "text": "5 мая 1993 года",
+     "is_correct": false
+    },
+    {
+     "text": "3 марта 1992 года",
+     "is_correct": true
+    },
+    {
+     "text": "14 января 1994 года",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько лучей у солнца на флаге и что они значат?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "7 — по областям",
+     "is_correct": false
+    },
+    {
+     "text": "12 — по месяцам",
+     "is_correct": false
+    },
+    {
+     "text": "40 — по числу племён, которые объединил Манас",
+     "is_correct": true
+    },
+    {
+     "text": "30 — по дням месяца",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что изменили на флаге в декабре 2023 года?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лучи стали прямыми, а в түндүке — по четыре перекладины вместо трёх",
+     "is_correct": true
+    },
+    {
+     "text": "Убрали солнце",
+     "is_correct": false
+    },
+    {
+     "text": "Сменили цвет на синий",
+     "is_correct": false
+    },
+    {
+     "text": "Добавили полумесяц",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что символизирует красный цвет флага?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Горы",
+     "is_correct": false
+    },
+    {
+     "text": "Золото",
+     "is_correct": false
+    },
+    {
+     "text": "Воду",
+     "is_correct": false
+    },
+    {
+     "text": "Храбрость и отвагу",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Когда утверждён государственный герб?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: А. Абдраев (A. Abdraev), С. Дубанаев (S. Dubanaev) 1994. Standardized version:Nurbek Nasyranbekov Nargiza Kulataeva, Kan, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Emblem_of_Kyrgyzstan.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "18 декабря 1992 года",
+     "is_correct": false
+    },
+    {
+     "text": "31 августа 1991 года",
+     "is_correct": false
+    },
+    {
+     "text": "3 марта 1992 года",
+     "is_correct": false
+    },
+    {
+     "text": "14 января 1994 года",
+     "is_correct": true
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какие хребты изображены на гербе за соколом?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ала-Тоо",
+     "is_correct": true
+    },
+    {
+     "text": "Памир",
+     "is_correct": false
+    },
+    {
+     "text": "Гималаи",
+     "is_correct": false
+    },
+    {
+     "text": "Альпы",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Когда принят государственный гимн?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "31 августа 1991 года",
+     "is_correct": false
+    },
+    {
+     "text": "5 мая 1993 года",
+     "is_correct": false
+    },
+    {
+     "text": "1 января 1993 года",
+     "is_correct": false
+    },
+    {
+     "text": "18 декабря 1992 года",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто написал музыку гимна?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Насыр Давлесов и Калый Молдобасанов",
+     "is_correct": true
+    },
+    {
+     "text": "Саякбай Каралаев",
+     "is_correct": false
+    },
+    {
+     "text": "Абдылас Малдыбаев и Токтогул",
+     "is_correct": false
+    },
+    {
+     "text": "Чингиз Айтматов",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Когда ввели национальную валюту сом?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "С 4 часов утра 10 мая 1993 года; рубль меняли по курсу 200 рублей за 1 сом.\n\n*Фото: National Bank of the Kyrgyz Republic, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:100_som_2016_ob.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "31 августа 1991 года",
+     "is_correct": false
+    },
+    {
+     "text": "10 мая 1993 года",
+     "is_correct": true
+    },
+    {
+     "text": "3 марта 1992 года",
+     "is_correct": false
+    },
+    {
+     "text": "1 января 2000 года",
+     "is_correct": false
+    }
+   ],
+   "image": "q11.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Где напечатали самые первые банкноты сома?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В Бишкеке",
+     "is_correct": false
+    },
+    {
+     "text": "В России",
+     "is_correct": false
+    },
+    {
+     "text": "В Китае",
+     "is_correct": false
+    },
+    {
+     "text": "В Англии",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Передышка без очков: как называется столица Кыргызстана?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бишкек",
+     "is_correct": true
+    },
+    {
+     "text": "Ош",
+     "is_correct": false
+    },
+    {
+     "text": "Фрунзе",
+     "is_correct": false
+    },
+    {
+     "text": "Каракол",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Когда приняли первую Конституцию независимого Кыргызстана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "5 мая — День Конституции.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "31 августа 1991 года",
+     "is_correct": false
+    },
+    {
+     "text": "3 марта 1992 года",
+     "is_correct": false
+    },
+    {
+     "text": "1 января 1995 года",
+     "is_correct": false
+    },
+    {
+     "text": "5 мая 1993 года",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Когда Кыргызстан вступил в ООН?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "31 августа 1991 года",
+     "is_correct": false
+    },
+    {
+     "text": "25 декабря 1991 года",
+     "is_correct": false
+    },
+    {
+     "text": "2 марта 1992 года",
+     "is_correct": true
+    },
+    {
+     "text": "1 января 2000 года",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В каком году город Фрунзе вернул историческое имя и стал Бишкеком?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "2000",
+     "is_correct": false
+    },
+    {
+     "text": "1991",
+     "is_correct": true
+    },
+    {
+     "text": "1926",
+     "is_correct": false
+    },
+    {
+     "text": "1993",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какого числа отмечают День государственного языка?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "23 сентября 1989 года был принят закон о государственном языке.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "1 июня",
+     "is_correct": false
+    },
+    {
+     "text": "23 сентября",
+     "is_correct": true
+    },
+    {
+     "text": "5 октября",
+     "is_correct": false
+    },
+    {
+     "text": "21 марта",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Что относится к государственным символам Кыргызстана?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "Ловушка: калпак, комуз и юрта — национальные символы культуры, но государственных символов три.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Флаг",
+     "is_correct": true
+    },
+    {
+     "text": "Калпак",
+     "is_correct": false
+    },
+    {
+     "text": "Герб",
+     "is_correct": true
+    },
+    {
+     "text": "Комуз",
+     "is_correct": false
+    },
+    {
+     "text": "Гимн",
+     "is_correct": true
+    },
+    {
+     "text": "Юрта",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какие две даты в ноябре — Дни истории и памяти предков?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Они посвящены народному восстанию 1916 года (Үркүн).",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "1 и 2 ноября",
+     "is_correct": false
+    },
+    {
+     "text": "20 и 21 ноября",
+     "is_correct": false
+    },
+    {
+     "text": "7 и 8 ноября",
+     "is_correct": true
+    },
+    {
+     "text": "30 и 31 ноября",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что изображено в центре солнца на флаге?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Түндүк — верхний круг юрты",
+     "is_correct": true
+    },
+    {
+     "text": "Беркут",
+     "is_correct": false
+    },
+    {
+     "text": "Гора Хан-Тенгри",
+     "is_correct": false
+    },
+    {
+     "text": "Комуз",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте события по порядку.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Декларация независимости",
+     "is_correct": false
+    },
+    {
+     "text": "Принят флаг",
+     "is_correct": false
+    },
+    {
+     "text": "Принят гимн",
+     "is_correct": false
+    },
+    {
+     "text": "Введён сом",
+     "is_correct": false
+    },
+    {
+     "text": "Принят герб",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Кыргызстан называется Кыргызской Республикой с 1993 года.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: сотая часть сома.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ТЫЙЫН"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Сколько лет независимости Кыргызстан отметил в 2026 году?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 10,
+    "max": 50,
+    "step": 1,
+    "answer": 35,
+    "unit": "лет",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Что изображено на памятной купюре 2000 сомов 2017 года?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Только портрет Айтматова",
+     "is_correct": false
+    },
+    {
+     "text": "Памятник Манасу, Умай-Эне, юрта, Хан-Тенгри и беркут над Иссык-Кулём",
+     "is_correct": true
+    },
+    {
+     "text": "Карта мира",
+     "is_correct": false
+    },
+    {
+     "text": "Космическая ракета",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

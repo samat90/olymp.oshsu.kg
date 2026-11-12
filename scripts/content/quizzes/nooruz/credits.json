@@ -1,0 +1,38 @@
+{
+ "cover.jpg": {
+  "author": "Katzenfee50",
+  "file": "Haft-sin, Nowruz, Still-life-3205068.jpg",
+  "license": "CC0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Haft-sin,_Nowruz,_Still-life-3205068.jpg",
+  "spec": "en:Nowruz",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Haft-sin%2C_Nowruz%2C_Still-life-3205068.jpg/960px-Haft-sin%2C_Nowruz%2C_Still-life-3205068.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q06.jpg": {
+  "author": "Myone63",
+  "file": "Samanu for 7 sin.jpg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Samanu_for_7_sin.jpg",
+  "spec": "en:Samanu",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Samanu_for_7_sin.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q09.jpg": {
+  "author": "US gov",
+  "file": "Afghan Game Buzkashi.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Afghan_Game_Buzkashi.jpg",
+  "spec": "en:Buzkashi",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Afghan_Game_Buzkashi.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q18.jpg": {
+  "author": "Jost Wagner",
+  "file": "Afghan Palo.jpg",
+  "license": "CC BY-SA 1.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Afghan_Palo.jpg",
+  "spec": "en:Pilaf",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Afghan_Palo.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ }
+}

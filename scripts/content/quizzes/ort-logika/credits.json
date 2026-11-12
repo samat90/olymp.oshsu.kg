@@ -1,0 +1,47 @@
+{
+ "cover.jpg": {
+  "author": "Sophivorus",
+  "file": "Modus ponendo ponens.png",
+  "license": "CC BY-SA 4.0",
+  "mime": "image/png",
+  "page": "https://commons.wikimedia.org/wiki/File:Modus_ponendo_ponens.png",
+  "spec": "en:Logic",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/d/df/Modus_ponendo_ponens.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q17.jpg": {
+  "author": "Phrontis",
+  "file": "Braun ABW41 (silber).jpg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Braun_ABW41_(silber).jpg",
+  "spec": "en:Clock face",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Braun_ABW41_%28silber%29.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q20.jpg": {
+  "author": "Fernando Losada Rodríguez",
+  "file": "Nymphaea alba.001 - Breendonk.jpg",
+  "license": "CC BY-SA 4.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Nymphaea_alba.001_-_Breendonk.jpg",
+  "spec": "en:Nymphaea",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Nymphaea_alba.001_-_Breendonk.jpg/960px-Nymphaea_alba.001_-_Breendonk.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q21.jpg": {
+  "author": "Mike Gonzalez (TheCoffee)",
+  "file": "Rubiks cube solved.jpg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Rubiks_cube_solved.jpg",
+  "spec": "en:Rubik's Cube",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/6/61/Rubiks_cube_solved.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q25.jpg": {
+  "author": "Photographie personnelle User:Poussin jean",
+  "file": "Balance à tabac 1850.JPG",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Balance_%C3%A0_tabac_1850.JPG",
+  "spec": "en:Weighing scale",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/1/17/Balance_%C3%A0_tabac_1850.JPG?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ }
+}

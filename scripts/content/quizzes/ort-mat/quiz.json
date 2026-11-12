@@ -1,0 +1,721 @@
+{
+ "key": "ort-mat",
+ "title": "ОРТ: математика",
+ "subject": "Подготовка к ОРТ",
+ "theme": "lake",
+ "description": "25 задач в духе основного теста ОРТ: проценты, дроби, уравнения, геометрия и задания «сравните А и Б». Все задачи свои, не из настоящих тестов. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: сколько будет 15% от 200?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "45",
+     "is_correct": false
+    },
+    {
+     "text": "15",
+     "is_correct": false
+    },
+    {
+     "text": "20",
+     "is_correct": false
+    },
+    {
+     "text": "30",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сравните: А = 2/3, Б = 0,6.",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "2/3 ≈ 0,667 > 0,6.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Б больше",
+     "is_correct": false
+    },
+    {
+     "text": "Нельзя определить",
+     "is_correct": false
+    },
+    {
+     "text": "Они равны",
+     "is_correct": false
+    },
+    {
+     "text": "А больше",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сравните: А = 3², Б = 2³.",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "9 > 8.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "А больше",
+     "is_correct": true
+    },
+    {
+     "text": "Нельзя определить",
+     "is_correct": false
+    },
+    {
+     "text": "Они равны",
+     "is_correct": false
+    },
+    {
+     "text": "Б больше",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Ловушка на двойные очки. Сравните: А = x², Б = x.",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "При x = 2 больше А, при x = 0,5 больше Б, при x = 1 они равны.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "А больше",
+     "is_correct": false
+    },
+    {
+     "text": "Нельзя определить",
+     "is_correct": true
+    },
+    {
+     "text": "Они равны",
+     "is_correct": false
+    },
+    {
+     "text": "Б больше",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Калпак стоил 800 сомов, на него сделали скидку 25%. Сколько он стоит теперь?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Petar Milošević, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kyrgyz_man_with_ak-kalpak_hat_%28%D0%B0%D0%BA-%D0%BA%D0%B0%D0%BB%D0%BF%D0%B0%D0%BA_%D1%88%D0%B0%D0%BF%D0%BAa%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "600 сомов",
+     "is_correct": true
+    },
+    {
+     "text": "640 сомов",
+     "is_correct": false
+    },
+    {
+     "text": "200 сомов",
+     "is_correct": false
+    },
+    {
+     "text": "775 сомов",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Цена выросла на 20%, а потом снизилась на 20%. Что стало с ценой?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "1,2 × 0,8 = 0,96.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Уменьшилась на 4%",
+     "is_correct": true
+    },
+    {
+     "text": "Уменьшилась на 20%",
+     "is_correct": false
+    },
+    {
+     "text": "Выросла на 4%",
+     "is_correct": false
+    },
+    {
+     "text": "Не изменилась",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Решите уравнение: 3x − 7 = 11.",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "x = 6",
+     "is_correct": true
+    },
+    {
+     "text": "x = 3",
+     "is_correct": false
+    },
+    {
+     "text": "x = 4/3",
+     "is_correct": false
+    },
+    {
+     "text": "x = 18",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чему равно среднее арифметическое чисел 4, 7 и 10?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "6",
+     "is_correct": false
+    },
+    {
+     "text": "10",
+     "is_correct": false
+    },
+    {
+     "text": "7",
+     "is_correct": true
+    },
+    {
+     "text": "21",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Периметр квадрата 20 см. Какая у него площадь?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "16 см²",
+     "is_correct": false
+    },
+    {
+     "text": "20 см²",
+     "is_correct": false
+    },
+    {
+     "text": "100 см²",
+     "is_correct": false
+    },
+    {
+     "text": "25 см²",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Два угла треугольника — 50° и 60°. Чему равен третий?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "90°",
+     "is_correct": false
+    },
+    {
+     "text": "80°",
+     "is_correct": false
+    },
+    {
+     "text": "70°",
+     "is_correct": true
+    },
+    {
+     "text": "110°",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "3 тетради стоят 45 сомов. Сколько стоят 7 таких тетрадей?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "135 сомов",
+     "is_correct": false
+    },
+    {
+     "text": "115 сомов",
+     "is_correct": false
+    },
+    {
+     "text": "105 сомов",
+     "is_correct": true
+    },
+    {
+     "text": "95 сомов",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Автобус проехал 240 км за 4 часа. Какая у него средняя скорость?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "960 км/ч",
+     "is_correct": false
+    },
+    {
+     "text": "60 км/ч",
+     "is_correct": true
+    },
+    {
+     "text": "80 км/ч",
+     "is_correct": false
+    },
+    {
+     "text": "40 км/ч",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Передышка без очков: сколько будет 1/2 + 1/4?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "2/4",
+     "is_correct": false
+    },
+    {
+     "text": "3/4",
+     "is_correct": true
+    },
+    {
+     "text": "2/6",
+     "is_correct": false
+    },
+    {
+     "text": "1/6",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сравните: А = 0,5 × 0,5, Б = 0,5.",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "0,5 × 0,5 = 0,25: при умножении на число меньше 1 результат уменьшается.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Нельзя определить",
+     "is_correct": false
+    },
+    {
+     "text": "Они равны",
+     "is_correct": false
+    },
+    {
+     "text": "А больше",
+     "is_correct": false
+    },
+    {
+     "text": "Б больше",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сравните: А = (−2)³, Б = (−3)².",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "(−2)³ = −8, а (−3)² = 9.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Б больше",
+     "is_correct": true
+    },
+    {
+     "text": "Они равны",
+     "is_correct": false
+    },
+    {
+     "text": "Нельзя определить",
+     "is_correct": false
+    },
+    {
+     "text": "А больше",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чему равна площадь круга радиусом 3?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Jokes Free4Me, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Circle-withsegments.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "3π",
+     "is_correct": false
+    },
+    {
+     "text": "9π",
+     "is_correct": true
+    },
+    {
+     "text": "27π",
+     "is_correct": false
+    },
+    {
+     "text": "6π",
+     "is_correct": false
+    }
+   ],
+   "image": "q16.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Катеты прямоугольного треугольника 6 и 8. Чему равна гипотенуза?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: en:User:Wapcaplet, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Pythagorean.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "10",
+     "is_correct": true
+    },
+    {
+     "text": "48",
+     "is_correct": false
+    },
+    {
+     "text": "14",
+     "is_correct": false
+    },
+    {
+     "text": "12",
+     "is_correct": false
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "Сколько минут в 2 часах 15 минутах?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 60,
+    "max": 300,
+    "step": 5,
+    "answer": 135,
+    "unit": "мин",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько двузначных чисел делится на 5?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "10, 15, …, 95: это 18 чисел.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "19",
+     "is_correct": false
+    },
+    {
+     "text": "10",
+     "is_correct": false
+    },
+    {
+     "text": "18",
+     "is_correct": true
+    },
+    {
+     "text": "20",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Нурбек на 4 года старше Айдай. Через 3 года им вместе будет 30 лет. Сколько лет Айдай сейчас?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "8",
+     "is_correct": false
+    },
+    {
+     "text": "12",
+     "is_correct": false
+    },
+    {
+     "text": "13",
+     "is_correct": false
+    },
+    {
+     "text": "10",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие из этих чисел — простые?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Ловушка: 1 не простое, а 51 = 3 × 17.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "51",
+     "is_correct": false
+    },
+    {
+     "text": "17",
+     "is_correct": true
+    },
+    {
+     "text": "21",
+     "is_correct": false
+    },
+    {
+     "text": "1",
+     "is_correct": false
+    },
+    {
+     "text": "2",
+     "is_correct": true
+    },
+    {
+     "text": "29",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте числа по возрастанию.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "0,3",
+     "is_correct": false
+    },
+    {
+     "text": "1/3",
+     "is_correct": false
+    },
+    {
+     "text": "0,35",
+     "is_correct": false
+    },
+    {
+     "text": "2/5",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Посчитайте в уме: 12 × 25.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "300"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сравните: А = √50, Б = 7.",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "7 = √49 < √50.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Нельзя определить",
+     "is_correct": false
+    },
+    {
+     "text": "Они равны",
+     "is_correct": false
+    },
+    {
+     "text": "А больше",
+     "is_correct": true
+    },
+    {
+     "text": "Б больше",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Сколькими способами 4 ученика могут встать в ряд?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "4! = 4 × 3 × 2 × 1 = 24.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "12",
+     "is_correct": false
+    },
+    {
+     "text": "24",
+     "is_correct": true
+    },
+    {
+     "text": "4",
+     "is_correct": false
+    },
+    {
+     "text": "16",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

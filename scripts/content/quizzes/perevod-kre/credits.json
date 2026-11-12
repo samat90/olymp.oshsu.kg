@@ -1,0 +1,56 @@
+{
+ "cover.jpg": {
+  "author": "Unknown authorUnknown author",
+  "file": "Charles V ordonnant la traduction d'Aristote copy.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Charles_V_ordonnant_la_traduction_d%27Aristote_copy.jpg",
+  "spec": "en:Translation",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Charles_V_ordonnant_la_traduction_d%27Aristote_copy.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q03.jpg": {
+  "author": "fir0002 flagstaffotos [at] gmail.com Canon 20D + Sigma 150mm f/2.8",
+  "file": "Pink lady and cross section.jpg",
+  "license": "GFDL 1.2",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Pink_lady_and_cross_section.jpg",
+  "spec": "en:Apple",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/Pink_lady_and_cross_section.jpg/960px-Pink_lady_and_cross_section.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q05.jpg": {
+  "author": "NYC Wanderer (Kevin Eng)",
+  "file": "Gutenberg Bible, Lenox Copy, New York Public Library, 2009. Pic 01.jpg",
+  "license": "CC BY-SA 2.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Gutenberg_Bible,_Lenox_Copy,_New_York_Public_Library,_2009._Pic_01.jpg",
+  "spec": "en:Book",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg/960px-Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q09.jpg": {
+  "author": "Scott Bauer, USDA ARS",
+  "file": "Runny hunny.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Runny_hunny.jpg",
+  "spec": "en:Honey",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Runny_hunny.jpg/960px-Runny_hunny.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q13.jpg": {
+  "author": "Genusfotografen (Tomas Gunnarsson) / Wikimedia Sverige",
+  "file": "Human right ear (cropped).jpg",
+  "license": "CC BY-SA 4.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Human_right_ear_(cropped).jpg",
+  "spec": "en:Ear",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Human_right_ear_%28cropped%29.jpg/960px-Human_right_ear_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q17.jpg": {
+  "author": "Ernst Vikne",
+  "file": "Winter forest silver.jpg",
+  "license": "CC BY-SA 2.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Winter_forest_silver.jpg",
+  "spec": "en:Winter",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Winter_forest_silver.jpg/960px-Winter_forest_silver.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ }
+}

@@ -1,0 +1,777 @@
+{
+ "key": "oshibka-kod",
+ "title": "Найди ошибку в коде",
+ "subject": "Программирование",
+ "theme": "night",
+ "description": "25 программ с ошибками на Python, C++ и JavaScript: синтаксис, выход за границы, переполнение, бесконечные циклы. Найдите, где баг. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "code",
+   "text": "Разминка без очков: в чём ошибка?",
+   "time_limit": 15,
+   "weight": 0,
+   "explanation": "",
+   "code": "print(\"Салам\"",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Не закрыта скобка",
+     "is_correct": true
+    },
+    {
+     "text": "Нет ошибки",
+     "is_correct": false
+    },
+    {
+     "text": "Нет точки с запятой",
+     "is_correct": false
+    },
+    {
+     "text": "Нельзя писать по-кыргызски",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "В чём ошибка?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "for i in range(5)\n    print(i)",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Нужны фигурные скобки",
+     "is_correct": false
+    },
+    {
+     "text": "range(5) нельзя писать",
+     "is_correct": false
+    },
+    {
+     "text": "Нет двоеточия после for",
+     "is_correct": true
+    },
+    {
+     "text": "print пишется с большой буквы",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Программа должна сказать, взрослый ли человек. В чём ошибка?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "",
+   "code": "age = input(\"Жашың: \")\nif age >= 18:\n    print(\"Чоң\")",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Нет ошибки",
+     "is_correct": false
+    },
+    {
+     "text": "input даёт строку, её надо превратить в число: int(input(...))",
+     "is_correct": true
+    },
+    {
+     "text": "Нельзя сравнивать с 18",
+     "is_correct": false
+    },
+    {
+     "text": "Нужно писать elif",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что случится?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "nums = [1, 2, 3]\nprint(nums[3])",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Выведет None",
+     "is_correct": false
+    },
+    {
+     "text": "Ошибка IndexError: последний индекс — 2",
+     "is_correct": true
+    },
+    {
+     "text": "Выведет 3",
+     "is_correct": false
+    },
+    {
+     "text": "Выведет 0",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Почему программа выводит None вместо 16?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "def sq(x):\n    x * x\n\nprint(sq(4))",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Нужно писать x ** 2",
+     "is_correct": false
+    },
+    {
+     "text": "sq — запрещённое имя",
+     "is_correct": false
+    },
+    {
+     "text": "Функцию нельзя вызывать в print",
+     "is_correct": false
+    },
+    {
+     "text": "В функции нет return",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "В чём ошибка?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "name = \"Айбек\"\nprint(\"Тебе \" + 17 + \" лет, \" + name)",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Нельзя складывать строки",
+     "is_correct": false
+    },
+    {
+     "text": "Нужны одинарные кавычки",
+     "is_correct": false
+    },
+    {
+     "text": "Нельзя складывать строку и число без str(17)",
+     "is_correct": true
+    },
+    {
+     "text": "Нет ошибки",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Хотели сумму чисел от 1 до 10. Что не так?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Программа выведет 45 вместо 55.",
+   "code": "total = 0\nfor i in range(1, 10):\n    total += i\nprint(total)",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "range(1, 10) не включает 10, нужно range(1, 11)",
+     "is_correct": true
+    },
+    {
+     "text": "Нужно total = total + 1",
+     "is_correct": false
+    },
+    {
+     "text": "total нужно начинать с 1",
+     "is_correct": false
+    },
+    {
+     "text": "Всё правильно, будет 55",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "В чём ошибка?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "x = 5\nif x = 5:\n    print(\"пять\")",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Нельзя сравнивать с числом",
+     "is_correct": false
+    },
+    {
+     "text": "Нет ошибки",
+     "is_correct": false
+    },
+    {
+     "text": "Нужно писать then",
+     "is_correct": false
+    },
+    {
+     "text": "В условии нужно == вместо =",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Почему программа на C++ не компилируется?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "#include <iostream>\nusing namespace std;\nint main() {\n    int n = 5\n    cout << n;\n}",
+   "code_language": "cpp",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Нельзя выводить int",
+     "is_correct": false
+    },
+    {
+     "text": "Нет return 0",
+     "is_correct": false
+    },
+    {
+     "text": "После int n = 5 нет точки с запятой",
+     "is_correct": true
+    },
+    {
+     "text": "Нужно писать printf",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что не так с программой на C++?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "int a[5];\nfor (int i = 0; i <= 5; i++)\n    a[i] = i;",
+   "code_language": "cpp",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Выход за границу массива: a[5] не существует",
+     "is_correct": true
+    },
+    {
+     "text": "Нужно i < 4",
+     "is_correct": false
+    },
+    {
+     "text": "Массив нельзя заполнять в цикле",
+     "is_correct": false
+    },
+    {
+     "text": "Нет ошибки",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Сумма выходит случайной. Почему?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "int sum;\nfor (int i = 1; i <= 10; i++)\n    sum += i;\ncout << sum;",
+   "code_language": "cpp",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Переменная sum не обнулена в начале",
+     "is_correct": true
+    },
+    {
+     "text": "Нужно i++ заменить на ++i",
+     "is_correct": false
+    },
+    {
+     "text": "cout не умеет выводить сумму",
+     "is_correct": false
+    },
+    {
+     "text": "Цикл неверный",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Ошибка, которая стоила баллов на многих олимпиадах. В чём она?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "Нужно привести a к long long до умножения или сразу объявить a и b как long long.",
+   "code": "int a = 100000, b = 100000;\nlong long c = a * b;\ncout << c;",
+   "code_language": "cpp",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Нельзя умножать переменные",
+     "is_correct": false
+    },
+    {
+     "text": "a * b считается в int и переполняется раньше, чем попадёт в long long",
+     "is_correct": true
+    },
+    {
+     "text": "long long не умеет хранить 10¹⁰",
+     "is_correct": false
+    },
+    {
+     "text": "Нет ошибки, выведет 10000000000",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Хотели получить 3.5. Что выйдет и почему?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "int a = 7, b = 2;\ndouble avg = a / b;\ncout << avg;",
+   "code_language": "cpp",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Выйдет 3: деление целых чисел даёт целое",
+     "is_correct": true
+    },
+    {
+     "text": "Ошибка компиляции",
+     "is_correct": false
+    },
+    {
+     "text": "Выйдет 4",
+     "is_correct": false
+    },
+    {
+     "text": "Выйдет 3.5",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "В чём ошибка в JavaScript?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "const x = 5;\nx = 10;",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Нет точки с запятой",
+     "is_correct": false
+    },
+    {
+     "text": "Нет ошибки",
+     "is_correct": false
+    },
+    {
+     "text": "Константе const нельзя присвоить новое значение",
+     "is_correct": true
+    },
+    {
+     "text": "Нужно писать var",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что не так с этим циклом?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "let list = [1, 2, 3];\nfor (let i = 1; i <= list.length; i++)\n    console.log(list[i]);",
+   "code_language": "javascript",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Выведет 1, 2, 3",
+     "is_correct": false
+    },
+    {
+     "text": "Ошибка синтаксиса",
+     "is_correct": false
+    },
+    {
+     "text": "Индексы с 0: выведет 2, 3 и undefined",
+     "is_correct": true
+    },
+    {
+     "text": "let нельзя в цикле",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Почему программа никогда не заканчивается?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "i = 0\nwhile i < 5:\n    print(i)",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "while нельзя с числами",
+     "is_correct": false
+    },
+    {
+     "text": "i не увеличивается — бесконечный цикл",
+     "is_correct": true
+    },
+    {
+     "text": "Нет ошибки",
+     "is_correct": false
+    },
+    {
+     "text": "Нужно i <= 5",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Почему выводится None?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "a = [3, 1, 2]\nb = a.sort()\nprint(b)",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Список нельзя сортировать",
+     "is_correct": false
+    },
+    {
+     "text": "sort сортирует по убыванию",
+     "is_correct": false
+    },
+    {
+     "text": "Нет ошибки, выведет [1, 2, 3]",
+     "is_correct": false
+    },
+    {
+     "text": "sort() сортирует на месте и возвращает None; нужно sorted(a)",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Чего не хватает рекурсии?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "def fact(n):\n    return n * fact(n - 1)",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Ничего",
+     "is_correct": false
+    },
+    {
+     "text": "Цикла for",
+     "is_correct": false
+    },
+    {
+     "text": "Слова global",
+     "is_correct": false
+    },
+    {
+     "text": "Базового случая: if n <= 1: return 1",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Передышка без очков: ошибку в программе программисты называют «баг» — «жук».",
+   "time_limit": 15,
+   "weight": 0,
+   "explanation": "В 1947 году в компьютере Harvard Mark II нашли настоящую моль и вклеили её в журнал.\n\n*Фото: Courtesy of the Naval Surface Warfare Center, Dahlgren, VA., 1988., Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:First_Computer_Bug,_1947.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "code",
+   "text": "В чём ошибка?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "s = \"ош\"\ns[0] = \"О\"",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "s[0] — это последний символ",
+     "is_correct": false
+    },
+    {
+     "text": "Строки нельзя менять по символу",
+     "is_correct": true
+    },
+    {
+     "text": "Нельзя использовать кириллицу",
+     "is_correct": false
+    },
+    {
+     "text": "Нет ошибки",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Почему возникает ошибка UnboundLocalError?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "x = 10\ndef f():\n    x += 1\nf()",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Нельзя прибавлять 1",
+     "is_correct": false
+    },
+    {
+     "text": "Функцию нельзя вызывать",
+     "is_correct": false
+    },
+    {
+     "text": "x слишком большое",
+     "is_correct": false
+    },
+    {
+     "text": "Внутри функции x считается локальной, но ещё не задана (нужно global x)",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Почему «Равно» не печатается?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "if 0.1 + 0.2 == 0.3:\n    print(\"Равно\")",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Нет двоеточия",
+     "is_correct": false
+    },
+    {
+     "text": "Дробные числа приблизительны: сумма равна 0.30000000000000004",
+     "is_correct": true
+    },
+    {
+     "text": "Нельзя складывать дроби",
+     "is_correct": false
+    },
+    {
+     "text": "Нужно писать =",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Что выведет программа на C++ и почему?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "",
+   "code": "string s = \"abc\";\ncout << s.length() - 5;",
+   "code_language": "cpp",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "Огромное число: length() беззнаковый, и -2 «переворачивается»",
+     "is_correct": true
+    },
+    {
+     "text": "0",
+     "is_correct": false
+    },
+    {
+     "text": "-2",
+     "is_correct": false
+    },
+    {
+     "text": "Ошибка компиляции",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие из этих ошибок — синтаксические (их видно ещё до запуска)?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Выход за границу списка",
+     "is_correct": false
+    },
+    {
+     "text": "Бесконечный цикл",
+     "is_correct": false
+    },
+    {
+     "text": "Не закрыта скобка",
+     "is_correct": true
+    },
+    {
+     "text": "Пропущено двоеточие после if",
+     "is_correct": true
+    },
+    {
+     "text": "Деление на ноль",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "code",
+   "text": "Финал на двойные очки! Бинарный поиск иногда не находит число, хотя оно есть. В чём баг?",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "Например, find([5], 5) вернёт -1.",
+   "code": "def find(a, x):\n    lo, hi = 0, len(a) - 1\n    while lo < hi:\n        mid = (lo + hi) // 2\n        if a[mid] == x:\n            return mid\n        if a[mid] < x:\n            lo = mid + 1\n        else:\n            hi = mid - 1\n    return -1",
+   "code_language": "python",
+   "data": {
+    "input": false
+   },
+   "options": [
+    {
+     "text": "mid считается неверно",
+     "is_correct": false
+    },
+    {
+     "text": "Нужно hi = len(a)",
+     "is_correct": false
+    },
+    {
+     "text": "Нужно while lo <= hi, иначе последний кандидат не проверяется",
+     "is_correct": true
+    },
+    {
+     "text": "Нельзя возвращать -1",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}
