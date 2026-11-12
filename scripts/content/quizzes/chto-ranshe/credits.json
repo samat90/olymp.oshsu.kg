@@ -1,0 +1,65 @@
+{
+ "cover.jpg": {
+  "author": "Lou.gruber",
+  "file": "Siegsdorfer Mammut.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Siegsdorfer_Mammut.jpg",
+  "spec": "en:Woolly mammoth",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Siegsdorfer_Mammut.jpg/960px-Siegsdorfer_Mammut.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q03.jpg": {
+  "author": "Lou.gruber",
+  "file": "Siegsdorfer Mammut.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Siegsdorfer_Mammut.jpg",
+  "spec": "en:Woolly mammoth",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Siegsdorfer_Mammut.jpg/960px-Siegsdorfer_Mammut.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q04.jpg": {
+  "author": "This SVG coat of arms includes elements that have been taken or adapted from this coat of arms:",
+  "file": "Arms of University of Oxford.svg",
+  "license": "Public domain",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Arms_of_University_of_Oxford.svg",
+  "spec": "en:University of Oxford",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Arms_of_University_of_Oxford.svg/960px-Arms_of_University_of_Oxford.svg.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q05.jpg": {
+  "author": "Louis le Grand",
+  "file": "Kleopatra-VII.-Altes-Museum-Berlin1.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Kleopatra-VII.-Altes-Museum-Berlin1.jpg",
+  "spec": "en:Cleopatra",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Kleopatra-VII.-Altes-Museum-Berlin1.jpg/960px-Kleopatra-VII.-Altes-Museum-Berlin1.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q07.jpg": {
+  "author": "DYVER",
+  "file": "Coca Cola Flasche - Original Taste.jpg",
+  "license": "CC BY-SA 4.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Coca_Cola_Flasche_-_Original_Taste.jpg",
+  "spec": "en:Coca-Cola",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Coca_Cola_Flasche_-_Original_Taste.jpg/960px-Coca_Cola_Flasche_-_Original_Taste.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q10.jpg": {
+  "author": "Bernard Gagnon",
+  "file": "Burana Tower, Kyrgyzstan.jpg",
+  "license": "CC0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Burana_Tower,_Kyrgyzstan.jpg",
+  "spec": "en:Burana Tower",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Burana_Tower%2C_Kyrgyzstan.jpg/960px-Burana_Tower%2C_Kyrgyzstan.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q21.jpg": {
+  "author": "Gun Powder Ma",
+  "file": "Draisine or Laufmaschine, around 1820. Archetype of the Bicycle. Pic 01.jpg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Draisine_or_Laufmaschine,_around_1820._Archetype_of_the_Bicycle._Pic_01.jpg",
+  "spec": "en:Dandy horse",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Draisine_or_Laufmaschine%2C_around_1820._Archetype_of_the_Bicycle._Pic_01.jpg/960px-Draisine_or_Laufmaschine%2C_around_1820._Archetype_of_the_Bicycle._Pic_01.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ }
+}

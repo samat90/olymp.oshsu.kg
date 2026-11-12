@@ -1,0 +1,706 @@
+{
+ "key": "8-mart",
+ "title": "8 Марта: великие женщины",
+ "subject": "Праздники",
+ "theme": "felt",
+ "description": "25 вопросов к Международному женскому дню: история праздника и женщины, которые изменили мир и Кыргызстан. Портреты прилагаются. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: какой праздник 8 марта?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "День весны",
+     "is_correct": false
+    },
+    {
+     "text": "Международный женский день",
+     "is_correct": true
+    },
+    {
+     "text": "День учителя",
+     "is_correct": false
+    },
+    {
+     "text": "День матери",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто в 1910 году на конференции в Копенгагене предложил отмечать Международный женский день?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:C_Zetkin_1.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мария Кюри",
+     "is_correct": false
+    },
+    {
+     "text": "Валентина Терешкова",
+     "is_correct": false
+    },
+    {
+     "text": "Клара Цеткин",
+     "is_correct": true
+    },
+    {
+     "text": "Роза Отунбаева",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "С какого года 8 Марта отмечает ООН?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "2000",
+     "is_correct": false
+    },
+    {
+     "text": "1945",
+     "is_correct": false
+    },
+    {
+     "text": "1910",
+     "is_correct": false
+    },
+    {
+     "text": "1975",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой цветок — символ 8 Марта в Италии?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Eugene Zelenko, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Acacia_dealbata-1.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тюльпан",
+     "is_correct": false
+    },
+    {
+     "text": "Мимоза",
+     "is_correct": true
+    },
+    {
+     "text": "Ромашка",
+     "is_correct": false
+    },
+    {
+     "text": "Роза",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто первая женщина в космосе (1963)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: This file comes from the website of the President of the Russian Federation and is licensed under the Creative Commons A, CC BY 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Valentina_Tereshkova_%282024-02-29%29_crop.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Валентина Терешкова",
+     "is_correct": true
+    },
+    {
+     "text": "Салли Райд",
+     "is_correct": false
+    },
+    {
+     "text": "Светлана Савицкая",
+     "is_correct": false
+    },
+    {
+     "text": "Мэй Джемисон",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Мария Кюри — единственный человек, получивший Нобелевскую премию в двух разных науках. В каких?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: Henri Manuel, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Marie_Curie_c._1920s.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Физика и химия",
+     "is_correct": true
+    },
+    {
+     "text": "Медицина и химия",
+     "is_correct": false
+    },
+    {
+     "text": "Физика и математика",
+     "is_correct": false
+    },
+    {
+     "text": "Литература и физика",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто стала первой женщиной-президентом в Центральной Азии?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: U.S. Department of State from United States, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Deputy_Secretary_Sherman_Meeting_with_Special_Representative_for_Afghanistan_Rosa_Otunbayeva_%2852566453759%29_%28Roza_Otunbayeva%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Курманжан Датка",
+     "is_correct": false
+    },
+    {
+     "text": "Индира Ганди",
+     "is_correct": false
+    },
+    {
+     "text": "Ангела Меркель",
+     "is_correct": false
+    },
+    {
+     "text": "Роза Отунбаева",
+     "is_correct": true
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто стала первой в мире женщиной — главой правительства (1960)?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "*Фото: Indiragandhifan, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bandaranaike_1974.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сиримаво Бандаранаике",
+     "is_correct": true
+    },
+    {
+     "text": "Маргарет Тэтчер",
+     "is_correct": false
+    },
+    {
+     "text": "Голда Меир",
+     "is_correct": false
+    },
+    {
+     "text": "Индира Ганди",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто самая молодая лауреатка Нобелевской премии мира (17 лет)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: flowcomm, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Malala_Yousafzai_2023_portrait_2x3.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Анна Франк",
+     "is_correct": false
+    },
+    {
+     "text": "Малала Юсуфзай",
+     "is_correct": true
+    },
+    {
+     "text": "Грета Тунберг",
+     "is_correct": false
+    },
+    {
+     "text": "Мать Тереза",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто написала первую программу для вычислительной машины?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Хеди Ламарр",
+     "is_correct": false
+    },
+    {
+     "text": "Грейс Хоппер",
+     "is_correct": false
+    },
+    {
+     "text": "Мария Кюри",
+     "is_correct": false
+    },
+    {
+     "text": "Ада Лавлейс",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чьё изобретение (вместе с композитором) легло в основу Wi-Fi и Bluetooth?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Коко Шанель",
+     "is_correct": false
+    },
+    {
+     "text": "Агаты Кристи",
+     "is_correct": false
+    },
+    {
+     "text": "Голливудской актрисы Хеди Ламарр",
+     "is_correct": true
+    },
+    {
+     "text": "Мэрилин Монро",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Передышка без очков: кого называли «Алайской царицей»?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Курманжан Датку",
+     "is_correct": true
+    },
+    {
+     "text": "Каныкей",
+     "is_correct": false
+    },
+    {
+     "text": "Чыйырды",
+     "is_correct": false
+    },
+    {
+     "text": "Айчүрөк",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто такая Флоренс Найтингейл?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Henry Hering (1814-1893), Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Florence_Nightingale_%28H_Hering_NPG_x82368%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Первая женщина-пилот",
+     "is_correct": false
+    },
+    {
+     "text": "Королева Англии",
+     "is_correct": false
+    },
+    {
+     "text": "Основательница современной профессии медсестры",
+     "is_correct": true
+    },
+    {
+     "text": "Писательница-фантаст",
+     "is_correct": false
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как звали знаменитую слепоглухую писательницу, научившуюся говорить и окончившую университет?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Helen_Keller_%28circa_1904%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Хелен Келлер",
+     "is_correct": true
+    },
+    {
+     "text": "Шарлотта Бронте",
+     "is_correct": false
+    },
+    {
+     "text": "Анна Франк",
+     "is_correct": false
+    },
+    {
+     "text": "Джейн Остин",
+     "is_correct": false
+    }
+   ],
+   "image": "q14.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая кыргызская борчиха завоевала олимпийские медали в Токио (серебро) и Париже (бронза)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Валентина Шевченко",
+     "is_correct": false
+    },
+    {
+     "text": "Мээрим Жуманазарова",
+     "is_correct": false
+    },
+    {
+     "text": "Канат Бегалиев",
+     "is_correct": false
+    },
+    {
+     "text": "Айсулуу Тыныбекова",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто первая женщина, покорившая Эверест (1975)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Jaan Künnap, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Junko_Tabei_85_%283to4%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ванда Руткевич",
+     "is_correct": false
+    },
+    {
+     "text": "Терешкова",
+     "is_correct": false
+    },
+    {
+     "text": "Лин Хилл",
+     "is_correct": false
+    },
+    {
+     "text": "Дзюнко Табэи",
+     "is_correct": true
+    }
+   ],
+   "image": "q16.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "В Кыргызстане 8 Марта — выходной день.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Кто из них — лауреатки Нобелевской премии?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мать Тереза",
+     "is_correct": true
+    },
+    {
+     "text": "Валентина Терешкова",
+     "is_correct": false
+    },
+    {
+     "text": "Мария Кюри",
+     "is_correct": true
+    },
+    {
+     "text": "Ада Лавлейс",
+     "is_correct": false
+    },
+    {
+     "text": "Малала Юсуфзай",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как назывался фильм о Курманжан Датке, снятый в Кыргызстане в 2014 году?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Каныкей»",
+     "is_correct": false
+    },
+    {
+     "text": "«Жамиля»",
+     "is_correct": false
+    },
+    {
+     "text": "«Курманжан Датка»",
+     "is_correct": true
+    },
+    {
+     "text": "«Белый пароход»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Героиня какой повести Айтматова ушла от мужа за любимым Данияром?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Белый пароход»",
+     "is_correct": false
+    },
+    {
+     "text": "«Джамиля»",
+     "is_correct": true
+    },
+    {
+     "text": "«Материнское поле»",
+     "is_correct": false
+    },
+    {
+     "text": "«Плаха»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте события по времени.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Флоренс Найтингейл лечит раненых",
+     "is_correct": false
+    },
+    {
+     "text": "Клара Цеткин предлагает женский день",
+     "is_correct": false
+    },
+    {
+     "text": "Терешкова летит в космос",
+     "is_correct": false
+    },
+    {
+     "text": "Малала получает Нобелевскую премию",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: жёлтый пушистый цветок — символ праздника в Италии.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "МИМОЗА"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая писательница придумала Гарри Поттера?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Агата Кристи",
+     "is_correct": false
+    },
+    {
+     "text": "Астрид Линдгрен",
+     "is_correct": false
+    },
+    {
+     "text": "Джоан Роулинг",
+     "is_correct": true
+    },
+    {
+     "text": "Джейн Остин",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Кто написал «Пеппи Длинныйчулок»? Фамилия.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "Линдгрен",
+     "Астрид Линдгрен",
+     "линдгрен"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! В честь какого события в России 8 марта (23 февраля по старому стилю) 1917 года вышли на улицы работницы Петрограда?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Открытие метро",
+     "is_correct": false
+    },
+    {
+     "text": "Забастовка «Хлеб и мир», с которой началась Февральская революция",
+     "is_correct": true
+    },
+    {
+     "text": "Конец Второй мировой войны",
+     "is_correct": false
+    },
+    {
+     "text": "Полёт в космос",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

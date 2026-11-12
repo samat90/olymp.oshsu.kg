@@ -1,0 +1,721 @@
+{
+ "key": "flagi-hard",
+ "title": "Флаги: сложный уровень",
+ "subject": "География",
+ "theme": "steppe",
+ "description": "25 флагов для знатоков: близнецы и двойники, флаги с картами, оружием и надписями. Справится тот, кто смотрит на детали. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: чей это флаг?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "Флаги Чада и Румынии почти одинаковы — у Чада синий чуть темнее.\n\n*Фото: SKopp & others (see upload log), Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_Chad.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Молдова",
+     "is_correct": false
+    },
+    {
+     "text": "Андорра",
+     "is_correct": false
+    },
+    {
+     "text": "Чад",
+     "is_correct": true
+    },
+    {
+     "text": "Румыния",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Красная полоса сверху, белая снизу. Чей флаг?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Флаги Индонезии и Монако совпадают по цветам, отличаются только пропорциями. У Польши наоборот: белый сверху.\n\n*Фото: Jayakatwang, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_Indonesia.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Австрия",
+     "is_correct": false
+    },
+    {
+     "text": "Индонезия (и Монако)",
+     "is_correct": true
+    },
+    {
+     "text": "Польша",
+     "is_correct": false
+    },
+    {
+     "text": "Япония",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "А этот — белый сверху и красный снизу?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikipedia](https://en.wikipedia.org/wiki/File:Flag_of_Poland.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Польша",
+     "is_correct": true
+    },
+    {
+     "text": "Сингапур",
+     "is_correct": false
+    },
+    {
+     "text": "Индонезия",
+     "is_correct": false
+    },
+    {
+     "text": "Монако",
+     "is_correct": false
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Зелёный, белый, оранжевый — от древка. Чей флаг?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "У Кот-д’Ивуара те же цвета, но в обратном порядке: оранжевый у древка.\n\n*Фото: Éire, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_Ireland.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кот-д’Ивуар",
+     "is_correct": false
+    },
+    {
+     "text": "Индия",
+     "is_correct": false
+    },
+    {
+     "text": "Италия",
+     "is_correct": false
+    },
+    {
+     "text": "Ирландия",
+     "is_correct": true
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чей это флаг — красно-бело-голубые горизонтальные полосы?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Zscout370, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_the_Netherlands.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Россия",
+     "is_correct": false
+    },
+    {
+     "text": "Франция",
+     "is_correct": false
+    },
+    {
+     "text": "Нидерланды",
+     "is_correct": true
+    },
+    {
+     "text": "Люксембург",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Синий флаг с британским флагом и четырьмя красными звёздами. Чей?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "У Австралии звёзды белые и их больше, плюс большая семиконечная звезда.\n\n*Фото: Original: Albert Hastings Markham Vector: Zscout370, Hugh Jass, s. File history, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_New_Zealand.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Фиджи",
+     "is_correct": false
+    },
+    {
+     "text": "Новая Зеландия",
+     "is_correct": true
+    },
+    {
+     "text": "Австралия",
+     "is_correct": false
+    },
+    {
+     "text": "Тувалу",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Скандинавский крест: красный в белой окантовке на синем. Чей флаг?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Original: Matthías Þórðarson Vector: Árni Dagur and Magasjukur2, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_Iceland.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Исландия",
+     "is_correct": true
+    },
+    {
+     "text": "Дания",
+     "is_correct": false
+    },
+    {
+     "text": "Норвегия",
+     "is_correct": false
+    },
+    {
+     "text": "Финляндия",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чей это флаг — с автоматом Калашникова?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: FRELIMO, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_Mozambique.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Зимбабве",
+     "is_correct": false
+    },
+    {
+     "text": "Гана",
+     "is_correct": false
+    },
+    {
+     "text": "Ангола",
+     "is_correct": false
+    },
+    {
+     "text": "Мозамбик",
+     "is_correct": true
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чей это флаг — с картой острова?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: İsmet Güney, SVG by User:Vzb83~commonswiki, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_Cyprus.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Крит",
+     "is_correct": false
+    },
+    {
+     "text": "Кипр",
+     "is_correct": true
+    },
+    {
+     "text": "Сицилия",
+     "is_correct": false
+    },
+    {
+     "text": "Мальта",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чей это флаг — с картой страны и шестью звёздами?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Cradel (current version), earlier version by Ningyou, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_Kosovo.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Косово",
+     "is_correct": true
+    },
+    {
+     "text": "Македония",
+     "is_correct": false
+    },
+    {
+     "text": "Кипр",
+     "is_correct": false
+    },
+    {
+     "text": "Босния и Герцеговина",
+     "is_correct": false
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "single",
+   "text": "На каком флаге надпись «Ordem e Progresso»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, PD, [Wikipedia](https://en.wikipedia.org/wiki/File:Flag_of_Brazil.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Аргентина",
+     "is_correct": false
+    },
+    {
+     "text": "Португалия",
+     "is_correct": false
+    },
+    {
+     "text": "Мексика",
+     "is_correct": false
+    },
+    {
+     "text": "Бразилия",
+     "is_correct": true
+    }
+   ],
+   "image": "q11.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Флаги Гаити и этой страны совпали, и это обнаружилось только на Олимпиаде 1936 года. Что за страна?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "После этого Лихтенштейн добавил на флаг корону.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лихтенштейн",
+     "is_correct": true
+    },
+    {
+     "text": "Монако",
+     "is_correct": false
+    },
+    {
+     "text": "Андорра",
+     "is_correct": false
+    },
+    {
+     "text": "Сан-Марино",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Передышка без очков: какой флаг квадратный?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "Ещё квадратный флаг у Ватикана.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Швейцария",
+     "is_correct": true
+    },
+    {
+     "text": "Япония",
+     "is_correct": false
+    },
+    {
+     "text": "Непал",
+     "is_correct": false
+    },
+    {
+     "text": "Франция",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чей это флаг — с узорами ковров у древка?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_Turkmenistan.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Иран",
+     "is_correct": false
+    },
+    {
+     "text": "Казахстан",
+     "is_correct": false
+    },
+    {
+     "text": "Афганистан",
+     "is_correct": false
+    },
+    {
+     "text": "Туркменистан",
+     "is_correct": true
+    }
+   ],
+   "image": "q14.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Сколько звёзд на флаге Узбекистана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Farhod Yoʻldoshev, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_Uzbekistan.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "10",
+     "is_correct": false
+    },
+    {
+     "text": "7",
+     "is_correct": false
+    },
+    {
+     "text": "5",
+     "is_correct": false
+    },
+    {
+     "text": "12",
+     "is_correct": true
+    }
+   ],
+   "image": "q15.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Сколько звёзд над короной на флаге Таджикистана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_Tajikistan.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "7",
+     "is_correct": true
+    },
+    {
+     "text": "9",
+     "is_correct": false
+    },
+    {
+     "text": "12",
+     "is_correct": false
+    },
+    {
+     "text": "5",
+     "is_correct": false
+    }
+   ],
+   "image": "q16.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая птица парит под солнцем на флаге Казахстана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Shaken Niyazbekop, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_Kazakhstan.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Журавль",
+     "is_correct": false
+    },
+    {
+     "text": "Сокол",
+     "is_correct": false
+    },
+    {
+     "text": "Беркут (степной орёл)",
+     "is_correct": true
+    },
+    {
+     "text": "Лебедь",
+     "is_correct": false
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "С 2023 года лучи солнца на флаге Кыргызстана — прямые, а не волнистые.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Закон о новом флаге приняли в декабре 2023 года.\n\n*Фото: Shakiev N.T., Primov U.B., Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_Kyrgyzstan.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q18.jpg"
+  },
+  {
+   "type": "single",
+   "text": "У флага этой страны разные лицевая и обратная стороны. Что за страна?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Republica del Paraguay, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_Paraguay.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Уругвай",
+     "is_correct": false
+    },
+    {
+     "text": "Парагвай",
+     "is_correct": true
+    },
+    {
+     "text": "Боливия",
+     "is_correct": false
+    },
+    {
+     "text": "Чили",
+     "is_correct": false
+    }
+   ],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Жёлтая (вдвое шире), синяя и красная полосы и герб с кондором в центре. Чей флаг?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Колумбия, Эквадор и Венесуэла — наследники Великой Колумбии. У Эквадора в центре герб с кондором.\n\n*Фото: President of the Republic of Ecuador, first uploaded by Denelson83 as Flag of Ecuador.svg, modifications by Husunqu, Zsc, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_Ecuador.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Колумбия",
+     "is_correct": false
+    },
+    {
+     "text": "Боливия",
+     "is_correct": false
+    },
+    {
+     "text": "Эквадор",
+     "is_correct": true
+    },
+    {
+     "text": "Венесуэла",
+     "is_correct": false
+    }
+   ],
+   "image": "q20.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Бело-сине-красный флаг с гербом с тремя горами и звёздами. Чей?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "У Словакии на гербе двойной крест на трёх холмах.\n\n*Фото: Original: Marko Pogačnik Vector: Achim1999, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_Slovenia.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сербия",
+     "is_correct": false
+    },
+    {
+     "text": "Словения",
+     "is_correct": true
+    },
+    {
+     "text": "Словакия",
+     "is_correct": false
+    },
+    {
+     "text": "Россия",
+     "is_correct": false
+    }
+   ],
+   "image": "q21.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "На флагах каких стран есть звёзды?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Новая Зеландия",
+     "is_correct": true
+    },
+    {
+     "text": "Канада",
+     "is_correct": false
+    },
+    {
+     "text": "Япония",
+     "is_correct": false
+    },
+    {
+     "text": "Узбекистан",
+     "is_correct": true
+    },
+    {
+     "text": "Китай",
+     "is_correct": true
+    },
+    {
+     "text": "Таджикистан",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте цвета флага Ирландии от древка.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Зелёный",
+     "is_correct": false
+    },
+    {
+     "text": "Белый",
+     "is_correct": false
+    },
+    {
+     "text": "Оранжевый",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Флаг какой страны считается самым старым непрерывно используемым в мире (с XIII–XIV века)? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "*Фото: Madden and others, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_Denmark.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "Дания",
+     "Дании",
+     "дания"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": "q24.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! На каком зелёном флаге написана шахада — символ веры ислама, а под ней меч?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "На флаге Саудовской Аравии — шахада и меч. Его никогда не приспускают в знак траура.\n\n*Фото: The Shura Council, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Flag_of_Saudi_Arabia.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пакистан",
+     "is_correct": false
+    },
+    {
+     "text": "Египет",
+     "is_correct": false
+    },
+    {
+     "text": "Саудовская Аравия",
+     "is_correct": true
+    },
+    {
+     "text": "Иран",
+     "is_correct": false
+    }
+   ],
+   "image": "q25.jpg"
+  }
+ ]
+}

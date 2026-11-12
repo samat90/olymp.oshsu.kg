@@ -1,0 +1,83 @@
+{
+ "cover.jpg": {
+  "author": "Nuno Nogueira (Nmnogueira)",
+  "file": "Merge sort animation.gif",
+  "license": "CC BY-SA 2.5",
+  "mime": "image/gif",
+  "page": "https://commons.wikimedia.org/wiki/File:Merge_sort_animation.gif",
+  "spec": "en:Sorting algorithm",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Merge_sort_animation.gif?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q02.jpg": {
+  "author": "AlwaysAngry",
+  "file": "Binary Search Depiction.svg",
+  "license": "CC BY-SA 4.0",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Binary_Search_Depiction.svg",
+  "spec": "en:Binary search",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/Binary_Search_Depiction.svg/960px-Binary_Search_Depiction.svg.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q04.jpg": {
+  "author": "Pmdumuid",
+  "file": "Bubblesort-edited-color.svg",
+  "license": "CC0",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Bubblesort-edited-color.svg",
+  "spec": "en:Bubble sort",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/Bubblesort-edited-color.svg/960px-Bubblesort-edited-color.svg.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q06.jpg": {
+  "author": "Foto: Jonn Leffmann",
+  "file": "Tallrik - Ystad-2018.jpg",
+  "license": "CC BY 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Tallrik_-_Ystad-2018.jpg",
+  "spec": "en:Stack (abstract data type)",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/1/19/Tallrik_-_Ystad-2018.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q10.jpg": {
+  "author": "Jusepe de Ribera (Spanish / Italian, 1591 - 1652) (1591 - 1652) – artist (Spanish / Italian) Details on Google Art Proje",
+  "file": "Italian - Euclid - Google Art Project.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Italian_-_Euclid_-_Google_Art_Project.jpg",
+  "spec": "en:Euclid",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Italian_-_Euclid_-_Google_Art_Project.jpg/960px-Italian_-_Euclid_-_Google_Art_Project.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q12.jpg": {
+  "author": "SKopp at German Wikipedia",
+  "file": "Animation Sieve of Eratosth.gif",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/gif",
+  "page": "https://commons.wikimedia.org/wiki/File:Animation_Sieve_of_Eratosth.gif",
+  "spec": "en:Sieve of Eratosthenes",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/9/94/Animation_Sieve_of_Eratosth.gif?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q19.jpg": {
+  "author": "Unknown authorUnknown author",
+  "file": "Tree graph.svg",
+  "license": "Public domain",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Tree_graph.svg",
+  "spec": "en:Tree (graph theory)",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Tree_graph.svg/960px-Tree_graph.svg.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q23.jpg": {
+  "author": "No machine-readable author provided. Dcoetzee assumed (based on copyright claims).",
+  "file": "Minimum spanning tree.svg",
+  "license": "Public domain",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Minimum_spanning_tree.svg",
+  "spec": "en:Minimum spanning tree",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Minimum_spanning_tree.svg/960px-Minimum_spanning_tree.svg.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q25.jpg": {
+  "author": "",
+  "file": "Tower of Hanoi.jpeg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Tower_of_Hanoi.jpeg",
+  "spec": "c:Tower of Hanoi.jpeg",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/0/07/Tower_of_Hanoi.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ }
+}

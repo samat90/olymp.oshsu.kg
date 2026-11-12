@@ -1,0 +1,704 @@
+{
+ "key": "boz-uy",
+ "title": "Юрта и кыргызские ремёсла",
+ "subject": "Кыргызстан",
+ "theme": "steppe",
+ "description": "25 вопросов о том, как устроена боз үй, и о кыргызских ремёслах: войлок, чий, вышивка, кожа и серебро. Части юрты по фото и сборка по шагам. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: как по-кыргызски называется юрта?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "«Боз үй» — «серый дом», по цвету войлока.\n\n*Фото: Myrzabek Ozubekov, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:SK_yurt_camp_%281_of_1%29-8.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ак сарай",
+     "is_correct": false
+    },
+    {
+     "text": "Там үй",
+     "is_correct": false
+    },
+    {
+     "text": "Боз үй",
+     "is_correct": true
+    },
+    {
+     "text": "Кара үй",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называются деревянные решётчатые стенки юрты?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Уук",
+     "is_correct": false
+    },
+    {
+     "text": "Түндүк",
+     "is_correct": false
+    },
+    {
+     "text": "Чий",
+     "is_correct": false
+    },
+    {
+     "text": "Кереге",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называются длинные изогнутые жерди купола, которые идут от стен к кругу наверху?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Уук",
+     "is_correct": true
+    },
+    {
+     "text": "Босого",
+     "is_correct": false
+    },
+    {
+     "text": "Туурдук",
+     "is_correct": false
+    },
+    {
+     "text": "Кереге",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Размер юрты считают по секциям решётки. Как называется одна такая секция?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Говорят: «алты канат боз үй» — юрта из шести секций кереге.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бөлүк",
+     "is_correct": false
+    },
+    {
+     "text": "Кулач",
+     "is_correct": false
+    },
+    {
+     "text": "Канат",
+     "is_correct": true
+    },
+    {
+     "text": "Тепкич",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое место в юрте самое почётное?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Слева от очага",
+     "is_correct": false
+    },
+    {
+     "text": "Төр — напротив входа",
+     "is_correct": true
+    },
+    {
+     "text": "Под түндүком",
+     "is_correct": false
+    },
+    {
+     "text": "У двери",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется стопка сложенных одеял и подушек у дальней стены юрты?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тушкийиз",
+     "is_correct": false
+    },
+    {
+     "text": "Жүк",
+     "is_correct": true
+    },
+    {
+     "text": "Төр",
+     "is_correct": false
+    },
+    {
+     "text": "Сандык",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что такое «чий»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Металлический очаг",
+     "is_correct": false
+    },
+    {
+     "text": "Циновка из стеблей степной травы, часто с шерстяным узором",
+     "is_correct": true
+    },
+    {
+     "text": "Деревянная дверь",
+     "is_correct": false
+    },
+    {
+     "text": "Верёвка из конского волоса",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называются войлочные полотнища, которыми покрывают стены юрты снаружи?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Туурдук закрывает стенки, а үзүк — купол юрты.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Үзүк",
+     "is_correct": false
+    },
+    {
+     "text": "Шырдак",
+     "is_correct": false
+    },
+    {
+     "text": "Туурдук",
+     "is_correct": true
+    },
+    {
+     "text": "Кереге",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется вышитый настенный ковёр, который девушка готовит к свадьбе?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, CC BY 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:%D0%91%D0%B0%D1%80%D0%BA%D1%8B%D1%82,_%D1%82%D1%83%D0%BA%D0%B0%D0%B1%D0%B0,_%D0%B6%D0%B8%D0%B1%D0%B5%D0%BA_%D1%81%D0%B0%D0%B9%D0%BC%D0%B0,.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тушкийиз",
+     "is_correct": true
+    },
+    {
+     "text": "Ала кийиз",
+     "is_correct": false
+    },
+    {
+     "text": "Чий",
+     "is_correct": false
+    },
+    {
+     "text": "Шырдак",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чем ала кийиз отличается от шырдака?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Шырдак делают из шёлка",
+     "is_correct": false
+    },
+    {
+     "text": "Узор ала кийиза вваливают прямо в войлок, а шырдак сшивают из вырезанных кусков",
+     "is_correct": true
+    },
+    {
+     "text": "Ала кийиз ткут на станке",
+     "is_correct": false
+    },
+    {
+     "text": "Ничем, это одно и то же",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Передышка без очков: искусство войлочных ковров ала кийиз и шырдак ЮНЕСКО внесло в список наследия, которое требует срочной охраны.",
+   "time_limit": 15,
+   "weight": 0,
+   "explanation": "Это произошло в 2012 году.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кыргызстан и Казахстан вместе внесли в список ЮНЕСКО знания и навыки изготовления юрты. В каком году?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "2014",
+     "is_correct": true
+    },
+    {
+     "text": "1991",
+     "is_correct": false
+    },
+    {
+     "text": "2020",
+     "is_correct": false
+    },
+    {
+     "text": "2005",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте сборку юрты по порядку.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Расставить кереге по кругу",
+     "is_correct": false
+    },
+    {
+     "text": "Поставить дверь",
+     "is_correct": false
+    },
+    {
+     "text": "Поднять түндүк",
+     "is_correct": false
+    },
+    {
+     "text": "Вставить уук",
+     "is_correct": false
+    },
+    {
+     "text": "Накрыть войлоком",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется кожаный сосуд для кымыза, который берут в дорогу?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чыны кап",
+     "is_correct": false
+    },
+    {
+     "text": "Сабаа",
+     "is_correct": false
+    },
+    {
+     "text": "Казан",
+     "is_correct": false
+    },
+    {
+     "text": "Көөкөр",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется большой кожаный мешок, в котором сбивают и заквашивают кымыз?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Көөкөр",
+     "is_correct": false
+    },
+    {
+     "text": "Бишкек",
+     "is_correct": false
+    },
+    {
+     "text": "Чанач",
+     "is_correct": false
+    },
+    {
+     "text": "Сабаа",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Слово «бишкек» означает деревянную мешалку для кымыза.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "По одной из версий, отсюда и название столицы.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называют мастера-ювелира, который делает украшения из серебра?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "«Уста» — мастер вообще, а «чебер» — мастерица-рукодельница.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Зергер",
+     "is_correct": true
+    },
+    {
+     "text": "Чебер",
+     "is_correct": false
+    },
+    {
+     "text": "Манасчы",
+     "is_correct": false
+    },
+    {
+     "text": "Уста",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Что делают из войлока?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ак калпак",
+     "is_correct": true
+    },
+    {
+     "text": "Комуз",
+     "is_correct": false
+    },
+    {
+     "text": "Кереге",
+     "is_correct": false
+    },
+    {
+     "text": "Шырдак",
+     "is_correct": true
+    },
+    {
+     "text": "Покрытие юрты",
+     "is_correct": true
+    },
+    {
+     "text": "Ала кийиз",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется мужская войлочная шляпа — символ Кыргызстана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Petar Milošević, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kyrgyz_man_with_ak-kalpak_hat_%28%D0%B0%D0%BA-%D0%BA%D0%B0%D0%BB%D0%BF%D0%B0%D0%BA_%D1%88%D0%B0%D0%BF%D0%BAa%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Элечек",
+     "is_correct": false
+    },
+    {
+     "text": "Тебетей",
+     "is_correct": false
+    },
+    {
+     "text": "Тумак",
+     "is_correct": false
+    },
+    {
+     "text": "Ак калпак",
+     "is_correct": true
+    }
+   ],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "single",
+   "text": "А как называется зимняя меховая шапка?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тебетей",
+     "is_correct": true
+    },
+    {
+     "text": "Элечек",
+     "is_correct": false
+    },
+    {
+     "text": "Шөкүлө",
+     "is_correct": false
+    },
+    {
+     "text": "Ак калпак",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: высокий свадебный головной убор невесты, украшенный перьями филина и серебром.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ШӨКҮЛӨ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется длинный стёганый халат?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Элечек",
+     "is_correct": false
+    },
+    {
+     "text": "Шым",
+     "is_correct": false
+    },
+    {
+     "text": "Чапан",
+     "is_correct": true
+    },
+    {
+     "text": "Кемсел",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что такое «ээр»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "А плеть — «камчы».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Уздечка",
+     "is_correct": false
+    },
+    {
+     "text": "Плеть",
+     "is_correct": false
+    },
+    {
+     "text": "Седло",
+     "is_correct": true
+    },
+    {
+     "text": "Стремя",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Как по-кыргызски называется плеть всадника? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "камчы"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Как называется войлок, который закрывает купол юрты?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Туурдук",
+     "is_correct": false
+    },
+    {
+     "text": "Үзүк",
+     "is_correct": true
+    },
+    {
+     "text": "Чий",
+     "is_correct": false
+    },
+    {
+     "text": "Түндүк",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

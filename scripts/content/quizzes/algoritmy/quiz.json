@@ -1,0 +1,696 @@
+{
+ "key": "algoritmy",
+ "title": "Алгоритмы и структуры данных",
+ "subject": "Программирование",
+ "theme": "night",
+ "description": "25 вопросов для олимпиадников: сортировки, бинарный поиск, графы, стек и очередь, сложность O(n). Пригодится перед контестом. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: что такое алгоритм?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Деталь компьютера",
+     "is_correct": false
+    },
+    {
+     "text": "Язык программирования",
+     "is_correct": false
+    },
+    {
+     "text": "Математическая формула",
+     "is_correct": false
+    },
+    {
+     "text": "Точная последовательность шагов для решения задачи",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что обязательно нужно для бинарного поиска?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: AlwaysAngry, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Binary_Search_Depiction.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Отсортированный массив",
+     "is_correct": true
+    },
+    {
+     "text": "Связный список",
+     "is_correct": false
+    },
+    {
+     "text": "Массив без повторов",
+     "is_correct": false
+    },
+    {
+     "text": "Чётное число элементов",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "Сколько максимум сравнений нужно бинарному поиску в отсортированном массиве из 1 000 000 чисел?",
+   "time_limit": 25,
+   "weight": 2,
+   "explanation": "2²⁰ = 1 048 576 > 1 000 000, поэтому хватит 20 шагов.",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 1,
+    "max": 100,
+    "step": 1,
+    "answer": 20,
+    "unit": "",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая сложность у сортировки пузырьком в худшем случае?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Pmdumuid, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bubblesort-edited-color.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "O(n²)",
+     "is_correct": true
+    },
+    {
+     "text": "O(log n)",
+     "is_correct": false
+    },
+    {
+     "text": "O(n log n)",
+     "is_correct": false
+    },
+    {
+     "text": "O(n)",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая сложность у сортировки слиянием?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "O(n²)",
+     "is_correct": false
+    },
+    {
+     "text": "O(n log n)",
+     "is_correct": true
+    },
+    {
+     "text": "O(2ⁿ)",
+     "is_correct": false
+    },
+    {
+     "text": "O(n)",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Стек работает по принципу…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Foto: Jonn Leffmann, CC BY 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tallrik_-_Ystad-2018.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Первым пришёл — первым ушёл (FIFO)",
+     "is_correct": false
+    },
+    {
+     "text": "Последним пришёл — первым ушёл (LIFO)",
+     "is_correct": true
+    },
+    {
+     "text": "По возрастанию",
+     "is_correct": false
+    },
+    {
+     "text": "Случайный порядок",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "А очередь — по принципу…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Самый большой — первым",
+     "is_correct": false
+    },
+    {
+     "text": "Последним пришёл — первым ушёл (LIFO)",
+     "is_correct": false
+    },
+    {
+     "text": "По алфавиту",
+     "is_correct": false
+    },
+    {
+     "text": "Первым пришёл — первым ушёл (FIFO)",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какую структуру данных использует обход графа в ширину (BFS)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Стек",
+     "is_correct": false
+    },
+    {
+     "text": "Хеш-таблицу",
+     "is_correct": false
+    },
+    {
+     "text": "Очередь",
+     "is_correct": true
+    },
+    {
+     "text": "Кучу",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Ловушка: в графе есть рёбра с отрицательным весом. Какой алгоритм ищет кратчайшие пути правильно?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Алгоритм Дейкстры работает только с неотрицательными весами.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Краскала",
+     "is_correct": false
+    },
+    {
+     "text": "Беллмана — Форда",
+     "is_correct": true
+    },
+    {
+     "text": "Дейкстры",
+     "is_correct": false
+    },
+    {
+     "text": "Обход в ширину",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что находит алгоритм Евклида?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Jusepe de Ribera (Spanish / Italian, 1591 - 1652) (1591 - 1652) – artist (Spanish / Italian) Details on Google Art Proje, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Italian_-_Euclid_-_Google_Art_Project.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "НОД двух чисел",
+     "is_correct": true
+    },
+    {
+     "text": "Корень уравнения",
+     "is_correct": false
+    },
+    {
+     "text": "Кратчайший путь",
+     "is_correct": false
+    },
+    {
+     "text": "Простые числа",
+     "is_correct": false
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "text",
+   "text": "Чему равен НОД(48, 18)?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "6"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что находит решето Эратосфена?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: SKopp at German Wikipedia, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Animation_Sieve_of_Eratosth.gif)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "НОК чисел",
+     "is_correct": false
+    },
+    {
+     "text": "Факториал",
+     "is_correct": false
+    },
+    {
+     "text": "Все простые числа до N",
+     "is_correct": true
+    },
+    {
+     "text": "Сумму делителей",
+     "is_correct": false
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Почему простая рекурсия для чисел Фибоначчи такая медленная?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Компьютер не любит рекурсию",
+     "is_correct": false
+    },
+    {
+     "text": "Рекурсия всегда медленнее цикла в 2 раза",
+     "is_correct": false
+    },
+    {
+     "text": "Она много раз считает одно и то же; помогает запоминание (динамическое программирование)",
+     "is_correct": true
+    },
+    {
+     "text": "Числа Фибоначчи слишком большие",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте сложности от самой быстрой к самой медленной.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "O(1)",
+     "is_correct": false
+    },
+    {
+     "text": "O(log n)",
+     "is_correct": false
+    },
+    {
+     "text": "O(n)",
+     "is_correct": false
+    },
+    {
+     "text": "O(n log n)",
+     "is_correct": false
+    },
+    {
+     "text": "O(n²)",
+     "is_correct": false
+    },
+    {
+     "text": "O(2ⁿ)",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Есть монеты 1, 3 и 4 сома. Жадный алгоритм («каждый раз бери самую большую монету») всегда даст 6 сомов наименьшим числом монет.",
+   "time_limit": 15,
+   "weight": 2,
+   "explanation": "Жадный даст 4 + 1 + 1 (три монеты), а лучше 3 + 3 (две). Здесь нужна динамика.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что будет, если у рекурсии нет базового случая?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Переполнение стека вызовов",
+     "is_correct": true
+    },
+    {
+     "text": "Ничего",
+     "is_correct": false
+    },
+    {
+     "text": "Она превратится в цикл",
+     "is_correct": false
+    },
+    {
+     "text": "Программа ускорится",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая средняя сложность поиска в хеш-таблице?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "O(log n)",
+     "is_correct": false
+    },
+    {
+     "text": "O(1)",
+     "is_correct": true
+    },
+    {
+     "text": "O(n)",
+     "is_correct": false
+    },
+    {
+     "text": "O(n²)",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Передышка без очков: какой фигурой в блок-схеме обозначают условие?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Треугольником",
+     "is_correct": false
+    },
+    {
+     "text": "Овалом",
+     "is_correct": false
+    },
+    {
+     "text": "Ромбом",
+     "is_correct": true
+    },
+    {
+     "text": "Прямоугольником",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько рёбер в дереве из n вершин?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tree_graph.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "n + 1",
+     "is_correct": false
+    },
+    {
+     "text": "n − 1",
+     "is_correct": true
+    },
+    {
+     "text": "2n",
+     "is_correct": false
+    },
+    {
+     "text": "n",
+     "is_correct": false
+    }
+   ],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "Чему равно 2¹⁰?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 100,
+    "max": 2000,
+    "step": 1,
+    "answer": 1024,
+    "unit": "",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чему равно двоичное число 1011 в десятичной системе?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "13",
+     "is_correct": false
+    },
+    {
+     "text": "9",
+     "is_correct": false
+    },
+    {
+     "text": "1011",
+     "is_correct": false
+    },
+    {
+     "text": "11",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие из этих алгоритмов — сортировки?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Быстрая сортировка",
+     "is_correct": true
+    },
+    {
+     "text": "Слиянием",
+     "is_correct": true
+    },
+    {
+     "text": "Алгоритм Евклида",
+     "is_correct": false
+    },
+    {
+     "text": "Пузырьком",
+     "is_correct": true
+    },
+    {
+     "text": "Вставками",
+     "is_correct": true
+    },
+    {
+     "text": "Алгоритм Дейкстры",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой алгоритм строит минимальное остовное дерево графа?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: No machine-readable author provided. Dcoetzee assumed (based on copyright claims)., Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Minimum_spanning_tree.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Краскала",
+     "is_correct": true
+    },
+    {
+     "text": "Евклида",
+     "is_correct": false
+    },
+    {
+     "text": "Бинарный поиск",
+     "is_correct": false
+    },
+    {
+     "text": "Дейкстры",
+     "is_correct": false
+    }
+   ],
+   "image": "q23.jpg"
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: когда функция вызывает саму себя.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "РЕКУРСИЯ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Сколько минимум ходов нужно, чтобы перенести 5 дисков в «Ханойской башне»?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Формула 2ⁿ − 1: для 5 дисков 2⁵ − 1 = 31.\n\n*Фото: автор неизвестен, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tower_of_Hanoi.jpeg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "25",
+     "is_correct": false
+    },
+    {
+     "text": "15",
+     "is_correct": false
+    },
+    {
+     "text": "32",
+     "is_correct": false
+    },
+    {
+     "text": "31",
+     "is_correct": true
+    }
+   ],
+   "image": "q25.jpg"
+  }
+ ]
+}

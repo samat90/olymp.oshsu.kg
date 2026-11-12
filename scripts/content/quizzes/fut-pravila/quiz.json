@@ -1,0 +1,704 @@
+{
+ "key": "fut-pravila",
+ "title": "Футбол: правила и каверзы",
+ "subject": "Футбол",
+ "theme": "steppe",
+ "description": "25 вопросов о правилах футбола, которые путают даже болельщики: офсайд, ауты, карточки, VAR, и о сборной Кыргызстана. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: сколько игроков одной команды на поле?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Rick Dikeman, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Football_in_Bloomington,_Indiana,_1995.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "9",
+     "is_correct": false
+    },
+    {
+     "text": "10",
+     "is_correct": false
+    },
+    {
+     "text": "12",
+     "is_correct": false
+    },
+    {
+     "text": "11",
+     "is_correct": true
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Сколько длится основное время матча?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "3 периода по 20 минут",
+     "is_correct": false
+    },
+    {
+     "text": "2 тайма по 45 минут",
+     "is_correct": true
+    },
+    {
+     "text": "2 тайма по 40 минут",
+     "is_correct": false
+    },
+    {
+     "text": "4 четверти по 15 минут",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько длится дополнительное время?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "2 тайма по 10 минут",
+     "is_correct": false
+    },
+    {
+     "text": "До первого гола",
+     "is_correct": false
+    },
+    {
+     "text": "1 тайм 30 минут",
+     "is_correct": false
+    },
+    {
+     "text": "2 тайма по 15 минут",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "С какого расстояния бьют пенальти?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: IQRemix from Canada, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:FIFA_Women%27s_World_Cup_Canada_2015_-_Edmonton_%2818821505113%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "7 метров",
+     "is_correct": false
+    },
+    {
+     "text": "11 метров",
+     "is_correct": true
+    },
+    {
+     "text": "16,5 метра",
+     "is_correct": false
+    },
+    {
+     "text": "9 метров",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какого размера футбольные ворота?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: https://www.flickr.com/photos/keithminer/, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Football_goal.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "6 × 2,5 м",
+     "is_correct": false
+    },
+    {
+     "text": "5 × 2 м",
+     "is_correct": false
+    },
+    {
+     "text": "7,32 × 2,44 м",
+     "is_correct": true
+    },
+    {
+     "text": "10 × 3 м",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Из аута можно сразу забить гол, бросив мяч в ворота.",
+   "time_limit": 15,
+   "weight": 2,
+   "explanation": "Гол прямо из аута не засчитывается — назначается удар от ворот.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Можно забить гол прямо с углового удара.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Такой гол называют «олимпийским».\n\n*Фото: Dan Flies, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Man_U_vs_Spurs_2006,_Jenas_taking_a_corner_kick.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Можно оказаться в офсайде, получив мяч прямо из аута.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "При вбрасывании из аута, ударе от ворот и угловом офсайда не бывает.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что будет, если игрок получил вторую жёлтую карточку в матче?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Штрафной удар",
+     "is_correct": false
+    },
+    {
+     "text": "Красная, и его удаляют",
+     "is_correct": true
+    },
+    {
+     "text": "Ничего",
+     "is_correct": false
+    },
+    {
+     "text": "Замена",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "На каком чемпионате мира впервые показали жёлтые и красные карточки?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Mehdi Bolourian, CC BY 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Qatar_-_Japan,_AFC_Asian_Cup_2019_38.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "1930, Уругвай",
+     "is_correct": false
+    },
+    {
+     "text": "1998, Франция",
+     "is_correct": false
+    },
+    {
+     "text": "2018, Россия",
+     "is_correct": false
+    },
+    {
+     "text": "1970, Мексика",
+     "is_correct": true
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "single",
+   "text": "На каком чемпионате мира впервые использовали VAR?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Carlos Figueroa, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Colo-Colo_v_Palestino_20200128_03.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "2018, Россия",
+     "is_correct": true
+    },
+    {
+     "text": "2022, Катар",
+     "is_correct": false
+    },
+    {
+     "text": "2010, ЮАР",
+     "is_correct": false
+    },
+    {
+     "text": "2014, Бразилия",
+     "is_correct": false
+    }
+   ],
+   "image": "q11.jpg"
+  },
+  {
+   "type": "single",
+   "text": "С 1992 года вратарь не может брать мяч в руки, если…",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мяч прилетел после углового",
+     "is_correct": false
+    },
+    {
+     "text": "Идёт дождь",
+     "is_correct": false
+    },
+    {
+     "text": "Его партнёр намеренно отдал ему пас ногой",
+     "is_correct": true
+    },
+    {
+     "text": "Мяч летит выше головы",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Передышка без очков: как называют три гола одного игрока в матче?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Хет-трик",
+     "is_correct": true
+    },
+    {
+     "text": "Дубль",
+     "is_correct": false
+    },
+    {
+     "text": "Сухарь",
+     "is_correct": false
+    },
+    {
+     "text": "Покер",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "А четыре гола одного игрока?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Покер",
+     "is_correct": true
+    },
+    {
+     "text": "Хет-трик",
+     "is_correct": false
+    },
+    {
+     "text": "Каре",
+     "is_correct": false
+    },
+    {
+     "text": "Дубль",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько замен можно сделать за основное время по нынешним правилам?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "7",
+     "is_correct": false
+    },
+    {
+     "text": "5",
+     "is_correct": true
+    },
+    {
+     "text": "3",
+     "is_correct": false
+    },
+    {
+     "text": "Сколько угодно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько ударов делает каждая команда в серии пенальти (до «внезапной смерти»)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "3",
+     "is_correct": false
+    },
+    {
+     "text": "11",
+     "is_correct": false
+    },
+    {
+     "text": "5",
+     "is_correct": true
+    },
+    {
+     "text": "10",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Где и когда приняли первые общие правила футбола?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В Греции, в древности",
+     "is_correct": false
+    },
+    {
+     "text": "В Англии, в 1863 году",
+     "is_correct": true
+    },
+    {
+     "text": "В Бразилии, в 1950 году",
+     "is_correct": false
+    },
+    {
+     "text": "В Италии, в 1800 году",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как прозвали сборную Кыргызстана по футболу?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Барсы»",
+     "is_correct": false
+    },
+    {
+     "text": "«Беркуты»",
+     "is_correct": false
+    },
+    {
+     "text": "«Ак шумкарлар» — «Белые соколы»",
+     "is_correct": true
+    },
+    {
+     "text": "«Тулпары»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "На каком стадионе в Бишкеке играет сборная Кыргызстана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Стадион имени Долена Омурзакова",
+     "is_correct": true
+    },
+    {
+     "text": "Стадион «Спартак» в Оше",
+     "is_correct": false
+    },
+    {
+     "text": "Дордой Плаза",
+     "is_correct": false
+    },
+    {
+     "text": "Ала-Тоо Арена",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В каком году сборная Кыргызстана впервые сыграла на Кубке Азии и вышла в 1/8 финала?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "2019",
+     "is_correct": true
+    },
+    {
+     "text": "2015",
+     "is_correct": false
+    },
+    {
+     "text": "2023",
+     "is_correct": false
+    },
+    {
+     "text": "2007",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто лучший бомбардир в истории сборной Кыргызстана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Bektour, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mirlan_Murzaev.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Валерий Кичин",
+     "is_correct": false
+    },
+    {
+     "text": "Эдгар Бернхардт",
+     "is_correct": false
+    },
+    {
+     "text": "Мирлан Мурзаев",
+     "is_correct": true
+    },
+    {
+     "text": "Вадим Харченко",
+     "is_correct": false
+    }
+   ],
+   "image": "q21.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Из каких положений можно забить гол прямо, без касания другого игрока?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Удар от ворот",
+     "is_correct": true
+    },
+    {
+     "text": "Угловой",
+     "is_correct": true
+    },
+    {
+     "text": "Вбрасывание из аута",
+     "is_correct": false
+    },
+    {
+     "text": "Свободный (непрямой) штрафной",
+     "is_correct": false
+    },
+    {
+     "text": "Прямой штрафной",
+     "is_correct": true
+    },
+    {
+     "text": "Пенальти",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте события по времени, от самого раннего.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Первые правила футбола в Англии",
+     "is_correct": false
+    },
+    {
+     "text": "Первый чемпионат мира",
+     "is_correct": false
+    },
+    {
+     "text": "Первые карточки на ЧМ",
+     "is_correct": false
+    },
+    {
+     "text": "Первый VAR на ЧМ",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: судья, который следит за линией.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ЛАЙНСМЕН"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Можно ли забить гол прямо с начального удара в центре поля?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Только в дополнительное время",
+     "is_correct": false
+    },
+    {
+     "text": "Только в пустые ворота",
+     "is_correct": false
+    },
+    {
+     "text": "Нет, никогда",
+     "is_correct": false
+    },
+    {
+     "text": "Да, по правилам с 1997 года",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  }
+ ]
+}

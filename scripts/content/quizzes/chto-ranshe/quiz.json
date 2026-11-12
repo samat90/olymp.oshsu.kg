@@ -1,0 +1,662 @@
+{
+ "key": "chto-ranshe",
+ "title": "Что было раньше?",
+ "subject": "Разное",
+ "theme": "felt",
+ "description": "25 вопросов о времени, которые ломают голову: мамонты и пирамиды, факс и телефон, Оксфорд и ацтеки. Плюс задания «расставьте по порядку». Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: что появилось раньше?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "Телефон — 1876 год, лампа Эдисона — 1879 год.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Телефон",
+     "is_correct": true
+    },
+    {
+     "text": "Лампа накаливания Эдисона",
+     "is_correct": false
+    },
+    {
+     "text": "Ни то ни другое",
+     "is_correct": false
+    },
+    {
+     "text": "Одновременно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Ловушка: что появилось раньше?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Шотландец Александр Бейн запатентовал передачу изображений по проводам в 1843 году — за 33 года до телефона.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Радио",
+     "is_correct": false
+    },
+    {
+     "text": "Телефон",
+     "is_correct": false
+    },
+    {
+     "text": "Факс",
+     "is_correct": true
+    },
+    {
+     "text": "Одновременно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Когда строили пирамиду Хеопса, на Земле ещё жили мамонты.",
+   "time_limit": 15,
+   "weight": 2,
+   "explanation": "Последние мамонты жили на острове Врангеля примерно до 2000 года до н. э., а пирамиду построили около 2560 года до н. э.\n\n*Фото: Lou.gruber, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Siegsdorfer_Mammut.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Оксфордский университет старше державы ацтеков.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Обучение в Оксфорде шло уже в 1096 году, а город ацтеков Теночтитлан основан в 1325 году.\n\n*Фото: This SVG coat of arms includes elements that have been taken or adapted from this coat of arms:, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Arms_of_University_of_Oxford.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Клеопатра жила ближе по времени к высадке на Луну, чем к строительству пирамиды Хеопса.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Пирамида — около 2560 года до н. э., Клеопатра — I век до н. э., Луна — 1969 год.\n\n*Фото: Louis le Grand, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kleopatra-VII.-Altes-Museum-Berlin1.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что изобрели раньше?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Огниво Дёберейнера появилось за три года до спичек Джона Уокера.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Электрическую лампу",
+     "is_correct": false
+    },
+    {
+     "text": "Спички",
+     "is_correct": false
+    },
+    {
+     "text": "Зажигалку",
+     "is_correct": true
+    },
+    {
+     "text": "Одновременно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что появилось раньше всего?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Кока-кола — 1886, Эйфелева башня — 1889, самолёт Райт — 1903, «Модель Т» — 1908.\n\n*Фото: DYVER, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Coca_Cola_Flasche_-_Original_Taste.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Эйфелева башня",
+     "is_correct": false
+    },
+    {
+     "text": "Кока-кола",
+     "is_correct": true
+    },
+    {
+     "text": "Самолёт братьев Райт",
+     "is_correct": false
+    },
+    {
+     "text": "Автомобиль Форда «Модель Т»",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что было раньше всего?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Луна — 1969, Сиднейская опера — 1973, Apple I — 1976, Тетрис — 1984.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Высадка на Луну",
+     "is_correct": true
+    },
+    {
+     "text": "Первый компьютер Apple",
+     "is_correct": false
+    },
+    {
+     "text": "Тетрис",
+     "is_correct": false
+    },
+    {
+     "text": "Открытие Сиднейского оперного театра",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что появилось раньше всего?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Гарвард — 1636, телескоп Ньютона — 1668, законы Ньютона — 1687, паровоз — 1804.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Гарвардский университет",
+     "is_correct": true
+    },
+    {
+     "text": "Паровоз",
+     "is_correct": false
+    },
+    {
+     "text": "Телескоп-рефлектор Ньютона",
+     "is_correct": false
+    },
+    {
+     "text": "Законы Ньютона",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что старше всего?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Бурана — XI век, Москва — 1147, худжра Бабура — 1510, метро — 1977.\n\n*Фото: Bernard Gagnon, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Burana_Tower,_Kyrgyzstan.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ташкентское метро",
+     "is_correct": false
+    },
+    {
+     "text": "Худжра Бабура на Сулайман-Тоо",
+     "is_correct": false
+    },
+    {
+     "text": "Башня Бурана",
+     "is_correct": true
+    },
+    {
+     "text": "Москва (первое упоминание)",
+     "is_correct": false
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Мечеть-худжру Бабура на Сулайман-Тоо построили раньше, чем родился Шекспир.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Худжра — 1510 год, Шекспир родился в 1564 году.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Передышка без очков: что появилось раньше — сом или наличные евро?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "Сом — 1993, наличные евро — 2002.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Евро",
+     "is_correct": false
+    },
+    {
+     "text": "Сом",
+     "is_correct": true
+    },
+    {
+     "text": "Ни то ни другое",
+     "is_correct": false
+    },
+    {
+     "text": "Одновременно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что из этого появилось в интернете раньше всего?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Google — 1998, Википедия — 2001, Facebook — 2004, YouTube — 2005.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Википедия",
+     "is_correct": false
+    },
+    {
+     "text": "Facebook",
+     "is_correct": false
+    },
+    {
+     "text": "YouTube",
+     "is_correct": false
+    },
+    {
+     "text": "Google",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Османская империя ещё существовала, когда братья Райт впервые полетели на самолёте.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Самолёт — 1903 год, Османская империя прекратила существование в 1922 году.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Последнее восстание самураев в Японии было уже после того, как изобрели телефон.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Телефон запатентован в 1876 году, Сацумское восстание — 1877 год.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Плутон успел сделать полный оборот вокруг Солнца, пока считался планетой.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Его открыли в 1930 году и «разжаловали» в 2006, а один оборот занимает 248 лет.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Кетчуп в XIX веке продавали в аптеках как лекарство.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "В 1830-х томатный кетчуп рекламировали как средство от несварения.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте по времени, от самого раннего.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пирамида Хеопса",
+     "is_correct": false
+    },
+    {
+     "text": "Клеопатра",
+     "is_correct": false
+    },
+    {
+     "text": "Башня Бурана",
+     "is_correct": false
+    },
+    {
+     "text": "Колумб открыл Америку",
+     "is_correct": false
+    },
+    {
+     "text": "Полёт Гагарина",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте изобретения по времени, от самого раннего.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Книгопечатание Гутенберга",
+     "is_correct": false
+    },
+    {
+     "text": "Паровоз",
+     "is_correct": false
+    },
+    {
+     "text": "Телефон",
+     "is_correct": false
+    },
+    {
+     "text": "Самолёт",
+     "is_correct": false
+    },
+    {
+     "text": "Интернет",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте события истории Кыргызстана.",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "751 год, XI век, XIX век, 1991 год.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Таласская битва",
+     "is_correct": false
+    },
+    {
+     "text": "Строительство башни Бурана",
+     "is_correct": false
+    },
+    {
+     "text": "Курманжан Датка правит Алаем",
+     "is_correct": false
+    },
+    {
+     "text": "Независимость Кыргызстана",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что появилось раньше всего?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Беговел Дреза — 1817, фото — около 1826, телефон — 1876, автомобиль Бенца — 1886.\n\n*Фото: Gun Powder Ma, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Draisine_or_Laufmaschine,_around_1820._Archetype_of_the_Bicycle._Pic_01.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Автомобиль",
+     "is_correct": false
+    },
+    {
+     "text": "Телефон",
+     "is_correct": false
+    },
+    {
+     "text": "Фотография",
+     "is_correct": false
+    },
+    {
+     "text": "Велосипед-«беговел»",
+     "is_correct": true
+    }
+   ],
+   "image": "q21.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Что из этого появилось ещё в XIX веке?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Телевизор",
+     "is_correct": false
+    },
+    {
+     "text": "Автомобиль",
+     "is_correct": true
+    },
+    {
+     "text": "Кока-кола",
+     "is_correct": true
+    },
+    {
+     "text": "Фотография",
+     "is_correct": true
+    },
+    {
+     "text": "Самолёт",
+     "is_correct": false
+    },
+    {
+     "text": "Телефон",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "В каком году родился Токтогул Сатылганов — раньше или позже изобретения телефона (1876)?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "В 1864 году — за 12 лет до телефона.",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 1840,
+    "max": 1900,
+    "step": 1,
+    "answer": 1864,
+    "unit": "",
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: древний слон с длинной шерстью.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "МАМОНТ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Что было раньше всего?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Константинополь пал в 1453, Австралию открыли в 1606, Петербург основан в 1703, фото — около 1826.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Первая фотография",
+     "is_correct": false
+    },
+    {
+     "text": "Падение Константинополя",
+     "is_correct": true
+    },
+    {
+     "text": "Открытие Австралии европейцами",
+     "is_correct": false
+    },
+    {
+     "text": "Основание Санкт-Петербурга",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}
