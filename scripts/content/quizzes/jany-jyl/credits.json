@@ -1,0 +1,56 @@
+{
+ "cover.jpg": {
+  "author": "Porto Bay Hotels & Resorts",
+  "file": "Rio New Year Fireworks.jpg",
+  "license": "CC BY 2.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Rio_New_Year_Fireworks.jpg",
+  "spec": "en:New Year",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Rio_New_Year_Fireworks.jpg/960px-Rio_New_Year_Fireworks.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q06.jpg": {
+  "author": "Carlos Delgado",
+  "file": "Real Casa de Correos - 03.jpg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Real_Casa_de_Correos_-_03.jpg",
+  "spec": "en:Twelve Grapes",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Real_Casa_de_Correos_-_03.jpg/960px-Real_Casa_de_Correos_-_03.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q07.jpg": {
+  "author": "まるゆ",
+  "file": "Osuzyoyanokane.jpg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Osuzyoyanokane.jpg",
+  "spec": "en:Joya no Kane",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Osuzyoyanokane.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q09.jpg": {
+  "author": "[www.flickr.com/photos/26912057@N02/ bisonlux]",
+  "file": "Praia de Copacabana - Rio de Janeiro, Brasil.jpg",
+  "license": "CC BY 2.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Praia_de_Copacabana_-_Rio_de_Janeiro,_Brasil.jpg",
+  "spec": "en:Copacabana, Rio de Janeiro",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Praia_de_Copacabana_-_Rio_de_Janeiro%2C_Brasil.jpg/960px-Praia_de_Copacabana_-_Rio_de_Janeiro%2C_Brasil.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q10.jpg": {
+  "author": "Times Square",
+  "file": "TSBALL logo.gif",
+  "license": "Public domain",
+  "mime": "image/gif",
+  "page": "https://commons.wikimedia.org/wiki/File:TSBALL_logo.gif",
+  "spec": "en:Times Square Ball",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/f/fc/TSBALL_logo.gif?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q12.jpg": {
+  "author": "Attributed to Jean-Marc Nattier",
+  "file": "Inconnu d'après J.-M. Nattier, Portrait de Pierre Ier (musée de l’Ermitage).jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Inconnu_d%27apr%C3%A8s_J.-M._Nattier,_Portrait_de_Pierre_Ier_(mus%C3%A9e_de_l%E2%80%99Ermitage).jpg",
+  "spec": "en:Peter the Great",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/Inconnu_d%27apr%C3%A8s_J.-M._Nattier%2C_Portrait_de_Pierre_Ier_%28mus%C3%A9e_de_l%E2%80%99Ermitage%29.jpg/960px-Inconnu_d%27apr%C3%A8s_J.-M._Nattier%2C_Portrait_de_Pierre_Ier_%28mus%C3%A9e_de_l%E2%80%99Ermitage%29.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ }
+}

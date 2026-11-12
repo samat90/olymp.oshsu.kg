@@ -1,0 +1,700 @@
+{
+ "key": "gerby",
+ "title": "Гербы стран: угадай по картинке",
+ "subject": "География",
+ "theme": "felt",
+ "description": "25 вопросов о гербах и эмблемах: узнайте страну по картинке, найдите орла, льва и единорога и не попадитесь в ловушки геральдики. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: чей это герб?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: А. Абдраев (A. Abdraev), С. Дубанаев (S. Dubanaev) 1994. Standardized version:Nurbek Nasyranbekov Nargiza Kulataeva, Kan, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Emblem_of_Kyrgyzstan.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Таджикистан",
+     "is_correct": false
+    },
+    {
+     "text": "Монголия",
+     "is_correct": false
+    },
+    {
+     "text": "Казахстан",
+     "is_correct": false
+    },
+    {
+     "text": "Кыргызстан",
+     "is_correct": true
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая птица раскинула крылья на гербе Кыргызстана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Журавль",
+     "is_correct": false
+    },
+    {
+     "text": "Белый сокол — ак шумкар",
+     "is_correct": true
+    },
+    {
+     "text": "Орёл",
+     "is_correct": false
+    },
+    {
+     "text": "Беркут",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какие растения обрамляют герб Кыргызстана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ели и кедры",
+     "is_correct": false
+    },
+    {
+     "text": "Розы и тюльпаны",
+     "is_correct": false
+    },
+    {
+     "text": "Колосья пшеницы и ветви хлопчатника",
+     "is_correct": true
+    },
+    {
+     "text": "Лавр и дуб",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "На гербе Кыргызстана есть озеро Иссык-Куль и горы Ала-Тоо.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чей это герб — с шаныраком и крылатыми конями?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Туркменистан",
+     "is_correct": false
+    },
+    {
+     "text": "Казахстан",
+     "is_correct": true
+    },
+    {
+     "text": "Кыргызстан",
+     "is_correct": false
+    },
+    {
+     "text": "Монголия",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чей это герб — с птицей Хумо?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Узбекистан",
+     "is_correct": true
+    },
+    {
+     "text": "Азербайджан",
+     "is_correct": false
+    },
+    {
+     "text": "Таджикистан",
+     "is_correct": false
+    },
+    {
+     "text": "Казахстан",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чей это герб — с короной и семью звёздами?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Emblem_of_Tajikistan.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Иран",
+     "is_correct": false
+    },
+    {
+     "text": "Узбекистан",
+     "is_correct": false
+    },
+    {
+     "text": "Афганистан",
+     "is_correct": false
+    },
+    {
+     "text": "Таджикистан",
+     "is_correct": true
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чей это герб — с ковровыми узорами и конём ахалтекинцем?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Inductiveload, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Emblem_of_Turkmenistan.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Казахстан",
+     "is_correct": false
+    },
+    {
+     "text": "Турция",
+     "is_correct": false
+    },
+    {
+     "text": "Кыргызстан",
+     "is_correct": false
+    },
+    {
+     "text": "Туркменистан",
+     "is_correct": true
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чей это герб — с двуглавым орлом?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Official source (SVG) / Федеральный конституционный закон от 25.12.2000 г. № 2-ФКЗ «О Государственном гербе Российской Ф, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Coat_of_Arms_of_the_Russian_Federation.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Германия",
+     "is_correct": false
+    },
+    {
+     "text": "США",
+     "is_correct": false
+    },
+    {
+     "text": "Россия",
+     "is_correct": true
+    },
+    {
+     "text": "Польша",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чей это герб — с чёрным одноглавым орлом на золоте?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Karl-Tobias Schwab, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Germany.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мексика",
+     "is_correct": false
+    },
+    {
+     "text": "Германия",
+     "is_correct": true
+    },
+    {
+     "text": "Албания",
+     "is_correct": false
+    },
+    {
+     "text": "Россия",
+     "is_correct": false
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "single",
+   "text": "На каком гербе орёл сидит на кактусе и держит змею?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "По легенде ацтеков, город надо было основать там, где орёл на кактусе ест змею. Так появился Теночтитлан — нынешний Мехико.\n\n*Фото: Omar Alejandro Covarrubias Neri based on the arms by Francisco Eppens Helguera (1968) and Juan Manuel Gabino Villascán., Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Mexico.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Египет",
+     "is_correct": false
+    },
+    {
+     "text": "Мексика",
+     "is_correct": true
+    },
+    {
+     "text": "Перу",
+     "is_correct": false
+    },
+    {
+     "text": "Испания",
+     "is_correct": false
+    }
+   ],
+   "image": "q11.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чья это печать — с белоголовым орланом?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: U.S. Government, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Great_Seal_of_the_United_States_%28obverse%29.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Канада",
+     "is_correct": false
+    },
+    {
+     "text": "Россия",
+     "is_correct": false
+    },
+    {
+     "text": "США",
+     "is_correct": true
+    },
+    {
+     "text": "Германия",
+     "is_correct": false
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чей это герб — с воротами Тяньаньмэнь?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: multiple people, e.g. Lin Huiyin and Liang Sicheng, see  2, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:%E4%B8%AD%E8%8F%AF%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9C%8B%E5%9C%8B%E5%BE%BD.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Вьетнам",
+     "is_correct": false
+    },
+    {
+     "text": "Монголия",
+     "is_correct": false
+    },
+    {
+     "text": "Китай",
+     "is_correct": true
+    },
+    {
+     "text": "КНДР",
+     "is_correct": false
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "single",
+   "text": "На гербе Индии — капитель древнего императора Ашоки. Какие животные на ней сидят?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Government of India, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Emblem_of_India.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Львы",
+     "is_correct": true
+    },
+    {
+     "text": "Тигры",
+     "is_correct": false
+    },
+    {
+     "text": "Павлины",
+     "is_correct": false
+    },
+    {
+     "text": "Слоны",
+     "is_correct": false
+    }
+   ],
+   "image": "q14.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Передышка без очков: какие два зверя держат щит на гербе Великобритании?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: This vector image includes elements that have been taken or adapted from this file:, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_United_Kingdom_%282022,_variant_2%29.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лев и единорог",
+     "is_correct": true
+    },
+    {
+     "text": "Лев и орёл",
+     "is_correct": false
+    },
+    {
+     "text": "Медведь и волк",
+     "is_correct": false
+    },
+    {
+     "text": "Конь и бык",
+     "is_correct": false
+    }
+   ],
+   "image": "q15.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой цветок — символ японского императора?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Philip Nilsson, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Imperial_Seal_of_Japan.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сакура",
+     "is_correct": false
+    },
+    {
+     "text": "Лотос",
+     "is_correct": false
+    },
+    {
+     "text": "Роза",
+     "is_correct": false
+    },
+    {
+     "text": "Хризантема",
+     "is_correct": true
+    }
+   ],
+   "image": "q16.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чей это герб — тризуб?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Alex Khristov Design: Vasyl Krychevsky (1873–1952), Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lesser_Coat_of_Arms_of_Ukraine.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Беларусь",
+     "is_correct": false
+    },
+    {
+     "text": "Греция",
+     "is_correct": false
+    },
+    {
+     "text": "Молдова",
+     "is_correct": false
+    },
+    {
+     "text": "Украина",
+     "is_correct": true
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой символ в центре герба Монголии?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Tseveendorjiin Oidov (Honored Artist of Mongolia), Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:State_emblem_of_Mongolia.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Соёмбо и бегущий конь",
+     "is_correct": true
+    },
+    {
+     "text": "Полумесяц",
+     "is_correct": false
+    },
+    {
+     "text": "Дракон",
+     "is_correct": false
+    },
+    {
+     "text": "Двуглавый орёл",
+     "is_correct": false
+    }
+   ],
+   "image": "q18.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какие звери держат щит на гербе Австралии?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Sodacan, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_the_Commonwealth_of_Australia.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Динго и вомбат",
+     "is_correct": false
+    },
+    {
+     "text": "Кенгуру и эму",
+     "is_correct": true
+    },
+    {
+     "text": "Коала и утконос",
+     "is_correct": false
+    },
+    {
+     "text": "Лев и единорог",
+     "is_correct": false
+    }
+   ],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чей это герб — с двумя Геркулесовыми столпами и девизом «Plus Ultra»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Adaptación en formato SVG del modelo en PNG File:Escudo de España.png, según colores establecidos en el Real Decreto 226, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Escudo_de_Espa%C3%B1a_%28mazonado%29.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Испания",
+     "is_correct": true
+    },
+    {
+     "text": "Италия",
+     "is_correct": false
+    },
+    {
+     "text": "Португалия",
+     "is_correct": false
+    },
+    {
+     "text": "Греция",
+     "is_correct": false
+    }
+   ],
+   "image": "q20.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Ловушка на двойные очки: у Турции есть официальный государственный герб.",
+   "time_limit": 15,
+   "weight": 2,
+   "explanation": "Официального герба у Турции нет. Полумесяц со звездой в паспортах — неофициальная эмблема.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "На каких из этих гербов есть орёл?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Ловушка: на гербе Казахстана — тулпары, а орёл — на флаге.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Казахстан",
+     "is_correct": false
+    },
+    {
+     "text": "Россия",
+     "is_correct": true
+    },
+    {
+     "text": "Германия",
+     "is_correct": true
+    },
+    {
+     "text": "США",
+     "is_correct": true
+    },
+    {
+     "text": "Мексика",
+     "is_correct": true
+    },
+    {
+     "text": "Индия",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Как называется наука о гербах? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "геральдика"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: как по-кыргызски называется сокол на гербе Кыргызстана (без «ак»).",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ШУМКАР"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Какие кони изображены на гербе Казахстана?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ахалтекинцы",
+     "is_correct": false
+    },
+    {
+     "text": "Пегасы из греческих мифов",
+     "is_correct": false
+    },
+    {
+     "text": "Крылатые тулпары",
+     "is_correct": true
+    },
+    {
+     "text": "Единороги без крыльев",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

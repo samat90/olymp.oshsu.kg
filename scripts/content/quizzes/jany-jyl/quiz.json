@@ -1,0 +1,712 @@
+{
+ "key": "jany-jyl",
+ "title": "Новый год в разных странах",
+ "subject": "Праздники",
+ "theme": "night",
+ "description": "25 вопросов о Новом годе: кто встречает его первым, где едят виноград под бой часов, где бьют тарелки и что за праздник — Старый Новый год. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: как по-кыргызски «Новый год»?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ак жол",
+     "is_correct": false
+    },
+    {
+     "text": "Жаңы жыл",
+     "is_correct": true
+    },
+    {
+     "text": "Нооруз",
+     "is_correct": false
+    },
+    {
+     "text": "Кош келиңиз",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как зовут Деда Мороза по-кыргызски?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кар Ата",
+     "is_correct": false
+    },
+    {
+     "text": "Чоң Ата",
+     "is_correct": false
+    },
+    {
+     "text": "Ак Сакал",
+     "is_correct": false
+    },
+    {
+     "text": "Аяз Ата",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая страна встречает Новый год одной из самых первых?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "У островов Лайн часовой пояс UTC+14 — самый «ранний» на планете.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Новая Зеландия",
+     "is_correct": false
+    },
+    {
+     "text": "Япония",
+     "is_correct": false
+    },
+    {
+     "text": "Россия",
+     "is_correct": false
+    },
+    {
+     "text": "Кирибати (острова Лайн)",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто встречает Новый год последним из обитаемых мест?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Исландия",
+     "is_correct": false
+    },
+    {
+     "text": "Аляска",
+     "is_correct": false
+    },
+    {
+     "text": "Гавайи",
+     "is_correct": false
+    },
+    {
+     "text": "Американское Самоа",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько часов разница между Бишкеком и Гринвичем?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "+6 часов",
+     "is_correct": true
+    },
+    {
+     "text": "+5 часов",
+     "is_correct": false
+    },
+    {
+     "text": "+8 часов",
+     "is_correct": false
+    },
+    {
+     "text": "+3 часа",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Где принято под бой курантов съесть 12 виноградин?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Carlos Delgado, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Real_Casa_de_Correos_-_03.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В Японии",
+     "is_correct": false
+    },
+    {
+     "text": "В Испании",
+     "is_correct": true
+    },
+    {
+     "text": "В Китае",
+     "is_correct": false
+    },
+    {
+     "text": "В Канаде",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Где в новогоднюю ночь колокола храмов бьют 108 раз?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: まるゆ, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Osuzyoyanokane.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В Японии",
+     "is_correct": true
+    },
+    {
+     "text": "В Италии",
+     "is_correct": false
+    },
+    {
+     "text": "В Испании",
+     "is_correct": false
+    },
+    {
+     "text": "В Мексике",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Где на Новый год бьют тарелки о двери друзей?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В Дании",
+     "is_correct": true
+    },
+    {
+     "text": "В Турции",
+     "is_correct": false
+    },
+    {
+     "text": "В Кыргызстане",
+     "is_correct": false
+    },
+    {
+     "text": "В Китае",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Где на Новый год одеваются в белое и прыгают через семь волн?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: www.flickr.com/photos/26912057@N02/ bisonlux, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Praia_de_Copacabana_-_Rio_de_Janeiro,_Brasil.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В Индии",
+     "is_correct": false
+    },
+    {
+     "text": "В Бразилии",
+     "is_correct": true
+    },
+    {
+     "text": "В Норвегии",
+     "is_correct": false
+    },
+    {
+     "text": "В Египте",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой символ Нового года опускают в полночь на Таймс-сквер в Нью-Йорке?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Times Square, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:TSBALL_logo.gif)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Часы",
+     "is_correct": false
+    },
+    {
+     "text": "Ёлку",
+     "is_correct": false
+    },
+    {
+     "text": "Звезду",
+     "is_correct": false
+    },
+    {
+     "text": "Огромный светящийся шар",
+     "is_correct": true
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Почему в Кыргызстане и России есть «Старый Новый год» 14 января?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Это день рождения Аяз Ата",
+     "is_correct": false
+    },
+    {
+     "text": "Это китайский Новый год",
+     "is_correct": false
+    },
+    {
+     "text": "Это Новый год по старому, юлианскому календарю",
+     "is_correct": true
+    },
+    {
+     "text": "Его придумали в 2000 году",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой царь в 1700 году велел праздновать Новый год 1 января и украшать дома ёлками?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Attributed to Jean-Marc Nattier, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Inconnu_d%27apr%C3%A8s_J.-M._Nattier,_Portrait_de_Pierre_Ier_%28mus%C3%A9e_de_l%E2%80%99Ermitage%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Екатерина II",
+     "is_correct": false
+    },
+    {
+     "text": "Николай II",
+     "is_correct": false
+    },
+    {
+     "text": "Иван Грозный",
+     "is_correct": false
+    },
+    {
+     "text": "Пётр I",
+     "is_correct": true
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Передышка без очков: какое дерево обычно украшают на Новый год?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ёлку",
+     "is_correct": true
+    },
+    {
+     "text": "Карагач",
+     "is_correct": false
+    },
+    {
+     "text": "Яблоню",
+     "is_correct": false
+    },
+    {
+     "text": "Берёзу",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Китайский Новый год каждый год выпадает на 1 января.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Он приходится на новолуние между 21 января и 20 февраля.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой салат стал главным новогодним блюдом во многих семьях Кыргызстана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Цезарь",
+     "is_correct": false
+    },
+    {
+     "text": "Оливье",
+     "is_correct": true
+    },
+    {
+     "text": "Греческий",
+     "is_correct": false
+    },
+    {
+     "text": "Капрезе",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В какой стране Новый год встречают 1 января летом, на пляже?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Монголия",
+     "is_correct": false
+    },
+    {
+     "text": "Канада",
+     "is_correct": false
+    },
+    {
+     "text": "Австралия",
+     "is_correct": true
+    },
+    {
+     "text": "Финляндия",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие из этих праздников — встреча Нового года?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "День святого Валентина",
+     "is_correct": false
+    },
+    {
+     "text": "Китайский Новый год",
+     "is_correct": true
+    },
+    {
+     "text": "Хэллоуин",
+     "is_correct": false
+    },
+    {
+     "text": "Нооруз",
+     "is_correct": true
+    },
+    {
+     "text": "Рош ха-Шана",
+     "is_correct": true
+    },
+    {
+     "text": "Хогманай",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что такое «бой курантов»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бой главных часов страны в полночь",
+     "is_correct": true
+    },
+    {
+     "text": "Танец",
+     "is_correct": false
+    },
+    {
+     "text": "Песня",
+     "is_correct": false
+    },
+    {
+     "text": "Салют",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто, по западной традиции, приносит подарки на Рождество?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пасхальный кролик",
+     "is_correct": false
+    },
+    {
+     "text": "Снегурочка",
+     "is_correct": false
+    },
+    {
+     "text": "Санта-Клаус",
+     "is_correct": true
+    },
+    {
+     "text": "Аяз Ата",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как зовут внучку Деда Мороза?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Белоснежка",
+     "is_correct": false
+    },
+    {
+     "text": "Алёнушка",
+     "is_correct": false
+    },
+    {
+     "text": "Снегурочка",
+     "is_correct": true
+    },
+    {
+     "text": "Золушка",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте города в порядке встречи Нового года, от первого.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Токио",
+     "is_correct": false
+    },
+    {
+     "text": "Бишкек",
+     "is_correct": false
+    },
+    {
+     "text": "Москва",
+     "is_correct": false
+    },
+    {
+     "text": "Лондон",
+     "is_correct": false
+    },
+    {
+     "text": "Нью-Йорк",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: праздничные огни в небе в полночь.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "САЛЮТ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое животное — символ года по восточному календарю 2027 года?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "2026 — год Лошади, 2027 — год Козы (Овцы), 2028 — год Обезьяны.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Дракон",
+     "is_correct": false
+    },
+    {
+     "text": "Коза (Овца)",
+     "is_correct": true
+    },
+    {
+     "text": "Лошадь",
+     "is_correct": false
+    },
+    {
+     "text": "Обезьяна",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Сколько месяцев в году? Числом.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "12"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! В каком году впервые опустили шар на Таймс-сквер?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В 1999 году",
+     "is_correct": false
+    },
+    {
+     "text": "В 1950 году",
+     "is_correct": false
+    },
+    {
+     "text": "В 1907 году",
+     "is_correct": true
+    },
+    {
+     "text": "В 1870 году",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

@@ -1,0 +1,92 @@
+{
+ "cover.jpg": {
+  "author": "Antoine Claudet",
+  "file": "Ada Lovelace daguerreotype by Antoine Claudet 1843 - cropped.png",
+  "license": "Public domain",
+  "mime": "image/png",
+  "page": "https://commons.wikimedia.org/wiki/File:Ada_Lovelace_daguerreotype_by_Antoine_Claudet_1843_-_cropped.png",
+  "spec": "en:Ada Lovelace",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Ada_Lovelace_daguerreotype_by_Antoine_Claudet_1843_-_cropped.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q01.jpg": {
+  "author": "Antoine Claudet",
+  "file": "Ada Lovelace daguerreotype by Antoine Claudet 1843 - cropped.png",
+  "license": "Public domain",
+  "mime": "image/png",
+  "page": "https://commons.wikimedia.org/wiki/File:Ada_Lovelace_daguerreotype_by_Antoine_Claudet_1843_-_cropped.png",
+  "spec": "en:Ada Lovelace",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Ada_Lovelace_daguerreotype_by_Antoine_Claudet_1843_-_cropped.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q03.jpg": {
+  "author": "Elliott & Fry",
+  "file": "Alan turing header.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Alan_turing_header.jpg",
+  "spec": "en:Alan Turing",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Alan_turing_header.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q04.jpg": {
+  "author": "Courtesy of the Naval Surface Warfare Center, Dahlgren, VA., 1988.",
+  "file": "First Computer Bug, 1945.jpg",
+  "license": "Public domain",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:First_Computer_Bug,_1947.jpg",
+  "spec": "c:First Computer Bug, 1945.jpg",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/First_Computer_Bug%2C_1947.jpg/960px-First_Computer_Bug%2C_1947.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q08.jpg": {
+  "author": "ARPANET",
+  "file": "Arpanet logical map, march 1977.png",
+  "license": "Public domain",
+  "mime": "image/png",
+  "page": "https://commons.wikimedia.org/wiki/File:Arpanet_logical_map,_march_1977.png",
+  "spec": "en:ARPANET",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Arpanet_logical_map%2C_march_1977.png/960px-Arpanet_logical_map%2C_march_1977.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q09.jpg": {
+  "author": "Krd (photo)Von Sprat (crop/extraction)",
+  "file": "LinuxCon Europe Linus Torvalds 03 (cropped).jpg",
+  "license": "CC BY-SA 4.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:LinuxCon_Europe_Linus_Torvalds_03_(cropped).jpg",
+  "spec": "en:Linus Torvalds",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/LinuxCon_Europe_Linus_Torvalds_03_%28cropped%29.jpg/960px-LinuxCon_Europe_Linus_Torvalds_03_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q10.jpg": {
+  "author": "Thomas Nguyen",
+  "file": "Intel C4004.jpg",
+  "license": "CC BY-SA 4.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Intel_C4004.jpg",
+  "spec": "en:Intel 4004",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Intel_C4004.jpg/960px-Intel_C4004.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q12.jpg": {
+  "author": "James the photographer",
+  "file": "Deep Blue.jpg",
+  "license": "CC BY 2.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Deep_Blue.jpg",
+  "spec": "en:Deep Blue (chess computer)",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/b/be/Deep_Blue.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q14.jpg": {
+  "author": "Official GDC",
+  "file": "Alexey Pajitnov GDC 2024 (cropped).jpg",
+  "license": "CC BY 2.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Alexey_Pajitnov_GDC_2024_(cropped).jpg",
+  "spec": "en:Alexey Pajitnov",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Alexey_Pajitnov_GDC_2024_%28cropped%29.jpg/960px-Alexey_Pajitnov_GDC_2024_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q16.jpg": {
+  "author": "File:Z3 Deutsches Museum.JPG: Venusianer at German Wikipedia derivative work: Georgfotoart",
+  "file": "Z3 Deutsches Museum b.jpg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Z3_Deutsches_Museum_b.jpg",
+  "spec": "en:Z3 (computer)",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Z3_Deutsches_Museum_b.jpg/960px-Z3_Deutsches_Museum_b.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ }
+}

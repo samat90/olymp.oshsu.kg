@@ -1,0 +1,710 @@
+{
+ "key": "it-istoriya",
+ "title": "История IT",
+ "subject": "Программирование",
+ "theme": "night",
+ "description": "25 вопросов о том, как появились компьютеры, интернет и языки программирования: от Ады Лавлейс до ChatGPT. Портреты и фото из истории. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: кого считают первым программистом в истории?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "*Фото: Antoine Claudet, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ada_Lovelace_daguerreotype_by_Antoine_Claudet_1843_-_cropped.png)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чарльза Бэббиджа",
+     "is_correct": false
+    },
+    {
+     "text": "Аду Лавлейс",
+     "is_correct": true
+    },
+    {
+     "text": "Алана Тьюринга",
+     "is_correct": false
+    },
+    {
+     "text": "Билла Гейтса",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Для какой машины Ада Лавлейс написала программу в 1843 году?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Для арифмометра",
+     "is_correct": false
+    },
+    {
+     "text": "Для шахматного автомата",
+     "is_correct": false
+    },
+    {
+     "text": "Для Аналитической машины Чарльза Бэббиджа",
+     "is_correct": true
+    },
+    {
+     "text": "Для ЭНИАКа",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто на фото — взломщик «Энигмы» и автор теста «может ли машина мыслить»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Elliott & Fry, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Alan_turing_header.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Клод Шеннон",
+     "is_correct": false
+    },
+    {
+     "text": "Алан Тьюринг",
+     "is_correct": true
+    },
+    {
+     "text": "Чарльз Бэббидж",
+     "is_correct": false
+    },
+    {
+     "text": "Джон фон Нейман",
+     "is_correct": false
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "В 1947 году в компьютере Harvard Mark II нашли моль — первый «баг». Чья это команда?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Courtesy of the Naval Surface Warfare Center, Dahlgren, VA., 1988., Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:First_Computer_Bug,_1947.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ады Лавлейс",
+     "is_correct": false
+    },
+    {
+     "text": "Алана Тьюринга",
+     "is_correct": false
+    },
+    {
+     "text": "Стива Джобса",
+     "is_correct": false
+    },
+    {
+     "text": "Грейс Хоппер",
+     "is_correct": true
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Грейс Хоппер создала одну из первых программ, которая переводит текст программы в машинные команды. Как это называется?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Компилятор",
+     "is_correct": true
+    },
+    {
+     "text": "Операционная система",
+     "is_correct": false
+    },
+    {
+     "text": "Браузер",
+     "is_correct": false
+    },
+    {
+     "text": "Антивирус",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите название языка для бизнеса, созданного по идеям Грейс Хоппер (латиницей).",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "COBOL"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто отправил первое электронное письмо и выбрал символ @?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Это было в 1971 году в сети ARPANET.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тим Бернерс-Ли",
+     "is_correct": false
+    },
+    {
+     "text": "Винт Серф",
+     "is_correct": false
+    },
+    {
+     "text": "Билл Гейтс",
+     "is_correct": false
+    },
+    {
+     "text": "Рэй Томлинсон",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В каком году заработала сеть ARPANET — предок интернета?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: ARPANET, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Arpanet_logical_map,_march_1977.png)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "1983",
+     "is_correct": false
+    },
+    {
+     "text": "1957",
+     "is_correct": false
+    },
+    {
+     "text": "1969",
+     "is_correct": true
+    },
+    {
+     "text": "1991",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какую операционную систему начал писать студент Линус Торвальдс в 1991 году?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Krd (photo)Von Sprat (crop/extraction), CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:LinuxCon_Europe_Linus_Torvalds_03_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Windows",
+     "is_correct": false
+    },
+    {
+     "text": "Linux",
+     "is_correct": true
+    },
+    {
+     "text": "Android",
+     "is_correct": false
+    },
+    {
+     "text": "macOS",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Это первый коммерческий микропроцессор (1971). Как он называется?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Thomas Nguyen, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Intel_C4004.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Z80",
+     "is_correct": false
+    },
+    {
+     "text": "Intel 4004",
+     "is_correct": true
+    },
+    {
+     "text": "Apple M1",
+     "is_correct": false
+    },
+    {
+     "text": "Pentium",
+     "is_correct": false
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "single",
+   "text": "О чём закон Мура?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Интернет растёт каждый год вдвое",
+     "is_correct": false
+    },
+    {
+     "text": "Компьютеры дешевеют вдвое за год",
+     "is_correct": false
+    },
+    {
+     "text": "Число транзисторов в микросхемах удваивается примерно каждые 2 года",
+     "is_correct": true
+    },
+    {
+     "text": "Скорость света в проводах постоянна",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В каком году компьютер Deep Blue обыграл чемпиона мира Гарри Каспарова в матче?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: James the photographer, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Deep_Blue.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "1997",
+     "is_correct": true
+    },
+    {
+     "text": "2005",
+     "is_correct": false
+    },
+    {
+     "text": "2016",
+     "is_correct": false
+    },
+    {
+     "text": "1985",
+     "is_correct": false
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "single",
+   "text": "В какую игру программа AlphaGo в 2016 году обыграла Ли Седоля?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тогуз коргоол",
+     "is_correct": false
+    },
+    {
+     "text": "Го",
+     "is_correct": true
+    },
+    {
+     "text": "Покер",
+     "is_correct": false
+    },
+    {
+     "text": "Шахматы",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто придумал «Тетрис» (1984)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Official GDC, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Alexey_Pajitnov_GDC_2024_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Билл Гейтс",
+     "is_correct": false
+    },
+    {
+     "text": "Сигэру Миямото",
+     "is_correct": false
+    },
+    {
+     "text": "Алексей Пажитнов",
+     "is_correct": true
+    },
+    {
+     "text": "Евгений Касперский",
+     "is_correct": false
+    }
+   ],
+   "image": "q14.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называлась первая советская электронная вычислительная машина (1951)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Её построила группа Сергея Лебедева в Киеве.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "МЭСМ",
+     "is_correct": true
+    },
+    {
+     "text": "Эльбрус",
+     "is_correct": false
+    },
+    {
+     "text": "ЭНИАК",
+     "is_correct": false
+    },
+    {
+     "text": "Z3",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В какой стране Конрад Цузе в 1941 году собрал программируемую машину Z3?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: File:Z3 Deutsches Museum.JPG: Venusianer at German Wikipedia derivative work: Georgfotoart, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Z3_Deutsches_Museum_b.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В Англии",
+     "is_correct": false
+    },
+    {
+     "text": "В США",
+     "is_correct": false
+    },
+    {
+     "text": "В СССР",
+     "is_correct": false
+    },
+    {
+     "text": "В Германии",
+     "is_correct": true
+    }
+   ],
+   "image": "q16.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Передышка без очков: самый первый сайт info.cern.ch можно открыть и сегодня.",
+   "time_limit": 15,
+   "weight": 0,
+   "explanation": "Его восстановили в CERN в 2013 году.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В какой лаборатории в 1969 году появилась операционная система Unix?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Microsoft",
+     "is_correct": false
+    },
+    {
+     "text": "Google",
+     "is_correct": false
+    },
+    {
+     "text": "Apple",
+     "is_correct": false
+    },
+    {
+     "text": "Bell Labs",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В каком году запустили Википедию?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "2001",
+     "is_correct": true
+    },
+    {
+     "text": "1998",
+     "is_correct": false
+    },
+    {
+     "text": "2008",
+     "is_correct": false
+    },
+    {
+     "text": "1995",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте по времени, от самого раннего.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Аналитическая машина Бэббиджа",
+     "is_correct": false
+    },
+    {
+     "text": "ЭНИАК",
+     "is_correct": false
+    },
+    {
+     "text": "Intel 4004",
+     "is_correct": false
+    },
+    {
+     "text": "Первый iPhone",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто сделал знаменитой программу «Hello, World!» в книге о языке C?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Билл Гейтс",
+     "is_correct": false
+    },
+    {
+     "text": "Линус Торвальдс",
+     "is_correct": false
+    },
+    {
+     "text": "Гвидо ван Россум",
+     "is_correct": false
+    },
+    {
+     "text": "Брайан Керниган",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто придумал биткоин (2009)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Кто стоит за этим именем, неизвестно до сих пор.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Павел Дуров",
+     "is_correct": false
+    },
+    {
+     "text": "Марк Цукерберг",
+     "is_correct": false
+    },
+    {
+     "text": "Человек или группа под именем Сатоси Накамото",
+     "is_correct": true
+    },
+    {
+     "text": "Илон Маск",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Кто из них — создатели языков программирования?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Деннис Ритчи",
+     "is_correct": true
+    },
+    {
+     "text": "Джеймс Гослинг",
+     "is_correct": true
+    },
+    {
+     "text": "Бьёрн Страуструп",
+     "is_correct": true
+    },
+    {
+     "text": "Марк Цукерберг",
+     "is_correct": false
+    },
+    {
+     "text": "Илон Маск",
+     "is_correct": false
+    },
+    {
+     "text": "Гвидо ван Россум",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Когда появился ChatGPT?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В ноябре 2022 года",
+     "is_correct": true
+    },
+    {
+     "text": "В 2010 году",
+     "is_correct": false
+    },
+    {
+     "text": "В 2019 году",
+     "is_correct": false
+    },
+    {
+     "text": "В январе 2025 года",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Финал на двойные очки! Сколько тонн весил компьютер ЭНИАК (1946)?",
+   "time_limit": 25,
+   "weight": 2,
+   "explanation": "Около 27 тонн и 17 тысяч электронных ламп.",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 1,
+    "max": 60,
+    "step": 1,
+    "answer": 27,
+    "unit": "т",
+    "tolerance": 3
+   },
+   "options": [],
+   "image": null
+  }
+ ]
+}
