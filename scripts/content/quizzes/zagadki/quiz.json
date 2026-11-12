@@ -1,0 +1,711 @@
+{
+ "key": "zagadki",
+ "title": "Загадки и логические задачки",
+ "subject": "Разное",
+ "theme": "night",
+ "description": "25 загадок и задач на смекалку: старинные загадки, хитрые вопросы и задачки, в которых важно внимательно читать условие. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: зимой и летом одним цветом. Что это?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Снег",
+     "is_correct": false
+    },
+    {
+     "text": "Ёлка",
+     "is_correct": true
+    },
+    {
+     "text": "Камень",
+     "is_correct": false
+    },
+    {
+     "text": "Небо",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сидит дед, во сто шуб одет. Кто его раздевает, тот слёзы проливает.",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лук",
+     "is_correct": true
+    },
+    {
+     "text": "Чеснок",
+     "is_correct": false
+    },
+    {
+     "text": "Кочан салата",
+     "is_correct": false
+    },
+    {
+     "text": "Капуста",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Без окон, без дверей — полна горница людей.",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Автобус",
+     "is_correct": false
+    },
+    {
+     "text": "Огурец (или тыква)",
+     "is_correct": true
+    },
+    {
+     "text": "Школа",
+     "is_correct": false
+    },
+    {
+     "text": "Юрта",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Поле белое, овцы чёрные. Кто их сеет, тот знает. Что это?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Снег и вороны",
+     "is_correct": false
+    },
+    {
+     "text": "Шахматы",
+     "is_correct": false
+    },
+    {
+     "text": "Бумага и буквы",
+     "is_correct": true
+    },
+    {
+     "text": "Зебра",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "У одного отца 12 сыновей, у каждого сына около 30 дочерей. Что это?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Дерево и листья",
+     "is_correct": false
+    },
+    {
+     "text": "Неделя и часы",
+     "is_correct": false
+    },
+    {
+     "text": "Год, месяцы и дни",
+     "is_correct": true
+    },
+    {
+     "text": "Хан и его войско",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько месяцев в году имеют 31 день?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "5",
+     "is_correct": false
+    },
+    {
+     "text": "6",
+     "is_correct": false
+    },
+    {
+     "text": "7",
+     "is_correct": true
+    },
+    {
+     "text": "12",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "У Асель 3 брата. У каждого брата одна сестра. Сколько детей в семье?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Сестра у всех братьев одна — сама Асель.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "5",
+     "is_correct": false
+    },
+    {
+     "text": "7",
+     "is_correct": false
+    },
+    {
+     "text": "4",
+     "is_correct": true
+    },
+    {
+     "text": "6",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Два отца и два сына съели 3 яблока, каждому досталось по целому яблоку. Как так?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Один не ел",
+     "is_correct": false
+    },
+    {
+     "text": "Одно яблоко разрезали",
+     "is_correct": false
+    },
+    {
+     "text": "Это невозможно",
+     "is_correct": false
+    },
+    {
+     "text": "Их было трое: дед, отец и сын",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Самолёт разбился ровно на границе Кыргызстана и Казахстана. Где хоронят выживших?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Выживших не хоронят",
+     "is_correct": true
+    },
+    {
+     "text": "Там, где они родились",
+     "is_correct": false
+    },
+    {
+     "text": "В Кыргызстане",
+     "is_correct": false
+    },
+    {
+     "text": "В Казахстане",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Батон и сыр вместе стоят 110 сомов. Батон на 100 сомов дороже сыра. Сколько стоит сыр?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Если сыр 5, батон 105 — вместе 110. Ответ «10» — ловушка: тогда батон 110 и вместе 120.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "55 сомов",
+     "is_correct": false
+    },
+    {
+     "text": "5 сомов",
+     "is_correct": true
+    },
+    {
+     "text": "10 сомов",
+     "is_correct": false
+    },
+    {
+     "text": "100 сомов",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "3 кошки ловят 3 мышей за 3 минуты. Сколько кошек поймают 100 мышей за 100 минут?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "3",
+     "is_correct": true
+    },
+    {
+     "text": "1",
+     "is_correct": false
+    },
+    {
+     "text": "33",
+     "is_correct": false
+    },
+    {
+     "text": "100",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что становится больше, если из него брать?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мешок",
+     "is_correct": false
+    },
+    {
+     "text": "Яма",
+     "is_correct": true
+    },
+    {
+     "text": "Озеро",
+     "is_correct": false
+    },
+    {
+     "text": "Кошелёк",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Передышка без очков: что идёт, не двигаясь с места?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Облако",
+     "is_correct": false
+    },
+    {
+     "text": "Река",
+     "is_correct": false
+    },
+    {
+     "text": "Время (часы)",
+     "is_correct": true
+    },
+    {
+     "text": "Дорога",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое слово всегда пишется неправильно?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Правильно»",
+     "is_correct": false
+    },
+    {
+     "text": "Любое длинное",
+     "is_correct": false
+    },
+    {
+     "text": "«Ошибка»",
+     "is_correct": false
+    },
+    {
+     "text": "«Неправильно»",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто ходит сидя?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Водитель",
+     "is_correct": false
+    },
+    {
+     "text": "Пилот",
+     "is_correct": false
+    },
+    {
+     "text": "Всадник",
+     "is_correct": false
+    },
+    {
+     "text": "Шахматист",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько раз цифра 9 встречается в числах от 1 до 100?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "9, 19, …, 89 — это 9 раз, плюс 90, 91, …, 99 — ещё 11 девяток (в 99 их две).",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "20",
+     "is_correct": true
+    },
+    {
+     "text": "10",
+     "is_correct": false
+    },
+    {
+     "text": "19",
+     "is_correct": false
+    },
+    {
+     "text": "11",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "У Бермет братьев столько же, сколько сестёр, а у её брата сестёр вдвое больше, чем братьев. Сколько детей в семье?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "4 девочки и 3 мальчика.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "7",
+     "is_correct": true
+    },
+    {
+     "text": "5",
+     "is_correct": false
+    },
+    {
+     "text": "6",
+     "is_correct": false
+    },
+    {
+     "text": "4",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Фермеру нужно перевезти через реку волка, козу и капусту. В лодке есть место только для одного. Сколько минимум рейсов (в обе стороны) понадобится?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Illuminated_illustration_of_the_wolf,_goat_and_cabbage_problem_in_the_Ormesby_Psalter.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "3",
+     "is_correct": false
+    },
+    {
+     "text": "9",
+     "is_correct": false
+    },
+    {
+     "text": "5",
+     "is_correct": false
+    },
+    {
+     "text": "7",
+     "is_correct": true
+    }
+   ],
+   "image": "q18.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Если врач даёт три таблетки и велит пить по одной каждые полчаса, они закончатся через полтора часа.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Через час: первую пьёшь сразу, вторую через полчаса, третью через час.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой месяц короче всех?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Шуточная загадка: в слове «май» меньше всех букв. Хотя по дням, конечно, короче февраль.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Июнь",
+     "is_correct": false
+    },
+    {
+     "text": "Апрель",
+     "is_correct": false
+    },
+    {
+     "text": "Февраль",
+     "is_correct": false
+    },
+    {
+     "text": "Май (всего 3 буквы)",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Что может «бежать», не имея ног?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Вода",
+     "is_correct": true
+    },
+    {
+     "text": "Время",
+     "is_correct": true
+    },
+    {
+     "text": "Гора",
+     "is_correct": false
+    },
+    {
+     "text": "Молоко из кастрюли",
+     "is_correct": true
+    },
+    {
+     "text": "Дорога («дорога бежит вдаль»)",
+     "is_correct": true
+    },
+    {
+     "text": "Стол",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте по числу ног, от меньшего к большему.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "2, 4, 6 и 8.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Человек",
+     "is_correct": false
+    },
+    {
+     "text": "Кошка",
+     "is_correct": false
+    },
+    {
+     "text": "Муравей",
+     "is_correct": false
+    },
+    {
+     "text": "Паук",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите ответ: «Что можно увидеть с закрытыми глазами?»",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "СОН"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Сын моего отца, но мне не брат. Кто это? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "я",
+     "Я",
+     "это я",
+     "я сам"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! У Нурлана 5 дочерей, и у каждой дочери есть брат. Сколько детей у Нурлана?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Брат у всех дочерей один и тот же.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "10",
+     "is_correct": false
+    },
+    {
+     "text": "6",
+     "is_correct": true
+    },
+    {
+     "text": "11",
+     "is_correct": false
+    },
+    {
+     "text": "5",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}
