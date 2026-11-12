@@ -257,6 +257,24 @@
 
     function serverNow() { return Date.now() / 1000 + clock.offset; }
 
+    // A request lost on a weak Wi-Fi or held by a busy proxy would otherwise hang for minutes and freeze
+    // the screen (the poller waits for its answer). Give up after a few seconds and ask again.
+    var FETCH_TIMEOUT = 8000;
+
+    function timedFetch(url, opts, ms) {
+        if (typeof AbortController === 'undefined') return fetch(url, opts);
+        var ctl = new AbortController();
+        var timer = setTimeout(function () { ctl.abort(); }, ms || FETCH_TIMEOUT);
+        opts.signal = ctl.signal;
+        return fetch(url, opts).then(function (r) {
+            clearTimeout(timer);
+            return r;
+        }, function (e) {
+            clearTimeout(timer);
+            throw e;
+        });
+    }
+
     function request(method, url, body, asForm) {
         var opts = {method: method, credentials: 'same-origin', cache: 'no-store', headers: {}};
         if (method === 'POST') {
@@ -268,7 +286,7 @@
                 opts.body = JSON.stringify(body || {});
             }
         }
-        return fetch(url, opts).then(function (r) {
+        return timedFetch(url, opts, method === 'POST' ? 12000 : FETCH_TIMEOUT).then(function (r) {
             return r.json().then(function (d) { return {status: r.status, data: d || {}}; },
                 function () { return {status: r.status, data: {}}; });
         });
@@ -299,7 +317,7 @@
             if (self.busy || self.stopped) return;
             self.busy = true;
             var t0 = Date.now();
-            fetch(buildUrl(), {credentials: 'same-origin', cache: 'no-store'}).then(function (r) {
+            timedFetch(buildUrl(), {credentials: 'same-origin', cache: 'no-store'}).then(function (r) {
                 return r.json().then(function (d) { return {status: r.status, data: d}; },
                     function () { return {status: r.status, data: null}; });
             }).then(function (res) {

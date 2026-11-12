@@ -359,6 +359,27 @@ class QuizTimingTest(QuizGameTestCase):
         self.assertEqual(QuizAnswer.objects.count(), 1)
         self.assertEqual(QuizAnswer.objects.get().points, 500)
 
+    def test_answer_that_waited_in_the_queue_counts_from_nginx_time(self):
+        pin, (a, b, c) = self.game_with_players('Аня', 'Бек', 'Чынара')
+        self.action(pin, 'start')
+        start = self.t
+        end = start + self.q1.time_limit
+        right = option_id(self.q1, 'Два')
+        # A busy site: nginx got it 1 s after the start, the site handles it 3 s later.
+        self.t = start + 4
+        response = self.client_answer(a, pin, right, 't=%.3f' % (start + 1))
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(QuizAnswer.objects.get(player=self.player(pin, 'Аня')).time_ms, 1000)
+        # Sent in time, handled after the deadline: still accepted.
+        self.t = end + engine.GRACE + 2
+        self.assertEqual(self.client_answer(b, pin, right, 't=%.3f' % (end - 1)).status_code, 200)
+        # A time from long ago (forged or broken) is ignored: the answer is late.
+        self.assertEqual(self.client_answer(c, pin, right, 't=%.3f' % (start + 1 - 60)).status_code, 409)
+
+    def client_answer(self, client, pin, value, header):
+        return client.post(reverse('quiz_answer', args=[pin]), json.dumps({'i': 0, 'value': value}),
+                           content_type='application/json', HTTP_X_REQUEST_START=header)
+
 
 class QuizPermissionRulesTest(QuizGameTestCase):
     """Anyone signed in creates and hosts any catalog quiz; only the author edits or deletes it."""

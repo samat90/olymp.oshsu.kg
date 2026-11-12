@@ -25,7 +25,7 @@ from datetime import timedelta
 
 from django.conf import settings
 from django.core.cache import cache
-from django.db import IntegrityError, transaction
+from django.db import IntegrityError, connection, transaction
 from django.db.models import F
 from django.utils import timezone
 from django.utils.translation import gettext as _
@@ -727,9 +727,28 @@ def is_kicked(game_id, player_id):
     return bool(cache.get(k('x', game_id, player_id)))
 
 
-def submit_answer(state, player_id, raw_value):
-    """Check and store one answer. Returns (http status, response dict)."""
-    t = now()
+def save_answer(answer):
+    """Insert an answer without waiting for the disk.
+
+    Every commit normally waits until PostgreSQL has flushed its log to disk. When a whole class answers in
+    the same second, these waits queue up and hold the site's processes, so the polls of all players wait
+    too. An answer may skip the wait: the row is visible at once, and only a power cut in the next fraction
+    of a second could lose it (the game state itself lives in the cache anyway).
+    """
+    if connection.vendor != 'postgresql':
+        answer.save(force_insert=True)
+        return
+    with transaction.atomic():
+        with connection.cursor() as cursor:
+            cursor.execute('SET LOCAL synchronous_commit TO OFF')
+        answer.save(force_insert=True)
+
+
+def submit_answer(state, player_id, raw_value, received=None):
+    """Check and store one answer. Returns (http status, response dict).
+
+    `received` is when the answer reached the server (before it waited in the queue of a busy site)."""
+    t = now() if received is None else min(received, now())
     if state['ph'] != GameSession.QUESTION:
         return 409, {'error': _('Сейчас нельзя отвечать')}
     if t > state['end'] + GRACE:
@@ -757,8 +776,8 @@ def submit_answer(state, player_id, raw_value):
     me = got.get(names['me']) or {}
     points = scoring.points(key, fraction, correct, elapsed, me.get('streak', 0))
     try:
-        Answer.objects.create(player_id=player_id, question_id=key['id'], question_key=key['id'], value=value,
-                              is_correct=correct, fraction=fraction, points=points, time_ms=int(elapsed * 1000))
+        save_answer(Answer(player_id=player_id, question_id=key['id'], question_key=key['id'], value=value,
+                           is_correct=correct, fraction=fraction, points=points, time_ms=int(elapsed * 1000)))
     except IntegrityError:
         return 409, {'error': _('Ответ уже принят')}
     try:

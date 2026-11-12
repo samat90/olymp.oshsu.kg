@@ -28,6 +28,9 @@ class TypingResult(models.Model):
     cpm = models.PositiveIntegerField(verbose_name=_('characters per minute'), db_index=True)
     accuracy = models.FloatField(verbose_name=_('accuracy, %'))
     created = models.DateTimeField(verbose_name=_('date'), auto_now_add=True, db_index=True)
+    checked = models.BooleanField(verbose_name=_('checked'), default=False,
+                                  help_text=_('Saved with a keystroke log that passed the checks. '
+                                              'Only checked results count for records and levels.'))
 
     class Meta:
         verbose_name = _('typing result')

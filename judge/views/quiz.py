@@ -428,6 +428,24 @@ def csrf_failed(request):
     return CsrfViewMiddleware(lambda r: None).process_view(request, None, (), {})
 
 
+REQUEST_QUEUE_MAX = 10
+
+
+def received_at(request):
+    """When nginx received the request (header X-Request-Start: t=<seconds>), so that an answer waiting in the
+    queue of a busy site is neither late nor slower. Only nginx sets the header (it replaces one sent by the
+    browser); without it, or with a strange value, the time is now."""
+    t = engine.now()
+    raw = request.META.get('HTTP_X_REQUEST_START', '')
+    if raw.startswith('t='):
+        raw = raw[2:]
+    try:
+        start = float(raw)
+    except ValueError:
+        return t
+    return start if t - REQUEST_QUEUE_MAX <= start <= t else t
+
+
 @short_circuit
 def answer_view(request, pin):
     """POST {"i": question number, "value": answer}. Checked and stored at once; the result comes at the reveal."""
@@ -449,7 +467,7 @@ def answer_view(request, pin):
         return json_error(_('Неверный запрос'))
     if index != state['i']:
         return json_error(_('Этот вопрос уже закрыт'), 409)
-    status, data = engine.submit_answer(state, player_id, value)
+    status, data = engine.submit_answer(state, player_id, value, received=received_at(request))
     return JsonResponse(data, status=status)
 
 

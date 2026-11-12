@@ -158,14 +158,25 @@ document.addEventListener('DOMContentLoaded', function () {
     /* ---------------- exercises ---------------- */
 
     // Lessons add keys a few at a time, home row first, as in Stamina and similar trainers.
+    // The numbers are stored with results: new lessons are only added at the end.
     var LESSONS = ['fj', 'dk', 'sl', 'a;', 'gh', 'ru', 'ei', 'wo', 'qp', 'ty', 'vm', 'c,', 'x.', 'z/', 'bn', '\'[]', '`',
-                   'SHIFT', '1234567890'];
+                   'SHIFT', '1234567890', 'WORDS', 'PUNCT', 'SYMBOLS', 'PHRASES', 'TEXT'];
+    var SPECIAL = {SHIFT: 'capitals', '1234567890': 'digits', WORDS: 'allLetters', PUNCT: 'punctuation',
+                   SYMBOLS: 'symbols', PHRASES: 'phrases', TEXT: 'longText'};
+    var STARS = [60, 100, 150];   // chars/min for one, two and three stars (accuracy 93% and more)
+    var PASS_CPM = STARS[0];
+    var PASS_ACC = 93;
 
     function lessonTitle(i, layout) {
         var keys = LESSONS[i];
-        if (keys === 'SHIFT') return S.capitals;
-        if (keys === '1234567890') return S.digits;
+        if (SPECIAL[keys]) return S[SPECIAL[keys]];
         return keys.split('').map(function (k) { return keyLabel(layout, k); }).join(' ');
+    }
+
+    function stars(cpm) {
+        var n = 0;
+        STARS.forEach(function (t) { if (cpm >= t) n++; });
+        return n;
     }
 
     function letter(layout, key) { return layout === 'en' ? key : (RU[key] || key); }
@@ -181,12 +192,77 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    function lessonText(index, layout) {
-        var lang = layout === 'en' ? 'en' : 'ru';
+    function capital(w) { return w.charAt(0).toUpperCase() + w.slice(1); }
+
+    function phrasesText(lang, length) {
+        var list = window.TYPING_PHRASES[lang].slice();
+        for (var i = list.length - 1; i > 0; i--) {   // shuffled, so no phrase repeats
+            var j = Math.floor(Math.random() * (i + 1));
+            var t = list[i]; list[i] = list[j]; list[j] = t;
+        }
+        var out = [];
+        var size = 0;
+        while (size < length && out.length < list.length) {
+            var p = list[out.length];
+            out.push(p);
+            size += p.length + 1;
+        }
+        return out.join(' ');
+    }
+
+    function punctuationText(lang) {
+        // Real words in short sentences: commas, full stops, questions, exclamations, colons, dashes.
+        var list = words(lang);
+        var out = [];
+        var size = 0;
+        while (size < 160) {
+            var n = 3 + Math.floor(Math.random() * 4);
+            var sentence = [];
+            for (var i = 0; i < n; i++) {
+                var w = pick(list);
+                if (i === 1 && Math.random() < 0.4) w += ',';
+                if (i === 2 && Math.random() < 0.15) w += ' -';
+                if (i === 2 && Math.random() < 0.1) w += ':';
+                sentence.push(w);
+            }
+            var s = capital(sentence.join(' ').replace(/[,:-]+$/, '')) + pick(['.', '.', '.', '?', '!']);
+            out.push(s);
+            size += s.length + 1;
+        }
+        return out.join(' ');
+    }
+
+    function symbolsText(layout) {
+        var tokens = layout === 'en' ? [
+            '(a + b)', 'a[i]', 'x == y', 'a != b', 'i++', '{ }', 'f(x);', '"text"', '\'c\'', 'a < b', 'b > c',
+            'x <= 10', 'y >= 0', 'a && b', 'a || b', 's += 1;', '50%', '#include', 'user@mail', 'a * b', 'n / 2',
+            'arr[0]', 'm[k] = v;', '<p>', '$x', 'a - b', 'k % 2', '!ok', 'x = y + 1;', '(1, 2)', 'a ^ b', '~x'
+        ] : [
+            '(а + б)', 'а = б', '50%', '№7', '"да"', 'да?', 'нет!', 'а: б', 'а; б', '2 * 3', '1 + 1 = 2',
+            'х - у', '_', '(5)', '10%', '№12', '"Ош"', 'как?', 'ура!', 'итог: 5', 'а/б', '(1; 2)', 'а * б = в'
+        ];
+        var out = [];
+        var size = 0;
+        while (size < 150) {
+            var t = pick(tokens);
+            out.push(t);
+            size += t.length + 1;
+        }
+        return out.join(' ');
+    }
+
+    function lessonText(index, layout, lang) {
+        var kind = LESSONS[index];
+        if (kind === 'PHRASES') return phrasesText(lang, 170);
+        if (kind === 'TEXT') return phrasesText(lang, 380);
+        if (kind === 'PUNCT') return punctuationText(lang);
+        if (kind === 'SYMBOLS') return symbolsText(layout);
+        if (kind === 'WORDS') return testText(lang).slice(0, 170).replace(/ \S*$/, '');
+        lang = layout === 'en' ? 'en' : 'ru';
         var allowed = {};
         var fresh = {};
         for (var i = 0; i <= index; i++) {
-            if (LESSONS[i] === 'SHIFT' || LESSONS[i] === '1234567890') continue;
+            if (SPECIAL[LESSONS[i]]) continue;
             LESSONS[i].split('').forEach(function (k) {
                 var ch = letter(layout, k);
                 allowed[ch] = true;
@@ -239,8 +315,31 @@ document.addEventListener('DOMContentLoaded', function () {
             mode: load('typing-mode', 'lesson'),
             layout: load('typing-layout', C.defaultLayout),
             lesson: parseInt(load('typing-lesson-' + load('typing-layout', C.defaultLayout), '0'), 10) || 0,
-            duration: parseInt(load('typing-duration', '60'), 10)
+            duration: parseInt(load('typing-duration', '60'), 10),
+            codeLang: load('typing-code-lang', ''),
+            codeLevel: parseInt(load('typing-code-level', '0'), 10) || 0
         };
+    }
+
+    var lastSnippet = null;
+    function pickSnippet(lang, level) {
+        var list = window.TYPING_CODE.filter(function (c) {
+            return (!lang || c.lang === lang) && (!level || c.level === level);
+        });
+        if (!list.length) list = window.TYPING_CODE;
+        var snippet = pick(list);
+        if (snippet === lastSnippet && list.length > 1) snippet = pick(list);
+        lastSnippet = snippet;
+        return snippet;
+    }
+
+    // The server gives a ticket when the exercise starts; a result is only saved with it.
+    function requestTicket(run) {
+        if (!C.signedIn) return;
+        fetch(C.startUrl, {method: 'POST', credentials: 'same-origin', headers: {'X-CSRFToken': C.csrf}})
+            .then(function (r) { return r.json(); })
+            .then(function (res) { if (res.ok) run.token = res.token; })
+            .catch(function () { /* the result just is not saved */ });
     }
 
     function start() {
@@ -250,12 +349,13 @@ document.addEventListener('DOMContentLoaded', function () {
         state = {
             mode: s.mode, layout: s.layout, lesson: s.lesson, duration: s.duration,
             charMap: buildLayout(keyboardLayout), pos: 0, errors: 0, errorAt: {},
-            started: null, finished: false, code: null
+            started: null, finished: false, code: null, keys: [], lastKey: 0, token: null, pasted: false
         };
-        if (s.mode === 'lesson') state.text = lessonText(s.lesson, keyboardLayout);
+        requestTicket(state);
+        if (s.mode === 'lesson') state.text = lessonText(s.lesson, keyboardLayout, s.layout);
         else if (s.mode === 'test') state.text = testText(s.layout);
         else {
-            var snippet = pick(window.TYPING_CODE);
+            var snippet = pickSnippet(s.codeLang, s.codeLevel);
             state.code = snippet.lang;
             state.text = snippet.text;
             state.charMap = buildLayout('en');
@@ -362,6 +462,9 @@ document.addEventListener('DOMContentLoaded', function () {
         var expected = state.text[state.pos];
         var span = state.spans[state.pos];
         if (ch === expected) {
+            var now = Date.now();
+            state.keys.push(state.keys.length ? now - state.lastKey : 0);
+            state.lastKey = now;
             span.classList.add('ty-done');
             if (state.errorAt[state.pos]) span.classList.add('ty-was-wrong');
             span.classList.remove('ty-wrong');
@@ -419,37 +522,75 @@ document.addEventListener('DOMContentLoaded', function () {
         $('#ty-r-acc').textContent = acc + '%';
         $('#ty-r-err').textContent = state.errors;
         $('#ty-r-time').textContent = t.toFixed(1) + ' ' + S.sec;
-        var passed = state.mode !== 'lesson' || (acc >= 93 && cpm >= 60);
-        $('#ty-r-note').textContent = state.mode === 'lesson' ? (passed ? S.lessonPassed : S.lessonAgain) : '';
+        var passed = state.mode !== 'lesson' || (acc >= PASS_ACC && cpm >= PASS_CPM);
+        var note = '';
+        if (state.mode === 'lesson') {
+            note = passed ? S.lessonPassed + ' ' + '★★★'.slice(0, stars(cpm)) + '☆☆☆'.slice(stars(cpm)) : S.lessonAgain;
+            if (passed && stars(cpm) < 3) note += ' ' + S.nextStar.replace('{cpm}', STARS[stars(cpm)]);
+        }
+        if (state.pasted) note += ' ' + S.noPaste;
+        $('#ty-r-note').textContent = note;
         $('#ty-next').hidden = !(state.mode === 'lesson' && passed && state.lesson < LESSONS.length - 1);
         $('#ty-r-record').hidden = true;
+        $('#ty-r-level').hidden = true;
         if (state.mode === 'lesson' && passed) {
-            markDone(state.layout, state.lesson);
+            markDone(state.layout, state.lesson, cpm);
         }
-        if (C.signedIn && chars > 0 && t >= 5) save(t, chars);
+        if (C.signedIn && chars > 0 && t >= 5) save(state, t, chars);
         else if (!C.signedIn) $('#ty-r-note').textContent += ' ' + S.signIn;
     }
 
-    function save(seconds, chars) {
+    function save(run, seconds, chars) {
+        if (!run.token) return;
         fetch(C.saveUrl, {
             method: 'POST', credentials: 'same-origin',
             headers: {'Content-Type': 'application/json', 'X-CSRFToken': C.csrf},
-            body: JSON.stringify({mode: state.mode, layout: state.layout, seconds: seconds, chars: chars,
-                                  errors: state.errors, lesson: state.mode === 'lesson' ? state.lesson : null})
+            body: JSON.stringify({mode: run.mode, layout: run.layout, seconds: seconds, chars: chars,
+                                  errors: run.errors, lesson: run.mode === 'lesson' ? run.lesson : null,
+                                  token: run.token, keys: run.keys})
         }).then(function (r) { return r.json(); }).then(function (res) {
-            if (res.ok && res.record && state.mode !== 'lesson') $('#ty-r-record').hidden = false;
+            if (run !== state) return;
+            if (res.ok) {
+                if (res.record && run.mode !== 'lesson') $('#ty-r-record').hidden = false;
+                if (res.level) showLevel(res.level, res.level_up);
+            } else if (res.error === 'typed' || res.error === 'speed') {
+                $('#ty-r-note').textContent = S.notCounted;
+            }
         }).catch(function () { /* the result just is not saved */ });
     }
 
+    /* ---------------- level ---------------- */
+
+    function showLevel(info, up) {
+        var box = $('#ty-level');
+        if (!box || !info) return;
+        box.hidden = false;
+        $('#ty-level-num').textContent = info.level;
+        $('#ty-level-bar').style.width = info.percent + '%';
+        box.title = S.levelTitle.replace('{xp}', info.xp).replace('{next}', info.next);
+        if (up) {
+            var b = $('#ty-r-level');
+            b.hidden = false;
+            b.textContent = S.levelUp.replace('{level}', info.level);
+        }
+    }
+    showLevel(C.level, false);
+
     /* ---------------- lessons list ---------------- */
 
+    // Best speed in every passed lesson: from the server, and from this browser for guests.
     var done = {};
-    (C.doneLessons || []).forEach(function (d) { done[d[0] + ':' + d[1]] = true; });
-    try { JSON.parse(load('typing-done', '[]')).forEach(function (k) { done[k] = true; }); } catch (e) { /* ignore */ }
+    function keep(k, cpm) { if (!(done[k] >= cpm)) done[k] = cpm; }
+    try { JSON.parse(load('typing-done', '[]')).forEach(function (k) { keep(k, PASS_CPM); }); } catch (e) { /* ignore */ }
+    try {
+        var local = JSON.parse(load('typing-best', '{}'));
+        Object.keys(local).forEach(function (k) { keep(k, local[k]); });
+    } catch (e) { /* ignore */ }
+    Object.keys(C.lessonsBest || {}).forEach(function (k) { if (C.lessonsBest[k] >= PASS_CPM) keep(k, C.lessonsBest[k]); });
 
-    function markDone(layout, i) {
-        done[layout + ':' + i] = true;
-        store('typing-done', JSON.stringify(Object.keys(done)));
+    function markDone(layout, i, cpm) {
+        keep(layout + ':' + i, cpm);
+        store('typing-best', JSON.stringify(done));
         drawLessons();
     }
 
@@ -463,9 +604,12 @@ document.addEventListener('DOMContentLoaded', function () {
             b.type = 'button';
             b.className = 'ty-lesson' + (i === s.lesson && s.mode === 'lesson' ? ' ty-active' : '') +
                 (done[s.layout + ':' + i] ? ' ty-passed' : '');
-            b.innerHTML = '<span class="ty-num"></span><span class="ty-keys"></span>';
+            b.innerHTML = '<span class="ty-num"></span><span class="ty-keys"></span><span class="ty-stars"></span>';
             b.querySelector('.ty-num').textContent = i + 1;
             b.querySelector('.ty-keys').textContent = lessonTitle(i, kb);
+            var n = done[s.layout + ':' + i] ? stars(done[s.layout + ':' + i]) : 0;
+            b.querySelector('.ty-stars').textContent = n ? '★★★'.slice(0, n) : '';
+            if (SPECIAL[keys]) b.classList.add('ty-lesson-wide');
             b.addEventListener('click', function () {
                 store('typing-mode', 'lesson');
                 store('typing-lesson-' + s.layout, String(i));
@@ -488,7 +632,10 @@ document.addEventListener('DOMContentLoaded', function () {
         $('#ty-duration').hidden = s.mode !== 'test';
         $('#ty-lessons-box').hidden = s.mode !== 'lesson';
         $('#ty-sound i').className = 'fa ' + (soundOn ? 'fa-volume-up' : 'fa-volume-off');
-        $('#ty-layout').disabled = s.mode === 'code';
+        $('#ty-layout').hidden = s.mode === 'code';
+        $('#ty-code-lang').hidden = $('#ty-code-level').hidden = s.mode !== 'code';
+        $('#ty-code-lang').value = s.codeLang;
+        $('#ty-code-level').value = String(s.codeLevel);
         drawLessons();
     }
 
@@ -497,6 +644,18 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     $('#ty-layout').addEventListener('change', function () { store('typing-layout', this.value); syncControls(); start(); });
     $('#ty-duration').addEventListener('change', function () { store('typing-duration', this.value); start(); });
+    (function () {
+        var langs = [];
+        window.TYPING_CODE.forEach(function (c) { if (langs.indexOf(c.lang) < 0) langs.push(c.lang); });
+        var select = $('#ty-code-lang');
+        langs.forEach(function (l) {
+            var o = document.createElement('option');
+            o.value = o.textContent = l;
+            select.appendChild(o);
+        });
+    })();
+    $('#ty-code-lang').addEventListener('change', function () { store('typing-code-lang', this.value); start(); });
+    $('#ty-code-level').addEventListener('change', function () { store('typing-code-level', this.value); start(); });
     $('#ty-sound').addEventListener('click', function () {
         soundOn = !soundOn;
         store('typing-sound', soundOn ? '1' : '0');
@@ -521,17 +680,49 @@ document.addEventListener('DOMContentLoaded', function () {
     /* ---------------- input ---------------- */
 
     // A hidden text field takes the keys: it works with every layout, IME and phone keyboard.
+    // Only real key presses count: pasted, dropped or script-made text is thrown away.
+    function cheat() {
+        state.pasted = true;
+        $('#ty-hint').textContent = S.noPaste;
+    }
     input.addEventListener('keydown', function (e) {
+        if (!e.isTrusted) { e.preventDefault(); return; }
+        if ((e.ctrlKey || e.metaKey) && /^[vVмМ]$/.test(e.key)) {
+            e.preventDefault();
+            cheat();
+            return;
+        }
         if (e.key === 'Enter') { e.preventDefault(); type('\n'); }
         else if (e.key === 'Tab') { e.preventDefault(); }
         else if (e.key === 'Escape') { e.preventDefault(); start(); }
     });
-    input.addEventListener('input', function () {
+    input.addEventListener('beforeinput', function (e) {
+        var kind = e.inputType || '';
+        if (!e.isTrusted || /^insertFrom|^insertReplacement|^insertLink/.test(kind)) {
+            e.preventDefault();
+            cheat();
+        }
+    });
+    input.addEventListener('input', function (e) {
         var value = input.value;
         input.value = '';
+        if (!e.isTrusted) return;
+        var kind = e.inputType || 'insertText';
+        if (kind !== 'insertText' && kind !== 'insertCompositionText') {
+            if (/^insertFrom|^insertReplacement/.test(kind)) cheat();
+            return;
+        }
+        // One key gives one character; a longer piece at once is a paste or a phone suggestion.
+        if (value.length > 2) { cheat(); return; }
         for (var i = 0; i < value.length; i++) type(value[i]);
     });
-    input.addEventListener('paste', function (e) { e.preventDefault(); });
+    ['paste', 'drop', 'cut'].forEach(function (name) {
+        input.addEventListener(name, function (e) { e.preventDefault(); cheat(); });
+    });
+    $('#ty-area').addEventListener('dragover', function (e) { e.preventDefault(); });
+    $('#ty-area').addEventListener('drop', function (e) { e.preventDefault(); cheat(); });
+    textEl.addEventListener('copy', function (e) { e.preventDefault(); });
+    textEl.addEventListener('dragstart', function (e) { e.preventDefault(); });
     $('#ty-area').addEventListener('click', focus);
     input.addEventListener('blur', function () { $('#ty-area').classList.add('ty-unfocused'); });
     input.addEventListener('focus', function () { $('#ty-area').classList.remove('ty-unfocused'); });

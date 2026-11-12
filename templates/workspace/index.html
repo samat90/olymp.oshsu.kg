@@ -28,6 +28,7 @@
             maxFiles: {{ limits.files }},
             inContest: {{ 'true' if in_contest else 'false' }},
             guest: {{ 'true' if guest else 'false' }},
+            user: {{ request.user.id if request.user.is_authenticated else 0 }},
             loginUrl: '{{ url('auth_login') }}?next={{ request.get_full_path()|urlencode }}',
             registerUrl: '{{ url('registration_register') }}'
         };

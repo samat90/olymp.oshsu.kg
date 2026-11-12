@@ -1,0 +1,1336 @@
+{
+ "key": "eda",
+ "title": "Еда",
+ "subject": "Кухня",
+ "theme": "felt",
+ "description": "50 вопросов о блюдах, продуктах и пряностях: угадайте блюдо по фото, узнайте, откуда оно родом, и не попадитесь в ловушки — от «Цезаря» до ганфана и белого мёда. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: какое блюдо на фото?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "Хачапури — грузинская лепёшка с сыром. По-аджарски её делают «лодочкой» с яйцом.\n\n*Фото: Vyacheslav Argenberg, CC BY 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Old_Tbilisi,_Georgian_khachapuri,_Georgia.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чебурек",
+     "is_correct": false
+    },
+    {
+     "text": "Хачапури",
+     "is_correct": true
+    },
+    {
+     "text": "Пицца",
+     "is_correct": false
+    },
+    {
+     "text": "Кутаб",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Салат «Цезарь» придумал повар Цезарь Кардини. В какой стране?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "В 1924 году в его ресторане в Тихуане, у самой границы с США. К Юлию Цезарю салат отношения не имеет.\n\n*Фото: Geoff Peters from Vancouver, BC, Canada, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Caesar_salad_%282%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Во Франции",
+     "is_correct": false
+    },
+    {
+     "text": "В Италии",
+     "is_correct": false
+    },
+    {
+     "text": "В Мексике",
+     "is_correct": true
+    },
+    {
+     "text": "В Древнем Риме",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Салат оливье придумали во Франции — это же видно по названию.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Его придумал повар Люсьен Оливье в Москве, в ресторане «Эрмитаж», в 1860-х годах.\n\n*Фото: Pannet, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:%D0%A1%D0%B0%D0%BB%D0%B0%D1%82_%D0%9E%D0%BB%D0%B8%D0%B2%D1%8C%D0%B5_03.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "В честь кого названа пицца «Маргарита»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "По легенде, в 1889 году её испекли в Неаполе для королевы Маргариты: помидоры, моцарелла и базилик — цвета флага Италии.\n\n*Фото: Bex Walton from London, England, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Neapolitan_pizza_at_Trappica_%2848701940197%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Жены первого пиццайоло",
+     "is_correct": false
+    },
+    {
+     "text": "Королевы Италии",
+     "is_correct": true
+    },
+    {
+     "text": "Певицы из Неаполя",
+     "is_correct": false
+    },
+    {
+     "text": "Цветка ромашки",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что значит по-итальянски «тирамису»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Десерт с кофе и какао и правда бодрит.\n\n*Фото: Raffaele Diomede from Pordenone, ITALIA, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tiramisu_-_Raffaele_Diomede.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сладкое облако",
+     "is_correct": false
+    },
+    {
+     "text": "Кофе со сливками",
+     "is_correct": false
+    },
+    {
+     "text": "Взбодри меня (подними меня)",
+     "is_correct": true
+    },
+    {
+     "text": "Маленький торт",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Ловушка на двойные очки: в классической римской карбонаре обязательно есть сливки.",
+   "time_limit": 15,
+   "weight": 2,
+   "explanation": "В настоящей карбонаре сливок нет: соус делают из желтков, сыра пекорино и жира от гуанчиале (свиной щеки).\n\n*Фото: Javier Somoza, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Espaguetis_carbonara.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Пасту в Италию привёз из Китая Марко Поло.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Это миф из американской рекламы 1920-х годов. Сушёную пасту на Сицилии делали ещё до путешествия Марко Поло.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что на фото? Этот суп с пшеничной лапшой очень любят в Японии, хотя родом он из Китая.",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Ловушка: удон — тоже японская лапша, но толстая и японская по происхождению.\n\n*Фото: Quercus acuta, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Shoyu_Ramen%EF%BC%88Tokyo_Ramen%EF%BC%89_-_01.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Удон",
+     "is_correct": false
+    },
+    {
+     "text": "Рамен",
+     "is_correct": true
+    },
+    {
+     "text": "Фо",
+     "is_correct": false
+    },
+    {
+     "text": "Лагман",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Первые суши ели без риса: рис нужен был только для того, чтобы рыба заквасилась, и его выбрасывали.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Так делали нарэдзуси — древний способ хранить рыбу. Свежую рыбу с рисом стали есть только в XIX веке в Эдо (нынешнем Токио).",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "В большинстве суши-баров за пределами Японии «васаби» — на самом деле хрен с горчицей и зелёным красителем.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Настоящий корень васаби дорогой и теряет вкус уже через 15–20 минут после натирания.\n\n*Фото: Qwert1234, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Wasabia_japonica_4.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется пятый вкус — «мясной» вкус бульона, сыра и соевого соуса?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Его описал японский химик Кикунаэ Икэда в 1908 году. За умами отвечает глутамат.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Васаби",
+     "is_correct": false
+    },
+    {
+     "text": "Кокуми",
+     "is_correct": false
+    },
+    {
+     "text": "Мисо",
+     "is_correct": false
+    },
+    {
+     "text": "Умами",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое блюдо на фото?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Тонкие ломтики хрустящей утиной кожи заворачивают в блинчики с соусом и огурцом.\n\n*Фото: City Foodsters, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Peking_Duck,_2014_%2802%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Утка по-пекински",
+     "is_correct": true
+    },
+    {
+     "text": "Курица тандури",
+     "is_correct": false
+    },
+    {
+     "text": "Цыплёнок табака",
+     "is_correct": false
+    },
+    {
+     "text": "Индейка на День благодарения",
+     "is_correct": false
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Это тайская жареная рисовая лапша с арахисом и лаймом. Как она называется?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Том ям — суп, фо — вьетнамский суп, наси-горенг — индонезийский жареный рис.\n\n*Фото: Takeaway, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Phat_Thai_kung_Chang_Khien_street_stall.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пад-тай",
+     "is_correct": true
+    },
+    {
+     "text": "Наси-горенг",
+     "is_correct": false
+    },
+    {
+     "text": "Том ям",
+     "is_correct": false
+    },
+    {
+     "text": "Фо",
+     "is_correct": false
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "single",
+   "text": "А это корейское блюдо: рис с овощами, мясом и яйцом, которое перемешивают перед едой. Как оно называется?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "«Пибим» — перемешанный, «пап» — рис. Кимпаб — рулетики из риса в водорослях.\n\n*Фото: Sous Chef, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Dolsot-bibimbap.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кимпаб",
+     "is_correct": false
+    },
+    {
+     "text": "Токпокки",
+     "is_correct": false
+    },
+    {
+     "text": "Пулькоги",
+     "is_correct": false
+    },
+    {
+     "text": "Пибимпап",
+     "is_correct": true
+    }
+   ],
+   "image": "q14.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Из чего делают фалафель?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Фалафель — жареные шарики из измельчённого нута (в Египте — из бобов) с зеленью и пряностями.\n\n*Фото: Popo le Chien, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Falafels_2.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Из риса",
+     "is_correct": false
+    },
+    {
+     "text": "Из баранины",
+     "is_correct": false
+    },
+    {
+     "text": "Из картофеля",
+     "is_correct": false
+    },
+    {
+     "text": "Из нута или бобов",
+     "is_correct": true
+    }
+   ],
+   "image": "q15.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется североафриканская «крупа» из манки, которую готовят на пару?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Булгур — дроблёная пшеница, киноа — семена растения из Анд, полента — кукурузная каша.\n\n*Фото: Lmmima, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Moroccan_cuscus,_from_Casablanca,_September_2018.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кускус",
+     "is_correct": true
+    },
+    {
+     "text": "Булгур",
+     "is_correct": false
+    },
+    {
+     "text": "Полента",
+     "is_correct": false
+    },
+    {
+     "text": "Киноа",
+     "is_correct": false
+    }
+   ],
+   "image": "q16.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кусочки хлеба на длинных вилках макают в горшок с расплавленным сыром. Как называется это швейцарское блюдо?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Ловушка: раклет тоже швейцарский, но там расплавленный сыр соскребают на картошку.\n\n*Фото: Juliano Mendes, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Fondue_dish.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Начос",
+     "is_correct": false
+    },
+    {
+     "text": "Раклет",
+     "is_correct": false
+    },
+    {
+     "text": "Фондю",
+     "is_correct": true
+    },
+    {
+     "text": "Хумус",
+     "is_correct": false
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Мастерство выпечки французского багета внесено в список нематериального наследия ЮНЕСКО.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Это сделали в 2022 году. Настоящий багет пекут только из муки, воды, соли и дрожжей.\n\n*Фото: Nick Thweatt, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Baguettes,_Paris,_France_-_panoramio.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q18.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Сэндвич назван в честь…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "По легенде, граф просил подавать мясо между ломтями хлеба, чтобы не отрываться от карт. Ловушка: Сандвичевы острова (Гавайи) тоже назвали в честь этого графа.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Английского графа Сэндвича",
+     "is_correct": true
+    },
+    {
+     "text": "Островов в Тихом океане",
+     "is_correct": false
+    },
+    {
+     "text": "Города в США",
+     "is_correct": false
+    },
+    {
+     "text": "Повара Джона Сэндвича",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Гамбургер назван в честь немецкого города Гамбург, а не потому, что в нём ветчина (по-английски ham).",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Ловушка английского языка: в гамбургере говяжья котлета, а не ветчина.\n\n*Фото: Hongreddotbrewhouse, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:RedDot_Burger.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q20.jpg"
+  },
+  {
+   "type": "single",
+   "text": "В какой части света впервые стали пить напиток из какао-бобов?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Ольмеки, майя и ацтеки пили горький напиток из какао с перцем. Ловушка: сейчас больше всего какао выращивают в Африке.\n\n*Фото: Photo by Medicaster., Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cocoa_Pods.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В Центральной Америке",
+     "is_correct": true
+    },
+    {
+     "text": "В Африке",
+     "is_correct": false
+    },
+    {
+     "text": "В Европе",
+     "is_correct": false
+    },
+    {
+     "text": "В Индии",
+     "is_correct": false
+    }
+   ],
+   "image": "q21.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Где родина кофе?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Ловушка: Бразилия — крупнейший производитель кофе, но родом он из Эфиопии.\n\n*Фото: Marcelo Corrêa, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Coffee_Flowers.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В Колумбии",
+     "is_correct": false
+    },
+    {
+     "text": "В Эфиопии",
+     "is_correct": true
+    },
+    {
+     "text": "В Бразилии",
+     "is_correct": false
+    },
+    {
+     "text": "В Турции",
+     "is_correct": false
+    }
+   ],
+   "image": "q22.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "В белом шоколаде есть какао-масло, но нет тёртого какао.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Поэтому он белый: тёртое какао даёт шоколаду коричневый цвет и горечь.\n\n*Фото: Mixy Lorenzo, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Chopped_white_chocolate_chunks.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q23.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Первые кетчупы делали вовсе не из помидоров.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Слово пришло из Юго-Восточной Азии, где так называли рыбный соус. В Англии XVIII века кетчуп варили из грибов и грецких орехов, а томатный появился позже.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Передышка без очков: в какой посуде у нас жарят боорсоки и варят плов?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В тандыре",
+     "is_correct": false
+    },
+    {
+     "text": "В самоваре",
+     "is_correct": false
+    },
+    {
+     "text": "В казане",
+     "is_correct": true
+    },
+    {
+     "text": "В пиале",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Почему зерно попкорна «взрывается» на сковороде?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Оболочка попкорной кукурузы очень прочная, поэтому пар копится внутри, пока зерно не лопнет.\n\n*Фото: Bill Ebbesen, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Popcorn_-_Studio_-_2011.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Внутри зерна есть воздух",
+     "is_correct": false
+    },
+    {
+     "text": "Внутри зерна плавится сахар",
+     "is_correct": false
+    },
+    {
+     "text": "Масло проникает внутрь зерна",
+     "is_correct": false
+    },
+    {
+     "text": "Вода внутри зерна превращается в пар и разрывает оболочку",
+     "is_correct": true
+    }
+   ],
+   "image": "q26.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая пряность — самая дорогая в мире по весу?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Шафран — это рыльца цветков крокуса, их собирают вручную: на 1 кг нужно около 150 000 цветков. Ваниль — на втором месте.\n\n*Фото: Shaharbano, CC BY 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Saffron_-_premium_spice.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ваниль",
+     "is_correct": false
+    },
+    {
+     "text": "Корица",
+     "is_correct": false
+    },
+    {
+     "text": "Чёрный перец",
+     "is_correct": false
+    },
+    {
+     "text": "Шафран",
+     "is_correct": true
+    }
+   ],
+   "image": "q27.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Ваниль — это плод какого растения?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Ванильная орхидея — лиана, её цветки в Мадагаскаре опыляют вручную.\n\n*Фото: Malcolm Manners from Lakeland FL, USA, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Vanilla_planifolia_%286998639597%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Орхидеи",
+     "is_correct": true
+    },
+    {
+     "text": "Бобового куста",
+     "is_correct": false
+    },
+    {
+     "text": "Кактуса",
+     "is_correct": false
+    },
+    {
+     "text": "Пальмы",
+     "is_correct": false
+    }
+   ],
+   "image": "q28.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Чёрный, белый и зелёный перец горошком — плоды одного и того же растения.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Зелёный — незрелые ягоды, чёрный — высушенные недозрелые, белый — зрелые без оболочки. А розовый перец — совсем другое растение.\n\n*Фото: Franz Eugen Köhler, Köhler's Medizinal-Pflanzen, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Piper_nigrum_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-107.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q29.jpg"
+  },
+  {
+   "type": "single",
+   "text": "По какой шкале измеряют остроту перца чили?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "По шкале Рихтера измеряют землетрясения, Бофорта — ветер, Мооса — твёрдость минералов.\n\n*Фото: Takeaway, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Madame_Jeanette_and_other_chillies.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "По шкале Бофорта",
+     "is_correct": false
+    },
+    {
+     "text": "По шкале Мооса",
+     "is_correct": false
+    },
+    {
+     "text": "По шкале Рихтера",
+     "is_correct": false
+    },
+    {
+     "text": "По шкале Сковилла",
+     "is_correct": true
+    }
+   ],
+   "image": "q30.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Ловушка на двойные очки: бананы растут на деревьях.",
+   "time_limit": 15,
+   "weight": 2,
+   "explanation": "Банан — гигантская трава: его «ствол» — плотно свёрнутые листья, а не древесина.\n\n*Фото: TimothyPilgrim, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bananavarieties.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": "q31.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Почему орехи кешью не продают в скорлупе?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Кешью — родственник ядовитого сумаха, скорлупу снимают после прожаривания. На фото видно, что орех растёт под «яблоком» кешью.\n\n*Фото: Abhishek Jacob, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cashew_apples.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "У кешью нет скорлупы",
+     "is_correct": false
+    },
+    {
+     "text": "Скорлупа слишком твёрдая",
+     "is_correct": false
+    },
+    {
+     "text": "В скорлупе едкое масло, которое обжигает кожу",
+     "is_correct": true
+    },
+    {
+     "text": "Скорлупа очень горькая",
+     "is_correct": false
+    }
+   ],
+   "image": "q32.jpg"
+  },
+  {
+   "type": "multi",
+   "text": "Что из этого ботаники считают плодами — как яблоко, а не корнем, клубнем или листьями?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Помидор, огурец и баклажан вырастают из цветка, в них есть семена. Морковь — корень, картофель — клубень, капуста — листья.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Огурец",
+     "is_correct": true
+    },
+    {
+     "text": "Картофель",
+     "is_correct": false
+    },
+    {
+     "text": "Морковь",
+     "is_correct": false
+    },
+    {
+     "text": "Капуста",
+     "is_correct": false
+    },
+    {
+     "text": "Баклажан",
+     "is_correct": true
+    },
+    {
+     "text": "Помидор",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Мёд в закрытом сосуде может храниться тысячи лет и не портиться.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Археологи находили съедобный мёд в древних гробницах Египта: в нём мало воды, и микробы не выживают.\n\n*Фото: Scott Bauer, USDA ARS, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Runny_hunny.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q34.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Знаменитый кыргызский белый мёд собирают в основном с цветов…",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Эспарцетовый мёд быстро засахаривается и становится белым и твёрдым. Гречишный, наоборот, тёмный.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Липы",
+     "is_correct": false
+    },
+    {
+     "text": "Эспарцета",
+     "is_correct": true
+    },
+    {
+     "text": "Гречихи",
+     "is_correct": false
+    },
+    {
+     "text": "Подсолнечника",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какую копчёную рыбу продают на обочинах дорог вокруг Иссык-Куля, особенно у Балыкчы?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Иссык-кульский чебак — местная рыба. Сёмга, скумбрия и треска — морские.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Скумбрию",
+     "is_correct": false
+    },
+    {
+     "text": "Треску",
+     "is_correct": false
+    },
+    {
+     "text": "Чебак",
+     "is_correct": true
+    },
+    {
+     "text": "Сёмгу",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая область Кыргызстана славится абрикосами — их сушат прямо на крышах домов?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Баткенский урюк везут по всей стране и за границу.\n\n*Фото: Fir0002, GFDL 1.2, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Apricot_and_cross_section.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Иссык-Кульская",
+     "is_correct": false
+    },
+    {
+     "text": "Баткенская",
+     "is_correct": true
+    },
+    {
+     "text": "Таласская",
+     "is_correct": false
+    },
+    {
+     "text": "Нарынская",
+     "is_correct": false
+    }
+   ],
+   "image": "q37.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "В ошском плове обычно используют жёлтую морковь.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "На юге Кыргызстана и в Фергане плов готовят с жёлтой морковью: она слаще и не окрашивает рис в оранжевый.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется рулет из тонкого теста с мясом и луком (бывает с тыквой), который готовят на пару в мантоварке?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "«Ороо» — значит «заворачивать». Чучвара — маленькие пельмени, кесме — лапша, токоч — лепёшка.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чучвара",
+     "is_correct": false
+    },
+    {
+     "text": "Кесме",
+     "is_correct": false
+    },
+    {
+     "text": "Ороомо",
+     "is_correct": true
+    },
+    {
+     "text": "Токоч",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется отцеженный густой кислый творог, из которого скатывают и сушат курут?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Айран подвешивают в мешочке, сыворотка стекает, и остаётся густая сүзмө. Каймак — сливки, чалап — разбавленный айран.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Каймак",
+     "is_correct": false
+    },
+    {
+     "text": "Сүзмө",
+     "is_correct": true
+    },
+    {
+     "text": "Чалап",
+     "is_correct": false
+    },
+    {
+     "text": "Айран",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В дунганской кухне Каракола «ганфан» — это…",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Ловушка: холодная лапша с желе — это ашлянфу, а напиток из проса — бозо.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Хмельной напиток из проса",
+     "is_correct": false
+    },
+    {
+     "text": "Холодная лапша с крахмальным желе",
+     "is_correct": false
+    },
+    {
+     "text": "Жареные пельмени",
+     "is_correct": false
+    },
+    {
+     "text": "Рис с подливой из мяса и овощей",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какая кыргызская компания продаёт максым и чалап из бочек на улицах городов?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "«Шоро» начинали с продажи максыма на улицах Бишкека, а теперь разливают его и в бутылки.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Шоро",
+     "is_correct": true
+    },
+    {
+     "text": "Бермет",
+     "is_correct": false
+    },
+    {
+     "text": "Ак-Ордо",
+     "is_correct": false
+    },
+    {
+     "text": "Ала-Тоо",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что значит тюркское слово «шиш», от которого произошло слово «шашлык»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Отсюда и «шиш-кебаб» — мясо на вертеле.\n\n*Фото: Игоревич, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Shashlik.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Вертел (шампур)",
+     "is_correct": true
+    },
+    {
+     "text": "Мясо",
+     "is_correct": false
+    },
+    {
+     "text": "Угли",
+     "is_correct": false
+    },
+    {
+     "text": "Огонь",
+     "is_correct": false
+    }
+   ],
+   "image": "q43.jpg"
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: накрытый стол с угощением для гостей.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ДАСТОРКОН"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: итальянское блюдо из риса, который долго помешивают, подливая бульон.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "*Фото: Luca Nebuloni from Milan, Italy, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Risotto_with_speck_and_goat_cheese_%286101067436%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "РИЗОТТО"
+   },
+   "options": [],
+   "image": "q45.jpg"
+  },
+  {
+   "type": "order",
+   "text": "Расставьте блюда по родине с запада на восток.",
+   "time_limit": 30,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тако (Мексика)",
+     "is_correct": false
+    },
+    {
+     "text": "Паэлья (Испания)",
+     "is_correct": false
+    },
+    {
+     "text": "Пицца (Италия)",
+     "is_correct": false
+    },
+    {
+     "text": "Хачапури (Грузия)",
+     "is_correct": false
+    },
+    {
+     "text": "Пибимпап (Корея)",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие из этих блюд — супы?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Рататуй — тушёные овощи, карбонара — паста.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Шорпо",
+     "is_correct": true
+    },
+    {
+     "text": "Минестроне",
+     "is_correct": true
+    },
+    {
+     "text": "Карбонара",
+     "is_correct": false
+    },
+    {
+     "text": "Рататуй",
+     "is_correct": false
+    },
+    {
+     "text": "Борщ",
+     "is_correct": true
+    },
+    {
+     "text": "Том ям",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "Сколько примерно процентов воды в свежем огурце?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "Около 95%: огурец — одно из самых «водянистых» растений на столе.\n\n*Фото: Stephen Ausmus, USDA ARS, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:ARS_cucumber.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 50,
+    "max": 100,
+    "step": 1,
+    "answer": 95,
+    "unit": "%",
+    "tolerance": 2
+   },
+   "options": [],
+   "image": "q48.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Азамат разрезал пиццу на 8 кусков и съел четверть. Бекзат съел половину того, что осталось. Сколько кусков осталось?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Азамат съел 2 куска, осталось 6. Бекзат съел половину от 6, то есть 3. Осталось 3.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "2",
+     "is_correct": false
+    },
+    {
+     "text": "6",
+     "is_correct": false
+    },
+    {
+     "text": "3",
+     "is_correct": true
+    },
+    {
+     "text": "4",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Где родина картофеля?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Индейцы Анд выращивали картофель тысячи лет. В Европу его привезли испанцы в XVI веке. Ловушка: в Ирландии и Беларуси картофель стал «вторым хлебом» гораздо позже.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В Германии",
+     "is_correct": false
+    },
+    {
+     "text": "В Андах (Южная Америка)",
+     "is_correct": true
+    },
+    {
+     "text": "В Беларуси",
+     "is_correct": false
+    },
+    {
+     "text": "В Ирландии",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

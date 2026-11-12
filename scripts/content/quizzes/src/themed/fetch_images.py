@@ -15,7 +15,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from content import QUIZZES
 
 UA = 'OlympQuizBuilder/1.0 (https://olymp.oshsu.kg; quiz pictures for a school site)'
-FREE = re.compile(r'public domain|^pd|cc0|cc[ -]by|gfdl|attribution|no restrictions|copyrighted free use|free art|ogl|fal|free art license', re.I)
+FREE = re.compile(r'public domain|^pd|cc0|cc[ -]by|gfdl|attribution|no restrictions|copyrighted free use|free art|ogl|fal|free art license|gpl|apache|mit license|bsd', re.I)
 SPACE_AGENCY = re.compile(r'nasa|jpl|\besa\b', re.I)
 WIDTH = 800
 

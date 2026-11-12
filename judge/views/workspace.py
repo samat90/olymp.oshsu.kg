@@ -239,6 +239,12 @@ def api_create(request):
         content = data.get('content') if isinstance(data.get('content'), str) else template
         if len(content.encode()) > size_limit(language):
             return json_error(_('The file is larger than 64 KB.'))
+        if data.get('import'):
+            # Code written before signing in: an import repeated after a lost reply gives the same file.
+            same = WorkspaceFile.objects.filter(owner=request.profile, parent=parent, is_folder=False,
+                                                content=content).first()
+            if same is not None:
+                return JsonResponse({'ok': True, 'file': same.as_dict(with_content=True)})
     try:
         with transaction.atomic():
             file = WorkspaceFile.objects.create(owner=request.profile, parent=parent, name=name, is_folder=is_folder,

@@ -19,3 +19,7 @@ def SL(text, lo, hi, step, answer, unit='', tol=0, img=None, w=1, t=25, e=''):
     return dict(type='slider', text=text, slider=dict(min=lo, max=hi, step=step, answer=answer, unit=unit, tolerance=tol), img=img, w=w, t=t, e=e)
 def Q(key, title, subject, theme, description, cover, questions):
     return dict(key=key, title=title, subject=subject, theme=theme, description=description, cover=cover, questions=questions)
+def C(text, code, lang, right, *wrong, img=None, w=1, t=30, e=''):
+    # "What does this program print / where is the bug": code block + 4 options (first is correct).
+    assert len(wrong) == 3, text
+    return dict(type='code', text=text, code=code, lang=lang, opts=[right, *wrong], img=img, w=w, t=t, e=e)

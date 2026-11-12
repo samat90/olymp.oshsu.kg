@@ -37,7 +37,7 @@
     {% if rows %}
         <table class="table ty-rec-table">
             <thead>
-                <tr><th>#</th><th>{{ _('User') }}</th><th>{{ _('chars/min') }}</th><th>{{ _('words/min') }}</th>
+                <tr><th>#</th><th>{{ _('User') }}</th><th>{{ _('Level') }}</th><th>{{ _('chars/min') }}</th><th>{{ _('words/min') }}</th>
                     <th>{{ _('accuracy') }}</th><th>{{ _('Date') }}</th></tr>
             </thead>
             <tbody>
@@ -45,6 +45,7 @@
                 <tr{% if row.profile.id == my_id %} class="ty-me"{% endif %}>
                     <td>{% if row.place <= 3 %}<span class="ty-medal ty-medal-{{ row.place }}">{{ row.place }}</span>{% else %}{{ row.place }}{% endif %}</td>
                     <td>{{ link_user(row.profile) }}</td>
+                    <td>{{ row.level }}</td>
                     <td><b>{{ row.cpm }}</b></td>
                     <td>{{ row.wpm }}</td>
                     <td>{{ row.accuracy }}%</td>

@@ -10,18 +10,19 @@ CPUS=${4:-0-3}
 SITE=/mnt/d/projects/olymp.oshsu.kg
 OUT=/root/load-results
 PY=/opt/olymp/venv/bin/python
+PORT=${PORT:-8080}
 mkdir -p $OUT
 export DJANGO_SETTINGS_MODULE=${SETTINGS:-dmoj.load_settings}
 
-pkill -f 'gunicorn.*:8080' || true
+pkill -f "gunicorn.*:$PORT" || true
 sleep 1
 # Old quiz keys (join limits per IP, finished games) must not affect the run.
 redis-cli -n 1 --scan --pattern ':1:qz:*' | xargs -r -n 500 redis-cli -n 1 del > /dev/null
 cd $SITE
-taskset -c $CPUS /opt/olymp/venv/bin/gunicorn $GUNICORN_ARGS -b 127.0.0.1:8080 --backlog 2048 dmoj.wsgi:application \
+taskset -c $CPUS /opt/olymp/venv/bin/gunicorn $GUNICORN_ARGS -b 127.0.0.1:$PORT --backlog 2048 dmoj.wsgi:application \
     > $OUT/$LABEL-gunicorn.log 2>&1 &
 sleep 6
-curl -s -o /dev/null -w "warmup %{http_code}\n" http://127.0.0.1:8080/quiz/join/
+curl -s -o /dev/null -w "warmup %{http_code}\n" http://127.0.0.1:$PORT/quiz/join/
 
 rm -f $OUT/$LABEL.pin
 taskset -c ${LOCUST_CPUS:-6-11} $PY scripts/load/quiz_load_driver.py $OUT/$LABEL.pin $PLAYERS ${MODE:-auto} \
@@ -31,12 +32,12 @@ while [ ! -s $OUT/$LABEL.pin ]; do sleep 0.5; done
 export QUIZ_PIN=$(cat $OUT/$LABEL.pin)
 echo "pin $QUIZ_PIN"
 
-taskset -c ${LOCUST_CPUS:-6-11} /opt/pw/bin/locust -f $SITE/scripts/load/locustfile_quiz.py --host http://127.0.0.1:8080 \
+taskset -c ${LOCUST_CPUS:-6-11} /opt/pw/bin/locust -f $SITE/scripts/load/locustfile_quiz.py --host http://127.0.0.1:$PORT \
     -u $PLAYERS -r ${SPAWN_RATE:-25} --headless -t ${MINUTES:-8}m --csv $OUT/$LABEL --only-summary --processes 4 \
     > $OUT/$LABEL-locust.log 2>&1 || true
 
 wait $DRIVER || true
-pkill -f 'gunicorn.*:8080' || true
+pkill -f "gunicorn.*:$PORT" || true
 cat $OUT/$LABEL-driver.log
 python3 - "$OUT/${LABEL}_stats.csv" <<'PY'
 import csv, sys

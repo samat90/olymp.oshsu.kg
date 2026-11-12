@@ -12,8 +12,10 @@ timeout = 60
 graceful_timeout = 30
 # A queue of waiting connections during the login rush at the start of an olympiad.
 backlog = 2048
-# Restart workers now and then so memory does not creep up during a long day.
-max_requests = 3000
-max_requests_jitter = 300
+# Restart workers now and then so memory does not creep up during a long day. A quiz with 1000 phones
+# makes ~500 requests a second, so a small limit would restart every worker each few seconds
+# (a restart loads the whole site again and the requests queued behind it wait).
+max_requests = 50000
+max_requests_jitter = 5000
 accesslog = os.environ.get('OLYMP_ACCESS_LOG', '/var/log/olymp/gunicorn-access.log')
 errorlog = os.environ.get('OLYMP_ERROR_LOG', '/var/log/olymp/gunicorn-error.log')

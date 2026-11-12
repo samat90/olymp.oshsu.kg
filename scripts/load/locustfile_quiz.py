@@ -15,6 +15,7 @@ import time
 from locust import HttpUser, constant, events, task
 
 PIN = os.environ.get('QUIZ_PIN', '')
+BURST = os.environ.get('QUIZ_BURST') == '1'
 CSRF_RE = re.compile(r"""name=["']csrfmiddlewaretoken["'] value=["']([^"']+)""")
 counter = iter(range(1, 1000000))
 
@@ -94,8 +95,10 @@ class Player(HttpUser):
         if self.phase == 'question':
             self.question = state['question']
             # Answers open after the countdown; players think for a few seconds; some do not answer.
+            # QUIZ_BURST=1: everyone answers within the same second (the hardest case for the server).
             if random.random() < .95:
-                delay = max(state['start'] - state['now'], 0) + random.uniform(1, min(self.question['time'] - 1, 12))
+                think = random.uniform(1, 2) if BURST else random.uniform(1, min(self.question['time'] - 1, 12))
+                delay = max(state['start'] - state['now'], 0) + think
                 self.answer_at = time.time() + delay
         elif self.phase in ('reveal', 'leaderboard'):
             self.answer_at = None

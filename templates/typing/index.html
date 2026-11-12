@@ -11,6 +11,13 @@
     {% set S = {
         'lesson': _('Lesson'), 'test': _('Speed test'), 'code': _('Code'), 'sec': _('s'),
         'capitals': _('Capital letters'), 'digits': _('Digits'),
+        'allLetters': _('All letters'), 'punctuation': _('Punctuation'), 'symbols': _('Symbols'),
+        'phrases': _('Phrases'), 'longText': _('Long text'),
+        'nextStar': _('Next star from {cpm} chars/min.'),
+        'noPaste': _('Pasting does not count: type the text yourself.'),
+        'notCounted': _('The result was not counted: it does not look like typing by hand.'),
+        'levelTitle': _('Typed characters: {xp} of {next} to the next level'),
+        'levelUp': _('New level: {level}!'),
         'lp': _('left little finger'), 'lr': _('left ring finger'), 'lm': _('left middle finger'),
         'li': _('left index finger'), 'ri': _('right index finger'), 'rm': _('right middle finger'),
         'rr': _('right ring finger'), 'rp': _('right little finger'), 'thumb': _('thumb'),
@@ -22,13 +29,16 @@
         window.TYPING = {
             strings: {{ S|tojson }},
             saveUrl: '{{ url('typing_save') }}',
+            startUrl: '{{ url('typing_start') }}',
             csrf: '{{ csrf_token }}',
             signedIn: {{ 'true' if request.user.is_authenticated else 'false' }},
             defaultLayout: {{ ('ky' if LANGUAGE_CODE == 'ky' else 'en' if LANGUAGE_CODE == 'en' else 'ru')|tojson }},
-            doneLessons: {{ done_lessons|tojson }}
+            lessonsBest: {{ lessons_best|tojson }},
+            level: {{ level|tojson }}
         };
     </script>
     <script src="{{ static('typing/words.js') }}?v={{ STATIC_VERSION }}"></script>
+    <script src="{{ static('typing/code.js') }}?v={{ STATIC_VERSION }}"></script>
     <script src="{{ static('typing/typing.js') }}?v={{ STATIC_VERSION }}"></script>
 {% endblock %}
 
@@ -46,6 +56,15 @@
             <option value="ky">Кыргызча</option>
             <option value="en">English</option>
         </select>
+        <select id="ty-code-lang" aria-label="{{ _('Language') }}" hidden>
+            <option value="">{{ _('All languages') }}</option>
+        </select>
+        <select id="ty-code-level" aria-label="{{ _('Difficulty') }}" hidden>
+            <option value="0">{{ _('Any difficulty') }}</option>
+            <option value="1">{{ _('Easy') }}</option>
+            <option value="2">{{ _('Medium') }}</option>
+            <option value="3">{{ _('Hard') }}</option>
+        </select>
         <select id="ty-duration" aria-label="{{ _('Time') }}">
             <option value="30">30 {{ _('s') }}</option>
             <option value="60">60 {{ _('s') }}</option>
@@ -53,6 +72,7 @@
         </select>
         <button type="button" class="ty-icon" id="ty-sound" title="{{ _('Sound') }}"><i class="fa fa-volume-up"></i></button>
         <button type="button" class="ty-icon" id="ty-kbd-toggle" title="{{ _('Keyboard') }}"><i class="fa fa-keyboard-o"></i></button>
+        <span class="ty-level" id="ty-level" hidden><span>{{ _('Level') }} <b id="ty-level-num"></b></span><i><i id="ty-level-bar"></i></i></span>
         <a class="ty-records-link" href="{{ url('typing_records') }}"><i class="fa fa-trophy"></i> {{ _('Records') }}</a>
     </div>
 
@@ -80,6 +100,7 @@
 
         <div class="ty-result" id="ty-result" hidden>
             <div class="ty-record" id="ty-r-record" hidden><i class="fa fa-trophy"></i> {{ _('New personal record!') }}</div>
+            <div class="ty-record ty-level-up" id="ty-r-level" hidden></div>
             <div class="ty-result-grid">
                 <div><b id="ty-r-cpm"></b><span>{{ _('chars/min') }}</span></div>
                 <div><b id="ty-r-wpm"></b><span>{{ _('words/min') }}</span></div>

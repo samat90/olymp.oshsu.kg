@@ -35,18 +35,40 @@ window.TYPING_WORDS = {
          'ачкыч клавиатура чычкан экран').split(' ')
 };
 
-window.TYPING_CODE = [
-    {lang: 'C++', text: '#include <iostream>\nusing namespace std;\n\nint main() {\n    int a, b;\n    cin >> a >> b;\n    cout << a + b << endl;\n    return 0;\n}'},
-    {lang: 'C++', text: 'long long gcd(long long a, long long b) {\n    while (b != 0) {\n        long long t = a % b;\n        a = b;\n        b = t;\n    }\n    return a;\n}'},
-    {lang: 'C++', text: 'vector<int> a(n);\nfor (int i = 0; i < n; i++) {\n    cin >> a[i];\n}\nsort(a.begin(), a.end());\ncout << a[n - 1] << "\\n";'},
-    {lang: 'C++', text: 'int lo = 0, hi = n - 1;\nwhile (lo <= hi) {\n    int mid = (lo + hi) / 2;\n    if (a[mid] == x) return mid;\n    if (a[mid] < x) lo = mid + 1;\n    else hi = mid - 1;\n}\nreturn -1;'},
-    {lang: 'Python', text: 'n = int(input())\na = list(map(int, input().split()))\nprint(max(a), a.count(max(a)))'},
-    {lang: 'Python', text: 'def is_prime(n):\n    if n < 2:\n        return False\n    i = 2\n    while i * i <= n:\n        if n % i == 0:\n            return False\n        i += 1\n    return True'},
-    {lang: 'Python', text: 'from collections import deque\n\ndist = [-1] * n\ndist[0] = 0\nq = deque([0])\nwhile q:\n    v = q.popleft()\n    for u in graph[v]:\n        if dist[u] == -1:\n            dist[u] = dist[v] + 1\n            q.append(u)'},
-    {lang: 'Python', text: 'words = input().split()\ncounts = {}\nfor w in words:\n    counts[w] = counts.get(w, 0) + 1\nfor w, c in sorted(counts.items()):\n    print(w, c)'},
-    {lang: 'Java', text: 'import java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner in = new Scanner(System.in);\n        int n = in.nextInt();\n        System.out.println(n * (n + 1) / 2);\n    }\n}'},
-    {lang: 'Java', text: 'int[] dp = new int[n + 1];\ndp[0] = 1;\nfor (int i = 1; i <= n; i++) {\n    dp[i] = dp[i - 1];\n    if (i >= 2) dp[i] += dp[i - 2];\n}\nSystem.out.println(dp[n]);'},
-    {lang: 'JavaScript', text: 'const lines = require(\'fs\').readFileSync(0, \'utf8\').split(\'\\n\');\nconst [a, b] = lines[0].split(\' \').map(Number);\nconsole.log(a + b);'},
-    {lang: 'JavaScript', text: 'function fib(n) {\n    let a = 0, b = 1;\n    for (let i = 0; i < n; i++) {\n        [a, b] = [b, a + b];\n    }\n    return a;\n}'},
-    {lang: 'Pascal', text: 'var\n  n, i, s: integer;\nbegin\n  readln(n);\n  s := 0;\n  for i := 1 to n do\n    s := s + i;\n  writeln(s);\nend.'}
-];
+/* Sentences for the last lessons: capitals, punctuation and digits together. */
+window.TYPING_PHRASES = {
+    ru: [
+        'Тише едешь - дальше будешь.', 'Без труда не выловишь и рыбку из пруда.', 'Семь раз отмерь, один раз отрежь.',
+        'Повторение - мать учения.', 'Не имей сто рублей, а имей сто друзей.', 'Делу время, потехе час.',
+        'Ученье - свет, а неученье - тьма.', 'Кто ищет, тот всегда найдёт.', 'Одна голова хорошо, а две лучше.',
+        'Ош - один из самых древних городов Средней Азии.', 'Иссык-Куль не замерзает даже зимой.',
+        'Высота пика Ленина - 7134 метра.', 'В неделе 7 дней, а в году 12 месяцев.',
+        'Олимпиада начнётся в 10:00, у вас будет 5 задач и 4 часа.', 'Программа прошла 25 тестов из 30.',
+        'Сначала прочитай условие, потом пиши код!', 'Где ошибка: в цикле или в условии?',
+        'Быстрая печать экономит время на олимпиаде.', 'Сегодня на уроке мы решали задачи на массивы.',
+        'Компьютер выполняет миллиарды операций в секунду.', 'Не смотри на клавиатуру: пальцы сами найдут клавиши.',
+        'Вчера было холодно, а сегодня светит солнце.', 'Мы поедем в горы в субботу, 15 мая.',
+        'Чтобы печатать быстро, сначала печатай без ошибок.'
+    ],
+    en: [
+        'Practice makes perfect.', 'The quick brown fox jumps over the lazy dog.', 'Slow and steady wins the race.',
+        'Where there is a will, there is a way.', 'Actions speak louder than words.', 'Better late than never.',
+        'Knowledge is power.', 'Two heads are better than one.', 'Every expert was once a beginner.',
+        'Read the problem twice, then write the code.', 'My program passed 28 of 30 tests!',
+        'The contest starts at 10:00 and lasts 5 hours.', 'Is the bug in the loop or in the condition?',
+        'Osh is one of the oldest cities in Central Asia.', 'Lake Issyk-Kul does not freeze in winter.',
+        'A computer can do billions of operations per second.', 'Do not look at the keys; let your fingers find them.',
+        'Today we learned how to sort an array.', 'First type without mistakes, then type fast.',
+        'There are 7 days in a week and 12 months in a year.', 'Good code is easy to read.'
+    ],
+    ky: [
+        'Ынтымак бар жерде ырыс бар.', 'Жети өлчөп, бир кес.', 'Эл ичи - өнөр кенчи.',
+        'Билимдүү миңди жыгат, билектүү бирди жыгат.', 'Окуу - билим булагы.', 'Китеп - билимдин булагы.',
+        'Ош - Борбордук Азиядагы эң байыркы шаарлардын бири.', 'Ысык-Көл кышында да тоңбойт.',
+        'Бир жумада 7 күн, бир жылда 12 ай бар.', 'Олимпиада саат 10:00до башталат.',
+        'Программа 30 тесттин 25ин өттү!', 'Адегенде шартты оку, анан код жаз.',
+        'Ката циклдеби же шарттабы?', 'Бүгүн сабакта массивдер боюнча маселе чыгардык.',
+        'Компьютер секундасына миллиарддаган амал аткарат.', 'Клавиатурага карабай терүүнү үйрөн.',
+        'Адегенде катасыз тер, анан тез тер.', 'Биз шембиде тоого барабыз.', 'Мен мектепте окуйм.'
+    ]
+};

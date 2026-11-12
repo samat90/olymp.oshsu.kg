@@ -68,16 +68,25 @@ document.addEventListener('DOMContentLoaded', function () {
     function storageSet(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* ignore */ } }
     function loadJSON(k, d) { try { return JSON.parse(storageGet(k) || 'null') || d; } catch (e) { return d; } }
 
-    function request(url, body) {
+    function request(url, body, keepalive) {
         if (W.guest) return guestRequest(url, body);
         var opts = {credentials: 'same-origin', headers: {'X-CSRFToken': cfg.csrf}};
         if (body !== undefined) {
             opts.method = 'POST';
             opts.headers['Content-Type'] = 'application/json';
             opts.body = JSON.stringify(body);
+            // A save sent while the page closes must outlive the page (the browser caps it at 64 KB).
+            if (keepalive && opts.body.length < 60000) opts.keepalive = true;
         }
-        return fetch(url, opts).then(function (r) {
-            return r.json().catch(function () { return {ok: false, error: S.serverError + ' (' + r.status + ')'}; });
+        return fetch(url, opts).catch(function () {
+            throw new Error(S.offline);
+        }).then(function (r) {
+            // A signed-out user gets the login page (or a CSRF refusal) instead of JSON.
+            var loginPage = r.redirected && r.url.indexOf(W.loginUrl.split('?')[0]) >= 0;
+            return r.json().catch(function () {
+                var error = loginPage || r.status === 403 ? S.sessionExpired : S.serverError + ' (' + r.status + ')';
+                return {ok: false, error: error};
+            });
         }).then(function (data) {
             if (!data.ok) throw new Error(data.error || S.error);
             return data;
@@ -164,6 +173,9 @@ document.addEventListener('DOMContentLoaded', function () {
             needAccount();
         }, true);
     }
+
+    // Translated strings come with the gap as %s or, after the template's formatting, as {}.
+    function fill(text, value) { return text.replace(/%s|\{\}/, value); }
 
     var statusTimer = null;
     function setStatus(text, sticky) {
@@ -363,8 +375,9 @@ document.addEventListener('DOMContentLoaded', function () {
         return name;
     }
 
-    function createFile(parentId, name, content, langKey) {
+    function createFile(parentId, name, content, langKey, imported) {
         var body = {parent: parentId, name: name, folder: false};
+        if (imported) body.import = true;
         if (langKey) body.language = langKey;
         if (typeof content === 'string') body.content = content;
         return request(api + 'new/', body).then(function (data) {
@@ -435,7 +448,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function remove(file, done) {
-        if (!confirm(S.deleteConfirm.replace('%s', file.name))) return;
+        if (!confirm(fill(S.deleteConfirm, file.name))) return;
         request(api + file.id + '/delete/', {}).then(function () {
             var gone = {};
             (function mark(id) {
@@ -604,7 +617,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     }).then(function (f) { last = f; });
                 }
                 if (file.size > 65536) {
-                    setStatus(S.tooBig.replace('%s', file.name), true);
+                    setStatus(fill(S.tooBig, file.name), true);
                     return;
                 }
                 return file.text().then(function (text) {
@@ -705,6 +718,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var model = window.monaco.editor.createModel(file.content || '', E.monacoLanguage(lang ? lang.ace : 'text'));
         model.onDidChangeContent(function () {
             dirty[id] = true;
+            backupSet(id, model.getValue());
             renderTabs();
             clearTimeout(saveTimers[id]);
             saveTimers[id] = setTimeout(function () { flush(id); }, 900);
@@ -720,9 +734,23 @@ document.addEventListener('DOMContentLoaded', function () {
         var load = preloaded && 'content' in preloaded ? Promise.resolve({file: preloaded}) : request(api + id + '/');
         return Promise.all([load, ensureEditor()]).then(function (res) {
             files[id] = Object.assign(files[id] || {}, res[0].file);
-            if (!models[id]) attachModel(id, files[id]);
+            if (!models[id]) {
+                attachModel(id, files[id]);
+                restoreBackup(id);
+            }
             activate(id);
         }).catch(fail);
+    }
+
+    // Text that never reached the server goes back into the editor and is saved now,
+    // unless the file has changed on the server since (then the server copy wins).
+    function restoreBackup(id) {
+        var b = backupGet(id);
+        if (!b || typeof b.text !== 'string') return;
+        var server = files[id].content || '';
+        if (b.text === server || b.base !== server) { backupDrop(id); return; }
+        models[id].setValue(b.text);
+        flush(id).then(function () { setStatus(S.restored); }).catch(function () {});
     }
 
     var fileButtons = ['#cc-run', '#cc-format', '#cc-share', '#cc-download', '#cc-save'];
@@ -757,20 +785,54 @@ document.addEventListener('DOMContentLoaded', function () {
         $('#cc-args').value = storageGet('cc-args:' + active) || '';
     }
 
-    function flush(id) {
+    /* Unsaved text is also kept in this browser until the server has it, so that a lost
+     * connection, an expired login or a closed tab does not lose the code. */
+    var BACKUP = 'cc-unsaved:' + (W.guest ? 'guest' : W.user) + ':';
+    function backupSet(id, text) {
+        if (W.guest || isProject(files[id] && files[id].language)) return;
+        // base: what the server should hold now; if it holds something else later, it changed elsewhere.
+        var base = id in sent ? sent[id] : (files[id] && files[id].content) || '';
+        storageSet(BACKUP + id, JSON.stringify({text: text, base: base}));
+    }
+    function backupGet(id) { return W.guest ? null : loadJSON(BACKUP + id, null); }
+    function backupDrop(id) { try { localStorage.removeItem(BACKUP + id); } catch (e) { /* ignore */ } }
+
+    var saving = {};         // id -> the save in flight; saves of one file go one after another
+    var sent = {};           // id -> the text of the last save sent
+    var retryTimers = {};
+
+    function flush(id, keepalive) {
         clearTimeout(saveTimers[id]);
-        if (!id || !dirty[id] || !models[id]) return Promise.resolve();
+        clearTimeout(retryTimers[id]);
+        if (!id || !dirty[id] || !models[id]) return saving[id] || Promise.resolve();
         var content = models[id].getValue();
         dirty[id] = false;
         renderTabs();
-        return request(api + id + '/save/', {content: content}).then(function () {
+        sent[id] = content;
+        var previous = saving[id] || Promise.resolve();
+        var send = function () { return request(api + id + '/save/', {content: content}, keepalive); };
+        // When the page is closing there is no time to wait for the previous save.
+        var done = (keepalive ? send() : previous.catch(function () {}).then(send)).then(function () {
             if (files[id]) files[id].content = content;
+            if (!models[id] || models[id].getValue() === content) backupDrop(id);
+            if ($('#cc-status').textContent.indexOf(S.notSaved) === 0) setStatus('');
         }).catch(function (err) {
-            dirty[id] = true;
+            if (sent[id] === content) sent[id] = (files[id] && files[id].content) || '';
+            if (models[id]) {
+                dirty[id] = models[id].getValue() !== (files[id] && files[id].content);
+                if (dirty[id]) backupSet(id, models[id].getValue());
+            }
             renderTabs();
             setStatus(S.notSaved + ': ' + err.message, true);
+            // Try again later; meanwhile the text is safe in the browser.
+            if (dirty[id] && err.message !== S.sessionExpired) {
+                retryTimers[id] = setTimeout(function () { flush(id).catch(function () {}); }, 15000);
+            }
             throw err;
         });
+        saving[id] = done;
+        done.catch(function () {}).then(function () { if (saving[id] === done) delete saving[id]; });
+        return done;
     }
 
     function flushAll() {
@@ -1225,9 +1287,20 @@ document.addEventListener('DOMContentLoaded', function () {
         }).then(function () { location.reload(); });
     });
 
+    // Closing or leaving the page: the saves are sent so that they outlive it. Phones often
+    // close a hidden tab without beforeunload, so a hidden page saves too.
+    function flushNow() {
+        Object.keys(dirty).forEach(function (id) {
+            if (dirty[id]) flush(Number(id), true).catch(function () {});
+        });
+    }
     window.addEventListener('beforeunload', function (e) {
         var pending = Object.keys(dirty).some(function (k) { return dirty[k]; });
-        if (pending) { flushAll(); e.preventDefault(); e.returnValue = ''; }
+        if (pending) { flushNow(); e.preventDefault(); e.returnValue = ''; }
+    });
+    window.addEventListener('pagehide', flushNow);
+    document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState === 'hidden') flushNow();
     });
 
     document.addEventListener('keydown', function (e) {
@@ -1243,9 +1316,54 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /* ---- start: reopen the last tabs, or make main.cpp on the first visit ---- */
 
+    /* Code written before signing in lives in this browser; after signing in it is offered
+     * for the account, and the browser copy is removed once it is saved there. */
+    function importGuestFiles() {
+        if (W.guest) return Promise.resolve();
+        var store = loadJSON(GUEST_KEY, null);
+        var list = store && store.files ? Object.keys(store.files).map(function (k) { return store.files[k]; }) : [];
+        list = list.filter(function (f) { return !f.folder && !isTemplate(f.content); });
+        var drop = function () { try { localStorage.removeItem(GUEST_KEY); } catch (e) { /* ignore */ } };
+        if (!list.length) { if (store) drop(); return Promise.resolve(); }
+        var names = list.map(function (f) { return f.name; }).join(', ');
+        // Taken out of the browser before saving, so that a reload in the middle does not save twice;
+        // put back if the saving fails.
+        var yes = confirm(fill(S.guestImport, names));
+        drop();
+        if (!yes) return Promise.resolve();
+        var restore = function () { storageSet(GUEST_KEY, JSON.stringify(store)); };
+        var made = [];
+        var chain = Promise.resolve();
+        list.forEach(function (f) {
+            chain = chain.then(function () {
+                return createFile(null, uniqueName(null, f.name), f.content || '', f.language || null, true);
+            }).then(function (file) {
+                made.push(file.id);
+                if (f.stdin) return request(api + file.id + '/save/', {stdin: f.stdin});
+            });
+        });
+        return chain.then(function () {
+            project = null;
+            storageSet('cc-project', '');
+            storageSet('cc-tabs', JSON.stringify(made));
+            storageSet('ws-open', made[made.length - 1] || '');
+            setStatus(S.guestImported);
+        }).catch(function (err) {
+            // What is already in the account is not offered again.
+            made.forEach(function () { list.shift(); });
+            store.files = {};
+            list.forEach(function (f) { store.files[f.id] = f; });
+            restore();
+            fail(err);
+        });
+    }
+
     request(api).then(function (data) {
         data.files.forEach(function (f) { files[f.id] = f; });
         if (project && !(files[project] && files[project].folder && !files[project].parent)) project = null;
+        render();
+        return importGuestFiles();
+    }).then(function () {
         render();
         var saved = loadJSON('cc-tabs', []).filter(function (id) { return files[id] && !files[id].folder && inProject(id); });
         var last = Number(storageGet('ws-open'));

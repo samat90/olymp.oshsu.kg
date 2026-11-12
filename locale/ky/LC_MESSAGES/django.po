@@ -3811,3 +3811,72 @@ msgstr "ЖИ азырынча туташтырыла элек. Админист�
 
 msgid "Предыдущая викторина ещё создаётся, подождите."
 msgstr "Мурунку викторина дагы эле түзүлүүдө, күтө туруңуз."
+
+msgid "You are signed out. Sign in again: the changes are kept in this browser."
+msgstr "Сиз аккаунттан чыгып калдыңыз. Кайра кириңиз — өзгөртүүлөр ушул браузерде сакталды."
+
+msgid "Unsaved changes restored"
+msgstr "Сакталбаган өзгөртүүлөр калыбына келтирилди"
+
+msgid "No connection to the site"
+msgstr "Сайт менен байланыш жок"
+
+msgid "Files written before signing in: %s. Save them to your account?"
+msgstr "Кирүүгө чейин жазылган файлдар табылды: %s. Аларды аккаунтуңузга сактайлыбы?"
+
+msgid "The files are saved to your account"
+msgstr "Файлдар аккаунтуңузга сакталды"
+
+msgid "checked"
+msgstr "текшерилген"
+
+msgid "Saved with a keystroke log that passed the checks. Only checked results count for records and levels."
+msgstr "Текшерүүдөн өткөн басуулар журналы менен сакталган. Рекорддор жана деңгээлдер үчүн текшерилген натыйжалар гана эсептелет."
+
+msgid "All letters"
+msgstr "Бардык тамгалар"
+
+msgid "Punctuation"
+msgstr "Тыныш белгилери"
+
+msgid "Symbols"
+msgstr "Символдор"
+
+msgid "Phrases"
+msgstr "Сүйлөмдөр"
+
+msgid "Long text"
+msgstr "Узун текст"
+
+msgid "Next star from {cpm} chars/min."
+msgstr "Кийинки жылдыз - {cpm} белги/мүн баштап."
+
+msgid "Pasting does not count: type the text yourself."
+msgstr "Коюу эсептелбейт: текстти өзүңүз териңиз."
+
+msgid "The result was not counted: it does not look like typing by hand."
+msgstr "Натыйжа эсептелген жок: бул колго терүүгө окшобойт."
+
+msgid "Typed characters: {xp} of {next} to the next level"
+msgstr "Терилген белгилер: кийинки деңгээлге чейин {next} ичинен {xp}"
+
+msgid "New level: {level}!"
+msgstr "Жаңы деңгээл: {level}!"
+
+msgid "All languages"
+msgstr "Бардык тилдер"
+
+msgid "Any difficulty"
+msgstr "Каалаган татаалдык"
+
+msgid "Easy"
+msgstr "Жеңил"
+
+msgid "Medium"
+msgstr "Орточо"
+
+msgid "Hard"
+msgstr "Татаал"
+
+msgid "Level"
+msgstr "Деңгээл"

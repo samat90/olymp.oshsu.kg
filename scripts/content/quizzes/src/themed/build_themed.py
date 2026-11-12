@@ -9,7 +9,7 @@ import hashlib, json, os, random, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from content import QUIZZES
 
-TYPES = {'single', 'truefalse', 'multi', 'order', 'word', 'text', 'slider'}
+TYPES = {'single', 'code', 'truefalse', 'multi', 'order', 'word', 'text', 'slider'}
 
 
 def credit_line(c):
@@ -30,9 +30,9 @@ def build(quiz, out, errors):
     cpath = os.path.join(folder, 'credits.json')
     credits = json.load(open(cpath, encoding='utf-8')) if os.path.exists(cpath) else {}
     qs = quiz['questions']
-    if len(qs) != 25:
+    if len(qs) not in (25, 50):
         errors.append('%s: %d questions' % (key, len(qs)))
-    n_single = sum(1 for q in qs if q['type'] == 'single')
+    n_single = sum(1 for q in qs if q['type'] in ('single', 'code'))
     slots = ([0, 1, 2, 3] * 10)[:n_single]
     random.Random(key).shuffle(slots)
     seen = set()
@@ -42,13 +42,17 @@ def build(quiz, out, errors):
         t = q['type']
         if t not in TYPES:
             errors.append('%s #%d type %s' % (key, i + 1, t))
-        sig = q['text'] + '|' + (q['img'] or '')
+        sig = q['text'] + '|' + (q['img'] or '') + '|' + q.get('code', '')
         if sig in seen:
             errors.append('%s #%d duplicate question' % (key, i + 1))
         seen.add(sig)
         item = {'type': t, 'text': q['text'], 'time_limit': q['t'], 'weight': q['w'], 'explanation': q['e'],
                 'code': '', 'code_language': '', 'data': {}, 'options': [], 'image': None}
-        if t == 'single':
+        if t == 'code':
+            item['code'] = q['code'].strip('\n')
+            item['code_language'] = q['lang']
+            item['data'] = {'input': False}
+        if t in ('single', 'code'):
             opts = q['opts']
             if len(set(opts)) != 4:
                 errors.append('%s #%d options %r' % (key, i + 1, opts))

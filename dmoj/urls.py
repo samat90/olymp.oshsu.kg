@@ -124,6 +124,7 @@ urlpatterns = [
     path('typing/', include([
         path('', typing_views.trainer, name='typing'),
         path('records/', typing_views.records, name='typing_records'),
+        path('api/start/', typing_views.start_run, name='typing_start'),
         path('api/save/', typing_views.save_result, name='typing_save'),
     ])),
     path('quiz/', include([

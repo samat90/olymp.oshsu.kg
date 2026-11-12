@@ -7474,3 +7474,72 @@ msgstr "Ошибка проверки"
 
 msgid "Skipped"
 msgstr "Пропущено"
+
+msgid "You are signed out. Sign in again: the changes are kept in this browser."
+msgstr "Вы вышли из аккаунта. Войдите снова — изменения сохранены в этом браузере."
+
+msgid "Unsaved changes restored"
+msgstr "Восстановлены несохранённые изменения"
+
+msgid "No connection to the site"
+msgstr "Нет связи с сайтом"
+
+msgid "Files written before signing in: %s. Save them to your account?"
+msgstr "Найдены файлы, написанные до входа: %s. Сохранить их в ваш аккаунт?"
+
+msgid "The files are saved to your account"
+msgstr "Файлы сохранены в ваш аккаунт"
+
+msgid "checked"
+msgstr "проверен"
+
+msgid "Saved with a keystroke log that passed the checks. Only checked results count for records and levels."
+msgstr "Сохранён с журналом нажатий, который прошёл проверку. В рекордах и уровнях учитываются только проверенные результаты."
+
+msgid "All letters"
+msgstr "Все буквы"
+
+msgid "Punctuation"
+msgstr "Знаки препинания"
+
+msgid "Symbols"
+msgstr "Символы"
+
+msgid "Phrases"
+msgstr "Фразы"
+
+msgid "Long text"
+msgstr "Длинный текст"
+
+msgid "Next star from {cpm} chars/min."
+msgstr "Следующая звезда - от {cpm} зн/мин."
+
+msgid "Pasting does not count: type the text yourself."
+msgstr "Вставка не засчитывается: наберите текст сами."
+
+msgid "The result was not counted: it does not look like typing by hand."
+msgstr "Результат не засчитан: это не похоже на набор вручную."
+
+msgid "Typed characters: {xp} of {next} to the next level"
+msgstr "Набрано знаков: {xp} из {next} до следующего уровня"
+
+msgid "New level: {level}!"
+msgstr "Новый уровень: {level}!"
+
+msgid "All languages"
+msgstr "Все языки"
+
+msgid "Any difficulty"
+msgstr "Любая сложность"
+
+msgid "Easy"
+msgstr "Лёгкий"
+
+msgid "Medium"
+msgstr "Средний"
+
+msgid "Hard"
+msgstr "Сложный"
+
+msgid "Level"
+msgstr "Уровень"

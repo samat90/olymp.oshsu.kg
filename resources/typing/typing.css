@@ -37,7 +37,9 @@
 .ty-lesson .ty-num { color: var(--ty-muted); font-weight: 600; }
 .ty-lesson .ty-keys { font-family: 'JetBrains Mono', Consolas, monospace; font-weight: 700; }
 .ty-lesson.ty-passed { border-color: var(--ty-ok); }
-.ty-lesson.ty-passed .ty-num::after { content: ' ✓'; color: var(--ty-ok); }
+.ty-lesson .ty-stars { color: #e0a800; letter-spacing: -1px; font-size: 12px; }
+.ty-lesson.ty-active .ty-stars { color: #ffd54a; }
+.ty-lesson.ty-lesson-wide .ty-keys { font-family: inherit; font-weight: 600; }
 .ty-lesson.ty-active { background: var(--ty-primary); border-color: var(--ty-primary); color: #fff !important; }
 .ty-lesson.ty-active .ty-num { color: rgba(255, 255, 255, .8); }
 
@@ -46,7 +48,7 @@
 .ty-caption-row { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
 .ty-caption { font-weight: 700; color: var(--ty-muted); }
 .ty-hint { flex: 1; color: var(--ty-bad); font-weight: 600; }
-.ty-text { font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace; font-size: 24px; line-height: 1.7;
+.ty-text { user-select: none; -webkit-user-select: none; font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace; font-size: 24px; line-height: 1.7;
     max-height: calc(1.7em * 4); overflow: hidden; white-space: pre-wrap; word-break: break-word; letter-spacing: .02em; }
 .ty-ch { color: var(--ty-muted); border-radius: 3px; }
 .ty-ch.ty-done { color: var(--ty-text); }
@@ -69,6 +71,11 @@
 .ty-result { text-align: center; padding: 6px 0; }
 .ty-record { display: inline-block; margin-bottom: 6px; padding: 6px 14px; border-radius: 999px; background: #fff4d6;
     color: #8a5a00; font-weight: 700; }
+.ty-level { display: inline-flex; flex-direction: column; gap: 3px; min-width: 92px; font-size: 12px; color: var(--ty-muted); cursor: default; }
+.ty-level b { color: var(--ty-text); font-size: 14px; }
+.ty-level > i { display: block; height: 5px; border-radius: 3px; background: var(--ty-soft); overflow: hidden; }
+.ty-level > i > i { display: block; height: 100%; background: var(--ty-ok); }
+.ty-record.ty-level-up { background: #e3f4e6; color: #1d6b2e; margin-left: 6px; }
 .ty-note { color: var(--ty-muted); margin: 12px 0 4px; }
 .ty-result-actions { display: flex; justify-content: center; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
 
