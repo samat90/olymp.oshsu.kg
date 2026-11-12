@@ -1,0 +1,719 @@
+{
+ "key": "seti-bezop",
+ "title": "Сети и безопасность",
+ "subject": "Технологии",
+ "theme": "night",
+ "description": "25 вопросов об интернете и защите: IP и DNS, коды ответа сервера, фишинг, пароли и вирусы. Каверзные вопросы для будущих айтишников. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: что значит «www» в адресе сайта?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Wireless World Wide",
+     "is_correct": false
+    },
+    {
+     "text": "World Wide Web — Всемирная паутина",
+     "is_correct": true
+    },
+    {
+     "text": "World Web Window",
+     "is_correct": false
+    },
+    {
+     "text": "Web Without Wires",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что делает DNS?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Samadhi56 at Italian Wikipedia, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Domain_Name_System_RR.png)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Переводит имя сайта в IP-адрес",
+     "is_correct": true
+    },
+    {
+     "text": "Ускоряет Wi-Fi",
+     "is_correct": false
+    },
+    {
+     "text": "Удаляет вирусы",
+     "is_correct": false
+    },
+    {
+     "text": "Шифрует пароли",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Сколько бит в адресе IPv4?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "В IPv6 — 128 бит.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "32",
+     "is_correct": true
+    },
+    {
+     "text": "64",
+     "is_correct": false
+    },
+    {
+     "text": "16",
+     "is_correct": false
+    },
+    {
+     "text": "128",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой из этих IPv4-адресов правильный?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Каждое из четырёх чисел — от 0 до 255.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "192.168.1.10",
+     "is_correct": true
+    },
+    {
+     "text": "256.1.1.1",
+     "is_correct": false
+    },
+    {
+     "text": "192.168.1",
+     "is_correct": false
+    },
+    {
+     "text": "10.0.0.0.1",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что за адрес 127.0.0.1?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Роутер провайдера",
+     "is_correct": false
+    },
+    {
+     "text": "Свой собственный компьютер (localhost)",
+     "is_correct": true
+    },
+    {
+     "text": "Сервер ОшГУ",
+     "is_correct": false
+    },
+    {
+     "text": "Сайт Google",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что значит ошибка 404?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Сервер сломался",
+     "is_correct": false
+    },
+    {
+     "text": "Страница не найдена",
+     "is_correct": true
+    },
+    {
+     "text": "Нет доступа",
+     "is_correct": false
+    },
+    {
+     "text": "Всё хорошо",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что означает замок и «https» в адресной строке?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: IETF HTTP Working Group (HTTPbis), Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:HTTP_logo.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Связь с сайтом зашифрована",
+     "is_correct": true
+    },
+    {
+     "text": "Сайт точно не мошеннический",
+     "is_correct": false
+    },
+    {
+     "text": "Сайт платный",
+     "is_correct": false
+    },
+    {
+     "text": "Сайт принадлежит государству",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой порт по умолчанию у HTTPS?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "У HTTP — 80, у SSH — 22.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "22",
+     "is_correct": false
+    },
+    {
+     "text": "8080",
+     "is_correct": false
+    },
+    {
+     "text": "80",
+     "is_correct": false
+    },
+    {
+     "text": "443",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что такое фишинг?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Original template by User:Isochrone, amended by User:Belbury, CC BY 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Example_bank_phishing_email.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Шифрование файлов",
+     "is_correct": false
+    },
+    {
+     "text": "Рыбалка в интернете",
+     "is_correct": false
+    },
+    {
+     "text": "Поддельные письма и сайты, чтобы украсть пароль или деньги",
+     "is_correct": true
+    },
+    {
+     "text": "Быстрый Wi-Fi",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чем опасен «троян»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Только показывает рекламу",
+     "is_correct": false
+    },
+    {
+     "text": "Притворяется полезной программой, а сам вредит",
+     "is_correct": true
+    },
+    {
+     "text": "Ничем",
+     "is_correct": false
+    },
+    {
+     "text": "Разрушает экран",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что делает программа-вымогатель?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ищет обновления",
+     "is_correct": false
+    },
+    {
+     "text": "Чистит диск",
+     "is_correct": false
+    },
+    {
+     "text": "Ускоряет компьютер",
+     "is_correct": false
+    },
+    {
+     "text": "Шифрует файлы и требует выкуп",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой пароль надёжнее?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Главное — длина и чтобы пароль нигде больше не повторялся.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Длинная фраза: Kok-Boru-Sary-Chelek-2026!",
+     "is_correct": true
+    },
+    {
+     "text": "12345678",
+     "is_correct": false
+    },
+    {
+     "text": "Дата рождения",
+     "is_correct": false
+    },
+    {
+     "text": "qwerty",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что такое двухфакторная проверка входа?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Два одинаковых пароля",
+     "is_correct": false
+    },
+    {
+     "text": "Пароль из двух слов",
+     "is_correct": false
+    },
+    {
+     "text": "Вход с двух компьютеров",
+     "is_correct": false
+    },
+    {
+     "text": "Кроме пароля нужен ещё код с телефона или ключа",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Передышка без очков: роутер раздаёт интернет всем устройствам дома.",
+   "time_limit": 15,
+   "weight": 0,
+   "explanation": "*Фото: The original uploader was Redfox hq at Romanian Wikipedia., CC BY 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:ASR9006.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q14.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что такое MAC-адрес?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: автор неизвестен, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Network_card.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Адрес сайта",
+     "is_correct": false
+    },
+    {
+     "text": "Пароль от Wi-Fi",
+     "is_correct": false
+    },
+    {
+     "text": "Уникальный адрес сетевой карты устройства",
+     "is_correct": true
+    },
+    {
+     "text": "Адрес компьютеров Apple",
+     "is_correct": false
+    }
+   ],
+   "image": "q15.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Скорость интернета 100 Мбит/с. Сколько это мегабайт в секунду?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "В байте 8 бит: 100 / 8 = 12,5 МБ/с. Провайдеры пишут скорость в битах.\n\n*Фото: Wikideas1, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ethernet_connector.webp)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "100",
+     "is_correct": false
+    },
+    {
+     "text": "1",
+     "is_correct": false
+    },
+    {
+     "text": "800",
+     "is_correct": false
+    },
+    {
+     "text": "12,5",
+     "is_correct": true
+    }
+   ],
+   "image": "q16.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Для чего команда ping?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Скачать файл",
+     "is_correct": false
+    },
+    {
+     "text": "Удалить вирус",
+     "is_correct": false
+    },
+    {
+     "text": "Проверить, отвечает ли компьютер в сети, и за сколько миллисекунд",
+     "is_correct": true
+    },
+    {
+     "text": "Сменить пароль",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что делает VPN?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ускоряет процессор",
+     "is_correct": false
+    },
+    {
+     "text": "Заряжает телефон",
+     "is_correct": false
+    },
+    {
+     "text": "Создаёт зашифрованный туннель до другого сервера",
+     "is_correct": true
+    },
+    {
+     "text": "Удаляет cookies",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что делает брандмауэр (файрвол)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Печатает отчёты",
+     "is_correct": false
+    },
+    {
+     "text": "Охлаждает процессор",
+     "is_correct": false
+    },
+    {
+     "text": "Пропускает или блокирует сетевые подключения по правилам",
+     "is_correct": true
+    },
+    {
+     "text": "Тушит пожар в серверной",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие признаки фишингового письма?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Письмо пришло днём",
+     "is_correct": false
+    },
+    {
+     "text": "Адрес отправителя чуть-чуть отличается от настоящего",
+     "is_correct": true
+    },
+    {
+     "text": "Просят прислать пароль или код из SMS",
+     "is_correct": true
+    },
+    {
+     "text": "«Срочно! Аккаунт заблокируют через час!»",
+     "is_correct": true
+    },
+    {
+     "text": "В письме есть подпись",
+     "is_correct": false
+    },
+    {
+     "text": "Ссылка ведёт на незнакомый домен",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Ловушка на двойные очки: если у сайта есть замок HTTPS, он точно не мошеннический.",
+   "time_limit": 15,
+   "weight": 2,
+   "explanation": "Сертификат HTTPS может получить кто угодно, и мошенники тоже. Замок значит только, что связь зашифрована.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что такое социальная инженерия?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Строительство серверов",
+     "is_correct": false
+    },
+    {
+     "text": "Наука о роботах",
+     "is_correct": false
+    },
+    {
+     "text": "Проектирование соцсетей",
+     "is_correct": false
+    },
+    {
+     "text": "Обман людей, чтобы они сами выдали пароль или доступ",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте единицы от самой маленькой.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бит",
+     "is_correct": false
+    },
+    {
+     "text": "Байт",
+     "is_correct": false
+    },
+    {
+     "text": "Килобайт",
+     "is_correct": false
+    },
+    {
+     "text": "Мегабайт",
+     "is_correct": false
+    },
+    {
+     "text": "Гигабайт",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Какой код ответа сервера значит «всё в порядке»? Три цифры.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "200"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Что такое DDoS-атака?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кража базы данных",
+     "is_correct": false
+    },
+    {
+     "text": "Завалить сервер огромным числом запросов с множества устройств, чтобы он перестал отвечать",
+     "is_correct": true
+    },
+    {
+     "text": "Вирус на флешке",
+     "is_correct": false
+    },
+    {
+     "text": "Подбор пароля",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

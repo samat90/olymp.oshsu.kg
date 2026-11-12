@@ -1,0 +1,535 @@
+{
+ "key": "pravda-mif",
+ "title": "Правда или миф?",
+ "subject": "Разное",
+ "theme": "steppe",
+ "description": "25 утверждений, в которые верят почти все. Угадайте, где правда, а где красивая выдумка. Объяснения после каждого ответа. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "truefalse",
+   "text": "Разминка без очков: золотая рыбка помнит всего 3 секунды.",
+   "time_limit": 15,
+   "weight": 0,
+   "explanation": "Миф. Опыты показывают, что золотые рыбки помнят месяцами и их можно дрессировать.\n\n*Фото: לינה אבוגוש, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Gold_fish1.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Молния никогда не бьёт дважды в одно место.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Миф. В Эмпайр-стейт-билдинг молния попадает десятки раз в год.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Летучие мыши слепые.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Миф. Они видят, а в темноте ещё и «слышат» мир с помощью эхолокации.\n\n*Фото: PD-USGov, exact author unknown, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Big-eared-townsend-fledermaus.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Человек использует только 10% мозга.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Миф. Томография показывает: за сутки работают все отделы мозга.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Быка злит красный цвет.",
+   "time_limit": 15,
+   "weight": 2,
+   "explanation": "Миф. Быки плохо различают красный: их злит движение плаща.\n\n*Фото: Philip Halling, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:A_Friesian_Bull,_Llandeilo_Graban_-_geograph.org.uk_-_579885.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Страус прячет голову в песок, когда боится.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Миф. Страус опускает голову к земле, чтобы переворачивать яйца в гнезде, или прижимается к земле, чтобы спрятаться.\n\n*Фото: Yathin S Krishnappa, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Struthio_camelus_-_Etosha_2014_%283%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "В горбу верблюда хранится вода.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Миф. В горбу — жир, запас энергии. Воду верблюд хранит в крови и тканях.\n\n*Фото: Christian Ursilva from Copenhagen, Denmark, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Camelus_bactrianus_%2855026866188%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Мёд может храниться тысячи лет и не портится.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Правда. Съедобный мёд находили в древних египетских гробницах.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Банан с точки зрения ботаники — ягода, а клубника — нет.",
+   "time_limit": 15,
+   "weight": 2,
+   "explanation": "Правда. У клубники «семечки» снаружи — это и есть настоящие плоды-орешки.\n\n*Фото: TimothyPilgrim, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bananavarieties.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Летом Эйфелева башня становится выше.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Правда. Металл расширяется от жары, и башня «вырастает» примерно на 15 см.\n\n*Фото: Benh LIEU SONG, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tour_Eiffel_Wikimedia_Commons_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Наполеон был очень маленького роста.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Миф. Около 1,69 м — обычный рост для француза того времени. Путаница из-за разницы французских и английских дюймов.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Передышка без очков: викинги носили шлемы с рогами.",
+   "time_limit": 15,
+   "weight": 0,
+   "explanation": "Миф. Рога придумали художники и театр XIX века. Настоящий шлем викинга — простой, без рогов.\n\n*Фото: NTNU Vitenskapsmuseet, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Gjermundbu_helmet_-_cropped.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Сутки на Венере длиннее, чем год на Венере.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Правда. Оборот вокруг оси — 243 земных дня, а вокруг Солнца — 225.\n\n*Фото: NASA/JPL-Caltech, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Venus_from_Mariner_10.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Акулы появились на Земле раньше деревьев.",
+   "time_limit": 15,
+   "weight": 2,
+   "explanation": "Правда. Акулам около 450 миллионов лет, а первым деревьям — около 385 миллионов.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Вомбаты оставляют помёт в форме кубиков.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "*Фото: JJ Harrison (jjharrison89@facebook.com), CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Vombatus_ursinus_-Maria_Island_National_Park.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q15.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Морковь улучшает ночное зрение.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Миф. Его распустили британцы во время Второй мировой, чтобы скрыть, что их лётчики используют радары.\n\n*Фото: Evan-Amos, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Vegetable-Carrot-Bundle-wStalks.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": "q16.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Проглоченная жвачка остаётся в желудке на 7 лет.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Миф. Она выходит из организма за несколько дней.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Разные вкусы чувствуют разные зоны языка: сладкое — кончиком, горькое — корнем.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Миф. «Карта языка» — ошибка перевода немецкой статьи 1901 года. Все вкусы чувствуются всем языком.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Собаки видят мир только чёрно-белым.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Миф. Собаки различают синий и жёлтый, но плохо — красный и зелёный.\n\n*Фото: M. Rehemtulla, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Huskiesatrest.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Если побриться, волосы станут гуще и темнее.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Миф. Отросший волос просто имеет тупой срез и кажется жёстче.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Альберт Эйнштейн в школе плохо знал математику.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Миф. Он отлично знал математику и уже в 15 лет освоил высшую.\n\n*Фото: Oren Jack Turner, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Albert_Einstein_Head_cleaned.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": "q21.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "В горах Кыргызстана живёт снежный барс, и его изображают на гербе Бишкека.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "*Фото: Irbis1983, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Irbis4.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q22.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Хамелеон меняет цвет, только чтобы спрятаться.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Миф. Чаще он меняет цвет от настроения, температуры и чтобы общаться с сородичами.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Сахар делает детей гиперактивными.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Миф. В двойных слепых опытах дети вели себя одинаково с сахаром и без него.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Финал на двойные очки! Вода в раковине в Северном и Южном полушариях закручивается в разные стороны из-за вращения Земли.",
+   "time_limit": 15,
+   "weight": 2,
+   "explanation": "Миф. Сила Кориолиса слишком слаба для раковины: направление зависит от формы раковины и того, как налили воду.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  }
+ ]
+}

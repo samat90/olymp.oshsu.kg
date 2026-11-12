@@ -1,0 +1,700 @@
+{
+ "key": "sledy",
+ "title": "Чей это след? Животные и их детёныши",
+ "subject": "Природа",
+ "theme": "steppe",
+ "description": "25 вопросов для следопытов: чьи следы на снегу и песке, как узнать кошку и собаку по отпечатку и как по-кыргызски зовут детёнышей. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: чей след на фото — с когтями и четырьмя пальцами?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "У собак и волков на отпечатке видны когти. Кошки прячут когти, поэтому их след «гладкий».\n\n*Фото: USFWSAlaska, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Wolf_tracks_in_the_snow_%2852827888821%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Заяц",
+     "is_correct": false
+    },
+    {
+     "text": "Волк",
+     "is_correct": true
+    },
+    {
+     "text": "Медведь",
+     "is_correct": false
+    },
+    {
+     "text": "Рысь",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чем след кошки отличается от следа собаки?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "У кошки пять пальцев, у собаки три",
+     "is_correct": false
+    },
+    {
+     "text": "Ничем",
+     "is_correct": false
+    },
+    {
+     "text": "У кошки след всегда больше",
+     "is_correct": false
+    },
+    {
+     "text": "У кошки на отпечатке нет когтей",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чей это след — похож на отпечаток босой ноги человека?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Медведь ступает на всю стопу, как человек.\n\n*Фото: vhhammer, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Black_bear_%28Ursus_americanus%29_track_at_the_Hidden_Lakes_of_the_Pasayten_Wilderness..jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лиса",
+     "is_correct": false
+    },
+    {
+     "text": "Медведь",
+     "is_correct": true
+    },
+    {
+     "text": "Барсук",
+     "is_correct": false
+    },
+    {
+     "text": "Волк",
+     "is_correct": false
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чьи это следы — длинные задние лапы впереди коротких передних?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Ловушка: заяц прыгает и выносит длинные задние лапы вперёд передних.\n\n*Фото: Pöllö, CC BY 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hare_tracks_on_snow.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Косуля",
+     "is_correct": false
+    },
+    {
+     "text": "Лиса",
+     "is_correct": false
+    },
+    {
+     "text": "Заяц",
+     "is_correct": true
+    },
+    {
+     "text": "Белка",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чей это след — раздвоенное копытце?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Косуля или олень",
+     "is_correct": true
+    },
+    {
+     "text": "Волк",
+     "is_correct": false
+    },
+    {
+     "text": "Лошадь",
+     "is_correct": false
+    },
+    {
+     "text": "Медведь",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Этот след — одно круглое копыто. Чей он?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Корова",
+     "is_correct": false
+    },
+    {
+     "text": "Олень",
+     "is_correct": false
+    },
+    {
+     "text": "Лошадь",
+     "is_correct": true
+    },
+    {
+     "text": "Архар",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Цепочка следов «в ниточку», ровно одна за другой — такие оставляет…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: The original uploader was Alex S at English Wikipedia., CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Fox_tracks_in_snow.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Медведь",
+     "is_correct": false
+    },
+    {
+     "text": "Заяц",
+     "is_correct": false
+    },
+    {
+     "text": "Лиса",
+     "is_correct": true
+    },
+    {
+     "text": "Утка",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Чьи это следы с перепонками между пальцами?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Ryan Hodnett, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Anatidae_Footprints_-_Guelph,_Ontario_2020-04-12.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ворона",
+     "is_correct": false
+    },
+    {
+     "text": "Утка",
+     "is_correct": true
+    },
+    {
+     "text": "Голубь",
+     "is_correct": false
+    },
+    {
+     "text": "Курица",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Этот крупный круглый след без когтей нашли в горах Кыргызстана. Чей он, скорее всего?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Волк",
+     "is_correct": false
+    },
+    {
+     "text": "Лошадь",
+     "is_correct": false
+    },
+    {
+     "text": "Медведь",
+     "is_correct": false
+    },
+    {
+     "text": "Снежный барс",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Передышка без очков: у верблюда на ноге два пальца с мягкой мозолистой подушкой.",
+   "time_limit": 15,
+   "weight": 0,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как по-кыргызски называется жеребёнок?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Ealdgyth, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Standingarabianfoalone.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Музоо",
+     "is_correct": false
+    },
+    {
+     "text": "Бото",
+     "is_correct": false
+    },
+    {
+     "text": "Кулун",
+     "is_correct": true
+    },
+    {
+     "text": "Козу",
+     "is_correct": false
+    }
+   ],
+   "image": "q11.jpg"
+  },
+  {
+   "type": "single",
+   "text": "А детёныш овцы, ягнёнок?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Alexander Klink, CC BY 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lamb_Balkhausen_Germany_1.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тай",
+     "is_correct": false
+    },
+    {
+     "text": "Кулун",
+     "is_correct": false
+    },
+    {
+     "text": "Улак",
+     "is_correct": false
+    },
+    {
+     "text": "Козу",
+     "is_correct": true
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как зовут верблюжонка?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Marmoset1000 at en.wikipedia, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Babybactrian.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Музоо",
+     "is_correct": false
+    },
+    {
+     "text": "Кулун",
+     "is_correct": false
+    },
+    {
+     "text": "Бото",
+     "is_correct": true
+    },
+    {
+     "text": "Улак",
+     "is_correct": false
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как по-кыргызски называется телёнок?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Музоо",
+     "is_correct": true
+    },
+    {
+     "text": "Тай",
+     "is_correct": false
+    },
+    {
+     "text": "Козу",
+     "is_correct": false
+    },
+    {
+     "text": "Бото",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется козлёнок? Это слово знает каждый, кто смотрел кок-бору.",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Кок-бору ещё называют «улак тартыш».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Козу",
+     "is_correct": false
+    },
+    {
+     "text": "Улак",
+     "is_correct": true
+    },
+    {
+     "text": "Кунан",
+     "is_correct": false
+    },
+    {
+     "text": "Музоо",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называют лошадь-годовичка, которой больше года?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Сначала кулун, потом тай, потом кунан и бышты.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Айгыр",
+     "is_correct": false
+    },
+    {
+     "text": "Тай",
+     "is_correct": true
+    },
+    {
+     "text": "Кулун",
+     "is_correct": false
+    },
+    {
+     "text": "Бээ",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "У каких животных копыта?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Барсук",
+     "is_correct": false
+    },
+    {
+     "text": "Медведь",
+     "is_correct": false
+    },
+    {
+     "text": "Косуля",
+     "is_correct": true
+    },
+    {
+     "text": "Лошадь",
+     "is_correct": true
+    },
+    {
+     "text": "Архар",
+     "is_correct": true
+    },
+    {
+     "text": "Як",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как называется детёныш медведя?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: Yathin S Krishnappa, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:2010-kodiak-bear-1.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Медвежонок",
+     "is_correct": true
+    },
+    {
+     "text": "Барсучонок",
+     "is_correct": false
+    },
+    {
+     "text": "Козлёнок",
+     "is_correct": false
+    },
+    {
+     "text": "Волчонок",
+     "is_correct": false
+    }
+   ],
+   "image": "q18.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется детёныш лисы?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "*Фото: ClaudiaTen, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Portrait_of_a_red_fox_in_Rautas_fj%C3%A4llurskog_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Котёнок",
+     "is_correct": false
+    },
+    {
+     "text": "Щенок волка",
+     "is_correct": false
+    },
+    {
+     "text": "Зайчонок",
+     "is_correct": false
+    },
+    {
+     "text": "Лисёнок",
+     "is_correct": true
+    }
+   ],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется детёныш зайца летом, родившийся в мае–июне?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Охотники так и говорят: «настовики» рождаются ранней весной по насту, «летники» — летом, «листопадники» — осенью.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Летник",
+     "is_correct": true
+    },
+    {
+     "text": "Листопадник",
+     "is_correct": false
+    },
+    {
+     "text": "Зимник",
+     "is_correct": false
+    },
+    {
+     "text": "Настовик",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте следы по размеру, от самого маленького.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мышь",
+     "is_correct": false
+    },
+    {
+     "text": "Лиса",
+     "is_correct": false
+    },
+    {
+     "text": "Волк",
+     "is_correct": false
+    },
+    {
+     "text": "Медведь",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: человек, который умеет читать следы зверей.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "СЛЕДОПЫТ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "По следу можно понять, куда шло животное и бежало оно или шло шагом.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Как называется наука о животных? Одно слово.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "зоология"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки! Чей след: четыре пальца, когтей не видно, отпечаток размером с ладонь взрослого?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Кошачий след без когтей, но крупный, — это рысь (или снежный барс высоко в горах).\n\n*Фото: Aconcagua, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lynx_Nationalpark_Bayerischer_Wald_01.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Рысь",
+     "is_correct": true
+    },
+    {
+     "text": "Лиса",
+     "is_correct": false
+    },
+    {
+     "text": "Волк",
+     "is_correct": false
+    },
+    {
+     "text": "Заяц",
+     "is_correct": false
+    }
+   ],
+   "image": "q25.jpg"
+  }
+ ]
+}

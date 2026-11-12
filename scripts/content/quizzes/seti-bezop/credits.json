@@ -1,0 +1,66 @@
+{
+ "cover.jpg": {
+  "author": "The Opte Project",
+  "file": "Internet map 1024.jpg",
+  "license": "CC BY 2.5",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Internet_map_1024.jpg",
+  "spec": "en:Computer network",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Internet_map_1024.jpg/960px-Internet_map_1024.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q02.jpg": {
+  "author": "Samadhi56 at Italian Wikipedia",
+  "file": "Domain Name System RR.png",
+  "license": "Public domain",
+  "mime": "image/png",
+  "note": "search",
+  "page": "https://commons.wikimedia.org/wiki/File:Domain_Name_System_RR.png",
+  "spec": "en:Domain Name System",
+  "thumb": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Domain_Name_System_RR.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+ },
+ "q07.jpg": {
+  "author": "IETF HTTP Working Group (HTTPbis)",
+  "file": "HTTP logo.svg",
+  "license": "Public domain",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:HTTP_logo.svg",
+  "spec": "en:HTTPS",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/HTTP_logo.svg/960px-HTTP_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q09.jpg": {
+  "author": "Original template by User:Isochrone, amended by User:Belbury",
+  "file": "Example bank phishing email.svg",
+  "license": "CC BY 4.0",
+  "mime": "image/svg+xml",
+  "page": "https://commons.wikimedia.org/wiki/File:Example_bank_phishing_email.svg",
+  "spec": "en:Phishing",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Example_bank_phishing_email.svg/960px-Example_bank_phishing_email.svg.png?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q14.jpg": {
+  "author": "The original uploader was Redfox hq at Romanian Wikipedia.",
+  "file": "ASR9006.jpg",
+  "license": "CC BY 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:ASR9006.jpg",
+  "spec": "en:Router (computing)",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/ASR9006.jpg/960px-ASR9006.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q15.jpg": {
+  "author": "",
+  "file": "Network card.jpg",
+  "license": "CC BY-SA 3.0",
+  "mime": "image/jpeg",
+  "page": "https://commons.wikimedia.org/wiki/File:Network_card.jpg",
+  "spec": "en:Network interface controller",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9e/Network_card.jpg/960px-Network_card.jpg?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ },
+ "q16.jpg": {
+  "author": "Wikideas1",
+  "file": "Ethernet connector.webp",
+  "license": "CC0",
+  "mime": "image/webp",
+  "page": "https://commons.wikimedia.org/wiki/File:Ethernet_connector.webp",
+  "spec": "en:Ethernet",
+  "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Ethernet_connector.webp/960px-Ethernet_connector.webp?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+ }
+}
