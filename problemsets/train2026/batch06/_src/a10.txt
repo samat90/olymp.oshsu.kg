@@ -1,0 +1,260 @@
+#### Торговля с паузой
+#S
+Известны цены зерна на n дней. Каждый день Каныкей может купить одну меру зерна, продать её или ничего не делать, но держать больше одной меры нельзя. После продажи на следующий день покупать нельзя (пауза один день). Какую наибольшую прибыль можно получить?
+
+**Ввод.** В первой строке n (1 ≤ n ≤ 10^5), во второй n цен p_i (1 ≤ p_i ≤ 10^4).
+
+**Вывод.** Наибольшая прибыль.
+#E
+5
+1 2 3 0 2
+#G
+def gen(r,k):
+    n=N(r,k,10,10**5)
+    return "%d\n%s\n"%(n,' '.join(map(str,L(r,n,1,10**4 if k>3 else 9))))
+#A
+def sol(s):
+    t=list(map(int,s.split())); p=t[1:1+t[0]]
+    hold=-10**18; free=0; cool=0
+    for x in p:
+        nh=max(hold,free-x); nf=max(free,cool); nc=hold+x
+        hold,free,cool=nh,nf,nc
+    return max(free,cool,0)
+#B
+def brute(s):
+    t=list(map(int,s.split())); n=t[0]; p=t[1:1+n]
+    def go(i,state,blocked):
+        if i==n: return 0
+        best=go(i+1,state,False)
+        if state==0 and not blocked: best=max(best,-p[i]+go(i+1,1,False))
+        if state==1: best=max(best,p[i]+go(i+1,0,True))
+        return best
+    return go(0,0,False)
+#### Торговля не более k раз
+#S
+Известны цены на n дней. Нурлан может совершить не более k сделок: сделка — купить в один день и продать в более поздний. Одновременно держать больше одной меры нельзя. Какую наибольшую прибыль можно получить?
+
+**Ввод.** В первой строке n и k (1 ≤ n ≤ 1000, 1 ≤ k ≤ 50), во второй n цен p_i (1 ≤ p_i ≤ 10^4).
+
+**Вывод.** Наибольшая прибыль.
+#E
+6 2
+3 2 6 5 0 3
+#G
+def gen(r,k):
+    n=N(r,k,10,1000)
+    return "%d %d\n%s\n"%(n,r.randint(1,50 if k else 3),' '.join(map(str,L(r,n,1,10**4 if k>3 else 9))))
+#A
+def sol(s):
+    t=list(map(int,s.split())); n,K=t[0],t[1]; p=t[2:2+n]
+    buy=[-10**18]*(K+1); sell=[0]*(K+1)
+    for x in p:
+        for j in range(1,K+1):
+            buy[j]=max(buy[j],sell[j-1]-x); sell[j]=max(sell[j],buy[j]+x)
+    return sell[K]
+#B
+def brute(s):
+    t=list(map(int,s.split())); n,K=t[0],t[1]; p=t[2:2+n]
+    def go(i,holding,left):
+        if i==n: return 0
+        best=go(i+1,holding,left)
+        if holding is None:
+            if left>0: best=max(best,go(i+1,p[i],left-1)-p[i])
+        else: best=max(best,p[i]+go(i+1,None,left))
+        return best
+    return go(0,None,K)
+#### Прыжки по камням
+#S
+Темир стоит на первом из n камней. С камня i он может прыгнуть вперёд на любое число камней от 1 до a_i. Какое наименьшее число прыжков нужно, чтобы добраться до последнего камня? Если это невозможно, выведите −1.
+
+**Ввод.** В первой строке n (1 ≤ n ≤ 10^5), во второй n чисел a_i (0 ≤ a_i ≤ 1000).
+
+**Вывод.** Наименьшее число прыжков или −1.
+#E
+5
+2 3 1 1 4
+#G
+def gen(r,k):
+    n=N(r,k,10,10**5); mx=r.choice([2,5,1000])
+    a=[r.randint(1 if r.random()<0.97 else 0,mx) for _ in range(n)]
+    return "%d\n%s\n"%(n,' '.join(map(str,a)))
+#A
+def sol(s):
+    t=list(map(int,s.split())); n=t[0]; a=t[1:1+n]
+    i=0; end=0; far=0; jumps=0
+    if n==1: return 0
+    for i in range(n-1):
+        far=max(far,i+a[i])
+        if i==end:
+            if far<=i: return -1
+            jumps+=1; end=far
+            if end>=n-1: return jumps
+    return jumps if end>=n-1 else -1
+#B
+def brute(s):
+    from collections import deque
+    t=list(map(int,s.split())); n=t[0]; a=t[1:1+n]
+    d={0:0}; q=deque([0])
+    while q:
+        x=q.popleft()
+        for y in range(x+1,min(n-1,x+a[x])+1):
+            if y not in d: d[y]=d[x]+1; q.append(y)
+    return d.get(n-1,-1)
+#### Числа с кратной суммой цифр
+#S
+Сколько существует натуральных чисел от 1 до N, сумма цифр которых делится на K?
+
+**Ввод.** Два числа N и K (1 ≤ N ≤ 10^18, 1 ≤ K ≤ 100).
+
+**Вывод.** Количество чисел.
+#E
+100 5
+#G
+def gen(r,k):
+    if k==0: return "%d %d\n"%(r.randint(1,3000),r.randint(1,12))
+    return "%d %d\n"%(r.randint(1,10**N(r,k,3,18)),r.randint(1,100 if k>3 else 10))
+#A
+def sol(s):
+    a,b=s.split()[:2]; K=int(b); d=list(map(int,a)); n=len(d)
+    tight=0; res_free=[0]*K
+    for dig in d:
+        new=[0]*K
+        for r_ in range(K):
+            if res_free[r_]:
+                for x in range(10): new[(r_+x)%K]+=res_free[r_]
+        for x in range(dig): new[(tight+x)%K]+=1
+        tight=(tight+dig)%K
+        res_free=new
+    total=res_free[0]+(1 if tight==0 else 0)
+    return total-1  # remove zero
+#B
+def brute(s):
+    a,b=s.split()[:2]; N_=int(a); K=int(b)
+    return sum(1 for x in range(1,N_+1) if sum(map(int,str(x)))%K==0)
+#### Без одинаковых соседних цифр
+#S
+Сколько существует натуральных чисел от 1 до N, в записи которых нет двух одинаковых соседних цифр?
+
+**Ввод.** Число N (1 ≤ N ≤ 10^18).
+
+**Вывод.** Количество чисел.
+#E
+120
+#G
+def gen(r,k):
+    if k==0: return "%d\n"%r.randint(1,3000)
+    return "%d\n"%r.randint(1,10**N(r,k,3,18))
+#A
+def sol(s):
+    d=list(map(int,s.split()[0])); n=len(d)
+    from functools import lru_cache
+    @lru_cache(None)
+    def f(pos,last,tight,started):
+        if pos==n: return 1 if started else 0
+        res=0; lim=d[pos] if tight else 9
+        for x in range(lim+1):
+            if started and x==last: continue
+            ns=started or x>0
+            res+=f(pos+1,x if ns else -1,tight and x==lim,ns)
+        return res
+    return f(0,-1,True,False)
+#B
+def brute(s):
+    N_=int(s.split()[0])
+    return sum(1 for x in range(1,N_+1) if all(a!=b for a,b in zip(str(x),str(x)[1:])))
+#### Выгодные подарки в дереве
+#S
+Школы района образуют дерево из n вершин (корень — вершина 1). Школа i получает подарок стоимостью w_i. Если школа получила подарок, её соседи получить не могут. Какая наибольшая суммарная стоимость подарков возможна?
+
+**Ввод.** В первой строке n (1 ≤ n ≤ 10^5), во второй n чисел w_i (1 ≤ w_i ≤ 1000), далее n−1 строк с рёбрами a, b.
+
+**Вывод.** Наибольшая суммарная стоимость.
+#E
+5
+3 2 5 1 4
+1 2
+1 3
+2 4
+2 5
+#G
+def gen(r,k):
+    n=N(r,k,10,10**5); wd=r.choice([1,3,10**9])
+    es=[(r.randint(max(1,i-wd),i-1),i) for i in range(2,n+1)]
+    return "%d\n%s\n%s"%(n,' '.join(map(str,L(r,n,1,1000))),''.join("%d %d\n"%e for e in es))
+#A
+def sol(s):
+    t=list(map(int,s.split())); n=t[0]; w=t[1:1+n]; g=[[] for _ in range(n)]
+    for i in range(n-1):
+        a,b=t[1+n+2*i]-1,t[2+n+2*i]-1; g[a].append(b); g[b].append(a)
+    par=[-1]*n; order=[0]; seen=[False]*n; seen[0]=True
+    for v in order:
+        for u in g[v]:
+            if not seen[u]: seen[u]=True; par[u]=v; order.append(u)
+    take=w[:]; skip=[0]*n
+    for v in reversed(order):
+        p=par[v]
+        if p>=0:
+            take[p]+=skip[v]; skip[p]+=max(take[v],skip[v])
+    return max(take[0],skip[0])
+#B
+def brute(s):
+    t=list(map(int,s.split())); n=t[0]; w=t[1:1+n]; E=[(t[1+n+2*i]-1,t[2+n+2*i]-1) for i in range(n-1)]; best=0
+    for m in range(1<<n):
+        if any(m>>a&1 and m>>b&1 for a,b in E): continue
+        best=max(best,sum(w[i] for i in range(n) if m>>i&1))
+    return best
+#### Сторожа в дереве
+#S
+Селения образуют дерево из n вершин. Сторож, поставленный в селение, охраняет его и все соседние селения. Какое наименьшее число сторожей нужно, чтобы охранялись все селения?
+
+**Ввод.** В первой строке n (1 ≤ n ≤ 10^5), далее n−1 строк с рёбрами a, b.
+
+**Вывод.** Наименьшее число сторожей.
+#E
+5
+1 2
+1 3
+2 4
+2 5
+#G
+def gen(r,k):
+    n=N(r,k,10,10**5); wd=r.choice([1,3,10**9])
+    es=[(r.randint(max(1,i-wd),i-1),i) for i in range(2,n+1)]
+    return "%d\n%s"%(n,''.join("%d %d\n"%e for e in es))
+#A
+def sol(s):
+    t=list(map(int,s.split())); n=t[0]; g=[[] for _ in range(n)]
+    for i in range(n-1):
+        a,b=t[1+2*i]-1,t[2+2*i]-1; g[a].append(b); g[b].append(a)
+    par=[-1]*n; order=[0]; seen=[False]*n; seen[0]=True
+    for v in order:
+        for u in g[v]:
+            if not seen[u]: seen[u]=True; par[u]=v; order.append(u)
+    INF=10**9
+    a=[1]*n   # v has guard
+    b=[0]*n   # v covered by a child (no guard on v)
+    c=[0]*n   # v not covered yet (children all covered)
+    ch=[[] for _ in range(n)]
+    for v in order[1:]: ch[par[v]].append(v)
+    for v in reversed(order):
+        if not ch[v]:
+            a[v]=1; b[v]=INF; c[v]=0
+            continue
+        a[v]=1+sum(min(a[u],b[u],c[u]) for u in ch[v])
+        c[v]=sum(b[u] for u in ch[v])
+        base=sum(min(a[u],b[u]) for u in ch[v])
+        extra=min(max(0,a[u]-min(a[u],b[u])) for u in ch[v])
+        b[v]=base+extra
+    return min(a[0],b[0])
+#B
+def brute(s):
+    t=list(map(int,s.split())); n=t[0]; E=[(t[1+2*i]-1,t[2+2*i]-1) for i in range(n-1)]
+    nb=[1<<i for i in range(n)]
+    for a,b in E: nb[a]|=1<<b; nb[b]|=1<<a
+    best=n
+    for m in range(1<<n):
+        cov=0
+        for i in range(n):
+            if m>>i&1: cov|=nb[i]
+        if cov==(1<<n)-1: best=min(best,bin(m).count('1'))
+    return best

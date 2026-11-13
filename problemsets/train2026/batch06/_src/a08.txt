@@ -1,0 +1,159 @@
+#### Клумбы без соседей
+#S
+Садовник Адилет засаживает цветами клетки прямоугольной клумбы n×m: в каждой клетке либо цветок, либо пусто. Цветы нельзя сажать в клетках, имеющих общую сторону. Сколько существует способов засадить клумбу (пустая клумба тоже способ)?
+
+**Ввод.** Два числа n и m (1 ≤ n ≤ 200, 1 ≤ m ≤ 10).
+
+**Вывод.** Число способов по модулю 10^9 + 7.
+#E
+2 3
+#G
+def gen(r,k):
+    if k==0: return "%d %d\n"%(r.randint(1,4),r.randint(1,4))
+    return "%d %d\n"%(N(r,k,4,200),r.randint(1,10) if k<10 else 10)
+#A
+def sol(s):
+    n,m=map(int,s.split())
+    ms=[x for x in range(1<<m) if not x&(x>>1)]
+    nb={a:[b for b in ms if not a&b] for a in ms}
+    dp={a:1 for a in ms}
+    for _ in range(n-1):
+        dp={b:sum(dp[a] for a in nb[b])%M for b in ms}
+    return sum(dp.values())%M
+#B
+def brute(s):
+    n,m=map(int,s.split()); c=0
+    for x in range(1<<(n*m)):
+        ok=True
+        for i in range(n):
+            for j in range(m):
+                if x>>(i*m+j)&1:
+                    if j+1<m and x>>(i*m+j+1)&1: ok=False
+                    if i+1<n and x>>((i+1)*m+j)&1: ok=False
+        if ok: c+=1
+    return c%M
+#### Кружки для всех
+#S
+В школе n учеников (номера 1…n) и m кружков. В кружок j ходят некоторые ученики. Какое наименьшее число кружков нужно выбрать, чтобы каждый ученик ходил хотя бы в один из них? Если это невозможно, выведите −1.
+
+**Ввод.** В первой строке n и m (1 ≤ n ≤ 16, 1 ≤ m ≤ 20). Далее m строк: число учеников в кружке, затем их номера.
+
+**Вывод.** Наименьшее число кружков или −1.
+#E
+4 3
+2 1 2
+2 2 3
+2 3 4
+#G
+def gen(r,k):
+    n=N(r,k,6,16); m=N(r,k,8,20); lines=[]
+    for _ in range(m):
+        c=r.randint(1,max(1,n//(2 if k else 1)))
+        e=sorted(r.sample(range(1,n+1),c)); lines.append(' '.join(map(str,[c]+e)))
+    return "%d %d\n%s\n"%(n,m,'\n'.join(lines))
+#A
+def sol(s):
+    t=list(map(int,s.split())); n,m=t[0],t[1]; p=2; ms=[]
+    for _ in range(m):
+        c=t[p]; mk=0
+        for x in t[p+1:p+1+c]: mk|=1<<(x-1)
+        ms.append(mk); p+=1+c
+    INF=99; dp=[INF]*(1<<n); dp[0]=0
+    for x in range(1<<n):
+        if dp[x]==INF: continue
+        for mk in ms:
+            y=x|mk
+            if dp[x]+1<dp[y]: dp[y]=dp[x]+1
+    return dp[-1] if dp[-1]<INF else -1
+#B
+def brute(s):
+    t=list(map(int,s.split())); n,m=t[0],t[1]; p=2; ms=[]
+    for _ in range(m):
+        c=t[p]; ms.append(set(t[p+1:p+1+c])); p+=1+c
+    best=-1
+    for x in range(1<<m):
+        u=set()
+        for i in range(m):
+            if x>>i&1: u|=ms[i]
+        if len(u)==n:
+            c=bin(x).count('1')
+            if best<0 or c<best: best=c
+    return best
+#### Слова без общих букв
+#S
+Дан набор из n слов из букв a…p. Нужно выбрать несколько слов так, чтобы никакая буква не встречалась ни в двух разных выбранных словах, ни дважды внутри одного слова. Какую наибольшую суммарную длину могут иметь выбранные слова?
+
+**Ввод.** В первой строке n (1 ≤ n ≤ 30), далее n слов длиной от 1 до 16 из букв a…p.
+
+**Вывод.** Наибольшая суммарная длина (0, если выбрать нельзя).
+#E
+4
+un
+iq
+ue
+abc
+#G
+def gen(r,k):
+    n=N(r,k,8,30); al='abcdefghijklmnop' if k>2 else 'abcdefgh'
+    ws=[''.join(r.sample(al,r.randint(1,min(len(al),r.choice([2,3,4,6])))) ) if r.random()<0.9 else S(r,3,'ab') for _ in range(n)]
+    return "%d\n%s\n"%(n,'\n'.join(ws))
+#A
+def sol(s):
+    t=s.split(); n=int(t[0]); ws=t[1:1+n]; reach={0}
+    for w in ws:
+        if len(set(w))<len(w): continue
+        mk=0
+        for ch in w: mk|=1<<(ord(ch)-97)
+        reach|={x|mk for x in reach if not x&mk}
+    return max(bin(x).count('1') for x in reach)
+#B
+def brute(s):
+    t=s.split(); n=int(t[0]); ws=t[1:1+n]; best=0
+    for x in range(1<<n):
+        j=''.join(ws[i] for i in range(n) if x>>i&1)
+        if len(set(j))==len(j): best=max(best,len(j))
+    return best
+#### Свободные от квадратов наборы
+#S
+Дано n чисел от 1 до 30. Сколько существует непустых наборов этих чисел (по позициям), у которых произведение не делится ни на один квадрат простого числа (то есть 4, 9, 25, … не делят произведение)?
+
+**Ввод.** В первой строке n (1 ≤ n ≤ 10^5), во второй n чисел a_i (1 ≤ a_i ≤ 30).
+
+**Вывод.** Количество наборов по модулю 10^9 + 7.
+#E
+4
+1 2 3 4
+#G
+def gen(r,k):
+    n=N(r,k,12,10**5)
+    return "%d\n%s\n"%(n,' '.join(map(str,L(r,n,1,30 if k>2 else 10))))
+#A
+def sol(s):
+    t=list(map(int,s.split())); n=t[0]; a=t[1:1+n]
+    pr=[2,3,5,7,11,13,17,19,23,29]
+    cnt=[0]*31
+    for x in a: cnt[x]+=1
+    dp=[0]*1024; dp[0]=1
+    for v in range(2,31):
+        if not cnt[v]: continue
+        mk=0; ok=True; y=v
+        for i,p in enumerate(pr):
+            if y%p==0:
+                y//=p
+                if y%p==0: ok=False
+                mk|=1<<i
+        if not ok: continue
+        nd=dp[:]
+        for x in range(1024):
+            if dp[x] and not x&mk: nd[x|mk]=(nd[x|mk]+dp[x]*cnt[v])%M
+        dp=nd
+    return (sum(dp)*pow(2,cnt[1],M)-1)%M
+#B
+def brute(s):
+    t=list(map(int,s.split())); n=t[0]; a=t[1:1+n]; c=0
+    for x in range(1,1<<n):
+        pr=1
+        for i in range(n):
+            if x>>i&1: pr*=a[i]
+        if all(pr%(p*p) for p in (2,3,5,7,11,13,17,19,23,29)): c+=1
+    return c%M

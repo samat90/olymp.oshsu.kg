@@ -1,0 +1,452 @@
+#### Рюкзак туриста
+#S
+Турист Темир может унести в рюкзаке груз не тяжелее W. Есть n предметов, у предмета i вес w_i и ценность v_i. Каждый предмет можно взять не более одного раза. Какова наибольшая суммарная ценность?
+
+**Ввод.** В первой строке n и W (1 ≤ n ≤ 100, 1 ≤ W ≤ 10^4), далее n строк по два числа w_i и v_i (1 ≤ w_i ≤ 10^4, 1 ≤ v_i ≤ 1000).
+
+**Вывод.** Наибольшая суммарная ценность.
+#E
+4 8
+3 30
+4 50
+5 60
+2 20
+#G
+def gen(r,k):
+    n=N(r,k,10,100); W=N(r,k,25,10**4)
+    hi=max(3,W//3)
+    return "%d %d\n%s\n"%(n,W,'\n'.join("%d %d"%(r.randint(1,hi),r.randint(1,1000)) for _ in range(n)))
+#A
+def sol(s):
+    t=list(map(int,s.split())); n,W=t[0],t[1]; dp=[0]*(W+1)
+    for i in range(n):
+        w,v=t[2+2*i],t[3+2*i]
+        for c in range(W,w-1,-1):
+            if dp[c-w]+v>dp[c]: dp[c]=dp[c-w]+v
+    return dp[W]
+#B
+def brute(s):
+    t=list(map(int,s.split())); n,W=t[0],t[1]; it=[(t[2+2*i],t[3+2*i]) for i in range(n)]; best=0
+    for m in range(1<<n):
+        w=sum(it[i][0] for i in range(n) if m>>i&1)
+        if w<=W: best=max(best,sum(it[i][1] for i in range(n) if m>>i&1))
+    return best
+#### Рюкзак с запасом предметов
+#S
+В лавке Жылдыз n видов товаров, каждого вида сколько угодно. Товар i весит w_i и стоит v_i. В сумку помещается груз не тяжелее W. Какова наибольшая суммарная стоимость?
+
+**Ввод.** В первой строке n и W (1 ≤ n ≤ 100, 1 ≤ W ≤ 10^4), далее n строк по два числа w_i и v_i (1 ≤ w_i ≤ 10^4, 1 ≤ v_i ≤ 1000).
+
+**Вывод.** Наибольшая суммарная стоимость.
+#E
+3 10
+3 40
+4 70
+5 85
+#G
+def gen(r,k):
+    n=N(r,k,5,100); W=N(r,k,25,10**4)
+    hi=max(3,W//3) if k else 8
+    return "%d %d\n%s\n"%(n,W,'\n'.join("%d %d"%(r.randint(1,hi),r.randint(1,1000)) for _ in range(n)))
+#A
+def sol(s):
+    t=list(map(int,s.split())); n,W=t[0],t[1]; dp=[0]*(W+1)
+    for i in range(n):
+        w,v=t[2+2*i],t[3+2*i]
+        for c in range(w,W+1):
+            if dp[c-w]+v>dp[c]: dp[c]=dp[c-w]+v
+    return dp[W]
+#B
+def brute(s):
+    t=list(map(int,s.split())); n,W=t[0],t[1]; it=[(t[2+2*i],t[3+2*i]) for i in range(n)]
+    def go(i,rem):
+        if i==n: return 0
+        w,v=it[i]
+        return max(q*v+go(i+1,rem-q*w) for q in range(rem//w+1))
+    return go(0,W)
+#### Набрать сумму
+#S
+Из n чисел нужно выбрать несколько (возможно, ни одного) так, чтобы их сумма была равна ровно S. Возможно ли это?
+
+**Ввод.** В первой строке n и S (1 ≤ n ≤ 100, 0 ≤ S ≤ 10^4), во второй n чисел a_i (1 ≤ a_i ≤ 10^4).
+
+**Вывод.** YES или NO.
+#E
+5 14
+3 34 4 12 5
+#G
+def gen(r,k):
+    n=N(r,k,12,100); a=L(r,n,1,10 if k<4 else 10**4)
+    S0=N(r,k,30,10**4)
+    if r.random()<0.5: S0=min(10**4,sum(r.sample(a,r.randint(0,n))))
+    return "%d %d\n%s\n"%(n,S0,' '.join(map(str,a)))
+#A
+def sol(s):
+    t=list(map(int,s.split())); n,S0=t[0],t[1]; a=t[2:2+n]
+    b=1; mask=(1<<(S0+1))-1
+    for x in a: b|=(b<<x)&mask
+    return "YES" if b>>S0&1 else "NO"
+#B
+def brute(s):
+    t=list(map(int,s.split())); n,S0=t[0],t[1]; a=t[2:2+n]
+    return "YES" if any(sum(a[i] for i in range(n) if m>>i&1)==S0 for m in range(1<<n)) else "NO"
+#### Поделить поровну
+#S
+Айгерим и Бермет хотят разделить n камней весами a_i так, чтобы у каждой оказалась одинаковая суммарная масса. Все камни должны быть розданы. Возможно ли это?
+
+**Ввод.** В первой строке n (1 ≤ n ≤ 100), во второй n чисел a_i (1 ≤ a_i ≤ 100).
+
+**Вывод.** YES или NO.
+#E
+4
+1 5 11 5
+#G
+def gen(r,k):
+    n=N(r,k,12,100); a=L(r,n,1,100 if k>3 else 9)
+    return "%d\n%s\n"%(n,' '.join(map(str,a)))
+#A
+def sol(s):
+    t=list(map(int,s.split())); a=t[1:1+t[0]]; tot=sum(a)
+    if tot%2: return "NO"
+    h=tot//2; b=1
+    for x in a: b|=b<<x
+    return "YES" if b>>h&1 else "NO"
+#B
+def brute(s):
+    t=list(map(int,s.split())); a=t[1:1+t[0]]; n=len(a); tot=sum(a)
+    return "YES" if any(2*sum(a[i] for i in range(n) if m>>i&1)==tot for m in range(1<<n)) else "NO"
+#### Почти поровну
+#S
+Нурлан делит n камней весами a_i на две кучки (одна может оказаться пустой). Какова наименьшая возможная разница масс кучек?
+
+**Ввод.** В первой строке n (1 ≤ n ≤ 100), во второй n чисел a_i (1 ≤ a_i ≤ 100).
+
+**Вывод.** Наименьшая разность.
+#E
+4
+2 7 4 1
+#G
+def gen(r,k):
+    n=N(r,k,12,100)
+    return "%d\n%s\n"%(n,' '.join(map(str,L(r,n,1,100 if k>3 else 9))))
+#A
+def sol(s):
+    t=list(map(int,s.split())); a=t[1:1+t[0]]; tot=sum(a); b=1
+    for x in a: b|=b<<x
+    return min(abs(tot-2*j) for j in range(tot+1) if b>>j&1)
+#B
+def brute(s):
+    t=list(map(int,s.split())); a=t[1:1+t[0]]; n=len(a); tot=sum(a)
+    return min(abs(tot-2*sum(a[i] for i in range(n) if m>>i&1)) for m in range(1<<n))
+#### Плюсы и минусы
+#S
+Перед каждым из n чисел a_i нужно поставить знак «+» или «−». Сколькими способами можно расставить знаки, чтобы значение выражения равнялось T? Способы различаются расстановкой знаков.
+
+**Ввод.** В первой строке n и T (1 ≤ n ≤ 100, −10^4 ≤ T ≤ 10^4), во второй n чисел a_i (0 ≤ a_i ≤ 100).
+
+**Вывод.** Число способов по модулю 10^9 + 7.
+#E
+5 3
+1 1 1 1 1
+#G
+def gen(r,k):
+    n=N(r,k,12,100); a=L(r,n,0,100 if k>3 else 4)
+    T=r.randint(-sum(a),sum(a)) if r.random()<0.8 else r.randint(-10**4,10**4)
+    T=max(-10**4,min(10**4,T))
+    return "%d %d\n%s\n"%(n,T,' '.join(map(str,a)))
+#A
+def sol(s):
+    t=list(map(int,s.split())); n,T=t[0],t[1]; a=t[2:2+n]; tot=sum(a)
+    if abs(T)>tot or (tot+T)%2: return 0
+    need=(tot+T)//2; dp=[0]*(need+1); dp[0]=1
+    for x in a:
+        for c in range(need,x-1,-1): dp[c]=(dp[c]+dp[c-x])%M
+    return dp[need]%M
+#B
+def brute(s):
+    t=list(map(int,s.split())); n,T=t[0],t[1]; a=t[2:2+n]; c=0
+    for m in range(1<<n):
+        if sum(a[i] if m>>i&1 else -a[i] for i in range(n))==T: c+=1
+    return c%M
+#### Подмножества с суммой
+#S
+Сколько существует подмножеств заданных n чисел (по позициям, пустое тоже считается), сумма которых равна ровно S?
+
+**Ввод.** В первой строке n и S (1 ≤ n ≤ 200, 0 ≤ S ≤ 5000), во второй n чисел a_i (1 ≤ a_i ≤ 100).
+
+**Вывод.** Число подмножеств по модулю 10^9 + 7.
+#E
+4 5
+1 2 3 2
+#G
+def gen(r,k):
+    n=N(r,k,12,200); a=L(r,n,1,100 if k>3 else 5)
+    S0=r.randint(0,min(5000,sum(a)))
+    return "%d %d\n%s\n"%(n,S0,' '.join(map(str,a)))
+#A
+def sol(s):
+    t=list(map(int,s.split())); n,S0=t[0],t[1]; a=t[2:2+n]; dp=[0]*(S0+1); dp[0]=1
+    for x in a:
+        for c in range(S0,x-1,-1): dp[c]=(dp[c]+dp[c-x])%M
+    return dp[S0]
+#B
+def brute(s):
+    t=list(map(int,s.split())); n,S0=t[0],t[1]; a=t[2:2+n]
+    return sum(1 for m in range(1<<n) if sum(a[i] for i in range(n) if m>>i&1)==S0)%M
+#### Рюкзак с ограниченным числом
+#S
+В лавке n видов товаров. Товара вида i есть c_i штук, каждый весит w_i и стоит v_i. В сумку помещается груз не тяжелее W. Какова наибольшая суммарная стоимость?
+
+**Ввод.** В первой строке n и W (1 ≤ n ≤ 50, 1 ≤ W ≤ 5000), далее n строк по три числа w_i, v_i, c_i (1 ≤ w_i ≤ 500, 1 ≤ v_i ≤ 100, 1 ≤ c_i ≤ 20).
+
+**Вывод.** Наибольшая суммарная стоимость.
+#E
+2 10
+3 10 2
+4 25 3
+#G
+def gen(r,k):
+    n=N(r,k,4,50); W=N(r,k,15,5000)
+    hi=6 if k==0 else max(3,min(500,W//3))
+    return "%d %d\n%s\n"%(n,W,'\n'.join("%d %d %d"%(r.randint(1,hi),r.randint(1,100),r.randint(1,3 if k==0 else 20)) for _ in range(n)))
+#A
+def sol(s):
+    t=list(map(int,s.split())); n,W=t[0],t[1]; dp=[0]*(W+1)
+    for i in range(n):
+        w,v,c=t[2+3*i:5+3*i]; q=1
+        while c>0:
+            u=min(q,c); c-=u; q*=2
+            ww,vv=w*u,v*u
+            for x in range(W,ww-1,-1):
+                if dp[x-ww]+vv>dp[x]: dp[x]=dp[x-ww]+vv
+    return dp[W]
+#B
+def brute(s):
+    t=list(map(int,s.split())); n,W=t[0],t[1]; it=[t[2+3*i:5+3*i] for i in range(n)]
+    def go(i,rem):
+        if i==n: return 0
+        w,v,c=it[i]
+        return max(q*v+go(i+1,rem-q*w) for q in range(min(c,rem//w)+1))
+    return go(0,W)
+#### Рюкзак с двумя ограничениями
+#S
+Мастерская Эрмека может изготовить любое число из n изделий (по одному каждого вида). Изделие i требует a_i часов работы и b_i кг материала, а приносит c_i сомов дохода. В распоряжении A часов и B кг материала. Какой наибольший доход можно получить?
+
+**Ввод.** В первой строке n, A и B (1 ≤ n ≤ 100, 1 ≤ A, B ≤ 100), далее n строк по три числа a_i, b_i, c_i (1 ≤ a_i, b_i ≤ 100, 1 ≤ c_i ≤ 1000).
+
+**Вывод.** Наибольший доход.
+#E
+3 5 5
+2 3 10
+3 2 12
+4 4 20
+#G
+def gen(r,k):
+    n=N(r,k,10,100); A=N(r,k,20,100); B=N(r,k,20,100)
+    hi=max(2,min(100,max(A,B)//3))
+    return "%d %d %d\n%s\n"%(n,A,B,'\n'.join("%d %d %d"%(r.randint(1,hi),r.randint(1,hi),r.randint(1,1000)) for _ in range(n)))
+#A
+def sol(s):
+    t=list(map(int,s.split())); n,A,B=t[:3]
+    dp=[[0]*(B+1) for _ in range(A+1)]
+    for i in range(n):
+        a,b,c=t[3+3*i:6+3*i]
+        for x in range(A,a-1,-1):
+            row=dp[x]; src=dp[x-a]
+            for y in range(B,b-1,-1):
+                if src[y-b]+c>row[y]: row[y]=src[y-b]+c
+    return dp[A][B]
+#B
+def brute(s):
+    t=list(map(int,s.split())); n,A,B=t[:3]; it=[t[3+3*i:6+3*i] for i in range(n)]; best=0
+    for m in range(1<<n):
+        a=sum(it[i][0] for i in range(n) if m>>i&1); b=sum(it[i][1] for i in range(n) if m>>i&1)
+        if a<=A and b<=B: best=max(best,sum(it[i][2] for i in range(n) if m>>i&1))
+    return best
+#### Ровно по весу
+#S
+Рюкзак нужно загрузить так, чтобы общий вес был равен W ровно. Есть n предметов, у предмета i вес w_i и ценность v_i, каждый можно взять не более одного раза. Какова наибольшая ценность при точном весе W? Если набрать точно W нельзя, выведите −1.
+
+**Ввод.** В первой строке n и W (1 ≤ n ≤ 100, 1 ≤ W ≤ 10^4), далее n строк по два числа w_i и v_i (1 ≤ w_i ≤ 10^4, 1 ≤ v_i ≤ 1000).
+
+**Вывод.** Наибольшая ценность или −1.
+#E
+3 7
+3 10
+4 15
+5 40
+#G
+def gen(r,k):
+    n=N(r,k,10,100); W=N(r,k,25,10**4)
+    hi=max(3,W//4) if k>3 else 8
+    return "%d %d\n%s\n"%(n,W,'\n'.join("%d %d"%(r.randint(1,hi),r.randint(1,1000)) for _ in range(n)))
+#A
+def sol(s):
+    t=list(map(int,s.split())); n,W=t[0],t[1]; NEG=-1; dp=[NEG]*(W+1); dp[0]=0
+    for i in range(n):
+        w,v=t[2+2*i],t[3+2*i]
+        for c in range(W,w-1,-1):
+            if dp[c-w]>=0 and dp[c-w]+v>dp[c]: dp[c]=dp[c-w]+v
+    return dp[W]
+#B
+def brute(s):
+    t=list(map(int,s.split())); n,W=t[0],t[1]; it=[(t[2+2*i],t[3+2*i]) for i in range(n)]; best=-1
+    for m in range(1<<n):
+        if sum(it[i][0] for i in range(n) if m>>i&1)==W: best=max(best,sum(it[i][1] for i in range(n) if m>>i&1))
+    return best
+#### Выбор по одному из каждой группы
+#S
+Улан собирает набор из товаров, разбитых на g групп. Из каждой группы можно взять не более одного товара. У товара вес w и ценность v. Суммарный вес не должен превышать W. Какова наибольшая суммарная ценность?
+
+**Ввод.** В первой строке g и W (1 ≤ g ≤ 50, 1 ≤ W ≤ 5000). Далее g строк: в каждой сначала число товаров s (1 ≤ s ≤ 5), затем s пар w и v (1 ≤ w ≤ 5000, 1 ≤ v ≤ 1000).
+
+**Вывод.** Наибольшая суммарная ценность.
+#E
+2 7
+2 3 10 5 15
+2 2 8 4 11
+#G
+def gen(r,k):
+    g=N(r,k,5,50); W=N(r,k,15,5000); hi=max(3,min(5000,W//3)) if k else 7
+    lines=[]
+    for _ in range(g):
+        s0=r.randint(1,3 if k==0 else 5)
+        lines.append(' '.join([str(s0)]+["%d %d"%(r.randint(1,hi),r.randint(1,1000)) for _ in range(s0)]))
+    return "%d %d\n%s\n"%(g,W,'\n'.join(lines))
+#A
+def sol(s):
+    t=list(map(int,s.split())); g,W=t[0],t[1]; p=2; dp=[0]*(W+1)
+    for _ in range(g):
+        c=t[p]; p+=1; it=[(t[p+2*i],t[p+2*i+1]) for i in range(c)]; p+=2*c
+        nd=dp[:]
+        for w,v in it:
+            for x in range(w,W+1):
+                if dp[x-w]+v>nd[x]: nd[x]=dp[x-w]+v
+        dp=nd
+    return dp[W]
+#B
+def brute(s):
+    t=list(map(int,s.split())); g,W=t[0],t[1]; p=2; gr=[]
+    for _ in range(g):
+        c=t[p]; p+=1; gr.append([(t[p+2*i],t[p+2*i+1]) for i in range(c)]); p+=2*c
+    def go(i,rem):
+        if i==g: return 0
+        best=go(i+1,rem)
+        for w,v in gr[i]:
+            if w<=rem: best=max(best,v+go(i+1,rem-w))
+        return best
+    return go(0,W)
+#### Рюкзак с огромной вместимостью
+#S
+Грузовик может увезти груз не тяжелее W. Есть n предметов, у предмета i вес w_i и ценность v_i. Каждый предмет можно взять не более одного раза. Какова наибольшая суммарная ценность? Вместимость очень велика, но ценности малы.
+
+**Ввод.** В первой строке n и W (1 ≤ n ≤ 60, 1 ≤ W ≤ 10^9), далее n строк по два числа w_i и v_i (1 ≤ w_i ≤ 10^9, 1 ≤ v_i ≤ 300).
+
+**Вывод.** Наибольшая суммарная ценность.
+#E
+3 10
+6 30
+5 20
+5 25
+#G
+def gen(r,k):
+    n=N(r,k,10,60); W=N(r,k,100,10**9)
+    return "%d %d\n%s\n"%(n,W,'\n'.join("%d %d"%(r.randint(1,max(2,W//(3 if k>3 else 2))),r.randint(1,300)) for _ in range(n)))
+#A
+def sol(s):
+    t=list(map(int,s.split())); n,W=t[0],t[1]; V=sum(t[3+2*i] for i in range(n))
+    INF=10**18; dp=[INF]*(V+1); dp[0]=0
+    for i in range(n):
+        w,v=t[2+2*i],t[3+2*i]
+        for x in range(V,v-1,-1):
+            if dp[x-v]+w<dp[x]: dp[x]=dp[x-v]+w
+    return max(x for x in range(V+1) if dp[x]<=W)
+#B
+def brute(s):
+    t=list(map(int,s.split())); n,W=t[0],t[1]; it=[(t[2+2*i],t[3+2*i]) for i in range(n)]; best=0
+    for m in range(1<<n):
+        w=sum(it[i][0] for i in range(n) if m>>i&1)
+        if w<=W: best=max(best,sum(it[i][1] for i in range(n) if m>>i&1))
+    return best
+#### Разбиения числа
+#S
+Сколькими способами число n можно записать в виде суммы натуральных слагаемых, если порядок слагаемых не важен? Например, 4 = 4 = 3+1 = 2+2 = 2+1+1 = 1+1+1+1.
+
+**Ввод.** Число n (1 ≤ n ≤ 2000).
+
+**Вывод.** Число способов по модулю 10^9 + 7.
+#E
+5
+#G
+def gen(r,k):
+    return "%d\n"%N(r,k,25,2000)
+#A
+def sol(s):
+    n=int(s.split()[0]); dp=[1]+[0]*n
+    for p in range(1,n+1):
+        for x in range(p,n+1): dp[x]=(dp[x]+dp[x-p])%M
+    return dp[n]
+#B
+def brute(s):
+    n=int(s.split()[0])
+    def go(rem,mx):
+        if rem==0: return 1
+        return sum(go(rem-p,p) for p in range(1,min(rem,mx)+1))
+    return go(n,n)%M
+#### Минимум предметов на точную сумму
+#S
+Из n чисел нужно выбрать как можно меньше (каждое не более одного раза) так, чтобы их сумма была равна S. Какое наименьшее количество чисел потребуется? Если набрать S нельзя, выведите −1.
+
+**Ввод.** В первой строке n и S (1 ≤ n ≤ 100, 1 ≤ S ≤ 10^4), во второй n чисел a_i (1 ≤ a_i ≤ 10^4).
+
+**Вывод.** Наименьшее количество чисел или −1.
+#E
+5 9
+2 3 4 5 6
+#G
+def gen(r,k):
+    n=N(r,k,12,100); a=L(r,n,1,10 if k<4 else 10**4)
+    S0=N(r,k,30,10**4)
+    if r.random()<0.5: S0=max(1,min(10**4,sum(r.sample(a,r.randint(1,n)))))
+    return "%d %d\n%s\n"%(n,S0,' '.join(map(str,a)))
+#A
+def sol(s):
+    t=list(map(int,s.split())); n,S0=t[0],t[1]; a=t[2:2+n]; INF=10**9; dp=[INF]*(S0+1); dp[0]=0
+    for x in a:
+        for c in range(S0,x-1,-1):
+            if dp[c-x]+1<dp[c]: dp[c]=dp[c-x]+1
+    return dp[S0] if dp[S0]<INF else -1
+#B
+def brute(s):
+    t=list(map(int,s.split())); n,S0=t[0],t[1]; a=t[2:2+n]; best=-1
+    for m in range(1<<n):
+        if sum(a[i] for i in range(n) if m>>i&1)==S0:
+            c=bin(m).count('1')
+            if best<0 or c<best: best=c
+    return best
+#### Резка верёвки
+#S
+Верёвку длиной n метров можно разрезать на целые куски. Кусок длиной i метров продаётся за p_i сомов. Какую наибольшую выручку можно получить, продав всю верёвку (можно не резать)?
+
+**Ввод.** В первой строке n (1 ≤ n ≤ 2000), во второй n цен p_1…p_n (1 ≤ p_i ≤ 10^4).
+
+**Вывод.** Наибольшая выручка.
+#E
+5
+2 5 7 8 10
+#G
+def gen(r,k):
+    n=N(r,k,12,2000)
+    return "%d\n%s\n"%(n,' '.join(map(str,L(r,n,1,10**4 if k>3 else 9))))
+#A
+def sol(s):
+    t=list(map(int,s.split())); n=t[0]; p=[0]+t[1:1+n]; dp=[0]*(n+1)
+    for x in range(1,n+1): dp[x]=max(dp[x-j]+p[j] for j in range(1,x+1))
+    return dp[n]
+#B
+def brute(s):
+    t=list(map(int,s.split())); n=t[0]; p=[0]+t[1:1+n]
+    def go(rem):
+        if rem==0: return 0
+        return max(p[j]+go(rem-j) for j in range(1,rem+1))
+    return go(n)
