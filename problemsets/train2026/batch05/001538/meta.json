@@ -1,0 +1,10 @@
+{
+ "code": "001538",
+ "name": "Удаление повторов по k",
+ "topic": "stack",
+ "time_limit": 1,
+ "memory_mb": 256,
+ "points": 100,
+ "tests": 10,
+ "seed_rule": "Random(code*100+t), t=1..10"
+}
