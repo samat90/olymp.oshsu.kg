@@ -1,0 +1,419 @@
+=== 1 | Группы сёл | Графы | 1
+--- statement
+В долине Ала-Бука $n$ сёл и $m$ двусторонних дорог. Сёла называются связанными, если между ними можно проехать по дорогам. Сколько существует групп попарно связанных сёл?
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). В следующих $m$ строках пары $a\ b$ — концы дороги ($a \ne b$, дороги не повторяются).
+
+**Вывод.** Одно число — количество групп.
+--- sample
+6 4
+1 2
+2 3
+4 5
+3 1
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000)
+    es = graph(r, n, r.randint(0, n))
+    return lines(n, len(es)).replace('\n', ' ') + '\n' + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]
+    d = DSU(n); c = n
+    for i in range(m):
+        if d.u(v[2 + 2 * i], v[3 + 2 * i]):
+            c -= 1
+    return str(c)
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]
+    es = [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)]
+    lab = comps_bf(n, es)
+    return str(len(set(lab[1:])))
+
+=== 2 | Самая большая группа | Графы | 1
+--- statement
+В стране $n$ городов и $m$ двусторонних дорог. Найдите наибольшее количество городов, между любыми двумя из которых можно проехать по дорогам.
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ строк с парами $a\ b$ — концами дорог.
+
+**Вывод.** Одно число.
+--- sample
+7 5
+1 2
+2 3
+5 4
+6 4
+7 5
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000)
+    es = graph(r, n, r.randint(0, n))
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]
+    d = DSU(n)
+    for i in range(m):
+        d.u(v[2 + 2 * i], v[3 + 2 * i])
+    cnt = defaultdict(int)
+    for x in range(1, n + 1):
+        cnt[d.f(x)] += 1
+    return str(max(cnt.values()))
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]
+    es = [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)]
+    lab = comps_bf(n, es)
+    return str(max(lab[1:].count(x) for x in set(lab[1:])))
+
+=== 3 | Маршрутка Бишкек — Ош | Графы | 1
+--- statement
+Между $n$ городами курсируют $m$ маршруток, каждая ходит в обе стороны. Бишкек — город $1$, Ош — город $n$. За какое наименьшее количество поездок на маршрутках можно добраться из Бишкека в Ош?
+
+**Ввод.** В первой строке $n$ и $m$ ($2 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ строк с парами $a\ b$.
+
+**Вывод.** Наименьшее количество поездок или $-1$, если добраться нельзя.
+--- sample
+5 5
+1 2
+2 3
+3 5
+1 4
+4 3
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000)
+    es = graph(r, n, r.randint(n // 2, 2 * n), conn=r.random() < .6, k=k)
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]
+    g = adj(n, [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)])
+    d = [-1] * (n + 1); d[1] = 0; q = deque([1])
+    while q:
+        x = q.popleft()
+        for y in g[x]:
+            if d[y] < 0:
+                d[y] = d[x] + 1; q.append(y)
+    return str(d[n])
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]
+    es = [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)]
+    d = [INF] * (n + 1); d[1] = 0
+    for _ in range(n):
+        for a, b in es:
+            d[a] = min(d[a], d[b] + 1); d[b] = min(d[b], d[a] + 1)
+    return str(-1 if d[n] == INF else d[n])
+
+=== 4 | Расстояния от столицы | Графы | 1
+--- statement
+В стране $n$ городов и $m$ двусторонних дорог, длина каждой дороги — «один переезд». Столица — город $1$. Для каждого города найдите наименьшее число дорог на пути от столицы.
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ строк с парами $a\ b$.
+
+**Вывод.** $n$ чисел через пробел: расстояние до города $i$ или $-1$, если добраться нельзя.
+--- sample
+6 5
+1 2
+1 3
+3 4
+4 2
+5 6
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1)
+    es = graph(r, n, r.randint(n // 2, 2 * n), conn=r.random() < .5, k=k)
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]
+    g = adj(n, [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)])
+    d = [-1] * (n + 1); d[1] = 0; q = deque([1])
+    while q:
+        x = q.popleft()
+        for y in g[x]:
+            if d[y] < 0:
+                d[y] = d[x] + 1; q.append(y)
+    return ' '.join(map(str, d[1:]))
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]
+    D = [[INF] * (n + 1) for _ in range(n + 1)]
+    for i in range(1, n + 1):
+        D[i][i] = 0
+    for i in range(m):
+        a, b = v[2 + 2 * i], v[3 + 2 * i]
+        D[a][b] = D[b][a] = 1
+    for x in range(1, n + 1):
+        for i in range(1, n + 1):
+            for j in range(1, n + 1):
+                D[i][j] = min(D[i][j], D[i][x] + D[x][j])
+    return ' '.join(str(-1 if D[1][j] == INF else D[1][j]) for j in range(1, n + 1))
+
+=== 5 | Ровно через k дорог | Графы | 1
+--- statement
+Айдар живёт в городе $s$. Сколько городов находятся от него на расстоянии ровно $k$ дорог (по кратчайшему пути)?
+
+**Ввод.** В первой строке $n, m, s, k$ ($1 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$, $1 \le s \le n$, $0 \le k \le n$). Далее $m$ строк с парами $a\ b$ — двусторонними дорогами.
+
+**Вывод.** Одно число.
+--- sample
+6 6 1 2
+1 2
+1 3
+2 4
+3 4
+4 5
+5 6
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1)
+    es = graph(r, n, r.randint(n // 2, int(1.5 * n)), conn=r.random() < .7, k=k)
+    s = r.randint(1, n); kk = r.randint(0, 3) if k <= 3 else r.randint(5, 14) if k % 4 else r.randint(0, n)
+    return '%d %d %d %d\n' % (n, len(es), s, kk) + el(es)
+
+def sol(t):
+    v = ints(t); n, m, s, kk = v[:4]
+    g = adj(n, [(v[4 + 2 * i], v[5 + 2 * i]) for i in range(m)])
+    d = [-1] * (n + 1); d[s] = 0; q = deque([s])
+    while q:
+        x = q.popleft()
+        for y in g[x]:
+            if d[y] < 0:
+                d[y] = d[x] + 1; q.append(y)
+    return str(d.count(kk) if kk >= 0 else 0)
+
+def brute(t):
+    v = ints(t); n, m, s, kk = v[:4]
+    es = [(v[4 + 2 * i], v[5 + 2 * i]) for i in range(m)]
+    reach = {s}; seen = {s}
+    for _ in range(kk):
+        reach = {y for x in reach for a, b in es for y in ((b,) if a == x else (a,) if b == x else ()) } - seen
+        seen |= reach
+    return str(len(reach))
+
+=== 6 | Судья турнира | Графы | 1
+--- statement
+В селе $n$ жителей. Известно $m$ записей вида «$a$ доверяет $b$». Судьёй называется житель, которому доверяют все остальные и который сам никому не доверяет. Найдите судью.
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 10^5$, $0 \le m \le 3\cdot 10^5$). Далее $m$ строк с парами $a\ b$ ($a \ne b$, пары не повторяются).
+
+**Вывод.** Номер судьи или $-1$, если такого жителя нет. (Судья единственный, если существует.)
+--- sample
+4 5
+1 3
+2 3
+4 3
+1 2
+4 2
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1)
+    mode = k % 3 if k else r.randint(0, 2)
+    es = set()
+    if mode and n > 1:
+        j = r.randint(1, n)
+        miss = r.randint(1, n) if mode == 2 else 0
+        for a in range(1, n + 1):
+            if a != j and a != miss:
+                es.add((a, j))
+        for _ in range(r.randint(0, n)):
+            a, b = r.randint(1, n), r.randint(1, n)
+            if a != b and a != j:
+                es.add((a, b))
+        if mode == 2 and r.random() < .5:
+            es.add((j, miss if miss != j else (j % n) + 1))
+    else:
+        es = set(digraph(r, n, r.randint(0, 2 * n)))
+    es = list(es); r.shuffle(es)
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]
+    ind = [0] * (n + 1); out = [0] * (n + 1)
+    for i in range(m):
+        a, b = v[2 + 2 * i], v[3 + 2 * i]
+        out[a] += 1; ind[b] += 1
+    for x in range(1, n + 1):
+        if ind[x] == n - 1 and out[x] == 0:
+            return str(x)
+    return '-1'
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]
+    es = {(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)}
+    for x in range(1, n + 1):
+        if all((y, x) in es for y in range(1, n + 1) if y != x) and not any((x, y) in es for y in range(1, n + 1)):
+            return str(x)
+    return '-1'
+
+=== 7 | Ключи от комнат | Графы | 1
+--- statement
+В общежитии $n$ комнат, нумерация с $1$. Вы стоите в открытой комнате $1$, остальные заперты. В каждой комнате лежит несколько ключей, каждый открывает одну комнату. Попав в комнату, вы забираете все ключи оттуда. Можно ли побывать во всех комнатах?
+
+**Ввод.** В первой строке $n$ ($1 \le n \le 10^5$). Далее $n$ строк: в $i$-й сначала число $c_i$ — количество ключей в комнате $i$, затем $c_i$ номеров комнат. Сумма $c_i$ не больше $3\cdot 10^5$.
+
+**Вывод.** `YES` или `NO`.
+--- sample
+4
+1 2
+1 3
+1 1
+0
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1)
+    keys = [[] for _ in range(n + 1)]
+    if r.random() < .7:
+        perm = list(range(2, n + 1)); r.shuffle(perm); chain = [1] + perm
+        for i in range(len(chain) - 1):
+            keys[chain[i]].append(chain[i + 1])
+        for _ in range(r.randint(0, n)):
+            keys[r.randint(1, n)].append(r.randint(1, n))
+    else:
+        for _ in range(r.randint(0, int(1.2 * n))):
+            keys[r.randint(1, n)].append(r.randint(1, n))
+    if r.random() < .15 and n > 1:
+        x = r.randint(2, n)
+        for i in range(1, n + 1):
+            keys[i] = [c for c in keys[i] if c != x]
+    return str(n) + '\n' + '\n'.join(' '.join(map(str, [len(keys[i])] + keys[i])) for i in range(1, n + 1))
+
+def sol(s):
+    L = s.split('\n'); n = int(L[0])
+    seen = [False] * (n + 1); seen[1] = True; st = [1]; c = 1
+    while st:
+        x = st.pop()
+        for y in ints(L[x])[1:]:
+            if not seen[y]:
+                seen[y] = True; c += 1; st.append(y)
+    return 'YES' if c == n else 'NO'
+
+def brute(s):
+    L = s.split('\n'); n = int(L[0])
+    have = {1}; ch = True
+    while ch:
+        ch = False
+        for x in list(have):
+            for y in ints(L[x])[1:]:
+                if y not in have:
+                    have.add(y); ch = True
+    return 'YES' if len(have) == n else 'NO'
+
+=== 8 | Односторонние дороги | Графы | 1
+--- statement
+В стране $n$ городов и $m$ односторонних дорог $a \to b$. Сколько городов достижимо из города $1$ (включая сам город $1$)?
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ строк с парами $a\ b$.
+
+**Вывод.** Одно число.
+--- sample
+5 5
+1 2
+2 3
+3 2
+4 1
+5 4
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1)
+    es = digraph(r, n, r.randint(n // 2, 2 * n))
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]
+    g = adj(n, [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)], True)
+    seen = [False] * (n + 1); seen[1] = True; st = [1]; c = 1
+    while st:
+        x = st.pop()
+        for y in g[x]:
+            if not seen[y]:
+                seen[y] = True; c += 1; st.append(y)
+    return str(c)
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]
+    R = [[i == j for j in range(n + 1)] for i in range(n + 1)]
+    for i in range(m):
+        R[v[2 + 2 * i]][v[3 + 2 * i]] = True
+    for x in range(1, n + 1):
+        for i in range(1, n + 1):
+            for j in range(1, n + 1):
+                if R[i][x] and R[x][j]:
+                    R[i][j] = True
+    return str(sum(R[1][1:]))
+
+=== 9 | Острова на Иссык-Куле | Графы | 1
+--- statement
+Карта озера — таблица из $h$ строк и $w$ столбцов. Символ `#` — суша, `.` — вода. Острова — группы клеток суши, соседних по стороне. Сколько островов на карте?
+
+**Ввод.** В первой строке $h$ и $w$ ($1 \le h\cdot w \le 3\cdot 10^5$). Далее $h$ строк по $w$ символов.
+
+**Вывод.** Одно число.
+--- sample
+4 5
+##..#
+#...#
+..#..
+...##
+--- code
+def gen(r, k):
+    h, w = hw(r, k, 300000)
+    g = grid(r, h, w, r.choice([.3, .45, .55, .65]))
+    return '%d %d\n' % (h, w) + '\n'.join(g)
+
+def sol(s):
+    L = s.split('\n'); h, w = map(int, L[0].split()); g = [list(x) for x in L[1:1 + h]]; c = 0
+    for i in range(h):
+        for j in range(w):
+            if g[i][j] == '#':
+                c += 1; g[i][j] = '.'; st = [(i, j)]
+                while st:
+                    x, y = st.pop()
+                    for a, b in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)):
+                        if 0 <= a < h and 0 <= b < w and g[a][b] == '#':
+                            g[a][b] = '.'; st.append((a, b))
+    return str(c)
+
+def brute(s):
+    L = s.split('\n'); h, w = map(int, L[0].split())
+    return str(len(set(grid_labels(L[1:1 + h]).values())))
+
+=== 10 | Самый большой остров | Графы | 1
+--- statement
+Дана карта из $h$ строк и $w$ столбцов: `#` — суша, `.` — вода. Остров — группа клеток суши, соседних по стороне. Найдите площадь (число клеток) самого большого острова. Если суши нет, выведите $0$.
+
+**Ввод.** В первой строке $h$ и $w$ ($1 \le h\cdot w \le 3\cdot 10^5$). Далее $h$ строк по $w$ символов.
+
+**Вывод.** Одно число.
+--- sample
+3 6
+##.###
+#..#.#
+...#..
+--- code
+def gen(r, k):
+    h, w = hw(r, k, 300000)
+    g = grid(r, h, w, r.choice([.3, .45, .55, .65]))
+    return '%d %d\n' % (h, w) + '\n'.join(g)
+
+def sol(s):
+    L = s.split('\n'); h, w = map(int, L[0].split()); g = [list(x) for x in L[1:1 + h]]; best = 0
+    for i in range(h):
+        for j in range(w):
+            if g[i][j] == '#':
+                c = 1; g[i][j] = '.'; st = [(i, j)]
+                while st:
+                    x, y = st.pop()
+                    for a, b in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)):
+                        if 0 <= a < h and 0 <= b < w and g[a][b] == '#':
+                            g[a][b] = '.'; st.append((a, b)); c += 1
+                best = max(best, c)
+    return str(best)
+
+def brute(s):
+    L = s.split('\n'); h, w = map(int, L[0].split())
+    lab = list(grid_labels(L[1:1 + h]).values())
+    return str(max([lab.count(x) for x in set(lab)] or [0]))

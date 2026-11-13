@@ -1,0 +1,462 @@
+=== 91 | Чередование цветов | Графы | 1
+--- statement
+В графе $n$ вершин. Даны красные и синие направленные рёбра (между парой вершин могут быть и красные, и синие рёбра, возможны петли). Для каждой вершины найдите длину кратчайшего пути из вершины $1$, в котором цвета рёбер строго чередуются (первое ребро любого цвета).
+
+**Ввод.** В первой строке $n, r, b$ ($1 \le n \le 10^5$, $0 \le r, b \le 10^5$). Далее $r$ строк $a\ c$ — красные рёбра $a \to c$, затем $b$ строк — синие.
+
+**Вывод.** $n$ чисел через пробел: длина пути или $-1$. Для вершины $1$ ответ $0$.
+--- sample
+4 2 2
+1 2
+2 3
+1 3
+3 4
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1)
+    rr = r.randint(0, min(100000, 2 * n)); bb = r.randint(0, min(100000, 2 * n))
+    R = [(r.randint(1, n), r.randint(1, n)) for _ in range(rr)]
+    B = [(r.randint(1, n), r.randint(1, n)) for _ in range(bb)]
+    return '%d %d %d\n' % (n, rr, bb) + el(R + B)
+
+def sol(s):
+    v = ints(s); n, rr, bb = v[:3]; g = [[[] for _ in range(n + 1)] for _ in range(2)]
+    for i in range(rr):
+        g[0][v[3 + 2 * i]].append(v[4 + 2 * i])
+    for i in range(bb):
+        g[1][v[3 + 2 * rr + 2 * i]].append(v[4 + 2 * rr + 2 * i])
+    d = [[-1, -1] for _ in range(n + 1)]; d[1] = [0, 0]; q = deque([(1, 0), (1, 1)])
+    while q:
+        x, c = q.popleft()
+        for y in g[c ^ 1][x]:
+            if d[y][c ^ 1] < 0:
+                d[y][c ^ 1] = d[x][c] + 1; q.append((y, c ^ 1))
+    return ' '.join(str(max(-1, min([t for t in d[i] if t >= 0] or [-1]))) for i in range(1, n + 1))
+
+def brute(s):
+    v = ints(s); n, rr, bb = v[:3]; E = []
+    for i in range(rr):
+        E.append((v[3 + 2 * i], v[4 + 2 * i], 0))
+    for i in range(bb):
+        E.append((v[3 + 2 * rr + 2 * i], v[4 + 2 * rr + 2 * i], 1))
+    d = {(1, 0): 0, (1, 1): 0}
+    for _ in range(2 * n + 2):
+        for (x, c), dd in list(d.items()):
+            for a, b, col in E:
+                if a == x and col != c and d.get((b, col), INF) > dd + 1:
+                    d[(b, col)] = dd + 1
+    return ' '.join(str(min([dd for (x, c), dd in d.items() if x == i] or [-1])) for i in range(1, n + 1))
+
+=== 92 | Автобусные маршруты | Графы | 2
+--- statement
+В городе $R$ круговых автобусных маршрутов; маршрут $i$ проходит через набор остановок и повторяется бесконечно. Вы стоите на остановке $S$ и хотите попасть на остановку $T$, пересаживаясь только на остановках. Какое наименьшее число автобусов нужно использовать?
+
+**Ввод.** В первой строке $R$ ($1 \le R \le 10^4$). Далее $R$ строк: число остановок $k_i$ и $k_i$ различных номеров остановок (суммарно не более $2\cdot 10^5$, номера до $10^6$). В последней строке $S$ и $T$.
+
+**Вывод.** Число автобусов (если $S = T$, то $0$) или $-1$.
+--- sample
+3
+3 1 2 7
+2 3 6
+3 7 12 4
+1 12
+--- code
+def gen(r, k):
+    R = sz(r, k, 10000, lo=1, tiny=5); U = r.randint(3, max(4, R * r.choice([1, 3, 8]) if k else 8))
+    rts = []
+    for _ in range(R):
+        c = r.randint(1, min(U, r.choice([2, 3, 4, 8, 20]))); rts.append(r.sample(range(1, U + 1), c))
+    S, T = r.randint(1, U), r.randint(1, U)
+    return '%d\n' % R + '\n'.join(' '.join(map(str, [len(x)] + x)) for x in rts) + '\n%d %d' % (S, T)
+
+def sol(s):
+    L = s.split('\n'); R = int(L[0]); rts = [ints(L[1 + i])[1:] for i in range(R)]; S, T = ints(L[1 + R])
+    if S == T:
+        return '0'
+    by = defaultdict(list)
+    for i, x in enumerate(rts):
+        for p in x:
+            by[p].append(i)
+    d = {}; q = deque()
+    for i in by.get(S, []):
+        d[i] = 1; q.append(i)
+    usedstop = {S}
+    while q:
+        i = q.popleft()
+        if T in rts[i]:
+            return str(d[i])
+        for p in rts[i]:
+            if p not in usedstop:
+                usedstop.add(p)
+                for j in by[p]:
+                    if j not in d:
+                        d[j] = d[i] + 1; q.append(j)
+    return '-1'
+
+def brute(s):
+    L = s.split('\n'); R = int(L[0]); rts = [ints(L[1 + i])[1:] for i in range(R)]; S, T = ints(L[1 + R])
+    d = {S: 0}; ch = True
+    while ch:
+        ch = False
+        for x in rts:
+            known = [d[p] for p in x if p in d]
+            if known:
+                nv = min(known) + 1
+                for p in x:
+                    if d.get(p, INF) > nv:
+                        d[p] = nv; ch = True
+    return str(d.get(T, -1))
+
+=== 94 | Самый удалённый от суши | Графы | 1
+--- statement
+Карта $h \times w$: `#` — суша, `.` — вода. Для водной клетки расстояние до суши — наименьшее $|i - a| + |j - b|$ до клетки суши $(a, b)$. Найдите наибольшее такое расстояние среди водных клеток. Если на карте нет ни суши, ни воды, выведите $-1$.
+
+**Ввод.** В первой строке $h$ и $w$ ($1 \le h\cdot w \le 3\cdot 10^5$). Далее $h$ строк по $w$ символов.
+
+**Вывод.** Одно число.
+--- sample
+3 4
+#...
+....
+...#
+--- code
+def gen(r, k):
+    h, w = hw(r, k, 300000)
+    p = r.choice([0, .001, .01, .1, .5, 1]) if k % 4 == 0 else r.choice([.001, .01, .1])
+    g = grid(r, h, w, p)
+    return '%d %d\n' % (h, w) + '\n'.join(g)
+
+def sol(s):
+    h, w, g = rg(s); d = [[-1] * w for _ in range(h)]; q = deque(); water = 0
+    for i in range(h):
+        for j in range(w):
+            if g[i][j] == '#':
+                d[i][j] = 0; q.append((i, j))
+            else:
+                water += 1
+    if not q or not water:
+        return '-1'
+    best = 0
+    while q:
+        x, y = q.popleft()
+        for a, b in D4:
+            c, e = x + a, y + b
+            if 0 <= c < h and 0 <= e < w and d[c][e] < 0:
+                d[c][e] = d[x][y] + 1; best = d[c][e]; q.append((c, e))
+    return str(best)
+
+def brute(s):
+    h, w, g = rg(s)
+    land = [(i, j) for i in range(h) for j in range(w) if g[i][j] == '#']
+    wat = [(i, j) for i in range(h) for j in range(w) if g[i][j] == '.']
+    if not land or not wat:
+        return '-1'
+    return str(max(min(abs(i - a) + abs(j - b) for a, b in land) for i, j in wat))
+
+=== 95 | Лишние линии связи | Графы | 1
+--- statement
+Айдар и Бермет пользуются сетью из $n$ узлов и $m$ линий трёх типов: тип $1$ — только Айдар, тип $2$ — только Бермет, тип $3$ — оба. Каждый должен иметь возможность добраться из любого узла в любой по доступным ему линиям. Какое наибольшее число линий можно отключить, чтобы это осталось верным? Если уже сейчас кто-то из них не может добраться из любого узла в любой, выведите $-1$.
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ строк $t\ a\ b$ ($t \in \{1,2,3\}$).
+
+**Вывод.** Одно число.
+--- sample
+4 5
+3 1 2
+3 2 3
+1 3 4
+2 3 4
+3 1 4
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1)
+    es = [(r.choice([1, 2, 3, 3]), a, b) for a, b in graph(r, n, r.randint(n, 3 * n))]
+    if k % 2 and n > 1:
+        ext = tree(r, n, k)
+        S = {(min(a, b), max(a, b)): t for t, a, b in es}
+        for a, b in ext:
+            key = (min(a, b), max(a, b))
+            if key in S:
+                es = [(3, x, y) if (min(x, y), max(x, y)) == key else (t, x, y) for t, x, y in es]
+            else:
+                es.append((3, a, b))
+    r.shuffle(es)
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[:2]; E = [(v[2 + 3 * i], v[3 + 3 * i], v[4 + 3 * i]) for i in range(m)]
+    A = DSU(n); B = DSU(n); need = 0; ca = cb = n
+    for t, a, b in E:
+        if t == 3:
+            x = A.u(a, b); y = B.u(a, b)
+            if x or y:
+                need += 1
+            ca -= x; cb -= y
+    for t, a, b in E:
+        if t == 1 and A.u(a, b):
+            need += 1; ca -= 1
+        if t == 2 and B.u(a, b):
+            need += 1; cb -= 1
+    return str(m - need if ca == 1 and cb == 1 else -1)
+
+def brute(s):
+    v = ints(s); n, m = v[:2]; E = [(v[2 + 3 * i], v[3 + 3 * i], v[4 + 3 * i]) for i in range(m)]; best = -1
+    for mask in range(1 << m):
+        keep = [E[i] for i in range(m) if mask >> i & 1]
+        okA = len(set(comps_bf(n, [(a, b) for t, a, b in keep if t in (1, 3)])[1:])) == 1
+        okB = len(set(comps_bf(n, [(a, b) for t, a, b in keep if t in (2, 3)])[1:])) == 1
+        if okA and okB:
+            best = max(best, m - len(keep))
+    return str(best)
+
+=== 96 | Недостижимые пары | Графы | 1
+--- statement
+В стране $n$ городов и $m$ двусторонних дорог. Сколько существует пар городов $(u, v)$, $u < v$, между которыми нельзя проехать?
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ пар $a\ b$.
+
+**Вывод.** Одно число.
+--- sample
+5 3
+1 2
+2 3
+4 5
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1)
+    es = graph(r, n, r.randint(0, int(1.2 * n)))
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[:2]; d = DSU(n)
+    for i in range(m):
+        d.u(v[2 + 2 * i], v[3 + 2 * i])
+    cnt = defaultdict(int)
+    for x in range(1, n + 1):
+        cnt[d.f(x)] += 1
+    return str(n * (n - 1) // 2 - sum(c * (c - 1) // 2 for c in cnt.values()))
+
+def brute(s):
+    v = ints(s); n, m = v[:2]; lab = comps_bf(n, [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)])
+    return str(sum(1 for a in range(1, n + 1) for b in range(a + 1, n + 1) if lab[a] != lab[b]))
+
+=== 97 | Срок проекта | Графы | 1
+--- statement
+В проекте $n$ работ, работа $i$ занимает $t_i$ дней. Даны $m$ условий «работу $a$ нужно закончить до начала работы $b$». Работники неограниченно много, независимые работы идут одновременно. За какое наименьшее число дней можно завершить проект? Если из-за условий проект завершить невозможно, выведите $-1$.
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Во второй — $n$ чисел $t_i$ ($1 \le t_i \le 1000$). Далее $m$ пар $a\ b$.
+
+**Вывод.** Одно число.
+--- sample
+5 4
+3 2 4 1 5
+1 2
+1 3
+2 4
+3 4
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1)
+    es = dag_or_cyc(r, n, r.randint(0, int(1.5 * n)), k, .2)
+    return '%d %d\n' % (n, len(es)) + ' '.join(str(r.randint(1, r.choice([5, 1000]))) for _ in range(n)) + '\n' + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[:2]; t = [0] + v[2:2 + n]; g = [[] for _ in range(n + 1)]; ind = [0] * (n + 1); p = 2 + n
+    for i in range(m):
+        a, b = v[p + 2 * i], v[p + 2 * i + 1]; g[a].append(b); ind[b] += 1
+    fin = [0] * (n + 1); q = [i for i in range(1, n + 1) if ind[i] == 0]; done = 0
+    for i in q:
+        fin[i] = t[i]
+    while q:
+        x = q.pop(); done += 1
+        for y in g[x]:
+            fin[y] = max(fin[y], fin[x]); ind[y] -= 1
+            if ind[y] == 0:
+                fin[y] += t[y]; q.append(y)
+    return str(max(fin) if done == n else -1)
+
+def brute(s):
+    v = ints(s); n, m = v[:2]; t = [0] + v[2:2 + n]; p = 2 + n; es = [(v[p + 2 * i], v[p + 2 * i + 1]) for i in range(m)]
+    R = [[i == j for j in range(n + 1)] for i in range(n + 1)]
+    for a, b in es:
+        R[a][b] = True
+    for x in range(1, n + 1):
+        for i in range(1, n + 1):
+            for j in range(1, n + 1):
+                if R[i][x] and R[x][j]:
+                    R[i][j] = True
+    if any(R[a][b] and R[b][a] for a, b in es):
+        return '-1'
+    f = [0] + [t[i] for i in range(1, n + 1)]
+    for _ in range(n + 1):
+        for a, b in es:
+            f[b] = max(f[b], f[a] + t[b])
+    return str(max(f))
+
+=== 98 | Эйлеров обход | Графы | 1
+--- statement
+В графе $n$ вершин и $m$ рёбер. Можно ли пройти по каждому ребру ровно один раз? Если можно вернуться в начальную вершину, ответ `CIRCUIT`; если можно, но нельзя вернуться — `PATH`; иначе `NO`. Если рёбер нет, ответ `CIRCUIT`.
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ пар $a\ b$ (различные, $a \ne b$).
+
+**Вывод.** `CIRCUIT`, `PATH` или `NO`.
+--- sample
+4 5
+1 2
+2 3
+3 1
+3 4
+4 2
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=2, tiny=6)
+    es = graph(r, n, r.randint(n - 1, int(1.6 * n)) if k else r.randint(0, 8), conn=k != 0, k=k)
+    mode = k % 3 if k else r.randint(0, 2)
+    S = {(min(a, b), max(a, b)) for a, b in es}
+    if mode:
+        deg = defaultdict(int)
+        for a, b in es:
+            deg[a] += 1; deg[b] += 1
+        odd = [x for x in range(1, n + 1) if deg[x] % 2]; r.shuffle(odd)
+        keep = 2 if mode == 2 else 0
+        for i in range(0, len(odd) - 1 - keep, 2):
+            a, b = odd[i], odd[i + 1]
+            key = (min(a, b), max(a, b))
+            if key not in S:
+                S.add(key); es.append((a, b))
+    r.shuffle(es)
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[:2]; deg = [0] * (n + 1); d = DSU(n)
+    for i in range(m):
+        a, b = v[2 + 2 * i], v[3 + 2 * i]; deg[a] += 1; deg[b] += 1; d.u(a, b)
+    roots = {d.f(x) for x in range(1, n + 1) if deg[x]}
+    if len(roots) > 1:
+        return 'NO'
+    odd = sum(1 for x in deg if x % 2)
+    return 'CIRCUIT' if odd == 0 else 'PATH' if odd == 2 else 'NO'
+
+def brute(s):
+    v = ints(s); n, m = v[:2]; es = [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)]
+    if m == 0:
+        return 'CIRCUIT'
+    found = set()
+    def f(x, used, st):
+        if len(used) == m:
+            found.add('CIRCUIT' if x == st else 'PATH'); return
+        for i, (a, b) in enumerate(es):
+            if i not in used and x in (a, b):
+                f(b if x == a else a, used | {i}, st)
+    for st in range(1, n + 1):
+        f(st, frozenset(), st)
+    return 'CIRCUIT' if 'CIRCUIT' in found else 'PATH' if 'PATH' in found else 'NO'
+
+=== 99 | Домино на плане | Графы | 2
+--- statement
+План пола — таблица $h \times w$: `.` — свободная клетка, `#` — занятая. Плитка домино закрывает две соседние по стороне свободные клетки. Какое наибольшее число плиток можно уложить без наложений?
+
+**Ввод.** В первой строке $h$ и $w$ ($1 \le h\cdot w \le 400$). Далее $h$ строк по $w$ символов.
+
+**Вывод.** Одно число.
+--- sample
+3 4
+..#.
+....
+.#..
+--- code
+def gen(r, k):
+    h, w = hw(r, k, 400, tiny=12)
+    g = grid(r, h, w, r.choice([.1, .25, .4]))
+    return '%d %d\n' % (h, w) + '\n'.join(g)
+
+def sol(s):
+    h, w, g = rg(s); mt = {}
+    L = [(i, j) for i in range(h) for j in range(w) if g[i][j] == '.' and (i + j) % 2 == 0]
+    def nb(c):
+        return [(c[0] + a, c[1] + b) for a, b in D4 if 0 <= c[0] + a < h and 0 <= c[1] + b < w and g[c[0] + a][c[1] + b] == '.']
+    def try_(c, seen):
+        for y in nb(c):
+            if y not in seen:
+                seen.add(y)
+                if y not in mt or try_(mt[y], seen):
+                    mt[y] = c; return True
+        return False
+    return str(sum(1 for c in L if try_(c, set())))
+
+def brute(s):
+    h, w, g = rg(s); cells = [(i, j) for i in range(h) for j in range(w) if g[i][j] == '.']
+    def f(i, used):
+        if i == len(cells):
+            return 0
+        c = cells[i]
+        if c in used:
+            return f(i + 1, used)
+        best = f(i + 1, used)
+        for d in ((0, 1), (1, 0)):
+            e = (c[0] + d[0], c[1] + d[1])
+            if e in set(cells) and e not in used:
+                best = max(best, 1 + f(i + 1, used | {c, e}))
+        return best
+    return str(f(0, frozenset()))
+
+=== 100 | Пропускная способность сети | Графы | 2
+--- statement
+Сеть из $n$ узлов и $m$ направленных каналов: канал $a \to b$ пропускает не более $c$ единиц данных в секунду. Какое наибольшее количество данных в секунду можно передавать из узла $1$ в узел $n$ (по любым путям одновременно)?
+
+**Ввод.** В первой строке $n$ и $m$ ($2 \le n \le 100$, $0 \le m \le 600$). Далее $m$ строк $a\ b\ c$ ($1 \le c \le 10^6$, $a \ne b$).
+
+**Вывод.** Одно число.
+--- sample
+4 5
+1 2 3
+1 3 2
+2 3 1
+2 4 2
+3 4 3
+--- code
+def gen(r, k):
+    n = sz(r, k, 100, lo=2, tiny=6); C = r.choice([5, 1000, 10**6])
+    es = [(a, b, r.randint(1, C)) for a, b in digraph(r, n, r.randint(n, min(600, 5 * n)))]
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[:2]; g = [[] for _ in range(n + 1)]; to = []; cap = []
+    for i in range(m):
+        a, b, c = v[2 + 3 * i], v[3 + 3 * i], v[4 + 3 * i]
+        g[a].append(len(to)); to.append(b); cap.append(c); g[b].append(len(to)); to.append(a); cap.append(0)
+    flow = 0
+    while True:
+        lvl = [-1] * (n + 1); lvl[1] = 0; q = deque([1])
+        while q:
+            x = q.popleft()
+            for e in g[x]:
+                if cap[e] > 0 and lvl[to[e]] < 0:
+                    lvl[to[e]] = lvl[x] + 1; q.append(to[e])
+        if lvl[n] < 0:
+            return str(flow)
+        it = [0] * (n + 1)
+        def dfs(x, f):
+            if x == n:
+                return f
+            while it[x] < len(g[x]):
+                e = g[x][it[x]]
+                if cap[e] > 0 and lvl[to[e]] == lvl[x] + 1:
+                    got = dfs(to[e], min(f, cap[e]))
+                    if got:
+                        cap[e] -= got; cap[e ^ 1] += got; return got
+                it[x] += 1
+            return 0
+        while True:
+            f = dfs(1, 10**18)
+            if not f:
+                break
+            flow += f
+
+def brute(s):
+    v = ints(s); n, m = v[:2]; es = [(v[2 + 3 * i], v[3 + 3 * i], v[4 + 3 * i]) for i in range(m)]
+    best = INF
+    for mask in range(1 << n):
+        if mask & 1 and not mask >> (n - 1) & 1:
+            best = min(best, sum(c for a, b, c in es if mask >> (a - 1) & 1 and not mask >> (b - 1) & 1))
+    return str(best)

@@ -1,0 +1,12 @@
+{
+ "code": "001742",
+ "name": "Ближайший колодец",
+ "topic": "Графы",
+ "time_limit": 1,
+ "memory_mb": 256,
+ "points": 100,
+ "tests": 10,
+ "partial": true,
+ "gen": "python3 gen.py K  (K=1..10)",
+ "seed": "14*1000+K"
+}

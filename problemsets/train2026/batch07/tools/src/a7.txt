@@ -1,0 +1,431 @@
+=== 61 | Сколько кратчайших маршрутов | Графы | 2
+--- statement
+Между $n$ городами $m$ двусторонних дорог. Сколько существует различных кратчайших (по числу дорог) маршрутов из города $1$ в город $n$? Ответ — по модулю $10^9+7$. Если добраться нельзя, ответ $0$.
+
+**Ввод.** В первой строке $n$ и $m$ ($2 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ пар $a\ b$.
+
+**Вывод.** Одно число.
+--- sample
+5 6
+1 2
+1 3
+2 4
+3 4
+4 5
+2 3
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=3)
+    if k % 2:
+        es = layered(r, n, 3)
+    else:
+        es = graph(r, n, r.randint(n, 2 * n), conn=True, k=k)
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]; M = 10**9 + 7
+    g = adj(n, [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)])
+    d = [-1] * (n + 1); c = [0] * (n + 1); d[1] = 0; c[1] = 1; q = deque([1])
+    while q:
+        x = q.popleft()
+        for y in g[x]:
+            if d[y] < 0:
+                d[y] = d[x] + 1; q.append(y)
+            if d[y] == d[x] + 1:
+                c[y] = (c[y] + c[x]) % M
+    return str(c[n])
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]; es = [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)]
+    D = floyd(n, [(a, b, 1) for a, b in es]); g = adj(n, es)
+    if D[1][n] == INF:
+        return '0'
+    def f(x, left):
+        if left == 0:
+            return 1 if x == n else 0
+        return sum(f(y, left - 1) for y in g[x])
+    return str(f(1, D[1][n]) % (10**9 + 7))
+
+=== 62 | Дешёвые и частые маршруты | Графы | 2
+--- statement
+Между $n$ городами $m$ двусторонних дорог с длинами. Найдите длину кратчайшего пути из города $1$ в город $n$ и количество различных кратчайших путей (по модулю $10^9+7$).
+
+**Ввод.** В первой строке $n$ и $m$ ($2 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ строк $a\ b\ w$ ($1 \le w \le 10$).
+
+**Вывод.** Два числа через пробел; если пути нет, выведите `-1 0`.
+--- sample
+4 5
+1 2 1
+1 3 1
+2 4 1
+3 4 1
+2 3 5
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=2); W = r.choice([2, 3, 10])
+    es = [(a, b, r.randint(1, W)) for a, b in graph(r, n, r.randint(n, 2 * n), conn=k % 3 != 0, k=k)]
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]; M = 10**9 + 7
+    g = adj(n, [(v[2 + 3 * i], v[3 + 3 * i], v[4 + 3 * i]) for i in range(m)])
+    d = [INF] * (n + 1); c = [0] * (n + 1); d[1] = 0; c[1] = 1; pq = [(0, 1)]
+    while pq:
+        dd, x = heapq.heappop(pq)
+        if dd > d[x]:
+            continue
+        for y, w in g[x]:
+            if dd + w < d[y]:
+                d[y] = dd + w; c[y] = c[x]; heapq.heappush(pq, (d[y], y))
+            elif dd + w == d[y]:
+                c[y] = (c[y] + c[x]) % M
+    return '-1 0' if d[n] == INF else '%d %d' % (d[n], c[n])
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]; g = adj(n, [(v[2 + 3 * i], v[3 + 3 * i], v[4 + 3 * i]) for i in range(m)])
+    res = []
+    def f(x, seen, c):
+        if x == n:
+            res.append(c); return
+        for y, w in g[x]:
+            if y not in seen:
+                f(y, seen | {y}, c + w)
+    f(1, {1}, 0)
+    if not res:
+        return '-1 0'
+    b = min(res)
+    return '%d %d' % (b, res.count(b) % (10**9 + 7))
+
+=== 63 | Второй по длине путь | Графы | 2
+--- statement
+Между $n$ городами $m$ двусторонних дорог с длинами. Маршрут — последовательность дорог от города $1$ до города $n$, города и дороги в нём могут повторяться. Найдите наименьшую длину маршрута, которая строго больше длины кратчайшего.
+
+**Ввод.** В первой строке $n$ и $m$ ($2 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ строк $a\ b\ w$ ($1 \le w \le 10^6$).
+
+**Вывод.** Одно число или $-1$, если такого маршрута нет (например, если города не связаны).
+--- sample
+4 4
+1 2 3
+2 4 3
+1 3 4
+3 4 3
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=2); W = r.choice([3, 5, 10**6]) if k else 4
+    es = [(a, b, r.randint(1, W)) for a, b in graph(r, n, r.randint(n - 1, int(1.5 * n)), conn=k % 4 != 0, k=k)]
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]
+    g = adj(n, [(v[2 + 3 * i], v[3 + 3 * i], v[4 + 3 * i]) for i in range(m)])
+    d1 = [INF] * (n + 1); d2 = [INF] * (n + 1); d1[1] = 0; pq = [(0, 1)]
+    while pq:
+        dd, x = heapq.heappop(pq)
+        if dd > d2[x]:
+            continue
+        for y, w in g[x]:
+            nd = dd + w
+            if nd < d1[y]:
+                d1[y], nd = nd, d1[y]
+                heapq.heappush(pq, (d1[y], y))
+            if d1[y] < nd < d2[y]:
+                d2[y] = nd; heapq.heappush(pq, (nd, y))
+    return str(-1 if d2[n] == INF else d2[n])
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]; es = [(v[2 + 3 * i], v[3 + 3 * i], v[4 + 3 * i]) for i in range(m)]
+    L = 90; reach = [set() for _ in range(n + 1)]; reach[1].add(0)
+    for t in range(L + 1):
+        for a, b, w in es:
+            for x, y in ((a, b), (b, a)):
+                for q in list(reach[x]):
+                    if q + w <= L and q == t:
+                        reach[y].add(q + w)
+    ls = sorted(reach[n])
+    return str(ls[1]) if len(ls) > 1 else '-1'
+
+=== 64 | Дороги с поворотами | Графы | 1
+--- statement
+В графе $n$ вершин и $m$ двусторонних рёбер; вес каждого ребра — $0$ или $1$. Найдите наименьшую сумму весов пути из вершины $1$ в вершину $n$.
+
+**Ввод.** В первой строке $n$ и $m$ ($2 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ строк $a\ b\ w$, $w \in \{0, 1\}$.
+
+**Вывод.** Одно число или $-1$.
+--- sample
+4 4
+1 2 1
+2 4 0
+1 3 0
+3 4 1
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=2)
+    es = [(a, b, 0 if r.random() < (.5 if k % 2 else .15) else 1) for a, b in graph(r, n, r.randint(n - 1, int(1.7 * n)), conn=k % 3 != 0, k=k)]
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]
+    g = adj(n, [(v[2 + 3 * i], v[3 + 3 * i], v[4 + 3 * i]) for i in range(m)])
+    d = [INF] * (n + 1); d[1] = 0; q = deque([1])
+    while q:
+        x = q.popleft()
+        for y, w in g[x]:
+            if d[x] + w < d[y]:
+                d[y] = d[x] + w
+                (q.appendleft if w == 0 else q.append)(y)
+    return str(-1 if d[n] == INF else d[n])
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]
+    D = floyd(n, [(v[2 + 3 * i], v[3 + 3 * i], v[4 + 3 * i]) for i in range(m)])
+    return str(-1 if D[1][n] == INF else D[1][n])
+
+=== 65 | Город с малым числом соседей | Графы | 2
+--- statement
+В стране $n$ городов и $m$ двусторонних дорог с длинами. Для порога $T$ сосед города — любой другой город, до которого кратчайший путь не длиннее $T$. Найдите город с наименьшим числом соседей; при равенстве — город с наибольшим номером.
+
+**Ввод.** В первой строке $n, m, T$ ($2 \le n \le 100$, $0 \le m \le 2000$, $1 \le T \le 10^6$). Далее $m$ строк $a\ b\ w$ ($1 \le w \le 10^5$).
+
+**Вывод.** Номер города.
+--- sample
+4 4 4
+1 2 3
+2 3 1
+2 4 1
+3 4 4
+--- code
+def gen(r, k):
+    n = sz(r, k, 100, lo=2, tiny=6); W = r.choice([5, 100, 10**5])
+    es = [(a, b, r.randint(1, W)) for a, b in graph(r, n, r.randint(n - 1, min(2000, 3 * n)))]
+    return '%d %d %d\n' % (n, len(es), r.randint(W // 2 + 1, 3 * W)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m, T = v[:3]
+    D = floyd(n, [(v[3 + 3 * i], v[4 + 3 * i], v[5 + 3 * i]) for i in range(m)])
+    best = None
+    for i in range(1, n + 1):
+        c = sum(1 for j in range(1, n + 1) if j != i and D[i][j] <= T)
+        if best is None or c <= best[0]:
+            best = (c, i)
+    return str(best[1])
+
+def brute(s):
+    v = ints(s); n, m, T = v[:3]; g = adj(n, [(v[3 + 3 * i], v[4 + 3 * i], v[5 + 3 * i]) for i in range(m)])
+    cnt = []
+    for i in range(1, n + 1):
+        d = dijk(n, g, i); cnt.append((sum(1 for j in range(1, n + 1) if j != i and d[j] <= T), -i))
+    return str(-min(cnt)[1] if False else -min((c, -i) for c, i in [(a, -b) for a, b in cnt])[1])
+
+=== 66 | Выгодный круг | Графы | 2
+--- statement
+Между $n$ площадками $m$ односторонних переходов $a \to b$; проход по переходу стоит $w$ (может быть отрицательным — тогда вам платят). Существует ли замкнутый маршрут (начало и конец в одной площадке, возможно с повторами), суммарная стоимость которого отрицательна?
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 500$, $0 \le m \le 5000$). Далее $m$ строк $a\ b\ w$ ($|w| \le 10^4$).
+
+**Вывод.** `YES` или `NO`.
+--- sample
+4 5
+1 2 3
+2 3 -4
+3 1 2
+3 4 5
+4 1 1
+--- code
+def gen(r, k):
+    n = sz(r, k, 500, lo=1, tiny=6)
+    base = digraph(r, n, r.randint(0, min(5000, 3 * n)))
+    pot = [r.randint(0, 50) for _ in range(n + 1)]
+    es = []
+    for a, b in base:
+        w = pot[b] - pot[a] + r.randint(0, 5)
+        es.append((a, b, w))
+    if r.random() < .5 and es:
+        i = r.randrange(len(es)); a, b, w = es[i]; es[i] = (a, b, w - r.randint(0, 300))
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]; es = [(v[2 + 3 * i], v[3 + 3 * i], v[4 + 3 * i]) for i in range(m)]
+    d = [0] * (n + 1)
+    for it in range(n):
+        ch = False
+        for a, b, w in es:
+            if d[a] + w < d[b]:
+                d[b] = d[a] + w; ch = True
+        if not ch:
+            return 'NO'
+    return 'YES'
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]
+    D = floyd(n, [(v[2 + 3 * i], v[3 + 3 * i], v[4 + 3 * i]) for i in range(m)], True)
+    for _ in range(2):
+        for x in range(1, n + 1):
+            for i in range(1, n + 1):
+                for j in range(1, n + 1):
+                    if D[i][x] + D[x][j] < D[i][j]:
+                        D[i][j] = D[i][x] + D[x][j]
+    return 'YES' if any(D[i][i] < 0 for i in range(1, n + 1)) else 'NO'
+
+=== 67 | Грузоподъёмность моста | Графы | 2
+--- statement
+Между $n$ городами $m$ двусторонних дорог; у дороги есть предельная масса груза $c$. Грузовик едет из города $1$ в город $n$; максимальная масса груза, с которой он может проехать, равна наименьшему из пределов дорог на пути. Найдите наибольшую массу, которую можно провезти.
+
+**Ввод.** В первой строке $n$ и $m$ ($2 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ строк $a\ b\ c$ ($1 \le c \le 10^9$).
+
+**Вывод.** Одно число или $-1$, если проехать нельзя.
+--- sample
+4 5
+1 2 10
+2 4 3
+1 3 5
+3 4 5
+2 3 20
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=2); W = r.choice([5, 1000, 10**9])
+    es = [(a, b, r.randint(1, W)) for a, b in graph(r, n, r.randint(n - 1, int(1.8 * n)), conn=k % 3 != 0, k=k)]
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]; es = sorted(((v[4 + 3 * i], v[2 + 3 * i], v[3 + 3 * i]) for i in range(m)), reverse=True)
+    d = DSU(n)
+    for c, a, b in es:
+        d.u(a, b)
+        if d.f(1) == d.f(n):
+            return str(c)
+    return '-1'
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]; es = [(v[2 + 3 * i], v[3 + 3 * i], v[4 + 3 * i]) for i in range(m)]
+    best = -1
+    for c in sorted(set(e[2] for e in es)):
+        lab = comps_bf(n, [(a, b) for a, b, w in es if w >= c])
+        if lab[1] == lab[n]:
+            best = c
+    return str(best)
+
+=== 68 | Обход всех сёл | Графы | 2
+--- statement
+Связный граф из $n$ вершин. Найдите длину наименьшего маршрута (в рёбрах), который побывает в каждой вершине хотя бы раз. Начать и закончить можно в любых вершинах; вершины и рёбра можно использовать повторно.
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 12$, $0 \le m \le 66$). Далее $m$ пар $a\ b$. Граф связный.
+
+**Вывод.** Одно число.
+--- sample
+4 3
+1 2
+1 3
+1 4
+--- code
+def gen(r, k):
+    n = r.randint(1, 7) if k == 0 else [4, 6, 9, 12, 12, 8, 10, 11, 12, 12][k - 1]
+    es = graph(r, n, r.randint(n - 1, int(1.6 * n)), conn=True, k=k) if n > 1 else []
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]; g = adj(n, [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)])
+    full = (1 << n) - 1; d = {}; q = deque()
+    for i in range(1, n + 1):
+        d[(1 << (i - 1), i)] = 0; q.append((1 << (i - 1), i))
+    while q:
+        mask, x = q.popleft()
+        if mask == full:
+            return str(d[(mask, x)])
+        for y in g[x]:
+            st = (mask | 1 << (y - 1), y)
+            if st not in d:
+                d[st] = d[(mask, x)] + 1; q.append(st)
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]; D = floyd(n, [(v[2 + 2 * i], v[3 + 2 * i], 1) for i in range(m)])
+    return str(min(sum(D[p[i]][p[i + 1]] for i in range(n - 1)) for p in itertools.permutations(range(1, n + 1))))
+
+=== 69 | Ближайшая станция | Графы | 2
+--- statement
+В стране $n$ городов и $m$ двусторонних дорог с длинами. В $k$ городах есть станции скорой помощи. Для каждого города найдите расстояние до ближайшей станции.
+
+**Ввод.** В первой строке $n, m, k$ ($1 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$, $1 \le k \le n$). Во второй — номера $k$ городов со станциями. Далее $m$ строк $a\ b\ w$ ($1 \le w \le 10^6$).
+
+**Вывод.** $n$ чисел через пробел; $-1$, если ни одной станции не достичь.
+--- sample
+5 4 2
+1 5
+1 2 3
+2 3 4
+3 4 1
+4 5 2
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1); W = r.choice([5, 10**6])
+    es = [(a, b, r.randint(1, W)) for a, b in graph(r, n, r.randint(n // 2, int(1.5 * n)))]
+    kk = r.randint(1, max(1, n // r.choice([2, 10, 1000]) if k else 2))
+    st = r.sample(range(1, n + 1), min(kk, n))
+    return '%d %d %d\n' % (n, len(es), len(st)) + ' '.join(map(str, st)) + '\n' + el(es)
+
+def sol(s):
+    v = ints(s); n, m, k = v[:3]; st = v[3:3 + k]; g = adj(n, [(v[3 + k + 3 * i], v[4 + k + 3 * i], v[5 + k + 3 * i]) for i in range(m)])
+    d = [INF] * (n + 1); pq = []
+    for x in st:
+        d[x] = 0; pq.append((0, x))
+    heapq.heapify(pq)
+    while pq:
+        dd, x = heapq.heappop(pq)
+        if dd > d[x]:
+            continue
+        for y, w in g[x]:
+            if dd + w < d[y]:
+                d[y] = dd + w; heapq.heappush(pq, (d[y], y))
+    return ' '.join(str(-1 if d[i] == INF else d[i]) for i in range(1, n + 1))
+
+def brute(s):
+    v = ints(s); n, m, k = v[:3]; st = v[3:3 + k]
+    D = floyd(n, [(v[3 + k + 3 * i], v[4 + k + 3 * i], v[5 + k + 3 * i]) for i in range(m)])
+    res = [min(D[x][i] for x in st) for i in range(1, n + 1)]
+    return ' '.join(str(-1 if x == INF else x) for x in res)
+
+=== 70 | Купоны на дороги | Графы | 2
+--- statement
+Между $n$ городами $m$ двусторонних платных дорог. У вас $c$ купонов; купон снижает стоимость одной дороги вдвое с округлением вниз ($w \to \lfloor w/2 \rfloor$). На одну дорогу применить можно не более одного купона, а один и тот же проезд по дороге оплачивается отдельно. Найдите наименьшую стоимость поездки из города $1$ в город $n$.
+
+**Ввод.** В первой строке $n, m, c$ ($2 \le n \le 3\cdot 10^4$, $0 \le m \le 6\cdot 10^4$, $0 \le c \le 10$). Далее $m$ строк $a\ b\ w$ ($1 \le w \le 10^6$).
+
+**Вывод.** Одно число или $-1$.
+--- sample
+4 4 1
+1 2 10
+2 4 10
+1 3 8
+3 4 14
+--- code
+def gen(r, k):
+    n = sz(r, k, 30000, lo=2); W = r.choice([5, 10**6])
+    es = [(a, b, r.randint(1, W)) for a, b in graph(r, n, r.randint(n - 1, int(1.8 * n)), conn=k % 3 != 0, k=k)]
+    return '%d %d %d\n' % (n, len(es), r.randint(0, 10 if k else 3)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m, c = v[:3]; g = adj(n, [(v[3 + 3 * i], v[4 + 3 * i], v[5 + 3 * i]) for i in range(m)])
+    d = {}; best = {(1, 0): 0}; pq = [(0, 1, 0)]
+    while pq:
+        dd, x, u = heapq.heappop(pq)
+        if (x, u) in d:
+            continue
+        d[(x, u)] = dd
+        for y, w in g[x]:
+            for nu, nw in ((u, w), (u + 1, w // 2)):
+                if nu <= c and (y, nu) not in d and dd + nw < best.get((y, nu), INF):
+                    best[(y, nu)] = dd + nw; heapq.heappush(pq, (dd + nw, y, nu))
+    r_ = [d[(n, u)] for u in range(c + 1) if (n, u) in d]
+    return str(min(r_)) if r_ else '-1'
+
+def brute(s):
+    v = ints(s); n, m, c = v[:3]; g = adj(n, [(v[3 + 3 * i], v[4 + 3 * i], v[5 + 3 * i]) for i in range(m)])
+    best = [INF]
+    def f(x, seen, ws):
+        if x == n:
+            sv = sorted((w - w // 2 for w in ws), reverse=True)[:c]
+            best[0] = min(best[0], sum(ws) - sum(sv)); return
+        for y, w in g[x]:
+            if y not in seen:
+                f(y, seen | {y}, ws + [w])
+    f(1, {1}, [])
+    return str(-1 if best[0] == INF else best[0])

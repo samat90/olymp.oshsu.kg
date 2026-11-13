@@ -1,0 +1,474 @@
+=== 41 | Дороги к столице | Графы | 1
+--- statement
+В стране $n$ городов, между ними $n-1$ односторонняя дорога, и если не учитывать направления, из любого города можно попасть в любой. Нужно развернуть некоторые дороги так, чтобы из каждого города можно было доехать до столицы — города $1$. Какое наименьшее число дорог придётся развернуть?
+
+**Ввод.** В первой строке $n$ ($1 \le n \le 10^5$). Далее $n-1$ строка $a\ b$ — дорога из $a$ в $b$.
+
+**Вывод.** Одно число.
+--- sample
+6
+1 3
+2 3
+4 1
+4 5
+6 5
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1)
+    return '%d\n' % n + el(tree(r, n, k))
+
+def sol(s):
+    v = ints(s); n = v[0]; g = [[] for _ in range(n + 1)]
+    for i in range(n - 1):
+        a, b = v[1 + 2 * i], v[2 + 2 * i]
+        g[a].append((b, 1)); g[b].append((a, 0))
+    seen = [False] * (n + 1); seen[1] = True; st = [1]; c = 0
+    while st:
+        x = st.pop()
+        for y, f in g[x]:
+            if not seen[y]:
+                seen[y] = True; c += f; st.append(y)
+    return str(c)
+
+def brute(s):
+    v = ints(s); n = v[0]; es = [(v[1 + 2 * i], v[2 + 2 * i]) for i in range(n - 1)]
+    g = adj(n, es); d = {1: 0}; q = deque([1])
+    while q:
+        x = q.popleft()
+        for y in g[x]:
+            if y not in d:
+                d[y] = d[x] + 1; q.append(y)
+    return str(sum(1 for a, b in es if d[a] < d[b]))
+
+=== 42 | Порядок курсов | Графы | 1
+--- statement
+В вузе $n$ курсов. Даны $m$ условий «курс $a$ нужно пройти до курса $b$». Составьте порядок прохождения всех курсов, подходящий под все условия. Если подходящих порядков несколько, выведите лексикографически наименьший (сравнивайте последовательности номеров по первому отличию).
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ пар $a\ b$ (пары различны, $a \ne b$).
+
+**Вывод.** $n$ номеров через пробел или $-1$, если порядка не существует.
+--- sample
+5 4
+3 1
+4 1
+2 5
+1 2
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000)
+    es = dag_or_cyc(r, n, r.randint(0, 2 * n), k, .35)
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]; g = [[] for _ in range(n + 1)]; ind = [0] * (n + 1)
+    for i in range(m):
+        a, b = v[2 + 2 * i], v[3 + 2 * i]; g[a].append(b); ind[b] += 1
+    h = [i for i in range(1, n + 1) if ind[i] == 0]; heapq.heapify(h); res = []
+    while h:
+        x = heapq.heappop(h); res.append(x)
+        for y in g[x]:
+            ind[y] -= 1
+            if ind[y] == 0:
+                heapq.heappush(h, y)
+    return ' '.join(map(str, res)) if len(res) == n else '-1'
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]; es = [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)]
+    for p in itertools.permutations(range(1, n + 1)):
+        pos = {x: i for i, x in enumerate(p)}
+        if all(pos[a] < pos[b] for a, b in es):
+            return ' '.join(map(str, p))
+    return '-1'
+
+=== 43 | Замкнутый круг | Графы | 1
+--- statement
+Даны $n$ задач и $m$ условий «задачу $a$ нужно решить до задачи $b$». Можно ли решить все задачи, не нарушив условий?
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ пар $a\ b$.
+
+**Вывод.** `YES` или `NO`.
+--- sample
+4 4
+1 2
+2 3
+3 4
+4 2
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000)
+    if k % 3 == 0 and k:
+        es = digraph(r, n, r.randint(0, int(1.3 * n)))
+    else:
+        es = dag_or_cyc(r, n, r.randint(0, 2 * n), k, .5)
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]; g = [[] for _ in range(n + 1)]; ind = [0] * (n + 1)
+    for i in range(m):
+        a, b = v[2 + 2 * i], v[3 + 2 * i]; g[a].append(b); ind[b] += 1
+    q = [i for i in range(1, n + 1) if ind[i] == 0]; c = 0
+    while q:
+        x = q.pop(); c += 1
+        for y in g[x]:
+            ind[y] -= 1
+            if ind[y] == 0:
+                q.append(y)
+    return 'YES' if c == n else 'NO'
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]
+    R = [[False] * (n + 1) for _ in range(n + 1)]
+    for i in range(m):
+        R[v[2 + 2 * i]][v[3 + 2 * i]] = True
+    for x in range(1, n + 1):
+        for i in range(1, n + 1):
+            for j in range(1, n + 1):
+                if R[i][x] and R[x][j]:
+                    R[i][j] = True
+    return 'NO' if any(R[i][i] for i in range(1, n + 1)) else 'YES'
+
+=== 44 | Семестры | Графы | 1
+--- statement
+Нужно пройти $n$ курсов; даны $m$ условий «курс $a$ должен быть пройден раньше курса $b$». За семестр можно пройти любое число курсов, для которых все нужные курсы пройдены в предыдущих семестрах. За какое наименьшее число семестров можно пройти всё?
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ пар $a\ b$.
+
+**Вывод.** Число семестров или $-1$, если пройти все курсы нельзя.
+--- sample
+5 4
+1 3
+2 3
+3 4
+3 5
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000)
+    es = dag_or_cyc(r, n, r.randint(0, int(1.5 * n)), k, .25)
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]; g = [[] for _ in range(n + 1)]; ind = [0] * (n + 1)
+    for i in range(m):
+        a, b = v[2 + 2 * i], v[3 + 2 * i]; g[a].append(b); ind[b] += 1
+    cur = [i for i in range(1, n + 1) if ind[i] == 0]; sem = 0; done = 0
+    while cur:
+        sem += 1; done += len(cur); nx = []
+        for x in cur:
+            for y in g[x]:
+                ind[y] -= 1
+                if ind[y] == 0:
+                    nx.append(y)
+        cur = nx
+    return str(sem if done == n else -1)
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]; es = [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)]
+    dep = [1] * (n + 1)
+    for _ in range(n + 1):
+        for a, b in es:
+            dep[b] = max(dep[b], dep[a] + 1)
+    return str(-1 if max(dep[1:]) > n else max(dep[1:]))
+
+=== 45 | Самая длинная цепочка | Графы | 1
+--- statement
+Задачи образуют ориентированный граф без циклов: стрелка $a \to b$ означает, что из задачи $a$ можно перейти к задаче $b$. Найдите наибольшее число стрелок в цепочке $a_1 \to a_2 \to \dots$.
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ пар $a\ b$. Циклов нет.
+
+**Вывод.** Одно число.
+--- sample
+5 5
+1 2
+2 3
+1 3
+3 4
+5 4
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1)
+    es = dag(r, n, r.randint(0, 2 * n))
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]; g = [[] for _ in range(n + 1)]; ind = [0] * (n + 1)
+    for i in range(m):
+        a, b = v[2 + 2 * i], v[3 + 2 * i]; g[a].append(b); ind[b] += 1
+    q = [i for i in range(1, n + 1) if ind[i] == 0]; d = [0] * (n + 1)
+    while q:
+        x = q.pop()
+        for y in g[x]:
+            d[y] = max(d[y], d[x] + 1); ind[y] -= 1
+            if ind[y] == 0:
+                q.append(y)
+    return str(max(d))
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]; es = [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)]
+    d = [0] * (n + 1)
+    for _ in range(n):
+        for a, b in es:
+            d[b] = max(d[b], d[a] + 1)
+    return str(max(d))
+
+=== 46 | Количество маршрутов | Графы | 1
+--- statement
+Между $n$ площадками проложены $m$ односторонних канатных дорог, циклов нет. Сколько существует различных маршрутов из площадки $1$ в площадку $n$? Ответ выведите по модулю $10^9+7$.
+
+**Ввод.** В первой строке $n$ и $m$ ($2 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ пар $a\ b$. Циклов нет.
+
+**Вывод.** Одно число.
+--- sample
+5 7
+1 2
+1 3
+2 3
+2 4
+3 4
+3 5
+4 5
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000)
+    mid = list(range(2, n)); r.shuffle(mid); perm = [1] + mid + [n]
+    es = set((perm[i], perm[i + 1]) for i in range(n - 1) if k % 3 or r.random() < .8)
+    for _ in range(r.randint(n // 2, 2 * n)):
+        a, b = sorted((r.randrange(n), r.randrange(n)))
+        if a != b:
+            es.add((perm[a], perm[b]))
+    es = list(es); r.shuffle(es)
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]; M = 10**9 + 7; g = [[] for _ in range(n + 1)]; ind = [0] * (n + 1)
+    for i in range(m):
+        a, b = v[2 + 2 * i], v[3 + 2 * i]; g[a].append(b); ind[b] += 1
+    q = [i for i in range(1, n + 1) if ind[i] == 0]; w = [0] * (n + 1); w[1] = 1
+    while q:
+        x = q.pop()
+        for y in g[x]:
+            w[y] = (w[y] + w[x]) % M; ind[y] -= 1
+            if ind[y] == 0:
+                q.append(y)
+    return str(w[n])
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]; g = [[] for _ in range(n + 1)]
+    for i in range(m):
+        g[v[2 + 2 * i]].append(v[3 + 2 * i])
+    def f(x):
+        return 1 if x == n else sum(f(y) for y in g[x])
+    return str(f(1) % (10**9 + 7))
+
+=== 47 | Безопасные площадки | Графы | 1
+--- statement
+В лагере $n$ площадок и $m$ односторонних троп. Площадка — тупик, если из неё не ведёт ни одна тропа. Площадка называется безопасной, если любой путь из неё (в том числе бесконечный) неизбежно заканчивается в тупике, то есть из неё нельзя дойти до цикла. Выведите количество безопасных площадок и сумму их номеров.
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ пар $a\ b$.
+
+**Вывод.** Два числа через пробел.
+--- sample
+5 5
+1 2
+2 3
+3 2
+4 5
+1 4
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1)
+    if k % 2:
+        es = digraph(r, n, r.randint(0, int(1.2 * n)))
+    else:
+        es = dag_or_cyc(r, n, r.randint(0, int(1.5 * n)), k, .6)
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]; rg_ = [[] for _ in range(n + 1)]; out = [0] * (n + 1)
+    for i in range(m):
+        a, b = v[2 + 2 * i], v[3 + 2 * i]; rg_[b].append(a); out[a] += 1
+    q = [i for i in range(1, n + 1) if out[i] == 0]; safe = []
+    while q:
+        x = q.pop(); safe.append(x)
+        for y in rg_[x]:
+            out[y] -= 1
+            if out[y] == 0:
+                q.append(y)
+    return '%d %d' % (len(safe), sum(safe))
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]
+    R = [[i == j for j in range(n + 1)] for i in range(n + 1)]
+    for i in range(m):
+        R[v[2 + 2 * i]][v[3 + 2 * i]] = True
+    for x in range(1, n + 1):
+        for i in range(1, n + 1):
+            for j in range(1, n + 1):
+                if R[i][x] and R[x][j]:
+                    R[i][j] = True
+    cyc = [any(R[i][j] and R[j][j2] for j in range(1, n + 1) for j2 in range(1, n + 1) if False) for i in range(n + 1)]
+    inc = [False] * (n + 1)
+    for j in range(1, n + 1):
+        on = any(R[j][b] and b != 0 and R[b][j] and (b != j or (v[2:] and any(v[2 + 2 * i] == j and v[3 + 2 * i] == j for i in range(m)))) for b in range(1, n + 1))
+        if on:
+            for i in range(1, n + 1):
+                if R[i][j]:
+                    inc[i] = True
+    safe = [i for i in range(1, n + 1) if not inc[i]]
+    return '%d %d' % (len(safe), sum(safe))
+
+=== 48 | Все предшественники | Графы | 1
+--- statement
+Дан ориентированный граф без циклов на $n$ вершинах. Для каждой вершины найдите, сколько других вершин могут по стрелкам дойти до неё.
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 2000$, $0 \le m \le 10^4$). Далее $m$ пар $a\ b$. Циклов нет.
+
+**Вывод.** $n$ чисел через пробел.
+--- sample
+5 5
+1 2
+2 3
+1 3
+4 3
+3 5
+--- code
+def gen(r, k):
+    n = sz(r, k, 2000, lo=1)
+    es = dag(r, n, r.randint(0, min(10000, 3 * n)))
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]; g = [[] for _ in range(n + 1)]; ind = [0] * (n + 1); pre = [0] * (n + 1)
+    for i in range(m):
+        a, b = v[2 + 2 * i], v[3 + 2 * i]; g[a].append(b); ind[b] += 1
+    q = [i for i in range(1, n + 1) if ind[i] == 0]
+    while q:
+        x = q.pop()
+        for y in g[x]:
+            pre[y] |= pre[x] | (1 << x); ind[y] -= 1
+            if ind[y] == 0:
+                q.append(y)
+    return ' '.join(str(bin(pre[i]).count('1')) for i in range(1, n + 1))
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]
+    R = [[False] * (n + 1) for _ in range(n + 1)]
+    for i in range(m):
+        R[v[2 + 2 * i]][v[3 + 2 * i]] = True
+    for x in range(1, n + 1):
+        for i in range(1, n + 1):
+            for j in range(1, n + 1):
+                if R[i][x] and R[x][j]:
+                    R[i][j] = True
+    return ' '.join(str(sum(R[i][j] for i in range(1, n + 1))) for j in range(1, n + 1))
+
+=== 49 | Единственный порядок | Графы | 1
+--- statement
+Даны $n$ задач и $m$ условий «задача $a$ раньше задачи $b$». Верно ли, что существует ровно один порядок решения всех задач, удовлетворяющий условиям?
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ пар $a\ b$.
+
+**Вывод.** `YES`, если порядок ровно один, иначе `NO` (в том числе если порядка нет).
+--- sample
+4 3
+1 2
+2 3
+3 4
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1)
+    if r.random() < .6:
+        p = list(range(1, n + 1)); r.shuffle(p)
+        es = [(p[i], p[i + 1]) for i in range(n - 1)]
+        for _ in range(r.randint(0, n)):
+            a, b = sorted(r.sample(range(n), 2)) if n > 1 else (0, 0)
+            if a != b and b - a > 1:
+                es.append((p[a], p[b]))
+        es = list(set(es))
+        if r.random() < .4 and len(es) > 0:
+            es.pop(r.randrange(len(es)))
+        if r.random() < .2 and n > 2:
+            es.append((p[2], p[0])) if (p[2], p[0]) not in es else None
+        r.shuffle(es)
+    else:
+        es = dag_or_cyc(r, n, r.randint(0, 2 * n), k, .2)
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]; g = [[] for _ in range(n + 1)]; ind = [0] * (n + 1)
+    for i in range(m):
+        a, b = v[2 + 2 * i], v[3 + 2 * i]; g[a].append(b); ind[b] += 1
+    cur = [i for i in range(1, n + 1) if ind[i] == 0]; c = 0
+    while cur:
+        if len(cur) > 1:
+            return 'NO'
+        x = cur.pop(); c += 1
+        for y in g[x]:
+            ind[y] -= 1
+            if ind[y] == 0:
+                cur.append(y)
+    return 'YES' if c == n else 'NO'
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]; es = [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)]; c = 0
+    for p in itertools.permutations(range(1, n + 1)):
+        pos = {x: i for i, x in enumerate(p)}
+        if all(pos[a] < pos[b] for a, b in es):
+            c += 1
+    return 'YES' if c == 1 else 'NO'
+
+=== 50 | Рецепты в мастерской | Графы | 1
+--- statement
+В мастерской $s$ исходных материалов. Есть $r$ рецептов: рецепт для изделия $x$ требует набор ингредиентов (материалы или другие изделия). Изделие можно сделать, если все его ингредиенты имеются или сделаны. У каждого изделия не больше одного рецепта. Сколько изделий из рецептов можно сделать?
+
+**Ввод.** В первой строке $s$ и $r$ ($0 \le s$, $1 \le r$, $s + r \le 10^5$). Во второй — $s$ номеров исходных материалов. Далее $r$ строк: номер изделия $x$, число ингредиентов $k$ и $k$ номеров ингредиентов (суммарно не более $2\cdot 10^5$). Все номера от $1$ до $10^6$; материалы и изделия различны.
+
+**Вывод.** Одно число.
+--- sample
+2 3
+1 2
+10 2 1 2
+11 2 10 12
+12 1 11
+--- code
+def gen(r, k):
+    ns = r.randint(0, 3) if k == 0 else sz(r, k, 50000, lo=0); nr = r.randint(1, 5) if k == 0 else sz(r, k, 50000, lo=1)
+    ids = r.sample(range(1, 3 * (ns + nr) + 3), ns + nr); base = ids[:ns]; items = ids[ns:]
+    lines_ = [' '.join(map(str, base))]
+    for x in items:
+        pool = base + items
+        c = r.randint(1, 3)
+        ing = [r.choice(pool) for _ in range(c)] if pool else [x]
+        ing = list(dict.fromkeys(ing))
+        if r.random() < .7:
+            ing = [i for i in ing if i != x] or ([base[0]] if base else [items[0]])
+        lines_.append('%d %d %s' % (x, len(ing), ' '.join(map(str, ing))))
+    return '%d %d\n' % (ns, nr) + '\n'.join(lines_)
+
+def sol(s):
+    L = s.split('\n'); ns, nr = map(int, L[0].split()); have = set(map(int, L[1].split())); need = {}; users = defaultdict(list)
+    cnt = {}
+    for i in range(nr):
+        t = ints(L[2 + i]); x = t[0]; ing = t[2:]
+        cnt[x] = len(ing)
+        for y in ing:
+            users[y].append(x)
+    q = list(have); made = 0
+    while q:
+        y = q.pop()
+        for x in users.get(y, ()):
+            cnt[x] -= 1
+            if cnt[x] == 0:
+                made += 1; q.append(x)
+    return str(made)
+
+def brute(s):
+    L = s.split('\n'); ns, nr = map(int, L[0].split()); have = set(map(int, L[1].split())); rec = {}
+    for i in range(nr):
+        t = ints(L[2 + i]); rec[t[0]] = t[2:]
+    ch = True; made = set()
+    while ch:
+        ch = False
+        for x, ing in rec.items():
+            if x not in made and all(i in have or i in made for i in ing):
+                made.add(x); ch = True
+    return str(len(made))

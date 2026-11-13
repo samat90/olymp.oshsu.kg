@@ -1,0 +1,468 @@
+=== 11 | Тропа через ущелье | Графы | 1
+--- statement
+Карта ущелья — таблица $h \times w$: `.` — проходимая клетка, `#` — скала. Вы стоите в левой верхней клетке и хотите попасть в правую нижнюю. За ход можно перейти в соседнюю по стороне свободную клетку. Какое наименьшее число ходов нужно?
+
+**Ввод.** В первой строке $h$ и $w$ ($1 \le h\cdot w \le 3\cdot 10^5$). Далее $h$ строк по $w$ символов. Левая верхняя и правая нижняя клетки свободны.
+
+**Вывод.** Число ходов или $-1$.
+--- sample
+3 4
+..#.
+#...
+..#.
+--- code
+def gen(r, k):
+    h, w = hw(r, k, 300000)
+    g = grid(r, h, w, r.choice([.1, .18, .25, .3]))
+    setc(g, 0, 0, '.'); setc(g, h - 1, w - 1, '.')
+    return '%d %d\n' % (h, w) + '\n'.join(g)
+
+def sol(s):
+    h, w, g = rg(s)
+    d = {(0, 0): 0}; q = deque([(0, 0)])
+    while q:
+        x, y = q.popleft()
+        for a, b in D4:
+            c = (x + a, y + b)
+            if 0 <= c[0] < h and 0 <= c[1] < w and g[c[0]][c[1]] == '.' and c not in d:
+                d[c] = d[(x, y)] + 1; q.append(c)
+    return str(d.get((h - 1, w - 1), -1))
+
+def brute(s):
+    h, w, g = rg(s)
+    d = {(0, 0): 0}; ch = True
+    while ch:
+        ch = False
+        for (x, y), v in list(d.items()):
+            for a, b in D4:
+                c = (x + a, y + b)
+                if 0 <= c[0] < h and 0 <= c[1] < w and g[c[0]][c[1]] == '.' and d.get(c, 10**9) > v + 1:
+                    d[c] = v + 1; ch = True
+    return str(d.get((h - 1, w - 1), -1))
+
+=== 12 | Король на карте | Графы | 1
+--- statement
+Карта — таблица $h \times w$: `.` — свободная клетка, `#` — преграда. Король ходит как в шахматах: в любую из восьми соседних клеток (включая диагонали), если она свободна. Найдите наименьшее число ходов из левой верхней клетки в правую нижнюю.
+
+**Ввод.** В первой строке $h$ и $w$ ($1 \le h\cdot w \le 3\cdot 10^5$). Далее $h$ строк по $w$ символов. Левая верхняя и правая нижняя клетки свободны.
+
+**Вывод.** Число ходов или $-1$.
+--- sample
+3 3
+.#.
+#.#
+...
+--- code
+def gen(r, k):
+    h, w = hw(r, k, 300000)
+    g = grid(r, h, w, r.choice([.2, .3, .4, .5]))
+    setc(g, 0, 0, '.'); setc(g, h - 1, w - 1, '.')
+    return '%d %d\n' % (h, w) + '\n'.join(g)
+
+def sol(s):
+    h, w, g = rg(s)
+    d = {(0, 0): 0}; q = deque([(0, 0)])
+    while q:
+        x, y = q.popleft()
+        for a, b in D8:
+            c = (x + a, y + b)
+            if 0 <= c[0] < h and 0 <= c[1] < w and g[c[0]][c[1]] == '.' and c not in d:
+                d[c] = d[(x, y)] + 1; q.append(c)
+    return str(d.get((h - 1, w - 1), -1))
+
+def brute(s):
+    h, w, g = rg(s)
+    d = {(0, 0): 0}; ch = True
+    while ch:
+        ch = False
+        for (x, y), v in list(d.items()):
+            for a, b in D8:
+                c = (x + a, y + b)
+                if 0 <= c[0] < h and 0 <= c[1] < w and g[c[0]][c[1]] == '.' and d.get(c, 10**9) > v + 1:
+                    d[c] = v + 1; ch = True
+    return str(d.get((h - 1, w - 1), -1))
+
+=== 13 | Гнилые яблоки | Графы | 1
+--- statement
+В ящике яблоки лежат в таблице $h \times w$: `0` — пусто, `1` — свежее яблоко, `2` — гнилое. Каждую минуту каждое свежее яблоко, соседнее по стороне с гнилым, становится гнилым. Через сколько минут гнилыми станут все яблоки? Если это невозможно, выведите $-1$. Если свежих яблок нет, ответ $0$.
+
+**Ввод.** В первой строке $h$ и $w$ ($1 \le h\cdot w \le 3\cdot 10^5$). Далее $h$ строк по $w$ символов.
+
+**Вывод.** Одно число.
+--- sample
+3 3
+211
+110
+011
+--- code
+def gen(r, k):
+    h, w = hw(r, k, 300000)
+    pe = r.choice([0, .05, .2]); pr = r.choice([.002, .01, .05]) if k else .15
+    g = []
+    for i in range(h):
+        row = ''
+        for j in range(w):
+            x = r.random()
+            row += '0' if x < pe else '2' if x < pe + pr else '1'
+        g.append(row)
+    return '%d %d\n' % (h, w) + '\n'.join(g)
+
+def sol(s):
+    h, w, g = rg(s)
+    d = {}; q = deque(); fresh = 0
+    for i in range(h):
+        for j in range(w):
+            if g[i][j] == '2':
+                d[(i, j)] = 0; q.append((i, j))
+            elif g[i][j] == '1':
+                fresh += 1
+    last = 0
+    while q:
+        x, y = q.popleft()
+        for a, b in D4:
+            c = (x + a, y + b)
+            if 0 <= c[0] < h and 0 <= c[1] < w and g[c[0]][c[1]] == '1' and c not in d:
+                d[c] = d[(x, y)] + 1; last = d[c]; fresh -= 1; q.append(c)
+    return str(last if fresh == 0 else -1)
+
+def brute(s):
+    h, w, g = rg(s)
+    g = [list(x) for x in g]; t = 0
+    while True:
+        if not any('1' in row for row in g):
+            return str(t)
+        new = [row[:] for row in g]; ch = False
+        for i in range(h):
+            for j in range(w):
+                if g[i][j] == '1' and any(0 <= i + a < h and 0 <= j + b < w and g[i + a][j + b] == '2' for a, b in D4):
+                    new[i][j] = '2'; ch = True
+        if not ch:
+            return '-1'
+        g = new; t += 1
+
+=== 14 | Ближайший колодец | Графы | 1
+--- statement
+На карте $h \times w$ клетка `1` — колодец, `0` — обычная клетка. Для каждой клетки найдите расстояние до ближайшего колодца, если ходить по сторонам клеток (расстояние между $(i,j)$ и $(a,b)$ равно $|i-a|+|b-j|$). Колодец хотя бы один.
+
+**Ввод.** В первой строке $h$ и $w$ ($1 \le h\cdot w \le 2\cdot 10^5$). Далее $h$ строк по $w$ символов `0`/`1`.
+
+**Вывод.** $h$ строк по $w$ чисел через пробел.
+--- sample
+3 4
+0001
+0000
+1000
+--- code
+def gen(r, k):
+    h, w = hw(r, k, 200000)
+    p = r.choice([.001, .01, .1, .3])
+    g = [''.join('1' if r.random() < p else '0' for _ in range(w)) for _ in range(h)]
+    setc(g, r.randrange(h), r.randrange(w), '1')
+    return '%d %d\n' % (h, w) + '\n'.join(g)
+
+def sol(s):
+    h, w, g = rg(s)
+    d = [[-1] * w for _ in range(h)]; q = deque()
+    for i in range(h):
+        for j in range(w):
+            if g[i][j] == '1':
+                d[i][j] = 0; q.append((i, j))
+    while q:
+        x, y = q.popleft()
+        for a, b in D4:
+            c, e = x + a, y + b
+            if 0 <= c < h and 0 <= e < w and d[c][e] < 0:
+                d[c][e] = d[x][y] + 1; q.append((c, e))
+    return '\n'.join(' '.join(map(str, row)) for row in d)
+
+def brute(s):
+    h, w, g = rg(s)
+    ones = [(i, j) for i in range(h) for j in range(w) if g[i][j] == '1']
+    return '\n'.join(' '.join(str(min(abs(i - a) + abs(j - b) for a, b in ones)) for j in range(w)) for i in range(h))
+
+=== 15 | Ворота перевала | Графы | 1
+--- statement
+Карта $h \times w$: `#` — скала, `.` — свободная клетка, `G` — ворота. Для каждой свободной клетки найдите наименьшее число ходов (по сторонам, только по клеткам без скал) до ближайших ворот.
+
+**Ввод.** В первой строке $h$ и $w$ ($1 \le h\cdot w \le 2\cdot 10^5$). Далее $h$ строк по $w$ символов.
+
+**Вывод.** $h$ строк по $w$ значений через пробел: для скалы `#`, для ворот `0`, для свободной клетки расстояние или $-1$, если до ворот не дойти.
+--- sample
+3 4
+G.#.
+..#.
+#..G
+--- code
+def gen(r, k):
+    h, w = hw(r, k, 200000)
+    g = grid(r, h, w, r.choice([.15, .3, .4]))
+    for _ in range(r.randint(1, max(1, h * w // 500 + 1))):
+        setc(g, r.randrange(h), r.randrange(w), 'G')
+    return '%d %d\n' % (h, w) + '\n'.join(g)
+
+def sol(s):
+    h, w, g = rg(s)
+    d = [[-1] * w for _ in range(h)]; q = deque()
+    for i in range(h):
+        for j in range(w):
+            if g[i][j] == 'G':
+                d[i][j] = 0; q.append((i, j))
+    while q:
+        x, y = q.popleft()
+        for a, b in D4:
+            c, e = x + a, y + b
+            if 0 <= c < h and 0 <= e < w and g[c][e] == '.' and d[c][e] < 0:
+                d[c][e] = d[x][y] + 1; q.append((c, e))
+    return '\n'.join(' '.join('#' if g[i][j] == '#' else str(d[i][j]) for j in range(w)) for i in range(h))
+
+def brute(s):
+    h, w, g = rg(s)
+    best = {}
+    for i in range(h):
+        for j in range(w):
+            if g[i][j] == 'G':
+                d = {(i, j): 0}; ch = True
+                while ch:
+                    ch = False
+                    for (x, y), v in list(d.items()):
+                        for a, b in D4:
+                            c = (x + a, y + b)
+                            if 0 <= c[0] < h and 0 <= c[1] < w and g[c[0]][c[1]] != '#' and d.get(c, 10**9) > v + 1:
+                                d[c] = v + 1; ch = True
+                for c, v in d.items():
+                    best[c] = min(best.get(c, 10**9), v)
+    return '\n'.join(' '.join('#' if g[i][j] == '#' else str(best.get((i, j), -1)) for j in range(w)) for i in range(h))
+
+=== 16 | Заливка | Графы | 1
+--- statement
+Картинка — таблица $h \times w$ из цифр $0$–$9$ (цвета). Заливка из клетки $(r, c)$ перекрашивает эту клетку и все клетки, до которых можно дойти по соседним по стороне клеткам того же цвета. Сколько клеток будет перекрашено?
+
+**Ввод.** В первой строке $h, w, r, c$ ($1 \le h\cdot w \le 3\cdot 10^5$, $1 \le r \le h$, $1 \le c \le w$). Далее $h$ строк по $w$ цифр.
+
+**Вывод.** Одно число.
+--- sample
+3 4 2 2
+1121
+1111
+2112
+--- code
+def gen(r, k):
+    h, w = hw(r, k, 300000)
+    nc = r.choice([2, 2, 3, 5])
+    g = [''.join(str(r.randrange(nc)) for _ in range(w)) for _ in range(h)]
+    return '%d %d %d %d\n' % (h, w, r.randint(1, h), r.randint(1, w)) + '\n'.join(g)
+
+def sol(s):
+    L = s.split('\n'); h, w, x, y = map(int, L[0].split()); g = L[1:1 + h]
+    x -= 1; y -= 1; col = g[x][y]; seen = {(x, y)}; st = [(x, y)]
+    while st:
+        i, j = st.pop()
+        for a, b in D4:
+            c = (i + a, j + b)
+            if 0 <= c[0] < h and 0 <= c[1] < w and g[c[0]][c[1]] == col and c not in seen:
+                seen.add(c); st.append(c)
+    return str(len(seen))
+
+def brute(s):
+    L = s.split('\n'); h, w, x, y = map(int, L[0].split()); g = L[1:1 + h]
+    x -= 1; y -= 1; col = g[x][y]; seen = {(x, y)}; ch = True
+    while ch:
+        ch = False
+        for i in range(h):
+            for j in range(w):
+                if g[i][j] == col and (i, j) not in seen and any((i + a, j + b) in seen for a, b in D4):
+                    seen.add((i, j)); ch = True
+    return str(len(seen))
+
+=== 17 | Закрытые озёра | Графы | 1
+--- statement
+Карта $h \times w$: `#` — суша, `.` — вода. Озеро — группа водных клеток, соседних по стороне. Озеро считается внутренним, если ни одна его клетка не лежит на краю карты. Найдите общую площадь внутренних озёр.
+
+**Ввод.** В первой строке $h$ и $w$ ($1 \le h\cdot w \le 3\cdot 10^5$). Далее $h$ строк по $w$ символов.
+
+**Вывод.** Одно число.
+--- sample
+5 6
+.#####
+#..#.#
+#.##.#
+#...##
+.#####
+--- code
+def gen(r, k):
+    h, w = hw(r, k, 300000)
+    g = grid(r, h, w, r.choice([.4, .5, .6, .7]), '#.')
+    return '%d %d\n' % (h, w) + '\n'.join(g)
+
+def sol(s):
+    h, w, g = rg(s)
+    seen = set(); tot = 0
+    for i in range(h):
+        for j in range(w):
+            if g[i][j] == '.':
+                tot += 1
+    st = []
+    for i in range(h):
+        for j in range(w):
+            if g[i][j] == '.' and (i in (0, h - 1) or j in (0, w - 1)):
+                seen.add((i, j)); st.append((i, j))
+    while st:
+        i, j = st.pop()
+        for a, b in D4:
+            c = (i + a, j + b)
+            if 0 <= c[0] < h and 0 <= c[1] < w and g[c[0]][c[1]] == '.' and c not in seen:
+                seen.add(c); st.append(c)
+    return str(tot - len(seen))
+
+def brute(s):
+    h, w, g = rg(s)
+    lab = grid_labels(g, '.'); bad = set()
+    for (i, j), l in lab.items():
+        if i in (0, h - 1) or j in (0, w - 1):
+            bad.add(l)
+    return str(sum(1 for l in lab.values() if l not in bad))
+
+=== 18 | Острова в глубине | Графы | 1
+--- statement
+Карта $h \times w$: `#` — суша, `.` — вода. Остров — группа клеток суши, соседних по стороне. Остров называется внутренним, если ни одна его клетка не лежит на краю карты. Сколько на карте внутренних островов?
+
+**Ввод.** В первой строке $h$ и $w$ ($1 \le h\cdot w \le 3\cdot 10^5$). Далее $h$ строк по $w$ символов.
+
+**Вывод.** Одно число.
+--- sample
+5 6
+######
+#..#.#
+#.##.#
+#..#.#
+######
+--- code
+def gen(r, k):
+    h, w = hw(r, k, 300000)
+    g = grid(r, h, w, r.choice([.4, .5, .6]))
+    return '%d %d\n' % (h, w) + '\n'.join(g)
+
+def sol(s):
+    h, w, g = rg(s); g = [list(x) for x in g]; c = 0
+    for i in range(h):
+        for j in range(w):
+            if g[i][j] == '#':
+                g[i][j] = '.'; st = [(i, j)]; border = False
+                while st:
+                    x, y = st.pop()
+                    if x in (0, h - 1) or y in (0, w - 1):
+                        border = True
+                    for a, b in D4:
+                        p, q = x + a, y + b
+                        if 0 <= p < h and 0 <= q < w and g[p][q] == '#':
+                            g[p][q] = '.'; st.append((p, q))
+                if not border:
+                    c += 1
+    return str(c)
+
+def brute(s):
+    h, w, g = rg(s)
+    lab = grid_labels(g); bad = set()
+    for (i, j), l in lab.items():
+        if i in (0, h - 1) or j in (0, w - 1):
+            bad.add(l)
+    return str(len(set(lab.values()) - bad))
+
+=== 19 | Куда течёт вода | Графы | 1
+--- statement
+Горный район — таблица высот $h \times w$. Вода из клетки может стечь в соседнюю по стороне клетку, если её высота не больше высоты текущей. Левая и верхняя границы карты — озеро Иссык-Куль, правая и нижняя — озеро Сонкёль: вода, достигшая клетки на границе, попадает в соответствующее озеро (угловые клетки могут касаться обоих). Сколько клеток таковы, что вода из них может попасть в оба озера?
+
+**Ввод.** В первой строке $h$ и $w$ ($1 \le h\cdot w \le 10^5$). Далее $h$ строк по $w$ целых чисел от $0$ до $10^9$.
+
+**Вывод.** Одно число.
+--- sample
+3 4
+1 2 2 3
+3 2 3 4
+2 4 5 1
+--- code
+def gen(r, k):
+    h, w = hw(r, k, 100000)
+    hi = r.choice([3, 10, 1000])
+    return '%d %d\n' % (h, w) + '\n'.join(' '.join(str(r.randint(0, hi)) for _ in range(w)) for _ in range(h))
+
+def sol(s):
+    L = s.split('\n'); h, w = map(int, L[0].split()); g = [list(map(int, L[1 + i].split())) for i in range(h)]
+    def go(starts):
+        seen = set(starts); st = list(starts)
+        while st:
+            i, j = st.pop()
+            for a, b in D4:
+                c = (i + a, j + b)
+                if 0 <= c[0] < h and 0 <= c[1] < w and c not in seen and g[c[0]][c[1]] >= g[i][j]:
+                    seen.add(c); st.append(c)
+        return seen
+    A = [(0, j) for j in range(w)] + [(i, 0) for i in range(h)]
+    B = [(h - 1, j) for j in range(w)] + [(i, w - 1) for i in range(h)]
+    return str(len(go(A) & go(B)))
+
+def brute(s):
+    L = s.split('\n'); h, w = map(int, L[0].split()); g = [list(map(int, L[1 + i].split())) for i in range(h)]
+    res = 0
+    for i in range(h):
+        for j in range(w):
+            seen = {(i, j)}; ch = True
+            while ch:
+                ch = False
+                for (x, y) in list(seen):
+                    for a, b in D4:
+                        c = (x + a, y + b)
+                        if 0 <= c[0] < h and 0 <= c[1] < w and c not in seen and g[c[0]][c[1]] <= g[x][y]:
+                            seen.add(c); ch = True
+            ok1 = any(x == 0 or y == 0 for x, y in seen)
+            ok2 = any(x == h - 1 or y == w - 1 for x, y in seen)
+            res += ok1 and ok2
+    return str(res)
+
+=== 20 | Ближайший выход | Графы | 1
+--- statement
+План здания — таблица $h \times w$: `#` — стена, `.` — свободная клетка. Вы стоите в клетке $(r, c)$. Выходом считается свободная клетка на краю плана, отличная от начальной. Найдите наименьшее число ходов (по сторонам) до ближайшего выхода.
+
+**Ввод.** В первой строке $h, w, r, c$ ($1 \le h\cdot w \le 3\cdot 10^5$), клетка $(r, c)$ свободна. Далее $h$ строк по $w$ символов.
+
+**Вывод.** Число ходов или $-1$.
+--- sample
+3 5 2 2
+#.###
+#.#.#
+#...#
+--- code
+def gen(r, k):
+    h, w = hw(r, k, 300000)
+    g = grid(r, h, w, r.choice([.2, .35, .45]))
+    x, y = r.randrange(h), r.randrange(w)
+    if k > 3:
+        x, y = r.randint(h // 3, 2 * h // 3), r.randint(w // 3, 2 * w // 3)
+    setc(g, x, y, '.')
+    return '%d %d %d %d\n' % (h, w, x + 1, y + 1) + '\n'.join(g)
+
+def sol(s):
+    L = s.split('\n'); h, w, x, y = map(int, L[0].split()); g = L[1:1 + h]
+    x -= 1; y -= 1; d = {(x, y): 0}; q = deque([(x, y)])
+    while q:
+        i, j = q.popleft()
+        if (i, j) != (x, y) and (i in (0, h - 1) or j in (0, w - 1)):
+            return str(d[(i, j)])
+        for a, b in D4:
+            c = (i + a, j + b)
+            if 0 <= c[0] < h and 0 <= c[1] < w and g[c[0]][c[1]] == '.' and c not in d:
+                d[c] = d[(i, j)] + 1; q.append(c)
+    return '-1'
+
+def brute(s):
+    L = s.split('\n'); h, w, x, y = map(int, L[0].split()); g = L[1:1 + h]
+    x -= 1; y -= 1; d = {(x, y): 0}; ch = True
+    while ch:
+        ch = False
+        for (i, j), v in list(d.items()):
+            for a, b in D4:
+                c = (i + a, j + b)
+                if 0 <= c[0] < h and 0 <= c[1] < w and g[c[0]][c[1]] == '.' and d.get(c, 10**9) > v + 1:
+                    d[c] = v + 1; ch = True
+    ex = [v for (i, j), v in d.items() if (i, j) != (x, y) and (i in (0, h - 1) or j in (0, w - 1))]
+    return str(min(ex)) if ex else '-1'

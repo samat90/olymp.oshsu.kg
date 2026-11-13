@@ -1,0 +1,493 @@
+=== 21 | Пробить скалу | Графы | 2
+--- statement
+Карта $h \times w$: `.` — свободная клетка, `#` — скала. Вы идёте из левой верхней клетки в правую нижнюю по соседним по стороне клеткам. Можно пройти сквозь скалу, но не более чем через $K$ скальных клеток за весь путь. Найдите наименьшее число ходов.
+
+**Ввод.** В первой строке $h, w, K$ ($1 \le h\cdot w \le 40000$, $0 \le K \le 10$). Далее $h$ строк по $w$ символов. Начальная и конечная клетки свободны.
+
+**Вывод.** Число ходов или $-1$.
+--- sample
+3 4 1
+..#.
+###.
+.#..
+--- code
+def gen(r, k):
+    h, w = hw(r, k, 40000)
+    g = grid(r, h, w, r.choice([.3, .4, .5]))
+    setc(g, 0, 0, '.'); setc(g, h - 1, w - 1, '.')
+    return '%d %d %d\n' % (h, w, r.randint(0, 10)) + '\n'.join(g)
+
+def sol(s):
+    L = s.split('\n'); h, w, K = map(int, L[0].split()); g = L[1:1 + h]
+    d = {(0, 0, 0): 0}; q = deque([(0, 0, 0)])
+    while q:
+        x, y, u = q.popleft()
+        if (x, y) == (h - 1, w - 1):
+            return str(d[(x, y, u)])
+        for a, b in D4:
+            c, e = x + a, y + b
+            if 0 <= c < h and 0 <= e < w:
+                nu = u + (g[c][e] == '#')
+                if nu <= K and (c, e, nu) not in d:
+                    d[(c, e, nu)] = d[(x, y, u)] + 1; q.append((c, e, nu))
+    return '-1'
+
+def brute(s):
+    L = s.split('\n'); h, w, K = map(int, L[0].split()); g = L[1:1 + h]
+    d = {(0, 0, 0): 0}; ch = True
+    while ch:
+        ch = False
+        for (x, y, u), v in list(d.items()):
+            for a, b in D4:
+                c, e = x + a, y + b
+                if 0 <= c < h and 0 <= e < w:
+                    nu = u + (g[c][e] == '#')
+                    if nu <= K and d.get((c, e, nu), 10**9) > v + 1:
+                        d[(c, e, nu)] = v + 1; ch = True
+    r = [v for (x, y, u), v in d.items() if (x, y) == (h - 1, w - 1)]
+    return str(min(r)) if r else '-1'
+
+=== 22 | Стрелки на улицах | Графы | 1
+--- statement
+Каждая клетка таблицы $h \times w$ содержит стрелку: $1$ — вправо, $2$ — влево, $3$ — вниз, $4$ — вверх. Из клетки можно перейти только в клетку, на которую указывает её стрелка (выйти за таблицу нельзя). Изменить стрелку в клетке стоит $1$ тугрик (один раз на клетку, изменять можно любые клетки). Какова наименьшая стоимость, чтобы существовал путь из левой верхней клетки в правую нижнюю?
+
+**Ввод.** В первой строке $h$ и $w$ ($1 \le h\cdot w \le 10^5$). Далее $h$ строк по $w$ цифр.
+
+**Вывод.** Одно число.
+--- sample
+3 3
+123
+331
+441
+--- code
+def gen(r, k):
+    h, w = hw(r, k, 100000)
+    return '%d %d\n' % (h, w) + '\n'.join(''.join(str(r.randint(1, 4)) for _ in range(w)) for _ in range(h))
+
+def sol(s):
+    h, w, g = rg(s)
+    dr = {'1': (0, 1), '2': (0, -1), '3': (1, 0), '4': (-1, 0)}
+    INFD = 10**9; d = [[INFD] * w for _ in range(h)]; d[0][0] = 0; q = deque([(0, 0)])
+    while q:
+        x, y = q.popleft()
+        for ch, (a, b) in dr.items():
+            c, e = x + a, y + b
+            if 0 <= c < h and 0 <= e < w:
+                nd = d[x][y] + (g[x][y] != ch)
+                if nd < d[c][e]:
+                    d[c][e] = nd
+                    if g[x][y] == ch:
+                        q.appendleft((c, e))
+                    else:
+                        q.append((c, e))
+    return str(d[h - 1][w - 1])
+
+def brute(s):
+    h, w, g = rg(s)
+    dr = {'1': (0, 1), '2': (0, -1), '3': (1, 0), '4': (-1, 0)}
+    d = {(0, 0): 0}; ch = True
+    while ch:
+        ch = False
+        for (x, y), v in list(d.items()):
+            for c0, (a, b) in dr.items():
+                c = (x + a, y + b)
+                if 0 <= c[0] < h and 0 <= c[1] < w and d.get(c, 10**9) > v + (g[x][y] != c0):
+                    d[c] = v + (g[x][y] != c0); ch = True
+    return str(d[(h - 1, w - 1)])
+
+=== 23 | Шар в лабиринте | Графы | 2
+--- statement
+Лабиринт — таблица $h \times w$: `.` — пусто, `#` — стена. Шар стартует в клетке $(x_1, y_1)$. За один бросок он выбирает одно из четырёх направлений и катится по пустым клеткам, пока не упрётся в стену или границу, и останавливается в последней клетке перед ней. Длина броска — число пройденных клеток. Найдите наименьшую суммарную длину бросков, после которых шар остановится в клетке $(x_2, y_2)$ (пролёт через клетку не считается остановкой).
+
+**Ввод.** В первой строке $h, w, x_1, y_1, x_2, y_2$ ($1 \le h\cdot w \le 10^5$). Далее $h$ строк по $w$ символов. Обе клетки свободны.
+
+**Вывод.** Число или $-1$. Если шар уже стоит в $(x_2, y_2)$, ответ $0$.
+--- sample
+4 5 1 1 4 5
+.....
+.##..
+..#..
+.....
+--- code
+def gen(r, k):
+    h, w = hw(r, k, 100000)
+    g = grid(r, h, w, r.choice([.1, .2, .3]))
+    x, y = r.randrange(h), r.randrange(w)
+    setc(g, x, y, '.')
+    cx, cy = x, y
+    for _ in range(r.randint(0, 6)):
+        a, b = r.choice(D4)
+        while 0 <= cx + a < h and 0 <= cy + b < w and g[cx + a][cy + b] == '.':
+            cx += a; cy += b
+    if k % 3 == 0:
+        cx, cy = r.randrange(h), r.randrange(w); setc(g, cx, cy, '.')
+    return '%d %d %d %d %d %d\n' % (h, w, x + 1, y + 1, cx + 1, cy + 1) + '\n'.join(g)
+
+def sol(s):
+    L = s.split('\n'); h, w, x1, y1, x2, y2 = map(int, L[0].split()); g = L[1:1 + h]
+    st = (x1 - 1, y1 - 1); d = {st: 0}; pq = [(0, st)]
+    while pq:
+        v, (x, y) = heapq.heappop(pq)
+        if d[(x, y)] < v:
+            continue
+        for a, b in D4:
+            c, e, n = x, y, 0
+            while 0 <= c + a < h and 0 <= e + b < w and g[c + a][e + b] == '.':
+                c += a; e += b; n += 1
+            if n and d.get((c, e), 10**18) > v + n:
+                d[(c, e)] = v + n; heapq.heappush(pq, (v + n, (c, e)))
+    return str(d.get((x2 - 1, y2 - 1), -1))
+
+def brute(s):
+    L = s.split('\n'); h, w, x1, y1, x2, y2 = map(int, L[0].split()); g = L[1:1 + h]
+    d = {(x1 - 1, y1 - 1): 0}; ch = True
+    while ch:
+        ch = False
+        for (x, y), v in list(d.items()):
+            for a, b in D4:
+                c, e, n = x, y, 0
+                while 0 <= c + a < h and 0 <= e + b < w and g[c + a][e + b] == '.':
+                    c += a; e += b; n += 1
+                if n and d.get((c, e), 10**18) > v + n:
+                    d[(c, e)] = v + n; ch = True
+    return str(d.get((x2 - 1, y2 - 1), -1))
+
+=== 24 | Кости и лестницы | Графы | 1
+--- statement
+Игровое поле — полоска из $N$ клеток. Фишка стоит в клетке $1$ и хочет попасть в клетку $N$. За ход бросают кубик (число от $1$ до $6$) и двигают фишку вперёд на это число клеток; если фишка вышла бы за клетку $N$, такой бросок невозможен. На $m$ клетках находятся лестницы и змеи: попав на клетку $a_i$, фишка сразу переносится в клетку $b_i$ (перенос выполняется один раз, после него ничего не происходит). Можно выбирать результат броска. За какое наименьшее число бросков можно дойти до клетки $N$?
+
+**Ввод.** В первой строке $N$ и $m$ ($2 \le N \le 10^5$, $0 \le m \le N/2$). Далее $m$ строк с парами $a_i\ b_i$ ($2 \le a_i \le N-1$, $1 \le b_i \le N$, $a_i \ne b_i$, все $a_i$ различны).
+
+**Вывод.** Наименьшее число бросков или $-1$.
+--- sample
+10 3
+3 9
+6 2
+8 1
+--- code
+def gen(r, k):
+    N = sz(r, k, 100000)
+    m = r.randint(0, max(0, (N - 2) // 2)) if N > 2 else 0
+    src = r.sample(range(2, N), m) if N > 2 else []
+    L = []
+    for a in src:
+        b = r.randint(1, N)
+        while b == a:
+            b = r.randint(1, N)
+        L.append((a, b))
+    return '%d %d\n' % (N, m) + el(L)
+
+def sol(s):
+    v = ints(s); N, m = v[0], v[1]; J = {v[2 + 2 * i]: v[3 + 2 * i] for i in range(m)}
+    d = [-1] * (N + 1); d[1] = 0; q = deque([1])
+    while q:
+        x = q.popleft()
+        for dd in range(1, 7):
+            y = x + dd
+            if y > N:
+                break
+            y = J.get(y, y)
+            if d[y] < 0:
+                d[y] = d[x] + 1; q.append(y)
+    return str(d[N])
+
+def brute(s):
+    v = ints(s); N, m = v[0], v[1]; J = {v[2 + 2 * i]: v[3 + 2 * i] for i in range(m)}
+    d = [INF] * (N + 1); d[1] = 0
+    for _ in range(N + 1):
+        for x in range(1, N + 1):
+            for dd in range(1, 7):
+                if x + dd <= N:
+                    y = J.get(x + dd, x + dd)
+                    d[y] = min(d[y], d[x] + 1)
+    return str(-1 if d[N] == INF else d[N])
+
+=== 25 | Прыжки по камням | Графы | 1
+--- statement
+На камнях через реку написаны числа $a_1, \dots, a_n$. С камня $i$ можно прыгнуть на соседний камень ($i-1$ или $i+1$) или на любой другой камень с тем же числом. Какое наименьшее число прыжков нужно, чтобы добраться с камня $1$ на камень $n$?
+
+**Ввод.** В первой строке $n$ ($1 \le n \le 10^5$). Во второй — $n$ чисел $a_i$ ($1 \le a_i \le 10^9$).
+
+**Вывод.** Одно число.
+--- sample
+8
+7 3 5 7 5 1 3 9
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1)
+    hi = r.choice([2, max(2, n // 3), 10**9, max(2, n // 10)])
+    return '%d\n' % n + ' '.join(str(r.randint(1, hi)) for _ in range(n))
+
+def sol(s):
+    v = ints(s); n = v[0]; a = v[1:]
+    pos = defaultdict(list)
+    for i, x in enumerate(a):
+        pos[x].append(i)
+    d = [-1] * n; d[0] = 0; q = deque([0])
+    while q:
+        i = q.popleft()
+        nb = [i - 1, i + 1] + pos.pop(a[i], [])
+        for j in nb:
+            if 0 <= j < n and d[j] < 0:
+                d[j] = d[i] + 1; q.append(j)
+    return str(d[n - 1])
+
+def brute(s):
+    v = ints(s); n = v[0]; a = v[1:]
+    d = [INF] * n; d[0] = 0
+    for _ in range(n + 1):
+        for i in range(n):
+            for j in range(n):
+                if abs(i - j) == 1 or (a[i] == a[j] and i != j):
+                    d[j] = min(d[j], d[i] + 1)
+    return str(d[n - 1])
+
+=== 26 | Кодовый замок | Графы | 1
+--- statement
+Замок имеет четыре колеса с цифрами $0$–$9$; колесо можно повернуть на одну цифру вверх или вниз ($9 \to 0$ и $0 \to 9$ допустимо). Изначально стоит `0000`. Есть $d$ запрещённых комбинаций: если колёса показали такую, замок блокируется. За какое наименьшее число поворотов можно набрать комбинацию $T$, не попав ни на одну запрещённую?
+
+**Ввод.** В первой строке $T$ — четыре цифры. Во второй — $d$ ($0 \le d \le 2000$). Далее $d$ строк по четыре цифры.
+
+**Вывод.** Число поворотов или $-1$.
+--- sample
+0202
+3
+0201
+0101
+0102
+--- code
+def gen(r, k):
+    T = ''.join(str(r.randint(0, 9)) for _ in range(4))
+    d = r.randint(0, [5, 40, 400, 2000, 2000][k % 5] if k else 30)
+    dead = {''.join(str(r.randint(0, 9)) for _ in range(4)) for _ in range(d)}
+    if r.random() < .8:
+        dead.discard(T); dead.discard('0000')
+    dead = list(dead); r.shuffle(dead)
+    return T + '\n%d\n' % len(dead) + '\n'.join(dead)
+
+def sol(s):
+    L = s.split(); T = L[0]; dead = set(L[2:])
+    if '0000' in dead or T in dead:
+        return '-1'
+    d = {'0000': 0}; q = deque(['0000'])
+    while q:
+        x = q.popleft()
+        if x == T:
+            return str(d[x])
+        for i in range(4):
+            for dl in (1, 9):
+                y = x[:i] + str((int(x[i]) + dl) % 10) + x[i + 1:]
+                if y not in d and y not in dead:
+                    d[y] = d[x] + 1; q.append(y)
+    return '-1'
+
+def brute(s):
+    L = s.split(); T = L[0]; dead = set(L[2:])
+    if '0000' in dead or T in dead:
+        return '-1'
+    seen = {'0000'}; fr = {'0000'}; step = 0
+    while fr:
+        if T in fr:
+            return str(step)
+        nf = set()
+        for x in fr:
+            for i in range(4):
+                for dl in (-1, 1):
+                    y = x[:i] + str((int(x[i]) + dl) % 10) + x[i + 1:]
+                    if y not in seen and y not in dead:
+                        nf.add(y)
+        seen |= nf; fr = nf; step += 1
+    return '-1'
+
+=== 27 | Пятнашки 2 на 3 | Графы | 1
+--- statement
+Доска $2 \times 3$ содержит фишки $1$–$5$ и пустую клетку $0$. За ход можно передвинуть фишку, соседнюю по стороне с пустой клеткой, на её место. Нужно получить расположение
+```
+1 2 3
+4 5 0
+```
+Какое наименьшее число ходов потребуется?
+
+**Ввод.** Две строки по три числа — исходное расположение.
+
+**Вывод.** Число ходов или $-1$, если получить нужное расположение нельзя.
+--- sample
+1 2 3
+4 0 5
+--- code
+def gen(r, k):
+    p = list(range(6)); r.shuffle(p)
+    return ' '.join(map(str, p[:3])) + '\n' + ' '.join(map(str, p[3:]))
+
+def nbrs(x):
+    i = x.index('0'); res = []
+    r_, c = divmod(i, 3)
+    for a, b in D4:
+        p, q = r_ + a, c + b
+        if 0 <= p < 2 and 0 <= q < 3:
+            j = p * 3 + q; l = list(x); l[i], l[j] = l[j], l[i]; res.append(''.join(l))
+    return res
+
+def sol(s):
+    st = ''.join(s.split()); goal = '123450'
+    d = {st: 0}; q = deque([st])
+    while q:
+        x = q.popleft()
+        if x == goal:
+            return str(d[x])
+        for y in nbrs(x):
+            if y not in d:
+                d[y] = d[x] + 1; q.append(y)
+    return '-1'
+
+def brute(s):
+    st = ''.join(s.split()); goal = '123450'
+    d = {goal: 0}; fr = [goal]
+    while fr:
+        nf = []
+        for x in fr:
+            for y in nbrs(x):
+                if y not in d:
+                    d[y] = d[x] + 1; nf.append(y)
+        fr = nf
+    return str(d.get(st, -1))
+
+=== 28 | Цепочка слов | Графы | 2
+--- statement
+Даны $n$ различных слов длины $L$. За ход можно заменить в слове одну букву так, чтобы получилось другое слово из списка. Найдите наименьшее число ходов, которое переводит слово номер $a$ в слово номер $b$.
+
+**Ввод.** В первой строке $n, L, a, b$ ($1 \le n \le 2\cdot 10^4$, $1 \le L \le 20$). Далее $n$ слов из строчных латинских букв.
+
+**Вывод.** Число ходов или $-1$.
+--- sample
+6 3 1 5
+cat
+cot
+dog
+dot
+cog
+cow
+--- code
+def gen(r, k):
+    n = sz(r, k, 20000, tiny=8)
+    al = r.choice([2, 3, 4]) if k else r.choice([2, 3])
+    L = 1
+    while al ** L < 2 * n:
+        L += 1
+    L = max(L, 3 if k else 2)
+    letters = 'abcdefgh'[:al]
+    ws = set()
+    while len(ws) < n:
+        ws.add(''.join(r.choice(letters) for _ in range(L)))
+    ws = list(ws); r.shuffle(ws)
+    return '%d %d %d %d\n' % (n, L, r.randint(1, n), r.randint(1, n)) + '\n'.join(ws)
+
+def sol(s):
+    t = s.split(); n, L, a, b = map(int, t[:4]); ws = t[4:]
+    bk = defaultdict(list)
+    for i, w in enumerate(ws):
+        for p in range(L):
+            bk[(p, w[:p] + w[p + 1:])].append(i)
+    d = [-1] * n; d[a - 1] = 0; q = deque([a - 1])
+    while q:
+        i = q.popleft()
+        w = ws[i]
+        for p in range(L):
+            for j in bk.pop((p, w[:p] + w[p + 1:]), []):
+                if d[j] < 0:
+                    d[j] = d[i] + 1; q.append(j)
+    return str(d[b - 1])
+
+def brute(s):
+    t = s.split(); n, L, a, b = map(int, t[:4]); ws = t[4:]
+    adjm = [[j for j in range(n) if sum(x != y for x, y in zip(ws[i], ws[j])) == 1] for i in range(n)]
+    d = [INF] * n; d[a - 1] = 0
+    for _ in range(n):
+        for i in range(n):
+            for j in adjm[i]:
+                d[j] = min(d[j], d[i] + 1)
+    return str(-1 if d[b - 1] == INF else d[b - 1])
+
+=== 29 | Ход конём | Графы | 1
+--- statement
+Шахматный конь стоит в клетке $(0, 0)$ бесконечной доски. За какое наименьшее число ходов он дойдёт до клетки $(x, y)$? Ответьте на $q$ вопросов.
+
+**Ввод.** В первой строке $q$ ($1 \le q \le 10^5$). Далее $q$ строк с парами $x\ y$ ($|x|, |y| \le 100$).
+
+**Вывод.** $q$ строк — ответы.
+--- sample
+3
+2 1
+5 5
+-1 0
+--- code
+def gen(r, k):
+    q = sz(r, k, 100000, lo=1)
+    M = 6 if k == 0 else r.choice([10, 50, 100])
+    return '%d\n' % q + '\n'.join('%d %d' % (r.randint(-M, M), r.randint(-M, M)) for _ in range(q))
+
+def knight(M):
+    d = {(0, 0): 0}; q = deque([(0, 0)])
+    while q:
+        x, y = q.popleft()
+        for a, b in ((1, 2), (2, 1), (-1, 2), (-2, 1), (1, -2), (2, -1), (-1, -2), (-2, -1)):
+            c = (x + a, y + b)
+            if abs(c[0]) <= M and abs(c[1]) <= M and c not in d:
+                d[c] = d[(x, y)] + 1; q.append(c)
+    return d
+
+def sol(s):
+    v = ints(s); D = knight(104)
+    return '\n'.join(str(D[(v[1 + 2 * i], v[2 + 2 * i])]) for i in range(v[0]))
+
+def brute(s):
+    v = ints(s); D = knight(14)
+    return '\n'.join(str(D[(v[1 + 2 * i], v[2 + 2 * i])]) for i in range(v[0]))
+
+=== 30 | Шаги к числу | Графы | 1
+--- statement
+Вы начинаете с числа $s$ и хотите получить число $t$. Даны $n$ различных чисел $a_1,\dots,a_n$. За один шаг к текущему числу $x$ применяют одну из операций с любым $a_i$: $x+a_i$, $x-a_i$ или $x \oplus a_i$ (побитовое «исключающее или»). Если результат равен $t$, цель достигнута. Иначе результат должен лежать в отрезке $[0, 1000]$, иначе дальше продолжать нельзя. Найдите наименьшее число шагов.
+
+**Ввод.** В первой строке $n, s, t$ ($1 \le n \le 100$, $0 \le s \le 1000$, $0 \le t \le 2000$). Во второй — $n$ чисел $a_i$ ($1 \le a_i \le 1000$).
+
+**Вывод.** Число шагов или $-1$. Если $s = t$, ответ $0$.
+--- sample
+3 5 12
+3 7 10
+--- code
+def gen(r, k):
+    n = sz(r, k, 100, lo=1, tiny=4)
+    hi = 8 if k == 0 else r.choice([30, 300, 1000])
+    a = r.sample(range(1, hi + 1), min(n, hi))
+    t = r.randint(0, 20 if k == 0 else 2000)
+    return '%d %d %d\n' % (len(a), r.randint(0, 20 if k == 0 else 1000), t) + ' '.join(map(str, a))
+
+def sol(s):
+    v = ints(s); n, st, t = v[:3]; a = v[3:]
+    if st == t:
+        return '0'
+    d = {st: 0}; q = deque([st])
+    while q:
+        x = q.popleft()
+        for z in a:
+            for y in (x + z, x - z, x ^ z):
+                if y == t:
+                    return str(d[x] + 1)
+                if 0 <= y <= 1000 and y not in d:
+                    d[y] = d[x] + 1; q.append(y)
+    return '-1'
+
+def brute(s):
+    v = ints(s); n, st, t = v[:3]; a = v[3:]
+    if st == t:
+        return '0'
+    d = [INF] * 1001; d[st] = 0
+    for _ in range(1002):
+        for x in range(1001):
+            if d[x] < INF:
+                for z in a:
+                    for y in (x + z, x - z, x ^ z):
+                        if 0 <= y <= 1000:
+                            d[y] = min(d[y], d[x] + 1)
+    best = min([d[x] + 1 for x in range(1001) for z in a if d[x] < INF and t in (x + z, x - z, x ^ z)] or [INF])
+    return str(-1 if best == INF else best)

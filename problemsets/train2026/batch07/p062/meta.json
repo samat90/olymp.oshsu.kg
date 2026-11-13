@@ -1,0 +1,12 @@
+{
+ "code": "001790",
+ "name": "Дешёвые и частые маршруты",
+ "topic": "Графы",
+ "time_limit": 2,
+ "memory_mb": 256,
+ "points": 100,
+ "tests": 10,
+ "partial": true,
+ "gen": "python3 gen.py K  (K=1..10)",
+ "seed": "62*1000+K"
+}
