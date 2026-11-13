@@ -1,23 +1,202 @@
 aiyl_unions	Союзы айылов
 alaarcha_trail	Тропа в Ала-Арче
+apple_canal	Яблоки вдоль арыка
+apricots	Созревание абрикосов
+b02_a_alt_parity	Чередование удоев
+b02_a_anagram_groups	Анаграммы в песне
+b02_a_count_sum_pairs	Пары вёдер у родника
+b02_a_diff_pairs	Лошади с разницей в возрасте
+b02_a_distinct_sum_pairs	Разные цены в паре
+b02_a_div_pairs	Пары с кратной суммой
+b02_a_div_subarrays	Кратные отрезки пути
+b02_a_exact_k_kinds	Ровно k видов трав
+b02_a_first_unique	Первый одиночка
+b02_a_four_zero	Четыре мешка в ноль
+b02_a_longest_run	Подряд идущие номера бегунов
+b02_a_missing_numbers	Пропавшие участники
+b02_a_near_twins	Близнецы в очереди
+b02_a_neighbor_set	Дружная связка товаров
+b02_a_no_repeat_str	Лента без повторов
+b02_a_palin_substrings	Напевы-перевёртыши
+b02_a_same_shape_words	Слова одного узора
+b02_a_shifted_equal	Ровные ступени
+b02_a_sort_by_freq	Порядок по популярности
+b02_a_third_voters	Больше трети голосов
+b02_a_top_voice	Самый частый крик
+b02_a_two_sum_idx	Два подарка на сумму
+b02_a_unique_counts	Разные частоты
+b02_a_window_distinct	Разные породы в окне
+b02_a_zero_balance	Нулевой баланс лавки
+b02_b_all_segments	Сумма всех отрезков урожая
+b02_b_apple_grid	Яблоневый сад в клетку
+b02_b_avg_norm	Прибыль не ниже нормы
+b02_b_bazaar_budget	Бюджет Нурлана на базаре
+b02_b_best_square	Лучший квадрат поля
+b02_b_fence_karakol	Покраска забора в Караколе
+b02_b_fest_yurts	Юрты на фестивале
+b02_b_flour_others	Урожай без грядки
+b02_b_garland	Гирлянда на площади Ала-Тоо
+b02_b_greenhouse	Поливка теплицы
+b02_b_heavy_streak	Тяжёлая полоса
+b02_b_long_route	Длинный маршрут по Нарыну
+b02_b_milk_days	Удои по дням
+b02_b_rain_then_ask	Дождь над арыками
+b02_b_rope_cut	Раздел верёвки Бакыта
+b02_b_rotate_weights	Вращение в Чолпон-Ате
+b02_b_short_shift	Короткая смена
+b02_b_skip_day	Вычеркнуть день
+b02_b_smooth_map	Сглаживание карты урожая
+b02_b_snow_road	Снегопад вдоль дороги
+b02_b_tail_zeros	Нули на конце
+b02_b_three_pastures	Три равных пастбища
+b02_b_two_hikes	Два похода
+b02_b_xor_cipher	Шифр Бакыта
+b02_b_yurt_dist	Расстояния между юртами
+b02_c_almost_mirror	Почти зеркало
+b02_c_boat_pairs	Пары в одну лодку
+b02_c_budget_road	Бюджет на дорогу
+b02_c_calm_window	Тихий перевал
+b02_c_cheap_pairs	Недорогие пары
+b02_c_closest_three	Три мешка муки
+b02_c_common_horseshoes	Общие подковы
+b02_c_even_stretch	Ровная полоса пастбища
+b02_c_full_beads	Полный набор бусин
+b02_c_gold_period	Выручка за период
+b02_c_income_corridor	Коридор выручки
+b02_c_k_kinds	Не более K сортов
+b02_c_light_triples	Лёгкие тройки ягнят
+b02_c_merge_caravans	Слияние двух караванов
+b02_c_mountain_run	Горный хребет
+b02_c_near_pair	Ближайшая пара подарков
+b02_c_odd_chests	Сундуки с нечётным грузом
+b02_c_one_gap	Серия с одним пропуском
+b02_c_ramp_posts	Склон между опорами
+b02_c_sign_repaint	Подновить вывеску
+b02_c_small_product	Скромный урожай
+b02_c_sort_patch	Сбитый участок
+b02_c_squared_frost	Квадраты мороза
+b02_c_three_ribbons	Три цвета лент
+b02_c_two_cups	Не больше двух пиал
+b02_d_alakul	Подъём к Ала-Кулю
+b02_d_buckets	Раскладка вёдер
+b02_d_diagwalk	Обход караван-сарая по диагоналям
+b02_d_flockgather	Собрать отару
+b02_d_freeticket	Свободный талон
+b02_d_goodstreak	Прибыльная серия
+b02_d_lampsout	Погасшие лампы
+b02_d_mergeroutes	Склейка перегонов
+b02_d_multrev	Кратные поступления
+b02_d_newstop	Новая стоянка
+b02_d_nextperm	Следующий порядок бусин
+b02_d_passjumps	Перевалы Нарына
+b02_d_prizes	Награды олимпиадникам
+b02_d_queuebazaar	Очередь за лепёшками
+b02_d_ringprofit	Прибыль на кольцевой трассе
+b02_d_scalepoint	Точка опоры весов
+b02_d_signboard	Вывеска на заборе
+b02_d_spiralfield	Спираль на поле
+b02_d_taller	Ближайшая вершина выше
+b02_d_thirdvotes	Любимцы жюри
+b02_d_ticketrun	Цепочка номеров
+b02_d_turnmap	Повёрнутая карта
+b02_d_twoposts	Водоём между столбами
+b02_d_windowpeak	Рекорды в окне ярмарки
+b02_d_wooldelay	Выдержанная шерсть
+bazaar_cache	Кэш на базаре
+best_product	Лучшее произведение
 best_stretch	Лучшая неделя чайханы
+binary_sum	Двоичные подсчёты
+bowl_stack	Стопка мисок
+candies_line	Конфеты на празднике
+carousel	Карусель юрт
+carpet_turn	Поворот ковра
 climb_lis	Подъёмы Тянь-Шаня
+coin_ways	Размен без порядка
+common_ancestor	Общий предок рода
+common_song	Общая песня
+common_start	Общее начало
+consecutive_numbers	Подряд идущие номера
 count_lower	Дешёвые лошади
+count_palins	Счастливые палиндромы
 covered_length	Пастбища Сон-Куля
+decode_letter	Расшифровка письма
+echo_count	Эхо в горах
+equal_inheritance	Делёж наследства
+exam_order	Порядок зачётов
 factorial_zeros	Нули в числе мешков
+far_camps	Самые далёкие стоянки
+felt_histogram	Узор из прямоугольников
+felt_pyramid	Пирамида из кошм
 field_area	Площадь поля у Чолпон-Аты
+first_last	Первый и последний
+flock_gcd	НОД и НОК отары
+fuel_route	Заправки на трассе Бишкек — Ош
+gift_subsets	Наборы подарков
+guards_pass	Охрана перевала
+happy_days	Счастливые дни
+harvest_fenwick	Урожай по участкам
+hunter_arrows	Стрелы охотника
 issyk_islands	Острова Иссык-Куля
 kg_roads	Дороги Кыргызстана
+knight_ride	Ход коня в кок-бору
 kth_milk	Надои на ферме
+kth_order	Порядок в очереди джигитов
+lake_walls	Озеро между скалами
+light_path	Лёгкий путь с перевала
+lineage_height	Высота родословной
+lone_letter	Единственная буква
+long_ornament	Длинный правильный орнамент
+long_product	Умножение в столбик
+lost_yurt	Пропавшая юрта
+majority_vote	Голосование в айыл окмоту
+medal_numbers	Римские цифры на медали
+min_jumps	Кратчайший путь по камням
+min_sums	Минимумы отрезков
+mirror_number	Зеркальное число
+name_anagrams	Анаграммы имён
 name_fix	Исправление имён в списке
+nooruz_numbers	Счастливые числа Нооруз
+odd_one_out	Одинокая овца
+ones_total	Единицы в номерах
 ornament_brackets	Скобки в орнаменте
 pairs_sum	Подарки к Нооруз
+palin_tickets	Билеты-перевёртыши
+pass_game	Игра на перевале
+pass_window	Окно на перевале
 popular_word	Любимое слово манасчи
+power_lines	Линии электропередач
+product_others	Произведение без себя
+rain_gorge	Дождь в ущелье
+replace_pattern	Выровнять узор
+ring_apples	Яблоки на кольце
+road_primes	Простые на дороге
+rock_paths	Тропы между скал
+route_parts	Этапы марафона
+search_trees	Деревья поиска
 seating_binom	Почётный стол на тое
+shared_plot	Общий участок
+shepherd_speed	Скорость чабана
+shifted_ridge	Сдвинутый хребет
+short_record	Короткая запись
 short_stretch	Кратчайший перегон каравана
+signal_delay	Сигнал по горным постам
 som_coins	Сомы для базара
+spiral_pattern	Спираль узора
+square_carpets	Квадратные ковры
+square_field	Квадрат поля
+stick_triangles	Палки для юрты
 stone_game	Игра в камни у костра
+stone_jumps	Прыжки по камням
 sum_k_stretches	Дни с нужной выручкой
+syllable_words	Слова из слогов
+tandyr_power	Тандыр и степени
+thread_patterns	Узоры из нитей
 toast_palindrome	Тост-перевёртыш
+toi_halls	Залы для тоев
+top_numbers	Самые частые номера
+triple_sum	Тройки подарков
+twin_words	Слова-близнецы
+two_teams	Две команды
 unique_pattern	Узор на кошме
+warmer_day	Когда потеплеет
 yak_knapsack	Рюкзак торговца яками
