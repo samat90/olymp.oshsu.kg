@@ -1,0 +1,10 @@
+{
+ "code": "002019",
+ "name": "Наименьшее m с m! кратным n",
+ "topic": "Теория чисел",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 201900,
+ "format": "stdin/stdout"
+}

@@ -1,0 +1,10 @@
+{
+ "code": "001937",
+ "name": "Сумма НОД с n",
+ "topic": "Теория чисел",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 193700,
+ "format": "stdin/stdout"
+}

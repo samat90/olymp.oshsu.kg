@@ -1,0 +1,10 @@
+{
+ "code": "002023",
+ "name": "Треугольники с периметром n",
+ "topic": "Математика",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 202300,
+ "format": "stdin/stdout"
+}

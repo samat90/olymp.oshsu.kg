@@ -1,0 +1,10 @@
+{
+ "code": "001932",
+ "name": "Простые на отрезке",
+ "topic": "Простые числа",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 193200,
+ "format": "stdin/stdout"
+}

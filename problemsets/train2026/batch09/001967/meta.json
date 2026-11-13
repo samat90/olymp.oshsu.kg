@@ -1,0 +1,10 @@
+{
+ "code": "001967",
+ "name": "К-я перестановка",
+ "topic": "Комбинаторика",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 196700,
+ "format": "stdin/stdout"
+}

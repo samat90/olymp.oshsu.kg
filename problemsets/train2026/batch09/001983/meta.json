@@ -1,0 +1,10 @@
+{
+ "code": "001983",
+ "name": "Единицы во всех числах",
+ "topic": "Битовые операции",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 198300,
+ "format": "stdin/stdout"
+}

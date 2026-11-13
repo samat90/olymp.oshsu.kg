@@ -1,0 +1,10 @@
+{
+ "code": "002004",
+ "name": "Ним",
+ "topic": "Теория игр",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 200400,
+ "format": "stdin/stdout"
+}

@@ -1,0 +1,10 @@
+{
+ "code": "001981",
+ "name": "Циклы случайной перестановки",
+ "topic": "Вероятности",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 198100,
+ "format": "stdin/stdout"
+}

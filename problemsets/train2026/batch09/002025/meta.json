@@ -1,0 +1,10 @@
+{
+ "code": "002025",
+ "name": "Простые-близнецы",
+ "topic": "Простые числа",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 202500,
+ "format": "stdin/stdout"
+}

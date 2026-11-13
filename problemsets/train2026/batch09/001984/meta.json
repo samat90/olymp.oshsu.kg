@@ -1,0 +1,10 @@
+{
+ "code": "001984",
+ "name": "XOR на отрезке",
+ "topic": "Битовые операции",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 198400,
+ "format": "stdin/stdout"
+}

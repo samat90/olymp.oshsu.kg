@@ -1,0 +1,10 @@
+{
+ "code": "001962",
+ "name": "Разменные монеты 1..k",
+ "topic": "Комбинаторика",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 196200,
+ "format": "stdin/stdout"
+}

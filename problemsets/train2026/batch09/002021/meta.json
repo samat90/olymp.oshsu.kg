@@ -1,0 +1,10 @@
+{
+ "code": "002021",
+ "name": "Уравнение Пелля",
+ "topic": "Теория чисел",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 202100,
+ "format": "stdin/stdout"
+}

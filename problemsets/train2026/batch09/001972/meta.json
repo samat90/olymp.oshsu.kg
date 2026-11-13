@@ -1,0 +1,10 @@
+{
+ "code": "001972",
+ "name": "Ожерелья из бусин",
+ "topic": "Комбинаторика",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 197200,
+ "format": "stdin/stdout"
+}

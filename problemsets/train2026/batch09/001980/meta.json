@@ -1,0 +1,10 @@
+{
+ "code": "001980",
+ "name": "Красные шары в выборке",
+ "topic": "Вероятности",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 198000,
+ "format": "stdin/stdout"
+}

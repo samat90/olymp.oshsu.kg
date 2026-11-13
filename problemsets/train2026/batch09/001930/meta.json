@@ -1,0 +1,10 @@
+{
+ "code": "001930",
+ "name": "Делители произведения",
+ "topic": "Теория чисел",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 193000,
+ "format": "stdin/stdout"
+}

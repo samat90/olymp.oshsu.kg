@@ -1,0 +1,10 @@
+{
+ "code": "001976",
+ "name": "Собрать все значки",
+ "topic": "Вероятности",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 197600,
+ "format": "stdin/stdout"
+}

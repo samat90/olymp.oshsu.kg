@@ -1,0 +1,10 @@
+{
+ "code": "001953",
+ "name": "Факториал без простого множителя",
+ "topic": "Модульная арифметика",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 195300,
+ "format": "stdin/stdout"
+}

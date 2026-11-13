@@ -1,0 +1,10 @@
+{
+ "code": "002005",
+ "name": "Ним с ограничением хода",
+ "topic": "Теория игр",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 200500,
+ "format": "stdin/stdout"
+}

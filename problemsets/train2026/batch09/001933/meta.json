@@ -1,0 +1,10 @@
+{
+ "code": "001933",
+ "name": "Следующее простое",
+ "topic": "Простые числа",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 193300,
+ "format": "stdin/stdout"
+}
