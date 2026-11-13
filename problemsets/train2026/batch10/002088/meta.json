@@ -1,0 +1,10 @@
+{
+ "code": "002088",
+ "name": "Не более k обменов",
+ "topic": "Жадные алгоритмы",
+ "time_limit": 2,
+ "memory_mb": 256,
+ "points": 100,
+ "tests": 10,
+ "group": "olympiad"
+}

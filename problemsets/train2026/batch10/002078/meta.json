@@ -1,0 +1,10 @@
+{
+ "code": "002078",
+ "name": "Ход в 2048",
+ "topic": "Реализация",
+ "time_limit": 2,
+ "memory_mb": 256,
+ "points": 100,
+ "tests": 10,
+ "group": "olympiad"
+}

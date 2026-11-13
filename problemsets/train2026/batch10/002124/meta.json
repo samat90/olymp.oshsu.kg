@@ -1,0 +1,10 @@
+{
+ "code": "002124",
+ "name": "Знаки между цифрами",
+ "topic": "Комбинаторика",
+ "time_limit": 2,
+ "memory_mb": 256,
+ "points": 100,
+ "tests": 10,
+ "group": "olympiad"
+}

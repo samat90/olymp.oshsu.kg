@@ -1,0 +1,10 @@
+{
+ "code": "002121",
+ "name": "Полоса 2×n из плиток",
+ "topic": "Динамическое программирование",
+ "time_limit": 1,
+ "memory_mb": 256,
+ "points": 100,
+ "tests": 10,
+ "group": "olympiad"
+}

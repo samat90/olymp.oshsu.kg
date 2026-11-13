@@ -1,0 +1,10 @@
+{
+ "code": "002073",
+ "name": "Лампочки в гирлянде",
+ "topic": "Математика",
+ "time_limit": 1,
+ "memory_mb": 256,
+ "points": 100,
+ "tests": 10,
+ "group": "olympiad"
+}
