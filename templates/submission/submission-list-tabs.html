@@ -1,5 +1,7 @@
 {% extends "tabs-base.html" %}
 
+{% block tab_title %}{% endblock %}
+
 {% block tabs %}
     {{ make_tab('all_submissions_list', 'fa-list', all_submissions_link, _('All')) }}
     {% if my_submissions_link or tab == 'my_submissions_tab' %}

@@ -7481,9 +7481,6 @@ msgstr "Вы вышли из аккаунта. Войдите снова — и�
 msgid "Unsaved changes restored"
 msgstr "Восстановлены несохранённые изменения"
 
-msgid "No connection to the site"
-msgstr "Нет связи с сайтом"
-
 msgid "Files written before signing in: %s. Save them to your account?"
 msgstr "Найдены файлы, написанные до входа: %s. Сохранить их в ваш аккаунт?"
 
@@ -7544,6 +7541,9 @@ msgstr "Сложный"
 msgid "Level"
 msgstr "Уровень"
 
+msgid "No connection to the site"
+msgstr "Нет связи с сайтом"
+
 msgid "Best speed"
 msgstr "Лучшая скорость"
 
@@ -7558,3 +7558,6 @@ msgstr "Буквы"
 
 msgid "Skills"
 msgstr "Навыки"
+
+msgid "Search contests..."
+msgstr "Поиск соревнований..."

@@ -7,7 +7,7 @@
 {% endmacro %}
 
 <div class="tabs">
-    <h2>{{ content_title or title }}</h2>
+    {% block tab_title %}<h2>{{ content_title or title }}</h2>{% endblock %}
     {% block post_tab_spacer %}{% endblock %}
     <ul>
         {% block tabs %}{% endblock %}

@@ -1,5 +1,7 @@
 {% extends "tabs-base.html" %}
 
+{% block tab_title %}{% if user.user != request.user %}<h2>{{ content_title or title }}</h2>{% endif %}{% endblock %}
+
 {% block tabs %}
     {{ make_tab('about', 'fa-info-circle', url('user_page', user.user.username), _('About')) }}
     {{ make_tab('problems', 'fa-puzzle-piece', url('user_problems', user.user.username), _('Problems')) }}

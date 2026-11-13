@@ -3818,9 +3818,6 @@ msgstr "Сиз аккаунттан чыгып калдыңыз. Кайра ки
 msgid "Unsaved changes restored"
 msgstr "Сакталбаган өзгөртүүлөр калыбына келтирилди"
 
-msgid "No connection to the site"
-msgstr "Сайт менен байланыш жок"
-
 msgid "Files written before signing in: %s. Save them to your account?"
 msgstr "Кирүүгө чейин жазылган файлдар табылды: %s. Аларды аккаунтуңузга сактайлыбы?"
 
@@ -3881,6 +3878,9 @@ msgstr "Татаал"
 msgid "Level"
 msgstr "Деңгээл"
 
+msgid "No connection to the site"
+msgstr "Сайт менен байланыш жок"
+
 msgid "Best speed"
 msgstr "Эң жогорку ылдамдык"
 
@@ -3895,3 +3895,6 @@ msgstr "Тамгалар"
 
 msgid "Skills"
 msgstr "Көндүмдөр"
+
+msgid "Search contests..."
+msgstr "Мелдештерди издөө..."

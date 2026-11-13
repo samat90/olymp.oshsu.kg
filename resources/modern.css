@@ -243,3 +243,19 @@ html[data-theme="dark"] footer #footer-content .footer-brand-block .footer-brand
     html[data-theme="auto"] footer #footer-content .footer-brand-block .footer-brand,
     html:not([data-theme]) footer #footer-content .footer-brand-block .footer-brand { color: #8fb6ec; }
 }
+
+/* Tab bar without any tabs (guests on list pages) shows no stray line. */
+.tabs:not(:has(li)) { display: none; }
+
+/* Footer padding must not push it wider than the screen on phones. */
+footer { box-sizing: border-box; max-width: 100%; }
+
+/* Section headings inside pages (comments, contest problems) match the other headings. */
+#comment-section > h2, #content-body > h2, #comment-announcement + h2,
+.comment-area > h2, #comments > h2, h2.section-h2 {
+    font-size: 1.35em;
+    font-weight: 700;
+    letter-spacing: -.01em;
+    color: var(--ui-text);
+}
+#comments h3 { font-weight: 700; font-size: 1.1em; }
