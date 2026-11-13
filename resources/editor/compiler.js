@@ -96,6 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
     /* ---- guests: files live in this browser only; keeping them needs an account ---- */
 
     var GUEST_KEY = 'cc-guest-files';
+    var GUEST_IMPORT_AGE = 3 * 3600 * 1000;
 
     function guestStore() {
         var data = loadJSON(GUEST_KEY, null);
@@ -150,6 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
             needAccount();
             return Promise.reject(new Error(S.needAccount));
         }
+        data.t = Date.now();
         storageSet(GUEST_KEY, JSON.stringify(data));
         return Promise.resolve(JSON.parse(JSON.stringify(out)));
     }
@@ -1324,6 +1326,9 @@ document.addEventListener('DOMContentLoaded', function () {
         var list = store && store.files ? Object.keys(store.files).map(function (k) { return store.files[k]; }) : [];
         list = list.filter(function (f) { return !f.folder && !isTemplate(f.content); });
         var drop = function () { try { localStorage.removeItem(GUEST_KEY); } catch (e) { /* ignore */ } };
+        // Only code written in the last hours is offered: on a shared computer older code is
+        // most likely someone else's.
+        if (store && !(store.t > Date.now() - GUEST_IMPORT_AGE)) list = [];
         if (!list.length) { if (store) drop(); return Promise.resolve(); }
         var names = list.map(function (f) { return f.name; }).join(', ');
         // Taken out of the browser before saving, so that a reload in the middle does not save twice;

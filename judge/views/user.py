@@ -513,7 +513,10 @@ class UserLogoutView(TitleMixin, TemplateView):
 
     def post(self, request, *args, **kwargs):
         auth_logout(request)
-        return HttpResponseRedirect(request.get_full_path())
+        response = HttpResponseRedirect(request.get_full_path())
+        # The next person at this computer must not get the old account's pages from the browser cache.
+        response['Clear-Site-Data'] = '"cache"'
+        return response
 
 
 MINUTES_TO_SECONDS = 60

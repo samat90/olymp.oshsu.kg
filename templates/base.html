@@ -114,6 +114,7 @@
         <script>
             window.OLYMP_ANTICHEAT = {
                 contest: {{ anticheat.contest|tojson }},
+                user: {{ request.user.id or 0 }},
                 warnings: {{ anticheat.warnings }},
                 max: {{ anticheat.max }},
                 url: '{{ url('contest_anticheat_report', anticheat.contest) }}',

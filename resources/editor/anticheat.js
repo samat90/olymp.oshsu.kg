@@ -9,7 +9,7 @@
     var T = cfg.t;
     var warnings = cfg.warnings;
     var lastSent = 0;
-    var queueKey = 'anticheat-queue:' + cfg.contest;
+    var queueKey = 'anticheat-queue:' + cfg.contest + ':' + (cfg.user || 0);
     var disqualified = false;
 
     function readQueue() {

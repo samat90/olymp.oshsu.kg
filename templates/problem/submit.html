@@ -20,6 +20,7 @@
         };
         window.OLYMP_SOLVE = {
             problem: '{{ problem.code }}',
+            user: {{ request.user.id if request.user.is_authenticated else 0 }},
             languages: {{ editor_languages|tojson }},
             runnerEnabled: {{ 'true' if runner_enabled else 'false' }},
             initialSource: {{ initial_source|tojson if initial_source is not none else 'null' }},

@@ -18,10 +18,17 @@ document.addEventListener('DOMContentLoaded', function () {
     function storageGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
     function storageSet(key, value) { try { localStorage.setItem(key, value); } catch (e) { /* ignore */ } }
 
+    // Drafts belong to one account: on a shared computer the next user must not see them.
     function draftKey(langId) {
         var lang = languages[String(langId)];
-        return 'draft:' + data.problem + ':' + (lang ? lang.key : langId);
+        return 'draft:' + (data.user || 0) + ':' + data.problem + ':' + (lang ? lang.key : langId);
     }
+    // Drafts of earlier versions (draft:<problem>:<language>) did not say whose they were.
+    try {
+        Object.keys(localStorage).forEach(function (k) {
+            if (/^draft:[^:]+:[^:]+$/.test(k)) localStorage.removeItem(k);
+        });
+    } catch (e) { /* ignore */ }
 
     // The editor starts empty: the student writes the solution. Drafts that are only the old
     // ready-made language template (saved by earlier versions) count as empty too.

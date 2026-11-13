@@ -94,7 +94,13 @@ class DMOJLoginMiddleware(object):
                 return HttpResponseRedirect(change_password_path + '?next=' + quote(request.get_full_path()))
         else:
             request.profile = None
-        return self.get_response(request)
+        response = self.get_response(request)
+        # A signed-in user's pages are personal: no shared cache may keep them, and the browser
+        # asks the server again instead of showing a stored copy (e.g. after another user signs in).
+        if (request.user.is_authenticated and not response.has_header('Cache-Control') and
+                response.get('Content-Type', '').startswith(('text/html', 'application/json'))):
+            response['Cache-Control'] = 'private, no-cache'
+        return response
 
 
 class DMOJImpersonationMiddleware(object):
