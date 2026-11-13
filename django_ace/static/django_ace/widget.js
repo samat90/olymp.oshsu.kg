@@ -204,7 +204,11 @@
             init.loading = true;
             var script = document.createElement('script');
             script.src = src;
-            script.onload = init;
+            script.onload = function () {
+                // Themes and modes are fetched next to ace.js, not next to the page (/problem/theme-*.js was a 404).
+                try { window.ace.config.set('basePath', src.replace(/[^\/]*$/, '')); } catch (e) {}
+                init();
+            };
             document.head.appendChild(script);
             return;
         }

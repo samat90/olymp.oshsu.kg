@@ -26,7 +26,7 @@ class AceWidget(forms.Textarea):
     def media(self):
         # ace.js itself is loaded by widget.js only when the page has no Ace yet (the Markdown
         # editor brings its own copy, and two copies on one page break each other).
-        return forms.Media(js=[static('django_ace/widget.js') + '?v=20261109'])
+        return forms.Media(js=[static('django_ace/widget.js') + '?v=20261113'])
 
     def render(self, name, value, attrs=None, renderer=None):
         attrs = attrs or {}
