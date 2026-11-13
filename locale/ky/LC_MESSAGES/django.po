@@ -3880,3 +3880,18 @@ msgstr "Татаал"
 
 msgid "Level"
 msgstr "Деңгээл"
+
+msgid "Best speed"
+msgstr "Эң жогорку ылдамдык"
+
+msgid "Lessons passed"
+msgstr "Өтүлгөн сабактар"
+
+msgid "Stars"
+msgstr "Жылдыздар"
+
+msgid "Letters"
+msgstr "Тамгалар"
+
+msgid "Skills"
+msgstr "Көндүмдөр"

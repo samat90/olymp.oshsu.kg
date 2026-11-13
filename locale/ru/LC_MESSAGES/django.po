@@ -7543,3 +7543,18 @@ msgstr "Сложный"
 
 msgid "Level"
 msgstr "Уровень"
+
+msgid "Best speed"
+msgstr "Лучшая скорость"
+
+msgid "Lessons passed"
+msgstr "Уроков пройдено"
+
+msgid "Stars"
+msgstr "Звёзды"
+
+msgid "Letters"
+msgstr "Буквы"
+
+msgid "Skills"
+msgstr "Навыки"

@@ -18,6 +18,20 @@
 :root[data-theme="dark"] .ty { --ty-key: #2a2e35; --ty-key-shadow: #15171b; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ty { --ty-key: #2a2e35; --ty-key-shadow: #15171b; } }
 
+.ty-hero { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin: 8px 0 14px; padding: 16px 20px;
+    border-radius: 16px; color: #fff; background: linear-gradient(120deg, #1e3a5f 0%, #2d5b8c 60%, #3f7cb5 100%);
+    box-shadow: 0 6px 18px rgba(30, 58, 95, .18); }
+.ty-hero-title { margin: 0; flex: 1 1 220px; font-size: 22px; font-weight: 800; color: #fff; }
+.ty-hero-title .fa { opacity: .8; margin-right: 6px; }
+.ty-tiles { display: flex; gap: 10px; flex-wrap: wrap; }
+.ty-tile { display: flex; flex-direction: column; min-width: 104px; padding: 8px 12px; border-radius: 12px;
+    background: rgba(255, 255, 255, .12); border: 1px solid rgba(255, 255, 255, .18); }
+.ty-tile span { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; opacity: .8; }
+.ty-tile b { font-size: 24px; line-height: 1.2; }
+.ty-tile small { font-size: 12px; opacity: .75; }
+.ty-tile .ty-bar { display: block; height: 6px; margin-top: 5px; border-radius: 3px; background: rgba(255, 255, 255, .25); overflow: hidden; }
+.ty-tile .ty-bar > i { display: block; height: 100%; border-radius: 3px; background: #7ee08a; }
+
 .ty-top { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 6px 0 14px; }
 .ty-title { margin: 0 8px 0 0; font-weight: 700; }
 .ty-modes { display: inline-flex; background: var(--ty-soft); border: 1px solid var(--ty-border); border-radius: 10px; padding: 3px; }
@@ -31,14 +45,25 @@
 .ty-records-link { display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 12px; border-radius: 8px;
     background: var(--ty-primary); color: #fff !important; font-weight: 600; text-decoration: none !important; }
 
-.ty-lessons { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
-.ty-lesson { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border: 1px solid var(--ty-border);
-    border-radius: 999px; background: var(--ty-bg); color: var(--ty-text) !important; cursor: pointer; box-shadow: none; font: inherit; font-size: 13px; }
+.ty-lessons { margin-bottom: 14px; }
+.ty-group-title { margin: 4px 0 6px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--ty-muted); }
+.ty-group { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: 6px; margin-bottom: 10px; }
+.ty-group + .ty-group-title { margin-top: 6px; }
+.ty-lesson { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 6px 9px 5px;
+    border: 1px solid var(--ty-border); border-radius: 10px; background: var(--ty-bg); color: var(--ty-text) !important;
+    cursor: pointer; box-shadow: none; font: inherit; font-size: 13px; text-align: left; transition: border-color .12s, transform .12s; }
+.ty-lesson:hover { border-color: var(--ty-primary); transform: translateY(-1px); }
+.ty-lesson .ty-num { font-size: 11px; }
+.ty-lesson .ty-keys { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.ty-lesson.ty-lesson-wide .ty-keys { white-space: normal; line-height: 1.15; }
 .ty-lesson .ty-num { color: var(--ty-muted); font-weight: 600; }
 .ty-lesson .ty-keys { font-family: 'JetBrains Mono', Consolas, monospace; font-weight: 700; }
 .ty-lesson.ty-passed { border-color: var(--ty-ok); }
-.ty-lesson .ty-stars { color: #e0a800; letter-spacing: -1px; font-size: 12px; }
-.ty-lesson.ty-active .ty-stars { color: #ffd54a; }
+.ty-lesson .ty-stars { color: var(--ty-border); letter-spacing: 1px; font-size: 12px; line-height: 1; }
+.ty-lesson .ty-stars b { color: #e0a800; font-weight: 400; }
+.ty-lesson.ty-active .ty-stars { color: rgba(255, 255, 255, .35); }
+.ty-lesson.ty-active .ty-stars b { color: #ffd54a; }
+.ty-lesson.ty-passed { background: linear-gradient(var(--ty-bg), var(--ty-bg)); }
 .ty-lesson.ty-lesson-wide .ty-keys { font-family: inherit; font-weight: 600; }
 .ty-lesson.ty-active { background: var(--ty-primary); border-color: var(--ty-primary); color: #fff !important; }
 .ty-lesson.ty-active .ty-num { color: rgba(255, 255, 255, .8); }
@@ -105,6 +130,17 @@
 .ty-history td, .ty-history th { padding: 6px 10px; }
 
 /* records */
+.ty-podium { display: grid; grid-template-columns: 1fr 1.15fr 1fr; gap: 12px; align-items: end; margin: 6px 0 18px; }
+.ty-podium-place { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 14px 10px; border-radius: 14px;
+    background: var(--ty-soft); border: 1px solid var(--ty-border); text-align: center; min-width: 0; }
+.ty-podium-1 { order: 2; padding-top: 22px; background: linear-gradient(180deg, rgba(255, 215, 0, .22), var(--ty-soft)); }
+.ty-podium-2 { order: 1; }
+.ty-podium-3 { order: 3; }
+.ty-podium-place b { font-size: 28px; line-height: 1.1; }
+.ty-podium-1 b { font-size: 34px; }
+.ty-podium-place small { color: var(--ty-muted); }
+.ty-podium-user { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
+.ty-podium-place.ty-me { border-color: #4c8dff; }
 .ty-rec-filters { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0 16px; }
 .ty-rec-filters a { padding: 6px 12px; border-radius: 999px; border: 1px solid var(--ty-border); text-decoration: none !important;
     color: var(--ty-text) !important; }
@@ -115,6 +151,15 @@
 .ty-medal { display: inline-flex; width: 26px; height: 26px; border-radius: 50%; align-items: center; justify-content: center; font-weight: 700; }
 .ty-medal-1 { background: #ffd700; color: #5a4500; } .ty-medal-2 { background: #c9d1d9; color: #333; } .ty-medal-3 { background: #e0a370; color: #4a2a0a; }
 
+@media (max-width: 600px) {
+    .ty-hero { padding: 12px 14px; }
+    .ty-tiles { width: 100%; display: grid; grid-template-columns: repeat(2, 1fr); }
+    .ty-podium { gap: 6px; }
+    .ty-group { grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 4px; }
+    .ty-lesson { padding: 4px 6px; font-size: 12px; }
+    .ty-lesson .ty-stars { font-size: 10px; }
+    .ty-podium-place b { font-size: 22px; } .ty-podium-1 b { font-size: 26px; }
+}
 @media (max-width: 900px) {
     .ty-key { width: 7vw; height: 40px; font-size: 13px; }
     .ty-wide15 { width: 11vw; } .ty-wide2 { width: 13vw; } .ty-wide25 { width: 16vw; } .ty-space { width: 45vw; }

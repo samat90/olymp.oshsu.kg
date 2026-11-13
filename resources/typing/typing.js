@@ -552,6 +552,11 @@ document.addEventListener('DOMContentLoaded', function () {
             if (run !== state) return;
             if (res.ok) {
                 if (res.record && run.mode !== 'lesson') $('#ty-r-record').hidden = false;
+                if (res.record) {
+                    C.personal = C.personal || {};
+                    C.personal[run.mode + '-' + run.layout] = res.cpm;
+                    drawSummary(settings());
+                }
                 if (res.level) showLevel(res.level, res.level_up);
             } else if (res.error === 'typed' || res.error === 'speed') {
                 $('#ty-r-note').textContent = S.notCounted;
@@ -594,12 +599,25 @@ document.addEventListener('DOMContentLoaded', function () {
         drawLessons();
     }
 
+    var GROUPS = [[S.groupLetters, 0, 17], [S.groupSkills, 17, LESSONS.length]];
+
     function drawLessons() {
         var s = settings();
         var list = $('#ty-lessons');
         list.innerHTML = '';
         var kb = s.layout === 'en' ? 'en' : 'ru';
+        var group = null;
         LESSONS.forEach(function (keys, i) {
+            GROUPS.forEach(function (g) {
+                if (g[1] !== i) return;
+                var title = document.createElement('div');
+                title.className = 'ty-group-title';
+                title.textContent = g[0];
+                list.appendChild(title);
+                group = document.createElement('div');
+                group.className = 'ty-group';
+                list.appendChild(group);
+            });
             var b = document.createElement('button');
             b.type = 'button';
             b.className = 'ty-lesson' + (i === s.lesson && s.mode === 'lesson' ? ' ty-active' : '') +
@@ -608,7 +626,7 @@ document.addEventListener('DOMContentLoaded', function () {
             b.querySelector('.ty-num').textContent = i + 1;
             b.querySelector('.ty-keys').textContent = lessonTitle(i, kb);
             var n = done[s.layout + ':' + i] ? stars(done[s.layout + ':' + i]) : 0;
-            b.querySelector('.ty-stars').textContent = n ? '★★★'.slice(0, n) : '';
+            b.querySelector('.ty-stars').innerHTML = '<b>' + '★★★'.slice(0, n) + '</b>' + '★★★'.slice(n);
             if (SPECIAL[keys]) b.classList.add('ty-lesson-wide');
             b.addEventListener('click', function () {
                 store('typing-mode', 'lesson');
@@ -616,8 +634,25 @@ document.addEventListener('DOMContentLoaded', function () {
                 syncControls();
                 start();
             });
-            list.appendChild(b);
+            group.appendChild(b);
         });
+        drawSummary(s);
+    }
+
+    // The tiles at the top: best speed in the test, lessons passed and stars on this layout.
+    function drawSummary(s) {
+        var best = (C.personal || {})['test-' + s.layout];
+        $('#ty-best').textContent = best || '-';
+        var passed = 0;
+        var starCount = 0;
+        LESSONS.forEach(function (k, i) {
+            var cpm = done[s.layout + ':' + i];
+            if (cpm) { passed++; starCount += stars(cpm); }
+        });
+        $('#ty-done-count').textContent = passed;
+        $('#ty-done-total').textContent = '/ ' + LESSONS.length;
+        $('#ty-stars-count').textContent = starCount;
+        $('#ty-stars-total').textContent = '/ ' + LESSONS.length * STARS.length;
     }
 
     /* ---------------- controls ---------------- */

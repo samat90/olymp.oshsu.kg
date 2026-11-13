@@ -35,6 +35,16 @@
     </div>
 
     {% if rows %}
+        <div class="ty-podium">
+            {% for row in rows[:3] %}
+                <div class="ty-podium-place ty-podium-{{ row.place }}{% if row.profile.id == my_id %} ty-me{% endif %}">
+                    <span class="ty-medal ty-medal-{{ row.place }}">{{ row.place }}</span>
+                    <div class="ty-podium-user">{{ link_user(row.profile) }}</div>
+                    <b>{{ row.cpm }}</b>
+                    <small>{{ _('chars/min') }} · {{ row.accuracy }}%</small>
+                </div>
+            {% endfor %}
+        </div>
         <table class="table ty-rec-table">
             <thead>
                 <tr><th>#</th><th>{{ _('User') }}</th><th>{{ _('Level') }}</th><th>{{ _('chars/min') }}</th><th>{{ _('words/min') }}</th>
