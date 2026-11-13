@@ -1,0 +1,10 @@
+{
+ "code": "001907",
+ "title": "k-й свободный стул",
+ "topic": "Дерево отрезков и Фенвик",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "test_gen": "python3 gen.py <i>, i=0..9",
+ "answer": "python3 sol.py"
+}

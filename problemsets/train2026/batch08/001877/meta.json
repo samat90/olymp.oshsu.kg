@@ -1,0 +1,10 @@
+{
+ "code": "001877",
+ "title": "Пара с суммой K",
+ "topic": "Деревья поиска",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "test_gen": "python3 gen.py <i>, i=0..9",
+ "answer": "python3 sol.py"
+}
