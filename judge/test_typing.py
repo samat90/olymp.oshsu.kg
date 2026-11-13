@@ -94,7 +94,7 @@ class TypingTrainerTest(TestCase):
         self.save(chars=250)
         self.save(chars=400)
         TypingResult.objects.create(user=self.user.profile, mode='test', layout='ru', seconds=60, chars=900,
-                                    errors=0, cpm=900, accuracy=100)   # an old unchecked result
+                                    errors=0, cpm=900, accuracy=100)   # an unchecked result
         page = self.client.get(reverse('typing_records') + '?mode=test&layout=ru&period=all')
         self.assertContains(page, 'typist')
         self.assertContains(page, '<b>400</b>')
