@@ -29,9 +29,11 @@ NL, TAB = chr(10), chr(9)
 
 def load():
     import problems
+    import lib
     found = {}
-    for mod in pkgutil.iter_modules(problems.__path__):
-        for p in importlib.import_module('problems.' + mod.name).PROBLEMS:
+    mods = [importlib.import_module('problems.' + m.name) for m in pkgutil.iter_modules(problems.__path__)]
+    for p in [p for m in mods for p in getattr(m, 'PROBLEMS', [])] + lib.REG:
+        if True:
             if p['slug'] in found:
                 raise SystemExit('duplicate slug ' + p['slug'])
             found[p['slug']] = p
@@ -109,6 +111,8 @@ def main():
     probs = load()
     names_seen = {}
     for n, p in probs.items():
+        if only and n not in only:
+            continue
         if p['name'] in names_seen:
             raise SystemExit('duplicate name %r' % p['name'])
         names_seen[p['name']] = n

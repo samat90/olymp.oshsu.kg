@@ -22,3 +22,20 @@ def lines(*rows):
 
 def nums(a):
     return ' '.join(map(str, a))
+
+
+REG = []
+
+
+def ints(d):
+    return list(map(int, d.split()))
+
+
+def prob(slug, name, group, types, diff, story, inp, out, samples, time=1):
+    """Decorator for a class with static gen(r, level), solve(data), brute(data)."""
+    def deco(c):
+        nn = chr(10) * 2
+        text = nn.join(['# ' + name, story.strip(), '## Формат ввода', inp.strip(), '## Формат вывода', out.strip()]) + chr(10)
+        REG.append(P(slug, name, group, types, diff, text, samples, c.gen, c.solve, c.brute, time))
+        return c
+    return deco
