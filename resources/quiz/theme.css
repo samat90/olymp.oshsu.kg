@@ -90,7 +90,7 @@
 .qz-ornament::before {
     content: '';
     position: absolute;
-    inset: 0;
+    top: 0; right: 0; bottom: 0; left: 0;
     z-index: -1;
     pointer-events: none;
     background: currentColor;
@@ -125,7 +125,7 @@
 
 /* ---------- timer ring from QuizFx.ring ---------- */
 .qz-ring { --qz-ring-c: #0b7a72; position: relative; display: inline-grid; place-items: center; width: 84px; height: 84px; }
-.qz-ring svg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+.qz-ring svg { position: absolute; top: 0; right: 0; bottom: 0; left: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
 .qz-ring circle { fill: none; stroke-width: 9; }
 .qz-ring-track { stroke: currentColor; opacity: .15; }
 .qz-ring-bar { stroke: var(--qz-ring-c); stroke-linecap: round; transition: stroke-dashoffset .25s linear, stroke .4s; }

@@ -194,9 +194,9 @@
         },
         musicAllowed: function () {
             if (C.music === false) return false;
-            // The host's device plays the music; phones of players only in games without a host.
+            // The organizer's device plays the music (also in the automatic mode); players' phones only play alone.
             if (IS_HOST) return true;
-            return MODE === 'auto' || MODE === 'solo';
+            return MODE === 'solo';
         },
         // variant: the question number, so every question gets a different tune
         music: function (name, variant) {
@@ -225,6 +225,14 @@
             this.call('setMuted', !this.muted());
             updateSoundButtons();
         },
+        volume: function () { var v = this.call('getVolume'); return typeof v === 'number' ? v : 0.8; },
+        setVolume: function (v) {
+            this.unlock();
+            this.call('setVolume', v);
+            if (v > 0 && this.muted()) this.call('setMuted', false);
+            if (v <= 0 && !this.muted()) this.call('setMuted', true);
+            updateSoundButtons();
+        },
         unlock: function () {
             if (this.unlocked) return;
             this.unlocked = true;
@@ -238,6 +246,35 @@
         for (var i = 0; i < buttons.length; i++) buttons[i].className = off ? 'fa fa-volume-off' : 'fa fa-volume-up';
     }
 
+    // Volume popover: the sound button opens a small panel with a mute button and a slider.
+    var volPanel = null;
+    function closeVolume() {
+        if (volPanel && volPanel.parentNode) volPanel.parentNode.removeChild(volPanel);
+        volPanel = null;
+    }
+    function openVolume(anchor) {
+        if (volPanel) { closeVolume(); return; }
+        var range = h('input', {type: 'range', min: 0, max: 100, step: 1, cls: 'qz-vol-range', 'aria-label': L('Звук')});
+        range.value = Math.round((sound.muted() ? 0 : sound.volume()) * 100);
+        var mute = h('button', {type: 'button', cls: 'qz-icon-btn qz-vol-mute', 'aria-label': L('Звук')}, h('i', {cls: 'fa fa-volume-up'}));
+        function sync() {
+            mute.firstChild.className = sound.muted() ? 'fa fa-volume-off' : 'fa fa-volume-up';
+            if (!sound.muted() && +range.value === 0) range.value = Math.round(sound.volume() * 100) || 80;
+        }
+        range.addEventListener('input', function () { sound.setVolume(range.value / 100); sync(); });
+        mute.addEventListener('click', function () { sound.toggle(); sync(); });
+        volPanel = h('div', {cls: 'qz-vol', role: 'group'}, mute, range);
+        stage.appendChild(volPanel);
+        var r = anchor.getBoundingClientRect(), w = volPanel.offsetWidth, hh = volPanel.offsetHeight;
+        var left = Math.max(8, Math.min(window.innerWidth - w - 8, r.right - w));
+        var top = r.bottom + 8 + hh > window.innerHeight ? r.top - hh - 8 : r.bottom + 8;
+        volPanel.style.left = left + 'px';
+        volPanel.style.top = Math.max(8, top) + 'px';
+        sync();
+    }
+    document.addEventListener('pointerdown', function (e) {
+        if (volPanel && !volPanel.contains(e.target) && !(e.target.closest && e.target.closest('#qz-sound, [data-act="sound"]'))) closeVolume();
+    }, true);
     document.addEventListener('pointerdown', function () { sound.unlock(); }, true);
     document.addEventListener('keydown', function () { sound.unlock(); }, true);
 
@@ -747,7 +784,7 @@
         var poller = Poller(function () { return U.state + '?v=' + (game.st ? game.st.v : 0); }, onState, gone);
 
         var soundBtn = byId('qz-sound');
-        if (soundBtn) soundBtn.addEventListener('click', function () { sound.toggle(); });
+        if (soundBtn) soundBtn.addEventListener('click', function () { sound.unlock(); openVolume(soundBtn); });
         updateSoundButtons();
         keepAwake();
 
@@ -1500,7 +1537,9 @@
         if (controls) {
             controls.addEventListener('click', function (e) {
                 var b = e.target.closest('[data-act]');
-                if (b && !b.disabled) act(b.getAttribute('data-act'));
+                if (b && !b.disabled) {
+                    if (b.getAttribute('data-act') === 'sound') { sound.unlock(); openVolume(b); } else act(b.getAttribute('data-act'));
+                }
             });
         }
 
@@ -1835,7 +1874,7 @@
 
     function boot() {
         stage.classList.add('qz-ready');
-        if (ROLE === 'screen' || (!IS_HOST && (MODE === 'auto' || MODE === 'solo'))) beatGlow();
+        if (ROLE === 'screen' || (!IS_HOST && MODE === 'solo')) beatGlow();
         if (IS_HOST) startHost();
         else startPlayer();
     }
