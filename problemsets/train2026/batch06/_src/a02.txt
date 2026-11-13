@@ -1,0 +1,329 @@
+#### Наборы монет
+#S
+В кассе Темира m видов монет, каждого вида сколько угодно. Сколькими способами можно выдать ровно X сомов, если порядок монет не важен (наборы с разным числом монет какого-либо номинала считаются разными)?
+
+**Ввод.** В первой строке m и X (1 ≤ m ≤ 20, 1 ≤ X ≤ 5000), во второй m различных номиналов (1 ≤ c_i ≤ 5000).
+
+**Вывод.** Число способов по модулю 10^9 + 7.
+#E
+3 5
+1 2 5
+#G
+def gen(r,k):
+    X=N(r,k,14,5000)
+    m=r.randint(1,min(20,1+k*2)) if k else r.randint(1,4)
+    hi=max(m,min(10 if k<3 else 5000,X+3))
+    c=r.sample(range(1,hi+1),m)
+    return "%d %d\n%s\n"%(m,X,' '.join(map(str,c)))
+#A
+def sol(s):
+    t=list(map(int,s.split())); m,X=t[0],t[1]; c=t[2:2+m]
+    dp=[0]*(X+1); dp[0]=1
+    for v in c:
+        for x in range(v,X+1): dp[x]=(dp[x]+dp[x-v])%M
+    return dp[X]
+#B
+def brute(s):
+    t=list(map(int,s.split())); m,X=t[0],t[1]; c=t[2:2+m]
+    def go(i,rem):
+        if rem==0: return 1
+        if i==m: return 0
+        return sum(go(i+1,rem-q*c[i]) for q in range(rem//c[i]+1))
+    return go(0,X)%M
+#### Последовательности монет
+#S
+В кассе Нурзат m видов монет номиналов c_i, каждого вида сколько угодно. Сколькими способами можно выдать ровно X сомов, если порядок выдачи монет важен (последовательности 1+2 и 2+1 различны)?
+
+**Ввод.** В первой строке m и X (1 ≤ m ≤ 20, 1 ≤ X ≤ 10^5), во второй m различных номиналов (1 ≤ c_i ≤ 10^5).
+
+**Вывод.** Число способов по модулю 10^9 + 7.
+#E
+3 4
+1 2 3
+#G
+def gen(r,k):
+    X=N(r,k,12,10**5)
+    m=r.randint(1,min(20,1+k*2)) if k else r.randint(1,4)
+    hi=max(m,min(8 if k<3 else 10**5,X+3))
+    c=r.sample(range(1,hi+1),m)
+    return "%d %d\n%s\n"%(m,X,' '.join(map(str,c)))
+#A
+def sol(s):
+    t=list(map(int,s.split())); m,X=t[0],t[1]; c=t[2:2+m]
+    dp=[0]*(X+1); dp[0]=1
+    for x in range(1,X+1):
+        a=0
+        for v in c:
+            if v<=x: a+=dp[x-v]
+        dp[x]=a%M
+    return dp[X]
+#B
+def brute(s):
+    t=list(map(int,s.split())); m,X=t[0],t[1]; c=t[2:2+m]
+    def go(rem):
+        if rem==0: return 1
+        return sum(go(rem-v) for v in c if v<=rem)
+    return go(X)%M
+#### Разбиение слова
+#S
+У Айгерим есть слово s и словарь из d различных слов. Сколькими способами можно записать s как последовательность подряд идущих слов словаря (слова можно использовать повторно)?
+
+**Ввод.** В первой строке s (1 ≤ |s| ≤ 2000, строчные латинские буквы). Во второй d (1 ≤ d ≤ 50), далее d строк со словами длиной от 1 до 10.
+
+**Вывод.** Число способов по модулю 10^9 + 7.
+#E
+aabaab
+3
+a
+aab
+ab
+#G
+def gen(r,k):
+    n=N(r,k,12,2000)
+    d=r.randint(1,min(50,2+3*k)) if k else r.randint(1,4)
+    ws=set()
+    while len(ws)<d:
+        ws.add(S(r,r.randint(1,min(10,1+k) if k else 3),'ab'))
+        if len(ws)>=2**4 and k==0: break
+    ws=list(ws)
+    return "%s\n%d\n%s\n"%(S(r,n,'ab'),len(ws),'\n'.join(ws))
+#A
+def sol(s):
+    t=s.split(); w=t[0]; d=int(t[1]); ws=t[2:2+d]; n=len(w)
+    dp=[0]*(n+1); dp[0]=1
+    for i in range(1,n+1):
+        a=0
+        for x in ws:
+            l=len(x)
+            if l<=i and w.startswith(x,i-l): a+=dp[i-l]
+        dp[i]=a%M
+    return dp[n]
+#B
+def brute(s):
+    t=s.split(); w=t[0]; d=int(t[1]); ws=t[2:2+d]
+    def go(p):
+        if p==len(w): return 1
+        return sum(go(p+len(x)) for x in ws if w.startswith(x,p))
+    return go(0)%M
+#### Расшифровка послания
+#S
+Каныкей зашифровала слово цифрами: A = 1, B = 2, …, Z = 26. Получилась строка из цифр без разделителей. Сколькими способами её можно расшифровать? Нуля среди кодов нет, поэтому «0» может быть только второй цифрой кодов 10 и 20.
+
+**Ввод.** Строка из цифр длиной от 1 до 10^5.
+
+**Вывод.** Число способов по модулю 10^9 + 7 (может быть 0).
+#E
+2262
+#G
+def gen(r,k):
+    n=N(r,k,12,10**5)
+    p=r.choice([0.1,0.3,0.0])
+    return ''.join('0' if r.random()<p else r.choice('123456789') if r.random()<0.6 else r.choice('12') for _ in range(n)).replace('00','10')+"\n"
+#A
+def sol(s):
+    w=s.split()[0]; n=len(w)
+    a,b=1,(0 if w[0]=='0' else 1)
+    for i in range(2,n+1):
+        c=0
+        if w[i-1]!='0': c+=b
+        if 10<=int(w[i-2:i])<=26: c+=a
+        a,b=b,c%M
+    return b%M
+#B
+def brute(s):
+    w=s.split()[0]
+    def go(p):
+        if p==len(w): return 1
+        r=0
+        if w[p]!='0':
+            r+=go(p+1)
+            if p+1<len(w) and int(w[p:p+2])<=26: r+=go(p+2)
+        return r
+    return go(0)%M
+#### Красивые числа
+#S
+Число называется красивым, если оно делится только на простые числа 2, 3 и 5 (то есть имеет вид 2^a·3^b·5^c). Единица — красивое. Найдите n-е красивое число по возрастанию.
+
+**Ввод.** Число n (1 ≤ n ≤ 10^5).
+
+**Вывод.** n-е красивое число.
+#E
+10
+#G
+def gen(r,k):
+    return "%d\n"%N(r,k,40,10**5)
+#A
+def sol(s):
+    n=int(s.split()[0]); u=[1]; i2=i3=i5=0
+    while len(u)<n:
+        x=min(u[i2]*2,u[i3]*3,u[i5]*5); u.append(x)
+        if x==u[i2]*2: i2+=1
+        if x==u[i3]*3: i3+=1
+        if x==u[i5]*5: i5+=1
+    return u[n-1]
+#B
+def brute(s):
+    n=int(s.split()[0]); c=0; x=0
+    while c<n:
+        x+=1; y=x
+        for p in (2,3,5):
+            while y%p==0: y//=p
+        if y==1: c+=1
+    return x
+#### Серии без подряд единиц
+#S
+Сколько существует двоичных строк длины n, в которых нет k подряд идущих единиц?
+
+**Ввод.** Два числа n и k (1 ≤ n ≤ 10^5, 1 ≤ k ≤ 10).
+
+**Вывод.** Число строк по модулю 10^9 + 7.
+#E
+4 2
+#G
+def gen(r,k):
+    n=N(r,k,14,10**5)
+    return "%d %d\n"%(n,r.randint(1,10))
+#A
+def sol(s):
+    n,k=map(int,s.split()); f=[1]+[0]*(k-1)
+    for _ in range(n):
+        g=[0]*k; g[0]=sum(f)%M
+        for j in range(1,k): g[j]=f[j-1]
+        f=g
+    return sum(f)%M
+#B
+def brute(s):
+    n,k=map(int,s.split()); c=0
+    for m in range(1<<n):
+        b=bin(m)[2:].zfill(n)
+        if '1'*k not in b: c+=1
+    return c%M
+#### Плитка два на n
+#S
+Полоса 2×n выложена плиткой без пропусков и наложений. Есть плитки 1×2 (их можно класть любой стороной) и квадратные плитки 2×2. Сколькими способами можно выложить полосу?
+
+**Ввод.** Число n (1 ≤ n ≤ 10^5).
+
+**Вывод.** Число способов по модулю 10^9 + 7.
+#E
+3
+#G
+def gen(r,k):
+    return "%d\n"%N(r,k,8,10**5)
+#A
+def sol(s):
+    n=int(s.split()[0]); a,b=1,1
+    for _ in range(n-1): a,b=b,(b+2*a)%M
+    return b%M
+#B
+def brute(s):
+    n=int(s.split()[0]); g=[[0]*n for _ in range(2)]
+    def go(p):
+        while p<2*n and g[p%2][p//2]: p+=1
+        if p==2*n: return 1
+        r,c=p%2,p//2; t=0
+        g[r][c]=1
+        if r==0 and not g[1][c]:
+            g[1][c]=1; t+=go(p+1); g[1][c]=0
+        if c+1<n and not g[r][c+1]:
+            g[r][c+1]=1; t+=go(p+1); g[r][c+1]=0
+        if r==0 and c+1<n and not g[1][c] and not g[0][c+1] and not g[1][c+1]:
+            g[1][c]=g[0][c+1]=g[1][c+1]=1; t+=go(p+1)
+            g[1][c]=g[0][c+1]=g[1][c+1]=0
+        g[r][c]=0
+        return t
+    return go(0)%M
+#### Зубчатая подпоследовательность
+#S
+Подпоследовательность чисел называется зубчатой, если разности соседних элементов строго чередуют знак (+, −, +, … или −, +, −, …). Последовательность из одного элемента зубчатая. Найдите длину самой длинной зубчатой подпоследовательности массива.
+
+**Ввод.** В первой строке n (1 ≤ n ≤ 10^5), во второй n чисел a_i (1 ≤ a_i ≤ 10^9).
+
+**Вывод.** Наибольшая длина.
+#E
+7
+1 7 4 9 2 5 5
+#G
+def gen(r,k):
+    n=N(r,k,12,10**5)
+    hi=5 if k<5 else 10**9
+    return "%d\n%s\n"%(n,' '.join(map(str,L(r,n,1,hi))))
+#A
+def sol(s):
+    t=list(map(int,s.split())); a=t[1:1+t[0]]
+    up=dn=1
+    for i in range(1,len(a)):
+        if a[i]>a[i-1]: up=dn+1
+        elif a[i]<a[i-1]: dn=up+1
+    return max(up,dn)
+#B
+def brute(s):
+    t=list(map(int,s.split())); a=t[1:1+t[0]]; n=len(a); best=1
+    for m in range(1,1<<n):
+        v=[a[i] for i in range(n) if m>>i&1]
+        if len(v)<=best: continue
+        d=[v[i+1]-v[i] for i in range(len(v)-1)]
+        if all(x!=0 for x in d) and all(d[i]*d[i+1]<0 for i in range(len(d)-1)): best=len(v)
+    return best
+#### Карточки Мирлана
+#S
+У Мирлана n карточек с числами a_i. За один ход он выбирает значение v, забирает все карточки с этим значением и получает v очков за каждую. После этого все карточки со значениями v−1 и v+1 сгорают. Какое наибольшее число очков можно набрать?
+
+**Ввод.** В первой строке n (1 ≤ n ≤ 10^5), во второй n чисел a_i (1 ≤ a_i ≤ 10^4).
+
+**Вывод.** Наибольшее число очков.
+#E
+6
+3 4 2 3 3 4
+#G
+def gen(r,k):
+    n=N(r,k,10,10**5)
+    hi=8 if k<4 else 10**4
+    return "%d\n%s\n"%(n,' '.join(map(str,L(r,n,1,hi))))
+#A
+def sol(s):
+    t=list(map(int,s.split())); a=t[1:1+t[0]]
+    mx=max(a); w=[0]*(mx+2)
+    for x in a: w[x]+=x
+    p=q=0
+    for v in range(1,mx+1): p,q=q,max(q,p+w[v])
+    return q
+#B
+def brute(s):
+    t=list(map(int,s.split())); a=t[1:1+t[0]]; vs=sorted(set(a)); best=0
+    for m in range(1<<len(vs)):
+        ch={vs[i] for i in range(len(vs)) if m>>i&1}
+        if any(v+1 in ch for v in ch): continue
+        best=max(best,sum(x for x in a if x in ch))
+    return best
+#### Сумма квадратов
+#S
+Какое наименьшее количество полных квадратов (1, 4, 9, 16, …) нужно сложить, чтобы получить n? Один квадрат можно использовать несколько раз.
+
+**Ввод.** Число n (1 ≤ n ≤ 10^4).
+
+**Вывод.** Наименьшее количество слагаемых.
+#E
+12
+#G
+def gen(r,k):
+    return "%d\n"%N(r,k,40,10**4)
+#A
+def sol(s):
+    n=int(s.split()[0]); dp=[0]+[10**9]*n
+    for x in range(1,n+1):
+        j=1
+        while j*j<=x:
+            dp[x]=min(dp[x],dp[x-j*j]+1); j+=1
+    return dp[n]
+#B
+def brute(s):
+    n=int(s.split()[0])
+    sq=[j*j for j in range(1,int(n**.5)+1)]
+    def can(rem,d,mn):
+        if rem==0: return True
+        if d==0: return False
+        return any(q>=mn and can(rem-q,d-1,q) for q in sq if q<=rem)
+    d=1
+    while not can(n,d,0): d+=1
+    return d

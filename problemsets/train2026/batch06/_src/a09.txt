@@ -1,0 +1,514 @@
+#### Тропа с камнями
+#S
+На поле n×m некоторые клетки заняты камнями (#), остальные свободны (.). Нурлан идёт из левой верхней клетки в правую нижнюю, каждый шаг — на соседнюю клетку вправо или вниз, по камням идти нельзя. Сколько существует путей?
+
+**Ввод.** В первой строке n и m (1 ≤ n, m ≤ 500), далее n строк по m символов «.» или «#».
+
+**Вывод.** Число путей по модулю 10^9 + 7 (0, если начальная или конечная клетка занята).
+#E
+3 3
+...
+.#.
+...
+#G
+def gen(r,k):
+    n=N(r,k,5,500); m=N(r,k,5,500); p=r.choice([0.05,0.15,0.3])
+    g=[''.join('#' if r.random()<p else '.' for _ in range(m)) for _ in range(n)]
+    if r.random()<0.8:
+        g[0]='.'+g[0][1:]; g[-1]=g[-1][:-1]+'.'
+    return "%d %d\n%s\n"%(n,m,'\n'.join(g))
+#A
+def sol(s):
+    t=s.split(); n,m=int(t[0]),int(t[1]); g=t[2:2+n]; prev=[0]*m
+    for i in range(n):
+        cur=[0]*m
+        for j in range(m):
+            if g[i][j]=='#': continue
+            if i==0 and j==0: cur[j]=1
+            else: cur[j]=((prev[j] if i else 0)+(cur[j-1] if j else 0))%M
+        prev=cur
+    return prev[m-1]
+#B
+def brute(s):
+    t=s.split(); n,m=int(t[0]),int(t[1]); g=t[2:2+n]
+    def go(i,j):
+        if i>=n or j>=m or g[i][j]=='#': return 0
+        if i==n-1 and j==m-1: return 1
+        return go(i+1,j)+go(i,j+1)
+    return go(0,0)%M
+#### Дешёвый путь по сетке
+#S
+На поле n×m в каждой клетке написана цена прохода. Эрмек идёт из левой верхней клетки в правую нижнюю, шагая только вправо или вниз, и платит за каждую посещённую клетку (включая первую и последнюю). Какова наименьшая суммарная плата?
+
+**Ввод.** В первой строке n и m (1 ≤ n, m ≤ 500), далее n строк по m чисел (0 ≤ a_ij ≤ 100).
+
+**Вывод.** Наименьшая плата.
+#E
+3 3
+1 3 1
+1 5 1
+4 2 1
+#G
+def gen(r,k):
+    n=N(r,k,5,500); m=N(r,k,5,500)
+    return "%d %d\n%s\n"%(n,m,'\n'.join(' '.join(map(str,L(r,m,0,100))) for _ in range(n)))
+#A
+def sol(s):
+    t=list(map(int,s.split())); n,m=t[0],t[1]; a=t[2:]; INF=10**18; prev=[INF]*m
+    for i in range(n):
+        cur=[0]*m
+        for j in range(m):
+            x=a[i*m+j]
+            if i==0 and j==0: cur[j]=x
+            else: cur[j]=x+min(prev[j] if i else INF,cur[j-1] if j else INF)
+        prev=cur
+    return prev[-1]
+#B
+def brute(s):
+    t=list(map(int,s.split())); n,m=t[0],t[1]; a=t[2:]
+    def go(i,j):
+        if i==n-1 and j==m-1: return a[i*m+j]
+        b=10**18
+        if i+1<n: b=min(b,go(i+1,j))
+        if j+1<m: b=min(b,go(i,j+1))
+        return a[i*m+j]+b
+    return go(0,0)
+#### Треугольник
+#S
+Числа записаны треугольником из n строк (в строке i ровно i чисел). Начав с верхнего числа, нужно спуститься вниз, на каждом шаге переходя к одному из двух чисел, расположенных прямо под текущим (левому или правому). Какая наименьшая сумма встреченных чисел возможна?
+
+**Ввод.** В первой строке n (1 ≤ n ≤ 500), далее n строк: в i-й строке i чисел (−100 ≤ a ≤ 100).
+
+**Вывод.** Наименьшая сумма.
+#E
+4
+2
+3 4
+6 5 7
+4 1 8 3
+#G
+def gen(r,k):
+    n=N(r,k,6,500)
+    return "%d\n%s\n"%(n,'\n'.join(' '.join(map(str,L(r,i,-100,100))) for i in range(1,n+1)))
+#A
+def sol(s):
+    t=list(map(int,s.split())); n=t[0]; p=1; rows=[]
+    for i in range(1,n+1): rows.append(t[p:p+i]); p+=i
+    cur=rows[-1][:]
+    for i in range(n-2,-1,-1):
+        cur=[rows[i][j]+min(cur[j],cur[j+1]) for j in range(i+1)]
+    return cur[0]
+#B
+def brute(s):
+    t=list(map(int,s.split())); n=t[0]; p=1; rows=[]
+    for i in range(1,n+1): rows.append(t[p:p+i]); p+=i
+    def go(i,j):
+        if i==n-1: return rows[i][j]
+        return rows[i][j]+min(go(i+1,j),go(i+1,j+1))
+    return go(0,0)
+#### Два сборщика
+#S
+На поле n×n в клетках лежат яблоки. Из левой верхней клетки в правую нижнюю по двум путям (вправо или вниз) проходят Бермет и Айбек. Яблоки каждой клетки забираются один раз, даже если через неё прошли оба. Какое наибольшее суммарное число яблок могут собрать вдвоём, выбрав пути оптимально?
+
+**Ввод.** В первой строке n (1 ≤ n ≤ 40), далее n строк по n чисел (0 ≤ a_ij ≤ 9).
+
+**Вывод.** Наибольшее суммарное число яблок.
+#E
+3
+0 3 1
+2 5 0
+1 4 7
+#G
+def gen(r,k):
+    n=N(r,k,4,40)
+    return "%d\n%s\n"%(n,'\n'.join(' '.join(map(str,L(r,n,0,9))) for _ in range(n)))
+#A
+def sol(s):
+    t=list(map(int,s.split())); n=t[0]; a=[t[1+i*n:1+(i+1)*n] for i in range(n)]
+    NEG=-1; dp=[[NEG]*n for _ in range(n)]; dp[0][0]=a[0][0]
+    for st in range(1,2*n-1):
+        nd=[[NEG]*n for _ in range(n)]
+        for x1 in range(n):
+            y1=st-x1
+            if not 0<=y1<n: continue
+            for x2 in range(n):
+                y2=st-x2
+                if not 0<=y2<n: continue
+                b=NEG
+                for p1 in (x1,x1-1):
+                    for p2 in (x2,x2-1):
+                        if 0<=p1<n and 0<=p2<n and dp[p1][p2]>b: b=dp[p1][p2]
+                if b<0: continue
+                v=a[x1][y1]+(a[x2][y2] if x1!=x2 else 0)
+                nd[x1][x2]=b+v
+        dp=nd
+    return dp[n-1][n-1]
+#B
+def brute(s):
+    t=list(map(int,s.split())); n=t[0]; a=[t[1+i*n:1+(i+1)*n] for i in range(n)]
+    paths=[]
+    def go(i,j,cur):
+        cur=cur+[(i,j)]
+        if i==n-1 and j==n-1: paths.append(cur); return
+        if i+1<n: go(i+1,j,cur)
+        if j+1<n: go(i,j+1,cur)
+    go(0,0,[])
+    best=0
+    for p in paths:
+        for q in paths:
+            cells=set(p)|set(q)
+            best=max(best,sum(a[i][j] for i,j in cells))
+    return best
+#### Самый большой квадрат
+#S
+Дано поле n×m из нулей и единиц. Найдите наибольший по площади квадрат, целиком состоящий из единиц.
+
+**Ввод.** В первой строке n и m (1 ≤ n, m ≤ 500), далее n строк по m символов 0 или 1.
+
+**Вывод.** Площадь квадрата (0, если единиц нет).
+#E
+3 4
+0110
+1111
+0111
+#G
+def gen(r,k):
+    n=N(r,k,5,500); m=N(r,k,5,500); p=r.choice([0.5,0.9,0.99])
+    return "%d %d\n%s\n"%(n,m,'\n'.join(''.join('1' if r.random()<p else '0' for _ in range(m)) for _ in range(n)))
+#A
+def sol(s):
+    t=s.split(); n,m=int(t[0]),int(t[1]); g=t[2:2+n]; prev=[0]*(m+1); best=0
+    for i in range(n):
+        cur=[0]*(m+1)
+        for j in range(m):
+            if g[i][j]=='1':
+                cur[j+1]=min(prev[j],prev[j+1],cur[j])+1
+                if cur[j+1]>best: best=cur[j+1]
+        prev=cur
+    return best*best
+#B
+def brute(s):
+    t=s.split(); n,m=int(t[0]),int(t[1]); g=t[2:2+n]; best=0
+    for i in range(n):
+        for j in range(m):
+            for d in range(1,min(n-i,m-j)+1):
+                if all(g[x][y]=='1' for x in range(i,i+d) for y in range(j,j+d)): best=max(best,d)
+    return best*best
+#### Сколько квадратов из единиц
+#S
+Дано поле n×m из нулей и единиц. Сколько в нём квадратов (любого размера, с любым положением), состоящих только из единиц?
+
+**Ввод.** В первой строке n и m (1 ≤ n, m ≤ 500), далее n строк по m символов 0 или 1.
+
+**Вывод.** Количество квадратов.
+#E
+2 3
+111
+111
+#G
+def gen(r,k):
+    n=N(r,k,5,500); m=N(r,k,5,500); p=r.choice([0.5,0.9,0.99])
+    return "%d %d\n%s\n"%(n,m,'\n'.join(''.join('1' if r.random()<p else '0' for _ in range(m)) for _ in range(n)))
+#A
+def sol(s):
+    t=s.split(); n,m=int(t[0]),int(t[1]); g=t[2:2+n]; prev=[0]*(m+1); tot=0
+    for i in range(n):
+        cur=[0]*(m+1)
+        for j in range(m):
+            if g[i][j]=='1':
+                cur[j+1]=min(prev[j],prev[j+1],cur[j])+1; tot+=cur[j+1]
+        prev=cur
+    return tot
+#B
+def brute(s):
+    t=s.split(); n,m=int(t[0]),int(t[1]); g=t[2:2+n]; c=0
+    for i in range(n):
+        for j in range(m):
+            for d in range(1,min(n-i,m-j)+1):
+                if all(g[x][y]=='1' for x in range(i,i+d) for y in range(j,j+d)): c+=1
+    return c
+#### Падение по колонкам
+#S
+Шарик падает по полю n×m сверху вниз. Из клетки (i, j) он может перейти в клетку (i+1, j−1), (i+1, j) или (i+1, j+1), если она есть на поле. За каждую посещённую клетку шарик платит её значение. Начать можно с любой клетки верхней строки, закончить в любой клетке нижней. Какая наименьшая плата возможна?
+
+**Ввод.** В первой строке n и m (1 ≤ n, m ≤ 500), далее n строк по m чисел (−100 ≤ a_ij ≤ 100).
+
+**Вывод.** Наименьшая плата.
+#E
+3 3
+2 1 3
+6 5 4
+7 8 9
+#G
+def gen(r,k):
+    n=N(r,k,5,500); m=N(r,k,5,500)
+    return "%d %d\n%s\n"%(n,m,'\n'.join(' '.join(map(str,L(r,m,-100,100))) for _ in range(n)))
+#A
+def sol(s):
+    t=list(map(int,s.split())); n,m=t[0],t[1]; a=t[2:]; cur=a[:m]; INF=10**18
+    for i in range(1,n):
+        new=[]
+        for j in range(m):
+            b=cur[j]
+            if j>0 and cur[j-1]<b: b=cur[j-1]
+            if j+1<m and cur[j+1]<b: b=cur[j+1]
+            new.append(b+a[i*m+j])
+        cur=new
+    return min(cur)
+#B
+def brute(s):
+    t=list(map(int,s.split())); n,m=t[0],t[1]; a=t[2:]
+    def go(i,j):
+        if i==n-1: return a[i*m+j]
+        return a[i*m+j]+min(go(i+1,jj) for jj in (j-1,j,j+1) if 0<=jj<m)
+    return min(go(0,j) for j in range(m))
+#### Подземелье
+#S
+Рыцарь Темир идёт по подземелью n×m из левой верхней клетки в правую нижнюю, шагая вправо или вниз. В клетке число: положительное лечит рыцаря, отрицательное наносит урон. Здоровье рыцаря должно всё время (после входа в каждую клетку, включая первую и последнюю) оставаться не меньше 1. Какое наименьшее начальное здоровье нужно?
+
+**Ввод.** В первой строке n и m (1 ≤ n, m ≤ 500), далее n строк по m чисел (−100 ≤ a_ij ≤ 100).
+
+**Вывод.** Наименьшее начальное здоровье.
+#E
+2 3
+-2 -3 3
+-5 -10 1
+#G
+def gen(r,k):
+    n=N(r,k,5,500); m=N(r,k,5,500); lo=r.choice([-100,-30,-5])
+    return "%d %d\n%s\n"%(n,m,'\n'.join(' '.join(map(str,L(r,m,lo,100))) for _ in range(n)))
+#A
+def sol(s):
+    t=list(map(int,s.split())); n,m=t[0],t[1]; a=t[2:]; INF=10**18
+    nxt=[INF]*(m+1)
+    for i in range(n-1,-1,-1):
+        cur=[INF]*(m+1)
+        for j in range(m-1,-1,-1):
+            if i==n-1 and j==m-1: need=1
+            else: need=min(nxt[j],cur[j+1])
+            cur[j]=max(1,need-a[i*m+j])
+        nxt=cur
+    return nxt[0]
+#B
+def brute(s):
+    t=list(map(int,s.split())); n,m=t[0],t[1]; a=t[2:]; best=[10**18]
+    def go(i,j,pre,mn):
+        pre+=a[i*m+j]; mn=min(mn,pre)
+        if i==n-1 and j==m-1: best[0]=min(best[0],max(1,1-mn)); return
+        if i+1<n: go(i+1,j,pre,mn)
+        if j+1<m: go(i,j+1,pre,mn)
+    go(0,0,0,0)
+    return best[0]
+#### Пути с кратной суммой
+#S
+На поле n×m в клетках записаны числа. Айгерим идёт из левой верхней клетки в правую нижнюю, шагая вправо или вниз. Сколько путей имеют сумму чисел (с первой и последней клетками), кратную k?
+
+**Ввод.** В первой строке n, m и k (1 ≤ n, m ≤ 100, 1 ≤ k ≤ 20), далее n строк по m чисел (0 ≤ a_ij ≤ 100).
+
+**Вывод.** Число путей по модулю 10^9 + 7.
+#E
+2 2 3
+1 2
+3 3
+#G
+def gen(r,k):
+    n=N(r,k,5,100); m=N(r,k,5,100)
+    return "%d %d %d\n%s\n"%(n,m,r.randint(1,20 if k else 4),'\n'.join(' '.join(map(str,L(r,m,0,100))) for _ in range(n)))
+#A
+def sol(s):
+    t=list(map(int,s.split())); n,m,K=t[:3]; a=t[3:]
+    prev=[[0]*K for _ in range(m)]
+    for i in range(n):
+        cur=[[0]*K for _ in range(m)]
+        for j in range(m):
+            v=a[i*m+j]%K
+            if i==0 and j==0: cur[0][v]=1; continue
+            for r in range(K):
+                c=0
+                if i: c+=prev[j][r]
+                if j: c+=cur[j-1][r]
+                if c: cur[j][(r+v)%K]=(cur[j][(r+v)%K]+c)%M
+        prev=cur
+    return prev[m-1][0]
+#B
+def brute(s):
+    t=list(map(int,s.split())); n,m,K=t[:3]; a=t[3:]
+    def go(i,j,sm):
+        sm+=a[i*m+j]
+        if i==n-1 and j==m-1: return int(sm%K==0)
+        r=0
+        if i+1<n: r+=go(i+1,j,sm)
+        if j+1<m: r+=go(i,j+1,sm)
+        return r
+    return go(0,0,0)%M
+#### Самый длинный подъём по полю
+#S
+На поле n×m записаны числа. Из клетки можно перейти в соседнюю по стороне (вверх, вниз, влево, вправо), если в ней число строго больше. Найдите наибольшее число клеток в такой цепочке.
+
+**Ввод.** В первой строке n и m (1 ≤ n, m ≤ 300), далее n строк по m чисел (1 ≤ a_ij ≤ 10^9).
+
+**Вывод.** Наибольшая длина цепочки.
+#E
+3 3
+9 9 4
+6 6 8
+2 1 1
+#G
+def gen(r,k):
+    n=N(r,k,4,300); m=N(r,k,4,300); hi=r.choice([5,10**9,n*m])
+    return "%d %d\n%s\n"%(n,m,'\n'.join(' '.join(map(str,L(r,m,1,hi))) for _ in range(n)))
+#A
+def sol(s):
+    t=list(map(int,s.split())); n,m=t[0],t[1]; a=t[2:]
+    order=sorted(range(n*m),key=lambda x:-a[x]); f=[1]*(n*m); best=1
+    for c in order:
+        i,j=divmod(c,m); b=1
+        for di,dj in ((1,0),(-1,0),(0,1),(0,-1)):
+            x,y=i+di,j+dj
+            if 0<=x<n and 0<=y<m and a[x*m+y]>a[c] and f[x*m+y]+1>b: b=f[x*m+y]+1
+        f[c]=b
+        if b>best: best=b
+    return best
+#B
+def brute(s):
+    t=list(map(int,s.split())); n,m=t[0],t[1]; a=t[2:]
+    def go(i,j):
+        b=1
+        for di,dj in ((1,0),(-1,0),(0,1),(0,-1)):
+            x,y=i+di,j+dj
+            if 0<=x<n and 0<=y<m and a[x*m+y]>a[i*m+j]: b=max(b,1+go(x,y))
+        return b
+    return max(go(i,j) for i in range(n) for j in range(m))
+#### Лучший прямоугольник
+#S
+На поле n×m записаны числа, в том числе отрицательные. Найдите прямоугольник из подряд идущих строк и столбцов (непустой) с наибольшей суммой.
+
+**Ввод.** В первой строке n и m (1 ≤ n, m ≤ 100), далее n строк по m чисел (−100 ≤ a_ij ≤ 100).
+
+**Вывод.** Наибольшая сумма.
+#E
+2 3
+1 -2 3
+-4 5 -1
+#G
+def gen(r,k):
+    n=N(r,k,5,100); m=N(r,k,5,100); lo=r.choice([-100,-30,-100])
+    return "%d %d\n%s\n"%(n,m,'\n'.join(' '.join(map(str,L(r,m,lo,100))) for _ in range(n)))
+#A
+def sol(s):
+    t=list(map(int,s.split())); n,m=t[0],t[1]; a=[t[2+i*m:2+(i+1)*m] for i in range(n)]
+    best=-10**18
+    for top in range(n):
+        col=[0]*m
+        for bot in range(top,n):
+            cur=-10**18
+            for j in range(m):
+                col[j]+=a[bot][j]
+                cur=max(col[j],cur+col[j])
+                if cur>best: best=cur
+    return best
+#B
+def brute(s):
+    t=list(map(int,s.split())); n,m=t[0],t[1]; a=[t[2+i*m:2+(i+1)*m] for i in range(n)]
+    return max(sum(a[x][y] for x in range(i,i2+1) for y in range(j,j2+1)) for i in range(n) for i2 in range(i,n) for j in range(m) for j2 in range(j,m))
+#### Ходы коня
+#S
+Конь стоит на клетке (r, c) доски n×n (строки и столбцы нумеруются с 1). Он делает ровно k ходов, ни разу не выходя за пределы доски. Сколько существует различных последовательностей ходов?
+
+**Ввод.** Четыре числа n, r, c, k (1 ≤ n ≤ 30, 1 ≤ r, c ≤ n, 0 ≤ k ≤ 100).
+
+**Вывод.** Число последовательностей по модулю 10^9 + 7.
+#E
+3 1 1 2
+#G
+def gen(r,k):
+    n=max(1,N(r,k,6,30)); kk=r.randint(0,4) if k==0 else r.randint(0,100)
+    return "%d %d %d %d\n"%(n,r.randint(1,n),r.randint(1,n),kk)
+#A
+def sol(s):
+    n,r0,c0,K=map(int,s.split()); mv=[(1,2),(2,1),(-1,2),(-2,1),(1,-2),(2,-1),(-1,-2),(-2,-1)]
+    f=[[1]*n for _ in range(n)]
+    for _ in range(K):
+        g=[[0]*n for _ in range(n)]
+        for i in range(n):
+            for j in range(n):
+                t=0
+                for di,dj in mv:
+                    x,y=i+di,j+dj
+                    if 0<=x<n and 0<=y<n: t+=f[x][y]
+                g[i][j]=t%M
+        f=g
+    return f[r0-1][c0-1]
+#B
+def brute(s):
+    n,r0,c0,K=map(int,s.split()); mv=[(1,2),(2,1),(-1,2),(-2,1),(1,-2),(2,-1),(-1,-2),(-2,-1)]
+    def go(i,j,k):
+        if k==0: return 1
+        t=0
+        for di,dj in mv:
+            x,y=i+di,j+dj
+            if 0<=x<n and 0<=y<n: t+=go(x,y,k-1)
+        return t
+    return go(r0-1,c0-1,K)%M
+#### Король на доске
+#S
+Король стоит в левом верхнем углу доски (n+1)×(m+1) и должен попасть в правый нижний. За ход он идёт на клетку вправо, вниз или по диагонали вправо-вниз. Сколько существует маршрутов?
+
+**Ввод.** Два числа n и m (1 ≤ n, m ≤ 1000).
+
+**Вывод.** Число маршрутов по модулю 10^9 + 7.
+#E
+2 2
+#G
+def gen(r,k):
+    return "%d %d\n"%(N(r,k,5,1000),N(r,k,5,1000))
+#A
+def sol(s):
+    n,m=map(int,s.split()); prev=[1]*(m+1)
+    for i in range(1,n+1):
+        cur=[1]+[0]*m
+        for j in range(1,m+1): cur[j]=(prev[j]+cur[j-1]+prev[j-1])%M
+        prev=cur
+    return prev[m]
+#B
+def brute(s):
+    n,m=map(int,s.split())
+    def go(i,j):
+        if i==n and j==m: return 1
+        t=0
+        if i<n: t+=go(i+1,j)
+        if j<m: t+=go(i,j+1)
+        if i<n and j<m: t+=go(i+1,j+1)
+        return t
+    return go(0,0)%M
+#### Покраска домов
+#S
+Улицу из n домов красят в один из трёх цветов. Покраска дома i в цвет j стоит c_ij. Соседние дома должны быть разных цветов. Какова наименьшая суммарная стоимость?
+
+**Ввод.** В первой строке n (1 ≤ n ≤ 10^5), далее n строк по три числа c_i1, c_i2, c_i3 (1 ≤ c_ij ≤ 1000).
+
+**Вывод.** Наименьшая стоимость.
+#E
+3
+17 2 17
+16 16 5
+14 3 19
+#G
+def gen(r,k):
+    n=N(r,k,8,10**5)
+    return "%d\n%s\n"%(n,'\n'.join(' '.join(map(str,L(r,3,1,1000))) for _ in range(n)))
+#A
+def sol(s):
+    t=list(map(int,s.split())); n=t[0]; a,b,c=t[1:4]
+    for i in range(1,n):
+        x,y,z=t[1+3*i:4+3*i]
+        a,b,c=x+min(b,c),y+min(a,c),z+min(a,b)
+    return min(a,b,c)
+#B
+def brute(s):
+    from itertools import product
+    t=list(map(int,s.split())); n=t[0]; best=10**18
+    for col in product(range(3),repeat=n):
+        if any(col[i]==col[i+1] for i in range(n-1)): continue
+        best=min(best,sum(t[1+3*i+col[i]] for i in range(n)))
+    return best

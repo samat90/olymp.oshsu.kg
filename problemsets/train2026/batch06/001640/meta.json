@@ -1,0 +1,12 @@
+{
+ "code": "001640",
+ "title": "Последовательности монет",
+ "topic": "Динамическое программирование",
+ "topic_key": "DP",
+ "time_limit": 1.0,
+ "memory_mb": 256,
+ "points": 100,
+ "tests": 10,
+ "seed_rule": "seed = code*100 + k, k = 1..10 (python gen.py k)",
+ "languages_same_tl": true
+}

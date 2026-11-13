@@ -1,0 +1,350 @@
+#### Самый длинный подъём
+#S
+Дан массив из n чисел. Найдите длину самой длинной строго возрастающей подпоследовательности (элементы берутся в исходном порядке, не обязательно подряд).
+
+**Ввод.** В первой строке n (1 ≤ n ≤ 10^5), во второй n чисел a_i (1 ≤ a_i ≤ 10^9).
+
+**Вывод.** Длина.
+#E
+8
+5 2 8 6 3 6 9 7
+#G
+def gen(r,k):
+    n=N(r,k,12,10**5)
+    hi=6 if k<4 else 10**9
+    a=L(r,n,1,hi)
+    if k==10: a=sorted(a)
+    return "%d\n%s\n"%(n,' '.join(map(str,a)))
+#A
+def sol(s):
+    from bisect import bisect_left
+    t=list(map(int,s.split())); a=t[1:1+t[0]]; d=[]
+    for x in a:
+        i=bisect_left(d,x)
+        if i==len(d): d.append(x)
+        else: d[i]=x
+    return len(d)
+#B
+def brute(s):
+    t=list(map(int,s.split())); a=t[1:1+t[0]]; n=len(a); best=0
+    for m in range(1<<n):
+        v=[a[i] for i in range(n) if m>>i&1]
+        if all(v[i]<v[i+1] for i in range(len(v)-1)): best=max(best,len(v))
+    return best
+#### Сколько самых длинных подъёмов
+#S
+Дан массив из n чисел. Сколько существует строго возрастающих подпоследовательностей наибольшей длины? Подпоследовательности считаются различными, если различны наборы индексов.
+
+**Ввод.** В первой строке n (1 ≤ n ≤ 1500), во второй n чисел a_i (1 ≤ a_i ≤ 10^9).
+
+**Вывод.** Количество по модулю 10^9 + 7.
+#E
+6
+1 3 5 4 7 2
+#G
+def gen(r,k):
+    n=N(r,k,12,1500)
+    hi=5 if k<7 else 10**9
+    return "%d\n%s\n"%(n,' '.join(map(str,L(r,n,1,hi))))
+#A
+def sol(s):
+    t=list(map(int,s.split())); a=t[1:1+t[0]]; n=len(a)
+    ln=[1]*n; cn=[1]*n
+    for i in range(n):
+        ai=a[i]; bl=1; bc=1
+        for j in range(i):
+            if a[j]<ai:
+                l=ln[j]+1
+                if l>bl: bl=l; bc=cn[j]
+                elif l==bl: bc+=cn[j]
+        ln[i]=bl; cn[i]=bc%M
+    mx=max(ln)
+    return sum(cn[i] for i in range(n) if ln[i]==mx)%M
+#B
+def brute(s):
+    t=list(map(int,s.split())); a=t[1:1+t[0]]; n=len(a); best=0; cnt=0
+    for m in range(1,1<<n):
+        v=[a[i] for i in range(n) if m>>i&1]
+        if all(v[i]<v[i+1] for i in range(len(v)-1)):
+            if len(v)>best: best=len(v); cnt=1
+            elif len(v)==best: cnt+=1
+    return cnt%M
+#### Горная тропа
+#S
+Тропа в горах задана высотами a_1…a_n. Турист выбирает подпоследовательность, которая строго растёт до вершины, а затем строго убывает (любая часть может состоять из одной вершины). Найдите наибольшую длину такой подпоследовательности.
+
+**Ввод.** В первой строке n (1 ≤ n ≤ 10^5), во второй n чисел a_i (1 ≤ a_i ≤ 10^9).
+
+**Вывод.** Наибольшая длина.
+#E
+8
+1 5 2 6 7 3 4 1
+#G
+def gen(r,k):
+    n=N(r,k,12,10**5)
+    hi=6 if k<4 else 10**9
+    return "%d\n%s\n"%(n,' '.join(map(str,L(r,n,1,hi))))
+#A
+def sol(s):
+    from bisect import bisect_left
+    t=list(map(int,s.split())); a=t[1:1+t[0]]; n=len(a)
+    def lis(a):
+        d=[]; res=[]
+        for x in a:
+            i=bisect_left(d,x)
+            if i==len(d): d.append(x)
+            else: d[i]=x
+            res.append(i+1)
+        return res
+    f=lis(a); g=lis(a[::-1])[::-1]
+    return max(f[i]+g[i]-1 for i in range(n))
+#B
+def brute(s):
+    t=list(map(int,s.split())); a=t[1:1+t[0]]; n=len(a); best=0
+    for m in range(1,1<<n):
+        v=[a[i] for i in range(n) if m>>i&1]
+        ok=False
+        for p in range(len(v)):
+            if all(v[i]<v[i+1] for i in range(p)) and all(v[i]>v[i+1] for i in range(p,len(v)-1)): ok=True
+        if ok: best=max(best,len(v))
+    return best
+#### Матрёшки-конверты
+#S
+У Данияра n конвертов размером w_i × h_i. Один конверт можно вложить в другой, если и ширина, и высота первого строго меньше. Поворачивать конверты нельзя. Какова наибольшая длина цепочки вложенных конвертов?
+
+**Ввод.** В первой строке n (1 ≤ n ≤ 10^5), далее n строк по два числа w_i и h_i (1 ≤ w_i, h_i ≤ 10^9).
+
+**Вывод.** Наибольшая длина цепочки.
+#E
+5
+5 4
+6 4
+6 7
+2 3
+7 8
+#G
+def gen(r,k):
+    n=N(r,k,10,10**5)
+    hi=6 if k<4 else 10**9
+    return "%d\n%s\n"%(n,'\n'.join("%d %d"%(r.randint(1,hi),r.randint(1,hi)) for _ in range(n)))
+#A
+def sol(s):
+    from bisect import bisect_left
+    t=list(map(int,s.split())); n=t[0]
+    p=sorted((t[1+2*i],-t[2+2*i]) for i in range(n)); d=[]
+    for w,h in p:
+        h=-h; i=bisect_left(d,h)
+        if i==len(d): d.append(h)
+        else: d[i]=h
+    return len(d)
+#B
+def brute(s):
+    t=list(map(int,s.split())); n=t[0]; e=[(t[1+2*i],t[2+2*i]) for i in range(n)]; best=0
+    for m in range(1<<n):
+        v=sorted(e[i] for i in range(n) if m>>i&1)
+        if all(v[i][0]<v[i+1][0] and v[i][1]<v[i+1][1] for i in range(len(v)-1)): best=max(best,len(v))
+    return best
+#### Общая подпоследовательность
+#S
+Даны две строки. Найдите длину их наибольшей общей подпоследовательности.
+
+**Ввод.** Две строки по одной в строке, длиной от 1 до 2000, из строчных латинских букв.
+
+**Вывод.** Длина.
+#E
+abcbdab
+bdcaba
+#G
+def gen(r,k):
+    n=N(r,k,10,2000); m=N(r,k,10,2000)
+    al='ab' if k<5 else 'abcdefghij'
+    return S(r,n,al)+"\n"+S(r,m,al)+"\n"
+#A
+def sol(s):
+    a,b=s.split()[:2]; prev=[0]*(len(b)+1)
+    for x in a:
+        cur=[0]
+        for j,y in enumerate(b):
+            cur.append(prev[j]+1 if x==y else max(prev[j+1],cur[j]))
+        prev=cur
+    return prev[-1]
+#B
+def brute(s):
+    a,b=s.split()[:2]; best=0; n=len(a)
+    def sub(v,w):
+        it=iter(w); return all(c in it for c in v)
+    for m in range(1<<n):
+        v=''.join(a[i] for i in range(n) if m>>i&1)
+        if len(v)>best and sub(v,b): best=len(v)
+    return best
+#### Общая подпоследовательность по алфавиту
+#S
+Даны две строки. Среди всех их наибольших общих подпоследовательностей выберите лексикографически наименьшую.
+
+**Ввод.** Две строки по одной в строке, длиной от 1 до 1000, из строчных латинских букв.
+
+**Вывод.** В первой строке длина ответа, во второй сама подпоследовательность (если длина 0 — пустая строка).
+#E
+abcab
+cabbac
+#G
+def gen(r,k):
+    n=N(r,k,9,1000); m=N(r,k,9,1000)
+    al='abc' if k<5 else 'abcdefg'
+    if k==0: al=r.choice(['ab','abc','abcd'])
+    return S(r,n,al)+"\n"+S(r,m,al)+"\n"
+#A
+def sol(s):
+    a,b=s.split()[:2]; n,m=len(a),len(b)
+    F=[[0]*(m+2) for _ in range(n+2)]
+    for i in range(n-1,-1,-1):
+        for j in range(m-1,-1,-1):
+            F[i][j]=F[i+1][j+1]+1 if a[i]==b[j] else max(F[i+1][j],F[i][j+1])
+    al=sorted(set(a)&set(b))
+    nxa=[{} for _ in range(n+1)]; nxb=[{} for _ in range(m+1)]
+    cur={}
+    for i in range(n-1,-1,-1):
+        cur=dict(cur); cur[a[i]]=i; nxa[i]=cur
+    cur={}
+    for j in range(m-1,-1,-1):
+        cur=dict(cur); cur[b[j]]=j; nxb[j]=cur
+    i=j=0; out=[]; need=F[0][0]
+    while need>0:
+        for c in al:
+            if c in nxa[i] and c in nxb[j]:
+                p=nxa[i][c]; q=nxb[j][c]
+                if F[p+1][q+1]==need-1:
+                    out.append(c); i=p+1; j=q+1; need-=1; break
+    return "%d\n%s"%(len(out),''.join(out))
+#B
+def brute(s):
+    a,b=s.split()[:2]; n=len(a); best=''
+    def sub(v,w):
+        it=iter(w); return all(c in it for c in v)
+    for m in range(1<<n):
+        v=''.join(a[i] for i in range(n) if m>>i&1)
+        if sub(v,b) and (len(v)>len(best) or (len(v)==len(best) and v<best)): best=v
+    return "%d\n%s"%(len(best),best)
+#### Расстояние между словами
+#S
+За одну операцию над словом можно вставить букву, удалить букву или заменить букву. Какое наименьшее число операций превращает слово s в слово t?
+
+**Ввод.** Два слова по одному в строке, длиной от 1 до 1000, из строчных латинских букв.
+
+**Вывод.** Наименьшее число операций.
+#E
+kitten
+sitting
+#G
+def gen(r,k):
+    n=N(r,k,5,1000); m=N(r,k,5,1000)
+    al='ab' if k<5 else 'abcdefghijklmnop'
+    return S(r,n,al)+"\n"+S(r,m,al)+"\n"
+#A
+def sol(s):
+    a,b=s.split()[:2]; prev=list(range(len(b)+1))
+    for i,x in enumerate(a,1):
+        cur=[i]
+        for j,y in enumerate(b,1):
+            cur.append(min(prev[j]+1,cur[j-1]+1,prev[j-1]+(x!=y)))
+        prev=cur
+    return prev[-1]
+#B
+def brute(s):
+    a,b=s.split()[:2]
+    def f(i,j):
+        if i==len(a): return len(b)-j
+        if j==len(b): return len(a)-i
+        r=min(f(i+1,j)+1,f(i,j+1)+1,f(i+1,j+1)+(a[i]!=b[j]))
+        return r
+    return f(0,0)
+#### Стоимость превращения слов
+#S
+Слово s нужно превратить в слово t. Вставка буквы стоит p, удаление — q, замена одной буквы на другую — r сомов. Какова наименьшая стоимость?
+
+**Ввод.** В первой строке p, q, r (1 ≤ p, q, r ≤ 100). Во второй и третьей строках слова s и t длиной от 1 до 1000 из строчных латинских букв.
+
+**Вывод.** Наименьшая стоимость.
+#E
+2 3 4
+abc
+bcd
+#G
+def gen(r,k):
+    n=N(r,k,5,1000); m=N(r,k,5,1000)
+    al='ab' if k<5 else 'abcdefghijklmnop'
+    return "%d %d %d\n%s\n%s\n"%(r.randint(1,100),r.randint(1,100),r.randint(1,100),S(r,n,al),S(r,m,al))
+#A
+def sol(s):
+    t=s.split(); p,q,rr=map(int,t[:3]); a,b=t[3],t[4]
+    prev=[j*p for j in range(len(b)+1)]
+    for i,x in enumerate(a,1):
+        cur=[i*q]
+        for j,y in enumerate(b,1):
+            cur.append(min(prev[j]+q,cur[j-1]+p,prev[j-1]+(0 if x==y else rr)))
+        prev=cur
+    return prev[-1]
+#B
+def brute(s):
+    t=s.split(); p,q,rr=map(int,t[:3]); a,b=t[3],t[4]
+    def f(i,j):
+        if i==len(a): return (len(b)-j)*p
+        if j==len(b): return (len(a)-i)*q
+        return min(f(i+1,j)+q,f(i,j+1)+p,f(i+1,j+1)+(0 if a[i]==b[j] else rr))
+    return f(0,0)
+#### Палиндром из слова
+#S
+Из слова s можно вычеркнуть несколько букв так, чтобы оставшиеся (в прежнем порядке) образовали палиндром. Какова наибольшая возможная длина палиндрома?
+
+**Ввод.** Слово из строчных латинских букв длиной от 1 до 1500.
+
+**Вывод.** Наибольшая длина.
+#E
+bbbab
+#G
+def gen(r,k):
+    n=N(r,k,12,1500)
+    return S(r,n,'ab' if k<5 else 'abcdef')+"\n"
+#A
+def sol(s):
+    w=s.split()[0]; n=len(w)
+    d=[[0]*n for _ in range(n)]
+    for i in range(n-1,-1,-1):
+        d[i][i]=1
+        for j in range(i+1,n):
+            d[i][j]=d[i+1][j-1]+2 if w[i]==w[j] else max(d[i+1][j],d[i][j-1])
+    return d[0][n-1]
+#B
+def brute(s):
+    w=s.split()[0]; n=len(w); best=0
+    for m in range(1,1<<n):
+        v=''.join(w[i] for i in range(n) if m>>i&1)
+        if v==v[::-1]: best=max(best,len(v))
+    return best
+#### Длинный палиндром в слове
+#S
+Найдите длину самой длинной подстроки (подряд идущих букв) слова, которая читается одинаково слева направо и справа налево.
+
+**Ввод.** Слово из строчных латинских букв длиной от 1 до 2000.
+
+**Вывод.** Длина.
+#E
+babad
+#G
+def gen(r,k):
+    n=N(r,k,14,2000)
+    return S(r,n,'ab' if k<6 else 'abc')+"\n"
+#A
+def sol(s):
+    w=s.split()[0]; n=len(w); best=1
+    pal=[[False]*n for _ in range(n)]
+    for i in range(n-1,-1,-1):
+        for j in range(i,n):
+            if w[i]==w[j] and (j-i<2 or pal[i+1][j-1]):
+                pal[i][j]=True
+                if j-i+1>best: best=j-i+1
+    return best
+#B
+def brute(s):
+    w=s.split()[0]; n=len(w)
+    return max(j-i for i in range(n) for j in range(i+1,n+1) if w[i:j]==w[i:j][::-1])
