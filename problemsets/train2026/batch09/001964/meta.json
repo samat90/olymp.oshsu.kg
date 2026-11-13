@@ -1,0 +1,10 @@
+{
+ "code": "001964",
+ "name": "Шапки на вешалке",
+ "topic": "Комбинаторика",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 196400,
+ "format": "stdin/stdout"
+}

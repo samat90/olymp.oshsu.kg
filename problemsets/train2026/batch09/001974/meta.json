@@ -1,0 +1,10 @@
+{
+ "code": "001974",
+ "name": "Сумма на кубиках",
+ "topic": "Вероятности",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 197400,
+ "format": "stdin/stdout"
+}

@@ -1,0 +1,10 @@
+{
+ "code": "002018",
+ "name": "Сумма подряд идущих",
+ "topic": "Теория чисел",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 201800,
+ "format": "stdin/stdout"
+}

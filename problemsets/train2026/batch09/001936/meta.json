@@ -1,0 +1,10 @@
+{
+ "code": "001936",
+ "name": "НОК чисел от 1 до n",
+ "topic": "Теория чисел",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 193600,
+ "format": "stdin/stdout"
+}

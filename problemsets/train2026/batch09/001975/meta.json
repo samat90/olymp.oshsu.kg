@@ -1,0 +1,10 @@
+{
+ "code": "001975",
+ "name": "Одинаковые дни рождения",
+ "topic": "Вероятности",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 197500,
+ "format": "stdin/stdout"
+}

@@ -1,0 +1,10 @@
+{
+ "code": "002028",
+ "name": "Пары с заданным НОК",
+ "topic": "Теория чисел",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 202800,
+ "format": "stdin/stdout"
+}

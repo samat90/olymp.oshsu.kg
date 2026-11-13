@@ -1,0 +1,10 @@
+{
+ "code": "002026",
+ "name": "Числа вида 2^a 3^b 5^c",
+ "topic": "Математика",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 202600,
+ "format": "stdin/stdout"
+}

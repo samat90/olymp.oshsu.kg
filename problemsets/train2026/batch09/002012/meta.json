@@ -1,0 +1,10 @@
+{
+ "code": "002012",
+ "name": "Цифра ровно c раз",
+ "topic": "Математика",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 201200,
+ "format": "stdin/stdout"
+}

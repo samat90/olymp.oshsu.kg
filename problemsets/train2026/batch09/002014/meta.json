@@ -1,0 +1,10 @@
+{
+ "code": "002014",
+ "name": "Сколько палиндромов до n",
+ "topic": "Математика",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 201400,
+ "format": "stdin/stdout"
+}

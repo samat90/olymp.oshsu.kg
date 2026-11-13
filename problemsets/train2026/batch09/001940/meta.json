@@ -1,0 +1,10 @@
+{
+ "code": "001940",
+ "name": "Линейное уравнение в целых неотрицательных",
+ "topic": "Теория чисел",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 194000,
+ "format": "stdin/stdout"
+}

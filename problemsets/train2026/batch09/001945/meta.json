@@ -1,0 +1,10 @@
+{
+ "code": "001945",
+ "name": "Корни из единицы",
+ "topic": "Модульная арифметика",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 194500,
+ "format": "stdin/stdout"
+}

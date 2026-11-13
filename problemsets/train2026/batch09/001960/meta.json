@@ -1,0 +1,10 @@
+{
+ "code": "001960",
+ "name": "Правильные скобки с началом",
+ "topic": "Комбинаторика",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 196000,
+ "format": "stdin/stdout"
+}

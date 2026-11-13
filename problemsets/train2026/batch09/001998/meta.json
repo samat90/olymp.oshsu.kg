@@ -1,0 +1,10 @@
+{
+ "code": "001998",
+ "name": "К-е число с m единицами",
+ "topic": "Битовые операции",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 199800,
+ "format": "stdin/stdout"
+}

@@ -1,0 +1,10 @@
+{
+ "code": "002013",
+ "name": "К-й палиндром",
+ "topic": "Математика",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 201300,
+ "format": "stdin/stdout"
+}

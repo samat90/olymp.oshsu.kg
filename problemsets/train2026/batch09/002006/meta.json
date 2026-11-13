@@ -1,0 +1,10 @@
+{
+ "code": "002006",
+ "name": "Минимальная сумма двух XOR",
+ "topic": "Битовые операции",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 200600,
+ "format": "stdin/stdout"
+}

@@ -1,0 +1,10 @@
+{
+ "code": "001957",
+ "name": "Период десятичной дроби",
+ "topic": "Теория чисел",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 195700,
+ "format": "stdin/stdout"
+}

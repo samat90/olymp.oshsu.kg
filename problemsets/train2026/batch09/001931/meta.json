@@ -1,0 +1,10 @@
+{
+ "code": "001931",
+ "name": "Наименьшее число с k делителями",
+ "topic": "Теория чисел",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 193100,
+ "format": "stdin/stdout"
+}

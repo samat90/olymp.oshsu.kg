@@ -1,0 +1,10 @@
+{
+ "code": "002022",
+ "name": "Сумма двух простых",
+ "topic": "Простые числа",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 202200,
+ "format": "stdin/stdout"
+}

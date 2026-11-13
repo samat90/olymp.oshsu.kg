@@ -1,0 +1,10 @@
+{
+ "code": "001961",
+ "name": "Разбиения числа",
+ "topic": "Комбинаторика",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 196100,
+ "format": "stdin/stdout"
+}

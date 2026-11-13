@@ -1,0 +1,10 @@
+{
+ "code": "001929",
+ "name": "Сумма делителей",
+ "topic": "Теория чисел",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 192900,
+ "format": "stdin/stdout"
+}

@@ -1,0 +1,10 @@
+{
+ "code": "002017",
+ "name": "Сумма двух квадратов",
+ "topic": "Теория чисел",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 201700,
+ "format": "stdin/stdout"
+}

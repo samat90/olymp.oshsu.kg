@@ -1,0 +1,10 @@
+{
+ "code": "001944",
+ "name": "Башня степеней",
+ "topic": "Модульная арифметика",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 194400,
+ "format": "stdin/stdout"
+}

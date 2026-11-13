@@ -1,0 +1,10 @@
+{
+ "code": "002000",
+ "name": "Пары (x, x XOR k) в пределах n",
+ "topic": "Битовые операции",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 200000,
+ "format": "stdin/stdout"
+}

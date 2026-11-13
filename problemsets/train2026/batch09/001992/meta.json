@@ -1,0 +1,10 @@
+{
+ "code": "001992",
+ "name": "Сумма OR по парам",
+ "topic": "Битовые операции",
+ "time_limit": 1,
+ "points": 100,
+ "tests": 10,
+ "seed_base": 199200,
+ "format": "stdin/stdout"
+}
