@@ -3,6 +3,7 @@
 {% block tab_title %}{% endblock %}
 
 {% block tabs %}
-    {{ make_tab('list', 'fa-users', url('user_list'), _('Leaderboard')) }}
-    {{ make_tab('organizations', 'fa-university', url('organization_list'), _('Organizations')) }}
+    {% if perms.judge.change_profile %}
+        {{ make_tab('admin', 'fa-edit', url('admin:judge_profile_changelist'), _('Admin')) }}
+    {% endif %}
 {% endblock %}

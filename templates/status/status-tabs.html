@@ -3,7 +3,7 @@
 {% block tab_title %}{% endblock %}
 
 {% block tabs %}
-    {{ make_tab('judges', 'fa-server', url('status_all'), _('Judges')) }}
-    {{ make_tab('runtimes', 'fa-code', url('runtime_list'), _('Runtimes')) }}
-    {{ make_tab('matrix', 'fa-table', url('version_matrix'), _('Versions')) }}
+    {% if perms.judge.change_judge %}
+        {{ make_tab('admin', 'fa-edit', url('admin:judge_judge_changelist'), _('Admin')) }}
+    {% endif %}
 {% endblock %}
