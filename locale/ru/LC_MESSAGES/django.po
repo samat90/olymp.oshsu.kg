@@ -7561,3 +7561,6 @@ msgstr "Навыки"
 
 msgid "Search contests..."
 msgstr "Поиск соревнований..."
+
+msgid "No organizations yet"
+msgstr "Организаций пока нет"

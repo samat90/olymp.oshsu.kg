@@ -16,6 +16,7 @@
 {% endblock %}
 
 {% block body %}
+    {% if not organizations %}<p class="empty-note">{{ _('No organizations yet') }}</p>{% else %}
     <table id="organization-table" class="table striped">
         <thead>
         <tr>
@@ -32,4 +33,5 @@
         {% endfor %}
         </tbody>
     </table>
+    {% endif %}
 {% endblock %}

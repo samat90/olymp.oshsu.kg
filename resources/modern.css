@@ -259,3 +259,8 @@ footer { box-sizing: border-box; max-width: 100%; }
     color: var(--ui-text);
 }
 #comments h3 { font-weight: 700; font-size: 1.1em; }
+
+.empty-note { color: var(--ui-muted); padding: 12px 4px; }
+@media (max-width: 520px) {
+    table.contest-list { display: block; max-width: 100%; overflow-x: auto; }
+}

@@ -253,10 +253,7 @@ class TicketList(LoginRequiredMixin, ListView):
         context = super(TicketList, self).get_context_data(**kwargs)
 
         page = context['page_obj']
-        context['title'] = _('Tickets - Page %(number)d of %(total)d') % {
-            'number': page.number,
-            'total': page.paginator.num_pages,
-        }
+        context['title'] = _('Tickets')
         context['can_edit_all'] = self.can_edit_all
         context['filter_status'] = {
             'open': self.GET_with_session('open'),

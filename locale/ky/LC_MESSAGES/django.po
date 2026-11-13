@@ -3898,3 +3898,6 @@ msgstr "Көндүмдөр"
 
 msgid "Search contests..."
 msgstr "Мелдештерди издөө..."
+
+msgid "No organizations yet"
+msgstr "Уюмдар азырынча жок"
