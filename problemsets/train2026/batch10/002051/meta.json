@@ -1,0 +1,10 @@
+{
+ "code": "002051",
+ "name": "Набор ходов",
+ "topic": "Теория игр",
+ "time_limit": 2,
+ "memory_mb": 256,
+ "points": 100,
+ "tests": 10,
+ "group": "olympiad"
+}

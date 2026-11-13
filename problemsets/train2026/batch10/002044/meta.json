@@ -1,0 +1,10 @@
+{
+ "code": "002044",
+ "name": "Прямоугольник наименьшей площади",
+ "topic": "Геометрия",
+ "time_limit": 2,
+ "memory_mb": 256,
+ "points": 100,
+ "tests": 10,
+ "group": "olympiad"
+}

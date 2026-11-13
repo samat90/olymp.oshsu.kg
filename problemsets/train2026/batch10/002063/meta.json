@@ -1,0 +1,10 @@
+{
+ "code": "002063",
+ "name": "Фишка на поле",
+ "topic": "Теория игр",
+ "time_limit": 2,
+ "memory_mb": 256,
+ "points": 100,
+ "tests": 10,
+ "group": "olympiad"
+}

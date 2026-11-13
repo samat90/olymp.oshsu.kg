@@ -1,0 +1,10 @@
+{
+ "code": "002076",
+ "name": "Сломанная клавиатура",
+ "topic": "Структуры данных",
+ "time_limit": 1,
+ "memory_mb": 256,
+ "points": 100,
+ "tests": 10,
+ "group": "olympiad"
+}

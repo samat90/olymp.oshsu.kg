@@ -1,0 +1,10 @@
+{
+ "code": "002084",
+ "name": "Перестановка по знакам",
+ "topic": "Жадные алгоритмы",
+ "time_limit": 1,
+ "memory_mb": 256,
+ "points": 100,
+ "tests": 10,
+ "group": "olympiad"
+}

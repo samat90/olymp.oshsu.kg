@@ -1,0 +1,10 @@
+{
+ "code": "002053",
+ "name": "Ним наоборот",
+ "topic": "Теория игр",
+ "time_limit": 1,
+ "memory_mb": 256,
+ "points": 100,
+ "tests": 10,
+ "group": "olympiad"
+}
