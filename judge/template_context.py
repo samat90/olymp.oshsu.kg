@@ -95,8 +95,8 @@ def site_name(request):
 
 def _compute_static_version():
     """OshSU: cache-buster for our CSS/JS (?v=). nginx serves static with max-age=30d.
-    The newest mtime among the site's own styles and the editor files, read once per
-    process: collectstatic touches only changed files, and a restart after each deploy
+    The newest mtime among the site's own styles and the editor, quiz and typing files, read
+    once per process: collectstatic touches only changed files, and a restart after each deploy
     picks the new value up."""
     import os
     newest = 0
@@ -105,9 +105,10 @@ def _compute_static_version():
         if not root or not os.path.isdir(root):
             continue
         paths = [os.path.join(root, name) for name in ('style.css', 'modern.css', 'common.js', 'infinite-scroll.js')]
-        editor = os.path.join(root, 'editor')
-        if os.path.isdir(editor):
-            paths += [os.path.join(editor, name) for name in os.listdir(editor)]
+        for folder in ('editor', 'quiz', 'typing'):
+            folder = os.path.join(root, folder)
+            if os.path.isdir(folder):
+                paths += [os.path.join(folder, name) for name in os.listdir(folder)]
         for path in paths:
             if os.path.isfile(path):
                 newest = max(newest, int(os.path.getmtime(path)))
