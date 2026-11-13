@@ -1,0 +1,23 @@
+aiyl_unions	Союзы айылов
+alaarcha_trail	Тропа в Ала-Арче
+best_stretch	Лучшая неделя чайханы
+climb_lis	Подъёмы Тянь-Шаня
+count_lower	Дешёвые лошади
+covered_length	Пастбища Сон-Куля
+factorial_zeros	Нули в числе мешков
+field_area	Площадь поля у Чолпон-Аты
+issyk_islands	Острова Иссык-Куля
+kg_roads	Дороги Кыргызстана
+kth_milk	Надои на ферме
+name_fix	Исправление имён в списке
+ornament_brackets	Скобки в орнаменте
+pairs_sum	Подарки к Нооруз
+popular_word	Любимое слово манасчи
+seating_binom	Почётный стол на тое
+short_stretch	Кратчайший перегон каравана
+som_coins	Сомы для базара
+stone_game	Игра в камни у костра
+sum_k_stretches	Дни с нужной выручкой
+toast_palindrome	Тост-перевёртыш
+unique_pattern	Узор на кошме
+yak_knapsack	Рюкзак торговца яками

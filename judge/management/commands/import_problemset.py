@@ -104,7 +104,9 @@ class Command(BaseCommand):
 
         numeric = getattr(settings, 'DMOJ_NUMERIC_PROBLEM_CODES', False)
         with transaction.atomic():
-            group, _ = ProblemGroup.objects.get_or_create(name=GROUP_NAME, defaults={'full_name': GROUP_FULL_NAME})
+            group_name = manifest.get('group', GROUP_NAME)
+            group, _ = ProblemGroup.objects.get_or_create(
+                name=group_name, defaults={'full_name': GROUP_FULL_NAME if group_name == GROUP_NAME else group_name})
             problem = Problem(
                 code=('imp' + uuid.uuid4().hex[:12]) if numeric else ('kg' + folder)[:20],
                 name=manifest['name'],

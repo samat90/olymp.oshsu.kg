@@ -77,13 +77,13 @@ if [ "$new" = "$current" ]; then
     # Files of the judge machine (executors, its systemd units) that waited for a quiet moment.
     bash "$APP/scripts/server/sync_judge.sh" 2>&1 | grep -v "no SSH access" || true
     pending=0
-    for set in ${OLYMP_PROBLEMSETS:-olymp2026}; do
+    for set in ${OLYMP_PROBLEMSETS:-olymp2026 train2026}; do
         [ -d "$APP/problemsets/$set" ] && [ ! -f "/home/admin/problemsets/$set.done" ] && pending=1
     done
     if [ "$pending" = 1 ]; then
         busy=$(running_olympiads 2>/dev/null)
         if [ -z "$busy" ]; then
-            bash "$APP/scripts/server/import_problemsets.sh" ${OLYMP_PROBLEMSETS:-olymp2026}
+            bash "$APP/scripts/server/import_problemsets.sh" ${OLYMP_PROBLEMSETS:-olymp2026 train2026}
         fi
     fi
     exit 0

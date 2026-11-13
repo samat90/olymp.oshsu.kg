@@ -41,10 +41,19 @@ for set in "$@"; do
 import json, os
 from judge.models import Problem
 src = '$src'
-for d in sorted(os.listdir(src)):
-    p = os.path.join(src, d, 'problem.json')
-    if os.path.exists(p) and not Problem.objects.filter(name=json.load(open(p, encoding='utf-8'))['name']).exists():
-        print(d)" 2>/dev/null | tr '\n' ' ')
+names = os.path.join(src, 'names.txt')
+if os.path.exists(names):  # pure-Python sets: one 'folder<TAB>name' line per problem
+    items = [l.rstrip('\n').split('\t') for l in open(names, encoding='utf-8') if l.strip()]
+else:
+    items = []
+    for d in sorted(os.listdir(src)):
+        p = os.path.join(src, d, 'problem.json')
+        if os.path.exists(p):
+            items.append((d, json.load(open(p, encoding='utf-8'))['name']))
+have = set(Problem.objects.values_list('name', flat=True))
+for d, name in items:
+    if name not in have:
+        print(d)" 2>/dev/null | tr "\n" ' ')
     if [ -z "${missing// /}" ]; then
         log "$set: every problem is on the site"
         touch "$WORK/$set.done"
