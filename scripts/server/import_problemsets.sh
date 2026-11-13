@@ -18,6 +18,7 @@ SSH=${OLYMP_JUDGE_SSH:-ssh -o BatchMode=yes -o ConnectTimeout=10 -o StrictHostKe
 WORK=${OLYMP_PROBLEMSET_WORK:-/home/admin/problemsets}
 JWORK=${OLYMP_PROBLEMSET_JUDGE_WORK:-/home/admin/problemsets-build}
 AUTHOR=${OLYMP_PROBLEMSET_AUTHOR:-samat1}
+MIN_FREE_GB=${OLYMP_PROBLEMSET_MIN_FREE_GB:-6}  # stop adding problems below this much free space (the daily backup and deploy backups need room)
 BUDGET=${OLYMP_PROBLEMSET_BUDGET:-1200}  # seconds per run
 BUILD_TIMEOUT=${OLYMP_PROBLEMSET_BUILD_TIMEOUT:-1500}  # seconds for the tests of one problem
 # Memory for one build (the judge has 4 GB; a runaway generator once made the kernel kill processes there).
@@ -73,6 +74,12 @@ for d, name in items:
     for d in $missing; do
         if [ $(( $(date +%s) - START )) -gt "$BUDGET" ]; then log "$set: time is up, the rest will be added by the next run"; break; fi
         if [ -f "$WORK/$set.$d.failed" ]; then continue; fi
+        # Tests of one problem take up to 50 MB; stop early and harmlessly when the disks are filling up.
+        webfree=$(free_gb "$APP"); jfree=$($SSH "$JUDGE" "df -Pk '$JWORK' | awk 'NR == 2 { print int(\$4 / 1048576) }'")
+        if [ "${webfree:-0}" -lt "$MIN_FREE_GB" ] || [ "${jfree:-0}" -lt "$MIN_FREE_GB" ]; then
+            log "$set: less than $MIN_FREE_GB GB free (web ${webfree:-?} GB, judge ${jfree:-?} GB), adding stopped; free some space, the next run continues"
+            status=1; break 2
+        fi
         log "$set/$d: generating the tests on the judge"
         # A build that hangs must not hold the auto-deploy forever: it is stopped after BUILD_TIMEOUT and the
         # problem is marked as failed (delete $WORK/$set.$d.failed to try it again).
