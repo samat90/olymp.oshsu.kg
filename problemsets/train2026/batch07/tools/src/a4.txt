@@ -1,0 +1,465 @@
+=== 31 | Лишняя дорога | Графы | 1
+--- statement
+Сёла $1..n$ были соединены сетью из $n-1$ дорог так, что из любого села можно добраться в любое. Затем построили ещё одну дорогу, и дорог стало $n$. Одну из дорог теперь можно закрыть, чтобы снова осталась сеть без циклов, связывающая все села. Выведите ту из подходящих дорог, которая стоит в списке последней.
+
+**Ввод.** В первой строке $n$ ($3 \le n \le 10^5$). Далее $n$ строк с парами $a\ b$ — дорогами (все дороги различны).
+
+**Вывод.** Пара $a\ b$ в том виде, как она записана во входных данных.
+--- sample
+4
+1 2
+2 3
+3 1
+3 4
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=3)
+    t = tree(r, n, k); S = {(min(a, b), max(a, b)) for a, b in t}
+    while True:
+        a, b = r.randint(1, n), r.randint(1, n)
+        if a != b and (min(a, b), max(a, b)) not in S:
+            break
+    t.insert(r.randint(0, len(t)), (a, b))
+    return '%d\n' % n + el(t)
+
+def sol(s):
+    v = ints(s); n = v[0]; d = DSU(n)
+    for i in range(n):
+        a, b = v[1 + 2 * i], v[2 + 2 * i]
+        if not d.u(a, b):
+            return '%d %d' % (a, b)
+
+def brute(s):
+    v = ints(s); n = v[0]; es = [(v[1 + 2 * i], v[2 + 2 * i]) for i in range(n)]
+    for i in range(n - 1, -1, -1):
+        rest = es[:i] + es[i + 1:]
+        if len(set(comps_bf(n, rest)[1:])) == 1:
+            return '%d %d' % es[i]
+
+=== 32 | Сетевые кабели | Графы | 1
+--- statement
+В компьютерном классе $n$ компьютеров и $m$ кабелей, каждый соединяет два компьютера. За одно действие можно вытащить любой кабель и воткнуть его в другую пару компьютеров. Какое наименьшее число действий нужно, чтобы все компьютеры стали связаны (напрямую или через другие)? Если это невозможно, выведите $-1$.
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ пар $a\ b$ ($a \ne b$, пары различны).
+
+**Вывод.** Одно число.
+--- sample
+6 5
+1 2
+1 3
+2 3
+4 5
+5 4
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000)
+    m = r.randint(max(0, n - 6), 2 * n) if k % 2 else r.randint(0, n)
+    es = graph(r, n, m)
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]; d = DSU(n); c = n
+    for i in range(m):
+        if d.u(v[2 + 2 * i], v[3 + 2 * i]):
+            c -= 1
+    return str(c - 1 if m >= n - 1 else -1)
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]
+    lab = comps_bf(n, [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)])
+    c = len(set(lab[1:]))
+    return str(c - 1 if m >= n - 1 else -1)
+
+=== 33 | Равенства и неравенства | Графы | 1
+--- statement
+Даны $n$ переменных и $q$ условий вида `a = b` или `a != b`. Можно ли присвоить переменным числа так, чтобы все условия выполнились?
+
+**Ввод.** В первой строке $n$ и $q$ ($1 \le n \le 10^5$, $1 \le q \le 2\cdot 10^5$). Далее $q$ строк: `a = b` или `a != b` ($1 \le a, b \le n$).
+
+**Вывод.** `YES` или `NO`.
+--- sample
+4 4
+1 = 2
+2 = 3
+3 != 4
+1 != 3
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000); q = r.randint(1, 2 * n)
+    cls = r.randint(1, max(1, n // 3)); lab = [r.randint(1, cls) for _ in range(n + 1)]
+    out = []
+    for _ in range(q):
+        a, b = r.randint(1, n), r.randint(1, n)
+        for _ in range(5):
+            if r.random() < .5:
+                b = r.randint(1, n)
+            if (lab[a] == lab[b]) == (r.random() < .5):
+                break
+        out.append('%d %s %d' % (a, '=' if lab[a] == lab[b] else '!=', b))
+    if n >= 3 and (k % 3 == 0 if k else r.random() < .5):
+        x, y, z = r.sample(range(1, n + 1), 3)
+        for c in ('%d = %d' % (x, y), '%d = %d' % (y, z), '%d != %d' % (x, z)):
+            out.insert(r.randrange(len(out) + 1), c)
+    return '%d %d\n' % (n, len(out)) + '\n'.join(out)
+
+def sol(s):
+    L = s.split('\n'); n, q = map(int, L[0].split()); d = DSU(n); ne = []
+    for i in range(q):
+        a, op, b = L[1 + i].split(); a = int(a); b = int(b)
+        if op == '=':
+            d.u(a, b)
+        else:
+            ne.append((a, b))
+    return 'NO' if any(d.f(a) == d.f(b) for a, b in ne) else 'YES'
+
+def brute(s):
+    L = s.split('\n'); n, q = map(int, L[0].split()); eq = []; ne = []
+    for i in range(q):
+        a, op, b = L[1 + i].split()
+        (eq if op == '=' else ne).append((int(a), int(b)))
+    lab = comps_bf(n, eq)
+    return 'NO' if any(lab[a] == lab[b] for a, b in ne) else 'YES'
+
+=== 34 | Убрать камни | Графы | 1
+--- statement
+На клетчатой плоскости лежат $n$ камней, каждый в своей клетке. Камень можно убрать, если в той же строке или в том же столбце лежит другой ещё не убранный камень. Какое наибольшее число камней можно убрать?
+
+**Ввод.** В первой строке $n$ ($1 \le n \le 10^5$). Далее $n$ строк с парами $x\ y$ ($1 \le x, y \le 10^9$) — различными клетками.
+
+**Вывод.** Одно число.
+--- sample
+5
+1 1
+1 3
+3 1
+3 3
+5 7
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1)
+    C = max(2, int(n ** .5 * r.choice([1, 1.5, 3]))); C = min(C, 10**9)
+    n = min(n, C * C); P = set()
+    while len(P) < n:
+        P.add((r.randint(1, C), r.randint(1, C)))
+    P = list(P); r.shuffle(P)
+    sc = r.choice([1, 1000, 10**7]) if k else 1
+    return '%d\n' % n + el([(x * sc, y * sc) for x, y in P])
+
+def sol(s):
+    v = ints(s); n = v[0]; d = DSU(2 * n); R = {}; C = {}; c = n
+    for i in range(n):
+        x, y = v[1 + 2 * i], v[2 + 2 * i]
+        for mp, key in ((R, x), (C, y)):
+            if key in mp:
+                if d.u(mp[key], i + 1):
+                    c -= 1
+            else:
+                mp[key] = i + 1
+    return str(n - c)
+
+def brute(s):
+    v = ints(s); n = v[0]; P = [(v[1 + 2 * i], v[2 + 2 * i]) for i in range(n)]
+    @__import__('functools').lru_cache(None)
+    def f(mask):
+        best = 0
+        for i in range(n):
+            if mask >> i & 1 and any(j != i and mask >> j & 1 and (P[j][0] == P[i][0] or P[j][1] == P[i][1]) for j in range(n)):
+                best = max(best, 1 + f(mask & ~(1 << i)))
+        return best
+    return str(f((1 << n) - 1))
+
+=== 35 | Самый длинный маршрут | Графы | 1
+--- statement
+Сеть дорог между $n$ сёлами — дерево (между любыми двумя сёлами ровно один путь без повторов). Найдите наибольшее расстояние между двумя сёлами, измеряя в дорогах.
+
+**Ввод.** В первой строке $n$ ($1 \le n \le 10^5$). Далее $n-1$ строка с парами $a\ b$.
+
+**Вывод.** Одно число.
+--- sample
+6
+1 2
+2 3
+3 4
+2 5
+5 6
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1)
+    return '%d\n' % n + el(tree(r, n, k))
+
+def bfs(g, s, n):
+    d = [-1] * (n + 1); d[s] = 0; q = deque([s])
+    while q:
+        x = q.popleft()
+        for y in g[x]:
+            if d[y] < 0:
+                d[y] = d[x] + 1; q.append(y)
+    return d
+
+def sol(s):
+    v = ints(s); n = v[0]
+    g = adj(n, [(v[1 + 2 * i], v[2 + 2 * i]) for i in range(n - 1)])
+    d = bfs(g, 1, n); a = d.index(max(d)); d = bfs(g, a, n)
+    return str(max(d))
+
+def brute(s):
+    v = ints(s); n = v[0]
+    g = adj(n, [(v[1 + 2 * i], v[2 + 2 * i]) for i in range(n - 1)])
+    return str(max(max(bfs(g, i, n)) for i in range(1, n + 1)))
+
+=== 36 | Центр сети | Графы | 1
+--- statement
+Сеть из $n$ узлов — дерево. Выберем один узел главным. Для него «глубина» — наибольшее расстояние до остальных узлов. Выведите все узлы, при выборе которых глубина минимальна (их один или два), по возрастанию.
+
+**Ввод.** В первой строке $n$ ($1 \le n \le 10^5$). Далее $n-1$ строка с парами $a\ b$.
+
+**Вывод.** Один или два номера через пробел.
+--- sample
+6
+1 2
+2 3
+3 4
+4 5
+2 6
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1)
+    return '%d\n' % n + el(tree(r, n, k))
+
+def sol(s):
+    v = ints(s); n = v[0]
+    g = adj(n, [(v[1 + 2 * i], v[2 + 2 * i]) for i in range(n - 1)])
+    deg = [len(x) for x in g]; left = n; leaves = [i for i in range(1, n + 1) if deg[i] <= 1]
+    while left > 2:
+        left -= len(leaves); nl = []
+        for x in leaves:
+            for y in g[x]:
+                deg[y] -= 1
+                if deg[y] == 1:
+                    nl.append(y)
+        leaves = nl
+    return ' '.join(map(str, sorted(leaves)))
+
+def brute(s):
+    v = ints(s); n = v[0]
+    g = adj(n, [(v[1 + 2 * i], v[2 + 2 * i]) for i in range(n - 1)])
+    ecc = []
+    for i in range(1, n + 1):
+        d = [-1] * (n + 1); d[i] = 0; q = deque([i])
+        while q:
+            x = q.popleft()
+            for y in g[x]:
+                if d[y] < 0:
+                    d[y] = d[x] + 1; q.append(y)
+        ecc.append(max(d))
+    m = min(ecc)
+    return ' '.join(str(i + 1) for i in range(n) if ecc[i] == m)
+
+=== 37 | Сумма расстояний | Графы | 2
+--- statement
+Сеть из $n$ узлов — дерево. Для каждого узла $i$ найдите сумму расстояний от него до всех остальных узлов.
+
+**Ввод.** В первой строке $n$ ($1 \le n \le 10^5$). Далее $n-1$ строка с парами $a\ b$.
+
+**Вывод.** $n$ чисел через пробел.
+--- sample
+5
+1 2
+1 3
+3 4
+3 5
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1)
+    return '%d\n' % n + el(tree(r, n, k))
+
+def sol(s):
+    v = ints(s); n = v[0]
+    g = adj(n, [(v[1 + 2 * i], v[2 + 2 * i]) for i in range(n - 1)])
+    par = [0] * (n + 1); order = []; st = [1]; par[1] = -1
+    while st:
+        x = st.pop(); order.append(x)
+        for y in g[x]:
+            if y != par[x]:
+                par[y] = x; st.append(y)
+    sub = [1] * (n + 1); down = [0] * (n + 1)
+    for x in reversed(order):
+        p = par[x]
+        if p > 0:
+            sub[p] += sub[x]; down[p] += down[x] + sub[x]
+    ans = [0] * (n + 1); ans[1] = down[1]
+    for x in order[1:]:
+        ans[x] = ans[par[x]] + n - 2 * sub[x]
+    return ' '.join(map(str, ans[1:]))
+
+def brute(s):
+    v = ints(s); n = v[0]
+    g = adj(n, [(v[1 + 2 * i], v[2 + 2 * i]) for i in range(n - 1)])
+    res = []
+    for i in range(1, n + 1):
+        d = [-1] * (n + 1); d[i] = 0; q = deque([i])
+        while q:
+            x = q.popleft()
+            for y in g[x]:
+                if d[y] < 0:
+                    d[y] = d[x] + 1; q.append(y)
+        res.append(sum(d[1:]))
+    return ' '.join(map(str, res))
+
+=== 38 | Размеры ветвей | Графы | 1
+--- statement
+Сеть из $n$ узлов — дерево, корень — узел $1$. Для каждого узла найдите, сколько узлов в его ветви (сам узел и все, кто «ниже» него, если смотреть от корня).
+
+**Ввод.** В первой строке $n$ ($1 \le n \le 10^5$). Далее $n-1$ строка с парами $a\ b$.
+
+**Вывод.** $n$ чисел через пробел.
+--- sample
+5
+1 2
+1 3
+3 4
+3 5
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1)
+    return '%d\n' % n + el(tree(r, n, k))
+
+def sol(s):
+    v = ints(s); n = v[0]
+    g = adj(n, [(v[1 + 2 * i], v[2 + 2 * i]) for i in range(n - 1)])
+    par = [0] * (n + 1); order = []; st = [1]; par[1] = -1
+    while st:
+        x = st.pop(); order.append(x)
+        for y in g[x]:
+            if y != par[x]:
+                par[y] = x; st.append(y)
+    sub = [1] * (n + 1)
+    for x in reversed(order):
+        if par[x] > 0:
+            sub[par[x]] += sub[x]
+    return ' '.join(map(str, sub[1:]))
+
+def brute(s):
+    v = ints(s); n = v[0]
+    g = adj(n, [(v[1 + 2 * i], v[2 + 2 * i]) for i in range(n - 1)])
+    par = {1: 0}; q = deque([1])
+    while q:
+        x = q.popleft()
+        for y in g[x]:
+            if y not in par:
+                par[y] = x; q.append(y)
+    cnt = [0] * (n + 1)
+    for x in range(1, n + 1):
+        while x:
+            cnt[x] += 1; x = par[x]
+    return ' '.join(map(str, cnt[1:]))
+
+=== 39 | Расстояние в дереве | Графы | 2
+--- statement
+Сеть из $n$ узлов — дерево. Ответьте на $q$ запросов: сколько дорог на пути между узлами $a$ и $b$.
+
+**Ввод.** В первой строке $n$ и $q$ ($1 \le n, q \le 5\cdot 10^4$). Далее $n-1$ строка с парами $a\ b$, затем $q$ строк с парами $a\ b$.
+
+**Вывод.** $q$ чисел, по одному в строке.
+--- sample
+5 3
+1 2
+1 3
+3 4
+3 5
+2 4
+4 5
+1 1
+--- code
+def gen(r, k):
+    n = sz(r, k, 50000, lo=1); q = sz(r, k, 50000, lo=1)
+    return '%d %d\n' % (n, q) + el(tree(r, n, k)) + '\n' + el([(r.randint(1, n), r.randint(1, n)) for _ in range(q)])
+
+def sol(s):
+    v = ints(s); n, q = v[0], v[1]
+    g = adj(n, [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(n - 1)])
+    LG = max(1, n.bit_length()); up = [[0] * (n + 1) for _ in range(LG)]; dep = [0] * (n + 1)
+    st = [1]; seen = [False] * (n + 1); seen[1] = True; up[0][1] = 1
+    while st:
+        x = st.pop()
+        for y in g[x]:
+            if not seen[y]:
+                seen[y] = True; up[0][y] = x; dep[y] = dep[x] + 1; st.append(y)
+    for j in range(1, LG):
+        a, b = up[j - 1], up[j]
+        for x in range(1, n + 1):
+            b[x] = a[a[x]]
+    out = []; p = 2 + 2 * (n - 1)
+    for i in range(q):
+        a, b = v[p + 2 * i], v[p + 2 * i + 1]; x, y = a, b
+        if dep[x] < dep[y]:
+            x, y = y, x
+        df = dep[x] - dep[y]
+        for j in range(LG):
+            if df >> j & 1:
+                x = up[j][x]
+        if x != y:
+            for j in range(LG - 1, -1, -1):
+                if up[j][x] != up[j][y]:
+                    x, y = up[j][x], up[j][y]
+            x = up[0][x]
+        out.append(dep[a] + dep[b] - 2 * dep[x])
+    return '\n'.join(map(str, out))
+
+def brute(s):
+    v = ints(s); n, q = v[0], v[1]
+    g = adj(n, [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(n - 1)]); p = 2 + 2 * (n - 1); out = []
+    for i in range(q):
+        a, b = v[p + 2 * i], v[p + 2 * i + 1]
+        d = {a: 0}; qu = deque([a])
+        while qu:
+            x = qu.popleft()
+            for y in g[x]:
+                if y not in d:
+                    d[y] = d[x] + 1; qu.append(y)
+        out.append(d[b])
+    return '\n'.join(map(str, out))
+
+=== 40 | Оповещение сотрудников | Графы | 1
+--- statement
+В компании $n$ сотрудников, у каждого, кроме директора (номер $h$), есть ровно один непосредственный начальник. Директор узнаёт новость в момент $0$ и передаёт её своим подчинённым; каждый сотрудник $i$ тратит $t_i$ минут, после чего все его непосредственные подчинённые узнают новость одновременно. Через сколько минут новость узнают все?
+
+**Ввод.** В первой строке $n$ и $h$ ($1 \le n \le 10^5$). Во второй — $n$ чисел: номер начальника сотрудника $i$ (для директора $-1$). В третьей — $n$ чисел $t_i$ ($0 \le t_i \le 1000$).
+
+**Вывод.** Одно число.
+--- sample
+6 3
+3 1 -1 3 3 1
+2 5 4 0 0 0
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1)
+    e = tree(r, n, k); h = r.randint(1, n); g = adj(n, e); par = [0] * (n + 1); par[h] = -1; st = [h]
+    while st:
+        x = st.pop()
+        for y in g[x]:
+            if par[y] == 0:
+                par[y] = x; st.append(y)
+    return '%d %d\n' % (n, h) + ' '.join(map(str, par[1:])) + '\n' + ' '.join(str(r.randint(0, r.choice([3, 1000]))) for _ in range(n))
+
+def sol(s):
+    v = ints(s); n, h = v[:2]; par = v[2:2 + n]; t = v[2 + n:2 + 2 * n]
+    ch = [[] for _ in range(n + 1)]
+    for i in range(n):
+        if par[i] > 0:
+            ch[par[i]].append(i + 1)
+    best = 0; st = [(h, 0)]
+    while st:
+        x, d = st.pop(); best = max(best, d)
+        for y in ch[x]:
+            st.append((y, d + t[x - 1]))
+    return str(best)
+
+def brute(s):
+    v = ints(s); n, h = v[:2]; par = v[2:2 + n]; t = v[2 + n:2 + 2 * n]; best = 0
+    for i in range(1, n + 1):
+        x = i; tot = 0
+        while par[x - 1] > 0:
+            x = par[x - 1]; tot += t[x - 1]
+        best = max(best, tot)
+    return str(best)

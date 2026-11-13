@@ -1,0 +1,423 @@
+=== 71 | Прокладка линий связи | Графы | 2
+--- statement
+Нужно соединить $n$ сёл линиями связи так, чтобы между любыми двумя сёлами существовал маршрут. Даны $m$ возможных линий с ценой. Найдите наименьшую суммарную цену, или $-1$, если соединить все сёла нельзя.
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ строк $a\ b\ w$ ($1 \le w \le 10^6$).
+
+**Вывод.** Одно число.
+--- sample
+4 5
+1 2 3
+2 3 1
+3 4 4
+1 4 2
+1 3 5
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1); W = r.choice([4, 1000, 10**6])
+    es = [(a, b, r.randint(1, W)) for a, b in graph(r, n, r.randint(n, 2 * n), conn=k % 4 != 0, k=k)]
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]; es = sorted((v[4 + 3 * i], v[2 + 3 * i], v[3 + 3 * i]) for i in range(m)); d = DSU(n); tot = 0; c = 0
+    for w, a, b in es:
+        if d.u(a, b):
+            tot += w; c += 1
+    return str(tot if c == n - 1 else -1)
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]; es = [(v[2 + 3 * i], v[3 + 3 * i], v[4 + 3 * i]) for i in range(m)]; best = INF
+    for comb in itertools.combinations(es, n - 1):
+        d = DSU(n)
+        if all(d.u(a, b) for a, b, w in comb):
+            best = min(best, sum(w for a, b, w in comb))
+    return str(-1 if best == INF else best)
+
+=== 72 | Соединить все пункты | Графы | 2
+--- statement
+На плоскости $n$ пунктов с целыми координатами. Соединить два пункта прямым кабелем стоит $|x_1-x_2|+|y_1-y_2|$. Найдите наименьшую стоимость, при которой все пункты связаны друг с другом (напрямую или через другие).
+
+**Ввод.** В первой строке $n$ ($1 \le n \le 1500$). Далее $n$ строк $x\ y$ ($|x|,|y| \le 10^6$).
+
+**Вывод.** Одно число.
+--- sample
+5
+0 0
+2 2
+3 10
+5 2
+7 0
+--- code
+def gen(r, k):
+    n = sz(r, k, 1500, lo=1, tiny=6); C = r.choice([5, 1000, 10**6])
+    return '%d\n' % n + '\n'.join('%d %d' % (r.randint(-C, C), r.randint(-C, C)) for _ in range(n))
+
+def sol(s):
+    v = ints(s); n = v[0]; P = [(v[1 + 2 * i], v[2 + 2 * i]) for i in range(n)]
+    d = [INF] * n; used = [False] * n; d[0] = 0; tot = 0
+    for _ in range(n):
+        u = -1
+        for i in range(n):
+            if not used[i] and (u < 0 or d[i] < d[u]):
+                u = i
+        used[u] = True; tot += d[u]
+        for i in range(n):
+            if not used[i]:
+                w = abs(P[u][0] - P[i][0]) + abs(P[u][1] - P[i][1])
+                if w < d[i]:
+                    d[i] = w
+    return str(tot)
+
+def brute(s):
+    v = ints(s); n = v[0]; P = [(v[1 + 2 * i], v[2 + 2 * i]) for i in range(n)]
+    es = sorted((abs(P[i][0] - P[j][0]) + abs(P[i][1] - P[j][1]), i + 1, j + 1) for i in range(n) for j in range(i + 1, n))
+    d = DSU(n); tot = 0
+    for w, a, b in es:
+        if d.u(a, b):
+            tot += w
+    return str(tot)
+
+=== 73 | Обязательные и возможные линии | Графы | 1
+--- statement
+Дан связный граф из $n$ вершин и $m$ рёбер с весами. Остов — набор из $n-1$ рёбер, связывающий все вершины. Рассмотрим все остовы наименьшего возможного веса. Ребро называется *обязательным*, если оно входит в каждый такой остов, и *возможным*, если входит в некоторые, но не во все. Найдите количество обязательных и количество возможных рёбер.
+
+**Ввод.** В первой строке $n$ и $m$ ($2 \le n \le 100$, $n-1 \le m \le 200$). Далее $m$ строк $a\ b\ w$ ($1 \le w \le 1000$). Граф связный, без кратных рёбер.
+
+**Вывод.** Два числа через пробел.
+--- sample
+4 5
+1 2 1
+2 3 1
+3 4 1
+1 4 1
+1 3 5
+--- code
+def gen(r, k):
+    n = sz(r, k, 100, lo=2, tiny=6); W = r.choice([2, 3, 10, 1000]) if k else 3
+    m = r.randint(n - 1, min(200, int(1.8 * n)))
+    es = [(a, b, r.randint(1, W)) for a, b in graph(r, n, m, conn=True, k=k)]
+    if k == 0:
+        es = es[:9] if len(es) > 9 else es
+        if not is_connected(n, es):
+            es = [(a, b, r.randint(1, W)) for a, b in graph(r, n, n - 1, conn=True, k=k)]
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def mst_w(n, es, skip=-1, force=-1):
+    d = DSU(n); tot = 0; c = 0
+    if force >= 0:
+        a, b, w = es[force]; d.u(a, b); tot += w; c += 1
+    for i in sorted(range(len(es)), key=lambda i: es[i][2]):
+        if i == skip or i == force:
+            continue
+        a, b, w = es[i]
+        if d.u(a, b):
+            tot += w; c += 1
+    return tot if c == n - 1 else INF
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]; es = [(v[2 + 3 * i], v[3 + 3 * i], v[4 + 3 * i]) for i in range(m)]
+    W = mst_w(n, es); a = b = 0
+    for i in range(m):
+        if mst_w(n, es, skip=i) > W:
+            a += 1
+        elif mst_w(n, es, force=i) == W:
+            b += 1
+    return '%d %d' % (a, b)
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]; es = [(v[2 + 3 * i], v[3 + 3 * i], v[4 + 3 * i]) for i in range(m)]
+    trees = []
+    for comb in itertools.combinations(range(m), n - 1):
+        d = DSU(n)
+        if all(d.u(es[i][0], es[i][1]) for i in comb):
+            trees.append((sum(es[i][2] for i in comb), set(comb)))
+    W = min(t[0] for t in trees); good = [t[1] for t in trees if t[0] == W]
+    a = sum(1 for i in range(m) if all(i in t for t in good)); b = sum(1 for i in range(m) if any(i in t for t in good)) - a
+    return '%d %d' % (a, b)
+
+=== 74 | Запасной остов | Графы | 2
+--- statement
+Дан связный граф с весами рёбер. Остов — набор из $n-1$ рёбер, связывающий все вершины, его вес — сумма весов рёбер. Выпишем веса всех различных остовов (разные наборы рёбер) по неубыванию. Выведите второе число в этом списке.
+
+**Ввод.** В первой строке $n$ и $m$ ($2 \le n \le 200$, $n-1 \le m \le 1000$). Далее $m$ строк $a\ b\ w$ ($1 \le w \le 1000$). Граф связный, без кратных рёбер.
+
+**Вывод.** Второе число списка или $-1$, если остов единственный (граф — дерево).
+--- sample
+4 5
+1 2 1
+2 3 2
+3 4 3
+1 4 4
+1 3 5
+--- code
+def gen(r, k):
+    n = sz(r, k, 200, lo=2, tiny=6); W = r.choice([2, 5, 1000]) if k else 4
+    m = r.randint(n - 1, min(1000, 3 * n)) if k else r.randint(n - 1, 8)
+    es = [(a, b, r.randint(1, W)) for a, b in graph(r, n, m, conn=True, k=k)]
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]; es = [(v[2 + 3 * i], v[3 + 3 * i], v[4 + 3 * i]) for i in range(m)]
+    order = sorted(range(m), key=lambda i: es[i][2]); d = DSU(n); inT = set(); tot = 0
+    for i in order:
+        if d.u(es[i][0], es[i][1]):
+            inT.add(i); tot += es[i][2]
+    if m == n - 1:
+        return '-1'
+    g = [[] for _ in range(n + 1)]
+    for i in inT:
+        a, b, w = es[i]; g[a].append((b, w)); g[b].append((a, w))
+    best = INF
+    mx = [[0] * (n + 1) for _ in range(n + 1)]
+    for s0 in range(1, n + 1):
+        st = [(s0, 0, 0)]
+        while st:
+            x, p, cur = st.pop(); mx[s0][x] = cur
+            for y, w in g[x]:
+                if y != p:
+                    st.append((y, x, max(cur, w)))
+    for i in range(m):
+        if i not in inT:
+            a, b, w = es[i]; best = min(best, tot + w - mx[a][b])
+    return str(best)
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]; es = [(v[2 + 3 * i], v[3 + 3 * i], v[4 + 3 * i]) for i in range(m)]; ws = []
+    for comb in itertools.combinations(range(m), n - 1):
+        d = DSU(n)
+        if all(d.u(es[i][0], es[i][1]) for i in comb):
+            ws.append(sum(es[i][2] for i in comb))
+    ws.sort()
+    return str(ws[1]) if len(ws) > 1 else '-1'
+
+=== 75 | Колодцы и трубы | Графы | 2
+--- statement
+В $n$ домах нужно обеспечить водой. В доме $i$ можно выкопать колодец за $w_i$. Кроме того, есть $m$ возможных труб между домами с ценой; дом получает воду, если в нём колодец или он соединён трубами с домом, где есть колодец. Найдите наименьшую суммарную стоимость, чтобы вода была в каждом доме.
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Во второй — $n$ чисел $w_i$. Далее $m$ строк $a\ b\ c$ ($1 \le w_i, c \le 10^6$).
+
+**Вывод.** Одно число.
+--- sample
+3 3
+1 5 4
+1 2 2
+2 3 3
+1 3 6
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1); W = r.choice([5, 10**6])
+    es = [(a, b, r.randint(1, W)) for a, b in graph(r, n, r.randint(n // 2, 2 * n))]
+    return '%d %d\n' % (n, len(es)) + ' '.join(str(r.randint(1, W)) for _ in range(n)) + '\n' + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[:2]; w = v[2:2 + n]; p = 2 + n
+    es = [(w[i], 0, i + 1) for i in range(n)] + [(v[p + 3 * i + 2], v[p + 3 * i], v[p + 3 * i + 1]) for i in range(m)]
+    es.sort(); d = DSU(n); tot = 0
+    for c, a, b in es:
+        if d.u(a, b):
+            tot += c
+    return str(tot)
+
+def brute(s):
+    v = ints(s); n, m = v[:2]; w = v[2:2 + n]; p = 2 + n
+    es = [(0, i + 1, w[i]) for i in range(n)] + [(v[p + 3 * i], v[p + 3 * i + 1], v[p + 3 * i + 2]) for i in range(m)]; best = INF
+    for comb in itertools.combinations(es, n):
+        d = DSU(n)
+        if all(d.u(a, b) for a, b, c in comb):
+            best = min(best, sum(c for a, b, c in comb))
+    return str(best)
+
+=== 76 | Компоненты взаимной достижимости | Графы | 1
+--- statement
+В стране $n$ городов и $m$ односторонних дорог. Два города принадлежат одной группе, если из каждого можно доехать до другого. Найдите количество групп и размер самой большой группы.
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ пар $a\ b$ (различные, $a \ne b$).
+
+**Вывод.** Два числа через пробел.
+--- sample
+6 7
+1 2
+2 3
+3 1
+3 4
+4 5
+5 4
+5 6
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1)
+    es = digraph(r, n, r.randint(n, 3 * n) if k % 2 else r.randint(n // 2, int(1.3 * n)))
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]
+    comp, c = scc(n, [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)])
+    cnt = [0] * (c + 1)
+    for x in comp[1:]:
+        cnt[x] += 1
+    return '%d %d' % (c, max(cnt))
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]
+    R = [[i == j for j in range(n + 1)] for i in range(n + 1)]
+    for i in range(m):
+        R[v[2 + 2 * i]][v[3 + 2 * i]] = True
+    for x in range(1, n + 1):
+        for i in range(1, n + 1):
+            for j in range(1, n + 1):
+                if R[i][x] and R[x][j]:
+                    R[i][j] = True
+    groups = {frozenset(j for j in range(1, n + 1) if R[i][j] and R[j][i]) for i in range(1, n + 1)}
+    return '%d %d' % (len(groups), max(len(g) for g in groups))
+
+=== 77 | Достроить дороги | Графы | 1
+--- statement
+В стране $n$ городов и $m$ односторонних дорог. Какое наименьшее число новых односторонних дорог нужно построить, чтобы из любого города можно было доехать до любого другого?
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ пар $a\ b$ (различные, $a \ne b$).
+
+**Вывод.** Одно число.
+--- sample
+5 4
+1 2
+2 3
+4 3
+4 5
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1, tiny=5)
+    es = digraph(r, n, r.randint(n // 2, int(1.5 * n)) if k % 2 else r.randint(0, n))
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]; es = [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)]
+    comp, c = scc(n, es)
+    if c == 1:
+        return '0'
+    ind = [0] * (c + 1); out = [0] * (c + 1)
+    for a, b in es:
+        if comp[a] != comp[b]:
+            out[comp[a]] += 1; ind[comp[b]] += 1
+    return str(max(sum(1 for i in range(1, c + 1) if ind[i] == 0), sum(1 for i in range(1, c + 1) if out[i] == 0)))
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]; es = [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)]
+    have = set(es); allp = [(a, b) for a in range(1, n + 1) for b in range(1, n + 1) if a != b and (a, b) not in have]
+    for t in range(0, n + 1):
+        for comb in itertools.combinations(allp, t):
+            if scc(n, es + list(comb))[1] == 1:
+                return str(t)
+
+=== 78 | Мосты | Графы | 1
+--- statement
+В стране $n$ городов и $m$ двусторонних дорог. Дорога называется мостом, если после её закрытия число групп связанных городов увеличивается. Выведите все мосты.
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ пар $a\ b$ (различные, $a \ne b$).
+
+**Вывод.** В первой строке — количество мостов $c$. Далее $c$ строк $a\ b$ ($a < b$), отсортированных по возрастанию $a$, затем $b$.
+--- sample
+5 5
+1 2
+2 3
+3 1
+3 4
+4 5
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1)
+    if k % 2 and n > 2:
+        es = graph(r, n, r.randint(n // 2, n + n // 5))
+    else:
+        es = graph(r, n, r.randint(n - 1, int(1.6 * n)), conn=True, k=k) if n > 1 else []
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]; es = [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)]
+    br = sorted((min(es[i]), max(es[i])) for i in lowlink(n, es)[0])
+    return '\n'.join([str(len(br))] + ['%d %d' % e for e in br])
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]; es = [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)]
+    c0 = len(set(comps_bf(n, es)[1:])); br = []
+    for i in range(m):
+        if len(set(comps_bf(n, es[:i] + es[i + 1:])[1:])) > c0:
+            br.append((min(es[i]), max(es[i])))
+    br.sort()
+    return '\n'.join([str(len(br))] + ['%d %d' % e for e in br])
+
+=== 79 | Узловые города | Графы | 1
+--- statement
+В стране $n$ городов и $m$ двусторонних дорог. Город называется узловым, если после его закрытия (вместе со всеми дорогами из него) число групп связанных городов среди остальных увеличивается. Выведите все узловые города.
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ пар $a\ b$ (различные, $a \ne b$).
+
+**Вывод.** В первой строке — количество узловых городов $c$. Если $c > 0$, во второй строке их номера по возрастанию.
+--- sample
+5 5
+1 2
+2 3
+3 1
+3 4
+4 5
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1)
+    if k % 2 and n > 2:
+        es = graph(r, n, r.randint(n // 2, n + n // 5))
+    else:
+        es = graph(r, n, r.randint(n - 1, int(1.6 * n)), conn=True, k=k) if n > 1 else []
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]; es = [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)]
+    a = sorted(lowlink(n, es)[1])
+    return str(len(a)) + ('\n' + ' '.join(map(str, a)) if a else '')
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]; es = [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)]
+    c0 = len(set(comps_bf(n, es)[1:])); a = []
+    for x in range(1, n + 1):
+        rest = [e for e in es if x not in e]; lab = comps_bf(n, rest)
+        if len(set(lab[i] for i in range(1, n + 1) if i != x)) > c0 - (1 if all(x not in e for e in es) else 0):
+            a.append(x)
+    return str(len(a)) + ('\n' + ' '.join(map(str, a)) if a else '')
+
+=== 80 | Устойчивые районы | Графы | 1
+--- statement
+В стране $n$ городов и $m$ двусторонних дорог. Закроем все мосты (дороги, после закрытия которых число групп связанных городов растёт). Оставшиеся группы связанных городов называются районами. Сколько получится районов?
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ пар $a\ b$ (различные, $a \ne b$).
+
+**Вывод.** Одно число.
+--- sample
+6 6
+1 2
+2 3
+3 1
+3 4
+4 5
+5 6
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1)
+    if k % 2 and n > 2:
+        es = graph(r, n, r.randint(n // 2, n + n // 5))
+    else:
+        es = graph(r, n, r.randint(n - 1, int(1.6 * n)), conn=True, k=k) if n > 1 else []
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]; es = [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)]
+    br = set(lowlink(n, es)[0]); d = DSU(n); c = n
+    for i, (a, b) in enumerate(es):
+        if i not in br and d.u(a, b):
+            c -= 1
+    return str(c)
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]; es = [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)]
+    c0 = len(set(comps_bf(n, es)[1:])); keep = []
+    for i in range(m):
+        if len(set(comps_bf(n, es[:i] + es[i + 1:])[1:])) == c0:
+            keep.append(es[i])
+    return str(len(set(comps_bf(n, keep)[1:])))

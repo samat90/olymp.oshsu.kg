@@ -1,0 +1,478 @@
+=== 51 | Две команды | Графы | 1
+--- statement
+Среди $n$ школьников есть $m$ пар друзей. Для соревнования нужно разделить всех на две команды так, чтобы в каждой паре друзей ребята оказались в разных командах. Возможно ли это?
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ пар $a\ b$ ($a \ne b$, пары различны).
+
+**Вывод.** `YES` или `NO`.
+--- sample
+5 5
+1 2
+2 3
+3 4
+4 1
+4 5
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000)
+    if k % 2 == 0:
+        es = bip_edges(r, n, r.randint(n // 2, 2 * n))
+        if k % 4 == 0 and es and n > 2:
+            a, b = r.sample(range(1, n + 1), 2)
+            if (min(a, b), max(a, b)) not in set((min(x, y), max(x, y)) for x, y in es):
+                es.append((a, b))
+    else:
+        es = graph(r, n, r.randint(0, int(1.2 * n)))
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]
+    g = adj(n, [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)]); col = [-1] * (n + 1)
+    for st in range(1, n + 1):
+        if col[st] < 0:
+            col[st] = 0; q = [st]
+            while q:
+                x = q.pop()
+                for y in g[x]:
+                    if col[y] < 0:
+                        col[y] = col[x] ^ 1; q.append(y)
+                    elif col[y] == col[x]:
+                        return 'NO'
+    return 'YES'
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]; es = [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)]
+    for mask in range(1 << n):
+        if all((mask >> (a - 1) & 1) != (mask >> (b - 1) & 1) for a, b in es):
+            return 'YES'
+    return 'NO'
+
+=== 52 | Способы разделить на команды | Графы | 1
+--- statement
+Среди $n$ школьников есть $m$ пар друзей. Нужно раздать каждому школьнику цвет «красный» или «синий» так, чтобы друзья получили разные цвета. Сколькими способами это можно сделать? Ответ выведите по модулю $10^9+7$.
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ пар $a\ b$.
+
+**Вывод.** Одно число.
+--- sample
+6 3
+1 2
+2 3
+4 5
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000)
+    if k % 3:
+        es = bip_edges(r, n, r.randint(n // 4, n))
+    else:
+        es = graph(r, n, r.randint(0, n))
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]
+    g = adj(n, [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)]); col = [-1] * (n + 1); c = 0
+    for st in range(1, n + 1):
+        if col[st] < 0:
+            c += 1; col[st] = 0; q = [st]
+            while q:
+                x = q.pop()
+                for y in g[x]:
+                    if col[y] < 0:
+                        col[y] = col[x] ^ 1; q.append(y)
+                    elif col[y] == col[x]:
+                        return '0'
+    return str(pow(2, c, 10**9 + 7))
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]; es = [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)]
+    return str(sum(1 for mask in range(1 << n) if all((mask >> (a - 1) & 1) != (mask >> (b - 1) & 1) for a, b in es)) % (10**9 + 7))
+
+=== 53 | Пары для танца | Графы | 1
+--- statement
+На танцевальном вечере $a$ юношей и $b$ девушек. Даны $m$ пар «юноша $i$ готов танцевать с девушкой $j$». Каждый танцует не более чем с одним партнёром. Какое наибольшее число танцующих пар можно составить?
+
+**Ввод.** В первой строке $a, b, m$ ($1 \le a, b \le 300$, $0 \le m \le 5000$). Далее $m$ пар $i\ j$ (различные).
+
+**Вывод.** Одно число.
+--- sample
+3 3 5
+1 1
+1 2
+2 1
+3 1
+3 3
+--- code
+def gen(r, k):
+    a = sz(r, k, 300, lo=1, tiny=5); b = sz(r, k, 300, lo=1, tiny=5)
+    m = r.randint(0, min(a * b, 5000, 3 * max(a, b)))
+    es = set()
+    while len(es) < m:
+        es.add((r.randint(1, a), r.randint(1, b)))
+    es = list(es); r.shuffle(es)
+    return '%d %d %d\n' % (a, b, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); a, b, m = v[:3]; g = [[] for _ in range(a + 1)]
+    for i in range(m):
+        g[v[3 + 2 * i]].append(v[4 + 2 * i])
+    mt = [0] * (b + 1); res = 0
+    def try_(x, seen):
+        stack = [(x, iter(g[x]))]; path = []
+        while stack:
+            u, it = stack[-1]
+            adv = False
+            for y in it:
+                if not seen[y]:
+                    seen[y] = True
+                    path.append((u, y))
+                    if mt[y] == 0:
+                        for uu, yy in path:
+                            mt[yy] = uu
+                        return True
+                    stack.append((mt[y], iter(g[mt[y]]))); adv = True
+                    break
+            if not adv:
+                stack.pop()
+                if path:
+                    path.pop()
+        return False
+    for x in range(1, a + 1):
+        if try_(x, [False] * (b + 1)):
+            res += 1
+    return str(res)
+
+def brute(s):
+    v = ints(s); a, b, m = v[:3]; g = [[] for _ in range(a + 1)]
+    for i in range(m):
+        g[v[3 + 2 * i]].append(v[4 + 2 * i])
+    def f(i, used):
+        if i > a:
+            return 0
+        best = f(i + 1, used)
+        for y in g[i]:
+            if not used >> y & 1:
+                best = max(best, 1 + f(i + 1, used | 1 << y))
+        return best
+    return str(f(1, 0))
+
+=== 54 | Нечётный маршрут | Графы | 1
+--- statement
+Между $n$ городами $m$ двусторонних дорог. Туристу нужно проехать из города $1$ в город $n$ так, чтобы число пройденных дорог было нечётным (дороги и города можно посещать повторно). Какое наименьшее число дорог в таком маршруте?
+
+**Ввод.** В первой строке $n$ и $m$ ($2 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ пар $a\ b$.
+
+**Вывод.** Число дорог или $-1$.
+--- sample
+4 4
+1 2
+2 3
+3 1
+3 4
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000)
+    if k % 2:
+        es = bip_edges(r, n, r.randint(n // 2, n))
+    else:
+        es = graph(r, n, r.randint(n // 2, int(1.5 * n)))
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]
+    g = adj(n, [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)])
+    d = [[-1, -1] for _ in range(n + 1)]; d[1][0] = 0; q = deque([(1, 0)])
+    while q:
+        x, p = q.popleft()
+        for y in g[x]:
+            if d[y][p ^ 1] < 0:
+                d[y][p ^ 1] = d[x][p] + 1; q.append((y, p ^ 1))
+    return str(d[n][1])
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]; es = [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)]
+    cur = {1}
+    for t in range(1, 3 * n + 2):
+        cur = {y for x in cur for a, b in es for y in ((b,) if a == x else (a,) if b == x else ())}
+        if t % 2 == 1 and n in cur:
+            return str(t)
+    return '-1'
+
+=== 55 | Чётные и нечётные поездки | Графы | 1
+--- statement
+Из города $1$ выезжает автобус; он может ездить по $m$ двусторонним дорогам между $n$ городами (повторно тоже). Сколько городов, в которые можно приехать, проехав чётное число дорог (ноль тоже считается чётным числом), и сколько — проехав нечётное число дорог? Город может попасть в оба счёта.
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ пар $a\ b$.
+
+**Вывод.** Два числа через пробел: сначала для чётного, затем для нечётного числа дорог.
+--- sample
+5 4
+1 2
+2 3
+3 1
+4 5
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1)
+    if k % 2:
+        es = bip_edges(r, n, r.randint(n // 2, n))
+    else:
+        es = graph(r, n, r.randint(n // 2, int(1.5 * n)))
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]
+    g = adj(n, [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)])
+    d = [[-1, -1] for _ in range(n + 1)]; d[1][0] = 0; q = deque([(1, 0)])
+    while q:
+        x, p = q.popleft()
+        for y in g[x]:
+            if d[y][p ^ 1] < 0:
+                d[y][p ^ 1] = d[x][p] + 1; q.append((y, p ^ 1))
+    return '%d %d' % (sum(1 for i in range(1, n + 1) if d[i][0] >= 0), sum(1 for i in range(1, n + 1) if d[i][1] >= 0))
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]; es = [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)]
+    cur = {1}; ev = {1}; od = set()
+    for t in range(1, 3 * n + 2):
+        cur = {y for x in cur for a, b in es for y in ((b,) if a == x else (a,) if b == x else ())}
+        (od if t % 2 else ev).update(cur)
+    return '%d %d' % (len(ev), len(od))
+
+=== 56 | Кратчайшие пути Дейкстры | Графы | 2
+--- statement
+Между $n$ городами проложено $m$ двусторонних дорог с известной длиной. Найдите длину кратчайшего пути от города $s$ до каждого города.
+
+**Ввод.** В первой строке $n, m, s$ ($1 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ строк $a\ b\ w$ ($1 \le w \le 10^6$).
+
+**Вывод.** $n$ чисел через пробел: расстояние до города $i$ или $-1$, если добраться нельзя.
+--- sample
+5 5 1
+1 2 4
+1 3 1
+3 2 2
+2 4 5
+4 3 10
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1); W = r.choice([5, 1000, 10**6])
+    es = [(a, b, r.randint(1, W)) for a, b in graph(r, n, r.randint(n // 2, 2 * n), conn=k % 2 == 0, k=k)]
+    return '%d %d %d\n' % (n, len(es), r.randint(1, n)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m, st = v[:3]; g = adj(n, [(v[3 + 3 * i], v[4 + 3 * i], v[5 + 3 * i]) for i in range(m)])
+    d = [-1] * (n + 1); best = [INF] * (n + 1); best[st] = 0; pq = [(0, st)]
+    while pq:
+        dd, x = heapq.heappop(pq)
+        if d[x] >= 0:
+            continue
+        d[x] = dd
+        for y, w in g[x]:
+            if d[y] < 0 and dd + w < best[y]:
+                best[y] = dd + w; heapq.heappush(pq, (dd + w, y))
+    return ' '.join(map(str, d[1:]))
+
+def brute(s):
+    v = ints(s); n, m, st = v[:3]
+    D = [[INF] * (n + 1) for _ in range(n + 1)]
+    for i in range(1, n + 1):
+        D[i][i] = 0
+    for i in range(m):
+        a, b, w = v[3 + 3 * i], v[4 + 3 * i], v[5 + 3 * i]
+        D[a][b] = min(D[a][b], w); D[b][a] = min(D[b][a], w)
+    for x in range(1, n + 1):
+        for i in range(1, n + 1):
+            for j in range(1, n + 1):
+                D[i][j] = min(D[i][j], D[i][x] + D[x][j])
+    return ' '.join(str(-1 if D[st][j] == INF else D[st][j]) for j in range(1, n + 1))
+
+=== 57 | Задержка сигнала | Графы | 2
+--- statement
+В сети $n$ узлов и $m$ направленных каналов $u \to v$ с задержкой $w$. Сигнал отправляют из узла $k$. Через какое время его получат все узлы? Если хотя бы один узел недостижим, выведите $-1$.
+
+**Ввод.** В первой строке $n, m, k$ ($1 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ строк $u\ v\ w$ ($1 \le w \le 10^6$, $u \ne v$, пары $(u,v)$ различны).
+
+**Вывод.** Одно число.
+--- sample
+4 4 2
+2 1 1
+2 3 1
+3 4 1
+4 1 7
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1); W = r.choice([5, 1000, 10**6])
+    s0 = r.randint(1, n)
+    es = {(a, b) for a, b in dag(r, n, r.randint(n, 2 * n))}
+    if k % 2:
+        order = list(range(1, n + 1)); r.shuffle(order)
+        i = order.index(s0); order[0], order[i] = order[i], order[0]
+        for i in range(1, n):
+            es.add((order[r.randint(0, i - 1)], order[i]))
+    es = [(a, b, r.randint(1, W)) for a, b in es]; r.shuffle(es)
+    return '%d %d %d\n' % (n, len(es), s0) + el(es)
+
+def sol(s):
+    v = ints(s); n, m, st = v[:3]; g = adj(n, [(v[3 + 3 * i], v[4 + 3 * i], v[5 + 3 * i]) for i in range(m)], True)
+    d = [-1] * (n + 1); best = [INF] * (n + 1); best[st] = 0; pq = [(0, st)]
+    while pq:
+        dd, x = heapq.heappop(pq)
+        if d[x] >= 0:
+            continue
+        d[x] = dd
+        for y, w in g[x]:
+            if d[y] < 0 and dd + w < best[y]:
+                best[y] = dd + w; heapq.heappush(pq, (dd + w, y))
+    return '-1' if min(d[1:]) < 0 else str(max(d[1:]))
+
+def brute(s):
+    v = ints(s); n, m, st = v[:3]; es = [(v[3 + 3 * i], v[4 + 3 * i], v[5 + 3 * i]) for i in range(m)]
+    d = [INF] * (n + 1); d[st] = 0
+    for _ in range(n):
+        for a, b, w in es:
+            d[b] = min(d[b], d[a] + w)
+    return '-1' if max(d[1:]) == INF else str(max(d[1:]))
+
+=== 58 | Дешёвый перелёт | Графы | 2
+--- statement
+В авиасети $n$ городов и $m$ односторонних рейсов $a \to b$ с ценой $p$. Нужно добраться из города $s$ в город $t$, сделав не более $K$ пересадок (то есть использовать не более $K+1$ рейсов). Найдите наименьшую стоимость.
+
+**Ввод.** В первой строке $n, m, s, t, K$ ($2 \le n \le 1000$, $0 \le m \le 5000$, $0 \le K \le 100$, $s \ne t$). Далее $m$ строк $a\ b\ p$ ($1 \le p \le 10^6$).
+
+**Вывод.** Стоимость или $-1$.
+--- sample
+4 5 1 4 1
+1 2 100
+2 4 100
+1 3 50
+3 2 10
+3 4 300
+--- code
+def gen(r, k):
+    n = sz(r, k, 1000, tiny=6); W = r.choice([10, 10**6])
+    es = [(a, b, r.randint(1, W)) for a, b in digraph(r, n, r.randint(n, min(5000, 4 * n)))]
+    s0, t0 = r.sample(range(1, n + 1), 2)
+    return '%d %d %d %d %d\n' % (n, len(es), s0, t0, r.randint(0, 3 if k <= 3 or k == 0 else 100)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m, st, t, K = v[:5]; es = [(v[5 + 3 * i], v[6 + 3 * i], v[7 + 3 * i]) for i in range(m)]
+    d = [INF] * (n + 1); d[st] = 0
+    for _ in range(K + 1):
+        nd = d[:]
+        for a, b, p in es:
+            if d[a] + p < nd[b]:
+                nd[b] = d[a] + p
+        d = nd
+    return str(-1 if d[t] == INF else d[t])
+
+def brute(s):
+    v = ints(s); n, m, st, t, K = v[:5]; g = [[] for _ in range(n + 1)]
+    for i in range(m):
+        g[v[5 + 3 * i]].append((v[6 + 3 * i], v[7 + 3 * i]))
+    best = [INF]
+    def f(x, left, c):
+        if x == t:
+            best[0] = min(best[0], c)
+        if left == 0:
+            return
+        for y, p in g[x]:
+            f(y, left - 1, c + p)
+    f(st, K + 1, 0)
+    return str(-1 if best[0] == INF else best[0])
+
+=== 59 | Самая ровная тропа | Графы | 2
+--- statement
+Карта горного района — таблица высот $h \times w$. Тропа идёт из левой верхней клетки в правую нижнюю по соседним по стороне клеткам. Усилие тропы — наибольшая разность высот между двумя соседними клетками на ней. Найдите наименьшее возможное усилие.
+
+**Ввод.** В первой строке $h$ и $w$ ($1 \le h\cdot w \le 10^5$). Далее $h$ строк по $w$ высот ($1 \le a_{ij} \le 10^9$).
+
+**Вывод.** Одно число (для одной клетки — $0$).
+--- sample
+3 3
+1 2 2
+3 8 2
+5 3 5
+--- code
+def gen(r, k):
+    h, w = hw(r, k, 100000)
+    hi = r.choice([5, 1000, 10**9])
+    return '%d %d\n' % (h, w) + '\n'.join(' '.join(str(r.randint(1, hi)) for _ in range(w)) for _ in range(h))
+
+def sol(s):
+    L = s.split('\n'); h, w = map(int, L[0].split()); g = [list(map(int, L[1 + i].split())) for i in range(h)]
+    best = [[INF] * w for _ in range(h)]; best[0][0] = 0; pq = [(0, 0, 0)]
+    while pq:
+        e, x, y = heapq.heappop(pq)
+        if e > best[x][y]:
+            continue
+        if (x, y) == (h - 1, w - 1):
+            return str(e)
+        for a, b in D4:
+            c, d = x + a, y + b
+            if 0 <= c < h and 0 <= d < w:
+                ne = max(e, abs(g[c][d] - g[x][y]))
+                if ne < best[c][d]:
+                    best[c][d] = ne; heapq.heappush(pq, (ne, c, d))
+
+def brute(s):
+    L = s.split('\n'); h, w = map(int, L[0].split()); g = [list(map(int, L[1 + i].split())) for i in range(h)]
+    best = [[INF] * w for _ in range(h)]; best[0][0] = 0; ch = True
+    while ch:
+        ch = False
+        for x in range(h):
+            for y in range(w):
+                for a, b in D4:
+                    c, d = x + a, y + b
+                    if 0 <= c < h and 0 <= d < w:
+                        ne = max(best[x][y], abs(g[c][d] - g[x][y]))
+                        if ne < best[c][d]:
+                            best[c][d] = ne; ch = True
+    return str(best[h - 1][w - 1])
+
+=== 60 | Подъём воды в озере | Графы | 2
+--- statement
+Карта — таблица $h \times w$, число в клетке — высота дна. В момент времени $t$ уровень воды равен $t$, и можно перейти в соседнюю по стороне клетку, если высоты обеих клеток не больше $t$. В момент $0$ вы стоите в левой верхней клетке. Какое наименьшее $t$ позволяет доплыть до правой нижней клетки?
+
+**Ввод.** В первой строке $h$ и $w$ ($1 \le h\cdot w \le 10^5$). Далее $h$ строк по $w$ высот ($0 \le a_{ij} \le 10^9$).
+
+**Вывод.** Одно число (оно не меньше высот начальной и конечной клеток).
+--- sample
+3 3
+0 2 5
+1 3 4
+6 7 2
+--- code
+def gen(r, k):
+    h, w = hw(r, k, 100000)
+    hi = r.choice([5, 1000, 10**9])
+    return '%d %d\n' % (h, w) + '\n'.join(' '.join(str(r.randint(0, hi)) for _ in range(w)) for _ in range(h))
+
+def sol(s):
+    L = s.split('\n'); h, w = map(int, L[0].split()); g = [list(map(int, L[1 + i].split())) for i in range(h)]
+    seen = [[False] * w for _ in range(h)]; pq = [(g[0][0], 0, 0)]
+    while pq:
+        t, x, y = heapq.heappop(pq)
+        if seen[x][y]:
+            continue
+        seen[x][y] = True
+        if (x, y) == (h - 1, w - 1):
+            return str(t)
+        for a, b in D4:
+            c, d = x + a, y + b
+            if 0 <= c < h and 0 <= d < w and not seen[c][d]:
+                heapq.heappush(pq, (max(t, g[c][d]), c, d))
+
+def brute(s):
+    L = s.split('\n'); h, w = map(int, L[0].split()); g = [list(map(int, L[1 + i].split())) for i in range(h)]
+    for t in sorted(set(x for row in g for x in row)):
+        if g[0][0] > t:
+            continue
+        seen = {(0, 0)}; ch = True
+        while ch:
+            ch = False
+            for (x, y) in list(seen):
+                for a, b in D4:
+                    c, d = x + a, y + b
+                    if 0 <= c < h and 0 <= d < w and (c, d) not in seen and g[c][d] <= t:
+                        seen.add((c, d)); ch = True
+        if (h - 1, w - 1) in seen:
+            return str(t)

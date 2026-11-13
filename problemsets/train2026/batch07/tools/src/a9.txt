@@ -1,0 +1,477 @@
+=== 81 | Самый длинный круг | Графы | 1
+--- statement
+В стране $n$ городов; из города $i$ ведёт не более одной односторонней дороги — в город $a_i$ ($a_i = 0$, если дороги нет; $a_i \ne i$). Круг — замкнутый маршрут, возвращающийся в исходный город, без повторов городов. Найдите длину самого длинного круга.
+
+**Ввод.** В первой строке $n$ ($2 \le n \le 10^5$). Во второй — $n$ чисел $a_i$ ($0 \le a_i \le n$).
+
+**Вывод.** Длина круга или $-1$, если кругов нет.
+--- sample
+6
+2 3 1 3 0 4
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=2)
+    a = []
+    p0 = r.choice([0, .1, .4])
+    for i in range(1, n + 1):
+        if r.random() < p0:
+            a.append(0)
+        else:
+            x = r.randint(1, n)
+            while x == i:
+                x = r.randint(1, n)
+            a.append(x)
+    return '%d\n' % n + ' '.join(map(str, a))
+
+def sol(s):
+    v = ints(s); n = v[0]; a = [0] + v[1:]; st = [0] * (n + 1); pos = [0] * (n + 1); best = -1
+    for s0 in range(1, n + 1):
+        if st[s0]:
+            continue
+        x = s0; t = 0
+        while x and not st[x]:
+            st[x] = s0; pos[x] = t; t += 1; x = a[x]
+        if x and st[x] == s0:
+            best = max(best, t - pos[x])
+    return str(best)
+
+def brute(s):
+    v = ints(s); n = v[0]; a = [0] + v[1:]; best = -1
+    for s0 in range(1, n + 1):
+        x = s0
+        for _ in range(n + 1):
+            if x == 0:
+                break
+            x = a[x]
+        if x == 0:
+            continue
+        y = a[x]; L = 1
+        while y != x:
+            y = a[y]; L += 1
+        best = max(best, L)
+    return str(best)
+
+=== 82 | Сколько городов посетим | Графы | 1
+--- statement
+В стране $n$ городов, из города $i$ ведёт ровно одна односторонняя дорога — в город $a_i$ (возможно, $a_i = i$). Турист выезжает из города $i$ и едет по дорогам, пока не окажется в городе, где уже был. Сколько различных городов он посетит (считая начальный)? Выведите ответ для каждого $i$.
+
+**Ввод.** В первой строке $n$ ($1 \le n \le 10^5$). Во второй — $n$ чисел $a_i$ ($1 \le a_i \le n$).
+
+**Вывод.** $n$ чисел через пробел.
+--- sample
+5
+2 3 1 3 4
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1)
+    if k % 3 == 0:
+        a = [r.randint(1, n) for _ in range(n)]
+    else:
+        a = [max(1, i - r.randint(0, 2)) if r.random() < .98 else r.randint(1, n) for i in range(1, n + 1)]
+    return '%d\n' % n + ' '.join(map(str, a))
+
+def sol(s):
+    v = ints(s); n = v[0]; a = [0] + v[1:]; res = [0] * (n + 1); st = [0] * (n + 1)
+    for s0 in range(1, n + 1):
+        if res[s0]:
+            continue
+        path = []; x = s0
+        while not res[x] and st[x] != s0:
+            st[x] = s0; path.append(x); x = a[x]
+        if not res[x]:
+            i = path.index(x); L = len(path) - i
+            for y in path[i:]:
+                res[y] = L
+            path = path[:i]
+        for y in reversed(path):
+            res[y] = res[a[y]] + 1
+    return ' '.join(map(str, res[1:]))
+
+def brute(s):
+    v = ints(s); n = v[0]; a = [0] + v[1:]; out = []
+    for i in range(1, n + 1):
+        seen = set(); x = i
+        while x not in seen:
+            seen.add(x); x = a[x]
+        out.append(len(seen))
+    return ' '.join(map(str, out))
+
+=== 83 | Минимум стартовых городов | Графы | 1
+--- statement
+В стране $n$ городов и $m$ односторонних дорог. Какое наименьшее число городов нужно выбрать так, чтобы из выбранных можно было доехать до каждого города страны?
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ пар $a\ b$ (различные, $a \ne b$).
+
+**Вывод.** Одно число.
+--- sample
+6 6
+1 2
+2 3
+3 1
+4 3
+4 5
+5 6
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1)
+    es = digraph(r, n, r.randint(n // 2, int(1.4 * n))) if k % 2 else dag(r, n, r.randint(0, 2 * n))
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]; es = [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)]
+    comp, c = scc(n, es); hasin = [False] * (c + 1)
+    for a, b in es:
+        if comp[a] != comp[b]:
+            hasin[comp[b]] = True
+    return str(sum(1 for i in range(1, c + 1) if not hasin[i]))
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]
+    R = [[i == j for j in range(n + 1)] for i in range(n + 1)]
+    for i in range(m):
+        R[v[2 + 2 * i]][v[3 + 2 * i]] = True
+    for x in range(1, n + 1):
+        for i in range(1, n + 1):
+            for j in range(1, n + 1):
+                if R[i][x] and R[x][j]:
+                    R[i][j] = True
+    for t in range(1, n + 1):
+        for comb in itertools.combinations(range(1, n + 1), t):
+            if all(any(R[c][j] for c in comb) for j in range(1, n + 1)):
+                return str(t)
+
+=== 84 | Одинаковые метки в ветвях | Графы | 1
+--- statement
+Дерево из $n$ узлов с корнем $1$. У каждого узла есть метка — строчная латинская буква. Для каждого узла найдите, сколько узлов в его ветви (включая сам узел) имеют ту же метку, что и он.
+
+**Ввод.** В первой строке $n$ ($1 \le n \le 10^5$). Во второй — строка из $n$ букв, $i$-я — метка узла $i$. Далее $n-1$ строка с парами $a\ b$.
+
+**Вывод.** $n$ чисел через пробел.
+--- sample
+5
+abaab
+1 2
+1 3
+2 4
+2 5
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1); al = 'abcdefghijklmnopqrstuvwxyz'[:r.choice([1, 2, 3, 26])]
+    return '%d\n' % n + ''.join(r.choice(al) for _ in range(n)) + '\n' + el(tree(r, n, k))
+
+def sol(s):
+    L = s.split('\n'); n = int(L[0]); lab = ' ' + L[1].strip()
+    es = [tuple(map(int, L[2 + i].split())) for i in range(n - 1)]; g = adj(n, es)
+    par = [0] * (n + 1); order = []; st = [1]; par[1] = -1
+    while st:
+        x = st.pop(); order.append(x)
+        for y in g[x]:
+            if y != par[x]:
+                par[y] = x; st.append(y)
+    cnt = [[0] * 26 for _ in range(n + 1)]; ans = [0] * (n + 1)
+    for x in reversed(order):
+        cnt[x][ord(lab[x]) - 97] += 1; ans[x] = cnt[x][ord(lab[x]) - 97]
+        p = par[x]
+        if p > 0:
+            cp = cnt[p]
+            for j, c in enumerate(cnt[x]):
+                if c:
+                    cp[j] += c
+    return ' '.join(map(str, ans[1:]))
+
+def brute(s):
+    L = s.split('\n'); n = int(L[0]); lab = ' ' + L[1].strip()
+    es = [tuple(map(int, L[2 + i].split())) for i in range(n - 1)]; g = adj(n, es)
+    par = {1: 0}; q = deque([1])
+    while q:
+        x = q.popleft()
+        for y in g[x]:
+            if y not in par:
+                par[y] = x; q.append(y)
+    ans = [0] * (n + 1)
+    for u in range(1, n + 1):
+        x = u
+        while x:
+            if lab[x] == lab[u]:
+                ans[x] += 1
+            x = par[x]
+    return ' '.join(map(str, ans[1:]))
+
+=== 85 | Самый короткий цикл | Графы | 2
+--- statement
+Дан неориентированный граф без петель и кратных рёбер. Найдите длину наименьшего цикла (число рёбер в нём) или сообщите, что циклов нет.
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 1000$, $0 \le m \le 3000$). Далее $m$ пар $a\ b$.
+
+**Вывод.** Длина кратчайшего цикла или $-1$.
+--- sample
+6 7
+1 2
+2 3
+3 4
+4 1
+4 5
+5 6
+6 4
+--- code
+def gen(r, k):
+    n = sz(r, k, 1000, lo=1, tiny=7)
+    es = tree(r, n, k) if k % 2 and n > 1 else []
+    es = list(es)
+    ex = r.randint(0, 3) if k % 2 else r.randint(0, int(1.5 * n))
+    S = {(min(a, b), max(a, b)) for a, b in es}
+    for _ in range(ex):
+        if n < 3:
+            break
+        a, b = r.randint(1, n), r.randint(1, n)
+        if a != b and (min(a, b), max(a, b)) not in S and len(S) < 3000:
+            S.add((min(a, b), max(a, b))); es.append((a, b))
+    if not k % 2:
+        es = graph(r, n, r.randint(0, min(3000, int(1.3 * n))))
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]; g = adj(n, [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)]); best = INF
+    for s0 in range(1, n + 1):
+        d = {s0: 0}; par = {s0: 0}; q = deque([s0])
+        while q:
+            x = q.popleft()
+            if 2 * d[x] + 1 >= best:
+                break
+            for y in g[x]:
+                if y not in d:
+                    d[y] = d[x] + 1; par[y] = x; q.append(y)
+                elif y != par[x]:
+                    best = min(best, d[x] + d[y] + 1)
+    return str(-1 if best == INF else best)
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]; g = adj(n, [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)]); best = [INF]
+    def f(start, x, seen, L):
+        for y in g[x]:
+            if y == start and L >= 2:
+                best[0] = min(best[0], L + 1)
+            elif y > start and y not in seen:
+                f(start, y, seen | {y}, L + 1)
+    for st in range(1, n + 1):
+        f(st, st, {st}, 0)
+    return str(-1 if best[0] == INF else best[0])
+
+=== 86 | Треугольники дружбы | Графы | 2
+--- statement
+В группе $n$ человек и $m$ пар друзей. Тройка людей, в которой каждый дружит с каждым, называется треугольником. Сколько в группе треугольников?
+
+**Ввод.** В первой строке $n$ и $m$ ($1 \le n \le 3000$, $0 \le m \le 30000$). Далее $m$ пар $a\ b$.
+
+**Вывод.** Одно число.
+--- sample
+5 7
+1 2
+2 3
+3 1
+3 4
+4 1
+4 5
+5 3
+--- code
+def gen(r, k):
+    n = sz(r, k, 3000, lo=1, tiny=8)
+    cap = min(30000, n * (n - 1) // 2, 10 * n)
+    es = graph(r, n, r.randint(cap // 3, cap))
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]; deg = [0] * (n + 1); E = [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)]
+    for a, b in E:
+        deg[a] += 1; deg[b] += 1
+    out = [set() for _ in range(n + 1)]
+    for a, b in E:
+        if (deg[a], a) < (deg[b], b):
+            out[a].add(b)
+        else:
+            out[b].add(a)
+    return str(sum(len(out[a] & out[b]) for a, b in ((a, b) for a in range(1, n + 1) for b in out[a])))
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]; S = set()
+    for i in range(m):
+        a, b = v[2 + 2 * i], v[3 + 2 * i]; S.add((a, b)); S.add((b, a))
+    return str(sum(1 for a, b, c in itertools.combinations(range(1, n + 1), 3) if (a, b) in S and (b, c) in S and (a, c) in S))
+
+=== 87 | Ранг пары городов | Графы | 2
+--- statement
+В стране $n$ городов и $m$ двусторонних дорог. Ранг пары различных городов — число дорог, выходящих хотя бы из одного из них (дорога между ними считается один раз). Найдите наибольший ранг среди всех пар городов.
+
+**Ввод.** В первой строке $n$ и $m$ ($2 \le n \le 10^5$, $0 \le m \le 2\cdot 10^5$). Далее $m$ пар $a\ b$ (различные, $a \ne b$).
+
+**Вывод.** Одно число.
+--- sample
+5 5
+1 2
+2 3
+2 4
+3 4
+4 5
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=2)
+    if k % 3 == 0 and n > 3:
+        c = r.randint(1, 3); es = [(c, i) for i in range(1, n + 1) if i != c]
+        es = [e for e in es if r.random() < .9] + [(a, b) for a, b in graph(r, n, r.randint(0, n // 4)) if a != c and b != c]
+        es = list({(min(a, b), max(a, b)) for a, b in es}); es = list(es)
+    else:
+        es = graph(r, n, r.randint(0, 2 * n))
+    r.shuffle(es)
+    return '%d %d\n' % (n, len(es)) + el(es)
+
+def sol(s):
+    v = ints(s); n, m = v[0], v[1]; deg = [0] * (n + 1); E = [(v[2 + 2 * i], v[3 + 2 * i]) for i in range(m)]
+    for a, b in E:
+        deg[a] += 1; deg[b] += 1
+    cls = defaultdict(int)
+    for x in range(1, n + 1):
+        cls[deg[x]] += 1
+    ds = sorted(cls, reverse=True)[:3]; ed = defaultdict(int)
+    for a, b in E:
+        if deg[a] in ds and deg[b] in ds:
+            ed[(min(deg[a], deg[b]), max(deg[a], deg[b]))] += 1
+    best = 0
+    for i, da in enumerate(ds):
+        for db in ds[i:]:
+            ca, cb = cls[da], cls[db]
+            pairs = ca * (ca - 1) // 2 if da == db else ca * cb
+            if pairs == 0:
+                continue
+            e = ed[(min(da, db), max(da, db))]
+            best = max(best, da + db - (1 if pairs <= e else 0))
+    return str(best)
+
+def brute(s):
+    v = ints(s); n, m = v[0], v[1]; deg = [0] * (n + 1); S = set()
+    for i in range(m):
+        a, b = v[2 + 2 * i], v[3 + 2 * i]; deg[a] += 1; deg[b] += 1; S.add((min(a, b), max(a, b)))
+    return str(max(deg[a] + deg[b] - ((a, b) in S) for a in range(1, n + 1) for b in range(a + 1, n + 1)))
+
+=== 88 | Диаметр с длинами дорог | Графы | 2
+--- statement
+Сеть из $n$ узлов — дерево, у каждой дороги есть длина. Найдите наибольшее расстояние (по длине дорог) между двумя узлами.
+
+**Ввод.** В первой строке $n$ ($1 \le n \le 10^5$). Далее $n-1$ строка $a\ b\ w$ ($1 \le w \le 10^6$).
+
+**Вывод.** Одно число.
+--- sample
+5
+1 2 3
+2 3 4
+2 4 1
+4 5 6
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1); W = r.choice([3, 10**6])
+    return '%d\n' % n + el([(a, b, r.randint(1, W)) for a, b in tree(r, n, k)])
+
+def sol(s):
+    v = ints(s); n = v[0]; g = adj(n, [(v[1 + 3 * i], v[2 + 3 * i], v[3 + 3 * i]) for i in range(n - 1)])
+    def far(s0):
+        d = [-1] * (n + 1); d[s0] = 0; st = [s0]
+        while st:
+            x = st.pop()
+            for y, w in g[x]:
+                if d[y] < 0:
+                    d[y] = d[x] + w; st.append(y)
+        return d
+    d = far(1); a = d.index(max(d))
+    return str(max(far(a)))
+
+def brute(s):
+    v = ints(s); n = v[0]; D = floyd(n, [(v[1 + 3 * i], v[2 + 3 * i], v[3 + 3 * i]) for i in range(n - 1)])
+    return str(max(D[i][j] for i in range(1, n + 1) for j in range(1, n + 1) if D[i][j] < INF))
+
+=== 89 | Самый ценный участок пути | Графы | 2
+--- statement
+Сеть из $n$ узлов — дерево, в каждом узле записано число $c_i$ (может быть отрицательным). Выберите простой путь (хотя бы из одного узла) с наибольшей суммой чисел в его узлах.
+
+**Ввод.** В первой строке $n$ ($1 \le n \le 10^5$). Во второй — $n$ чисел $c_i$ ($|c_i| \le 10^4$). Далее $n-1$ строка с парами $a\ b$.
+
+**Вывод.** Одно число.
+--- sample
+5
+-3 4 -1 5 2
+1 2
+2 3
+2 4
+4 5
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1); lo = r.choice([-10**4, -3, 0, -10**4]); hi = r.choice([10**4, 5, -1 if lo < -1 else 0])
+    hi = max(hi, lo)
+    return '%d\n' % n + ' '.join(str(r.randint(lo, hi)) for _ in range(n)) + '\n' + el(tree(r, n, k))
+
+def sol(s):
+    v = ints(s); n = v[0]; c = [0] + v[1:1 + n]; g = adj(n, [(v[1 + n + 2 * i], v[2 + n + 2 * i]) for i in range(n - 1)])
+    par = [0] * (n + 1); order = []; st = [1]; par[1] = -1
+    while st:
+        x = st.pop(); order.append(x)
+        for y in g[x]:
+            if y != par[x]:
+                par[y] = x; st.append(y)
+    down = [0] * (n + 1); best = -INF; top = [[0, 0] for _ in range(n + 1)]
+    for x in reversed(order):
+        t1, t2 = top[x]
+        best = max(best, c[x] + t1 + t2); down[x] = c[x] + t1
+        p = par[x]
+        if p > 0:
+            val = max(0, down[x]); tp = top[p]
+            if val > tp[0]:
+                tp[1] = tp[0]; tp[0] = val
+            elif val > tp[1]:
+                tp[1] = val
+    return str(best)
+
+def brute(s):
+    v = ints(s); n = v[0]; c = [0] + v[1:1 + n]; g = adj(n, [(v[1 + n + 2 * i], v[2 + n + 2 * i]) for i in range(n - 1)]); best = -INF
+    for a in range(1, n + 1):
+        st = [(a, 0, c[a])]
+        while st:
+            x, p, sm = st.pop(); best = max(best, sm)
+            for y in g[x]:
+                if y != p:
+                    st.append((y, x, sm + c[y]))
+    return str(best)
+
+=== 90 | Самая большая независимая группа | Графы | 2
+--- statement
+Сеть из $n$ узлов — дерево. Выберите как можно больше узлов так, чтобы никакие два выбранных не были соединены дорогой. Сколько узлов можно выбрать?
+
+**Ввод.** В первой строке $n$ ($1 \le n \le 10^5$). Далее $n-1$ строка с парами $a\ b$.
+
+**Вывод.** Одно число.
+--- sample
+5
+1 2
+1 3
+3 4
+3 5
+--- code
+def gen(r, k):
+    n = sz(r, k, 100000, lo=1)
+    return '%d\n' % n + el(tree(r, n, k))
+
+def sol(s):
+    v = ints(s); n = v[0]; g = adj(n, [(v[1 + 2 * i], v[2 + 2 * i]) for i in range(n - 1)])
+    par = [0] * (n + 1); order = []; st = [1]; par[1] = -1
+    while st:
+        x = st.pop(); order.append(x)
+        for y in g[x]:
+            if y != par[x]:
+                par[y] = x; st.append(y)
+    a = [1] * (n + 1); b = [0] * (n + 1)
+    for x in reversed(order):
+        p = par[x]
+        if p > 0:
+            a[p] += b[x]; b[p] += max(a[x], b[x])
+    return str(max(a[1], b[1]))
+
+def brute(s):
+    v = ints(s); n = v[0]; es = [(v[1 + 2 * i], v[2 + 2 * i]) for i in range(n - 1)]
+    return str(max(bin(mask).count('1') for mask in range(1 << n) if all(not (mask >> (a - 1) & 1 and mask >> (b - 1) & 1) for a, b in es)))
