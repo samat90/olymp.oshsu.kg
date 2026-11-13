@@ -1,0 +1,10 @@
+{
+ "code": "001840",
+ "title": "Сумма на пути",
+ "topic": "Деревья",
+ "time_limit": 2,
+ "points": 100,
+ "tests": 10,
+ "test_gen": "python3 gen.py <i>, i=0..9",
+ "answer": "python3 sol.py"
+}
