@@ -48,10 +48,14 @@ jobs:
           pip install -r requirements.txt flake8
       - name: Lint (only real errors, style is not checked)
         run: git ls-files '*.py' | xargs flake8 --isolated --select=E9,F63,F7,F82
+      - name: Translations and JavaScript catalogs (untracked build output the pages and tests need)
+        run: |
+          python scripts/dev/compile_translations.py
+          python manage.py compilejsi18n -v 0
       - name: Django system check
         run: python manage.py check
       - name: Every model change has a migration
-        run: bash scripts/dev/check_migrations.sh
+        run: PY=python bash scripts/dev/check_migrations.sh
       - name: Apply all migrations on PostgreSQL
         run: python manage.py migrate --noinput
       - name: Tests

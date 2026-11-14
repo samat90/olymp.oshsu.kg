@@ -34,3 +34,26 @@ EVENT_DAEMON_USE = False
 CELERY_TASK_ALWAYS_EAGER = True
 CELERY_TASK_EAGER_PROPAGATES = True
 EMAIL_BACKEND = 'django.core.mail.backends.locmem.EmailBackend'
+
+# What the server keeps in the untracked dmoj/local_settings.py and a clean checkout lacks.
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # noqa: F405
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # noqa: F405
+MEDIA_URL = '/media/'
+COMPRESS_OUTPUT_DIR = 'cache'
+STATICFILES_FINDERS += ('compressor.finders.CompressorFinder',)  # noqa: F405
+COMPRESS_ENABLED = False
+DMOJ_PROBLEM_DATA_ROOT = os.path.join(BASE_DIR, 'problems')  # noqa: F405
+REGISTRATION_OPEN = True
+DMOJ_REQUIRE_STAFF_2FA = False
+DMOJ_2FA_HARDCORE = False
+WEBAUTHN_RP_ID = None
+TIME_ZONE = 'Asia/Bishkek'
+DEFAULT_USER_TIME_ZONE = 'Asia/Bishkek'
+SITE_NAME = 'OshSU Olymp'
+SITE_LONG_NAME = 'OshSU Olymp'
+SITE_ADMIN_EMAIL = 'admin@example.invalid'
+CACHES = {'default': {'BACKEND': 'django.core.cache.backends.locmem.LocMemCache'}}
+
+from django.utils.translation import gettext_lazy as _  # noqa: E402
+
+LANGUAGES = [('ru', _('Русский')), ('en', _('English')), ('ky', _('Кыргызча'))]
