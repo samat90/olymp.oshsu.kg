@@ -13,6 +13,7 @@ Output goes to build/ next to this file by default. --names rewrites names.txt (
 which scripts/server/import_problemsets.sh reads to see what is missing on the site.
 """
 import hashlib
+from statement_math import clean_math
 import math
 import time
 import importlib
@@ -88,7 +89,8 @@ def build_simple(p, out, check=True):
         open(os.path.join(dest, 'tests', name + '.in'), 'wb').write(data.replace(cr, b''))
         open(os.path.join(dest, 'tests', name + '.out'), 'wb').write(ans.replace(cr, b''))
         cases.append({'group': 0, 'in': name + '.in', 'out': name + '.out', 'size': len(data) + len(ans)})
-    shutil.copy(os.path.join(folder, 'statement.md'), os.path.join(dest, 'statement.md'))
+    open(os.path.join(dest, 'statement.md'), 'w', encoding='utf-8', newline=NL).write(
+        clean_math(open(os.path.join(folder, 'statement.md'), encoding='utf-8').read()))
     tl = p['time']
     if worst > 0.6 * tl:  # the Python reference is much slower than compiled solutions; leave it room
         tl = min(6, math.ceil(worst * 1.5))
@@ -148,7 +150,7 @@ def build(p, out, stress=True, check=True):
     ex = ''
     for i, (a, b) in enumerate(texts, 1):
         ex += '\n## Пример %d\n\nВход:\n```\n%s```\n\nВыход:\n```\n%s```\n' % (i, a, b if b.endswith('\n') else b + '\n')
-    statement = p['text'].replace('{{samples}}', ex)
+    statement = clean_math(p['text'].replace('{{samples}}', ex))
     open(os.path.join(folder, 'statement.md'), 'w', encoding='utf-8').write(statement)
     manifest = {'name': p['name'], 'time': p['time'], 'memory': 256, 'difficulty': p['diff'], 'points': 100,
                 'types': p['types'], 'group': p['group'],
