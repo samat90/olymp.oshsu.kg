@@ -29,7 +29,7 @@ sudo -u postgres pg_dump -Fc olymp_oshsu > "$BACKUP/database.dump"
 log "Backup: code"
 tar czf "$BACKUP/code.tgz" -C "$APP" \
     --exclude=./venv --exclude=./problems --exclude=./media --exclude=./static \
-    --exclude=./resources/vendor --exclude='*.pyc' .
+    --exclude=./resources/vendor --exclude=./.deploy-history.jsonl --exclude='*.pyc' .
 git --git-dir="$REPO" rev-parse "$REF" > "$BACKUP/revision"
 if [ -f "$APP/.deployed-revision" ]; then
     cp "$APP/.deployed-revision" "$BACKUP/previous-revision"
@@ -49,7 +49,15 @@ log "Front-end libraries"
 bash scripts/fetch_vendor.sh
 
 log "Database migrations"
-"$PY" manage.py migrate --noinput
+if ! "$PY" manage.py migrate --noinput; then
+    log "MIGRATION FAILED"
+    exit 1
+fi
+
+# Rendered statements, page fragments and similar are cached for a day: drop them so a fix reaches the
+# pages at once. Sessions are kept in the database and survive. Rolled back together with the code if needed.
+log "Cache"
+"$PY" manage.py shell -c "from django.core.cache import cache; cache.clear()" || log "The cache was not cleared (see above); it expires by itself."
 
 log "Ready-made quizzes (adds only the missing ones)"
 "$PY" manage.py load_quizzes || log "Quizzes were not added (see above); the site is not affected."

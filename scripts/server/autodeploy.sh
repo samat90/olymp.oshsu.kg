@@ -6,9 +6,15 @@
 # main is deployed when all of these hold:
 #   - the commit is signed by a key listed in /etc/olymp/allowed_signers (git SSH signatures);
 #   - it continues the deployed history (a rewritten or force-pushed main is refused);
-#   - no olympiad is running right now (the deploy waits until it ends).
+#   - no olympiad is running right now (the deploy waits until it ends);
+#   - GitHub Actions has not marked the commit red (a failed CI run skips the commit; "still running" or
+#     "GitHub API not reachable" does not hold anything back).
 # Then scripts/deploy.sh makes a backup, updates the code, applies migrations and restarts the site.
 # If the site does not come back, the old code is restored (the database stays as it is).
+#
+# Every deploy, rollback and skip is also written as one JSON line to $APP/.deploy-history.jsonl (shown to
+# administrators at /<admin>/deploy-status/) and, if GITHUB_STATUS_TOKEN is set in /etc/olymp-monitor.env,
+# as a commit status "olymp-deploy" on GitHub.
 #
 # Log: /var/log/olymp/deploy.log. Telegram (optional): /etc/olymp-monitor.env, as healthcheck.sh.
 # Deploy by hand now:  sudo systemctl start olymp-autodeploy
@@ -21,6 +27,10 @@ REMOTE=${OLYMP_REMOTE:-https://github.com/samat90/olymp.oshsu.kg.git}
 SIGNERS=${OLYMP_SIGNERS:-/etc/olymp/allowed_signers}
 PAUSED=${OLYMP_PAUSED:-/etc/olymp/autodeploy.paused}
 STATE=${OLYMP_AUTODEPLOY_STATE:-/home/admin/.autodeploy}
+HISTORY=${OLYMP_DEPLOY_HISTORY:-$APP/.deploy-history.jsonl}
+GH_REPO=${OLYMP_GH_REPO:-samat90/olymp.oshsu.kg}
+GH_API=${OLYMP_GH_API:-https://api.github.com}
+BACKUP_ROOT=${OLYMP_BACKUPS:-/var/backups/olymp/deploy}
 [ -f /etc/olymp-monitor.env ] && . /etc/olymp-monitor.env
 
 log() { echo "[$(date '+%F %T')] autodeploy: $*"; }
@@ -30,6 +40,66 @@ notify() {
         curl -s -m 15 "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMessage" \
             --data-urlencode "chat_id=$TELEGRAM_CHAT" --data-urlencode "text=olymp.oshsu.kg: $1" > /dev/null || true
     fi
+}
+
+# record RESULT COMMIT SUBJECT SECONDS ERROR: one JSON line into the history file, and a GitHub commit status
+# when a token is configured. Never fails the deploy.
+record() {
+    local result=$1 commit=$2 subject=$3 secs=$4 err=${5:-}
+    python3 - "$HISTORY" "$result" "$commit" "$subject" "$secs" "$err" <<'PY' 2>/dev/null || log "WARN: could not write the deploy history"
+import json, sys, time
+path, result, commit, subject, secs, err = sys.argv[1:7]
+row = {'time': time.strftime('%Y-%m-%d %H:%M:%S'), 'commit': commit[:9], 'full_commit': commit,
+       'result': result, 'seconds': int(secs or 0), 'subject': subject, 'error': err[-1500:]}
+try:
+    lines = open(path, encoding='utf-8').read().splitlines()[-199:]
+except OSError:
+    lines = []
+lines.append(json.dumps(row, ensure_ascii=False))
+open(path, 'w', encoding='utf-8').write('\n'.join(lines) + '\n')
+PY
+    chmod 644 "$HISTORY" 2>/dev/null || true
+    if [ -n "${GITHUB_STATUS_TOKEN:-}" ]; then
+        local state=success
+        case "$result" in ok) state=success ;; rolled_back|skipped_ci_red|refused) state=failure ;; esac
+        local payload
+        payload=$(python3 -c 'import json, sys; print(json.dumps({"state": sys.argv[1], "context": "olymp-deploy", "description": sys.argv[2][:140]}))' \
+            "$state" "${result}: ${err:-$subject}" 2>/dev/null) || payload=
+        if [ -n "$payload" ]; then
+            curl -s -m 20 -o /dev/null -X POST -H "Authorization: Bearer $GITHUB_STATUS_TOKEN" \
+                -H "Accept: application/vnd.github+json" -d "$payload" \
+                "$GH_API/repos/$GH_REPO/statuses/$commit" || true
+        fi
+    fi
+}
+
+# ci_state COMMIT: prints red, green, pending or unknown, from GitHub Actions check runs and commit statuses
+# (public repository, no token). Only "red" blocks a deploy; any doubt (API down, rate limit, no CI yet) is "unknown".
+ci_state() {
+    local runs status
+    runs=$(curl -s -m 20 -H "Accept: application/vnd.github+json" \
+        "$GH_API/repos/$GH_REPO/commits/$1/check-runs?per_page=100") || { echo unknown; return; }
+    status=$(curl -s -m 20 -H "Accept: application/vnd.github+json" \
+        "$GH_API/repos/$GH_REPO/commits/$1/status") || status='{}'
+    python3 -c '
+import json, sys
+try:
+    runs = json.loads(sys.argv[1]).get("check_runs")
+    status = json.loads(sys.argv[2])
+except ValueError:
+    print("unknown"); sys.exit()
+if runs is None:
+    print("unknown"); sys.exit()
+bad = ("failure", "timed_out", "startup_failure")
+if any(r.get("conclusion") in bad for r in runs) or status.get("state") in ("failure", "error"):
+    print("red")
+elif any(r.get("status") != "completed" for r in runs):
+    print("pending")
+elif runs:
+    print("green")
+else:
+    print("unknown")
+' "$runs" "$status" 2>/dev/null || echo unknown
 }
 
 # Keys of the olympiads going on right now. A contest open for longer than OLYMP_LONG_CONTEST_HOURS
@@ -95,12 +165,14 @@ refused="$STATE/refused-$short"
 
 if ! $G merge-base --is-ancestor "$current" "$new"; then
     notify "коммит $short не продолжает выкаченную историю (main переписан?), не выкатываю"
+    record refused "$new" "$($G log -1 --format=%s "$new")" 0 "not a continuation of the deployed history"
     touch "$refused"
     exit 1
 fi
 if ! $G -c gpg.format=ssh -c gpg.ssh.allowedSignersFile="$SIGNERS" verify-commit "$new" 2> "$STATE/verify.txt"; then
     notify "коммит $short не подписан разрешённым ключом, не выкатываю"
     cat "$STATE/verify.txt"
+    record refused "$new" "$($G log -1 --format=%s "$new")" 0 "not signed by an allowed key"
     touch "$refused"
     exit 1
 fi
@@ -112,19 +184,44 @@ if [ -n "$running" ]; then
 fi
 
 subject=$($G log -1 --format=%s "$new")
+ci=$(ci_state "$new")
+if [ "$ci" = red ]; then
+    # Looked at again every run: re-running the failed CI jobs to green (or a newer commit) lets the deploy through.
+    if [ ! -f "$STATE/ci-red-$short" ]; then
+        notify "CI для коммита $short красный, не выкатываю (ждём исправления): $subject"
+        record skipped_ci_red "$new" "$subject" 0 "GitHub Actions failed for this commit"
+        touch "$STATE/ci-red-$short"
+    fi
+    exit 0
+fi
+log "CI of $short: $ci"
+
 log "deploying $short: $subject"
 # Run copies: deploy.sh replaces the files of the running scripts.
 $G show "$new:scripts/deploy.sh" > "$STATE/deploy.sh"
 cp "$APP/scripts/rollback.sh" "$STATE/rollback.sh"
 $G update-ref refs/heads/main "$new"
-if bash "$STATE/deploy.sh" main; then
+deploy_start=$(date +%s)
+bash "$STATE/deploy.sh" main 2>&1 | tee "$STATE/deploy-last.log"
+rc=${PIPESTATUS[0]}
+deploy_secs=$(( $(date +%s) - deploy_start ))
+if [ "$rc" = 0 ]; then
+    rm -f "$STATE"/failed-"$short" "$STATE/ci-red-$short"
     notify "выкачено $short: $subject"
+    record ok "$new" "$subject" "$deploy_secs" ""
 else
-    backup=$(ls -1d /var/backups/olymp/deploy/*/ | tail -1)
-    notify "выкат $short не удался, возвращаю прежний код из $backup"
+    # What went wrong, for the history: the last lines of the deploy output (a failed migration says so).
+    err=$(tail -n 12 "$STATE/deploy-last.log" | tr -d '\r' | tr '\n' '|')
+    backup=$(ls -1d "$BACKUP_ROOT"/*/ | tail -1)
+    if grep -q "MIGRATION FAILED" "$STATE/deploy-last.log"; then
+        notify "миграции $short не применились, возвращаю прежний код из $backup (упавшая миграция откатилась транзакцией, ранее применённые остались; базу целиком не трогаю)"
+    else
+        notify "выкат $short не удался, возвращаю прежний код из $backup"
+    fi
     $G update-ref refs/heads/main "$current"
     bash "$STATE/rollback.sh" "$backup"
     echo "$current" > "$APP/.deployed-revision"
+    record rolled_back "$new" "$subject" "$(( $(date +%s) - deploy_start ))" "$err"
     # A failure can be passing (the slow link broke a download): try the same commit up to 3 times,
     # then wait for a new commit.
     tries=$(( $(cat "$STATE/failed-$short" 2>/dev/null || echo 0) + 1 ))

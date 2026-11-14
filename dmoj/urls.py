@@ -16,6 +16,7 @@ from judge.views import TitledTemplateView, api, blog, comment, contests, langua
     two_factor, user, widgets, workspace
 from judge.views import about, anticheat, contest_tools, quiz as quiz_views, quiz_editor, typing as typing_views
 from judge.views.default_avatar import default_avatar
+from judge.views.deploy_status import deploy_status
 from judge.views.generate_users import GenerateUsersView
 from judge.views.problem_import import import_problem
 from judge.views.problem_data import ProblemDataView, ProblemSubmissionDiff, \
@@ -101,6 +102,7 @@ urlpatterns = [
     path('500/', exception),
     path(f'{settings.ADMIN_URL_PREFIX}/generate-users/', GenerateUsersView.as_view(), name='admin_generate_users'),
     path(f'{settings.ADMIN_URL_PREFIX}/import-problem/', import_problem, name='admin_import_problem'),
+    path(f'{settings.ADMIN_URL_PREFIX}/deploy-status/', deploy_status, name='admin_deploy_status'),
     path(f'{settings.ADMIN_URL_PREFIX}/', admin.site.urls),
     path('i18n/', include('django.conf.urls.i18n')),
     path('accounts/', include(register_patterns)),
