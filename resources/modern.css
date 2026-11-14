@@ -282,3 +282,38 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
 }
+
+/* ---------- design pass 2026-11-15, batch 1 ---------- */
+/* Phone gutter: the page content sat 5px from the screen edge. */
+@media (max-width: 700px) {
+    #content { padding-left: 14px; padding-right: 14px; }
+    .theme-toggle, #nav-lang.lang-switch > button, #user-links > ul > li > a { min-height: 40px; }
+    #nav-lang.lang-switch > button, .theme-toggle { display: inline-flex; align-items: center; justify-content: center; }
+}
+/* A strip with a single tab ("Все") is only noise. */
+.tabs > ul > li:only-child { display: none; }
+.tabs:has(> ul > li:only-child) { border-bottom: 0; }
+/* Text never below 12px. */
+.lang-code, .footer-sub, .footer-links, small { font-size: max(12px, 1em); }
+/* Real checkboxes, easy to hit. */
+input[type=checkbox], input[type=radio] { width: 18px; height: 18px; vertical-align: -3px; margin-right: 6px; accent-color: var(--ui-primary-2); }
+/* Selects look like the text inputs. */
+select, .select2-container--default .select2-selection--single { border: 1px solid var(--ui-border); border-radius: 8px; background-color: var(--ui-surface); color: var(--ui-text); min-height: 38px; }
+.select2-container--default .select2-selection--single .select2-selection__rendered { color: var(--ui-text); line-height: 36px; }
+.select2-container--default .select2-selection--single .select2-selection__arrow { height: 36px; }
+/* The login box was near-black in the dark theme. */
+form.form-area { background: var(--ui-surface); border: 1px solid var(--ui-border); border-radius: var(--ui-radius); }
+/* Phone tables: wider touch rows and no clipped text. */
+@media (max-width: 700px) {
+    table.table td, table.table th { padding-top: 10px; padding-bottom: 10px; }
+}
+@media (max-width: 700px) {
+    .sidebox { padding-left: 0; }
+    .problems .problem-code, .problems .editorial { display: none; }
+    table.table td, table.table th { padding-left: 8px; padding-right: 8px; }
+}
+@media (max-width: 700px) {
+    .info-float { padding-left: 0; padding-right: 0; }
+    .problems .category { display: none; }
+}
+.select2-container--default .select2-selection--single, select { background: var(--ui-surface) !important; }
