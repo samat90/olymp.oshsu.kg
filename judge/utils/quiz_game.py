@@ -458,7 +458,7 @@ def leaderboard(players, old_rank, answers):
     top = []
     for p in players[:LEADERBOARD_SIZE]:
         a = answers.get(p.id)
-        top.append({'id': p.id, 'nick': p.nickname, 'score': p.score, 'rank': p.rank,
+        top.append({'id': p.id, 'nick': p.nickname, 'av': p.avatar, 'score': p.score, 'rank': p.rank,
                     'prev': old_rank.get(p.id), 'delta': a.points if a else 0, 'streak': p.streak})
     return {'top': top, 'total': len(players)}
 
@@ -493,8 +493,8 @@ def prepare_finals(game, players):
     for a in Answer.objects.filter(player__game=game):
         answers[(a.player_id, a.question_key)] = a
     cache.set(k('final', game.id), {
-        'top': [{'id': p.id, 'nickname': p.nickname, 'score': p.score, 'correct': p.correct, 'rank': p.rank}
-                for p in players[:10]],
+        'top': [{'id': p.id, 'nickname': p.nickname, 'av': p.avatar, 'score': p.score, 'correct': p.correct,
+                 'rank': p.rank} for p in players[:10]],
         'total': len(players), 'questions': len(game.question_ids)}, TTL)
     correct = {q.id: correct_text(q) for _n, q in ordered}
     mine = {}
@@ -510,7 +510,7 @@ def prepare_finals(game, players):
                              'given': answer_text(q, a.value) if a else None,
                              'correct': correct[q.id], 'explanation': q.explanation[:500]})
         mine[k('fin', game.id, p.id)] = {
-            'me': {'nickname': p.nickname, 'score': p.score, 'correct': p.correct, 'rank': p.rank},
+            'me': {'nickname': p.nickname, 'av': p.avatar, 'score': p.score, 'correct': p.correct, 'rank': p.rank},
             'mistakes': mistakes}
     cache.set_many(mine, TTL)
 
@@ -651,7 +651,21 @@ def nickname_ok(nick):
     return 1 <= len(nick) <= 24 and not is_rude(nick)
 
 
-def join(state, profile, nickname, token, ip):
+AVATARS = 24  # keep in step with resources/quiz/avatars.js
+
+
+def avatar_for(nickname, choice=None):
+    """The chosen avatar number, or a stable one made from the nickname when none (or a wrong one) was sent."""
+    try:
+        n = int(choice)
+        if 0 <= n < AVATARS:
+            return n
+    except (TypeError, ValueError):
+        pass
+    return sum(ord(c) for c in nickname) % AVATARS
+
+
+def join(state, profile, nickname, token, ip, avatar=None):
     """A Player for this user or guest; the same one again on reconnect."""
     game_id = state['id']
     game = GameSession.objects.get(id=game_id)
@@ -688,6 +702,7 @@ def join(state, profile, nickname, token, ip):
         raise GameError(_('Этот ник уже занят'))
     try:
         player = Player.objects.create(game_id=game_id, profile=profile, nickname=nickname,
+                                       avatar=avatar_for(nickname, avatar),
                                        token='' if profile is not None else (token or secrets.token_hex(16)))
     except IntegrityError:
         cache.decr(count_key)

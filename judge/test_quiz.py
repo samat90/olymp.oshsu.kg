@@ -683,20 +683,38 @@ class QuizPlayersTest(QuizGameTestCase):
         pin = self.launch()
         guest = self.join(pin, '  Аня   Ким ')
         user = self.login(self.student)
-        response = user.get(reverse('quiz_join') + '?pin=' + pin)     # users join with their username
+        response = user.get(reverse('quiz_join') + '?pin=' + pin)     # users pick an avatar first
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'qz-av-grid')
+        self.assertFalse(QuizPlayer.objects.filter(profile=self.student.profile).exists())
+        response = user.post(reverse('quiz_join'), {'pin': pin, 'avatar': '7'})      # users join with their username
         self.assertRedirects(response, reverse('quiz_play', args=[pin]), fetch_redirect_response=False)
         players = {p.nickname: p for p in QuizPlayer.objects.filter(game=self.game(pin))}
         self.assertEqual(set(players), {'Аня Ким', 'pupil'})
         self.assertEqual(players['pupil'].profile, self.student.profile)
         self.assertIsNone(players['Аня Ким'].profile)
         self.assertEqual(len(players['Аня Ким'].token), 32)
+        self.assertEqual(players['pupil'].avatar, 7)
+        self.assertTrue(0 <= players['Аня Ким'].avatar < engine.AVATARS)    # none sent: made from the nickname
         self.assertEqual(engine.player_count(self.game(pin).id), 2)
         host_state = self.host.get(reverse('quiz_host_state', args=[pin])).json()
         self.assertEqual(host_state['players'], 2)
         self.assertEqual([p['nickname'] for p in host_state['joined']], ['Аня Ким', 'pupil'])
+        self.assertEqual(host_state['joined'][1]['avatar'], 7)
         self.assertIn(player_cookie(pin), guest.cookies)
         self.assertTrue(self.client.get(reverse('quiz_pin_lookup') + '?pin=' + pin).json()['ok'])
         self.assertFalse(self.client.get(reverse('quiz_pin_lookup') + '?pin=000000').json()['ok'])
+
+    def test_avatar_choice(self):
+        pin = self.launch()
+        self.assertEqual(engine.avatar_for('x', '23'), 23)
+        for bad in ('24', '-1', 'abc', '', None, '9' * 30):
+            self.assertTrue(0 <= engine.avatar_for('Аня', bad) < engine.AVATARS)
+        self.assertEqual(engine.avatar_for('Аня', 'abc'), engine.avatar_for('Аня'))
+        guest = Client()
+        guest.post(reverse('quiz_join'), {'pin': pin, 'nickname': 'Мээрим', 'avatar': '12'})
+        self.assertEqual(self.player(pin, 'Мээрим').avatar, 12)
+        self.assertEqual(QuizPlayer.objects.get().avatar, 12)
 
     def test_bad_nicknames(self):
         pin = self.launch()
@@ -715,13 +733,13 @@ class QuizPlayersTest(QuizGameTestCase):
         pin = self.launch(guests='off')
         self.join(pin, 'Гость', status=400)
         self.assertFalse(QuizPlayer.objects.exists())
-        self.login(self.student).post(reverse('quiz_join'), {'pin': pin})
+        self.login(self.student).post(reverse('quiz_join'), {'pin': pin, 'avatar': '1'})
         self.assertEqual(QuizPlayer.objects.get().nickname, 'pupil')
 
     def test_reconnect_keeps_player_and_score(self):
         pin, (a, b) = self.game_with_players('Аня', 'Бек')
         user = self.login(self.student)
-        user.post(reverse('quiz_join'), {'pin': pin})
+        user.post(reverse('quiz_join'), {'pin': pin, 'avatar': '1'})
         self.action(pin, 'start')
         right = option_id(self.q1, 'Два')
         for client in (a, b, user):
@@ -739,7 +757,7 @@ class QuizPlayersTest(QuizGameTestCase):
         self.assertEqual(self.result(again, pin).json()['me']['score'], 1000)
         # the same user on another device
         other_device = self.login(self.student)
-        other_device.post(reverse('quiz_join'), {'pin': pin})
+        other_device.post(reverse('quiz_join'), {'pin': pin, 'avatar': '1'})
         self.assertEqual(self.result(other_device, pin).json()['me']['score'], 1000)
         self.assertEqual(QuizPlayer.objects.filter(game=self.game(pin)).count(), 3)
         self.assertEqual(engine.player_count(self.game(pin).id), 3)
@@ -1039,7 +1057,8 @@ class QuizResultsTest(QuizGameTestCase):
         self.assertEqual([(r['nickname'], r['score'], r['rank']) for r in final['top']],
                          [('Аня', 2100, 1), ('Чынара', 1000, 2), ('Бек', 875, 3)])
         self.assertEqual((final['total'], final['questions']), (3, 2))
-        self.assertEqual(final['me'], {'nickname': 'Чынара', 'score': 1000, 'correct': 1, 'rank': 2})
+        self.assertEqual(final['me'], {'nickname': 'Чынара', 'av': final['me']['av'], 'score': 1000, 'correct': 1,
+                                       'rank': 2})
         self.assertEqual(final['mistakes'], [{'n': 1, 'text': 'Вопрос single', 'type': 'single', 'given': 'Три',
                                               'correct': 'Два', 'explanation': ''}])
         self.assertEqual(a.get(reverse('quiz_final', args=[pin])).json()['mistakes'], [])

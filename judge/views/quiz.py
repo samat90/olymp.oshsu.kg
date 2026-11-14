@@ -271,6 +271,9 @@ def join(request):
         return redirect('quiz_play', pin=pin)
     if request.user.is_authenticated:
         nickname = request.user.username
+        if 'avatar' not in request.POST:
+            context.update(step='nick', nickname=nickname)
+            return render(request, 'quiz/join.html', context)
     else:
         nickname = request.POST.get('nickname', '').strip()
         if not nickname:
@@ -281,9 +284,9 @@ def join(request):
         token = secrets.token_hex(16)
     try:
         player, _new = engine.join(state, request.profile if request.user.is_authenticated else None, nickname,
-                                   token, client_ip(request))
+                                   token, client_ip(request), request.POST.get('avatar'))
     except GameError as e:
-        context.update(error=str(e), step='nick' if not request.user.is_authenticated else 'pin', nickname=nickname)
+        context.update(error=str(e), step='nick', nickname=nickname)
         return render(request, 'quiz/join.html', context, status=400)
     game = GameSession.objects.get(id=state['id'])
     response = redirect('quiz_play', pin=pin)
@@ -350,7 +353,7 @@ def play(request, pin):
     game = GameSession.objects.select_related('quiz').get(id=state['id'])
     context = game_page_context(state, game, 'player')
     context['player'] = player
-    context['config'].update(nickname=player.nickname, player=player.id)
+    context['config'].update(nickname=player.nickname, avatar=player.avatar, player=player.id)
     return render(request, 'quiz/play.html', context)
 
 
@@ -533,7 +536,7 @@ def host_state(request, pin):
     since = int(request.GET.get('since') or 0) if (request.GET.get('since') or '0').isdigit() else 0
     if state['ph'] == GameSession.LOBBY or request.GET.get('list'):
         rows = QuizPlayer.objects.filter(game_id=state['id'], is_removed=False, id__gt=since) \
-            .order_by('id').values('id', 'nickname')[:300]
+            .order_by('id').values('id', 'nickname', 'avatar')[:300]
         data['joined'] = list(rows)
     if request.GET.get('v') == str(state['v']):
         data['same'] = True

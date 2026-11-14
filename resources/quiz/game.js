@@ -676,11 +676,17 @@
         return el;
     }
 
+    // The avatar of a row: «av» is the number from the server; the id makes a stable pick for old cached data.
+    function avatar(row, size) {
+        return window.QuizAvatars ? window.QuizAvatars.el(row.av !== undefined ? row.av : row.avatar, size, row.id) : null;
+    }
+
     function leaderRows(top, me, limit) {
         var list = h('ol', {cls: 'qz-board'});
         top.slice(0, limit || 5).forEach(function (row) {
             list.appendChild(h('li', {cls: 'qz-board-row' + (me && row.id === me ? ' qz-me' : ''), 'data-key': String(row.id)},
                 h('span', {cls: 'qz-board-place', text: String(row.rank)}),
+                avatar(row, 'm'),
                 h('span', {cls: 'qz-board-nick', text: row.nick || row.nickname}),
                 row.streak >= 2 ? h('span', {cls: 'qz-streak', text: '🔥 ' + row.streak}) : null,
                 h('b', {cls: 'qz-board-score', text: String(row.score)})));
@@ -698,6 +704,7 @@
             }
             box.appendChild(h('div', {cls: 'qz-pod qz-pod-' + (k + 1) + (me && row.id === me ? ' qz-me' : ''),
                     style: 'animation-delay:' + [2000, 3300, 1000][n] + 'ms'},
+                avatar(row, 'l'),
                 h('span', {cls: 'qz-pod-nick', text: row.nickname || row.nick}),
                 h('span', {cls: 'qz-pod-score', text: String(row.score)}),
                 h('span', {cls: 'qz-pod-block'}, h('b', {text: String(k + 1)}))));
@@ -942,6 +949,7 @@
             var box = h('div', {cls: 'qz-center qz-lobby-me'},
                 h('div', {cls: 'qz-me-badge qz-pop'}, h('i', {cls: 'fa fa-check'})),
                 h('h2', {text: MODE === 'solo' ? C.title : L('Вы в игре!')}),
+                window.QuizAvatars ? window.QuizAvatars.el(C.avatar, 'xl', C.player) : null,
                 h('p', {cls: 'qz-me-nick', text: C.nickname}));
             if (MODE === 'solo') {
                 box.appendChild(h('button', {type: 'button', cls: 'qz-btn qz-btn-primary qz-btn-xl', text: L('Начать'),
@@ -1581,7 +1589,7 @@
 
         function nameChip(row, pop) {
             return h('button', {type: 'button', cls: 'qz-name' + (pop ? ' qz-pop' : ''), title: L('Удалить игрока'),
-                'data-id': String(row.id), text: row.nickname, onclick: function () {
+                'data-id': String(row.id), onclick: function () {
                     var chip = this;
                     if (!window.confirm(L('Удалить игрока «') + row.nickname + '»?')) return;
                     request('POST', U.host_action, {action: 'kick', player: String(row.id)}, true).then(function (r) {
@@ -1591,7 +1599,7 @@
                             poller.now();
                         } else toast(r.data.error || L('Не получилось'));
                     });
-                }});
+                }}, avatar(row, 's'), h('span', {text: row.nickname}));
         }
 
         // ---------------- views
@@ -1800,6 +1808,7 @@
             before.forEach(function (row) {
                 list.appendChild(h('li', {cls: 'qz-board-row', 'data-key': String(row.id)},
                     h('span', {cls: 'qz-board-place', text: String(row.prev || '')}),
+                    avatar(row, 'm'),
                     h('span', {cls: 'qz-board-nick', text: row.nick}),
                     row.streak >= 2 ? h('span', {cls: 'qz-streak', text: '🔥 ' + row.streak}) : null,
                     row.delta ? h('span', {cls: 'qz-delta', text: '+' + row.delta}) : null,
@@ -1848,7 +1857,7 @@
                 h('h2', {cls: 'qz-final-title', text: C.title}),
                 podium(fin.top, null),
                 fin.top.length > 3 ? leaderRows(fin.top.slice(3, 10).map(function (r) {
-                    return {id: r.id, nick: r.nickname, score: r.score, rank: r.rank};
+                    return {id: r.id, nick: r.nickname, av: r.av, score: r.score, rank: r.rank};
                 }), null, 7) : null,
                 h('p', {cls: 'qz-muted', text: L('Игроков: ') + fin.total + L(' · вопросов: ') + fin.questions}),
                 finalLinks()));
@@ -1863,7 +1872,7 @@
         function remoteFinal() {
             var fin = H.fin;
             show(h('div', {cls: 'qz-remote qz-enter'}, h('h3', {cls: 'qz-h3', text: L('Итоги')}),
-                leaderRows(fin.top.map(function (r) { return {id: r.id, nick: r.nickname, score: r.score, rank: r.rank}; }), null, 10),
+                leaderRows(fin.top.map(function (r) { return {id: r.id, nick: r.nickname, av: r.av, score: r.score, rank: r.rank}; }), null, 10),
                 finalLinks()));
         }
 

@@ -180,6 +180,7 @@ class Player(models.Model):
     profile = models.ForeignKey(Profile, verbose_name=_('user'), null=True, blank=True, related_name='quiz_players',
                                 on_delete=SET_NULL)
     nickname = models.CharField(verbose_name=_('nickname'), max_length=24)
+    avatar = models.PositiveSmallIntegerField(verbose_name=_('avatar'), default=0)
     token = models.CharField(verbose_name=_('guest token'), max_length=32, blank=True)
     score = models.IntegerField(verbose_name=_('score'), default=0)
     streak = models.PositiveSmallIntegerField(verbose_name=_('streak'), default=0)

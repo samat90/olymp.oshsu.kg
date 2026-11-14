@@ -20,12 +20,16 @@
                 <p class="qz-join-pin">PIN <b>{{ pin[:3] }} {{ pin[3:] }}</b> <a href="{{ url('quiz_join') }}">{{ _('изменить') }}</a></p>
                 <label for="qz-nick" class="qz-join-label">{{ _('Ваш ник') }}</label>
                 <input id="qz-nick" name="nickname" class="qz-join-input qz-join-nick" maxlength="24" autocomplete="nickname"
-                       autocapitalize="words" autofocus required value="{{ nickname }}" placeholder="{{ _('Например, Айбек') }}">
+                       autocapitalize="words" {% if request.user.is_authenticated %}readonly{% else %}autofocus{% endif %} required
+                       value="{{ nickname }}" placeholder="{{ _('Например, Айбек') }}">
+                <p class="qz-join-label">{{ _('Выберите аватарку') }}</p>
+                <input type="hidden" name="avatar" id="qz-avatar" value="">
+                <div class="qz-av-grid" id="qz-av-grid" role="radiogroup" aria-label="{{ _('Аватарка') }}"></div>
                 {% if error %}<p class="qz-join-error" role="alert">{{ error }}</p>{% endif %}
                 <button type="submit" class="qz-btn qz-btn-primary qz-btn-xl">{{ _('Играть') }}</button>
-                <p class="qz-muted qz-small">
+                {% if not request.user.is_authenticated %}<p class="qz-muted qz-small">
                     <a href="{{ url('auth_login') }}?next={{ (url('quiz_join') + '?pin=' + pin)|urlencode }}">{{ _('Войти с аккаунтом') }}</a>{{ _(', чтобы игра сохранилась в истории.') }}
-                </p>
+                </p>{% endif %}
             </form>
         {% else %}
             <form method="post" action="{{ url('quiz_join') }}" class="qz-join-form" id="qz-join-pin"
@@ -45,6 +49,37 @@
     </div>
     <p class="qz-join-foot"><a href="{{ url('quiz_catalog') }}">{{ _('Каталог викторин') }}</a></p>
 </div>
+{% if step == 'nick' %}
+<script src="{{ static('quiz/avatars.js') }}?v={{ STATIC_VERSION }}"></script>
+<script>
+(function () {
+    var grid = document.getElementById('qz-av-grid'), field = document.getElementById('qz-avatar');
+    var QA = window.QuizAvatars;
+    if (!grid || !QA) return;
+    function pick(n) {
+        field.value = String(n);
+        Array.prototype.forEach.call(grid.children, function (b, i) {
+            b.setAttribute('aria-checked', i === n ? 'true' : 'false');
+            b.classList.toggle('qz-on', i === n);
+        });
+    }
+    for (var i = 0; i < QA.count; i++) {
+        (function (n) {
+            var b = document.createElement('button');
+            b.type = 'button';
+            b.className = 'qz-av-pick';
+            b.setAttribute('role', 'radio');
+            b.title = QA.name(n);
+            b.setAttribute('aria-label', QA.name(n));
+            b.appendChild(QA.el(n, 'l'));
+            b.addEventListener('click', function () { pick(n); });
+            grid.appendChild(b);
+        })(i);
+    }
+    pick(Math.floor(Math.random() * QA.count));
+})();
+</script>
+{% endif %}
 <script>
 (function () {
     var form = document.getElementById('qz-join-pin');
