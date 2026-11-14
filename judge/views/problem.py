@@ -32,6 +32,7 @@ from judge.comments import CommentedDetailView
 from judge.forms import ProblemCloneForm, ProblemPointsVoteForm, ProblemSubmitForm
 from judge.models import ContestSubmission, Judge, Language, Problem, ProblemGroup, ProblemPointsVote, \
     ProblemTranslation, ProblemType, RuntimeVersion, Solution, Submission, SubmissionSource
+from judge.utils.statement_math import clean_math
 from judge.utils.diggpaginator import DiggPaginator
 from judge.utils.opengraph import generate_opengraph
 from judge.utils.pdfoid import PDF_RENDERING_ENABLED, render_pdf
@@ -192,12 +193,12 @@ class ProblemDetail(ProblemMixin, SolvedProblemMixin, CommentedDetailView):
         except ProblemTranslation.DoesNotExist:
             context['title'] = self.object.name
             context['language'] = settings.LANGUAGE_CODE
-            context['description'] = self.object.description
+            context['description'] = clean_math(self.object.description)
             context['translated'] = False
         else:
             context['title'] = translation.name
             context['language'] = self.request.LANGUAGE_CODE
-            context['description'] = translation.description
+            context['description'] = clean_math(translation.description)
             context['translated'] = True
 
         if not self.object.og_image or not self.object.summary:
@@ -795,10 +796,10 @@ class ProblemSubmit(LoginRequiredMixin, ProblemMixin, TitleMixin, SingleObjectFo
             translation = self.object.translations.get(language=self.request.LANGUAGE_CODE)
         except ProblemTranslation.DoesNotExist:
             context['statement_title'] = self.object.name
-            context['description'] = self.object.description
+            context['description'] = clean_math(self.object.description)
         else:
             context['statement_title'] = translation.name
-            context['description'] = translation.description
+            context['description'] = clean_math(translation.description)
         context['contest_problem'] = self.contest_problem
         context['editor_languages'] = editor_language_info(context['form'].fields['language'].queryset)
         context['runner_enabled'] = runner_enabled()
