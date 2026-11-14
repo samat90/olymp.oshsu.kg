@@ -328,3 +328,15 @@ form.form-area { background: var(--ui-surface); border: 1px solid var(--ui-borde
 
 /* Header sign-in link: a real tap target. */
 #user-links .anon > a { display: inline-flex; align-items: center; min-height: 40px; padding-inline: 6px; }
+
+/* ---------- design pass 2026-11-15, batch 4 ---------- */
+footer #footer-content .footer-sub, footer #footer-content .footer-links, footer #footer-content .footer-links a { font-size: 12px; }
+.select2-container--dmoj .select2-selection--single { background: var(--ui-surface); border: 1px solid var(--ui-border); border-radius: 8px; min-height: 38px; }
+.select2-container--dmoj .select2-selection--single .select2-selection__rendered { color: var(--ui-text); line-height: 36px; }
+.select2-container--dmoj .select2-selection--single .select2-selection__arrow { height: 36px; }
+/* Section tabs wrap on phones instead of running off the screen (all links stay reachable). */
+@media (max-width: 700px) {
+    .tabs > ul { display: flex; flex-wrap: wrap; gap: 2px 4px; overflow: visible; white-space: normal; }
+    .tabs > ul > li { float: none; flex: 0 0 auto; }
+    .tabs > ul > li > a, .tabs > ul > li > span { padding: 8px 10px; }
+}
