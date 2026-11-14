@@ -340,3 +340,5 @@ footer #footer-content .footer-sub, footer #footer-content .footer-links, footer
     .tabs > ul > li { float: none; flex: 0 0 auto; }
     .tabs > ul > li > a, .tabs > ul > li > span { padding: 8px 10px; }
 }
+
+footer #footer-content .footer-credit, footer #footer-content .footer-year { font-size: 12px; }
