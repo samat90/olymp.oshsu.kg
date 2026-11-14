@@ -75,31 +75,43 @@ PY
 
 # ci_state COMMIT: prints red, green, pending or unknown, from GitHub Actions check runs and commit statuses
 # (public repository, no token). Only "red" blocks a deploy; any doubt (API down, rate limit, no CI yet) is "unknown".
+# A job that failed without running a single step (account locked for billing, no runners) is not red:
+# the code was never tested.
 ci_state() {
-    local runs status
-    runs=$(curl -s -m 20 -H "Accept: application/vnd.github+json" \
-        "$GH_API/repos/$GH_REPO/commits/$1/check-runs?per_page=100") || { echo unknown; return; }
-    status=$(curl -s -m 20 -H "Accept: application/vnd.github+json" \
-        "$GH_API/repos/$GH_REPO/commits/$1/status") || status='{}'
-    python3 -c '
-import json, sys
+    python3 - "$GH_API" "$GH_REPO" "$1" <<'PY' 2>/dev/null || echo unknown
+import json, sys, urllib.request
+api, repo, sha = sys.argv[1:4]
+def get(path):
+    req = urllib.request.Request(api + path, headers={'Accept': 'application/vnd.github+json', 'User-Agent': 'olymp-autodeploy'})
+    return json.load(urllib.request.urlopen(req, timeout=20))
 try:
-    runs = json.loads(sys.argv[1]).get("check_runs")
-    status = json.loads(sys.argv[2])
-except ValueError:
-    print("unknown"); sys.exit()
-if runs is None:
-    print("unknown"); sys.exit()
-bad = ("failure", "timed_out", "startup_failure")
-if any(r.get("conclusion") in bad for r in runs) or status.get("state") in ("failure", "error"):
-    print("red")
-elif any(r.get("status") != "completed" for r in runs):
-    print("pending")
-elif runs:
-    print("green")
-else:
-    print("unknown")
-' "$runs" "$status" 2>/dev/null || echo unknown
+    runs = get('/repos/%s/commits/%s/check-runs?per_page=100' % (repo, sha)).get('check_runs')
+    try:
+        state = get('/repos/%s/commits/%s/status' % (repo, sha)).get('state')
+    except Exception:
+        state = None
+    if runs is None:
+        print('unknown'); sys.exit()
+    red = state in ('failure', 'error')
+    for r in runs:
+        if r.get('conclusion') in ('failure', 'timed_out', 'startup_failure'):
+            try:
+                steps = get('/repos/%s/actions/jobs/%s' % (repo, r['id'])).get('steps') or []
+            except Exception:
+                steps = []  # cannot tell: do not block
+            if any(st.get('conclusion') == 'failure' for st in steps) or r.get('conclusion') == 'timed_out':
+                red = True
+    if red:
+        print('red')
+    elif any(r.get('status') != 'completed' for r in runs):
+        print('pending')
+    elif runs:
+        print('green')
+    else:
+        print('unknown')
+except Exception:
+    print('unknown')
+PY
 }
 
 # Keys of the olympiads going on right now. A contest open for longer than OLYMP_LONG_CONTEST_HOURS
