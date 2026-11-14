@@ -317,3 +317,11 @@ form.form-area { background: var(--ui-surface); border: 1px solid var(--ui-borde
     .problems .category { display: none; }
 }
 .select2-container--default .select2-selection--single, select { background: var(--ui-surface) !important; }
+
+/* ---------- design pass 2026-11-15, batch 2 ---------- */
+/* Problem page on phones: the info panel was 188px wide and clipped its buttons. */
+@media (max-width: 700px) {
+    #content-right:not(.problems), #content-right:not(.problems) .info-float { width: auto; max-width: none; float: none; }
+    #content-right .info-float a.button, #content-right .info-float .button, #content-right .info-float .ui.button { box-sizing: border-box; width: 100%; justify-content: center; text-align: center; }
+    #content-right .info-float a { min-height: 32px; }
+}

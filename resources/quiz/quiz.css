@@ -824,3 +824,9 @@ button.qz-btn-accent:hover, button.qz-btn-accent:focus { background: #0a6b64; }
     background: var(--ui-surface, #fff); color: var(--ui-text, #1b2430); box-shadow: 0 8px 28px rgba(0, 0, 0, .35); width: 230px; max-width: calc(100vw - 16px); box-sizing: border-box; }
 .qz-vol .qz-icon-btn { flex: none; }
 .qz-vol-range { flex: 1; min-width: 0; height: 32px; margin: 0; padding: 0; background: none; border: 0; box-shadow: none; accent-color: #0b7a72; cursor: pointer; }
+
+/* My quizzes on phones: actions wrap under the title instead of overflowing. */
+@media (max-width: 560px) {
+    .qz-myrow { flex-wrap: wrap; }
+    .qz-myrow-main { flex: 1 1 calc(100% - 90px); }
+}
