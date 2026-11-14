@@ -264,3 +264,21 @@ footer { box-sizing: border-box; max-width: 100%; }
 @media (max-width: 520px) {
     table.contest-list { display: block; max-width: 100%; overflow-x: auto; }
 }
+
+/* ---------- design pass 2026-11-15 ---------- */
+/* Unrated names were #999 on white (about 2.6:1): use the muted text colour of the theme. */
+.rate-none, .rate-none a, .rate-newbie, .rate-newbie a { color: var(--ui-muted); }
+/* A red "no" icon in every row of the problem list is noise: show absence quietly. */
+.no-editorial-color { color: var(--ui-border) !important; opacity: .9; }
+/* Visible keyboard focus everywhere. */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible,
+[tabindex]:focus-visible { outline: 2px solid var(--ui-accent); outline-offset: 2px; }
+/* Comfortable tap targets for list links on phones. */
+@media (max-width: 700px) {
+    table.table td a, table.table th a { padding-block: 4px; display: inline-block; }
+    #nav-list > li > a { min-height: 44px; }
+}
+/* Respect reduced-motion preference. */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
