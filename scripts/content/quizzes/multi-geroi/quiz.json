@@ -1,0 +1,1415 @@
+{
+ "key": "multi-geroi",
+ "title": "Мультфильмы: угадай героя",
+ "subject": "Мультфильмы",
+ "theme": "lake",
+ "description": "50 вопросов о героях мультфильмов: кто на картинке, как зовут героя, чей это друг и откуда он. Для детей и подростков — без занудства. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: кто этот мышонок в красных шортах?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "Микки Маус появился в 1928 году.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Спиди Гонзалес",
+     "is_correct": false
+    },
+    {
+     "text": "Стюарт Литтл",
+     "is_correct": false
+    },
+    {
+     "text": "Джерри",
+     "is_correct": false
+    },
+    {
+     "text": "Микки Маус",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как зовут львёнка, который стал королём?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Фраза «Акуна матата» — «никаких забот».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Симба",
+     "is_correct": true
+    },
+    {
+     "text": "Шрам",
+     "is_correct": false
+    },
+    {
+     "text": "Муфаса",
+     "is_correct": false
+    },
+    {
+     "text": "Тимон",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как зовут рыбку-клоуна, которую искал папа?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "А синяя рыбка — Дори.\n\n*Фото: Rickard Zerpe, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ocellaris_clownfish_%28Amphiprion_ocellaris%29_%2835272133494%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Дори",
+     "is_correct": false
+    },
+    {
+     "text": "Марлин",
+     "is_correct": false
+    },
+    {
+     "text": "Гилл",
+     "is_correct": false
+    },
+    {
+     "text": "Немо",
+     "is_correct": true
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая рыбка в «Немо» забывает всё через минуту?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Дори — синий хирург.\n\n*Фото: Tewy, CC BY 2.5, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Blue_tang_%28Paracanthurus_hepatus%29_01.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Баракуда",
+     "is_correct": false
+    },
+    {
+     "text": "Дори",
+     "is_correct": true
+    },
+    {
+     "text": "Гилл",
+     "is_correct": false
+    },
+    {
+     "text": "Немо",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто эта ледяная королева?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Эльза умеет замораживать.\n\n*Фото: Miguel Discart, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cosplay_of_Elsa_at_Japan_Expo_2016_%2828204746531%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Анна",
+     "is_correct": false
+    },
+    {
+     "text": "Эльза",
+     "is_correct": true
+    },
+    {
+     "text": "Рапунцель",
+     "is_correct": false
+    },
+    {
+     "text": "Моана",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "О чём мечтает снеговик Олаф?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Он любит тёплые объятия.\n\n*Фото: Sphiiix, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bonhomme_de_neige_2.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Съесть мороженое",
+     "is_correct": false
+    },
+    {
+     "text": "Увидеть зиму",
+     "is_correct": false
+    },
+    {
+     "text": "Увидеть лето",
+     "is_correct": true
+    },
+    {
+     "text": "Стать королём",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто этот космонавт-игрушка?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "«К бесконечности и ещё дальше!»\n\n*Фото: Edo-biscuit, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Buzz_Lightyear_sculpture_of_Toy_Story_Hotel_Shanghai.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Базз Лайтер",
+     "is_correct": true
+    },
+    {
+     "text": "Рекс",
+     "is_correct": false
+    },
+    {
+     "text": "Вуди",
+     "is_correct": false
+    },
+    {
+     "text": "Шрек",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как зовут ковбоя, лучшего друга Базза?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Он любит своего хозяина Энди.\n\n*Фото: Deror avi, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Woody_at_Toy_Story_Land,_Hong_Kong.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Вуди",
+     "is_correct": true
+    },
+    {
+     "text": "Хэмм",
+     "is_correct": false
+    },
+    {
+     "text": "Слинки",
+     "is_correct": false
+    },
+    {
+     "text": "Рекс",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто этот зелёный огр, живущий в болоте?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Его друг — Осёл.\n\n*Фото: The Conmunity - Pop Culture Geek from Los Angeles, CA, USA, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Comic-Con_2010_-_Shrek_and_Fiona_costumes_%284878078665%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Шрек",
+     "is_correct": true
+    },
+    {
+     "text": "Халк",
+     "is_correct": false
+    },
+    {
+     "text": "Чебурашка",
+     "is_correct": false
+    },
+    {
+     "text": "Ёжик",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто эти жёлтые существа в очках и комбинезонах?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Они любят бананы и говорят на своём языке.\n\n*Фото: Chongkian, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cosplay_of_Minion_at_Anime_Fest!_2022.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Миньоны",
+     "is_correct": true
+    },
+    {
+     "text": "Смешарики",
+     "is_correct": false
+    },
+    {
+     "text": "Лунтики",
+     "is_correct": false
+    },
+    {
+     "text": "Фиксики",
+     "is_correct": false
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто этот герой с большими ушами?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Его нашли в ящике с апельсинами.\n\n*Фото: Messir, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:%D0%A7%D0%B5%D0%B1%D1%83%D1%80-%D0%BA%D1%83%D0%BF%D1%87.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чебурашка",
+     "is_correct": true
+    },
+    {
+     "text": "Слонёнок Дамбо",
+     "is_correct": false
+    },
+    {
+     "text": "Ёжик",
+     "is_correct": false
+    },
+    {
+     "text": "Заяц",
+     "is_correct": false
+    }
+   ],
+   "image": "q11.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как зовут друга Чебурашки, который играет на гармошке?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Они вместе строили Дом дружбы.\n\n*Фото: Messir, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:%D0%9A%D1%80%D0%BE%D0%BA-%D0%B3%D0%B5%D0%BD-%D0%BA%D1%83%D0%BF%D1%87.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кот Леопольд",
+     "is_correct": false
+    },
+    {
+     "text": "Лев Бонифаций",
+     "is_correct": false
+    },
+    {
+     "text": "Крокодил Гена",
+     "is_correct": true
+    },
+    {
+     "text": "Волк",
+     "is_correct": false
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как зовут крысу старушки Шапокляк?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Лариска всегда с ней.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Гек",
+     "is_correct": false
+    },
+    {
+     "text": "Лариска",
+     "is_correct": true
+    },
+    {
+     "text": "Хомка",
+     "is_correct": false
+    },
+    {
+     "text": "Чук",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто этот медведь, который любит мёд?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Он живёт в Стоакровом лесу.\n\n*Фото: Biccie, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Winnie_de_Poeh_-_Leiderdorp.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мишка Тедди",
+     "is_correct": false
+    },
+    {
+     "text": "Балу",
+     "is_correct": false
+    },
+    {
+     "text": "Винни-Пух",
+     "is_correct": true
+    },
+    {
+     "text": "Гризли",
+     "is_correct": false
+    }
+   ],
+   "image": "q14.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто лучший друг Винни-Пуха — маленький поросёнок?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Пятачок очень добрый и пугливый.\n\n*Фото: Storye book, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Shipton_by_Beningbrough_2026_%2899%29.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кролик",
+     "is_correct": false
+    },
+    {
+     "text": "Ослик Иа",
+     "is_correct": false
+    },
+    {
+     "text": "Пятачок",
+     "is_correct": true
+    },
+    {
+     "text": "Тигра",
+     "is_correct": false
+    }
+   ],
+   "image": "q15.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто сказал: «Пустяки, дело житейское!»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Карлсон живёт на крыше и любит варенье.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Дядя Фёдор",
+     "is_correct": false
+    },
+    {
+     "text": "Карлсон",
+     "is_correct": true
+    },
+    {
+     "text": "Фрекен Бок",
+     "is_correct": false
+    },
+    {
+     "text": "Малыш",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто этот зверь — друг озорной девочки Маши из мультфильма?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Маша — главная озорница, а Медведь терпеливо её воспитывает.\n\n*Фото: Malene Thyssen, CC BY 2.5, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Brown_bear_%28Ursus_arctos_arctos%29_running.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лось",
+     "is_correct": false
+    },
+    {
+     "text": "Медведь",
+     "is_correct": true
+    },
+    {
+     "text": "Волк",
+     "is_correct": false
+    },
+    {
+     "text": "Барсук",
+     "is_correct": false
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "single",
+   "text": "С какого небесного тела упал Лунтик?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Лунтик — добрый и любознательный.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Со звезды",
+     "is_correct": false
+    },
+    {
+     "text": "С Солнца",
+     "is_correct": false
+    },
+    {
+     "text": "С Марса",
+     "is_correct": false
+    },
+    {
+     "text": "С Луны",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какое животное Крош из «Смешариков»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "А рядом живёт Ёжик.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Кролик",
+     "is_correct": true
+    },
+    {
+     "text": "Пёс",
+     "is_correct": false
+    },
+    {
+     "text": "Кот",
+     "is_correct": false
+    },
+    {
+     "text": "Ёж",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто в «Ну, погоди!» гоняется за Зайцем?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "«Ну, Заяц, ну, погоди!»",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Медведь",
+     "is_correct": false
+    },
+    {
+     "text": "Пёс",
+     "is_correct": false
+    },
+    {
+     "text": "Волк",
+     "is_correct": true
+    },
+    {
+     "text": "Лиса",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как зовут этого покемона?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Пикачу — электрический покемон.\n\n*Фото: Michael Ocampo from United States, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cosplay_of_Pikachu,_Fanime_2015_%2818125488996%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чармандер",
+     "is_correct": false
+    },
+    {
+     "text": "Сквиртл",
+     "is_correct": false
+    },
+    {
+     "text": "Пикачу",
+     "is_correct": true
+    },
+    {
+     "text": "Бульбазавр",
+     "is_correct": false
+    }
+   ],
+   "image": "q21.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто этот усатый водопроводчик в красной кепке?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Брат Марио носит зелёную кепку.\n\n*Фото: Super Festivals from Ft. Lauderdale, USA, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cosplay_of_Mario_at_Florida_Supercon_2013_%289367432306%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Донки Конг",
+     "is_correct": false
+    },
+    {
+     "text": "Марио",
+     "is_correct": true
+    },
+    {
+     "text": "Луиджи",
+     "is_correct": false
+    },
+    {
+     "text": "Соник",
+     "is_correct": false
+    }
+   ],
+   "image": "q22.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто этот большой пушистый лесной дух?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Тоторо — из японского мультфильма студии Ghibli.\n\n*Фото: Super Festivals from Ft. Lauderdale, USA, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cosplay_of_Totoro_at_Florida_Supercon_2013_%289364603569%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бэймакс",
+     "is_correct": false
+    },
+    {
+     "text": "Тоторо",
+     "is_correct": true
+    },
+    {
+     "text": "Пикачу",
+     "is_correct": false
+    },
+    {
+     "text": "Чебурашка",
+     "is_correct": false
+    }
+   ],
+   "image": "q23.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой породы собака Скуби-Ду?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Скуби любит «скуби-снэки».\n\n*Фото: Original uploader was Markovade.pero at sr.wikipedia, CC BY-SA 3.0 rs, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:8675eds_win.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лабрадор",
+     "is_correct": false
+    },
+    {
+     "text": "Немецкий дог",
+     "is_correct": true
+    },
+    {
+     "text": "Бульдог",
+     "is_correct": false
+    },
+    {
+     "text": "Хаски",
+     "is_correct": false
+    }
+   ],
+   "image": "q24.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто в мультфильме «Кунг-фу Панда» стал воином дракона?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "По обожает лапшу.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тигрица",
+     "is_correct": false
+    },
+    {
+     "text": "Панда По",
+     "is_correct": true
+    },
+    {
+     "text": "Обезьяна",
+     "is_correct": false
+    },
+    {
+     "text": "Журавль",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой зверь злодей Тай Лунг в «Кунг-фу Панде»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "В Кыргызстане его называют ирбис — символ страны.\n\n*Фото: Original: Tambako The Jaguar Derivative work: User:Niabot, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Snow_leopard_portrait-2010-07-09.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Снежный барс",
+     "is_correct": true
+    },
+    {
+     "text": "Гепард",
+     "is_correct": false
+    },
+    {
+     "text": "Тигр",
+     "is_correct": false
+    },
+    {
+     "text": "Леопард",
+     "is_correct": false
+    }
+   ],
+   "image": "q26.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как зовут командира пингвинов в «Мадагаскаре»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Остальные пингвины — Ковальски, Рико и Рядовой.\n\n*Фото: Gordon Leggett, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:2019-03-03_Chinstrap_penguin_on_Barrientos_Island,_Antarctica.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Алекс",
+     "is_correct": false
+    },
+    {
+     "text": "Марти",
+     "is_correct": false
+    },
+    {
+     "text": "Шкипер",
+     "is_correct": true
+    },
+    {
+     "text": "Мелман",
+     "is_correct": false
+    }
+   ],
+   "image": "q27.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какое животное — Мэнни из «Ледникового периода»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "А Сид — ленивец.\n\n*Фото: Thomas Quine, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Woolly_mammoth_model_Royal_BC_Museum_in_Victoria.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мамонт",
+     "is_correct": true
+    },
+    {
+     "text": "Носорог",
+     "is_correct": false
+    },
+    {
+     "text": "Слон",
+     "is_correct": false
+    },
+    {
+     "text": "Бегемот",
+     "is_correct": false
+    }
+   ],
+   "image": "q28.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто мечтает стать поваром в «Рататуе»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Реми живёт в Париже.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Заяц",
+     "is_correct": false
+    },
+    {
+     "text": "Кот Том",
+     "is_correct": false
+    },
+    {
+     "text": "Мышонок Джерри",
+     "is_correct": false
+    },
+    {
+     "text": "Крыса Реми",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что помогает слонёнку Дамбо летать?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Дамбо появился в 1941 году.\n\n*Фото: This Photo was taken by Timothy A. Gonsalves. Feel free to use my photos, but please mention me as the author. I would m, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mother_Calf_African_Bush_Elephant_Kafue_Jul23_A7C_05569.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Волшебное перо",
+     "is_correct": false
+    },
+    {
+     "text": "Крылья",
+     "is_correct": false
+    },
+    {
+     "text": "Шарики",
+     "is_correct": false
+    },
+    {
+     "text": "Огромные уши",
+     "is_correct": true
+    }
+   ],
+   "image": "q30.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какое животное — Бэмби?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Его друг — кролик Топотун.\n\n*Фото: Charles J. Sharp, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:White-tailed_deer_%28Odocoileus_virginianus_nelsoni%29_fawn_Orange_Walk.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Заяц",
+     "is_correct": false
+    },
+    {
+     "text": "Кабан",
+     "is_correct": false
+    },
+    {
+     "text": "Олень",
+     "is_correct": true
+    },
+    {
+     "text": "Лось",
+     "is_correct": false
+    }
+   ],
+   "image": "q31.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как зовут друга Маугли — большого сонливого медведя?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Он поёт: «Нужно только самое необходимое».\n\n*Фото: Harsha Jayaramaiah, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sloth_Bear_Ranthambore.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Шерхан",
+     "is_correct": false
+    },
+    {
+     "text": "Каа",
+     "is_correct": false
+    },
+    {
+     "text": "Багира",
+     "is_correct": false
+    },
+    {
+     "text": "Балу",
+     "is_correct": true
+    }
+   ],
+   "image": "q32.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какое животное Ник Уайлд из «Зверополиса»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "А Джуди Хоппс — крольчиха-полицейская.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Енот",
+     "is_correct": false
+    },
+    {
+     "text": "Волк",
+     "is_correct": false
+    },
+    {
+     "text": "Заяц",
+     "is_correct": false
+    },
+    {
+     "text": "Лис",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что живёт в волшебной лампе Аладдина?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Джинн исполняет три желания.\n\n*Фото: Arne Hückelheim, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:DiwaliOilLampCrop.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ковёр",
+     "is_correct": false
+    },
+    {
+     "text": "Джинн",
+     "is_correct": true
+    },
+    {
+     "text": "Дракон",
+     "is_correct": false
+    },
+    {
+     "text": "Змея",
+     "is_correct": false
+    }
+   ],
+   "image": "q34.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кого догнала Алиса, провалившись в кроличью нору?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Кролик всё время спешил: «Я опаздываю!»\n\n*Фото: Sir John Tenniel, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Alice-white-rabbit.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чеширского кота",
+     "is_correct": false
+    },
+    {
+     "text": "Мышь",
+     "is_correct": false
+    },
+    {
+     "text": "Шляпника",
+     "is_correct": false
+    },
+    {
+     "text": "Белого кролика",
+     "is_correct": true
+    }
+   ],
+   "image": "q35.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто этот деревянный мальчик с длинным носом?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "В Италии похожего героя зовут Пиноккио.\n\n*Фото: O. Savina, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Buratino_%28statue_by_Karslyan,_2013%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чиполлино",
+     "is_correct": false
+    },
+    {
+     "text": "Мальвина",
+     "is_correct": false
+    },
+    {
+     "text": "Буратино",
+     "is_correct": true
+    },
+    {
+     "text": "Незнайка",
+     "is_correct": false
+    }
+   ],
+   "image": "q36.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто этот инопланетянин из «Лило и Стич»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Он родом из космоса, но живёт на Гавайях.\n\n*Фото: Gage Skidmore from Peoria, AZ, United States of America, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Stitch_cosplayer_%2838331310596%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Эй",
+     "is_correct": false
+    },
+    {
+     "text": "Гуфи",
+     "is_correct": false
+    },
+    {
+     "text": "Шрек",
+     "is_correct": false
+    },
+    {
+     "text": "Стич",
+     "is_correct": true
+    }
+   ],
+   "image": "q37.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто этот робот-кот из будущего?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Дораэмон достаёт чудеса из волшебного кармана.\n\n*Фото: ScribblingGeek, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Doraemon_at_National_Museum_of_Singapore..jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пикачу",
+     "is_correct": false
+    },
+    {
+     "text": "Тоторо",
+     "is_correct": false
+    },
+    {
+     "text": "Дораэмон",
+     "is_correct": true
+    },
+    {
+     "text": "Бэймакс",
+     "is_correct": false
+    }
+   ],
+   "image": "q38.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто этот ниндзя в оранжевом костюме, мечтающий стать хокаге?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Он любит рамен.\n\n*Фото: Super Festivals from Ft. Lauderdale, USA, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cosplay_of_Naruto_Uzumaki_at_Florida_Supercon_2013_%289361190908%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лайт",
+     "is_correct": false
+    },
+    {
+     "text": "Гоку",
+     "is_correct": false
+    },
+    {
+     "text": "Наруто",
+     "is_correct": true
+    },
+    {
+     "text": "Саске",
+     "is_correct": false
+    }
+   ],
+   "image": "q39.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как зовут ночную фурию, друга Иккинга?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "«Как приручить дракона».\n\n*Фото: Crosa, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Playmobil_Dragons_-_Toothless.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Беззубик",
+     "is_correct": true
+    },
+    {
+     "text": "Шипокрыл",
+     "is_correct": false
+    },
+    {
+     "text": "Громгильда",
+     "is_correct": false
+    },
+    {
+     "text": "Кривоклык",
+     "is_correct": false
+    }
+   ],
+   "image": "q40.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как зовут пса из Простоквашино?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "А кота — Матроскин, а мальчика — дядя Фёдор.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тузик",
+     "is_correct": false
+    },
+    {
+     "text": "Бобик",
+     "is_correct": false
+    },
+    {
+     "text": "Мухтар",
+     "is_correct": false
+    },
+    {
+     "text": "Шарик",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте героев мультфильмов от самого маленького к самому большому.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Джерри — совсем крошка, Дамбо — слонёнок.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мышонок Джерри",
+     "is_correct": false
+    },
+    {
+     "text": "Кот Том",
+     "is_correct": false
+    },
+    {
+     "text": "Крокодил Гена",
+     "is_correct": false
+    },
+    {
+     "text": "Слонёнок Дамбо",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие из этих героев — медведи? Отметьте всех.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Багз — кролик, Пятачок — поросёнок.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мишка из «Маши и Медведя»",
+     "is_correct": true
+    },
+    {
+     "text": "Винни-Пух",
+     "is_correct": true
+    },
+    {
+     "text": "Балу",
+     "is_correct": true
+    },
+    {
+     "text": "Пятачок",
+     "is_correct": false
+    },
+    {
+     "text": "Багз Банни",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие из этих героев — из Disney? Отметьте всех.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Пикачу — из Японии, Шрек — из DreamWorks.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Эльза",
+     "is_correct": true
+    },
+    {
+     "text": "Шрек",
+     "is_correct": false
+    },
+    {
+     "text": "Пикачу",
+     "is_correct": false
+    },
+    {
+     "text": "Симба",
+     "is_correct": true
+    },
+    {
+     "text": "Микки Маус",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: любимое лакомство миньонов.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Миньоны обожают бананы.",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "БАНАН"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: как зовут кота из Простоквашино?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Он любит молоко и свою корову Мурку.",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "МАТРОСКИН"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: что больше всего любит Карлсон? (сладкое).",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Карлсон — «лучший в мире» любитель варенья.",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ВАРЕНЬЕ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Ловушка на двойные очки: в «Ледниковом периоде» Мэнни — слон.",
+   "time_limit": 15,
+   "weight": 2,
+   "explanation": "Мэнни — мамонт.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как зовут кошку-красавицу из мультфильма «Коты-аристократы»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Мари, Берлиоз и Тулуза — её котята.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Герцогиня",
+     "is_correct": true
+    },
+    {
+     "text": "Берлиоз",
+     "is_correct": false
+    },
+    {
+     "text": "Тулуза",
+     "is_correct": false
+    },
+    {
+     "text": "Мари",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки: кто этот герой? Он живёт на дне океана, жёлтый и квадратный.",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Он работает в «Красти Крабс».\n\n*Фото: Shaun C. Williams from USA, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Spongebob_hugs_a_fan_%283689068930%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мистер Крабс",
+     "is_correct": false
+    },
+    {
+     "text": "Губка Боб",
+     "is_correct": true
+    },
+    {
+     "text": "Сквидвард",
+     "is_correct": false
+    },
+    {
+     "text": "Патрик",
+     "is_correct": false
+    }
+   ],
+   "image": "q50.jpg"
+  }
+ ]
+}
