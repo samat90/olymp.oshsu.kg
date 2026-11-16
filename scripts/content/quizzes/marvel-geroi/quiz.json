@@ -1,0 +1,1399 @@
+{
+ "key": "marvel-geroi",
+ "title": "Вселенная Marvel: угадай героя",
+ "subject": "Кино",
+ "theme": "night",
+ "description": "50 вопросов о супергероях и злодеях Marvel: кто на картинке, как зовут героя без маски, у кого какая сила. Для детей и подростков, без занудства. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: кто этот герой в красно-синем костюме с паутиной?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "Человека-паука придумали в 1962 году.\n\n*Фото: Miguel Discart, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cosplay_of_Spider-Man_at_Brussels_Comic_Con_2019_%2846577381924%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Бэтмен",
+     "is_correct": false
+    },
+    {
+     "text": "Супермен",
+     "is_correct": false
+    },
+    {
+     "text": "Флэш",
+     "is_correct": false
+    },
+    {
+     "text": "Человек-паук",
+     "is_correct": true
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как зовут школьника, который стал Человеком-пауком?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Брюс Уэйн — это Бэтмен из другой вселенной (DC).",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Питер Паркер",
+     "is_correct": true
+    },
+    {
+     "text": "Брюс Уэйн",
+     "is_correct": false
+    },
+    {
+     "text": "Стив Роджерс",
+     "is_correct": false
+    },
+    {
+     "text": "Тони Старк",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как Питер Паркер получил свои силы?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Укус паука дал ему силу, ловкость и «паучье чутьё».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Выпил волшебное зелье",
+     "is_correct": false
+    },
+    {
+     "text": "Упал в котёл с краской",
+     "is_correct": false
+    },
+    {
+     "text": "Его укусил необычный паук",
+     "is_correct": true
+    },
+    {
+     "text": "Его ударила молния",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто этот герой в красно-золотой броне?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Броню он построил сам.\n\n*Фото: Gage Skidmore, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Iron_Man_Cosplay_at_2013_Phoenix_Comicon.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Капитан Америка",
+     "is_correct": false
+    },
+    {
+     "text": "Чёрная Пантера",
+     "is_correct": false
+    },
+    {
+     "text": "Тор",
+     "is_correct": false
+    },
+    {
+     "text": "Железный человек",
+     "is_correct": true
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто прячется внутри брони Железного человека?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "У Тони нет суперсилы — только ум и очень крутая броня.\n\n*Фото: Altan Dilan, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Iron_Man_Cosplay_-_MCM_Comic_Con_2016_%2827398644375%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Наташа Романофф — шпионка",
+     "is_correct": false
+    },
+    {
+     "text": "Тони Старк — изобретатель",
+     "is_correct": true
+    },
+    {
+     "text": "Брюс Бэннер — учёный",
+     "is_correct": false
+    },
+    {
+     "text": "Стив Роджерс — солдат",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто сказал в конце первого фильма: «Я — Железный человек»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Эту фразу он повторил и в «Финале».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Капитан Америка",
+     "is_correct": false
+    },
+    {
+     "text": "Тони Старк",
+     "is_correct": true
+    },
+    {
+     "text": "Халк",
+     "is_correct": false
+    },
+    {
+     "text": "Тор",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто этот герой с круглым щитом со звездой?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Щит он метает, как бумеранг.\n\n*Фото: randychiu, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Captain_America_cosplay_o.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Железный человек",
+     "is_correct": false
+    },
+    {
+     "text": "Человек-муравей",
+     "is_correct": false
+    },
+    {
+     "text": "Соколиный Глаз",
+     "is_correct": false
+    },
+    {
+     "text": "Капитан Америка",
+     "is_correct": true
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как звали Капитана Америку, когда он был обычным парнем?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Из хилого парня он стал суперсолдатом.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Питер Квилл",
+     "is_correct": false
+    },
+    {
+     "text": "Клинт Бартон",
+     "is_correct": false
+    },
+    {
+     "text": "Стив Роджерс",
+     "is_correct": true
+    },
+    {
+     "text": "Скотт Лэнг",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какую фразу говорит Капитан Америка в самых тяжёлых боях?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Он никогда не сдаётся.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Я есть Грут",
+     "is_correct": false
+    },
+    {
+     "text": "Халк, круши",
+     "is_correct": false
+    },
+    {
+     "text": "Я могу делать это весь день",
+     "is_correct": true
+    },
+    {
+     "text": "Ваканда навсегда",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто этот зелёный силач?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Ловушка: Шрек тоже зелёный, но он из другого мира.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Гринч",
+     "is_correct": false
+    },
+    {
+     "text": "Халк",
+     "is_correct": true
+    },
+    {
+     "text": "Лягушонок Кермит",
+     "is_correct": false
+    },
+    {
+     "text": "Шрек",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кем был Халк до превращения?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Он превращается в Халка, когда злится.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Солдатом",
+     "is_correct": false
+    },
+    {
+     "text": "Учёным Брюсом Бэннером",
+     "is_correct": true
+    },
+    {
+     "text": "Волшебником",
+     "is_correct": false
+    },
+    {
+     "text": "Королём",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Ловушка на двойные очки: чем сильнее злится Халк, тем он сильнее.",
+   "time_limit": 15,
+   "weight": 2,
+   "explanation": "Именно поэтому Брюс старается не злиться.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто этот герой с огромным молотом и красным плащом?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Тор — бог грома из Асгарда.\n\n*Фото: Miguel Discart, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cosplay_of_Thor_at_Brussels_Comic_Con_2019_%2847424176102%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Танос",
+     "is_correct": false
+    },
+    {
+     "text": "Один",
+     "is_correct": false
+    },
+    {
+     "text": "Локи",
+     "is_correct": false
+    },
+    {
+     "text": "Тор",
+     "is_correct": true
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется молот Тора?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Поднять Мьёльнир может только достойный.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Стормбрейкер",
+     "is_correct": false
+    },
+    {
+     "text": "Гунгнир",
+     "is_correct": false
+    },
+    {
+     "text": "Мьёльнир",
+     "is_correct": true
+    },
+    {
+     "text": "Эскалибур",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто Локи для Тора?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Локи — бог хитрости и обмана.\n\n*Фото: William Tung from USA, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:WonderCon_2015_-_Loki_cosplay_-_without_background.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Родной брат",
+     "is_correct": false
+    },
+    {
+     "text": "Приёмный брат",
+     "is_correct": true
+    },
+    {
+     "text": "Дядя",
+     "is_correct": false
+    },
+    {
+     "text": "Сосед",
+     "is_correct": false
+    }
+   ],
+   "image": "q15.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто эта героиня в чёрном костюме с красными песочными часами?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Её зовут Наташа Романофф.\n\n*Фото: Paul Carmona, CC0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Supanova_Day_-_Black_Widow_cosplay.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Алая Ведьма",
+     "is_correct": false
+    },
+    {
+     "text": "Оса",
+     "is_correct": false
+    },
+    {
+     "text": "Женщина-кошка",
+     "is_correct": false
+    },
+    {
+     "text": "Чёрная Вдова",
+     "is_correct": true
+    }
+   ],
+   "image": "q16.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какое оружие у Соколиного Глаза?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Клинт Бартон не промахивается.\n\n*Фото: Dan Catchpole, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cosplay_of_Classic_Hawkeye_at_MegaCon_2009.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лук и стрелы",
+     "is_correct": true
+    },
+    {
+     "text": "Молот",
+     "is_correct": false
+    },
+    {
+     "text": "Меч",
+     "is_correct": false
+    },
+    {
+     "text": "Пистолеты",
+     "is_correct": false
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Из какой страны родом Чёрная Пантера?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Ваканда — богатая страна с самым прочным металлом — вибраниумом.\n\n*Фото: tinyfroglet, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Black_Panther_cosplay.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Из Нарнии",
+     "is_correct": false
+    },
+    {
+     "text": "Из Атлантиды",
+     "is_correct": false
+    },
+    {
+     "text": "Из Асгарда",
+     "is_correct": false
+    },
+    {
+     "text": "Из Ваканды",
+     "is_correct": true
+    }
+   ],
+   "image": "q18.jpg"
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: что выпускает из запястий Человек-паук?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Он умеет так перелетать между домами.",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ПАУТИНА"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что умеет летающий красный плащ Доктора Стрэнджа?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Плащ Левитации — у него даже есть характер.\n\n*Фото: Theme Park Tourist, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Dr._Strange_%2830175130414%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Стреляет лазером",
+     "is_correct": false
+    },
+    {
+     "text": "Делает невидимым",
+     "is_correct": false
+    },
+    {
+     "text": "Лечит раны",
+     "is_correct": false
+    },
+    {
+     "text": "Помогает хозяину и летает сам",
+     "is_correct": true
+    }
+   ],
+   "image": "q20.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто этот герой, который умеет уменьшаться до размера муравья?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Скотт Лэнг может и вырастать до великана.\n\n*Фото: William Tung, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ant-Man_cosplay.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Росомаха",
+     "is_correct": false
+    },
+    {
+     "text": "Человек-муравей",
+     "is_correct": true
+    },
+    {
+     "text": "Человек-паук",
+     "is_correct": false
+    },
+    {
+     "text": "Железный человек",
+     "is_correct": false
+    }
+   ],
+   "image": "q21.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как зовут кота Капитана Марвел — на самом деле инопланетянина?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Гусь — флёркен: внутри у него щупальца!\n\n*Фото: Miguel Discart, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cosplay_of_Captain_Marvel_at_Brussels_Comic_Con_2019_%2846577264804%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Барсик",
+     "is_correct": false
+    },
+    {
+     "text": "Мурзик",
+     "is_correct": false
+    },
+    {
+     "text": "Гусь",
+     "is_correct": true
+    },
+    {
+     "text": "Том",
+     "is_correct": false
+    }
+   ],
+   "image": "q22.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какого цвета магия Алой Ведьмы?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Её зовут Ванда Максимофф.\n\n*Фото: Romer Jed Medina from Newark, NJ, United States, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cosplay_of_Scarlet_Witch_at_the_2021_New_York_Comic_Con_%2851574054825%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Зелёного",
+     "is_correct": false
+    },
+    {
+     "text": "Жёлтого",
+     "is_correct": false
+    },
+    {
+     "text": "Красного",
+     "is_correct": true
+    },
+    {
+     "text": "Синего",
+     "is_correct": false
+    }
+   ],
+   "image": "q23.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется команда героев, в которую входят Грут, Ракета и Гамора?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Ещё в ней Звёздный Лорд и Дракс.\n\n*Фото: Pat Loika, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cosplays_Guardians_of_the_Galaxy_Dragon_Con_2013.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мстители",
+     "is_correct": false
+    },
+    {
+     "text": "Стражи Галактики",
+     "is_correct": true
+    },
+    {
+     "text": "Фантастическая четвёрка",
+     "is_correct": false
+    },
+    {
+     "text": "Люди Икс",
+     "is_correct": false
+    }
+   ],
+   "image": "q24.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какое животное Ракета из «Стражей Галактики»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Он умный, вредный и отлично стреляет.\n\n*Фото: deejayqueue, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Dragon_Con_2016_-_Rocket_Raccoon_cosplay.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Енот",
+     "is_correct": true
+    },
+    {
+     "text": "Собака",
+     "is_correct": false
+    },
+    {
+     "text": "Кот",
+     "is_correct": false
+    },
+    {
+     "text": "Лиса",
+     "is_correct": false
+    }
+   ],
+   "image": "q25.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что говорит дерево Грут?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Грут говорит только эти три слова, но друзья его отлично понимают.\n\n*Фото: Michael Ocampo from United States, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:FanimeCon_2015_-_Groot_cosplay_%2818145141961%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Я есть Грут",
+     "is_correct": true
+    },
+    {
+     "text": "Привет, друг",
+     "is_correct": false
+    },
+    {
+     "text": "Я Тор",
+     "is_correct": false
+    },
+    {
+     "text": "Ваканда навсегда",
+     "is_correct": false
+    }
+   ],
+   "image": "q26.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто этот злодей в золотых доспехах с фиолетовой кожей?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Он собирал Камни Бесконечности.\n\n*Фото: Super Festivals from Ft. Lauderdale, USA, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cosplay_of_Thanos_at_GalaxyCon_Richmond_2020_%2849666517961%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Танос",
+     "is_correct": true
+    },
+    {
+     "text": "Локи",
+     "is_correct": false
+    },
+    {
+     "text": "Альтрон",
+     "is_correct": false
+    },
+    {
+     "text": "Красный Череп",
+     "is_correct": false
+    }
+   ],
+   "image": "q27.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Сколько всего Камней Бесконечности?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Они дают власть над разумом, временем, пространством, силой, реальностью и душой.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Двенадцать",
+     "is_correct": false
+    },
+    {
+     "text": "Шесть",
+     "is_correct": true
+    },
+    {
+     "text": "Три",
+     "is_correct": false
+    },
+    {
+     "text": "Девять",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто этот болтливый герой в красной маске?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Ловушка: Человек-паук тоже в красном, но Дэдпул носит два меча.\n\n*Фото: Miguel Discart, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cosplay_of_Deadpool_at_Made_in_Asia_2022_%2852123867263%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Флэш",
+     "is_correct": false
+    },
+    {
+     "text": "Дэдпул",
+     "is_correct": true
+    },
+    {
+     "text": "Каратель",
+     "is_correct": false
+    },
+    {
+     "text": "Человек-паук",
+     "is_correct": false
+    }
+   ],
+   "image": "q29.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто этот герой, у которого из кулаков выдвигаются когти?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Его настоящее имя — Логан.\n\n*Фото: Angel Vaughn, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cosplay_World_2024_-_Cosplay_of_Lego_Wolverine.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Росомаха",
+     "is_correct": true
+    },
+    {
+     "text": "Дэдпул",
+     "is_correct": false
+    },
+    {
+     "text": "Чёрная Пантера",
+     "is_correct": false
+    },
+    {
+     "text": "Ртуть",
+     "is_correct": false
+    }
+   ],
+   "image": "q30.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой чёрный «костюм» превращает Эдди Брока в Венома?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Симбиот — инопланетное существо.\n\n*Фото: https://www.flickr.com/photos/145739041@N05/, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Venom_Cosplay_2.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Вибраниум",
+     "is_correct": false
+    },
+    {
+     "text": "Дуговой реактор",
+     "is_correct": false
+    },
+    {
+     "text": "Мьёльнир",
+     "is_correct": false
+    },
+    {
+     "text": "Симбиот",
+     "is_correct": true
+    }
+   ],
+   "image": "q31.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что у Сокола за спиной?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Его зовут Сэм Уилсон.\n\n*Фото: Pat Loika, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:C2E2_2013_-_The_Falcon_%288689160144%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Крылья",
+     "is_correct": true
+    },
+    {
+     "text": "Парашют",
+     "is_correct": false
+    },
+    {
+     "text": "Рюкзак с книгами",
+     "is_correct": false
+    },
+    {
+     "text": "Плащ",
+     "is_correct": false
+    }
+   ],
+   "image": "q32.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто этот андроид с камнем на лбу?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Камень Разума — у него на лбу.\n\n*Фото: greyloch, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:The_Vision_-_24048516441.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ультрон",
+     "is_correct": false
+    },
+    {
+     "text": "Халк",
+     "is_correct": false
+    },
+    {
+     "text": "Вижн",
+     "is_correct": true
+    },
+    {
+     "text": "Танос",
+     "is_correct": false
+    }
+   ],
+   "image": "q33.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто носит повязку на глазу и руководит Щ.И.Т.ом?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Директор Щ.И.Т.а собирает Мстителей.\n\n*Фото: File:SDCC 2012 - Nick Fury (8005170771).jpg: Pat Loika derivative work: Gusama Romero, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:SDCC_2012_-_Nick_Fury_Cosplay.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Доктор Стрэндж",
+     "is_correct": false
+    },
+    {
+     "text": "Бак Барнс",
+     "is_correct": false
+    },
+    {
+     "text": "Ник Фьюри",
+     "is_correct": true
+    },
+    {
+     "text": "Тони Старк",
+     "is_correct": false
+    }
+   ],
+   "image": "q34.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто этот герой с металлической рукой?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Его зовут Баки Барнс — друг Стива Роджерса.\n\n*Фото: RyC - Behind The Lens from San Francisco, United States of America, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Winter_soldier_cosplay_%2814049807630%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Зимний солдат",
+     "is_correct": true
+    },
+    {
+     "text": "Каратель",
+     "is_correct": false
+    },
+    {
+     "text": "Человек-муравей",
+     "is_correct": false
+    },
+    {
+     "text": "Железный человек",
+     "is_correct": false
+    }
+   ],
+   "image": "q35.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как зовут Человека-паука в чёрно-красном костюме из «Через вселенные»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Он живёт в Бруклине.\n\n*Фото: William Tung from USA, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:WonderCon_2015_-_Miles_Morales_Cosplay_%2817048757161%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Гвен Стейси",
+     "is_correct": false
+    },
+    {
+     "text": "Питер Паркер",
+     "is_correct": false
+    },
+    {
+     "text": "Тони Старк",
+     "is_correct": false
+    },
+    {
+     "text": "Майлз Моралес",
+     "is_correct": true
+    }
+   ],
+   "image": "q36.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто этот герой, управляющий погодой?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Шторм из «Людей Икс» вызывает молнии и ветер.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Шторм",
+     "is_correct": true
+    },
+    {
+     "text": "Алая Ведьма",
+     "is_correct": false
+    },
+    {
+     "text": "Мистик",
+     "is_correct": false
+    },
+    {
+     "text": "Роуг",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто из этих героев НЕ из Marvel?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Бэтмен — герой другой компании, DC.\n\n*Фото: Super Festivals from Ft. Lauderdale, USA, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cosplay_of_Batman_at_Florida_Supercon_2013_%289364594115%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Капитан Америка",
+     "is_correct": false
+    },
+    {
+     "text": "Бэтмен",
+     "is_correct": true
+    },
+    {
+     "text": "Тор",
+     "is_correct": false
+    },
+    {
+     "text": "Халк",
+     "is_correct": false
+    }
+   ],
+   "image": "q38.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой злодей из «Людей Икс» управляет магнитами?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Магнето — самый известный противник Людей Икс.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Локи",
+     "is_correct": false
+    },
+    {
+     "text": "Танос",
+     "is_correct": false
+    },
+    {
+     "text": "Магнето",
+     "is_correct": true
+    },
+    {
+     "text": "Альтрон",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие из этих героев умеют летать? Отметьте все.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Соколиный Глаз стреляет из лука, но не летает.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тор",
+     "is_correct": true
+    },
+    {
+     "text": "Чёрная Вдова",
+     "is_correct": false
+    },
+    {
+     "text": "Соколиный Глаз",
+     "is_correct": false
+    },
+    {
+     "text": "Капитан Марвел",
+     "is_correct": true
+    },
+    {
+     "text": "Железный человек",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Кто из этих героев — из команды Мстителей? Отметьте всех.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Бэтмен и Супермен — герои DC.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чёрная Вдова",
+     "is_correct": true
+    },
+    {
+     "text": "Железный человек",
+     "is_correct": true
+    },
+    {
+     "text": "Капитан Америка",
+     "is_correct": true
+    },
+    {
+     "text": "Бэтмен",
+     "is_correct": false
+    },
+    {
+     "text": "Супермен",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Ловушка на двойные очки: у Тони Старка нет суперсилы — только ум и броня.",
+   "time_limit": 15,
+   "weight": 2,
+   "explanation": "Он гений, миллиардер и изобретатель.\n\n*Фото: William Tung from USA, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:WonderCon_2014_-_Iron_Man_Cosplay_%2813955026033%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q42.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Человек-паук летает на паутине, как птица.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Он не летает, а перелетает между домами, цепляясь паутиной.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": false
+    },
+    {
+     "text": "Неверно",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: как зовут дерево из «Стражей Галактики»?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Одно из самых добрых деревьев в кино.",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ГРУТ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: команда Железного человека, Тора и Халка («... общий сбор!»).",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "«Мстители, общий сбор!»",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "МСТИТЕЛИ"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько лет Капитан Америка провёл подо льдом? Примерно…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Он проснулся уже в наше время.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "70",
+     "is_correct": true
+    },
+    {
+     "text": "7",
+     "is_correct": false
+    },
+    {
+     "text": "17",
+     "is_correct": false
+    },
+    {
+     "text": "700",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Бекзат нарисовал героя с красным плащом, молотом и светлыми волосами. Кого он рисовал?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Тор — из Асгарда, а не с Земли.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Халка",
+     "is_correct": false
+    },
+    {
+     "text": "Одина",
+     "is_correct": false
+    },
+    {
+     "text": "Тора",
+     "is_correct": true
+    },
+    {
+     "text": "Локи",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Айжан сказала: «Мой любимый герой — тот, у кого щит со звездой». О ком она?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Щит Капитана Америка сделан из вибраниума.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "О Капитане Америка",
+     "is_correct": true
+    },
+    {
+     "text": "О Человеке-муравье",
+     "is_correct": false
+    },
+    {
+     "text": "О Тони Старке",
+     "is_correct": false
+    },
+    {
+     "text": "О Торе",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Как зовут героиню, которая стала Капитаном Марвел?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Кэрол — лётчица, получившая космическую силу.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Джин Грей",
+     "is_correct": false
+    },
+    {
+     "text": "Ванда Максимофф",
+     "is_correct": false
+    },
+    {
+     "text": "Наташа Романофф",
+     "is_correct": false
+    },
+    {
+     "text": "Кэрол Дэнверс",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Финал на двойные очки: как зовут малыша-деревце из «Стражей Галактики», который любит танцевать?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Малыш Йода — из «Звёздных войн», это другая вселенная.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Малыш Йода",
+     "is_correct": false
+    },
+    {
+     "text": "Малыш Грут",
+     "is_correct": true
+    },
+    {
+     "text": "Малыш Ракета",
+     "is_correct": false
+    },
+    {
+     "text": "Малыш Дэдпул",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}

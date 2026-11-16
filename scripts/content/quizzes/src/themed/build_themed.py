@@ -33,7 +33,7 @@ def build(quiz, out, errors):
     if len(qs) not in (25, 50):
         errors.append('%s: %d questions' % (key, len(qs)))
     n_single = sum(1 for q in qs if q['type'] in ('single', 'code'))
-    slots = ([0, 1, 2, 3] * 10)[:n_single]
+    slots = ([0, 1, 2, 3] * 15)[:n_single]
     random.Random(key).shuffle(slots)
     seen = set()
     items = []
