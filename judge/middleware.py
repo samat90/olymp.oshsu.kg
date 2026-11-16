@@ -14,6 +14,7 @@ from django.utils.encoding import force_bytes
 from requests.exceptions import HTTPError
 
 from judge.models import MiscConfig, ProblemCodeAlias
+from judge.utils import online
 
 try:
     import uwsgi
@@ -130,6 +131,18 @@ class ContestMiddleware(object):
             request.in_contest = False
             request.participation = None
         return self.get_response(request)
+
+
+class OnlineActivityMiddleware:
+    """Remembers what each visitor is doing for the admins' live statistics (Redis, throttled, never fails)."""
+
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        response = self.get_response(request)
+        online.record(request, response)
+        return response
 
 
 class APIMiddleware(object):

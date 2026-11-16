@@ -342,3 +342,24 @@ footer #footer-content .footer-sub, footer #footer-content .footer-links, footer
 }
 
 footer #footer-content .footer-credit, footer #footer-content .footer-year { font-size: 12px; }
+
+/* ---------- live online statistics (admins only, home page) ---------- */
+.online-live { margin: 0 0 16px; padding: 12px 14px; background: var(--ui-surface); border: 1px solid var(--ui-border); border-radius: var(--ui-radius); box-shadow: var(--ui-shadow); color: var(--ui-text); }
+.online-live[hidden] { display: none; }
+.online-head { display: flex; align-items: baseline; gap: 8px; font-size: 15px; }
+.online-head b { font-size: 20px; }
+.online-head #online-sub { color: var(--ui-muted); font-size: 13px; }
+.online-dot { width: 9px; height: 9px; border-radius: 50%; background: #22c55e; align-self: center; box-shadow: 0 0 0 3px rgba(34, 197, 94, .2); }
+.online-groups { margin-top: 8px; max-height: 320px; overflow-y: auto; display: grid; gap: 6px; }
+.online-group { padding: 8px 10px; background: var(--ui-surface-2); border-radius: 8px; border-left: 3px solid var(--ui-accent); }
+.online-group.online-contest { border-left-color: #f59e0b; }
+.online-group.online-problem { border-left-color: #22c55e; }
+.online-group.online-quiz { border-left-color: #a855f7; }
+.online-group.online-browse { border-left-color: var(--ui-border); }
+.online-ghead { display: flex; justify-content: space-between; gap: 10px; font-size: 14px; }
+.online-title { font-weight: 600; min-width: 0; overflow-wrap: anywhere; }
+.online-count { flex: none; color: var(--ui-muted); font-variant-numeric: tabular-nums; }
+.online-names { display: flex; flex-wrap: wrap; gap: 4px 6px; margin-top: 4px; font-size: 13px; }
+.online-name { padding: 1px 7px; border-radius: 10px; background: var(--ui-surface); border: 1px solid var(--ui-border); }
+.online-guest { color: var(--ui-muted); }
+.online-more { padding: 1px 8px; border-radius: 10px; border: 1px solid var(--ui-border); background: transparent; color: var(--ui-accent); cursor: pointer; font-size: 13px; min-height: 24px; }

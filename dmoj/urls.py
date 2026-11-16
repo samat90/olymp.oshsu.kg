@@ -18,6 +18,7 @@ from judge.views import about, anticheat, contest_tools, quiz as quiz_views, qui
 from judge.views.default_avatar import default_avatar
 from judge.views.deploy_status import deploy_status
 from judge.views.generate_users import GenerateUsersView
+from judge.views.online import online_now
 from judge.views.problem_import import import_problem
 from judge.views.problem_data import ProblemDataView, ProblemSubmissionDiff, \
     problem_data_file, problem_init_view
@@ -99,6 +100,7 @@ def paged_list_view(view, name):
 urlpatterns = [
     path('', blog.PostList.as_view(template_name='home.html', title=_('Home')), kwargs={'page': 1}, name='home'),
     path('about/', about.about, name='about'),
+    path('online/now.json', online_now, name='online_now'),
     path('500/', exception),
     path(f'{settings.ADMIN_URL_PREFIX}/generate-users/', GenerateUsersView.as_view(), name='admin_generate_users'),
     path(f'{settings.ADMIN_URL_PREFIX}/import-problem/', import_problem, name='admin_import_problem'),

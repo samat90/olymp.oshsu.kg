@@ -313,6 +313,7 @@ MIDDLEWARE = (
     'impersonate.middleware.ImpersonateMiddleware',
     'judge.middleware.DMOJImpersonationMiddleware',
     'judge.middleware.ContestMiddleware',
+    'judge.middleware.OnlineActivityMiddleware',
     'judge.middleware.ProblemCodeAliasMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     'judge.social_auth.SocialAuthExceptionMiddleware',
