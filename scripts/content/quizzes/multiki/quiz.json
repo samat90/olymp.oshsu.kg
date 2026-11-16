@@ -1,0 +1,1356 @@
+{
+ "key": "multiki",
+ "title": "Мультфильмы: большая викторина",
+ "subject": "Мультфильмы",
+ "theme": "lake",
+ "description": "50 вопросов о мультфильмах всего мира: Дисней и Pixar, «Союзмультфильм», японское аниме и герои, которых вы знаете с детства. Угадывайте по фото и не попадайтесь в ловушки. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: какую рыбку искал папа Марлин в мультфильме «В поисках Немо»?",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "Немо — рыба-клоун, как и его папа. А синяя рыбка Дори — рыба-хирург.\n\n*Фото: Ritiks, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Clown_fish_in_the_Andaman_Coral_Reef.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Рыбу-клоуна",
+     "is_correct": true
+    },
+    {
+     "text": "Рыбу-меч",
+     "is_correct": false
+    },
+    {
+     "text": "Акулу",
+     "is_correct": false
+    },
+    {
+     "text": "Морского конька",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "В каком году братья Уолт и Рой Дисней основали свою студию?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Сначала она называлась Disney Brothers Cartoon Studio.\n\n*Фото: Boy Scouts of America, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Walt_Disney_1946_%28cropped2%29.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В 1923",
+     "is_correct": true
+    },
+    {
+     "text": "В 1950",
+     "is_correct": false
+    },
+    {
+     "text": "В 1901",
+     "is_correct": false
+    },
+    {
+     "text": "В 1937",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какого кролика потерял Дисней, а потом придумал Микки Мауса?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Права на Освальда остались у студии Universal в 1928 году, и Дисней нарисовал новую мышку.\n\n*Фото: Walt Disney / Ub Iwerks, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Oswald_pointing_at_himself_-_Color.svg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Багза",
+     "is_correct": false
+    },
+    {
+     "text": "Освальда",
+     "is_correct": true
+    },
+    {
+     "text": "Банни",
+     "is_correct": false
+    },
+    {
+     "text": "Роджера",
+     "is_correct": false
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Ловушка на двойные очки: ранний «Пароходик Вилли» (1928) с Микки Маусом в США стал общественным достоянием.",
+   "time_limit": 15,
+   "weight": 2,
+   "explanation": "Это произошло 1 января 2024 года. Современный Микки Маус при этом защищён.\n\n*Фото: Walt Disney / Ub Iwerks, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mickey_Mouse_-_Steamboat_Willie_%281928%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой мультфильм 1995 года стал первым полнометражным мультфильмом, целиком нарисованным на компьютере?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Его снял Джон Лассетер на студии Pixar.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Тачки»",
+     "is_correct": false
+    },
+    {
+     "text": "«Король Лев»",
+     "is_correct": false
+    },
+    {
+     "text": "«История игрушек»",
+     "is_correct": true
+    },
+    {
+     "text": "«Шрек»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто в 1986 году купил Pixar у Джорджа Лукаса?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "В 2006 году Disney купила Pixar за 7,4 млрд долларов.\n\n*Фото: Matthew Yohe, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Steve_Jobs_Headshot_2010_%28cropped_6%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Уолт Дисней",
+     "is_correct": false
+    },
+    {
+     "text": "Билл Гейтс",
+     "is_correct": false
+    },
+    {
+     "text": "Стив Джобс",
+     "is_correct": true
+    },
+    {
+     "text": "Илон Маск",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Сюжет «Короля Льва» (1994) многие считают вдохновлённым трагедией Шекспира «Гамлет».",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Сын убитого короля, дядя-узурпатор, призрак отца — схема похожа.\n\n*Фото: Attributed to John Taylor, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:William_Shakespeare_by_John_Taylor,_edited.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "На каком языке фраза «Акуна матата» из «Короля Льва»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Она значит «никаких забот».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "На арабском",
+     "is_correct": false
+    },
+    {
+     "text": "На суахили",
+     "is_correct": true
+    },
+    {
+     "text": "На зулу",
+     "is_correct": false
+    },
+    {
+     "text": "На амхарском",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Тай Лунг, злодей из «Кунг-фу Панды», — это…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "В Кыргызстане снежного барса называют ирбисом — это один из символов страны.\n\n*Фото: Irbis1983, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Irbis4.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тигр",
+     "is_correct": false
+    },
+    {
+     "text": "Снежный барс",
+     "is_correct": true
+    },
+    {
+     "text": "Леопард",
+     "is_correct": false
+    },
+    {
+     "text": "Пума",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какое животное король Джулиан из «Мадагаскара»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Лемуры живут только на Мадагаскаре.\n\n*Фото: Charles J. Sharp, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ring-tailed_lemur_%28Lemur_catta%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Лев",
+     "is_correct": false
+    },
+    {
+     "text": "Кошачий лемур",
+     "is_correct": true
+    },
+    {
+     "text": "Бегемот",
+     "is_correct": false
+    },
+    {
+     "text": "Обезьяна",
+     "is_correct": false
+    }
+   ],
+   "image": "q10.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что вечно ищет белка Скрат из «Ледникового периода»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Его желудь иногда даже вызывает землетрясения.\n\n*Фото: Ivar Leidus, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Quercus_robur_acorn_-_Keila.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Орех кешью",
+     "is_correct": false
+    },
+    {
+     "text": "Сыр",
+     "is_correct": false
+    },
+    {
+     "text": "Кости",
+     "is_correct": false
+    },
+    {
+     "text": "Жёлудь",
+     "is_correct": true
+    }
+   ],
+   "image": "q11.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какая рыба — синяя Дори из «В поисках Немо»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Её голубой цвет и чёрный «рисунок» легко узнать в океанариуме.\n\n*Фото: DerHans04, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Paletten-Doktorfisch_M%C3%BCnster.JPG)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Рыба-клоун",
+     "is_correct": false
+    },
+    {
+     "text": "Рыба-хирург",
+     "is_correct": true
+    },
+    {
+     "text": "Рыба-луна",
+     "is_correct": false
+    },
+    {
+     "text": "Рыба-ёж",
+     "is_correct": false
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой настоящий водопад вдохновил «Парадайз-Фоллс» из мультфильма «Вверх»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Анхель — самый высокий водопад мира, около 979 м.\n\n*Фото: Rich Childs, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:SaltoAngel1.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Анхель в Венесуэле",
+     "is_correct": true
+    },
+    {
+     "text": "Виктория в Африке",
+     "is_correct": false
+    },
+    {
+     "text": "Ниагарский",
+     "is_correct": false
+    },
+    {
+     "text": "Йосемити",
+     "is_correct": false
+    }
+   ],
+   "image": "q13.jpg"
+  },
+  {
+   "type": "single",
+   "text": "В каком городе происходит «Рататуй»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Крыс Реми мечтает стать поваром в ресторане Гюсто.\n\n*Фото: Benh LIEU SONG, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tour_Eiffel_Wikimedia_Commons_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В Риме",
+     "is_correct": false
+    },
+    {
+     "text": "В Лондоне",
+     "is_correct": false
+    },
+    {
+     "text": "В Нью-Йорке",
+     "is_correct": false
+    },
+    {
+     "text": "В Париже",
+     "is_correct": true
+    }
+   ],
+   "image": "q14.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой мексиканский праздник показан в «Тайне Коко»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Его отмечают 1–2 ноября, а украшают сахарными черепами.\n\n*Фото: Paolaricaurte, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Catrina_3.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Рождество",
+     "is_correct": false
+    },
+    {
+     "text": "Масленица",
+     "is_correct": false
+    },
+    {
+     "text": "День мёртвых",
+     "is_correct": true
+    },
+    {
+     "text": "Хэллоуин",
+     "is_correct": false
+    }
+   ],
+   "image": "q15.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Пейзажи какой страны вдохновили создателей «Холодного сердца»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Замок и деревня Эренделл напоминают норвежские фьорды. Сказка вдохновлена «Снежной королевой» Андерсена.\n\n*Фото: Andreas Trepte, CC BY-SA 2.5, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Geirangerfjord_.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Швейцарии",
+     "is_correct": false
+    },
+    {
+     "text": "Норвегии",
+     "is_correct": true
+    },
+    {
+     "text": "Канады",
+     "is_correct": false
+    },
+    {
+     "text": "Исландии",
+     "is_correct": false
+    }
+   ],
+   "image": "q16.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Где происходит действие «Храброй сердцем»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Принцесса Мерида метко стреляет из лука.\n\n*Фото: Jrockley, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Scottish_Highlands_and_Lowlands.png)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В Шотландии",
+     "is_correct": true
+    },
+    {
+     "text": "В Англии",
+     "is_correct": false
+    },
+    {
+     "text": "В Норвегии",
+     "is_correct": false
+    },
+    {
+     "text": "В Ирландии",
+     "is_correct": false
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "single",
+   "text": "К какой культуре относится героиня мультфильма «Моана»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Полубог Мауи — персонаж полинезийских мифов.\n\n*Фото: HongKongHuey, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hokule%27aSailing2009.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "К микронезийской",
+     "is_correct": false
+    },
+    {
+     "text": "К меланезийской",
+     "is_correct": false
+    },
+    {
+     "text": "К китайской",
+     "is_correct": false
+    },
+    {
+     "text": "К полинезийской",
+     "is_correct": true
+    }
+   ],
+   "image": "q18.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Герой мультфильма «Спирит» (2002) — это…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Кыргызы говорят: «Эр канаты — ат» («Крылья мужчины — конь»).\n\n*Фото: Ealdgyth, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mustanggelding.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Дикий конь-мустанг",
+     "is_correct": true
+    },
+    {
+     "text": "Лось",
+     "is_correct": false
+    },
+    {
+     "text": "Пёс",
+     "is_correct": false
+    },
+    {
+     "text": "Орёл",
+     "is_correct": false
+    }
+   ],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто озвучил Джинна в «Аладдине» (1992) в оригинале?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Его импровизации очень понравились создателям.\n\n*Фото: Kingkongphoto & www.celebrity-photos.com from Laurel, Maryland, USA, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Robin_Williams_1996_%28cropped%29_2.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Джим Керри",
+     "is_correct": false
+    },
+    {
+     "text": "Эдди Мёрфи",
+     "is_correct": false
+    },
+    {
+     "text": "Мел Гибсон",
+     "is_correct": false
+    },
+    {
+     "text": "Робин Уильямс",
+     "is_correct": true
+    }
+   ],
+   "image": "q20.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Это «Унесённые призраками» (2001). Что получил фильм в 2003 году?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Режиссёр — Хаяо Миядзаки. Это был первый японский мультфильм, получивший такой «Оскар».\n\n*Фото: Natasha Baucas at https://www.flickr.com/photos/sdnatasha/, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:HayaoMiyazakiCCJuly09.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Золотую пальмовую ветвь",
+     "is_correct": false
+    },
+    {
+     "text": "Премию как лучший иностранный фильм",
+     "is_correct": false
+    },
+    {
+     "text": "Оскар за лучшую музыку",
+     "is_correct": false
+    },
+    {
+     "text": "Оскар как лучший анимационный фильм",
+     "is_correct": true
+    }
+   ],
+   "image": "q21.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой фильм Миядзаки получил второй «Оскар» в 2024 году?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Первым был «Унесённые призраками».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Ветер крепчает»",
+     "is_correct": false
+    },
+    {
+     "text": "«Принцесса Мононоке»",
+     "is_correct": false
+    },
+    {
+     "text": "«Мальчик и птица»",
+     "is_correct": true
+    },
+    {
+     "text": "«Ходячий замок»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кто придумал Чебурашку?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Чебурашка появился в книге 1966 года. Мультфильм снял Роман Качанов в 1969 году.\n\n*Фото: Dmitry Rozhkov, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Eduard_Uspensky_2.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Эдуард Успенский",
+     "is_correct": true
+    },
+    {
+     "text": "Агния Барто",
+     "is_correct": false
+    },
+    {
+     "text": "Сергей Михалков",
+     "is_correct": false
+    },
+    {
+     "text": "Корней Чуковский",
+     "is_correct": false
+    }
+   ],
+   "image": "q23.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как Чебурашка попал в город?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Продавец нашёл его в ящике с апельсинами из тропиков.\n\n*Фото: Ivar Leidus, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Oranges_-_whole-halved-segment.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В автобусе",
+     "is_correct": false
+    },
+    {
+     "text": "На самолёте",
+     "is_correct": false
+    },
+    {
+     "text": "В чемодане",
+     "is_correct": false
+    },
+    {
+     "text": "В ящике с апельсинами",
+     "is_correct": true
+    }
+   ],
+   "image": "q24.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кем работает крокодил Гена?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Он ещё играет на гармони и мечтает о друзьях.\n\n*Фото: Dewet, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:NileCrocodile.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Поваром",
+     "is_correct": false
+    },
+    {
+     "text": "Крокодилом в зоопарке",
+     "is_correct": true
+    },
+    {
+     "text": "Сторожем",
+     "is_correct": false
+    },
+    {
+     "text": "Учителем",
+     "is_correct": false
+    }
+   ],
+   "image": "q25.jpg"
+  },
+  {
+   "type": "single",
+   "text": "В честь какого зверя назван Винни-Пух?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Автор — Алан Милн, а Кристофер Робин — его сын.\n\n*Фото: Ernest Howard Shepard, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Winnie-the-Pooh_19.png)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В честь канадской медведицы Виннипег из Лондонского зоопарка",
+     "is_correct": true
+    },
+    {
+     "text": "В честь тедди-мишки Виннипега",
+     "is_correct": false
+    },
+    {
+     "text": "В честь друга Алана Милна",
+     "is_correct": false
+    },
+    {
+     "text": "В честь медведя из цирка",
+     "is_correct": false
+    }
+   ],
+   "image": "q26.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто написал книгу «Малыш и Карлсон, который живёт на крыше»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Астрид Линдгрен — шведская писательница. Советский мультфильм вышел в 1968 году.\n\n*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Astrid_Lindgren_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Ганс Христиан Андерсен",
+     "is_correct": false
+    },
+    {
+     "text": "Алан Милн",
+     "is_correct": false
+    },
+    {
+     "text": "Астрид Линдгрен",
+     "is_correct": true
+    },
+    {
+     "text": "Туве Янссон",
+     "is_correct": false
+    }
+   ],
+   "image": "q27.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что нёс Ёжик в тумане Медвежонку?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Мультфильм Юрия Норштейна, 1975 год.\n\n*Фото: Jörg Hempel, CC BY-SA 2.0 de, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Erinaceus_europaeus_LC0119.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Мёд",
+     "is_correct": false
+    },
+    {
+     "text": "Яблоки",
+     "is_correct": false
+    },
+    {
+     "text": "Грибы",
+     "is_correct": false
+    },
+    {
+     "text": "Варенье",
+     "is_correct": true
+    }
+   ],
+   "image": "q28.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто озвучил Волка в «Ну, погоди!»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Зайца озвучивала Клара Румянова.\n\n*Фото: Игорь Верещагин, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Anatoli_Papanov_%281%29_cr.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Евгений Леонов",
+     "is_correct": false
+    },
+    {
+     "text": "Георгий Вицин",
+     "is_correct": false
+    },
+    {
+     "text": "Анатолий Папанов",
+     "is_correct": true
+    },
+    {
+     "text": "Олег Табаков",
+     "is_correct": false
+    }
+   ],
+   "image": "q29.jpg"
+  },
+  {
+   "type": "single",
+   "text": "На чём ездит почтальон Печкин?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Конечно, он очень не любит давать посылки без документов.\n\n*Фото: 齐健 from Peking, People's Republic of China, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Left_side_of_Flying_Pigeon.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "На велосипеде",
+     "is_correct": true
+    },
+    {
+     "text": "На лошади",
+     "is_correct": false
+    },
+    {
+     "text": "На мотоцикле",
+     "is_correct": false
+    },
+    {
+     "text": "На тракторе",
+     "is_correct": false
+    }
+   ],
+   "image": "q30.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кем раньше работал Медведь из мультсериала «Маша и Медведь»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Мультсериал выходит с 2009 года.\n\n*Фото: Yathin S Krishnappa, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:2010-kodiak-bear-1.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Поваром",
+     "is_correct": false
+    },
+    {
+     "text": "Космонавтом",
+     "is_correct": false
+    },
+    {
+     "text": "Лесником",
+     "is_correct": false
+    },
+    {
+     "text": "Артистом цирка",
+     "is_correct": true
+    }
+   ],
+   "image": "q31.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какие животные собрались в «Бременских музыкантах» по сказке братьев Гримм?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Советский мультфильм 1969 года.\n\n*Фото: Elisabeth Baumann, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Grimm.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Конь, корова, коза и гусь",
+     "is_correct": false
+    },
+    {
+     "text": "Осёл, свинья, кот и утка",
+     "is_correct": false
+    },
+    {
+     "text": "Осёл, пёс, кот и петух",
+     "is_correct": true
+    },
+    {
+     "text": "Волк, лиса, заяц и медведь",
+     "is_correct": false
+    }
+   ],
+   "image": "q32.jpg"
+  },
+  {
+   "type": "order",
+   "text": "Расставьте фильмы Pixar по году выхода, от старых к новым.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "1995, 2007, 2008, 2009 и 2015 годы.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«История игрушек»",
+     "is_correct": false
+    },
+    {
+     "text": "«Рататуй»",
+     "is_correct": false
+    },
+    {
+     "text": "«ВАЛЛ-И»",
+     "is_correct": false
+    },
+    {
+     "text": "«Вверх»",
+     "is_correct": false
+    },
+    {
+     "text": "«Головоломка»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие мультфильмы вдохновлены сказками Андерсена? Отметьте все.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "«Золушка» — сказка Шарля Перро, «Рапунцель» — братьев Гримм.\n\n*Фото: Thora Hallager, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:HCA_by_Thora_Hallager_1869_crop.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Рапунцель»",
+     "is_correct": false
+    },
+    {
+     "text": "«Снежная королева»",
+     "is_correct": true
+    },
+    {
+     "text": "«Золушка»",
+     "is_correct": false
+    },
+    {
+     "text": "«Русалочка»",
+     "is_correct": true
+    },
+    {
+     "text": "«Холодное сердце»",
+     "is_correct": true
+    }
+   ],
+   "image": "q34.jpg"
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: упал с Луны и живёт на Земле, а друзья — Кузя и Мила.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Мультсериал «Лунтик и его друзья» выходит с 2006 года.",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ЛУНТИК"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: розовая свинка из «Смешариков».",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "А ещё есть Крош, Ёжик, Лосяш, Копатыч, Совунья и Бараш.",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "НЮША"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Как зовут слонёнка, который научился летать благодаря огромным ушам?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "«Дамбо» вышел в 1941 году.\n\n*Фото: Yathin S Krishnappa, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Elephas_maximus_%28Bandipur%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "Дамбо",
+     "Dumbo"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": "q37.jpg"
+  },
+  {
+   "type": "text",
+   "text": "Как зовут мальчика из «Книги джунглей», которого растили волки?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Книгу написал Редьярд Киплинг в 1894 году.\n\n*Фото: Elliott & Fry, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Rudyard_Kipling_%28portrait%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "Маугли",
+     "Mowgli"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": "q38.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "В каком году вышел «Король Лев» (рисованный оригинал)?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "Ремейк вышел в 2019 году.",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 1980,
+    "max": 2020,
+    "step": 1,
+    "answer": 1994,
+    "unit": "",
+    "tolerance": 1
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "slider",
+   "text": "В каком году основали студию «Союзмультфильм»?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "Студия работала в Москве, с 1936 года выпускала мультфильмы.",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 1920,
+    "max": 1980,
+    "step": 1,
+    "answer": 1936,
+    "unit": "",
+    "tolerance": 2
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "«Симпсоны» идут по телевизору с 1989 года — это самый долгий мультсериал в истории США.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Создал его Мэтт Грёнинг. Первый эпизод вышел в декабре 1989 года.\n\n*Фото: PhilipRomanoPhoto, CC BY 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:MattGroening-byPhilipRomano.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q41.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кем работал автор «Губки Боба» до мультфильмов?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Стивен Хилленберг преподавал морскую биологию.\n\n*Фото: Carlos Cazurro Burgos (http://www.cazurro.com/), CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Stephen_Hillenburg_by_Carlos_Cazurro_%28cropped_3%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Моряком",
+     "is_correct": false
+    },
+    {
+     "text": "Морским биологом",
+     "is_correct": true
+    },
+    {
+     "text": "Поваром",
+     "is_correct": false
+    },
+    {
+     "text": "Рыбаком",
+     "is_correct": false
+    }
+   ],
+   "image": "q42.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто создал Тома и Джерри?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Серия получила 7 «Оскаров» в 1940–50-х годах.\n\n*Фото: Photo by Elson-Alexandre, Los Angeles, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:William_Hanna_1977.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Текс Эйвери",
+     "is_correct": false
+    },
+    {
+     "text": "Чак Джонс",
+     "is_correct": false
+    },
+    {
+     "text": "Уолт Дисней",
+     "is_correct": false
+    },
+    {
+     "text": "Уильям Ханна и Джозеф Барбера",
+     "is_correct": true
+    }
+   ],
+   "image": "q43.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Ловушка на двойные очки: Скуби-Ду — по породе немецкий дог.",
+   "time_limit": 15,
+   "weight": 2,
+   "explanation": "Создателей вдохновила именно эта порода. Мультсериал вышел в 1969 году.\n\n*Фото: Lilly M, CC BY-SA 2.5, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Dog_niemiecki_%C5%BC%C3%B3%C5%82ty_LM980.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q44.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какой эмоции не было в голове Райли в первой «Головоломке» (2015)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "В первой части были Радость, Грусть, Гнев, Страх и Брезгливость. Зависть появилась во второй.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Брезгливости",
+     "is_correct": false
+    },
+    {
+     "text": "Зависти",
+     "is_correct": true
+    },
+    {
+     "text": "Страха",
+     "is_correct": false
+    },
+    {
+     "text": "Гнева",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Азамат смотрит «Историю игрушек». Как зовут ковбоя, который ревнует хозяина к космонавту?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Космонавт — Базз Лайтер. Оба — игрушки Энди.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Вуди",
+     "is_correct": true
+    },
+    {
+     "text": "Бо Пип",
+     "is_correct": false
+    },
+    {
+     "text": "Рекс",
+     "is_correct": false
+    },
+    {
+     "text": "Базз",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой мультфильм вышел в 2025 году и стал самым кассовым анимационным фильмом в истории?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Китайский мультфильм «Нэчжа 2» собрал больше 2 млрд долларов и обошёл «Головоломку 2».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Головоломка 2»",
+     "is_correct": false
+    },
+    {
+     "text": "«Зверополис»",
+     "is_correct": false
+    },
+    {
+     "text": "«Нэчжа 2»",
+     "is_correct": true
+    },
+    {
+     "text": "«Холодное сердце 2»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Кем по профессии был автор «Алисы в Стране чудес» Льюис Кэрролл?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Настоящее имя — Чарльз Додсон, он преподавал математику в Оксфорде.\n\n*Фото: Lewis Carroll, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:LewisCarrollSelfPhoto.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Врачом",
+     "is_correct": false
+    },
+    {
+     "text": "Капитаном корабля",
+     "is_correct": false
+    },
+    {
+     "text": "Математиком",
+     "is_correct": true
+    },
+    {
+     "text": "Поваром",
+     "is_correct": false
+    }
+   ],
+   "image": "q48.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто написал «Приключения Пиноккио» (1883), деревянной куклы с длинным носом?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Алексей Толстой переписал историю по-своему: так появился Буратино.\n\n*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Carlo_Collodi.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Карло Коллоди",
+     "is_correct": true
+    },
+    {
+     "text": "Братья Гримм",
+     "is_correct": false
+    },
+    {
+     "text": "Александр Пушкин",
+     "is_correct": false
+    },
+    {
+     "text": "Шарль Перро",
+     "is_correct": false
+    }
+   ],
+   "image": "q49.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Чебурашку в мультфильме 1969 года озвучила Клара Румянова — та же актриса, что и Зайца в «Ну, погоди!».",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Её голос узнают миллионы.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  }
+ ]
+}
