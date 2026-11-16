@@ -1,0 +1,1380 @@
+{
+ "key": "marvel",
+ "title": "Вселенная Marvel",
+ "subject": "Кино",
+ "theme": "night",
+ "description": "50 вопросов о героях, актёрах и создателях Вселенной Marvel: от комиксов Стэна Ли до «Мстителей». Узнайте актёра по фото и не попадитесь в ловушки — от камней Бесконечности до молота Тора. Фото: Wikimedia Commons, свободные лицензии (авторы указаны в пояснениях).",
+ "cover": "cover.jpg",
+ "questions": [
+  {
+   "type": "single",
+   "text": "Разминка без очков: кто на фото? Этот человек придумал вместе с художниками Человека-паука, Железного человека и Тора.",
+   "time_limit": 20,
+   "weight": 0,
+   "explanation": "Стэн Ли (1922–2018) — писатель, главный редактор и «лицо» Marvel. Он появлялся в маленьких эпизодах почти во всех фильмах студии.\n\n*Фото: Edward Liu, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Stan_Lee_2007_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Стэн Ли",
+     "is_correct": true
+    },
+    {
+     "text": "Уолт Дисней",
+     "is_correct": false
+    },
+    {
+     "text": "Кевин Файги",
+     "is_correct": false
+    },
+    {
+     "text": "Джек Кирби",
+     "is_correct": false
+    }
+   ],
+   "image": "q01.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Этот актёр сыграл Тони Старка в первом фильме Кинематографической вселенной Marvel в 2008 году. Как он называется?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Роберт Дауни-мл. сыграл Тони Старка в 11 фильмах. «Железный человек» вышел в мае 2008 года, режиссёр — Джон Фавро.\n\n*Фото: PhilipRomano, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:RobertDowneyJr-byPhilipRomano7_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Тор»",
+     "is_correct": false
+    },
+    {
+     "text": "«Железный человек»",
+     "is_correct": true
+    },
+    {
+     "text": "«Первый мститель»",
+     "is_correct": false
+    },
+    {
+     "text": "«Мстители»",
+     "is_correct": false
+    }
+   ],
+   "image": "q02.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто из «четырёх Крисов» на фото сыграл Капитана Америку?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Эванс — Капитан Америка, Хемсворт — Тор, Прэтт — Звёздный Лорд. А Крис Пайн вообще из «Звёздного пути».\n\n*Фото: Sara Komatsu, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Chris_Evans_at_the_2025_Toronto_International_Film_Festival_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Крис Хемсворт",
+     "is_correct": false
+    },
+    {
+     "text": "Крис Прэтт",
+     "is_correct": false
+    },
+    {
+     "text": "Крис Эванс",
+     "is_correct": true
+    },
+    {
+     "text": "Крис Пайн",
+     "is_correct": false
+    }
+   ],
+   "image": "q03.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Каким героем стал этот австралийский актёр в фильмах Marvel?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Крис Хемсворт играет Тора с фильма 2011 года.\n\n*Фото: Kevin Paul, CC BY 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Chris_Hemsworth_-_Crime_101.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тором",
+     "is_correct": true
+    },
+    {
+     "text": "Одином",
+     "is_correct": false
+    },
+    {
+     "text": "Локи",
+     "is_correct": false
+    },
+    {
+     "text": "Тони Старком",
+     "is_correct": false
+    }
+   ],
+   "image": "q04.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Тор — бог грома не из греческой, а из скандинавской мифологии.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "В скандинавских мифах Тор — сын Одина, защитник богов и людей. В комиксах Marvel он «переехал» в Асгард.\n\n*Фото: Max Koch, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:A_painting_by_Max_Friedrich_Koch_-_Donar-Thor.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q05.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как называется молот Тора?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Гунгнир — копьё Одина. Штормбрейкер — топор, который Тор получил в «Войне бесконечности».\n\n*Фото: Ola Myrin, Statens historiska museum/SHM, CC BY 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Claes_Kurck_Sk%C3%A5ne_hammer_-_HST_DIG55488_original.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Штормбрейкер",
+     "is_correct": false
+    },
+    {
+     "text": "Эскалибур",
+     "is_correct": false
+    },
+    {
+     "text": "Мьёльнир",
+     "is_correct": true
+    },
+    {
+     "text": "Гунгнир",
+     "is_correct": false
+    }
+   ],
+   "image": "q06.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Локи — приёмный брат Тора. А по рождению он…",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "В фильмах Локи — сын Лафея, короля ледяных великанов Ётунхейма. Его подбросил Один.\n\n*Фото: Kevin Payravi, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tom_Hiddleston_at_the_2024_Toronto_International_Film_Festival_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Асгардец",
+     "is_correct": false
+    },
+    {
+     "text": "Эльф",
+     "is_correct": false
+    },
+    {
+     "text": "Человек",
+     "is_correct": false
+    },
+    {
+     "text": "Ётун — ледяной великан",
+     "is_correct": true
+    }
+   ],
+   "image": "q07.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кого играет Скарлетт Йоханссон в «Мстителях»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Наташа Романофф — бывшая шпионка, одна из первых Мстителей.\n\n*Фото: Harald Krichel, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Scarlett_Johansson-8588.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Осу",
+     "is_correct": false
+    },
+    {
+     "text": "Чёрную Вдову",
+     "is_correct": true
+    },
+    {
+     "text": "Гамору",
+     "is_correct": false
+    },
+    {
+     "text": "Алую Ведьму",
+     "is_correct": false
+    }
+   ],
+   "image": "q08.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Этот актёр играет Брюса Бэннера в «Мстителях» (2012). А кто сыграл Халка в фильме 2008 года?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Марк Раффало сыграл Брюса Бэннера в «Мстителях». В «Невероятном Халке» (2008) его играл Эдвард Нортон.\n\n*Фото: Gage Skidmore from Peoria, AZ, United States of America, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mark_Ruffalo_%2836201774756%29_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тоби Магуайр",
+     "is_correct": false
+    },
+    {
+     "text": "Ник Фьюри",
+     "is_correct": false
+    },
+    {
+     "text": "Эдвард Нортон",
+     "is_correct": true
+    },
+    {
+     "text": "Эрик Бана",
+     "is_correct": false
+    }
+   ],
+   "image": "q09.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Ловушка на двойные очки: в самом первом комиксе 1962 года Халк был серым, а не зелёным.",
+   "time_limit": 15,
+   "weight": 2,
+   "explanation": "Из-за проблем с печатью цвет менялся, и вскоре Стэн Ли и художники сделали Халка зелёным.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Это Соколиный Глаз. Какое оружие у Клинта Бартона?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Джереми Реннер играет героя с «Тора» (2011). В «Хоукае» (2021) у Клинта появляется ученица Кейт Бишоп.\n\n*Фото: Max Surprenant, CC BY 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Jeremy_Renner_at_TIFF_2025_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Молот",
+     "is_correct": false
+    },
+    {
+     "text": "Щит",
+     "is_correct": false
+    },
+    {
+     "text": "Пара пистолетов",
+     "is_correct": false
+    },
+    {
+     "text": "Лук со стрелами",
+     "is_correct": true
+    }
+   ],
+   "image": "q11.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Этот актёр сыграл Чёрную Пантеру. Как называется страна, где он король?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Чедвик Боузман (1976–2020) сыграл Т’Чаллу. Ваканда — выдуманная страна в Африке.\n\n*Фото: Gage Skidmore, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Chadwick_Boseman_by_Gage_Skidmore_July_2017_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Нарния",
+     "is_correct": false
+    },
+    {
+     "text": "Ваканда",
+     "is_correct": true
+    },
+    {
+     "text": "Гидра",
+     "is_correct": false
+    },
+    {
+     "text": "Соковия",
+     "is_correct": false
+    }
+   ],
+   "image": "q12.jpg"
+  },
+  {
+   "type": "word",
+   "text": "Соберите слово: вымышленная африканская страна Чёрной Пантеры.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Ваканда — самая технологичная страна мира в МКВ благодаря вибраниуму.",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "word": "ВАКАНДА"
+   },
+   "options": [],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Из какого вымышленного металла сделан щит Капитана Америки?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Адамантий — металл когтей Росомахи, унобтаниум — из «Аватара», мифрил — из «Властелина колец».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Из адамантия",
+     "is_correct": false
+    },
+    {
+     "text": "Из мифрила",
+     "is_correct": false
+    },
+    {
+     "text": "Из унобтаниума",
+     "is_correct": false
+    },
+    {
+     "text": "Из вибраниума",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Что стоит в груди Тони Старка и спасает ему жизнь?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Реактор не даёт осколкам дойти до сердца. Позже Тони делает новый.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Часы времени",
+     "is_correct": false
+    },
+    {
+     "text": "Тессеракт",
+     "is_correct": false
+    },
+    {
+     "text": "Кристалл разума",
+     "is_correct": false
+    },
+    {
+     "text": "Дуговой реактор",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "text",
+   "text": "Какая фамилия у юного Человека-паука Питера?",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Питер Паркер. Том Холланд играет его в МКВ с «Первого мстителя: Противостояние» (2016).\n\n*Фото: PhilipRomano, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:TomHolland-byPhilipRomano.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "answers": [
+     "Паркер",
+     "parker"
+    ],
+    "tolerance": 0
+   },
+   "options": [],
+   "image": "q16.jpg"
+  },
+  {
+   "type": "single",
+   "text": "А кто из этих актёров сыграл Человека-паука в двух фильмах 2012–2014 годов?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Магуайр играл в 2002–2007, Гарфилд — в 2012–2014, Холланд — с 2016. Все трое встретились в «Нет пути домой» (2021).\n\n*Фото: Bryan Berlin, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Andrew_Garfield_at_the_2026_New_York_Film_Festival-18.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Эзра Миллер",
+     "is_correct": false
+    },
+    {
+     "text": "Эндрю Гарфилд",
+     "is_correct": true
+    },
+    {
+     "text": "Том Холланд",
+     "is_correct": false
+    },
+    {
+     "text": "Тоби Магуайр",
+     "is_correct": false
+    }
+   ],
+   "image": "q17.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Человека-паука придумали Стэн Ли и художник Стив Дитко в 1962 году.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Первый раз Питер Паркер появился в комиксе Amazing Fantasy №15.\n\n*Фото: автор неизвестен, Public domain, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Steve_Ditko_1959_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q18.jpg"
+  },
+  {
+   "type": "slider",
+   "text": "В каком году Капитан Америка впервые появился в комиксах, ударив на обложке Гитлера?",
+   "time_limit": 25,
+   "weight": 1,
+   "explanation": "Создали его Джек Кирби и Джо Саймон; первый выпуск вышел в марте 1941 года, ещё до вступления США во Вторую мировую.\n\n*Фото: Susan Skaar, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Jack-Kirby_art-of-jack-kirby_wyman-skaar.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {
+    "min": 1930,
+    "max": 1960,
+    "step": 1,
+    "answer": 1941,
+    "unit": "",
+    "tolerance": 2
+   },
+   "options": [],
+   "image": "q19.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Когда и за сколько Disney купила Marvel?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Сделку объявили в августе 2009 года. Marvel уже тогда делала фильмы, но настоящий успех пришёл потом.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В 1999 году, за 1 млрд долларов",
+     "is_correct": false
+    },
+    {
+     "text": "В 2009 году, за 4 млрд долларов",
+     "is_correct": true
+    },
+    {
+     "text": "В 2015 году, за 40 млрд долларов",
+     "is_correct": false
+    },
+    {
+     "text": "В 2001 году, за 400 млн долларов",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Этот человек возглавляет Marvel Studios и придумал связать фильмы в одну вселенную. Кто он?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Файги — президент Marvel Studios с 2007 года, продюсер всех фильмов МКВ.\n\n*Фото: Gage Skidmore, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kevin_Feige_by_Gage_Skidmore.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Джеймс Ганн",
+     "is_correct": false
+    },
+    {
+     "text": "Джосс Уидон",
+     "is_correct": false
+    },
+    {
+     "text": "Джон Фавро",
+     "is_correct": false
+    },
+    {
+     "text": "Кевин Файги",
+     "is_correct": true
+    }
+   ],
+   "image": "q21.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто снял «Железного человека» и сыграл в нём водителя Хэппи Хогана?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Фавро также режиссёр «Железного человека 2» и «Мандалорца».\n\n*Фото: Eva Rinaldi(Uploader: Musa Raza), CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Jon_Favreau_2016.jpeg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Джон Фавро",
+     "is_correct": true
+    },
+    {
+     "text": "Кевин Файги",
+     "is_correct": false
+    },
+    {
+     "text": "Тайка Вайтити",
+     "is_correct": false
+    },
+    {
+     "text": "Райан Куглер",
+     "is_correct": false
+    }
+   ],
+   "image": "q22.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто снял «Мстители: Война бесконечности» и «Финал»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Энтони и Джо Руссо.\n\n*Фото: Gage Skidmore, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Joe_Russo_%26_Anthony_Russo_by_Gage_Skidmore.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Братья Коэн",
+     "is_correct": false
+    },
+    {
+     "text": "Братья Вачовски",
+     "is_correct": false
+    },
+    {
+     "text": "Братья Руссо",
+     "is_correct": true
+    },
+    {
+     "text": "Братья Дэффер",
+     "is_correct": false
+    }
+   ],
+   "image": "q23.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Режиссёр «Тор: Рагнарёк» Тайка Вайтити озвучил каменного воина Корга.",
+   "time_limit": 15,
+   "weight": 1,
+   "explanation": "Он родом из Новой Зеландии. Корг — один из самых смешных героев фильма.\n\n*Фото: CaseyJNewell, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Taika_Waititi_at_Venice_Film_Festival_2026-4.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q24.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Сколько «Оскаров» получила «Чёрная Пантера» (2018)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "За костюмы, дизайн постановки и музыку. Режиссёр фильма — Райан Куглер.\n\n*Фото: Gage Skidmore from Peoria, AZ, United States of America, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ryan_Coogler_%2836203771036%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Один",
+     "is_correct": false
+    },
+    {
+     "text": "Семь",
+     "is_correct": false
+    },
+    {
+     "text": "Три",
+     "is_correct": true
+    },
+    {
+     "text": "Ни одного",
+     "is_correct": false
+    }
+   ],
+   "image": "q25.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Сколько всего камней Бесконечности?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Камни Разума, Времени, Силы, Пространства, Реальности и Души.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Семь",
+     "is_correct": false
+    },
+    {
+     "text": "Пять",
+     "is_correct": false
+    },
+    {
+     "text": "Шесть",
+     "is_correct": true
+    },
+    {
+     "text": "Девять",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "multi",
+   "text": "Какие из этих — настоящие камни Бесконечности? Отметьте все.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "Огня и Любви среди камней Бесконечности нет.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Камень Души",
+     "is_correct": true
+    },
+    {
+     "text": "Камень Огня",
+     "is_correct": false
+    },
+    {
+     "text": "Камень Любви",
+     "is_correct": false
+    },
+    {
+     "text": "Камень Разума",
+     "is_correct": true
+    },
+    {
+     "text": "Камень Времени",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "В каком месте находится камень Разума?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "В «Эре Альтрона» камень становится частью Вижна.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В молоте Тора",
+     "is_correct": false
+    },
+    {
+     "text": "В лбу у Вижна",
+     "is_correct": true
+    },
+    {
+     "text": "В щите Капитана",
+     "is_correct": false
+    },
+    {
+     "text": "В реакторе Старка",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Чем нужно пожертвовать, чтобы получить камень Души?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Танос сбросил в пропасть Гамору, а в «Финале» ради камня погибла Наташа.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Тем, кого любишь",
+     "is_correct": true
+    },
+    {
+     "text": "Всеми своими деньгами",
+     "is_correct": false
+    },
+    {
+     "text": "Одним из других камней",
+     "is_correct": false
+    },
+    {
+     "text": "Памятью о доме",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте фильмы Marvel по году выхода, от старых к новым.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "2008, 2011, 2014 и 2016 годы.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Железный человек»",
+     "is_correct": false
+    },
+    {
+     "text": "«Тор»",
+     "is_correct": false
+    },
+    {
+     "text": "«Стражи Галактики»",
+     "is_correct": false
+    },
+    {
+     "text": "«Доктор Стрэндж»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "order",
+   "text": "Расставьте фильмы по году выхода, от старых к новым.",
+   "time_limit": 30,
+   "weight": 1,
+   "explanation": "2012, 2015, 2018 и 2019 годы.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Мстители»",
+     "is_correct": false
+    },
+    {
+     "text": "«Человек-муравей»",
+     "is_correct": false
+    },
+    {
+     "text": "«Чёрная Пантера»",
+     "is_correct": false
+    },
+    {
+     "text": "«Мстители: Финал»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Айжан решила за выходные посмотреть всю «Сагу Бесконечности» — фильмы Фаз 1–3. Сколько фильмов ей придётся посмотреть?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Сага началась «Железным человеком» (2008) и закончилась «Человеком-пауком: Вдали от дома» (2019).",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "23",
+     "is_correct": true
+    },
+    {
+     "text": "26",
+     "is_correct": false
+    },
+    {
+     "text": "30",
+     "is_correct": false
+    },
+    {
+     "text": "19",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какого злодея сыграл этот актёр?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Джош Бролин сыграл Таноса и озвучил его захват движений. В «Дедпуле 2» он же играет Кейбла.\n\n*Фото: Max Surprenant, CC BY 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Josh_Brolin_TIFF_2025_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Альтрона",
+     "is_correct": false
+    },
+    {
+     "text": "Таноса",
+     "is_correct": true
+    },
+    {
+     "text": "Хелу",
+     "is_correct": false
+    },
+    {
+     "text": "Красного Черепа",
+     "is_correct": false
+    }
+   ],
+   "image": "q33.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что произошло, когда Танос щёлкнул пальцами в «Войне бесконечности» (2018)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Из-за щелчка пропали и многие супергерои.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Исчезла половина всего живого",
+     "is_correct": true
+    },
+    {
+     "text": "Исчезла Земля",
+     "is_correct": false
+    },
+    {
+     "text": "Время пошло вспять",
+     "is_correct": false
+    },
+    {
+     "text": "Исчезли все Мстители",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Сколько лет прошло между щелчком и «Мстителями: Финал»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Герои пытались жить дальше, а затем придумали, как вернуть исчезнувших.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Пять",
+     "is_correct": true
+    },
+    {
+     "text": "Сто",
+     "is_correct": false
+    },
+    {
+     "text": "Один год",
+     "is_correct": false
+    },
+    {
+     "text": "Десять",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Ловушка: кто из Мстителей смог поднять молот Тора в «Эре Альтрона» (2015)?",
+   "time_limit": 20,
+   "weight": 2,
+   "explanation": "Капитан Америка лишь пошевелил его, а полностью поднял только в «Финале».",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Капитан Америка",
+     "is_correct": false
+    },
+    {
+     "text": "Соколиный Глаз",
+     "is_correct": false
+    },
+    {
+     "text": "Железный человек",
+     "is_correct": false
+    },
+    {
+     "text": "Вижн",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Этот актёр играет директора Щ.И.Т.а Ника Фьюри. Кто лишил героя глаза в «Капитане Марвел»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Это флёркен Гусь — инопланетное существо, похожее на обычного кота.\n\n*Фото: Philip Romano, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:SamuelLJackson.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Танос",
+     "is_correct": false
+    },
+    {
+     "text": "Скрулл Талос",
+     "is_correct": false
+    },
+    {
+     "text": "Эго",
+     "is_correct": false
+    },
+    {
+     "text": "Кот Гусь",
+     "is_correct": true
+    }
+   ],
+   "image": "q37.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Какого героя играет этот актёр в фильме 2015 года?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Скотт Лэнг умеет уменьшаться до размера муравья и увеличиваться до великана.\n\n*Фото: Bryan Berlin, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Paul_Rudd_at_the_2026_New_York_Film_Festival-003.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Человека-муравья",
+     "is_correct": true
+    },
+    {
+     "text": "Сорвиголову",
+     "is_correct": false
+    },
+    {
+     "text": "Карателя",
+     "is_correct": false
+    },
+    {
+     "text": "Железного Кулака",
+     "is_correct": false
+    }
+   ],
+   "image": "q38.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кем был Стивен Стрэндж до того, как стал магом?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "После автокатастрофы он потерял чувствительность в руках и отправился на поиски исцеления.\n\n*Фото: Harald Krichel, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Benedict_Cumberbatch-67555.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Солдатом",
+     "is_correct": false
+    },
+    {
+     "text": "Нейрохирургом",
+     "is_correct": true
+    },
+    {
+     "text": "Учителем",
+     "is_correct": false
+    },
+    {
+     "text": "Учёным-физиком",
+     "is_correct": false
+    }
+   ],
+   "image": "q39.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Как прозвали Ванду Максимофф, героиню Элизабет Олсен?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Она получила силы от камня Разума.\n\n*Фото: JoshPopov, CC BY 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:ElizabethOlsen-TIFF2025-02_%28cropped%29.png)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Чёрная Вдова",
+     "is_correct": false
+    },
+    {
+     "text": "Белая Королева",
+     "is_correct": false
+    },
+    {
+     "text": "Алая Ведьма",
+     "is_correct": true
+    },
+    {
+     "text": "Зелёный Фонарь",
+     "is_correct": false
+    }
+   ],
+   "image": "q40.jpg"
+  },
+  {
+   "type": "single",
+   "text": "В какие годы происходит «Капитан Марвел» (2019)?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Кэрол Дэнверс встречается с молодым Ником Фьюри в 1995 году.\n\n*Фото: The CW Network, CC BY 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Brie_Larson_at_29th_Critics%27_Choice_Awards_%28brightened%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "В 1990-е",
+     "is_correct": true
+    },
+    {
+     "text": "В 1940-е",
+     "is_correct": false
+    },
+    {
+     "text": "В 1970-е",
+     "is_correct": false
+    },
+    {
+     "text": "В 2010-е",
+     "is_correct": false
+    }
+   ],
+   "image": "q41.jpg"
+  },
+  {
+   "type": "single",
+   "text": "В какой команде состоит Гамора, героиня Зои Салданьи?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Гамора — приёмная дочь Таноса.\n\n*Фото: Kevin Payravi, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Zoe_Salda%C3%B1a_at_the_2024_Toronto_International_Film_Festival_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Стражи Галактики",
+     "is_correct": true
+    },
+    {
+     "text": "Мстители",
+     "is_correct": false
+    },
+    {
+     "text": "Хранители",
+     "is_correct": false
+    },
+    {
+     "text": "Щ.И.Т.",
+     "is_correct": false
+    }
+   ],
+   "image": "q42.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что подарила маленькому Питеру Квиллу мама и что он слушает всю жизнь?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Сборник называется «Awesome Mix».\n\n*Фото: Dick Thomas Johnson from Tokyo, Japan, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Chris_Pratt_Jurassic_World_Fallen_Kingdom_Japan_Premiere_Red_Carpet_%283x4_cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Радиоприёмник",
+     "is_correct": false
+    },
+    {
+     "text": "Старый телефон",
+     "is_correct": false
+    },
+    {
+     "text": "Кассетный плеер со сборником песен 1970-х",
+     "is_correct": true
+    },
+    {
+     "text": "Кристалл силы",
+     "is_correct": false
+    }
+   ],
+   "image": "q43.jpg"
+  },
+  {
+   "type": "truefalse",
+   "text": "Ловушка на двойные очки: в финале первых «Стражей Галактики» Грут говорит не «Я есть Грут», а «Мы есть Грут».",
+   "time_limit": 15,
+   "weight": 2,
+   "explanation": "Он закрывает друзей своими ветвями. Грута озвучивает Вин Дизель.\n\n*Фото: Gage Skidmore, CC BY-SA 3.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Vin_Diesel_by_Gage_Skidmore_2.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q44.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кого играет Хейли Этвелл — любовь Капитана Америки?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Пегги Картер — одна из основательниц Щ.И.Т.а.\n\n*Фото: Harald Krichel, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hayley_Atwell_2025_%28crop%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Дженни Фостер",
+     "is_correct": false
+    },
+    {
+     "text": "Мэри Джейн",
+     "is_correct": false
+    },
+    {
+     "text": "Пеппер Поттс",
+     "is_correct": false
+    },
+    {
+     "text": "Пегги Картер",
+     "is_correct": true
+    }
+   ],
+   "image": "q45.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Из какого вымышленного металла сделан скелет и когти Росомахи?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Хью Джекман играл Росомаху с 2000 года, а вернулся к роли в 2024 году в «Дэдпул и Росомаха».\n\n*Фото: Bryan Berlin, CC BY-SA 4.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hugh_Jackman_Is_This_Thing_On-68_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Из мифрила",
+     "is_correct": false
+    },
+    {
+     "text": "Из титана",
+     "is_correct": false
+    },
+    {
+     "text": "Из адамантия",
+     "is_correct": true
+    },
+    {
+     "text": "Из вибраниума",
+     "is_correct": false
+    }
+   ],
+   "image": "q46.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Что значит «ломать четвёртую стену», как делает Дэдпул?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Дэдпул знает, что он герой комикса и фильма.\n\n*Фото: Dick Thomas Johnson from Tokyo, Japan, CC BY 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Deadpool_2_Japan_Premiere_Red_Carpet_Ryan_Reynolds_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Драться без оружия",
+     "is_correct": false
+    },
+    {
+     "text": "Говорить напрямую со зрителем",
+     "is_correct": true
+    },
+    {
+     "text": "Прыгать сквозь стены",
+     "is_correct": false
+    },
+    {
+     "text": "Прятаться от врагов",
+     "is_correct": false
+    }
+   ],
+   "image": "q47.jpg"
+  },
+  {
+   "type": "single",
+   "text": "Кто уничтожил Асгард в «Тор: Рагнарёк»?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "Тор сам призвал огненного демона Суртура, чтобы остановить Хелу. «Асгард — это не место, а народ», — сказал Один.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Альтрон",
+     "is_correct": false
+    },
+    {
+     "text": "Хела",
+     "is_correct": false
+    },
+    {
+     "text": "Танос",
+     "is_correct": false
+    },
+    {
+     "text": "Суртур",
+     "is_correct": true
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "single",
+   "text": "Какой сериал открыл Marvel на Disney+ в 2021 году?",
+   "time_limit": 20,
+   "weight": 1,
+   "explanation": "«ВандаВижн» вышел в январе 2021 года.",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "«Хоукай»",
+     "is_correct": false
+    },
+    {
+     "text": "«ВандаВижн»",
+     "is_correct": true
+    },
+    {
+     "text": "«Сокол и Зимний солдат»",
+     "is_correct": false
+    },
+    {
+     "text": "«Локи»",
+     "is_correct": false
+    }
+   ],
+   "image": null
+  },
+  {
+   "type": "truefalse",
+   "text": "Ловушка на двойные очки: Стэн Ли снялся в эпизоде в «Капитане Марвел» (2019), хотя умер в 2018 году.",
+   "time_limit": 15,
+   "weight": 2,
+   "explanation": "Это были архивные кадры: Стэн Ли едет в поезде и читает сценарий фильма Mallrats.\n\n*Фото: Edward Liu, CC BY-SA 2.0, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Stan_Lee_2007_%28cropped%29.jpg)*",
+   "code": "",
+   "code_language": "",
+   "data": {},
+   "options": [
+    {
+     "text": "Верно",
+     "is_correct": true
+    },
+    {
+     "text": "Неверно",
+     "is_correct": false
+    }
+   ],
+   "image": "q50.jpg"
+  }
+ ]
+}
