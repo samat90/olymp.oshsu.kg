@@ -270,6 +270,9 @@ class Problem(models.Model):
 
     def is_in_finished_private_contest_of(self, profile):
         from judge.models import ContestProblem
+        # Not while another contest with this problem is still running or upcoming.
+        if ContestProblem.objects.filter(problem_id=self.id, contest__end_time__gt=timezone.now()).exists():
+            return False
         return ContestProblem.objects.filter(
             problem_id=self.id, contest__is_visible=True, contest__is_private=True,
             contest__end_time__lte=timezone.now(), contest__private_contestants=profile,
@@ -320,7 +323,7 @@ class Problem(models.Model):
             q |= Exists(ContestProblem.objects.filter(
                 problem=OuterRef('pk'), contest__is_visible=True, contest__is_private=True,
                 contest__end_time__lte=Now(), contest__private_contestants=user.profile,
-            ))
+            )) & ~Exists(ContestProblem.objects.filter(problem=OuterRef('pk'), contest__end_time__gt=Now()))
             queryset = queryset.filter(q)
 
         return queryset

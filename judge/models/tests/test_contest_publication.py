@@ -113,3 +113,11 @@ class PrivateContestPracticeTests(TestCase):
         self.contest.save()
         problem = self.add_problem('early')
         self.assertFalse(problem.is_accessible_by(self.member.user))
+
+    def test_problem_shared_with_running_contest_stays_closed(self):
+        problem = self.add_problem('shared-open')
+        later = Contest.objects.create(key='later-run', name='Later', is_visible=True,
+                                       start_time=self.now, end_time=self.now + timedelta(days=1))
+        ContestProblem.objects.create(contest=later, problem=problem, points=100, order=0)
+        self.assertFalse(problem.is_accessible_by(self.member.user))
+        self.assertNotIn(problem.pk, [p.pk for p in Problem.get_visible_problems(self.member.user)])
