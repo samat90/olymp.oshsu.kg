@@ -36,6 +36,7 @@
     <script src="{{ static('vendor/xterm/xterm.js') }}"></script>
     <script src="{{ static('vendor/xterm-fit/addon-fit.js') }}"></script>
     <script src="{{ static('editor/olymp-editor.js') }}?v={{ STATIC_VERSION }}"></script>
+    <script src="{{ static('editor/compiler-hints.js') }}?v={{ STATIC_VERSION }}"></script>
     <script src="{{ static('editor/compiler.js') }}?v={{ STATIC_VERSION }}"></script>
 {% endblock %}
 
@@ -45,13 +46,12 @@
             <a class="gdb-brand" href="{{ url('home') }}">{% include "site-logo-fragment.html" %}</a>
             <div class="gdb-links">
                 <button type="button" id="pj-new"><i class="fa fa-plus-square-o"></i>{{ _('New project') }}</button>
-                <button type="button" id="pj-list"><i class="fa fa-folder-open-o"></i>{{ _('My projects') }}</button>
                 <a href="{{ url('home') }}"><i class="fa fa-home"></i>{{ _('Back to the site') }}</a>
             </div>
 
             <div class="gdb-files">
                 <div class="gdb-files-head">
-                    <span id="pj-name">{{ _('My files') }}</span>
+                    <span id="pj-name">{{ _('Files') }}</span>
                     <button type="button" id="ws-new-file" title="{{ _('New file') }}"><i class="fa fa-file-o"></i></button>
                     <button type="button" id="ws-new-folder" title="{{ _('New folder') }}"><i class="fa fa-folder-o"></i></button>
                     <button type="button" id="ws-zip" title="{{ _('Download everything as zip') }}"><i class="fa fa-file-archive-o"></i></button>

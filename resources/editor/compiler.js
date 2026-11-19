@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var saveTimers = {};
     var dirty = {};
     var runner = W.runnerEnabled ? new E.Runner({}) : null;
-    var project = Number(storageGet('cc-project')) || null;   // a top-level folder, or null for all files
+    var selected = null;     // the folder new files go to (highlighted); null = the top level
     var langByKey = {};
     W.languages.forEach(function (l) { langByKey[l.key] = l; });
     // Scratch programs are project files (.sb3), kept as base64 text: no code editor for them.
@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Keeping, sharing and organising files is for signed-in users; writing and running is for everyone.
         document.addEventListener('click', function (e) {
             var hit = e.target.closest('#cc-save, #ws-new-file, #tb-new, #ws-new-folder, #ws-upload, #ws-zip, ' +
-                                       '#pj-new, #pj-list, #cc-share');
+                                       '#pj-new, #cc-share');
             if (!hit) return;
             e.preventDefault();
             e.stopImmediatePropagation();
@@ -198,7 +198,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // A top-level folder is a project; deeper folders are plain folders.
     function icon(file) {
+        if (file.folder && !file.parent) return 'fa-cube';
         if (file.folder) return expanded[file.id] ? 'fa-folder-open-o' : 'fa-folder-o';
         return 'fa-file-code-o';
     }
@@ -208,11 +210,14 @@ document.addEventListener('DOMContentLoaded', function () {
     function render() {
         tree.innerHTML = '';
         var count = Object.keys(files).length;
+        if (selected && !files[selected]) selected = null;
         if (!count) tree.innerHTML = '<div class="ws-empty">' + E.escape(S.noFiles) + '</div>';
         (function walk(parentId, depth) {
             children(parentId).forEach(function (f) {
                 var row = document.createElement('div');
-                row.className = 'ws-item' + (f.id === active ? ' ws-current' : '');
+                row.className = 'ws-item' + (f.id === active ? ' ws-current' : '') +
+                    (f.folder && !f.parent ? ' ws-project' : '') + (f.id === selected ? ' ws-sel' : '') +
+                    (f.folder && expanded[f.id] ? ' ws-open' : '');
                 row.style.paddingLeft = (12 + depth * 14) + 'px';
                 row.dataset.id = f.id;
                 row.draggable = true;
@@ -224,8 +229,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 tree.appendChild(row);
                 if (f.folder && expanded[f.id]) walk(f.id, depth + 1);
             });
-        })(project, 0);
-        $('#pj-name').textContent = project && files[project] ? files[project].name : S.allFiles;
+        })(null, 0);
         $('#ws-foot').textContent = S.files + ': ' + count + ' / ' + W.maxFiles;
         renderTabs();
     }
@@ -236,7 +240,9 @@ document.addEventListener('DOMContentLoaded', function () {
         var f = files[row.dataset.id];
         if (e.target.closest('.ws-del')) { e.stopPropagation(); remove(f); return; }
         if (f.folder) {
-            expanded[f.id] = !expanded[f.id];
+            // Clicking an open folder that is already highlighted folds it.
+            if (selected === f.id || !expanded[f.id]) expanded[f.id] = !expanded[f.id];
+            selected = f.id;
             storageSet('ws-expanded', JSON.stringify(expanded));
             render();
         } else {
@@ -391,7 +397,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function createMain(langKey) {
-        return createFile(project, uniqueName(project, mainName(langKey)), HELLO[langKey] || '', langKey).then(function (f) {
+        var folder = currentFolder();
+        return createFile(folder, uniqueName(folder, mainName(langKey)), HELLO[langKey] || '', langKey).then(function (f) {
             return openFile(f.id, f);
         });
     }
@@ -470,46 +477,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function currentFolder() {
-        return active && files[active] ? files[active].parent : project;
+        return selected && files[selected] ? selected : null;
     }
 
     $('#ws-new-file').addEventListener('click', function () { startCreate(currentFolder(), false); });
     $('#tb-new').addEventListener('click', function () { startCreate(currentFolder(), false); });
     $('#ws-new-folder').addEventListener('click', function () { startCreate(currentFolder(), true); });
     $('#ws-zip').addEventListener('click', function () {
-        location.href = W.downloadUrl + (project ? '?folder=' + project : '');
+        location.href = W.downloadUrl + (selected && files[selected] ? '?folder=' + selected : '');
     });
 
-    /* ======================= projects ======================= */
-
-    function topFolder(id) {
-        var f = files[id];
-        while (f && f.parent) f = files[f.parent];
-        return f ? f.id : null;
-    }
-    function inProject(id) {
-        return !project || (files[id] && topFolder(id) === project && Number(id) !== project);
-    }
-    function projectFiles(id) {
-        var n = 0;
-        (function count(pid) { children(pid).forEach(function (c) { if (c.folder) count(c.id); else n++; }); })(id);
-        return n;
-    }
-
-    function openProject(id) {
-        return flushAll().then(function () {
-            project = id || null;
-            storageSet('cc-project', project || '');
-            tabs = tabs.filter(inProject);
-            storageSet('cc-tabs', JSON.stringify(tabs));
-            if (active && inProject(active)) { render(); return; }
-            if (tabs.length) { activate(tabs[0]); return; }
-            var first = children(project).filter(function (f) { return !f.folder; })[0];
-            if (first) return openFile(first.id);
-            activate(null);
-            return createMain(currentLanguage());
-        });
-    }
+    /* ======================= new project ======================= */
 
     function modal(title, body) {
         var box = document.createElement('div');
@@ -558,7 +536,9 @@ document.addEventListener('DOMContentLoaded', function () {
             request(api + 'new/', {parent: null, name: name, folder: true}).then(function (data) {
                 files[data.file.id] = data.file;
                 expanded[data.file.id] = true;
-                return openProject(data.file.id);
+                selected = data.file.id;
+                storageSet('ws-expanded', JSON.stringify(expanded));
+                return createMain(key);
             }).then(function () { m.close(); }).catch(function (err) {
                 m.box.querySelector('#pj-create').disabled = false;
                 fail(err);
@@ -566,37 +546,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         m.box.querySelector('#pj-create').onclick = create;
         title.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); create(); } });
-    });
-
-    $('#pj-list').addEventListener('click', function () {
-        var m = modal(S.myProjects, '<div class="pj-list"></div>');
-        var list = m.box.querySelector('.pj-list');
-        function row(id, name, count, icon) {
-            var r = document.createElement('div');
-            r.className = 'pj-row' + ((id || null) === project ? ' pj-current' : '');
-            r.innerHTML = '<i class="fa ' + icon + '"></i><span class="pj-title"></span><span class="pj-count"></span>' +
-                (id ? '<button type="button" class="pj-del"><i class="fa fa-trash-o"></i></button>' : '');
-            r.querySelector('.pj-title').textContent = name;
-            r.querySelector('.pj-count').textContent = S.files + ': ' + count;
-            if (id) r.querySelector('.pj-del').title = S.delete;
-            r.addEventListener('click', function (e) {
-                if (e.target.closest('.pj-del')) {
-                    e.stopPropagation();
-                    remove(files[id], function () {
-                        r.remove();
-                        if (project === id) openProject(null);
-                    });
-                    return;
-                }
-                m.close();
-                openProject(id);
-            });
-            list.appendChild(r);
-        }
-        var folders = children(null).filter(function (f) { return f.folder; });
-        folders.forEach(function (f) { row(f.id, f.name, projectFiles(f.id), 'fa-folder-o'); });
-        if (!folders.length) list.insertAdjacentHTML('beforeend', '<div class="pj-empty">' + E.escape(S.noProjects) + '</div>');
-        row(null, S.allFiles, Object.keys(files).filter(function (k) { return !files[k].folder; }).length, 'fa-files-o');
     });
 
     /* ---- upload / download ---- */
@@ -663,6 +612,12 @@ document.addEventListener('DOMContentLoaded', function () {
     if (lastLang && langByKey[lastLang]) langSelect.value = lastLang;
     else if (langByKey.CPP17) langSelect.value = 'CPP17';
 
+    function path(f) {
+        var parts = [f.name];
+        for (var p = f.parent; p && files[p]; p = files[p].parent) parts.unshift(files[p].name);
+        return parts.join('/');
+    }
+
     function renderTabs() {
         var bar = $('#cc-tabs');
         bar.innerHTML = '';
@@ -674,7 +629,10 @@ document.addEventListener('DOMContentLoaded', function () {
             tab.dataset.id = id;
             tab.innerHTML = '<span class="gdb-tab-name"></span><span class="gdb-tab-dirty"></span>' +
                 '<button type="button" class="gdb-tab-close">×</button>';
-            tab.querySelector('.gdb-tab-name').textContent = f.name;
+            // Two tabs with one name (main.cpp in two projects) show their folder.
+            var twin = tabs.some(function (o) { return o !== id && files[o] && files[o].name === f.name; });
+            tab.querySelector('.gdb-tab-name').textContent = f.name + (twin && f.parent && files[f.parent] ? ' · ' + files[f.parent].name : '');
+            tab.title = path(f);
             tab.querySelector('.gdb-tab-close').title = S.close;
             if (dirty[id]) tab.querySelector('.gdb-tab-dirty').textContent = '●';
             bar.appendChild(tab);
@@ -703,6 +661,9 @@ document.addEventListener('DOMContentLoaded', function () {
         holder.innerHTML = '';
         return E.create(holder, {value: '', onRun: run, onSave: function () { save(); }}).then(function (ed) {
             editor = ed;
+            // Code hints exist on this page only.
+            ed.editor.updateOptions({tabCompletion: 'on', snippetSuggestions: 'top'});
+            if (window.OlympHints) window.OlympHints.register(window.monaco, {neighbours: neighbourTexts});
             pane = new E.ScratchPane(holder, {
                 onLoad: function (data) {
                     if (!active || !models[active]) return;
@@ -713,6 +674,17 @@ document.addEventListener('DOMContentLoaded', function () {
             });
             return ed;
         });
+    }
+
+    // Texts of the other open files of the same folder, for the identifier hints.
+    function neighbourTexts(model) {
+        var out = [];
+        Object.keys(models).forEach(function (id) {
+            var f = files[id];
+            var cur = files[active];
+            if (models[id] !== model && f && cur && (f.parent || null) === (cur.parent || null)) out.push(models[id].getValue());
+        });
+        return out;
     }
 
     function attachModel(id, file) {
@@ -760,6 +732,11 @@ document.addEventListener('DOMContentLoaded', function () {
     function activate(id) {
         active = id;
         storageSet('ws-open', id || '');
+        if (id && files[id]) {
+            selected = files[id].parent || null;
+            // The path to the open file is unfolded.
+            for (var p = files[id].parent; p && files[p]; p = files[p].parent) expanded[p] = true;
+        }
         if (!editor) { render(); return; }
         if (!id) {
             pane.hide();
@@ -1029,6 +1006,14 @@ document.addEventListener('DOMContentLoaded', function () {
         return m ? m[1] + '.java' : null;
     }
 
+    var ENTRY = [[/^(CPP|C$)/, /\bmain\s*\(/], [/^JAVA/, /\bstatic\s+void\s+main\s*\(/],
+                 [/^(CSHARP|MONOCS)/, /\bstatic\s+(?:void|int|async\s+Task)\s+Main\s*\(/],
+                 [/^GO/, /^func\s+main\s*\(/m], [/^KOTLIN/, /\bfun\s+main\s*\(/]];
+    function hasEntry(text, language) {
+        var hit = ENTRY.filter(function (e) { return e[0].test(language || ''); })[0];
+        return !!hit && hit[1].test(text || '');
+    }
+
     function siblingFiles() {
         var main = files[active];
         if (isProject(main.language)) return Promise.resolve({});
@@ -1046,7 +1031,12 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         })).then(function (pairs) {
             var out = {};
-            pairs.forEach(function (p) { out[p[0]] = p[1]; });
+            // A second program in the folder (its own main) is not part of this one: two mains do not link.
+            var mine = hasEntry(models[active].getValue(), main.language);
+            pairs.forEach(function (p, i) {
+                if (mine && others[i].language === main.language && hasEntry(p[1], main.language)) return;
+                out[p[0]] = p[1];
+            });
             return out;
         });
     }
@@ -1074,6 +1064,9 @@ document.addEventListener('DOMContentLoaded', function () {
         openConsole();
         if (term) { term.reset(); }
         siblingFiles().then(function (extra) {
+            // What goes to the runner besides the open file: the other files of its folder.
+            var names = Object.keys(extra);
+            if (names.length) termPrint(file.name + ' + ' + names.join(', ') + '\r\n', 'dim');
             if (mode() === 'text') return runPrepared(file, source, extra, args);
             return runInteractive(file, source, extra, args);
         }).catch(fail);
@@ -1348,8 +1341,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
         return chain.then(function () {
-            project = null;
-            storageSet('cc-project', '');
             storageSet('cc-tabs', JSON.stringify(made));
             storageSet('ws-open', made[made.length - 1] || '');
             setStatus(S.guestImported);
@@ -1365,16 +1356,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     request(api).then(function (data) {
         data.files.forEach(function (f) { files[f.id] = f; });
-        if (project && !(files[project] && files[project].folder && !files[project].parent)) project = null;
         render();
         return importGuestFiles();
     }).then(function () {
         render();
-        var saved = loadJSON('cc-tabs', []).filter(function (id) { return files[id] && !files[id].folder && inProject(id); });
+        var saved = loadJSON('cc-tabs', []).filter(function (id) { return files[id] && !files[id].folder; });
         var last = Number(storageGet('ws-open'));
-        if (!saved.length && last && files[last] && !files[last].folder && inProject(last)) saved = [last];
+        if (!saved.length && last && files[last] && !files[last].folder) saved = [last];
         if (!saved.length) {
-            var first = children(project).filter(function (f) { return !f.folder; })[0];
+            var first = children(null).filter(function (f) { return !f.folder; })[0];
             if (first) saved = [first.id];
         }
         if (!saved.length) return createMain(currentLanguage());
