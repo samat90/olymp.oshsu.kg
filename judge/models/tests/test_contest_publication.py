@@ -12,7 +12,7 @@ class ContestPublicationTests(TestCase):
         self.now = timezone.now()
         self.group = ProblemGroup.objects.create(name='publication', full_name='Publication')
         self.contest = Contest.objects.create(key='publication', name='Publication', is_visible=True,
-                                             start_time=self.now-timedelta(hours=3), end_time=self.now)
+                                              start_time=self.now - timedelta(hours=3), end_time=self.now)
 
     def add_problem(self, code, contest=None, **fields):
         problem = Problem.objects.create(code=code, name=code, group=self.group, description='Statement',
@@ -23,16 +23,16 @@ class ContestPublicationTests(TestCase):
 
     def test_five_tasks_publish_at_end_and_are_available_to_everyone(self):
         problems = [self.add_problem('p%d' % i, is_organization_private=True) for i in range(5)]
-        self.assertEqual(publish_finished_contest_problems(self.now-timedelta(seconds=1))['problems'], 0)
+        self.assertEqual(publish_finished_contest_problems(self.now - timedelta(seconds=1))['problems'], 0)
         result = publish_finished_contest_problems(self.now)
-        self.assertEqual(result, {'contests':1, 'problems':5, 'waiting':0})
+        self.assertEqual(result, {'contests': 1, 'problems': 5, 'waiting': 0})
         for problem in problems:
             problem.refresh_from_db()
             self.assertTrue(problem.is_public)
             self.assertTrue(problem.is_listed)
             self.assertFalse(problem.is_organization_private)
             self.assertEqual(problem.date, self.contest.end_time)
-            self.assertEqual(self.client.get('/problem/'+problem.code).status_code, 200)
+            self.assertEqual(self.client.get('/problem/' + problem.code).status_code, 200)
         response = self.client.get('/problems/')
         self.assertEqual({p.pk for p in response.context['problems']}, {p.pk for p in problems})
         self.assertEqual(ContestProblem.objects.count(), 5)
@@ -52,7 +52,7 @@ class ContestPublicationTests(TestCase):
     def test_shared_task_waits_until_other_contest_ends(self):
         problem = self.add_problem('shared')
         later = Contest.objects.create(key='later', name='Later', is_visible=True,
-                                       start_time=self.now, end_time=self.now+timedelta(days=1))
+                                       start_time=self.now, end_time=self.now + timedelta(days=1))
         ContestProblem.objects.create(contest=later, problem=problem, points=100, order=0)
         self.assertEqual(publish_finished_contest_problems(self.now)['waiting'], 1)
         self.contest.refresh_from_db()
@@ -67,7 +67,7 @@ class ContestPublicationTests(TestCase):
         problem = self.add_problem('once')
         publish_finished_contest_problems(self.now)
         Problem.objects.filter(pk=problem.pk).update(is_listed=False)
-        self.assertEqual(publish_finished_contest_problems(self.now+timedelta(minutes=1))['problems'], 0)
+        self.assertEqual(publish_finished_contest_problems(self.now + timedelta(minutes=1))['problems'], 0)
         problem.refresh_from_db()
         self.assertFalse(problem.is_listed)
 
@@ -77,14 +77,39 @@ class ContestPublicationTests(TestCase):
         extra = self.add_problem('extra')
         self.contest.refresh_from_db()
         self.assertIsNone(self.contest.problems_published_at)
-        self.assertEqual(publish_finished_contest_problems(self.now+timedelta(minutes=1))['problems'], 1)
+        self.assertEqual(publish_finished_contest_problems(self.now + timedelta(minutes=1))['problems'], 1)
         extra.refresh_from_db()
         self.assertTrue(extra.is_public)
 
-    def test_private_contest_publishes_tasks_after_finish(self):
+
+class PrivateContestPracticeTests(TestCase):
+    add_problem = ContestPublicationTests.add_problem
+
+    def setUp(self):
+        self.now = timezone.now()
+        self.group = ProblemGroup.objects.create(name='practice', full_name='Practice')
+        self.contest = Contest.objects.create(key='practice', name='Practice', is_visible=True,
+                                              start_time=self.now - timedelta(hours=3), end_time=self.now)
+        from django.contrib.auth.models import User
+        from judge.models import Profile
         self.contest.is_private = True
         self.contest.save()
-        problem = self.add_problem('closed-event')
-        self.assertEqual(publish_finished_contest_problems(self.now)['problems'], 1)
+        self.member = Profile.objects.create(user=User.objects.create_user('member', password='x'))
+        self.other = Profile.objects.create(user=User.objects.create_user('other', password='x'))
+        self.contest.private_contestants.add(self.member)
+
+    def test_private_contest_is_not_published_but_members_can_practise(self):
+        problem = self.add_problem('secret')
+        self.assertEqual(publish_finished_contest_problems(self.now)['problems'], 0)
         problem.refresh_from_db()
-        self.assertEqual(self.client.get('/problem/'+problem.code).status_code, 200)
+        self.assertFalse(problem.is_public)
+        self.assertTrue(problem.is_accessible_by(self.member.user))
+        self.assertFalse(problem.is_accessible_by(self.other.user))
+        self.assertIn(problem.pk, [p.pk for p in Problem.get_visible_problems(self.member.user)])
+        self.assertNotIn(problem.pk, [p.pk for p in Problem.get_visible_problems(self.other.user)])
+
+    def test_running_private_contest_gives_no_early_access(self):
+        self.contest.end_time = self.now + timedelta(hours=1)
+        self.contest.save()
+        problem = self.add_problem('early')
+        self.assertFalse(problem.is_accessible_by(self.member.user))

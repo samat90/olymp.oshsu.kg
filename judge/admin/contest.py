@@ -14,7 +14,7 @@ from django.utils.translation import gettext_lazy as _, ngettext
 from django.views.decorators.http import require_POST
 from reversion.admin import VersionAdmin
 
-from judge.models import Class, Contest, ContestProblem, ContestSubmission, Profile, Rating, Submission
+from judge.models import Contest, ContestProblem, ContestSubmission, Profile, Rating, Submission
 from judge.ratings import rate_contest
 from judge.utils.views import NoBatchDeleteMixin
 from judge.widgets import AdminAceWidget, AdminHeavySelect2MultipleWidget, AdminHeavySelect2Widget, \
@@ -65,8 +65,7 @@ class ContestProblemInline(SortableInlineAdminMixin, admin.TabularInline):
     model = ContestProblem
     verbose_name = _('Problem')
     verbose_name_plural = _('Problems')
-    fields = ('problem', 'points', 'partial', 'is_pretested', 'max_submissions', 'output_prefix_override', 'order',
-              'rejudge_column')
+    fields = ('problem', 'points', 'partial', 'max_submissions', 'order', 'rejudge_column')
     readonly_fields = ('rejudge_column',)
     form = ContestProblemInlineForm
 
@@ -87,12 +86,15 @@ class ContestForm(ModelForm):
                     Profile.objects.filter(contest_history__contest=self.instance).distinct()
             else:
                 self.fields['rate_exclude'].queryset = Profile.objects.none()
-        self.fields['banned_users'].widget.can_add_related = False
-        self.fields['view_contest_scoreboard'].widget.can_add_related = False
+        if 'banned_users' in self.fields:
+            self.fields['banned_users'].widget.can_add_related = False
 
     def clean(self):
         cleaned_data = super(ContestForm, self).clean()
-        cleaned_data['banned_users'].filter(current_contest__contest=self.instance).update(current_contest=None)
+        banned = cleaned_data.get('banned_users')
+        if banned is not None and self.instance.pk:
+            banned.filter(current_contest__contest=self.instance).update(current_contest=None)
+        return cleaned_data
 
     class Meta:
         widgets = {
@@ -122,15 +124,8 @@ class ContestAdmin(NoBatchDeleteMixin, SortableAdminBase, VersionAdmin):
                                    'points_precision')}),
         (_('Additional settings'), {
             'classes': ('collapse',),
-            'fields': ('authors', 'curators', 'testers', 'tester_see_submissions', 'tester_see_scoreboard',
-                       'spectators', 'use_clarifications', 'hide_problem_tags', 'hide_problem_authors',
-                       'show_short_display', 'run_pretests_only', 'locked_after', 'format_config',
-                       'problem_label_script', 'og_image', 'logo_override_image', 'tags', 'summary', 'classes',
-                       'join_organizations', 'view_contest_scoreboard', 'view_contest_submissions'),
+            'fields': ('authors', 'curators', 'testers', 'locked_after'),
         }),
-        (_('Rating'), {'classes': ('collapse',),
-                       'fields': ('is_rated', 'rate_all', 'rating_floor', 'rating_ceiling',
-                                  'performance_ceiling_override', 'rate_exclude')}),
     )
     list_display = ('key', 'name', 'is_visible', 'is_rated', 'locked_after', 'start_time', 'end_time', 'time_limit',
                     'user_count')
@@ -187,10 +182,8 @@ class ContestAdmin(NoBatchDeleteMixin, SortableAdminBase, VersionAdmin):
         if form.changed_data:
             if 'private_contestants' in form.changed_data:
                 obj.is_private = bool(form.cleaned_data['private_contestants'])
-            if 'organizations' in form.changed_data or 'classes' in form.changed_data:
-                obj.is_organization_private = bool(form.cleaned_data['organizations'] or form.cleaned_data['classes'])
-            if 'join_organizations' in form.cleaned_data:
-                obj.limit_join_organizations = bool(form.cleaned_data['join_organizations'])
+            if 'organizations' in form.changed_data:
+                obj.is_organization_private = bool(form.cleaned_data['organizations'] or obj.classes.exists())
 
         # `is_visible` will not appear in `cleaned_data` if user cannot edit it
         if form.cleaned_data.get('is_visible') and not request.user.has_perm('judge.change_contest_visibility'):
@@ -313,6 +306,12 @@ class ContestAdmin(NoBatchDeleteMixin, SortableAdminBase, VersionAdmin):
             contest.rate()
         return HttpResponseRedirect(request.headers.get('referer', reverse('admin:judge_contest_changelist')))
 
+    def get_changeform_initial_data(self, request):
+        initial = super().get_changeform_initial_data(request)
+        initial.setdefault('format_name', 'ioi')
+        initial.setdefault('publish_problems_after_end', True)
+        return initial
+
     def get_form(self, request, obj=None, **kwargs):
         form = super(ContestAdmin, self).get_form(request, obj, **kwargs)
         if 'problem_label_script' in form.base_fields:
@@ -323,12 +322,17 @@ class ContestAdmin(NoBatchDeleteMixin, SortableAdminBase, VersionAdmin):
             )
 
         perms = ('edit_own_contest', 'edit_all_contest')
-        form.base_fields['curators'].queryset = Profile.objects.filter(
-            Q(user__is_superuser=True) |
-            Q(user__groups__permissions__codename__in=perms) |
-            Q(user__user_permissions__codename__in=perms),
-        ).distinct()
-        form.base_fields['classes'].queryset = Class.get_visible_classes(request.user)
+        if 'curators' in form.base_fields:
+            form.base_fields['curators'].queryset = Profile.objects.filter(
+                Q(user__is_superuser=True) |
+                Q(user__groups__permissions__codename__in=perms) |
+                Q(user__user_permissions__codename__in=perms),
+            ).distinct()
+        if 'format_name' in form.base_fields:
+            # Only the IOI (until 2016) format scores correctly here; keep the current one if it differs.
+            field = form.base_fields['format_name']
+            keep = obj.format_name if obj is not None else None
+            field.choices = [c for c in field.choices if c[0] in ('ioi', keep)]
         return form
 
 

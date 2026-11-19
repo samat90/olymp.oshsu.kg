@@ -39,7 +39,7 @@ def paginate_query_context(request):
 class NoBatchDeleteMixin(object):
     def get_actions(self, request):
         actions = super(NoBatchDeleteMixin, self).get_actions(request)
-        if 'delete_selected' in actions:
+        if 'delete_selected' in actions and not request.user.is_superuser:
             del actions['delete_selected']
         return actions
 

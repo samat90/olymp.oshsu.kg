@@ -10,13 +10,14 @@ from judge.signals import problem_update
 
 def publish_finished_contest_problems(now=None):
     now = now or timezone.now()
-    due = Contest.objects.filter(is_visible=True, publish_problems_after_end=True,
+    due = Contest.objects.filter(is_visible=True, is_private=False, publish_problems_after_end=True,
                                  end_time__lte=now, problems_published_at__isnull=True)
     result = {'contests': 0, 'problems': 0, 'waiting': 0}
     for contest_id in due.order_by('pk').values_list('pk', flat=True):
         with transaction.atomic():
             contest = Contest.objects.select_for_update().get(pk=contest_id)
-            if (not contest.is_visible or not contest.publish_problems_after_end or
+            if (not contest.is_visible or contest.is_private or
+                    not contest.publish_problems_after_end or
                     contest.end_time > now or contest.problems_published_at is not None):
                 continue
             problems = list(Problem.objects.select_for_update().filter(

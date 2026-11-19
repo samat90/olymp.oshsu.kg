@@ -74,3 +74,29 @@ def get_app_list(request, app_label=None):
 
 
 admin.site.get_app_list = get_app_list
+
+
+def _use_site_avatars():
+    """The admin top bar shows the same avatar as the site instead of a gravatar identicon."""
+    try:
+        from wpadmin.templatetags import wpadmin_menu_tags
+    except ImportError:
+        return
+    from judge.jinja2.gravatar import gravatar
+
+    def render(self, context):
+        user = context.get('user')
+        value = gravatar(user) if user is not None and getattr(user, 'is_authenticated', False) else gravatar('')
+        if self.variable is not None:
+            context[self.variable] = value
+            return ''
+        return value
+
+    wpadmin_menu_tags.GravatarUrlNode.render = render
+
+
+_use_site_avatars()
+
+admin.site.site_header = 'OshSU Olymp'
+admin.site.site_title = 'OshSU Olymp'
+admin.site.index_title = 'Администрирование сайта'

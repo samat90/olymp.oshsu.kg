@@ -132,15 +132,13 @@ class ProblemAdmin(NoBatchDeleteMixin, VersionAdmin):
         (None, {
             'fields': ('code', 'name', 'is_public', 'description'),
         }),
-        (_('Limits and points'), {'fields': (('time_limit', 'memory_limit'), ('points', 'partial'))}),
+        (_('Limits and points'), {'fields': (('time_limit', 'memory_limit'),)}),
         (_('Test data'), {'fields': ('test_data_link',)}),
-        (_('Language'), {'classes': ('collapse',), 'fields': ('allowed_languages',)}),
-        (_('Taxonomy'), {'classes': ('collapse',), 'fields': ('types', 'group', 'difficulty', 'is_listed')}),
+        (_('Taxonomy'), {'fields': ('group', 'types', 'difficulty', 'is_listed')}),
         (_('Additional settings'), {
             'classes': ('collapse',),
-            'fields': ('authors', 'curators', 'testers', 'organizations', 'is_manually_managed', 'date',
-                       'submission_source_visibility_mode', 'is_full_markup', 'license', 'short_circuit',
-                       'og_image', 'summary', 'banned_users', 'change_message'),
+            'fields': ('authors', 'curators', 'testers', 'organizations', 'allowed_languages', 'banned_users',
+                       'change_message'),
         }),
     )
 
@@ -159,7 +157,7 @@ class ProblemAdmin(NoBatchDeleteMixin, VersionAdmin):
     list_display = ['code', 'name', 'show_authors', 'difficulty', 'points', 'is_listed', 'is_public', 'show_public']
     ordering = ['code']
     search_fields = ('code', 'name', 'authors__user__username', 'curators__user__username')
-    inlines = [LanguageLimitInline, ProblemClarificationInline, ProblemSolutionInline, ProblemTranslationInline]
+    inlines = [ProblemSolutionInline, ProblemTranslationInline]
     list_max_show_all = 1000
     actions_on_top = True
     actions_on_bottom = True
@@ -282,6 +280,10 @@ class ProblemAdmin(NoBatchDeleteMixin, VersionAdmin):
         return initial
 
     def save_model(self, request, obj, form, change):
+        if not change:
+            # One scale for all problems: 100 points, partial credit.
+            obj.points = 100
+            obj.partial = True
         # `organizations` will not appear in `cleaned_data` if user cannot edit it
         if form.changed_data and 'organizations' in form.changed_data:
             obj.is_organization_private = bool(form.cleaned_data['organizations'])

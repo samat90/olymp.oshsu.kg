@@ -9,7 +9,7 @@ from django.core.exceptions import ValidationError
 from django.core.validators import MaxValueValidator, MinValueValidator, RegexValidator
 from django.db import models, router, transaction
 from django.db.models import CASCADE, Exists, F, FilteredRelation, OuterRef, Q, SET_NULL
-from django.db.models.functions import Coalesce
+from django.db.models.functions import Coalesce, Now
 from django.urls import reverse
 from django.utils import timezone
 from django.utils.functional import cached_property
@@ -262,7 +262,18 @@ class Problem(models.Model):
         if self.testers.filter(id=user.profile.id).exists():
             return True
 
+        # Contestants of a finished private contest may keep practising its problems.
+        if self.is_in_finished_private_contest_of(user.profile):
+            return True
+
         return False
+
+    def is_in_finished_private_contest_of(self, profile):
+        from judge.models import ContestProblem
+        return ContestProblem.objects.filter(
+            problem_id=self.id, contest__is_visible=True, contest__is_private=True,
+            contest__end_time__lte=timezone.now(), contest__private_contestants=profile,
+        ).exists()
 
     def is_subs_manageable_by(self, user):
         return user.is_staff and user.has_perm('judge.rejudge_submission') and self.is_editable_by(user)
@@ -305,6 +316,11 @@ class Problem(models.Model):
 
             # Authors, curators, and testers should always have access.
             q = cls.q_add_author_curator_tester(q, user.profile)
+            from judge.models import ContestProblem
+            q |= Exists(ContestProblem.objects.filter(
+                problem=OuterRef('pk'), contest__is_visible=True, contest__is_private=True,
+                contest__end_time__lte=Now(), contest__private_contestants=user.profile,
+            ))
             queryset = queryset.filter(q)
 
         return queryset

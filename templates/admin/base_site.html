@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block extrahead %}{{ block.super }}
+    <link rel="stylesheet" href="{% static 'admin/oshsu-admin.css' %}?v=1">
     <script src="{% static 'infinite-scroll.js' %}?v={{ STATIC_VERSION }}" defer></script>
     <script>
         // Sync admin dark mode with main site preference (oshsu-theme localStorage).

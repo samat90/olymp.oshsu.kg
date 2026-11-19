@@ -76,7 +76,7 @@ class ProfileAdmin(NoBatchDeleteMixin, VersionAdmin):
     # If an admin wants to go directly to the delete endpoint to delete a profile, more
     # power to them.
     def render_change_form(self, request, context, **kwargs):
-        context['show_delete'] = False
+        context['show_delete'] = request.user.is_superuser
         return super().render_change_form(request, context, **kwargs)
 
     def get_queryset(self, request):
