@@ -214,7 +214,13 @@
     var dragId = null;
 
     function excerpt(q) {
-        var text = (q.text || '').replace(/[`*_#>$\\]/g, '').replace(/\s+/g, ' ').trim();
+        // Only markdown wrappers are dropped (**bold**, `code`, leading # and >);
+        // _ and single * are literal text (my_list, __init__, i*j).
+        var text = (q.text || '')
+            .replace(/^\s*(?:#{1,6}|>)\s*/gm, '')
+            .replace(/`+/g, '')
+            .replace(/\*\*(?=\S)([\s\S]*?\S)\*\*/g, '$1')
+            .replace(/\s+/g, ' ').trim();
         return text || (q.image ? L('(картинка)') : q.code ? L('(код)') : '');
     }
 
