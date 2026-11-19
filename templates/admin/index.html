@@ -29,10 +29,10 @@
         <a class="oa-link" href="{% url 'admin:judge_problem_changelist' %}">{% trans "Все задачи" %}</a>
     </div>
     <div class="oa-card">
-        <h3>{% trans "Участники" %}</h3>
-        <a class="oa-main" href="{% url 'admin_generate_users' %}">👥 {% trans "Создать участников" %}</a>
-        <a class="oa-link" href="{% url 'admin:auth_user_changelist' %}">{% trans "Пользователи" %}</a>
-        <a class="oa-link" href="{% url 'admin:judge_organization_changelist' %}">{% trans "Университеты и школы" %}</a>
+        <h3>{% trans "Пользователи" %}</h3>
+        <a class="oa-main" href="{% url 'admin_generate_users' %}">👥 {% trans "Создать пользователей" %}</a>
+        <a class="oa-link" href="{% url 'admin:auth_user_changelist' %}">{% trans "Все пользователи" %}</a>
+        <a class="oa-link" href="{% url 'admin:judge_organization_changelist' %}">{% trans "Организации" %}</a>
         <a class="oa-link" href="{% url 'admin:judge_workspacefile_changelist' %}">{% trans "Проекты и файлы компилятора" %}</a>
     </div>
     <div class="oa-card">

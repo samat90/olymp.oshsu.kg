@@ -146,7 +146,7 @@ msgstr "связанная страница"
 
 #: judge/admin/contest.py:33
 msgid "Included contests"
-msgstr "Включены конкурсы"
+msgstr "Включённые олимпиады"
 
 #: judge/admin/contest.py:67 templates/contest/contest.html:195
 #: templates/contest/moss.html:41 templates/problem/list.html:188
@@ -198,64 +198,64 @@ msgstr "Судья"
 
 #: judge/admin/contest.py:227
 msgid "Mark contests as visible"
-msgstr "Отметьте соревнования как видимые"
+msgstr "Отметьте олимпиады как видимые"
 
 #: judge/admin/contest.py:232
 #, python-format
 msgid "%d contest successfully marked as visible."
 msgid_plural "%d contests successfully marked as visible."
-msgstr[0] "%d соревнование успешно помечено как видимое."
-msgstr[1] "%d соревнования успешно помечены как скрытые."
-msgstr[2] "%d соревнований успешно помечены как скрытые."
-msgstr[3] "%d соревнований успешно помечены как скрытые."
+msgstr[0] "%d олимпиада успешно помечена как видимая."
+msgstr[1] "%d олимпиады успешно помечены как скрытые."
+msgstr[2] "%d олимпиад успешно помечены как скрытые."
+msgstr[3] "%d олимпиад успешно помечены как скрытые."
 
 #: judge/admin/contest.py:236
 msgid "Mark contests as hidden"
-msgstr "Отметьте соревнования как скрытые"
+msgstr "Отметьте олимпиады как скрытые"
 
 #: judge/admin/contest.py:241
 #, python-format
 msgid "%d contest successfully marked as hidden."
 msgid_plural "%d contests successfully marked as hidden."
-msgstr[0] "%d соревнование успешно помечено как скрытое."
-msgstr[1] "%d соревнований помечены как скрытые."
-msgstr[2] "%d соревнований помечены как скрытые."
-msgstr[3] "%d соревнования успешно помечены как скрытые."
+msgstr[0] "%d олимпиада успешно помечена как скрытая."
+msgstr[1] "%d олимпиад помечены как скрытые."
+msgstr[2] "%d олимпиад помечены как скрытые."
+msgstr[3] "%d олимпиады успешно помечены как скрытые."
 
 #: judge/admin/contest.py:245
 msgid "Lock contest submissions"
-msgstr "Заблокировать решения соревнования"
+msgstr "Заблокировать посылки олимпиады"
 
 #: judge/admin/contest.py:250
 #, python-format
 msgid "%d contest successfully locked."
 msgid_plural "%d contests successfully locked."
-msgstr[0] "%d соревнование успешно скрыто."
-msgstr[1] "%d соревнований успешно скрыто."
-msgstr[2] "%d соревнований успешно скрыто."
-msgstr[3] "%d соревнования успешно скрыты."
+msgstr[0] "%d олимпиада успешно скрыта."
+msgstr[1] "%d олимпиад успешно скрыто."
+msgstr[2] "%d олимпиад успешно скрыто."
+msgstr[3] "%d олимпиады успешно скрыты."
 
 #: judge/admin/contest.py:254
 msgid "Unlock contest submissions"
-msgstr "Разблокировать решения соревнования"
+msgstr "Разблокировать посылки олимпиады"
 
 #: judge/admin/contest.py:259
 #, python-format
 msgid "%d contest successfully unlocked."
 msgid_plural "%d contests successfully unlocked."
-msgstr[0] "%d соревнование успешно разблокировано."
-msgstr[1] "%d соревнований успешно разблокировано."
-msgstr[2] "%d соревнований успешно разблокировано."
-msgstr[3] "%d соревнования успешно разблокированы."
+msgstr[0] "%d олимпиада успешно разблокирована."
+msgstr[1] "%d олимпиад успешно разблокировано."
+msgstr[2] "%d олимпиад успешно разблокировано."
+msgstr[3] "%d олимпиады успешно разблокированы."
 
 #: judge/admin/contest.py:286 judge/admin/submission.py:179
 #, python-format
 msgid "%d submission was successfully scheduled for rejudging."
 msgid_plural "%d submissions were successfully scheduled for rejudging."
-msgstr[0] "%d решение было успешно запланировано для повторного тестирования."
-msgstr[1] "%d решений было успешно запланировано для повторного тестирования."
-msgstr[2] "%d решений было успешно запланировано для повторного тестирования."
-msgstr[3] "%d решения были успешно запланированы для повторного тестирования."
+msgstr[0] "%d посылка успешно поставлена на повторную проверку."
+msgstr[1] "%d посылки успешно поставлены на повторную проверку."
+msgstr[2] "%d посылок успешно поставлено на повторную проверку."
+msgstr[3] "%d посылки успешно поставлены на повторную проверку."
 
 #: judge/admin/contest.py:361
 msgid "Recalculate results"
@@ -265,10 +265,10 @@ msgstr "Пересчитать результаты"
 #, python-format
 msgid "%d participation recalculated."
 msgid_plural "%d participations recalculated."
-msgstr[0] "%d участие в соревновании пересчитано."
-msgstr[1] "%d участия в соревнованиях пересчитано."
-msgstr[2] "%d участий в соревнованиях пересчитано."
-msgstr[3] "%d участий в соревнованиях пересчитано."
+msgstr[0] "%d участие в олимпиаде пересчитано."
+msgstr[1] "%d участия в олимпиадах пересчитано."
+msgstr[2] "%d участий в олимпиадах пересчитано."
+msgstr[3] "%d участий в олимпиадах пересчитано."
 
 #: judge/admin/contest.py:371 judge/admin/organization.py:110
 msgid "username"
@@ -481,16 +481,16 @@ msgstr "У вас нет доступа перетестировать ТАК м
 
 #: judge/admin/submission.py:183
 msgid "Rescore the selected submissions"
-msgstr "Пересчитать выбранные решения"
+msgstr "Пересчитать выбранные посылки"
 
 #: judge/admin/submission.py:208 judge/views/problem_manage.py:129
 #, python-format
 msgid "%d submission was successfully rescored."
 msgid_plural "%d submissions were successfully rescored."
-msgstr[0] "%d решение было пересчитано."
-msgstr[1] "%d решений были переоценены."
-msgstr[2] "%d решения были переоценены."
-msgstr[3] "%d решения были переоценены."
+msgstr[0] "%d посылка пересчитана."
+msgstr[1] "%d посылки пересчитаны."
+msgstr[2] "%d посылок пересчитано."
+msgstr[3] "%d посылки пересчитаны."
 
 #: judge/admin/submission.py:212 judge/models/problem.py:117
 msgid "problem code"
@@ -596,7 +596,7 @@ msgstr "ОКОО (ECOO)"
 
 #: judge/contest_format/ecoo.py:130
 msgid "The score on your **last** non-CE submission for each problem will be used."
-msgstr "Будет использована оценка вашей ** последней ** заявки, не относящейся к CE, по каждой задаче."
+msgstr "Будет использована оценка вашей **последней** посылки, не относящейся к CE, по каждой задаче."
 
 #: judge/contest_format/ecoo.py:135
 #, python-format
@@ -607,10 +607,10 @@ msgstr "Существует **%d бонус** для полного решен�
 #, python-format
 msgid "For every **%d minute** you submit before the end of your window, there will be a **1** point bonus."
 msgid_plural "For every **%d minutes** you submit before the end of your window, there will be a **1** point bonus."
-msgstr[0] "За каждые **%d минута** вы подаете заявку до конца окна, будет **1** бонус к очкам."
-msgstr[1] "За каждые **%d минуты** вы подаете заявку до конца окна, будет **1** бонус к очкам."
-msgstr[2] "За каждые **%d минут** вы подаете заявку до конца окна, будет **1** бонус к очкам."
-msgstr[3] "За каждые **%d минут** вы подаете заявку до конца окна, будет **1** бонус к очкам."
+msgstr[0] "За каждые **%d минута** вы отправляете посылку до конца окна, будет **1** бонус к очкам."
+msgstr[1] "За каждые **%d минуты** вы отправляете посылку до конца окна, будет **1** бонус к очкам."
+msgstr[2] "За каждые **%d минут** вы отправляете посылку до конца окна, будет **1** бонус к очкам."
+msgstr[3] "За каждые **%d минут** вы отправляете посылку до конца окна, будет **1** бонус к очкам."
 
 #: judge/contest_format/ecoo.py:147
 msgid "Ties will be broken by the sum of the last submission time on **all** problems."
@@ -668,7 +668,7 @@ msgstr "Неверный scratch-код."
 
 #: judge/forms.py:48
 msgid "Subscribe to contest updates"
-msgstr "Уведомлять об изменениях в соревновании"
+msgstr "Уведомлять об изменениях в олимпиаде"
 
 #: judge/forms.py:49
 msgid "Enable experimental features"
@@ -676,7 +676,7 @@ msgstr "Включить экспериментальные возможност
 
 #: judge/forms.py:74
 msgid "You must solve at least one problem before you can update your profile."
-msgstr "Вы должны решить хотя бы одну проблему, прежде чем вы сможете обновить свой профиль."
+msgstr "Вы должны решить хотя бы одну задачу, прежде чем вы сможете обновить свой профиль."
 
 #: judge/forms.py:82 judge/views/organization.py:176 judge/views/register.py:50
 #, python-brace-format
@@ -701,7 +701,7 @@ msgstr "Загрузить комментарии?"
 
 #: judge/forms.py:122
 msgid "Download submissions?"
-msgstr "Загрузить решения?"
+msgstr "Скачать посылки?"
 
 #: judge/forms.py:123
 msgid "Filter by problem code glob:"
@@ -709,7 +709,7 @@ msgstr "Фильтр по коду задач:"
 
 #: judge/forms.py:127
 msgid "Leave empty to include all submissions"
-msgstr "Оставьте пустым, чтобы включить все сданные решения"
+msgstr "Оставьте пустым, чтобы включить все посылки"
 
 #: judge/forms.py:130 templates/problem/manage_submission.html:144
 msgid "Filter by result:"
@@ -769,11 +769,11 @@ msgstr "Задача с кодом уже существует."
 
 #: judge/forms.py:304 judge/models/contest.py:68
 msgid "Contest id must be ^[a-z0-9]+$"
-msgstr "Идентификатор соревнования должен быть ^[a-z0-9]+$"
+msgstr "Идентификатор олимпиады должен быть ^[a-z0-9]+$"
 
 #: judge/forms.py:309
 msgid "Contest with key already exists."
-msgstr "Соревнование с ключом уже существует."
+msgstr "Олимпиада с ключом уже существует."
 
 #: judge/jinja2/datetime.py:29 templates/blog/content.html:27
 #: templates/problem/vote-ajax.html:6 templates/submission/info-base.html:6
@@ -913,11 +913,11 @@ msgstr "описание тега"
 
 #: judge/models/contest.py:52
 msgid "contest tag"
-msgstr "тег соревнования"
+msgstr "тег олимпиады"
 
 #: judge/models/contest.py:53 judge/models/contest.py:153
 msgid "contest tags"
-msgstr "теги соревнования"
+msgstr "теги олимпиады"
 
 #: judge/models/contest.py:62
 msgid "Visible"
@@ -925,7 +925,7 @@ msgstr "Видимый"
 
 #: judge/models/contest.py:63
 msgid "Hidden for duration of contest"
-msgstr "Скрыто на время проведения соревнования"
+msgstr "Скрыто на время проведения олимпиады"
 
 #: judge/models/contest.py:64
 msgid "Hidden for duration of participation"
@@ -937,15 +937,15 @@ msgstr "Скрытые навсегда"
 
 #: judge/models/contest.py:67
 msgid "contest id"
-msgstr "код соревнования"
+msgstr "код олимпиады"
 
 #: judge/models/contest.py:69
 msgid "contest name"
-msgstr "название соревнования"
+msgstr "название олимпиады"
 
 #: judge/models/contest.py:71
 msgid "These users will be able to edit the contest."
-msgstr "Эти пользователи смогут редактировать соревнование."
+msgstr "Эти пользователи смогут редактировать олимпиаду."
 
 #: judge/models/contest.py:73 judge/models/problem.py:127
 msgid "curators"
@@ -953,7 +953,7 @@ msgstr "кураторы"
 
 #: judge/models/contest.py:74
 msgid "These users will be able to edit the contest, but will not be listed as authors."
-msgstr "Эти пользователи смогут редактировать соревнование, но не будут отображаться в качестве авторов."
+msgstr "Эти пользователи смогут редактировать олимпиаду, но не будут отображаться в качестве авторов."
 
 #: judge/models/contest.py:77 judge/models/problem.py:130
 msgid "testers"
@@ -961,7 +961,7 @@ msgstr "тестировщики"
 
 #: judge/models/contest.py:78
 msgid "These users will be able to view the contest, but not edit it."
-msgstr "Эти пользователи смогут просматривать конкурс, но не редактировать его."
+msgstr "Эти пользователи смогут просматривать олимпиаду, но не редактировать его."
 
 #: judge/models/contest.py:80
 msgid "testers see scoreboard"
@@ -973,11 +973,11 @@ msgstr "Если тестировщики смогут увидеть табло
 
 #: judge/models/contest.py:82
 msgid "testers see submissions"
-msgstr "тестировщики просматривают представленные материалы"
+msgstr "тестировщики видят посылки"
 
 #: judge/models/contest.py:83
 msgid "If testers can see in-contest submissions."
-msgstr "Если тестировщики смогут увидеть материалы представленные на конкурс."
+msgstr "Если тестировщики смогут увидеть посылки, отправленные во время олимпиады."
 
 #: judge/models/contest.py:84
 msgid "spectators"
@@ -985,7 +985,7 @@ msgstr "зрители"
 
 #: judge/models/contest.py:85
 msgid "These users will be able to spectate the contest, but not see the problems ahead of time."
-msgstr "Эти пользователи смогут наблюдать за соревнованием, но не видят задачи заранее."
+msgstr "Эти пользователи смогут наблюдать за олимпиадой, но не видят задачи заранее."
 
 #: judge/models/contest.py:88 judge/models/runtime.py:142
 msgid "description"
@@ -1015,39 +1015,39 @@ msgstr "публично видимый"
 
 #: judge/models/contest.py:94
 msgid "Should be set even for organization-private contests, where it determines whether the contest is visible to members of the specified organizations."
-msgstr "Должно быть установлено даже для частных соревнований организации, где определяется, является ли соревнование видимым для членов указанных организаций."
+msgstr "Должно быть установлено даже для частных олимпиад организации, где определяется, является ли олимпиада видимой для членов указанных организаций."
 
 #: judge/models/contest.py:97
 msgid "contest rated"
-msgstr "соревнование рейтинговое"
+msgstr "олимпиада рейтинговая"
 
 #: judge/models/contest.py:97
 msgid "Whether this contest can be rated."
-msgstr "Будет ли соревнование рейтинговым."
+msgstr "Будет ли олимпиада рейтинговой."
 
 #: judge/models/contest.py:99
 msgid "view contest scoreboard"
-msgstr "просмотреть таблицу результатов соревнования"
+msgstr "просмотреть таблицу результатов олимпиады"
 
 #: judge/models/contest.py:101
 msgid "These users will be able to view the scoreboard."
-msgstr "Эти пользователи смогут просматривать таблицу результатов соревнования."
+msgstr "Эти пользователи смогут просматривать таблицу результатов олимпиады."
 
 #: judge/models/contest.py:102
 msgid "can see contest submissions"
-msgstr "могут видеть отправки соревнования"
+msgstr "могут видеть посылки олимпиады"
 
 #: judge/models/contest.py:104
 msgid "These users will be able to see in-contest submissions."
-msgstr "Эти пользователи смогут просматривать отправки соревнования."
+msgstr "Эти пользователи смогут видеть посылки олимпиады."
 
 #: judge/models/contest.py:106
 msgid "scoreboard visibility"
-msgstr "видимость результатов соревнования"
+msgstr "видимость результатов олимпиады"
 
 #: judge/models/contest.py:107
 msgid "Scoreboard visibility through the duration of the contest."
-msgstr "Видимость результатов соревнования во время соревнования."
+msgstr "Видимость результатов олимпиады во время олимпиады."
 
 #: judge/models/contest.py:109
 msgid "no comments"
@@ -1091,11 +1091,11 @@ msgstr "приватный для определенных пользовате�
 
 #: judge/models/contest.py:121
 msgid "private contestants"
-msgstr "приватные участники соревнования"
+msgstr "приватные пользователи олимпиады"
 
 #: judge/models/contest.py:122
 msgid "If non-empty, only these users may see the contest."
-msgstr "Если не пусто, только эти пользователи могут видеть соревнование."
+msgstr "Если не пусто, только эти пользователи могут видеть олимпиаду."
 
 #: judge/models/contest.py:124
 msgid "hide problem tags"
@@ -1119,7 +1119,7 @@ msgstr "запустить только претесты"
 
 #: judge/models/contest.py:131
 msgid "Whether judges should grade pretests only, versus all testcases. Commonly set during a contest, then unset prior to rejudging user submissions when the contest ends."
-msgstr "Должны ли судьи оценивать только предварительные тесты, а не все тестовые задания. Обычно устанавливается во время конкурса, затем сбрасывается до предварительного рассмотрения заявок пользователей по окончании конкурса."
+msgstr "Должны ли судьи оценивать только предварительные тесты, а не все тестовые задания. Обычно устанавливается во время олимпиады, затем сбрасывается до предварительного рассмотрения заявок пользователей по окончании олимпиады."
 
 #: judge/models/contest.py:135
 msgid "show short form settings display"
@@ -1127,7 +1127,7 @@ msgstr "показать отображение настроек краткой 
 
 #: judge/models/contest.py:136
 msgid "Whether to show a section containing contest settings on the contest page or not."
-msgstr "Показывать ли раздел, содержащий настройки конкурса, на странице конкурса или нет."
+msgstr "Показывать ли раздел, содержащий настройки олимпиады, на странице олимпиады или нет."
 
 #: judge/models/contest.py:139 judge/models/problem.py:181
 msgid "private to organizations"
@@ -1140,7 +1140,7 @@ msgstr "организации"
 
 #: judge/models/contest.py:141
 msgid "If non-empty, only these organizations may see the contest."
-msgstr "Если поле не пустое, только эти организации могут видеть конкурс."
+msgstr "Если поле не пустое, только эти организации могут видеть олимпиаду."
 
 #: judge/models/contest.py:142
 msgid "limit organizations that can join"
@@ -1152,7 +1152,7 @@ msgstr "присоединиться к организации"
 
 #: judge/models/contest.py:144
 msgid "If non-empty, only these organizations may join the contest."
-msgstr "Если поле не пустое, то к конкурсу могут присоединиться только эти организации."
+msgstr "Если поле не пустое, то к олимпиаде могут присоединиться только эти организации."
 
 #: judge/models/contest.py:146 judge/models/profile.py:143
 msgid "classes"
@@ -1160,7 +1160,7 @@ msgstr "классы"
 
 #: judge/models/contest.py:147
 msgid "If organization private, only these classes may see the contest."
-msgstr "Если организация закрыта, только эти классы могут видеть конкурс."
+msgstr "Если организация закрыта, только эти классы могут видеть олимпиаду."
 
 #: judge/models/contest.py:148 judge/models/interface.py:74
 #: judge/models/problem.py:165
@@ -1173,15 +1173,15 @@ msgstr "изображение, заменяющее логотип"
 
 #: judge/models/contest.py:151
 msgid "This image will replace the default site logo for users inside the contest."
-msgstr "Это изображение заменит логотип сайта по умолчанию для пользователей, участвующих в конкурсе."
+msgstr "Это изображение заменит логотип сайта по умолчанию для пользователей, участвующих в олимпиаде."
 
 #: judge/models/contest.py:154
 msgid "the amount of live participants"
-msgstr "количество участников"
+msgstr "количество пользователей"
 
 #: judge/models/contest.py:155
 msgid "contest summary"
-msgstr "краткое описание конкурса"
+msgstr "краткое описание олимпиады"
 
 #: judge/models/contest.py:156 judge/models/problem.py:167
 msgid "Plain-text, shown in meta description tag, e.g. for social media."
@@ -1194,7 +1194,7 @@ msgstr "код доступа"
 
 #: judge/models/contest.py:158
 msgid "An optional code to prompt contestants before they are allowed to join the contest. Leave it blank to disable."
-msgstr "Необязательный код, который запрашивается у участников до того, как им будет разрешено присоединиться к конкурсу. Оставьте это поле пустым, чтобы отключить."
+msgstr "Необязательный код, который запрашивается у пользователей до того, как им будет разрешено присоединиться к олимпиаде. Оставьте это поле пустым, чтобы отключить."
 
 #: judge/models/contest.py:160 judge/models/problem.py:161
 msgid "personae non gratae"
@@ -1202,23 +1202,23 @@ msgstr "неизвестные лица"
 
 #: judge/models/contest.py:161
 msgid "Bans the selected users from joining this contest."
-msgstr "Запрещает выбранным пользователям присоединяться к этому конкурсу."
+msgstr "Запрещает выбранным пользователям присоединяться к этой олимпиаде."
 
 #: judge/models/contest.py:162
 msgid "contest format"
-msgstr "формат конкурса"
+msgstr "формат олимпиады"
 
 #: judge/models/contest.py:163
 msgid "The contest format module to use."
-msgstr "Используемый модуль формата конкурса."
+msgstr "Используемый модуль формата олимпиады."
 
 #: judge/models/contest.py:164
 msgid "contest format configuration"
-msgstr "конфигурация формата конкурса"
+msgstr "конфигурация формата олимпиады"
 
 #: judge/models/contest.py:165
 msgid "A JSON object to serve as the configuration for the chosen contest format module. Leave empty to use None. Exact format depends on the contest format selected."
-msgstr "Объект JSON, который будет служить конфигурацией для выбранного модуля формата конкурса. Оставьте пустым, чтобы не использовать None. Точный формат зависит от выбранного формата конкурса."
+msgstr "Объект JSON, который будет служить конфигурацией для выбранного модуля формата олимпиады. Оставьте пустым, чтобы не использовать None. Точный формат зависит от выбранного формата олимпиады."
 
 #: judge/models/contest.py:168
 msgid "contest problem label script"
@@ -1226,15 +1226,15 @@ msgstr "сценарий метки для конурса"
 
 #: judge/models/contest.py:169
 msgid "A custom Lua function to generate problem labels. Requires a single function with an integer parameter, the zero-indexed contest problem index, and returns a string, the label."
-msgstr "Пользовательская функция Lua для создания ярлыков задач. Требуется одна функция с параметром целочисленного значения, индексом задачи конкурса с нулевым индексированием и возвращает строку, метку."
+msgstr "Пользовательская функция Lua для создания ярлыков задач. Требуется одна функция с параметром целочисленного значения, индексом задачи олимпиады с нулевым индексированием и возвращает строку, метку."
 
 #: judge/models/contest.py:172
 msgid "contest lock"
-msgstr "соревнование заблокировано"
+msgstr "олимпиада заблокирована"
 
 #: judge/models/contest.py:173
 msgid "Prevent submissions from this contest from being rejudged after this date."
-msgstr "Запретить оценивать результаты этого соревнования после этой даты."
+msgstr "Запретить оценивать результаты этой олимпиады после этой даты."
 
 #: judge/models/contest.py:175
 msgid "precision points"
@@ -1246,61 +1246,61 @@ msgstr "Количество цифр для округления баллов."
 
 #: judge/models/contest.py:479
 msgid "See private contests"
-msgstr "Видеть приватные соревнования"
+msgstr "Видеть приватные олимпиады"
 
 #: judge/models/contest.py:480
 msgid "Edit own contests"
-msgstr "Редактировать свои соревнования"
+msgstr "Редактировать свои олимпиады"
 
 #: judge/models/contest.py:481
 msgid "Edit all contests"
-msgstr "Редактировать все соревнование"
+msgstr "Редактировать все олимпиады"
 
 #: judge/models/contest.py:482
 msgid "Clone contest"
-msgstr "Клонировать соревнование"
+msgstr "Клонировать олимпиаду"
 
 #: judge/models/contest.py:483 templates/contest/moss.html:76
 msgid "MOSS contest"
-msgstr "MOSS соревнование"
+msgstr "MOSS олимпиаду"
 
 #: judge/models/contest.py:484
 msgid "Rate contests"
-msgstr "Оценить соревнования"
+msgstr "Оценить олимпиады"
 
 #: judge/models/contest.py:485
 msgid "Contest access codes"
-msgstr "Коды доступа к конкурсам"
+msgstr "Коды доступа к олимпиадам"
 
 #: judge/models/contest.py:486
 msgid "Create private contests"
-msgstr "Создать приватное соревнование"
+msgstr "Создать приватную олимпиаду"
 
 #: judge/models/contest.py:487
 msgid "Change contest visibility"
-msgstr "Изменить видимость соревнования"
+msgstr "Изменить видимость олимпиады"
 
 #: judge/models/contest.py:488
 msgid "Edit contest problem label script"
-msgstr "Редактировать сценарий задачи конкурса"
+msgstr "Редактировать сценарий задачи олимпиады"
 
 #: judge/models/contest.py:489
 msgid "Change lock status of contest"
-msgstr "Изменить статус блокировки соревнования"
+msgstr "Изменить статус блокировки олимпиады"
 
 #: judge/models/contest.py:491 judge/models/contest.py:593
 #: judge/models/contest.py:633 judge/models/contest.py:656
 #: judge/models/submission.py:88
 msgid "contest"
-msgstr "соревнование"
+msgstr "олимпиада"
 
 #: judge/models/contest.py:492
 msgid "contests"
-msgstr "соревнования"
+msgstr "олимпиады"
 
 #: judge/models/contest.py:499
 msgid "associated contest"
-msgstr "связанное соревнование"
+msgstr "связанная олимпиада"
 
 #: judge/models/contest.py:502
 msgid "score"
@@ -1332,7 +1332,7 @@ msgstr "0 означает не виртуальное, в противном с
 
 #: judge/models/contest.py:509
 msgid "contest format specific data"
-msgstr "конкретные данные о формате конкурса"
+msgstr "конкретные данные о формате олимпиады"
 
 #: judge/models/contest.py:577
 #, python-format
@@ -1351,11 +1351,11 @@ msgstr "%(user)s в %(contest)s"
 
 #: judge/models/contest.py:585
 msgid "contest participation"
-msgstr "участие в соревновании"
+msgstr "участие в олимпиаде"
 
 #: judge/models/contest.py:586
 msgid "contest participations"
-msgstr "участие в конкурсе"
+msgstr "участие в олимпиаде"
 
 #: judge/models/contest.py:594 judge/models/contest.py:621
 #: judge/models/problem.py:148
@@ -1392,11 +1392,11 @@ msgstr "Зачем включать задачу, с которой вы не м
 
 #: judge/models/contest.py:609
 msgid "contest problem"
-msgstr "проблема конкурсов"
+msgstr "задача олимпиады"
 
 #: judge/models/contest.py:610
 msgid "contest problems"
-msgstr "проблемы с конкурсом"
+msgstr "задачи олимпиады"
 
 #: judge/models/contest.py:615 judge/models/submission.py:231
 msgid "submission"
@@ -1408,15 +1408,15 @@ msgstr "участие"
 
 #: judge/models/contest.py:623
 msgid "Whether this submission was ran only on pretests."
-msgstr "Была ли эта отправка проверена только на предварительных тестах."
+msgstr "Была ли эта посылка проверена только на предварительных тестах."
 
 #: judge/models/contest.py:627
 msgid "contest submission"
-msgstr "подача заявки на участие в конкурсе"
+msgstr "посылка в олимпиаде"
 
 #: judge/models/contest.py:628
 msgid "contest submissions"
-msgstr "подача заявки на участие в конкурсе"
+msgstr "посылка в олимпиаде"
 
 #: judge/models/contest.py:636
 msgid "rank"
@@ -1432,7 +1432,7 @@ msgstr "исходный рейтинг"
 
 #: judge/models/contest.py:639
 msgid "contest performance"
-msgstr "производительность соревнования"
+msgstr "производительность олимпиады"
 
 #: judge/models/contest.py:640
 msgid "last rated"
@@ -1440,19 +1440,19 @@ msgstr "последняя оценённая"
 
 #: judge/models/contest.py:644
 msgid "contest rating"
-msgstr "рейтинг соревнования"
+msgstr "рейтинг олимпиады"
 
 #: judge/models/contest.py:645
 msgid "contest ratings"
-msgstr "рейтинги соревнования"
+msgstr "рейтинги олимпиады"
 
 #: judge/models/contest.py:664
 msgid "contest moss result"
-msgstr "результат MOSS соревнования"
+msgstr "результат MOSS олимпиады"
 
 #: judge/models/contest.py:665
 msgid "contest moss results"
-msgstr "результаты MOSS соревнования"
+msgstr "результаты MOSS олимпиады"
 
 #: judge/models/interface.py:17 judge/models/problem.py:60
 msgid "key"
@@ -1626,7 +1626,7 @@ msgstr "Показывать, если задача решена"
 
 #: judge/models/problem.py:114
 msgid "Only own submissions"
-msgstr "Только собственные публикации"
+msgstr "Только собственные посылки"
 
 #: judge/models/problem.py:119
 msgid "A short, unique code for the problem, used in the URL after /problem/"
@@ -1650,7 +1650,7 @@ msgstr "Эти пользователи смогут редактировать 
 
 #: judge/models/problem.py:128
 msgid "These users will be able to edit the problem, but not be listed as authors."
-msgstr "Эти пользователи смогут редактировать проблему, но не будут перечислены в качестве авторов."
+msgstr "Эти пользователи смогут редактировать задачу, но не будут перечислены в качестве авторов."
 
 #: judge/models/problem.py:132
 msgid "These users will be able to view the private problem, but not edit it."
@@ -1694,7 +1694,7 @@ msgstr "доступные языки"
 
 #: judge/models/problem.py:154
 msgid "List of allowed submission languages."
-msgstr "Список доступных языков для отправки."
+msgstr "Список языков, на которых можно отправлять посылки."
 
 #: judge/models/problem.py:156
 msgid "manually managed"
@@ -1742,7 +1742,7 @@ msgstr "разрешить полный доступ к markdown"
 
 #: judge/models/problem.py:172
 msgid "submission source visibility"
-msgstr "видимость источника отправки"
+msgstr "видимость кода посылки"
 
 #: judge/models/problem.py:180
 msgid "If private, only these organizations may see the problem."
@@ -1750,7 +1750,7 @@ msgstr "Если они частные, то только эти организ�
 
 #: judge/models/problem.py:495
 msgid "See hidden problems"
-msgstr "Увидеть скрытые проблемы"
+msgstr "Увидеть скрытые задачи"
 
 #: judge/models/problem.py:496
 msgid "Edit own problems"
@@ -1794,15 +1794,15 @@ msgstr "описание перевода"
 
 #: judge/models/problem.py:518
 msgid "problem translation"
-msgstr "проблема перевода"
+msgstr "перевод задачи"
 
 #: judge/models/problem.py:519
 msgid "problem translations"
-msgstr "проблема перевода"
+msgstr "перевод задачи"
 
 #: judge/models/problem.py:523
 msgid "clarified problem"
-msgstr "выявленная проблема"
+msgstr "уточняемая задача"
 
 #: judge/models/problem.py:524
 msgid "clarification body"
@@ -1814,11 +1814,11 @@ msgstr "временная метка уточнения"
 
 #: judge/models/problem.py:528
 msgid "problem clarification"
-msgstr "прояснение проблемы"
+msgstr "прояснение задачи"
 
 #: judge/models/problem.py:529
 msgid "problem clarifications"
-msgstr "разъяснения проблемы"
+msgstr "разъяснения задачи"
 
 #: judge/models/problem.py:544
 msgid "language-specific resource limit"
@@ -1830,7 +1830,7 @@ msgstr "специфические ограничения ресурсов дл�
 
 #: judge/models/problem.py:549
 msgid "associated problem"
-msgstr "связанная проблема"
+msgstr "связанная задача"
 
 #: judge/models/problem.py:552
 msgid "publish date"
@@ -2035,7 +2035,7 @@ msgstr "Название организации, отображаемое в URL
 
 #: judge/models/profile.py:46
 msgid "Displayed beside user name during contests."
-msgstr "Отображается рядом с именем пользователя во время конкурсов."
+msgstr "Отображается рядом с именем пользователя во время олимпиад."
 
 #: judge/models/profile.py:47
 msgid "organization description"
@@ -2055,7 +2055,7 @@ msgstr "дата создания"
 
 #: judge/models/profile.py:51
 msgid "is open organization?"
-msgstr "является ли организация открытой?"
+msgstr "открытая организация?"
 
 #: judge/models/profile.py:52
 msgid "Allow joining organization."
@@ -2083,7 +2083,7 @@ msgstr "требуется членство в классе"
 
 #: judge/models/profile.py:63
 msgid "Whether members are compelled to select a class when joining."
-msgstr "Вынуждены ли участники выбирать класс при присоединении."
+msgstr "Вынуждены ли пользователи выбирать класс при присоединении."
 
 #: judge/models/profile.py:67
 msgid "Class membership cannot be enforced when organization has open enrollment."
@@ -2132,7 +2132,7 @@ msgstr "Те, кто может одобрять вступление в это�
 
 #: judge/models/profile.py:114
 msgid "members"
-msgstr "участники"
+msgstr "пользователи"
 
 #: judge/models/profile.py:128
 #, python-format
@@ -2231,7 +2231,7 @@ msgstr "Пользовательский JavaScript для настройки с
 
 #: judge/models/profile.py:180
 msgid "current contest"
-msgstr "текущий контест"
+msgstr "текущая олимпиада"
 
 #: judge/models/profile.py:182
 msgid "math engine"
@@ -2444,7 +2444,7 @@ msgstr "шаблон кода"
 
 #: judge/models/runtime.py:38
 msgid "Code template to display in submission editor."
-msgstr "Шаблон кода для отображения в редакторе представления."
+msgstr "Шаблон кода для редактора посылки."
 
 #: judge/models/runtime.py:39
 msgid "runtime info override"
@@ -2639,7 +2639,7 @@ msgstr "Внутренняя ошибка (судя по ошибке серве
 
 #: judge/models/submission.py:69
 msgid "submission time"
-msgstr "время сдачи"
+msgstr "время посылки"
 
 #: judge/models/submission.py:70 judge/models/submission.py:282
 msgid "execution time"
@@ -2655,7 +2655,7 @@ msgstr "начисленные баллы"
 
 #: judge/models/submission.py:73
 msgid "submission language"
-msgstr "язык подачи заявки"
+msgstr "язык посылки"
 
 #: judge/models/submission.py:75
 msgid "status"
@@ -2671,7 +2671,7 @@ msgstr "ошибки компиляции"
 
 #: judge/models/submission.py:80
 msgid "batched cases"
-msgstr "пакетные обращения"
+msgstr "пакетные тикеты"
 
 #: judge/models/submission.py:81
 msgid "test case points"
@@ -2687,7 +2687,7 @@ msgstr "оценивается на"
 
 #: judge/models/submission.py:85
 msgid "submission judge time"
-msgstr "время рассмотрения заявки судьей"
+msgstr "время проверки посылки"
 
 #: judge/models/submission.py:86
 msgid "last rejudge date by admin"
@@ -2704,11 +2704,11 @@ msgstr "submission lock"
 #: judge/models/submission.py:198
 #, python-format
 msgid "Submission %(id)d of %(problem)s by %(user)s"
-msgstr "Отправка %(id)d из %(problem)s от %(user)s"
+msgstr "Посылка %(id)d по задаче %(problem)s от %(user)s"
 
 #: judge/models/submission.py:223
 msgid "Abort any submission"
-msgstr "Прервать любую отправку"
+msgstr "Прервать любую посылку"
 
 #: judge/models/submission.py:224
 msgid "Rejudge the submission"
@@ -2724,23 +2724,23 @@ msgstr "Отправить без ограничения"
 
 #: judge/models/submission.py:227
 msgid "View all submission"
-msgstr "Просмотр отправленных материалов"
+msgstr "Просмотр всех посылок"
 
 #: judge/models/submission.py:228
 msgid "Resubmit others' submission"
-msgstr "Повторно отправлять чужие заявки"
+msgstr "Повторно отправлять чужие посылки"
 
 #: judge/models/submission.py:229
 msgid "Change lock status of submission"
-msgstr "Изменить статус блокировки отправки"
+msgstr "Изменить статус блокировки посылки"
 
 #: judge/models/submission.py:232
 msgid "submissions"
-msgstr "сдачи"
+msgstr "посылки"
 
 #: judge/models/submission.py:262 judge/models/submission.py:278
 msgid "associated submission"
-msgstr "связанное представление"
+msgstr "связанная посылка"
 
 #: judge/models/submission.py:264
 msgid "source code"
@@ -2753,11 +2753,11 @@ msgstr "Источник %(submission)s"
 
 #: judge/models/submission.py:270
 msgid "submission source"
-msgstr "источник представления"
+msgstr "код посылки"
 
 #: judge/models/submission.py:271
 msgid "submission sources"
-msgstr "источник представления"
+msgstr "коды посылок"
 
 #: judge/models/submission.py:280
 msgid "test case ID"
@@ -2789,19 +2789,19 @@ msgstr "вывод программы"
 
 #: judge/models/submission.py:303
 msgid "submission test case"
-msgstr "тестовый пример представления"
+msgstr "тест посылки"
 
 #: judge/models/submission.py:304
 msgid "submission test cases"
-msgstr "тестовый пример представлении"
+msgstr "тесты посылок"
 
 #: judge/models/ticket.py:10
 msgid "ticket title"
-msgstr "название заявки"
+msgstr "заголовок тикета"
 
 #: judge/models/ticket.py:11
 msgid "ticket creator"
-msgstr "создатель заявки"
+msgstr "автор тикета"
 
 #: judge/models/ticket.py:13
 msgid "creation time"
@@ -2829,15 +2829,15 @@ msgstr "ID связанного элемента"
 
 #: judge/models/ticket.py:22
 msgid "is ticket open?"
-msgstr "заявка открыт?"
+msgstr "тикет открыт?"
 
 #: judge/models/ticket.py:25 judge/models/ticket.py:30
 msgid "ticket"
-msgstr "заявка"
+msgstr "тикет"
 
 #: judge/models/ticket.py:26
 msgid "tickets"
-msgstr "заявки"
+msgstr "тикеты"
 
 #: judge/models/ticket.py:34
 msgid "message body"
@@ -2849,11 +2849,11 @@ msgstr "время отправки сообщений"
 
 #: judge/models/ticket.py:38
 msgid "ticket message"
-msgstr "сообщение заявки"
+msgstr "сообщение тикета"
 
 #: judge/models/ticket.py:39
 msgid "ticket messages"
-msgstr "сообщения о заявках"
+msgstr "сообщения тикетов"
 
 #: judge/ratings.py:194
 msgid "Newbie"
@@ -2885,7 +2885,7 @@ msgstr "Цели"
 
 #: judge/tasks/contest.py:19
 msgid "Recalculating contest scores"
-msgstr "Пересчет баллов за конкурс"
+msgstr "Пересчет баллов за олимпиада"
 
 #: judge/tasks/contest.py:40
 msgid "Running MOSS"
@@ -2893,7 +2893,7 @@ msgstr "Запуск MOSS"
 
 #: judge/tasks/submission.py:47
 msgid "Modifying submissions"
-msgstr "Изменение представлении"
+msgstr "Изменение посылок"
 
 #: judge/tasks/submission.py:60
 msgid "Recalculating user points"
@@ -2905,7 +2905,7 @@ msgstr "Применение фильтров"
 
 #: judge/tasks/user.py:64
 msgid "Preparing your submission data"
-msgstr "Подготовка ваших данных для представления"
+msgstr "Подготовка данных ваших посылок"
 
 #: judge/tasks/user.py:95
 msgid "Preparing your comment data"
@@ -2932,12 +2932,12 @@ msgstr "Баллы должны быть определены для не пак
 #: judge/utils/problem_data.py:88
 #, python-format
 msgid "Input file for case %d does not exist: %s"
-msgstr "Входной файл для заявки %d не существует: %s"
+msgstr "Входной файл для теста %d не существует: %s"
 
 #: judge/utils/problem_data.py:91
 #, python-format
 msgid "Output file for case %d does not exist: %s"
-msgstr "Выходной файл для заявки %d не существует: %s"
+msgstr "Выходной файл для теста %d не существует: %s"
 
 #: judge/utils/problem_data.py:117
 #, python-format
@@ -3065,7 +3065,7 @@ msgstr "Редактировать комментарий"
 #: judge/views/contests.py:58 judge/views/contests.py:248
 #: judge/views/contests.py:251 judge/views/contests.py:458
 msgid "No such contest"
-msgstr "Контест не найден"
+msgstr "Олимпиада не найдена"
 
 #: judge/views/contests.py:59 judge/views/contests.py:249
 #, python-format
@@ -3074,11 +3074,11 @@ msgstr ""
 
 #: judge/views/contests.py:72
 msgid "Contests"
-msgstr "Соревнования"
+msgstr "Олимпиады"
 
 #: judge/views/contests.py:252
 msgid "Could not find such contest."
-msgstr "Не удалось найти контест."
+msgstr "Не удалось найти олимпиаду."
 
 #: judge/views/contests.py:255
 #, python-format
@@ -3087,16 +3087,16 @@ msgstr ""
 
 #: judge/views/contests.py:302
 msgid "Clone Contest"
-msgstr "Копировать контест"
+msgstr "Копировать олимпиаду"
 
 #: judge/views/contests.py:336
 #, python-format
 msgid "Cloned contest from %s"
-msgstr "Копия контеста %s"
+msgstr "Копия олимпиады %s"
 
 #: judge/views/contests.py:372
 msgid "Contest not ongoing"
-msgstr "Соревнование не проводится"
+msgstr "Олимпиада не проводится"
 
 #: judge/views/contests.py:373
 #, python-format
@@ -3109,7 +3109,7 @@ msgstr "Запрещено присоединяться"
 
 #: judge/views/contests.py:379
 msgid "You have been declared persona non grata for this contest. You are permanently barred from joining this contest."
-msgstr "Вы объявлены персоной нон грата для этого соревнования. Вам навсегда запрещено участвовать в нём."
+msgstr "Вы объявлены персоной нон грата для этой олимпиады. Вам навсегда запрещено участвовать в нём."
 
 #: judge/views/contests.py:409
 msgid "Cannot enter"
@@ -3117,7 +3117,7 @@ msgstr "Невозможно войти"
 
 #: judge/views/contests.py:410
 msgid "You are not able to join this contest."
-msgstr "Вы не можете присоединиться к этому соревнованию."
+msgstr "Вы не можете присоединиться к этой олимпиаде."
 
 #: judge/views/contests.py:448
 #, python-format
@@ -3132,7 +3132,7 @@ msgstr ""
 #: judge/views/contests.py:517
 #, python-format
 msgid "Contests in %(month)s"
-msgstr "Соревнования в %(month)s"
+msgstr "Олимпиады в %(month)s"
 
 #: judge/views/contests.py:517
 msgid "F Y"
@@ -3183,7 +3183,7 @@ msgstr "Выполняется MOSS для %s..."
 #: judge/views/contests.py:890
 #, python-format
 msgid "Contest tag: %s"
-msgstr "Теги контеста: %s"
+msgstr "Теги олимпиады: %s"
 
 #: judge/views/error.py:14
 msgid "404 error"
@@ -3230,7 +3230,7 @@ msgstr "Организации"
 #: judge/views/organization.py:141
 #, python-format
 msgid "%s Members"
-msgstr "Участники %s "
+msgstr "Пользователи %s "
 
 #: judge/views/organization.py:167 judge/views/organization.py:170
 #: judge/views/organization.py:175
@@ -3282,10 +3282,10 @@ msgstr "Управление запросами на присоединение 
 #, python-format
 msgid "Your organization can only receive %d more member."
 msgid_plural "Your organization can only receive %d more members."
-msgstr[0] "Ваша организация может принимать только на %d больше участник."
-msgstr[1] "Ваша организация может принимать только на %d больше участника."
-msgstr[2] "Ваша организация может принимать только на %d больше участников."
-msgstr[3] "Ваша организация может принимать только на %d больше участников."
+msgstr[0] "Ваша организация может принимать только на %d больше пользователь."
+msgstr[1] "Ваша организация может принимать только на %d больше пользователя."
+msgstr[2] "Ваша организация может принимать только на %d больше пользователей."
+msgstr[3] "Ваша организация может принимать только на %d больше пользователей."
 
 #: judge/views/organization.py:324
 #, python-format
@@ -3361,7 +3361,7 @@ msgstr "Просьба присоединиться {name} в {organization}"
 
 #: judge/views/problem.py:71
 msgid "No such problem"
-msgstr "Такой проблемы нет"
+msgstr "Такой задачи нет"
 
 #: judge/views/problem.py:72
 #, python-format
@@ -3413,7 +3413,7 @@ msgstr "Вы были объявлены персоной non grata в связ�
 
 #: judge/views/problem.py:712
 msgid "Too many submissions"
-msgstr "Слишком много попыток"
+msgstr "Слишком много посылок"
 
 #: judge/views/problem.py:713
 msgid "You have exceeded the submission limit for this problem."
@@ -3425,12 +3425,12 @@ msgstr "Вы хотите, чтобы я запрещал вас?"
 
 #: judge/views/problem.py:781
 msgid "Clone Problem"
-msgstr "Проблема клонирования"
+msgstr "Клонирование задачи"
 
 #: judge/views/problem.py:808
 #, python-format
 msgid "Cloned problem from %s"
-msgstr "Клонированная проблема из %s"
+msgstr "Копия задачи из %s"
 
 #: judge/views/problem_data.py:38
 msgid "Checker arguments must be a JSON object."
@@ -3475,26 +3475,26 @@ msgstr "Сгенерированный init.yml для %s"
 #: judge/views/problem_manage.py:50 judge/views/problem_manage.py:53
 #, python-format
 msgid "Managing submissions for %s"
-msgstr "Управление отправками для %s"
+msgstr "Управление посылками для %s"
 
 #: judge/views/problem_manage.py:96
 #, python-format
 msgid "Rejudging selected submissions for %s..."
-msgstr "Повторная оценка отобранных материалов на %s..."
+msgstr "Повторная проверка выбранных посылок для %s..."
 
 #: judge/views/problem_manage.py:111
 #, python-format
 msgid "Rescoring all submissions for %s..."
-msgstr "Восстановление всех отправленных данных для %s..."
+msgstr "Пересчёт баллов всех посылок для %s..."
 
 #: judge/views/problem_manage.py:120
 #, python-format
 msgid "Successfully scheduled %d submission for rejudging."
 msgid_plural "Successfully scheduled %d submissions for rejudging."
-msgstr[0] "Успешно запланировано %d отправка на повторное оценивание."
-msgstr[1] "Успешно запланировано %d отправки на повторное оценивание."
-msgstr[2] "Успешно запланировано %d отправок на повторное оценивание."
-msgstr[3] "Успешно запланировано %d отправок на повторное оценивание."
+msgstr[0] "%d посылка поставлена на повторную проверку."
+msgstr[1] "%d посылки поставлены на повторную проверку."
+msgstr[2] "%d посылок поставлено на повторную проверку."
+msgstr[3] "%d посылки поставлены на повторную проверку."
 
 #: judge/views/ranked_submission.py:67 judge/views/ranked_submission.py:70
 #, python-format
@@ -3567,7 +3567,7 @@ msgstr "В разрешении отказано. Решите %(problem)s, чт
 
 #: judge/views/submission.py:76 judge/views/submission.py:78
 msgid "Can't access submission"
-msgstr "Не удается получить доступ к отправке"
+msgstr "Нет доступа к посылке"
 
 #: judge/views/submission.py:78
 msgid "Permission denied."
@@ -3625,7 +3625,7 @@ msgstr "Посылки {user} в задачу {problem} из  {contest}"
 #: judge/views/submission.py:651 judge/views/submission.py:672
 #, python-brace-format
 msgid "{user}'s submissions for problem {number} in {contest}"
-msgstr "Посылки {user} к задаче {number} в соревновании {contest}"
+msgstr "Посылки {user} к задаче {number} в олимпиаде {contest}"
 
 #: judge/views/ticket.py:33 judge/views/ticket.py:39
 msgid "Ticket title"
@@ -3633,7 +3633,7 @@ msgstr "Заголовок тикета"
 
 #: judge/views/ticket.py:40
 msgid "Issue description"
-msgstr "Описание проблемы"
+msgstr "Описание задачи"
 
 #: judge/views/ticket.py:48
 msgid "You must solve at least one problem before you can create a ticket."
@@ -3652,7 +3652,7 @@ msgstr "%(title)s - Тикет %(id)d"
 #: judge/views/ticket.py:255
 #, python-format
 msgid "Tickets - Page %(number)d of %(total)d"
-msgstr "Заявки - Страница %(number)d из %(total)d"
+msgstr "Тикеты — страница %(number)d из %(total)d"
 
 #: judge/views/ticket.py:307
 #, python-format
@@ -3830,7 +3830,7 @@ msgstr "Email, привязанный к Вашему аккаунту, изме
 
 #: templates/admin/judge/contest/change_form.html:9
 msgid "Are you sure you want to rejudge ALL the submissions?"
-msgstr "Вы уверены, что хотите предварительно оценить ВСЕ представленные материалы?"
+msgstr "Вы уверены, что хотите перепроверить ВСЕ посылки?"
 
 #: templates/admin/judge/contest/change_form.html:17
 #: templates/admin/judge/contest/change_form.html:20
@@ -3839,7 +3839,7 @@ msgstr "Оценить"
 
 #: templates/admin/judge/contest/change_list.html:9
 msgid "Rate all ratable contests"
-msgstr "Оцените все рейтинговые конкурсы"
+msgstr "Оцените все рейтинговые олимпиады"
 
 #: templates/admin/judge/judge/change_form.html:16
 #: templates/admin/judge/judge/change_form.html:19
@@ -3867,7 +3867,7 @@ msgstr "Включено"
 #: templates/admin/judge/problem/change_form.html:18
 #: templates/user/user-base.html:37
 msgid "View submissions"
-msgstr "Просмотр отправленных материалов"
+msgstr "Просмотр посылок"
 
 #: templates/admin/judge/problem/change_form.html:20
 #: templates/admin/judge/problem/change_form.html:23
@@ -3967,7 +3967,7 @@ msgstr "В настоящее время никаких разъяснений �
 
 #: templates/blog/list.html:119 templates/contest/list.html:189
 msgid "Ongoing contests"
-msgstr "Текущие соревнования"
+msgstr "Текущие олимпиады"
 
 #: templates/blog/list.html:127
 #, python-format
@@ -3976,7 +3976,7 @@ msgstr "Заканчивается на %(countdown)s."
 
 #: templates/blog/list.html:137 templates/contest/list.html:226
 msgid "Upcoming contests"
-msgstr "Предстоящие соревнования"
+msgstr "Предстоящие олимпиады"
 
 #: templates/blog/list.html:145 templates/contest/contest.html:41
 #, python-format
@@ -3993,11 +3993,11 @@ msgstr "Новые задачи"
 
 #: templates/blog/list.html:191
 msgid "My open tickets"
-msgstr "Мои открытые заявки"
+msgstr "Мои открытые тикеты"
 
 #: templates/blog/list.html:210
 msgid "New tickets"
-msgstr "Новые заявки"
+msgstr "Новые тикеты"
 
 #: templates/comments/edit-ajax.html:16 templates/comments/list.html:163
 #: templates/ticket/ticket.html:181
@@ -4144,7 +4144,7 @@ msgstr "Пожалуйста, введите Ваш код доступа:"
 
 #: templates/contest/access_code.html:32
 msgid "Join Contest"
-msgstr "Войти в контест"
+msgstr "Войти в олимпиаду"
 
 #: templates/contest/calendar.html:12
 msgid "Sunday"
@@ -4176,7 +4176,7 @@ msgstr "Суббота"
 
 #: templates/contest/clone.html:37
 msgid "Enter a new key for the cloned contest:"
-msgstr "Введите новый ключ для клонируемого соревнования:"
+msgstr "Введите новый ключ для клонируемой олимпиады:"
 
 #: templates/contest/clone.html:40 templates/problem/clone.html:40
 msgid "Clone!"
@@ -4234,7 +4234,7 @@ msgstr "Клонировать"
 #: templates/contest/contest-tabs.html:38
 #: templates/contest/contest-tabs.html:58
 msgid "Leave contest"
-msgstr "Покинуть соревнование"
+msgstr "Покинуть олимпиаду"
 
 #: templates/contest/contest-tabs.html:45 templates/contest/list.html:294
 msgid "Virtual join"
@@ -4247,15 +4247,15 @@ msgstr "Прекратить наблюдение"
 #: templates/contest/contest-tabs.html:67
 #: templates/contest/contest-tabs.html:81
 msgid "Join contest"
-msgstr "Присоединиться к соревнованию"
+msgstr "Присоединиться к олимпиаде"
 
 #: templates/contest/contest-tabs.html:73
 msgid "Spectate contest"
-msgstr "Наблюдать за соревнованием"
+msgstr "Наблюдать за олимпиадой"
 
 #: templates/contest/contest-tabs.html:80 templates/contest/list.html:137
 msgid "You cannot join this contest."
-msgstr "Вы не можете присоединиться к этому соревнованию."
+msgstr "Вы не можете присоединиться к этой олимпиаде."
 
 #: templates/contest/contest-tabs.html:90
 msgid "Log in to participate"
@@ -4264,7 +4264,7 @@ msgstr "Войдите, чтобы участвовать"
 #: templates/contest/contest.html:33
 #, python-format
 msgid "Spectating, contest ends in %(countdown)s."
-msgstr "Вы наблюдаете; соревнование закончится через %(countdown)s."
+msgstr "Вы наблюдаете; олимпиада закончится через %(countdown)s."
 
 #: templates/contest/contest.html:35
 #, python-format
@@ -4277,12 +4277,12 @@ msgstr "Виртуальное участие."
 
 #: templates/contest/contest.html:43
 msgid "Contest is over."
-msgstr "Соревнование завершено."
+msgstr "Олимпиада завершена."
 
 #: templates/contest/contest.html:47
 #, python-format
 msgid "Your time is up! Contest ends in %(countdown)s."
-msgstr "Ваше время истекло! Соревнование закончится через %(countdown)s."
+msgstr "Ваше время истекло! Олимпиада закончится через %(countdown)s."
 
 #: templates/contest/contest.html:49
 #, python-format
@@ -4292,7 +4292,7 @@ msgstr "У Вас осталось %(countdown)s."
 #: templates/contest/contest.html:52
 #, python-format
 msgid "Contest ends in %(countdown)s."
-msgstr "Соревнование закончится через %(countdown)s."
+msgstr "Олимпиада закончится через %(countdown)s."
 
 #: templates/contest/contest.html:58 templates/contest/contest.html:60
 msgid "F j, Y, G:i T"
@@ -4312,10 +4312,10 @@ msgstr "длительность %(length)s, начало %(start_time)s"
 #, python-format
 msgid "The author of this contest is %(link_authors)s."
 msgid_plural "The authors of this contest are %(link_authors)s."
-msgstr[0] "Автор этого соревнования — %(link_authors)s."
-msgstr[1] "Авторы этого соревнования — %(link_authors)s."
-msgstr[2] "Авторы этого соревнования — %(link_authors)s."
-msgstr[3] "Авторы этого соревнования — %(link_authors)s."
+msgstr[0] "Автор этой олимпиады — %(link_authors)s."
+msgstr[1] "Авторы этой олимпиады — %(link_authors)s."
+msgstr[2] "Авторы этой олимпиады — %(link_authors)s."
+msgstr[3] "Авторы этой олимпиады — %(link_authors)s."
 
 #: templates/contest/contest.html:86
 #, python-format
@@ -4329,53 +4329,53 @@ msgstr[3] "Отдельная благодарность %(link_testers)s за �
 #: templates/contest/contest.html:98
 #, python-format
 msgid "This contest will be **rated** for **all** participants who have a rating between **%(rating_floor)d** and **%(rating_ceiling)d**, inclusive."
-msgstr "Это соревнование будет **рейтинговым** для **всех** участников с рейтингом от **%(rating_floor)d** до **%(rating_ceiling)d** включительно."
+msgstr "Эта олимпиада будет **рейтинговой** для **всех** пользователей с рейтингом от **%(rating_floor)d** до **%(rating_ceiling)d** включительно."
 
 #: templates/contest/contest.html:100
 #, python-format
 msgid "This contest will be **rated** for **all** participants who have a rating of at least **%(rating_floor)d**."
-msgstr "Это соревнование будет **рейтинговым** для **всех** участников с рейтингом не ниже **%(rating_floor)d**."
+msgstr "Эта олимпиада будет **рейтинговой** для **всех** пользователей с рейтингом не ниже **%(rating_floor)d**."
 
 #: templates/contest/contest.html:102
 #, python-format
 msgid "This contest will be **rated** for **all** participants who have a rating of at most **%(rating_ceiling)d**."
-msgstr "Это соревнование будет **рейтинговым** для **всех** участников с рейтингом не выше **%(rating_ceiling)d**."
+msgstr "Эта олимпиада будет **рейтинговой** для **всех** пользователей с рейтингом не выше **%(rating_ceiling)d**."
 
 #: templates/contest/contest.html:104
 msgid "This contest will be **rated** for **all** participants."
-msgstr "Это соревнование будет **рейтинговым** для **всех** участников."
+msgstr "Эта олимпиада будет **рейтинговой** для **всех** пользователей."
 
 #: templates/contest/contest.html:108
 #, python-format
 msgid "This contest will be **rated** for participants who submit at least once and have a rating between **%(rating_floor)d** and **%(rating_ceiling)d**, inclusive."
-msgstr "Это соревнование будет **рейтинговым** для участников, отправивших хотя бы одно решение и имеющих рейтинг от **%(rating_floor)d** до **%(rating_ceiling)d** включительно."
+msgstr "Эта олимпиада будет **рейтинговой** для пользователей, отправивших хотя бы одно решение и имеющих рейтинг от **%(rating_floor)d** до **%(rating_ceiling)d** включительно."
 
 #: templates/contest/contest.html:110
 #, python-format
 msgid "This contest will be **rated** for participants who submit at least once and have a rating of at least **%(rating_floor)d**."
-msgstr "Это соревнование будет **рейтинговым** для участников, отправивших хотя бы одно решение и имеющих рейтинг не ниже **%(rating_floor)d**."
+msgstr "Эта олимпиада будет **рейтинговой** для пользователей, отправивших хотя бы одно решение и имеющих рейтинг не ниже **%(rating_floor)d**."
 
 #: templates/contest/contest.html:112
 #, python-format
 msgid "This contest will be **rated** for participants who submit at least once and have a rating of at most **%(rating_ceiling)d**."
-msgstr "Это соревнование будет **рейтинговым** для участников, отправивших хотя бы одно решение и имеющих рейтинг не выше **%(rating_ceiling)d**."
+msgstr "Эта олимпиада будет **рейтинговой** для пользователей, отправивших хотя бы одно решение и имеющих рейтинг не выше **%(rating_ceiling)d**."
 
 #: templates/contest/contest.html:114
 msgid "This contest will be **rated** for participants who submit at least once."
-msgstr "Это соревнование будет **рейтинговым** для участников, отправивших хотя бы одно решение."
+msgstr "Эта олимпиада будет **рейтинговой** для пользователей, отправивших хотя бы одно решение."
 
 #: templates/contest/contest.html:118
 msgid "This contest will **not** be rated."
-msgstr "Это соревнование **не будет** рейтинговым."
+msgstr "Эта олимпиада **не будет** рейтинговой."
 
 #: templates/contest/contest.html:123
 #, python-format
 msgid "There is **%(count)s** problem in this contest."
 msgid_plural "There are **%(count)s** problems in this contest."
-msgstr[0] "В этом соревновании **%(count)s** задача."
-msgstr[1] "В этом соревновании **%(count)s** задачи."
-msgstr[2] "В этом соревновании **%(count)s** задач."
-msgstr[3] "В этом соревновании **%(count)s** задачи."
+msgstr[0] "В этой олимпиаде **%(count)s** задача."
+msgstr[1] "В этой олимпиаде **%(count)s** задачи."
+msgstr[2] "В этой олимпиаде **%(count)s** задач."
+msgstr[3] "В этой олимпиаде **%(count)s** задачи."
 
 #: templates/contest/contest.html:132
 msgid "**Partial scoring is enabled** for some or all of these problems."
@@ -4383,7 +4383,7 @@ msgstr "**Частичное начисление баллов** включен�
 
 #: templates/contest/contest.html:134
 msgid "This contest **will not use partial scoring**."
-msgstr "В этом соревновании **частичное начисление баллов не используется**."
+msgstr "В этой олимпиаде **частичное начисление баллов не используется**."
 
 #: templates/contest/contest.html:139
 msgid "The pretest system **will be used** for some or all of these problems."
@@ -4391,7 +4391,7 @@ msgstr "Система предварительных тестов **будет 
 
 #: templates/contest/contest.html:141
 msgid "The pretest system **will not be used** for this contest."
-msgstr "Система предварительных тестов **не будет использована** в этом соревновании."
+msgstr "Система предварительных тестов **не будет использована** в этой олимпиаде."
 
 #: templates/contest/contest.html:146
 msgid "Some or all of these problems **have a submission limit**."
@@ -4399,16 +4399,16 @@ msgstr "Некоторые или все задачи **имеют ограни�
 
 #: templates/contest/contest.html:148
 msgid "There is **no submission limit** for any of these problems."
-msgstr "**Нет ограничений на количество отправок** для решения этих задач."
+msgstr "Для этих задач **нет ограничения на количество посылок**."
 
 #: templates/contest/contest.html:154
 #, python-format
 msgid "The contest format is **%(format)s**."
-msgstr "Формат соревнования — **%(format)s**."
+msgstr "Формат олимпиады — **%(format)s**."
 
 #: templates/contest/contest.html:163
 msgid "The scoreboard will be **visible** for the duration of the contest."
-msgstr "Таблица результатов будет **видна** на протяжении всего соревнования."
+msgstr "Таблица результатов будет **видна** на протяжении всей олимпиады."
 
 #: templates/contest/contest.html:165
 msgid "The scoreboard will be **hidden** until your window is over."
@@ -4416,15 +4416,15 @@ msgstr "Таблица результатов будет **скрыта** до �
 
 #: templates/contest/contest.html:167
 msgid "The scoreboard will be **hidden** for the entire duration of the contest."
-msgstr "Табло будет ** скрыто** на все время проведения конкурса."
+msgstr "Табло будет ** скрыто** на все время проведения олимпиады."
 
 #: templates/contest/contest.html:169
 msgid "The scoreboard will be **hidden**, even after the contest is over."
-msgstr "Табло будет ** скрыто** даже после окончания конкурса."
+msgstr "Табло будет ** скрыто** даже после окончания олимпиады."
 
 #: templates/contest/contest.html:174
 msgid "An **access code is required** to join the contest."
-msgstr "Для участия в конкурсе требуется ** код доступа**."
+msgstr "Для участия в олимпиаде требуется ** код доступа**."
 
 #: templates/contest/contest.html:197
 msgid "AC Rate"
@@ -4451,7 +4451,7 @@ msgstr "Вы уверены, что хотите присоединиться?"
 
 #: templates/contest/list.html:18
 msgid "Joining a contest for the first time starts your timer, after which it becomes unstoppable."
-msgstr "При первом участии в конкурсе запускается ваш таймер, после чего егоневозможно остановить."
+msgstr "При первом участии в олимпиаде запускается ваш таймер, после чего его невозможно остановить."
 
 #: templates/contest/list.html:70
 msgid "private"
@@ -4481,12 +4481,12 @@ msgstr "Наблюдать"
 
 #: templates/contest/list.html:147
 msgid "Active contests"
-msgstr "Активные конкурсы"
+msgstr "Активные олимпиады"
 
 #: templates/contest/list.html:151 templates/contest/list.html:193
 #: templates/contest/list.html:231 templates/contest/list.html:268
 msgid "Contest"
-msgstr "Соревнование"
+msgstr "Олимпиада"
 
 #: templates/contest/list.html:168
 #, python-format
@@ -4505,11 +4505,11 @@ msgstr "Начало в %(countdown)s"
 
 #: templates/contest/list.html:254
 msgid "There are no scheduled contests at this time."
-msgstr "На данный момент нет запланированных конкурсов."
+msgstr "На данный момент нет запланированных олимпиад."
 
 #: templates/contest/list.html:260
 msgid "Past contests"
-msgstr "Прошедшие соревнования"
+msgstr "Прошедшие олимпиады"
 
 #: templates/contest/media-js.html:4
 msgid "Are you sure you want to leave?"
@@ -4521,16 +4521,16 @@ msgstr "Вы не можете вернуться к виртуального у
 
 #: templates/contest/media-js.html:10
 msgid "Joining a contest starts your timer, after which it becomes unstoppable."
-msgstr "Присоединение к конкурсу запускает ваш таймер, после чего его невозможно остановить."
+msgstr "Присоединение к олимпиаде запускает ваш таймер, после чего его невозможно остановить."
 
 #: templates/contest/media-js.html:16
 #, python-format
 msgid "Joining this contest will leave %(contest)s."
-msgstr "Присоединившись к этому конкурсу, вы покинете %(contest)s."
+msgstr "Присоединившись к этой олимпиаде, вы покинете %(contest)s."
 
 #: templates/contest/moss.html:28
 msgid "Are you sure you want to MOSS the contest?"
-msgstr "Вы уверены, что хотите MOSS конкурс?"
+msgstr "Вы уверены, что хотите MOSS олимпиаду?"
 
 #: templates/contest/moss.html:31
 msgid "Are you sure you want to delete the MOSS results?"
@@ -4547,11 +4547,11 @@ msgstr[3] "%(count)s подач"
 
 #: templates/contest/moss.html:62
 msgid "No submissions"
-msgstr "Нет сданных работ"
+msgstr "Нет посылок"
 
 #: templates/contest/moss.html:76
 msgid "Re-MOSS contest"
-msgstr "Конкурс Re-MOSS"
+msgstr "Олимпиада Re-MOSS"
 
 #: templates/contest/moss.html:84
 msgid "Delete MOSS results"
@@ -4559,27 +4559,27 @@ msgstr "Удалить результаты MOSS"
 
 #: templates/contest/private.html:5
 msgid "This contest is private to specific users."
-msgstr "Этот конкурс является закрытым для определенных пользователей."
+msgstr "Эта олимпиада доступна только выбранным пользователям."
 
 #: templates/contest/private.html:11
 msgid "Additionally, only the following organizations may access this contest:"
-msgstr "Кроме того, к этому конкурсу могут получить доступ только следующие организации:"
+msgstr "Кроме того, к этой олимпиаде могут получить доступ только следующие организации:"
 
 #: templates/contest/private.html:13
 msgid "Only the following organizations may access this contest:"
-msgstr "Доступ к этому конкурсу могут получить только следующие организации:"
+msgstr "Доступ к этой олимпиаде могут получить только следующие организации:"
 
 #: templates/contest/private.html:24
 msgid "Additionally, only the following classes may access this contest:"
-msgstr "Кроме того, к этому конкурсу могут получить доступ только следующие классы:"
+msgstr "Кроме того, к этой олимпиаде могут получить доступ только следующие классы:"
 
 #: templates/contest/private.html:26
 msgid "Only the following classes may access this contest:"
-msgstr "Только следующие классы могут получить доступ к этому конкурсу:"
+msgstr "Только следующие классы могут получить доступ к этой олимпиаде:"
 
 #: templates/contest/private.html:28
 msgid "Alternatively, the following classes may access this contest:"
-msgstr "В качестве альтернативы к этому конкурсу могут прийти следующие классы:"
+msgstr "В качестве альтернативы к этой олимпиаде могут прийти следующие классы:"
 
 #: templates/contest/ranking-table.html:7
 msgid "Organization"
@@ -4613,7 +4613,7 @@ msgstr "Вы уверены, что хотите отменить это уча�
 
 #: templates/contest/ranking.html:51
 msgid "Are you sure you want to un-disqualify this participation?"
-msgstr "Вы уверены, что хотите отменить дисквалификацию этого участника?"
+msgstr "Вы уверены, что хотите отменить дисквалификацию этого пользователя?"
 
 #: templates/contest/ranking.html:124
 msgid "View user participation"
@@ -4633,7 +4633,7 @@ msgstr "AC рейтинги задачи"
 
 #: templates/contest/stats.html:48 templates/stats/language.html:16
 msgid "Submissions by Language"
-msgstr "Отправка по языку"
+msgstr "Посылки по языкам"
 
 #: templates/contest/stats.html:54 templates/stats/language.html:26
 msgid "Language AC Rate"
@@ -4748,7 +4748,7 @@ msgstr "Администрирование организации"
 
 #: templates/organization/home.html:76
 msgid "View members"
-msgstr "Список участников"
+msgstr "Список пользователей"
 
 #: templates/organization/home.html:88
 msgid "Class"
@@ -4768,7 +4768,7 @@ msgstr "Имя"
 
 #: templates/organization/list.html:23
 msgid "Members"
-msgstr "Участники"
+msgstr "Пользователи"
 
 #: templates/organization/new.html:10 templates/ticket/new.html:20
 msgid "Create"
@@ -5557,7 +5557,7 @@ msgstr "Организации"
 #: templates/registration/registration_form.html:195
 #: templates/user/edit-profile.html:321
 msgid "Notify me about upcoming contests"
-msgstr "Уведомлять меня о предстоящих соревнованиях"
+msgstr "Уведомлять меня о предстоящих олимпиадах"
 
 #: templates/registration/registration_form.html:209
 msgid "By registering, you agree to our [Terms & Conditions][0]."
@@ -5939,7 +5939,7 @@ msgstr "Показывать только мои тикеты"
 
 #: templates/ticket/list.html:172
 msgid "Filing user"
-msgstr "Создатель тикета"
+msgstr "Автор тикета"
 
 #: templates/ticket/list.html:181 templates/ticket/ticket.html:196
 msgid "Assignee"
@@ -6289,10 +6289,10 @@ msgstr "Всего баллов:"
 #, python-format
 msgid "%(counter)s contest written"
 msgid_plural "%(counter)s contests written"
-msgstr[0] "%(counter)s соревнование пройдено"
-msgstr[1] "%(counter)s соревнования пройдено"
-msgstr[2] "%(counter)s соревнований пройдено"
-msgstr[3] "%(counter)s соревнования пройдено"
+msgstr[0] "%(counter)s олимпиада пройдено"
+msgstr[1] "%(counter)s олимпиады пройдено"
+msgstr[2] "%(counter)s олимпиад пройдено"
+msgstr[3] "%(counter)s олимпиады пройдено"
 
 #: templates/user/user-base.html:50
 msgid "Rank by rating:"
@@ -6359,7 +6359,7 @@ msgstr "Выбрать всё"
 # --- OshSU Olymp additions ---
 
 msgid "Online programming contest platform of Osh State University. Solve problems, participate in contests, compete with friends."
-msgstr "Онлайн-платформа олимпиад по программированию Ошского государственного университета. Решайте задачи, участвуйте в соревнованиях, соревнуйтесь с друзьями."
+msgstr "Онлайн-платформа олимпиад по программированию Ошского государственного университета. Решайте задачи, участвуйте в олимпиадах, соревнуйтесь с друзьями."
 
 msgid "Русский"
 msgstr "Русский"
@@ -6566,7 +6566,7 @@ msgid "Archive with tests (.zip)"
 msgstr "Архив с тестами (.zip)"
 
 msgid "At most 1000 participants at a time."
-msgstr "Не больше 1000 участников за раз."
+msgstr "Не больше 1000 пользователей за раз."
 
 msgid "Attach a statement file, a zip archive or both."
 msgstr "Прикрепите файл с условием, zip-архив или оба."
@@ -6578,7 +6578,7 @@ msgid "Disqualified"
 msgstr "Дисквалифицирован"
 
 msgid "During the contest, warn participants who switch to another tab or window or paste code from outside, and disqualify them after the allowed number of warnings."
-msgstr "Во время олимпиады предупреждать участников, которые переходят на другие вкладки и окна или вставляют код со стороны, и дисквалифицировать после допустимого числа предупреждений."
+msgstr "Во время олимпиады предупреждать пользователей, которые переходят на другие вкладки и окна или вставляют код со стороны, и дисквалифицировать после допустимого числа предупреждений."
 
 msgid "Enter a number of minutes from -180 to 180."
 msgstr "Укажите число минут от −180 до 180."
@@ -6593,7 +6593,7 @@ msgid "Extend"
 msgstr "Продлить"
 
 msgid "Fill in the participants list or the number of participants."
-msgstr "Заполните список участников или укажите их количество."
+msgstr "Заполните список пользователей или укажите их количество."
 
 msgid "Fill the test list from the archive automatically"
 msgstr "Заполнить список тестов из архива автоматически"
@@ -6632,19 +6632,19 @@ msgid "Note"
 msgstr "Примечание"
 
 msgid "One participant per line: full name, then a semicolon and the university or school. If the list is filled in, the number below is ignored."
-msgstr "Один участник в строке: ФИО, точка с запятой и университет или школа. Если список заполнен, количество ниже не учитывается."
+msgstr "Один пользователь в строке: ФИО, точка с запятой и организация. Если список заполнен, количество ниже не учитывается."
 
 msgid "Pairs like 1.in / 1.out, 01 / 01.a or input1.txt / output1.txt are found by name and sorted by number. Each test is worth 1 point. The current list below is replaced."
 msgstr "Пары вида 1.in / 1.out, 01 / 01.a или input1.txt / output1.txt находятся по имени и сортируются по номеру. Каждый тест стоит 1 балл. Текущий список ниже будет заменён."
 
 msgid "Participant"
-msgstr "Участник"
+msgstr "Пользователь"
 
 msgid "Participants and access"
-msgstr "Участники и доступ"
+msgstr "Пользователи и доступ"
 
 msgid "Participants list"
-msgstr "Список участников"
+msgstr "Список пользователей"
 
 msgid "Place"
 msgstr "Место"
@@ -6689,7 +6689,7 @@ msgid "The contest now ends at %s."
 msgstr "Теперь олимпиада заканчивается в %s."
 
 msgid "The new accounts become the only participants allowed into this contest."
-msgstr "Новые аккаунты станут единственными участниками, допущенными в эту олимпиаду."
+msgstr "Новые аккаунты станут единственными пользователями, допущенными в эту олимпиаду."
 
 msgid "The participant is disqualified on the next violation after this many warnings."
 msgstr "После стольких предупреждений следующее нарушение приводит к дисквалификации."
@@ -6716,7 +6716,7 @@ msgid "Undo disqualification"
 msgstr "Снять дисквалификацию"
 
 msgid "University / school"
-msgstr "Университет / школа"
+msgstr "Организация"
 
 msgid "Violations in %s"
 msgstr "Нарушения: %s"
@@ -7028,7 +7028,7 @@ msgid "You are disqualified"
 msgstr "Вы дисквалифицированы"
 
 msgid "You left the contest page too many times. Your solutions no longer count."
-msgstr "Вы слишком часто покидали страницу олимпиады. Решения больше не учитываются."
+msgstr "Вы слишком часто покидали страницу олимпиады. Посылки больше не учитываются."
 
 msgid "OK"
 msgstr "Понятно"
@@ -7560,7 +7560,7 @@ msgid "Skills"
 msgstr "Навыки"
 
 msgid "Search contests..."
-msgstr "Поиск соревнований..."
+msgstr "Поиск олимпиад..."
 
 msgid "No organizations yet"
 msgstr "Организаций пока нет"

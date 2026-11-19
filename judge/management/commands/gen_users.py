@@ -1,16 +1,14 @@
-"""Generate N participant accounts with random login/password.
+"""Generate N user accounts with random login/password.
 Usage: manage.py gen_users 100 --prefix=olymp --out=credentials.csv
 """
 import csv
 import secrets
-import string
 
 from django.contrib.auth.models import User
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
-from django.utils import timezone
 
-from judge.models import Profile, Language
+from judge.models import Language, Profile
 
 SAFE_LETTERS = 'abcdefghjkmnpqrstuvwxyz'      # без i, l, o
 SAFE_DIGITS = '23456789'                       # без 0, 1
@@ -26,7 +24,7 @@ def make_password(length: int = 8) -> str:
 
 
 class Command(BaseCommand):
-    help = 'Создать N участников с рандомными логинами и паролями.'
+    help = 'Создать N пользователей с рандомными логинами и паролями.'
 
     def add_arguments(self, parser):
         parser.add_argument('count', type=int, help='Количество пользователей для создания')

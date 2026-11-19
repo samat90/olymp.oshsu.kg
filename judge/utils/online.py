@@ -24,8 +24,8 @@ PAGE_LABELS = {
     'home': 'Главная',
     'problem_list': 'Задачи',
     'problem_random': 'Задачи',
-    'contest_list': 'Соревнования',
-    'contest_calendar': 'Соревнования',
+    'contest_list': 'Олимпиады',
+    'contest_calendar': 'Олимпиады',
     'user_list': 'Рейтинг',
     'user_ranking_redirect': 'Рейтинг',
     'user_page': 'Профили',
@@ -226,8 +226,8 @@ def build_payload():
             g = group(('problem', ref), kind, 'Задача %s' % (problem_names.get(ref) or ref),
                       reverse('problem_detail', args=[ref]))
         elif kind == 'contest':
-            key, name = contests.get(ref, (None, 'соревнование'))
-            g = group(('contest', ref), kind, 'Соревнование: %s' % name,
+            key, name = contests.get(ref, (None, 'олимпиада'))
+            g = group(('contest', ref), kind, 'Олимпиада: %s' % name,
                       reverse('contest_view', args=[key]) if key else None)
         elif kind == 'quiz':
             key, title = quizzes.get(ref, (None, None))

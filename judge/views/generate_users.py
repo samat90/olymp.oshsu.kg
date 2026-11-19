@@ -90,7 +90,7 @@ class GenerateUsersForm(forms.Form):
     )
     count = forms.IntegerField(
         min_value=1, max_value=1000, required=False,
-        label=_('Количество участников'),
+        label=_('Количество пользователей'),
         help_text=_('Сколько новых пользователей создать (от 1 до 1000).'),
     )
     prefix = forms.CharField(
@@ -136,7 +136,7 @@ class GenerateUsersView(FormView):
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        ctx['title'] = _('Генерация участников')
+        ctx['title'] = _('Генерация пользователей')
         ctx['generated'] = self.request.session.pop('generated_users', None)
         return ctx
 
