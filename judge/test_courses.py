@@ -867,6 +867,9 @@ class HardeningTests(CourseBase):
         draft = add_lesson(course, 'Черновик', is_draft=True)
         self.assertEqual(client.post(reverse('course_comment', args=[course.key, draft.id]), {'text': 'x'})
                          .status_code, 404)
+        self.assertEqual(client.post(reverse('course_comment', args=[course.key, locked.id]), {'text': 'x'})
+                         .status_code, 404)
+        self.assertFalse(locked.comments.exists())
         block.file.delete(save=False)
 
     def test_cannot_leave_after_submitting_work(self):

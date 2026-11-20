@@ -462,6 +462,8 @@ def add_comment(request, key, lesson_id):
         raise Http404()
     if current.is_draft and not team:
         raise Http404()
+    if not team and not logic.build_progress(get_enrollment(request, course)).available.get(current.id):
+        raise Http404()
     text = request.POST.get('text', '').strip()[:3000]
     parent = None
     if request.POST.get('parent', '').isdigit():
