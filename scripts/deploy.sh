@@ -62,6 +62,9 @@ log "Cache"
 log "Ready-made quizzes (adds only the missing ones)"
 "$PY" manage.py load_quizzes || log "Quizzes were not added (see above); the site is not affected."
 
+log "Ready-made courses (adds only the missing ones)"
+"$PY" manage.py load_courses || log "Courses were not added (see above); the site is not affected."
+
 log "Translations"
 "$PY" - <<'PYEOF'
 import os

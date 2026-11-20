@@ -885,3 +885,38 @@ class HardeningTests(CourseBase):
         CourseAttempt.objects.all().delete()
         client.post(reverse('course_leave', args=[course.key]))
         self.assertFalse(CourseEnrollment.objects.exists())
+
+
+class ReadyMadeCourseTests(CourseBase):
+    def load(self, **kwargs):
+        from io import StringIO
+
+        from django.core.management import call_command
+        out = StringIO()
+        call_command('load_courses', stdout=out, **kwargs)
+        return out.getvalue()
+
+    def test_python_course_is_added_once(self):
+        author = create_user(username='samat1')
+        self.assertIn('added python', self.load())
+        course = Course.objects.get(key='python')
+        self.assertEqual((course.title, course.status, course.access),
+                         ('Основы Python', Course.PUBLISHED, Course.PUBLIC))
+        author.profile.refresh_from_db()
+        self.assertTrue(author.profile.is_teacher)
+        self.assertGreaterEqual(course.modules.count(), 10)
+        self.assertGreaterEqual(CourseQuestion.objects.filter(block__lesson__course=course).count(), 60)
+        for question in CourseQuestion.objects.filter(block__lesson__course=course):
+            options = list(question.options.all())
+            self.assertTrue(any(o.is_correct for o in options), question.text)
+            if question.type == CourseQuestion.SINGLE:
+                self.assertEqual(sum(o.is_correct for o in options), 1, question.text)
+        lessons = course.lessons.count()
+        self.assertIn('already on the site', self.load())
+        self.assertEqual(course.lessons.count(), lessons)
+        self.assertEqual(Course.objects.filter(key='python').count(), 1)
+        self.assertEqual(Client().get(reverse('course_detail', args=['python'])).status_code, 200)
+
+    def test_missing_author_changes_nothing(self):
+        self.assertIn('skipped', self.load())
+        self.assertFalse(Course.objects.exists())
