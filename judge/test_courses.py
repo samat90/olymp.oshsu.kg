@@ -850,3 +850,35 @@ class PagesRenderTests(CourseBase):
         base = os.path.join(settings.BASE_DIR, 'resources', 'courses')
         for name in ('courses.css', 'courses.js', 'fonts/DejaVuSans.ttf', 'fonts/DejaVuSans-Bold.ttf'):
             self.assertTrue(os.path.isfile(os.path.join(base, name)), name)
+
+
+class HardeningTests(CourseBase):
+    def test_locked_lesson_file_and_draft_comment(self):
+        course = make_course(self.teacher, sequential=True)
+        add_lesson(course, 'Первый')
+        locked = add_lesson(course, 'Второй')
+        block = add_block(locked, CourseBlock.FILE, title='Секрет')
+        block.file.save('s.txt', SimpleUploadedFile('s.txt', b'secret'))
+        self.enroll(course)
+        client = self.login(self.student)
+        self.assertEqual(client.get(reverse('course_block_file', args=[course.key, block.id])).status_code, 404)
+        self.assertEqual(self.login(self.teacher).get(reverse('course_block_file', args=[course.key, block.id]))
+                         .status_code, 200)
+        draft = add_lesson(course, 'Черновик', is_draft=True)
+        self.assertEqual(client.post(reverse('course_comment', args=[course.key, draft.id]), {'text': 'x'})
+                         .status_code, 404)
+        block.file.delete(save=False)
+
+    def test_cannot_leave_after_submitting_work(self):
+        course = make_course(self.teacher)
+        lesson = add_lesson(course)
+        block = add_test(lesson)
+        enrollment = self.enroll(course)
+        client = self.login(self.student)
+        client.post(reverse('course_submit_test', args=[course.key, lesson.id, block.id]), {})
+        response = client.post(reverse('course_leave', args=[course.key]))
+        self.assertContains(response, 'Нельзя отписаться')
+        self.assertTrue(CourseEnrollment.objects.filter(id=enrollment.id).exists())
+        CourseAttempt.objects.all().delete()
+        client.post(reverse('course_leave', args=[course.key]))
+        self.assertFalse(CourseEnrollment.objects.exists())

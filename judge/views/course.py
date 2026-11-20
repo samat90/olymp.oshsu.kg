@@ -182,6 +182,14 @@ def enroll(request, key):
 @require_POST
 def unenroll(request, key):
     course = get_course(request, key)
+    blocked = guard_write(request)
+    if blocked:
+        return blocked
+    enrollment = get_enrollment(request, course)
+    if enrollment is not None and (enrollment.attempts.exists() or enrollment.submissions.exists()):
+        # Leaving would wipe test attempts and works (and reset attempt limits).
+        return message(request, _('Нельзя отписаться: у вас есть сданные тесты или задания.'),
+                       reverse('course_detail', args=[key]))
     deleted = CourseEnrollment.objects.filter(course=course, profile=request.profile, completed_at=None).delete()[0]
     if deleted:
         Course.objects.filter(id=course.id, enrollments_count__gt=0) \
@@ -449,7 +457,10 @@ def add_comment(request, key, lesson_id):
     blocked = guard_write(request)
     if blocked:
         return blocked
-    if get_enrollment(request, course) is None and not course.can_edit(request.user):
+    team = course.can_edit(request.user)
+    if get_enrollment(request, course) is None and not team:
+        raise Http404()
+    if current.is_draft and not team:
         raise Http404()
     text = request.POST.get('text', '').strip()[:3000]
     parent = None
@@ -493,8 +504,10 @@ def block_file(request, key, block_id):
     block = get_object_or_404(CourseBlock, id=block_id, lesson__course=course, type=CourseBlock.FILE)
     if block.lesson.is_draft and not course.can_edit(request.user):
         raise Http404()
-    if get_enrollment(request, course) is None and not course.can_edit(request.user):
-        raise Http404()
+    if not course.can_edit(request.user):
+        enrollment = get_enrollment(request, course)
+        if enrollment is None or not logic.build_progress(enrollment).available.get(block.lesson_id):
+            raise Http404()
     return send_file(block.file, block.title and (block.title + os.path.splitext(block.file.name)[1]))
 
 

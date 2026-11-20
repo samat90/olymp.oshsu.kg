@@ -8866,3 +8866,6 @@ msgstr "Number"
 
 msgid "Короткий ответ"
 msgstr "Short answer"
+
+msgid "Нельзя отписаться: у вас есть сданные тесты или задания."
+msgstr "You cannot leave: you have submitted tests or assignments."
