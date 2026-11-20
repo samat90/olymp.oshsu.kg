@@ -920,3 +920,80 @@ class ReadyMadeCourseTests(CourseBase):
     def test_missing_author_changes_nothing(self):
         self.assertIn('skipped', self.load())
         self.assertFalse(Course.objects.exists())
+
+
+class CourseRefreshTests(CourseBase):
+    """A newer content version refreshes texts in place and keeps learners' data and teachers' edits."""
+
+    def write(self, root, version, text, question):
+        import os
+        folder = os.path.join(root, 'demo')
+        os.makedirs(folder, exist_ok=True)
+        with open(os.path.join(folder, 'course.py'), 'w', encoding='utf-8') as f:
+            f.write("META = {'key': 'demo', 'title': 'Демо', 'version': %d, 'lang': 'python', "
+                    "'description': 'D%d'}\n" % (version, version))
+        with open(os.path.join(folder, 'm01.py'), 'w', encoding='utf-8') as f:
+            f.write("MODULE = module('Модуль', pair('Урок', %r, '- **a** b', [Q(%r, ['да', 'нет'], 0, 'пояснение')],"
+                    " task=('Задание', 'сделайте')))\n" % (text, question))
+
+    def load(self, root):
+        from io import StringIO
+
+        from django.core.management import call_command
+        out = StringIO()
+        call_command('load_courses', dir=root, stdout=out)
+        return out.getvalue()
+
+    def test_refresh_keeps_progress_and_teacher_changes(self):
+        import os
+        import shutil
+        import tempfile
+        root = tempfile.mkdtemp()
+        self.addCleanup(shutil.rmtree, root, True)
+        shutil.copy(os.path.join(os.path.dirname(__file__), '..', 'scripts', 'content', 'courses', '_dsl.py'), root)
+        create_user(username='samat1')
+        self.write(root, 1, 'Старый текст', 'Старый вопрос?')
+        self.assertIn('added demo', self.load(root))
+        course = Course.objects.get(key='demo')
+        self.assertIn('already on the site', self.load(root))
+        lesson = course.lessons.get(title='Урок')
+        block = lesson.blocks.get(type=CourseBlock.TEST)
+        enrollment = self.enroll(course)
+        question = block.questions.get()
+        CourseAttempt.objects.create(enrollment=enrollment, block=block, answers={}, score=1, total=1)
+        # the teacher renames the course and adds a lesson of their own
+        Course.objects.filter(id=course.id).update(title='Моё имя', pass_percent=80)
+        extra = add_lesson(course, 'Лишний урок')
+        self.write(root, 2, 'Новый текст', 'Новый вопрос?')
+        self.assertIn('refreshed to version 2', self.load(root))
+        self.assertIn('already on the site', self.load(root))
+        course.refresh_from_db()
+        self.assertEqual((course.title, course.pass_percent, course.description), ('Моё имя', 80, 'D2'))
+        self.assertTrue(CourseLesson.objects.filter(id=extra.id).exists())
+        self.assertEqual(lesson.blocks.filter(type=CourseBlock.TEXT).order_by('order').first().text, 'Новый текст')
+        question.refresh_from_db()
+        self.assertEqual(question.text, 'Новый вопрос?')
+        self.assertEqual(question.options.count(), 2)
+        self.assertTrue(CourseEnrollment.objects.filter(id=enrollment.id).exists())
+        self.assertEqual(CourseAttempt.objects.filter(enrollment=enrollment).count(), 1)
+        self.assertEqual(MiscConfig.objects.get(key='course_version:demo').value, '2')
+
+    def test_all_ready_made_courses_load(self):
+        create_user(username='samat1')
+        from io import StringIO
+
+        from django.core.management import call_command
+        call_command('load_courses', stdout=StringIO())
+        mine = ('python', 'go', 'cpp', 'java', 'csharp', 'javascript')
+        titles = dict(Course.objects.filter(key__in=mine).values_list('key', 'title'))
+        self.assertEqual(titles, {'python': 'Основы Python', 'go': 'Основы Go', 'cpp': 'Основы C++',
+                                  'java': 'Основы Java', 'csharp': 'Основы C#', 'javascript': 'Основы JavaScript'})
+        for course in Course.objects.filter(key__in=mine):
+            self.assertEqual(course.status, Course.PUBLISHED)
+            self.assertGreaterEqual(course.modules.count(), 13, course.key)
+            self.assertGreaterEqual(CourseQuestion.objects.filter(block__lesson__course=course).count(), 70, course.key)
+            self.assertTrue(course.lessons.filter(blocks__type=CourseBlock.VIDEO).exists(), course.key)
+            for question in CourseQuestion.objects.filter(block__lesson__course=course):
+                options = list(question.options.all())
+                self.assertTrue(any(o.is_correct for o in options), (course.key, question.text))
+        self.assertEqual(Client().get(reverse('course_catalog')).status_code, 200)
