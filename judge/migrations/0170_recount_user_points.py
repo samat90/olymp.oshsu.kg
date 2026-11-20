@@ -6,7 +6,7 @@ def recount(apps, schema_editor):
     """Every user's points and solved count are recounted from their submissions (some totals were stale)."""
     from judge.models import Profile
 
-    for profile in Profile.objects.filter(submission__isnull=False).distinct().iterator():
+    for profile in Profile.objects.filter(submission__isnull=False).distinct().defer('is_teacher').iterator():
         profile._updating_stats_only = True
         profile.calculate_points()
         cache.delete('user_complete:%d' % profile.id)

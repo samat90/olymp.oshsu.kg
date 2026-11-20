@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title_row %}{% endblock %}
+{% block title_ruler %}{% endblock %}
+
+{% block media %}
+    <link rel="stylesheet" href="{{ static('courses/courses.css') }}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
+{% block body %}
+<div class="co">
+    <a class="co-back" href="{{ url('course_my') }}"><i class="fa fa-arrow-left"></i> {{ _('Мои курсы') }}</a>
+    <div class="co-panel" style="max-width:620px">
+        <h1 class="co-h1" style="margin-bottom:14px">{{ _('Новый курс') }}</h1>
+        <form class="co-form" method="post">
+            {% csrf_token %}
+            <div class="co-field"><label for="c-title">{{ _('Название') }}</label>
+                <input id="c-title" class="co-input" name="title" maxlength="120" required autofocus></div>
+            <div class="co-grid2">
+                <div class="co-field"><label for="c-subject">{{ _('Дисциплина') }}</label>
+                    <input id="c-subject" class="co-input" name="subject" maxlength="60"></div>
+                <div class="co-field"><label for="c-lang">{{ _('Язык курса') }}</label>
+                    <select id="c-lang" class="co-select" name="language">
+                        {% for code, name in languages %}<option value="{{ code }}">{{ name }}</option>{% endfor %}
+                    </select></div>
+            </div>
+            <div class="co-actions"><button class="co-btn co-btn-primary co-btn-lg" type="submit">{{ _('Создать') }}</button></div>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -7,6 +7,7 @@ from django.contrib.auth.models import AbstractUser
 from django.urls import reverse
 from django.utils.html import escape
 from django.utils.safestring import mark_safe
+from django.utils.translation import gettext
 from lxml.html import Element
 
 from judge import lxml_tree
@@ -150,9 +151,11 @@ def link_user(user):
         user, profile = user.user, user
     else:
         raise ValueError('Expected profile or user, got %s' % (type(user),))
+    badge = ('<i class="fa fa-graduation-cap" style="margin-left:3px;color:#0b7a72" title="%s"></i>'
+             % escape(gettext('Преподаватель')) if getattr(profile, 'is_teacher', False) else '')
     return mark_safe(f'<span class="{profile.css_class}">'
                      f'<a href="{escape(reverse("user_page", args=[user.username]))}">'
-                     f'{escape(profile.display_name)}</a></span>')
+                     f'{escape(profile.display_name)}</a>{badge}</span>')
 
 
 @registry.function

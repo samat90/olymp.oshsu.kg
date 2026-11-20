@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% from "courses/_card.html" import card %}
+
+{% block title_row %}{% endblock %}
+{% block title_ruler %}{% endblock %}
+
+{% block media %}
+    <link rel="stylesheet" href="{{ static('courses/courses.css') }}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
+{% block body %}
+<div class="co">
+    <a class="co-back" href="{{ url('course_catalog') }}"><i class="fa fa-arrow-left"></i> {{ _('Каталог курсов') }}</a>
+    <h1 class="co-h1">{{ _('Мои курсы') }}</h1>
+
+    <h2 class="co-h2">{{ _('Я учусь') }}</h2>
+    {% if learning %}
+        <div class="co-cards">
+            {% for row in learning %}
+                {% set course = row.course %}
+                <div class="co-card">
+                    <a class="co-cover{% if not course.cover %} co-cover-blank{% endif %}" {% if not course.cover %}style="--co-hue: {{ (course.id * 47) % 360 }}"{% endif %} href="{{ url('course_detail', course.key) }}">
+                        {% if course.cover %}<img src="{{ course.cover.url }}" alt="" loading="lazy">{% else %}{{ (course.subject or course.title)[:1]|upper }}{% endif %}
+                    </a>
+                    <span class="co-card-body">
+                        <a class="co-card-title" href="{{ url('course_detail', course.key) }}">{{ course.title }}</a>
+                        <span class="co-bar"><i style="width:{{ row.progress.percent }}%"></i></span>
+                        <span class="co-card-meta">
+                            <span>{{ row.progress.percent }}%</span>
+                            {% if row.progress.score_percent is not none %}<span>{{ _('Балл') }}: {{ row.progress.score_percent }}%</span>{% endif %}
+                            {% if row.enrollment.completed_at %}<span class="co-tag co-tag-ok">{{ _('Пройден') }}</span>{% endif %}
+                        </span>
+                        <span class="co-row">
+                            {% if row.visible %}<a class="co-btn co-btn-primary co-btn-sm" href="{{ url('course_learn', course.key) }}">{% if row.enrollment.completed_at %}{{ _('Открыть') }}{% else %}{{ _('Продолжить') }}{% endif %}</a>{% endif %}
+                            {% if row.enrollment.certificate_code %}<a class="co-btn co-btn-sm" href="{{ url('course_certificate', row.enrollment.certificate_code) }}"><i class="fa fa-certificate"></i> {{ _('Сертификат') }}</a>{% endif %}
+                        </span>
+                    </span>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="co-empty">{{ _('Вы пока не записаны на курсы.') }} <a href="{{ url('course_catalog') }}">{{ _('Выбрать курс') }}</a></div>
+    {% endif %}
+
+    {% if teaching or can_teach %}
+        <h2 class="co-h2">{{ _('Я преподаю') }}</h2>
+        <div class="co-actions" style="margin:0 0 12px">
+            {% if can_teach %}<a class="co-btn co-btn-primary" href="{{ url('course_new') }}"><i class="fa fa-plus"></i> {{ _('Создать курс') }}</a>{% endif %}
+        </div>
+        {% if teaching %}
+            <div class="co-cards">
+                {% for course in teaching %}
+                    <div class="co-card">
+                        <a class="co-cover{% if not course.cover %} co-cover-blank{% endif %}" {% if not course.cover %}style="--co-hue: {{ (course.id * 47) % 360 }}"{% endif %} href="{{ url('course_edit', course.key) }}">
+                            {% if course.cover %}<img src="{{ course.cover.url }}" alt="" loading="lazy">{% else %}{{ (course.subject or course.title)[:1]|upper }}{% endif %}
+                        </a>
+                        <span class="co-card-body">
+                            <a class="co-card-title" href="{{ url('course_edit', course.key) }}">{{ course.title }}</a>
+                            <span>
+                                <span class="co-tag {% if course.status == 'published' %}co-tag-ok{% else %}co-tag-warn{% endif %}">{{ course.get_status_display() }}</span>
+                                {% if course.is_hidden %}<span class="co-tag co-tag-bad">{{ _('Скрыт администратором') }}</span>{% endif %}
+                                {% if course.waiting %}<span class="co-tag co-tag-bad">{{ _('На проверке') }}: {{ course.waiting }}</span>{% endif %}
+                            </span>
+                            <span class="co-card-meta"><span><i class="fa fa-list"></i> {{ course.lesson_total }}</span><span><i class="fa fa-users"></i> {{ course.enrollments_count }}</span></span>
+                            <span class="co-row">
+                                <a class="co-btn co-btn-sm" href="{{ url('course_edit', course.key) }}"><i class="fa fa-pencil"></i> {{ _('Править') }}</a>
+                                <a class="co-btn co-btn-sm" href="{{ url('course_students', course.key) }}"><i class="fa fa-users"></i> {{ _('Слушатели') }}</a>
+                            </span>
+                        </span>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="co-empty">{{ _('У вас пока нет своих курсов.') }}</div>
+        {% endif %}
+    {% endif %}
+</div>
+{% endblock %}

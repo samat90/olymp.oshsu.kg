@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block title_row %}{% endblock %}
+{% block title_ruler %}{% endblock %}
+
+{% block media %}
+    <link rel="stylesheet" href="{{ static('courses/courses.css') }}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
+{% macro move_buttons(action, field, value) %}
+    <form class="co-inline" method="post" action="{{ url('course_edit_do', course.key) }}">{% csrf_token %}
+        <input type="hidden" name="action" value="{{ action }}"><input type="hidden" name="{{ field }}" value="{{ value }}">
+        <button class="co-btn co-btn-sm co-iconbtn" name="dir" value="up" type="submit" title="{{ _('Выше') }}"><i class="fa fa-arrow-up"></i></button>
+        <button class="co-btn co-btn-sm co-iconbtn" name="dir" value="down" type="submit" title="{{ _('Ниже') }}"><i class="fa fa-arrow-down"></i></button>
+    </form>
+{% endmacro %}
+
+{% macro lesson_row(lesson) %}
+    <li class="co-edit-row">
+        <a href="{{ url('course_edit_lesson', course.key, lesson.id) }}">{{ lesson.title }}</a>
+        {% if lesson.is_draft %}<span class="co-tag co-tag-warn">{{ _('Черновик') }}</span>{% endif %}
+        {% if not lesson.is_required %}<span class="co-tag">{{ _('По желанию') }}</span>{% endif %}
+        <span class="co-small co-muted">{{ lesson.block_count }} {{ _('блоков') }}</span>
+        {{ move_buttons('lesson_move', 'lesson', lesson.id) }}
+        <form class="co-inline" method="post" action="{{ url('course_edit_do', course.key) }}">{% csrf_token %}
+            <input type="hidden" name="action" value="lesson_publish"><input type="hidden" name="lesson" value="{{ lesson.id }}">
+            <button class="co-btn co-btn-sm co-iconbtn" type="submit" title="{% if lesson.is_draft %}{{ _('Открыть урок') }}{% else %}{{ _('Скрыть урок') }}{% endif %}"><i class="fa {% if lesson.is_draft %}fa-eye{% else %}fa-eye-slash{% endif %}"></i></button>
+        </form>
+        <form class="co-inline" method="post" action="{{ url('course_edit_do', course.key) }}" data-confirm="{{ _('Удалить урок вместе с блоками и результатами?') }}">{% csrf_token %}
+            <input type="hidden" name="action" value="lesson_delete"><input type="hidden" name="lesson" value="{{ lesson.id }}">
+            <button class="co-btn co-btn-sm co-iconbtn co-btn-danger" type="submit" title="{{ _('Удалить') }}"><i class="fa fa-trash"></i></button>
+        </form>
+    </li>
+{% endmacro %}
+
+{% macro add_lesson(module_id) %}
+    <form class="co-row" method="post" action="{{ url('course_edit_do', course.key) }}" style="margin-top:8px">{% csrf_token %}
+        <input type="hidden" name="action" value="lesson_add">
+        {% if module_id %}<input type="hidden" name="module" value="{{ module_id }}">{% endif %}
+        <input class="co-input" name="title" maxlength="160" placeholder="{{ _('Название урока') }}" style="flex:1 1 200px">
+        <button class="co-btn co-btn-primary" type="submit"><i class="fa fa-plus"></i> {{ _('Добавить урок') }}</button>
+    </form>
+{% endmacro %}
+
+{% block body %}
+<div class="co">
+    <a class="co-back" href="{{ url('course_my') }}"><i class="fa fa-arrow-left"></i> {{ _('Мои курсы') }}</a>
+    {% if disabled %}<div class="co-banner"><i class="fa fa-pause"></i> {{ disabled }}</div>{% endif %}
+    <div class="co-row" style="margin-bottom:10px">
+        <h1 class="co-h1">{{ course.title }}</h1>
+        <span class="co-tag {% if course.status == 'published' %}co-tag-ok{% else %}co-tag-warn{% endif %}">{{ course.get_status_display() }}</span>
+        {% if course.is_hidden %}<span class="co-tag co-tag-bad">{{ _('Скрыт администратором') }}</span>{% endif %}
+        <span class="co-spacer"></span>
+        <a class="co-btn" href="{{ url('course_detail', course.key) }}"><i class="fa fa-eye"></i> {{ _('Страница курса') }}</a>
+        <a class="co-btn" href="{{ url('course_students', course.key) }}"><i class="fa fa-users"></i> {{ _('Слушатели') }} ({{ learners }})</a>
+        <a class="co-btn" href="{{ url('course_grading', course.key) }}"><i class="fa fa-check-square-o"></i> {{ _('Проверка работ') }}{% if pending %} ({{ pending }}){% endif %}</a>
+    </div>
+
+    <div class="co-panel">
+        <h2 class="co-h2">{{ _('Программа') }}</h2>
+        {% if flat %}
+            <ul class="co-edit-list">{% for lesson in flat %}{{ lesson_row(lesson) }}{% endfor %}</ul>
+        {% endif %}
+        {% for module, lessons in modules %}
+            <div class="co-module-box">
+                <div class="co-module-head">
+                    <form class="co-row" method="post" action="{{ url('course_edit_do', course.key) }}" style="flex:1">{% csrf_token %}
+                        <input type="hidden" name="action" value="module_save"><input type="hidden" name="module" value="{{ module.id }}">
+                        <input class="co-input" type="text" name="title" value="{{ module.title }}" maxlength="120" aria-label="{{ _('Название модуля') }}">
+                        <button class="co-btn co-btn-sm" type="submit">{{ _('Сохранить') }}</button>
+                    </form>
+                    {{ move_buttons('module_move', 'module', module.id) }}
+                    <form class="co-inline" method="post" action="{{ url('course_edit_do', course.key) }}" data-confirm="{{ _('Удалить модуль? Уроки останутся в курсе без модуля.') }}">{% csrf_token %}
+                        <input type="hidden" name="action" value="module_delete"><input type="hidden" name="module" value="{{ module.id }}">
+                        <button class="co-btn co-btn-sm co-iconbtn co-btn-danger" type="submit" title="{{ _('Удалить модуль') }}"><i class="fa fa-trash"></i></button>
+                    </form>
+                </div>
+                <ul class="co-edit-list">{% for lesson in lessons %}{{ lesson_row(lesson) }}{% endfor %}</ul>
+                {{ add_lesson(module.id) }}
+            </div>
+        {% endfor %}
+        {% if not flat and not modules %}<div class="co-empty">{{ _('Добавьте первый урок. Модули не обязательны.') }}</div>{% endif %}
+        <div class="co-addbar" style="margin-top:12px">
+            <div style="flex:1 1 320px">{{ add_lesson(0) }}</div>
+            <form class="co-row" method="post" action="{{ url('course_edit_do', course.key) }}" style="margin-top:8px">{% csrf_token %}
+                <input type="hidden" name="action" value="module_add">
+                <input class="co-input" name="title" maxlength="120" placeholder="{{ _('Название модуля') }}">
+                <button class="co-btn" type="submit"><i class="fa fa-folder-o"></i> {{ _('Добавить модуль') }}</button>
+            </form>
+        </div>
+    </div>
+
+    <form class="co-panel co-form" method="post" enctype="multipart/form-data" action="{{ url('course_edit_do', course.key) }}">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="course_save">
+        <h2 class="co-h2" style="margin:0">{{ _('Настройки курса') }}</h2>
+        <div class="co-field"><label for="s-title">{{ _('Название') }}</label><input id="s-title" class="co-input" name="title" value="{{ course.title }}" maxlength="120" required></div>
+        <div class="co-grid2">
+            <div class="co-field"><label for="s-subject">{{ _('Дисциплина') }}</label><input id="s-subject" class="co-input" name="subject" value="{{ course.subject }}" maxlength="60"></div>
+            <div class="co-field"><label for="s-lang">{{ _('Язык курса') }}</label>
+                <select id="s-lang" class="co-select" name="language">{% for code, name in languages %}<option value="{{ code }}" {% if course.language == code %}selected{% endif %}>{{ name }}</option>{% endfor %}</select></div>
+        </div>
+        <div class="co-field"><label for="s-desc">{{ _('Описание') }} (Markdown)</label><textarea id="s-desc" class="co-area" name="description" rows="6" maxlength="10000">{{ course.description }}</textarea></div>
+        <div class="co-grid2">
+            <div class="co-field"><label for="s-access">{{ _('Кто видит курс') }}</label>
+                <select id="s-access" class="co-select" name="access">
+                    <option value="public" {% if course.access == 'public' %}selected{% endif %}>{{ _('Все (в каталоге)') }}</option>
+                    <option value="link" {% if course.access == 'link' %}selected{% endif %}>{{ _('Только по ссылке') }}</option>
+                    <option value="org" {% if course.access == 'org' %}selected{% endif %}>{{ _('Только моя организация') }}</option>
+                </select></div>
+            <div class="co-field"><label for="s-org">{{ _('Организация') }}</label>
+                <select id="s-org" class="co-select" name="organization">
+                    <option value="">—</option>
+                    {% for org in organizations %}<option value="{{ org.id }}" {% if course.organization_id == org.id %}selected{% endif %}>{{ org.name }}</option>{% endfor %}
+                </select></div>
+        </div>
+        <div class="co-grid2">
+            <div class="co-field"><label for="s-pass">{{ _('Порог зачёта (в процентах от баллов)') }}</label><input id="s-pass" class="co-input" type="number" min="0" max="100" name="pass_percent" value="{{ course.pass_percent }}"></div>
+            <div class="co-field"><label for="s-status">{{ _('Статус') }}</label>
+                <select id="s-status" class="co-select" name="status">
+                    <option value="draft" {% if course.status == 'draft' %}selected{% endif %}>{{ _('Черновик') }}</option>
+                    <option value="published" {% if course.status == 'published' %}selected{% endif %}>{{ _('Опубликован') }}</option>
+                </select></div>
+        </div>
+        <div class="co-row">
+            <label class="co-check"><input type="checkbox" name="sequential" value="1" {% if course.sequential %}checked{% endif %}> {{ _('Уроки открываются по порядку') }}</label>
+            <label class="co-check"><input type="checkbox" name="certificate" value="1" {% if course.certificate %}checked{% endif %}> {{ _('Выдавать сертификат') }}</label>
+            <label class="co-check"><input type="checkbox" name="reviews_on" value="1" {% if course.reviews_on %}checked{% endif %}> {{ _('Отзывы') }}</label>
+        </div>
+        <div class="co-grid2">
+            <div class="co-field"><label for="s-cover">{{ _('Обложка') }}</label><input id="s-cover" class="co-input" type="file" name="cover" accept="image/*">
+                {% if course.cover %}<label class="co-check co-small"><input type="checkbox" name="remove_cover" value="1"> {{ _('Убрать обложку') }}</label>{% endif %}</div>
+            {% if is_owner %}<div class="co-field"><label for="s-co">{{ _('Соавторы (логины через запятую)') }}</label><input id="s-co" class="co-input" name="coauthors" value="{{ coauthors }}"></div>{% endif %}
+        </div>
+        <div class="co-actions">
+            <button class="co-btn co-btn-primary co-btn-lg" type="submit">{{ _('Сохранить') }}</button>
+            <span class="co-muted co-small">{{ _('Ссылка на курс') }}: <code>{{ request.build_absolute_uri(url('course_detail', course.key)) }}</code></span>
+        </div>
+    </form>
+
+    <div class="co-panel">
+        <h2 class="co-h2">{{ _('Копия и удаление') }}</h2>
+        <div class="co-actions" style="margin:0">
+            <form class="co-inline" method="post" action="{{ url('course_copy', course.key) }}" data-confirm="{{ _('Создать копию курса?') }}">{% csrf_token %}<button class="co-btn" type="submit"><i class="fa fa-clone"></i> {{ _('Копировать курс') }}</button></form>
+            {% if is_owner %}
+                <form class="co-inline" method="post" action="{{ url('course_delete', course.key) }}" data-confirm="{{ _('Удалить курс? Он пропадёт с сайта.') }}">{% csrf_token %}<button class="co-btn co-btn-danger" type="submit"><i class="fa fa-trash"></i> {{ _('Удалить курс') }}</button></form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<script src="{{ static('courses/courses.js') }}?v={{ STATIC_VERSION }}"></script>
+{% endblock %}

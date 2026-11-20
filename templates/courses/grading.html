@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title_row %}{% endblock %}
+{% block title_ruler %}{% endblock %}
+
+{% block media %}
+    <link rel="stylesheet" href="{{ static('courses/courses.css') }}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
+{% block body %}
+<div class="co">
+    <a class="co-back" href="{{ url('course_edit', course.key) }}"><i class="fa fa-arrow-left"></i> {{ course.title }}</a>
+    {% if disabled %}<div class="co-banner"><i class="fa fa-pause"></i> {{ disabled }}</div>{% endif %}
+    <div class="co-row" style="margin-bottom:12px">
+        <h1 class="co-h1">{{ _('Проверка работ') }}</h1>
+        <div class="co-seg">
+            <a class="{% if show != 'all' %}co-on{% endif %}" href="?">{{ _('Ждут проверки') }}</a>
+            <a class="{% if show == 'all' %}co-on{% endif %}" href="?show=all">{{ _('Все') }}</a>
+        </div>
+    </div>
+    {% if page.object_list %}
+        <div id="co-works">
+            {% for work in page.object_list %}
+                <div class="co-work">
+                    <div class="co-row">
+                        <b>{{ link_user(work.enrollment.profile) }}</b>
+                        <span class="co-muted">{{ work.block.lesson.title }}{% if work.block.title %} · {{ work.block.title }}{% endif %}</span>
+                        <span class="co-spacer"></span>
+                        {% if work.status == 'graded' %}<span class="co-tag co-tag-ok">{{ _('Оценено') }}: {{ work.grade|round(1) }} / {{ work.block.points }}</span>
+                        {% elif work.status == 'returned' %}<span class="co-tag co-tag-bad">{{ _('На доработку') }}</span>
+                        {% else %}<span class="co-tag co-tag-warn">{{ _('Ждёт проверки') }}</span>{% endif %}
+                        <span class="co-small co-muted">{{ work.submitted|date('d.m.Y H:i') }}</span>
+                    </div>
+                    {% if work.text %}<div class="co-work-text">{{ work.text }}</div>{% endif %}
+                    {% if work.file %}<a class="co-btn co-btn-sm" href="{{ url('course_work_file', course.key, work.id) }}"><i class="fa fa-paperclip"></i> {{ work.file_name or _('Файл') }}</a>{% endif %}
+                    <form class="co-form" method="post" action="{{ url('course_grade', course.key, work.id) }}" style="margin-top:10px">
+                        {% csrf_token %}
+                        <input type="hidden" name="back" value="{{ request.get_full_path() }}">
+                        <div class="co-row">
+                            <label class="co-check">{{ _('Оценка') }}
+                                <input class="co-input" style="width:90px" name="grade" inputmode="decimal" value="{% if work.grade is not none %}{{ work.grade|round(1) }}{% endif %}"> / {{ work.block.points }}</label>
+                        </div>
+                        <textarea class="co-area" name="comment" rows="2" maxlength="5000" placeholder="{{ _('Комментарий слушателю') }}">{{ work.comment }}</textarea>
+                        <div class="co-actions" style="margin:0">
+                            <button class="co-btn co-btn-primary" name="result" value="grade" type="submit">{{ _('Оценить') }}</button>
+                            <button class="co-btn" name="result" value="return" type="submit">{{ _('Вернуть на доработку') }}</button>
+                        </div>
+                    </form>
+                </div>
+            {% endfor %}
+        </div>
+        {% if page.has_next() %}
+            <div class="co-more" data-infinite="#co-works">
+                <a class="co-btn" rel="next" href="?{% if show == 'all' %}show=all&{% endif %}page={{ page.next_page_number() }}">{{ _('Показать ещё') }}</a>
+            </div>
+        {% endif %}
+    {% else %}
+        <div class="co-empty">{{ _('Работ на проверку нет.') }}</div>
+    {% endif %}
+</div>
+<script src="{{ static('courses/courses.js') }}?v={{ STATIC_VERSION }}"></script>
+{% endblock %}

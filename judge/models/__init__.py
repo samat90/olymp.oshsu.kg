@@ -4,6 +4,8 @@ from judge.models.choices import ACE_THEMES, EFFECTIVE_MATH_ENGINES, MATH_ENGINE
 from judge.models.comment import Comment, CommentLock, CommentVote
 from judge.models.contest import Contest, ContestCheatEvent, ContestMoss, ContestParticipation, ContestProblem, \
     ContestSubmission, ContestTag, Rating
+from judge.models.course import Course, CourseAttempt, CourseBlock, CourseComment, CourseEnrollment, CourseLesson, \
+    CourseModule, CourseOption, CourseProgress, CourseQuestion, CourseReview, CourseWork
 from judge.models.interface import BlogPost, MiscConfig, NavigationBar, validate_regex
 from judge.models.problem import LanguageLimit, License, Problem, ProblemCodeAlias, ProblemClarification, \
     ProblemGroup, ProblemPointsVote, ProblemTranslation, ProblemType, Solution, SubmissionSourceAccess, \

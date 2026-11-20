@@ -216,6 +216,7 @@ ul.pagination > .disabled-page > a, ul.pagination > .disabled-page > span { opac
 .tile-compiler .tile-icon { background: linear-gradient(135deg, #34c38f, #1c8f68); }
 .tile-typing .tile-icon { background: linear-gradient(135deg, #b07cff, #7b4fe0); }
 .tile-quiz .tile-icon { background: linear-gradient(135deg, #ff6b9a, #c4366a); }
+.tile-courses .tile-icon { background: linear-gradient(135deg, #35b3a8, #1e6f9f); }
 /* Five tiles: one row on wide screens, 3 + 2 on medium ones, pairs on tablets. */
 @media (min-width: 1281px) {
     .hero-tile { padding: 12px 12px; gap: 10px; }

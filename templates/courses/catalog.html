@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% from "courses/_card.html" import card %}
+
+{% block title_row %}{% endblock %}
+{% block title_ruler %}{% endblock %}
+
+{% block media %}
+    <link rel="stylesheet" href="{{ static('courses/courses.css') }}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
+{% macro more_link(number) -%}
+    ?{% if query %}q={{ query|urlencode }}&{% endif %}{% if subject %}subject={{ subject|urlencode }}&{% endif %}{% if lang %}lang={{ lang }}&{% endif %}{% if order == 'popular' %}order=popular&{% endif %}page={{ number }}
+{%- endmacro %}
+
+{% block body %}
+<div class="co">
+    <div class="co-hero">
+        <div style="flex:1 1 260px">
+            <h1 class="co-h1">{{ _('Курсы') }}</h1>
+            <p>{{ _('Учитесь в своём темпе: уроки, тесты, задания и сертификат.') }}</p>
+        </div>
+        {% if request.user.is_authenticated %}
+            <a class="co-btn co-btn-lg" href="{{ url('course_my') }}"><i class="fa fa-graduation-cap"></i> {{ _('Мои курсы') }}</a>
+        {% else %}
+            <a class="co-btn co-btn-lg" href="{{ url('auth_login') }}?next={{ request.get_full_path()|urlencode }}">{{ _('Войти') }}</a>
+        {% endif %}
+    </div>
+    {% if closed %}<div class="co-banner"><i class="fa fa-pause"></i> {{ closed }}</div>{% endif %}
+
+    <div class="co-toolbar">
+        <form class="co-search" method="get">
+            <input class="co-input" type="search" name="q" value="{{ query }}" placeholder="{{ _('Поиск курсов') }}" aria-label="{{ _('Поиск') }}">
+            {% if subject %}<input type="hidden" name="subject" value="{{ subject }}">{% endif %}
+            {% if order == 'popular' %}<input type="hidden" name="order" value="popular">{% endif %}
+            <button type="submit" class="co-btn" aria-label="{{ _('Найти') }}"><i class="fa fa-search"></i></button>
+        </form>
+        <div class="co-seg" role="group">
+            <a class="{% if order != 'popular' %}co-on{% endif %}" href="?{% if query %}q={{ query|urlencode }}&{% endif %}{% if subject %}subject={{ subject|urlencode }}{% endif %}">{{ _('Новые') }}</a>
+            <a class="{% if order == 'popular' %}co-on{% endif %}" href="?{% if query %}q={{ query|urlencode }}&{% endif %}{% if subject %}subject={{ subject|urlencode }}&{% endif %}order=popular">{{ _('Популярные') }}</a>
+        </div>
+        <span class="co-spacer"></span>
+        {% if can_teach %}
+            <a class="co-btn co-btn-primary" href="{{ url('course_new') }}"><i class="fa fa-plus"></i> {{ _('Создать курс') }}</a>
+        {% endif %}
+    </div>
+
+    {% if subjects %}
+        <div class="co-chips">
+            <a class="co-chip{% if not subject %} co-on{% endif %}" href="?{% if query %}q={{ query|urlencode }}&{% endif %}{% if order == 'popular' %}order=popular{% endif %}">{{ _('Все') }}</a>
+            {% for s in subjects %}
+                <a class="co-chip{% if s|lower == subject|lower %} co-on{% endif %}" href="?{% if query %}q={{ query|urlencode }}&{% endif %}subject={{ s|urlencode }}{% if order == 'popular' %}&order=popular{% endif %}">{{ s }}</a>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if page.object_list %}
+        <div class="co-cards" id="co-cards">
+            {% for course in page.object_list %}{{ card(course) }}{% endfor %}
+        </div>
+        {% if page.has_next() %}
+            <div class="co-more" data-infinite="#co-cards">
+                <a class="co-btn" rel="next" href="{{ more_link(page.next_page_number()) }}">{{ _('Показать ещё') }}</a>
+            </div>
+        {% endif %}
+    {% else %}
+        <div class="co-empty">{% if query or subject %}{{ _('Ничего не нашлось.') }}{% else %}{{ _('Открытых курсов пока нет.') }}{% endif %}</div>
+    {% endif %}
+</div>
+<script src="{{ static('courses/courses.js') }}?v={{ STATIC_VERSION }}"></script>
+{% endblock %}

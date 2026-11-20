@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title_row %}{% endblock %}
+{% block title_ruler %}{% endblock %}
+
+{% block media %}
+    <link rel="stylesheet" href="{{ static('courses/courses.css') }}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
+{% block body %}
+<div class="co">
+    <div class="co-cert">
+        <p class="co-muted" style="margin:0">OshSU Olymp</p>
+        <h1>{{ _('СЕРТИФИКАТ') }}</h1>
+        <p class="co-muted">{{ _('Подтверждается, что') }}</p>
+        <div class="co-cert-name">{{ enrollment.profile.user.get_full_name() or enrollment.profile.username }}</div>
+        <p class="co-muted">{{ _('успешно прошёл(а) курс') }}</p>
+        <h2 style="margin:6px 0 16px">«{{ course.title }}»</h2>
+        <p class="co-muted">{{ _('Дата') }}: {{ enrollment.completed_at|date('d.m.Y') }} · {{ _('Номер') }}: <b>{{ code }}</b><br>
+            {{ _('Преподаватель') }}: {{ course.author.user.get_full_name() or course.author.username }}</p>
+        <img src="{{ url('course_certificate_qr', code) }}" alt="QR">
+        <div class="co-actions" style="justify-content:center">
+            <a class="co-btn co-btn-primary" href="{{ url('course_certificate_pdf', code) }}"><i class="fa fa-download"></i> PDF</a>
+            <a class="co-btn" href="{{ url('course_detail', course.key) }}">{{ _('К курсу') }}</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

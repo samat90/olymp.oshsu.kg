@@ -5,6 +5,8 @@ from django.contrib.flatpages.models import FlatPage
 
 from judge.admin.comments import CommentAdmin
 from judge.admin.contest import ContestAdmin, ContestParticipationAdmin, ContestTagAdmin
+from judge.admin.course import CourseAdmin, CourseBlockAdmin, CourseCommentAdmin, CourseEnrollmentAdmin, \
+    CourseLessonAdmin, CourseQuestionAdmin, CourseReviewAdmin, CourseWorkAdmin
 from judge.admin.interface import BlogPostAdmin, FlatPageAdmin, LicenseAdmin, LogEntryAdmin, NavigationBarAdmin
 from judge.admin.organization import ClassAdmin, OrganizationAdmin, OrganizationRequestAdmin
 from judge.admin.problem import ProblemAdmin, ProblemPointsVoteAdmin
@@ -16,7 +18,8 @@ from judge.admin.taxon import ProblemGroupAdmin, ProblemTypeAdmin
 from judge.admin.ticket import TicketAdmin
 from judge.admin.workspace import TypingResultAdmin, WorkspaceFileAdmin
 from judge.models import BlogPost, Class, Comment, CommentLock, Contest, ContestParticipation, \
-    ContestTag, GameSession, Judge, Language, License, MiscConfig, NavigationBar, Organization, \
+    ContestTag, Course, CourseBlock, CourseComment, CourseEnrollment, CourseLesson, CourseQuestion, CourseReview, \
+    CourseWork, GameSession, Judge, Language, License, MiscConfig, NavigationBar, Organization, \
     OrganizationRequest, Problem, ProblemGroup, ProblemPointsVote, ProblemType, Profile, Quiz, QuizReport, \
     Submission, Ticket, TypingResult, WorkspaceFile
 
@@ -49,12 +52,22 @@ admin.site.register(TypingResult, TypingResultAdmin)
 admin.site.register(Quiz, QuizAdmin)
 admin.site.register(QuizReport, QuizReportAdmin)
 admin.site.register(GameSession, GameSessionAdmin)
+admin.site.register(Course, CourseAdmin)
+admin.site.register(CourseLesson, CourseLessonAdmin)
+admin.site.register(CourseBlock, CourseBlockAdmin)
+admin.site.register(CourseQuestion, CourseQuestionAdmin)
+admin.site.register(CourseEnrollment, CourseEnrollmentAdmin)
+admin.site.register(CourseWork, CourseWorkAdmin)
+admin.site.register(CourseComment, CourseCommentAdmin)
+admin.site.register(CourseReview, CourseReviewAdmin)
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
 
 
 # The quiz lives in the judge app too; show it as its own block in the admin, apart from olympiads.
 QUIZ_MODELS = {'Quiz', 'QuizReport', 'GameSession'}
+COURSE_MODELS = {'Course', 'CourseLesson', 'CourseBlock', 'CourseQuestion', 'CourseEnrollment', 'CourseWork',
+                 'CourseComment', 'CourseReview'}
 _judge_app_list = admin.site.get_app_list
 
 
@@ -65,11 +78,15 @@ def get_app_list(request, app_label=None):
             apps.append(app)
             continue
         quiz = [m for m in app['models'] if m['object_name'] in QUIZ_MODELS]
-        rest = [m for m in app['models'] if m['object_name'] not in QUIZ_MODELS]
+        courses = [m for m in app['models'] if m['object_name'] in COURSE_MODELS]
+        rest = [m for m in app['models'] if m['object_name'] not in QUIZ_MODELS | COURSE_MODELS]
         if rest:
             apps.append(dict(app, name='Олимпиады и задачи', models=rest))
         if quiz:
             apps.append(dict(app, name='Викторина', models=quiz, app_url=quiz[0].get('admin_url') or app['app_url']))
+        if courses:
+            apps.append(dict(app, name='Курсы', models=courses,
+                             app_url=courses[0].get('admin_url') or app['app_url']))
     return apps
 
 

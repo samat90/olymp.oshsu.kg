@@ -29,7 +29,7 @@ def to_partial(apps, schema_editor):
     if changed:
         Submission.objects.bulk_update(changed, ['points'])
 
-    for profile in Profile.objects.filter(submission__isnull=False).distinct().iterator():
+    for profile in Profile.objects.filter(submission__isnull=False).distinct().defer('is_teacher').iterator():
         profile._updating_stats_only = True
         profile.calculate_points()
         cache.delete('user_complete:%d' % profile.id)

@@ -54,15 +54,15 @@ class WebAuthnInline(admin.TabularInline):
 
 
 class ProfileAdmin(NoBatchDeleteMixin, VersionAdmin):
-    fields = ('user', 'display_rank', 'about', 'organizations', 'timezone', 'language', 'ace_theme',
+    fields = ('user', 'display_rank', 'is_teacher', 'about', 'organizations', 'timezone', 'language', 'ace_theme',
               'math_engine', 'last_access', 'ip', 'mute', 'is_unlisted', 'is_banned_from_problem_voting',
               'username_display_override', 'notes', 'is_totp_enabled', 'user_script', 'current_contest')
     readonly_fields = ('user',)
-    list_display = ('admin_user_admin', 'email', 'is_totp_enabled', 'timezone_full',
+    list_display = ('admin_user_admin', 'email', 'is_teacher', 'is_totp_enabled', 'timezone_full',
                     'date_joined', 'last_access', 'ip', 'show_public')
     ordering = ('user__username',)
     search_fields = ('user__username', 'ip', 'user__email')
-    list_filter = ('language', TimezoneFilter)
+    list_filter = ('is_teacher', 'language', TimezoneFilter)
     actions_on_top = True
     actions_on_bottom = True
     form = ProfileForm
@@ -100,7 +100,7 @@ class ProfileAdmin(NoBatchDeleteMixin, VersionAdmin):
     def get_actions(self, request):
         actions = super(ProfileAdmin, self).get_actions(request)
 
-        for action in ('recalculate_points', 'mute_users'):
+        for action in ('recalculate_points', 'mute_users', 'make_teachers', 'remove_teachers'):
             func, name, desc = self.get_action(action)
             actions[name] = (func, name, desc)
 
@@ -156,6 +156,14 @@ class ProfileAdmin(NoBatchDeleteMixin, VersionAdmin):
         self.message_user(request, ngettext('%d user was banned.',
                                             '%d users were banned.',
                                             count) % count)
+
+    @admin.display(description='Сделать преподавателями')
+    def make_teachers(self, request, queryset):
+        self.message_user(request, 'Преподавателей назначено: %d' % queryset.update(is_teacher=True))
+
+    @admin.display(description='Снять статус преподавателя')
+    def remove_teachers(self, request, queryset):
+        self.message_user(request, 'Статус снят у: %d' % queryset.update(is_teacher=False))
 
     @admin.display(description=_('Mute users'))
     def mute_users(self, request, queryset):

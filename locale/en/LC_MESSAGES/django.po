@@ -8209,3 +8209,660 @@ msgstr "AI is not connected yet. Contact the administrator."
 
 msgid "Предыдущая викторина ещё создаётся, подождите."
 msgstr "Your previous quiz is still being created, please wait."
+
+msgid "Курсы"
+msgstr "Courses"
+
+msgid "Учитесь в своём темпе: уроки, тесты, задания и сертификат."
+msgstr "Learn at your own pace: lessons, tests, assignments and a certificate."
+
+msgid "Мои курсы"
+msgstr "My courses"
+
+msgid "Поиск курсов"
+msgstr "Search courses"
+
+msgid "Создать курс"
+msgstr "Create a course"
+
+msgid "Показать ещё"
+msgstr "Show more"
+
+msgid "Открытых курсов пока нет."
+msgstr "There are no open courses yet."
+
+msgid "СЕРТИФИКАТ"
+msgstr "CERTIFICATE"
+
+msgid "Подтверждается, что"
+msgstr "This certifies that"
+
+msgid "успешно прошёл(а) курс"
+msgstr "has successfully completed the course"
+
+msgid "Номер"
+msgstr "Number"
+
+msgid "Преподаватель"
+msgstr "Teacher"
+
+msgid "К курсу"
+msgstr "To the course"
+
+msgid "Каталог курсов"
+msgstr "Course catalog"
+
+msgid "Черновик: курс виден только преподавателям."
+msgstr "Draft: only teachers can see this course."
+
+msgid "Курс скрыт администратором."
+msgstr "The course is hidden by an administrator."
+
+msgid "уроков"
+msgstr "lessons"
+
+msgid "Сертификат"
+msgstr "Certificate"
+
+msgid "Пройдено"
+msgstr "Completed"
+
+msgid "Балл"
+msgstr "Score"
+
+msgid "Открыть курс"
+msgstr "Open the course"
+
+msgid "Отписаться от курса? Прогресс будет удалён."
+msgstr "Leave the course? Your progress will be deleted."
+
+msgid "Отписаться"
+msgstr "Leave"
+
+msgid "Записаться"
+msgstr "Enroll"
+
+msgid "Войти и записаться"
+msgstr "Sign in and enroll"
+
+msgid "Посмотреть как слушатель"
+msgstr "View as a learner"
+
+msgid "Править курс"
+msgstr "Edit the course"
+
+msgid "Слушатели"
+msgstr "Learners"
+
+msgid "Создать копию курса?"
+msgstr "Make a copy of the course?"
+
+msgid "Программа"
+msgstr "Program"
+
+msgid "Черновик"
+msgstr "Draft"
+
+msgid "По желанию"
+msgstr "Optional"
+
+msgid "В курсе пока нет уроков."
+msgstr "The course has no lessons yet."
+
+msgid "Отзывы"
+msgstr "Reviews"
+
+msgid "Оценка"
+msgstr "Rating"
+
+msgid "Ваш отзыв о курсе"
+msgstr "Your review of the course"
+
+msgid "Сохранить отзыв"
+msgstr "Save review"
+
+msgid "Отзывов пока нет."
+msgstr "No reviews yet."
+
+msgid "блоков"
+msgstr "blocks"
+
+msgid "Открыть урок"
+msgstr "Open the lesson"
+
+msgid "Скрыть урок"
+msgstr "Hide the lesson"
+
+msgid "Удалить урок вместе с блоками и результатами?"
+msgstr "Delete the lesson with its blocks and results?"
+
+msgid "Название урока"
+msgstr "Lesson title"
+
+msgid "Добавить урок"
+msgstr "Add a lesson"
+
+msgid "Скрыт администратором"
+msgstr "Hidden by an administrator"
+
+msgid "Страница курса"
+msgstr "Course page"
+
+msgid "Проверка работ"
+msgstr "Review of work"
+
+msgid "Название модуля"
+msgstr "Module title"
+
+msgid "Сохранить"
+msgstr "Save"
+
+msgid "Удалить модуль? Уроки останутся в курсе без модуля."
+msgstr "Delete the module? Its lessons stay in the course without a module."
+
+msgid "Удалить модуль"
+msgstr "Delete the module"
+
+msgid "Добавьте первый урок. Модули не обязательны."
+msgstr "Add the first lesson. Modules are optional."
+
+msgid "Добавить модуль"
+msgstr "Add a module"
+
+msgid "Настройки курса"
+msgstr "Course settings"
+
+msgid "Название"
+msgstr "Title"
+
+msgid "Дисциплина"
+msgstr "Subject"
+
+msgid "Язык курса"
+msgstr "Course language"
+
+msgid "Кто видит курс"
+msgstr "Who sees the course"
+
+msgid "Все (в каталоге)"
+msgstr "Everyone (in the catalog)"
+
+msgid "Только по ссылке"
+msgstr "By link only"
+
+msgid "Только моя организация"
+msgstr "My organization only"
+
+msgid "Организация"
+msgstr "Organization"
+
+msgid "Порог зачёта (в процентах от баллов)"
+msgstr "Pass mark (percent of points)"
+
+msgid "Опубликован"
+msgstr "Published"
+
+msgid "Уроки открываются по порядку"
+msgstr "Lessons open one after another"
+
+msgid "Выдавать сертификат"
+msgstr "Issue a certificate"
+
+msgid "Убрать обложку"
+msgstr "Remove the cover"
+
+msgid "Соавторы (логины через запятую)"
+msgstr "Coauthors (logins, comma-separated)"
+
+msgid "Ссылка на курс"
+msgstr "Link to the course"
+
+msgid "Копия и удаление"
+msgstr "Copy and delete"
+
+msgid "Копировать курс"
+msgstr "Copy the course"
+
+msgid "Удалить курс? Он пропадёт с сайта."
+msgstr "Delete the course? It will disappear from the site."
+
+msgid "Удалить курс"
+msgstr "Delete the course"
+
+msgid "Ждут проверки"
+msgstr "Waiting for review"
+
+msgid "Оценено"
+msgstr "Graded"
+
+msgid "На доработку"
+msgstr "For revision"
+
+msgid "Ждёт проверки"
+msgstr "Waiting for review"
+
+msgid "Файл"
+msgstr "File"
+
+msgid "Комментарий слушателю"
+msgstr "Comment for the learner"
+
+msgid "Оценить"
+msgstr "Grade"
+
+msgid "Вернуть на доработку"
+msgstr "Return for revision"
+
+msgid "Работ на проверку нет."
+msgstr "No work to review."
+
+msgid "Удалить комментарий?"
+msgstr "Delete the comment?"
+
+msgid "Предпросмотр: так урок видит слушатель. Ответы не сохраняются."
+msgstr "Preview: this is how a learner sees the lesson. Answers are not saved."
+
+msgid "Урок в черновике: слушатели его не видят."
+msgstr "The lesson is a draft: learners do not see it."
+
+msgid "Срок"
+msgstr "Due"
+
+msgid "прошёл"
+msgstr "passed"
+
+msgid "Открыть на YouTube"
+msgstr "Open on YouTube"
+
+msgid "Скачать"
+msgstr "Download"
+
+msgid "Тест"
+msgstr "Test"
+
+msgid "Попытки"
+msgstr "Attempts"
+
+msgid "Попыток без ограничений"
+msgstr "Unlimited attempts"
+
+msgid "Зачёт от"
+msgstr "Pass from"
+
+msgid "Результат"
+msgstr "Result"
+
+msgid "Зачтено"
+msgstr "Passed"
+
+msgid "Не зачтено"
+msgstr "Not passed"
+
+msgid "В предпросмотре тест не отправляется."
+msgstr "A test is not sent in preview."
+
+msgid "Срок сдачи прошёл."
+msgstr "The deadline has passed."
+
+msgid "Пройти ещё раз"
+msgstr "Try again"
+
+msgid "Проверить"
+msgstr "Check"
+
+msgid "Попытки закончились."
+msgstr "No attempts left."
+
+msgid "В тесте пока нет вопросов."
+msgstr "The test has no questions yet."
+
+msgid "Задание"
+msgstr "Assignment"
+
+msgid "до"
+msgstr "up to"
+
+msgid "баллов"
+msgstr "points"
+
+msgid "Комментарий преподавателя"
+msgstr "Teacher's comment"
+
+msgid "Отправить заново"
+msgstr "Send again"
+
+msgid "Задача"
+msgstr "Problem"
+
+msgid "Решено"
+msgstr "Solved"
+
+msgid "Нужно набрать"
+msgstr "Needed"
+
+msgid "Задача не выбрана."
+msgstr "No problem is chosen."
+
+msgid "В уроке пока пусто."
+msgstr "The lesson is empty so far."
+
+msgid "Урок пройден"
+msgstr "Lesson completed"
+
+msgid "Изучено"
+msgstr "Learned"
+
+msgid "Тесты и задания тоже нужно сдать."
+msgstr "Tests and assignments must be done too."
+
+msgid "Урок засчитается, когда будут выполнены тесты и задания."
+msgstr "The lesson counts once the tests and assignments are done."
+
+msgid "Курс пройден"
+msgstr "Course completed"
+
+msgid "Вопросы и комментарии"
+msgstr "Questions and comments"
+
+msgid "Комментариев пока нет."
+msgstr "No comments yet."
+
+msgid "Вопрос или комментарий к уроку"
+msgstr "A question or comment on the lesson"
+
+msgid "Открыт"
+msgstr "Open"
+
+msgid "Как у слушателя"
+msgstr "As a learner sees it"
+
+msgid "Модуль"
+msgstr "Module"
+
+msgid "Без модуля"
+msgstr "No module"
+
+msgid "Открыть в"
+msgstr "Open at"
+
+msgid "Срок сдачи тестов и заданий"
+msgstr "Deadline for tests and assignments"
+
+msgid "Черновик (слушатели не видят)"
+msgstr "Draft (learners do not see it)"
+
+msgid "Обязательный"
+msgstr "Required"
+
+msgid "Нужна отметка «Изучено»"
+msgstr "Needs the “Learned” mark"
+
+msgid "Сохранить урок"
+msgstr "Save the lesson"
+
+msgid "Блоки урока"
+msgstr "Lesson blocks"
+
+msgid "Удалить блок?"
+msgstr "Delete the block?"
+
+msgid "Заголовок"
+msgstr "Heading"
+
+msgid "Текст"
+msgstr "Text"
+
+msgid "Ссылка на YouTube"
+msgstr "YouTube link"
+
+msgid "Текст под видео"
+msgstr "Text under the video"
+
+msgid "Подпись"
+msgstr "Caption"
+
+msgid "Вступление к тесту"
+msgstr "Introduction to the test"
+
+msgid "Попыток (0 — без ограничений)"
+msgstr "Attempts (0 = unlimited)"
+
+msgid "Зачёт от (процентов; 0 — любой результат)"
+msgstr "Pass from (percent; 0 = any result)"
+
+msgid "Перемешивать вопросы"
+msgstr "Shuffle the questions"
+
+msgid "Показывать верные ответы после попытки"
+msgstr "Show correct answers after an attempt"
+
+msgid "Условие задания"
+msgstr "Assignment text"
+
+msgid "Максимум баллов"
+msgstr "Maximum points"
+
+msgid "Зачёт от (процентов баллов; 0 — любая оценка)"
+msgstr "Pass from (percent of points; 0 = any grade)"
+
+msgid "Ответ текстом"
+msgstr "Answer as text"
+
+msgid "Ответ файлом"
+msgstr "Answer as a file"
+
+msgid "Код задачи на сайте"
+msgstr "Problem code on the site"
+
+msgid "Баллов за задачу"
+msgstr "Points for the problem"
+
+msgid "Зачёт от (процентов тестов)"
+msgstr "Pass from (percent of tests)"
+
+msgid "Обязательно для зачёта урока"
+msgstr "Required to pass the lesson"
+
+msgid "Сохранить блок"
+msgstr "Save the block"
+
+msgid "Баллов"
+msgstr "Points"
+
+msgid "Варианты: отметьте верные. Для числа и короткого ответа каждая строка — допустимый ответ."
+msgstr "Options: mark the correct ones. For a number or a short answer, each line is an accepted answer."
+
+msgid "Верный"
+msgstr "Correct"
+
+msgid "Пояснение к ответу (необязательно)"
+msgstr "Explanation of the answer (optional)"
+
+msgid "Сохранить вопрос"
+msgstr "Save the question"
+
+msgid "Добавить вопрос"
+msgstr "Add a question"
+
+msgid "Блоков пока нет. Добавьте любые, в любом порядке."
+msgstr "No blocks yet. Add any, in any order."
+
+msgid "Добавить блок"
+msgstr "Add a block"
+
+msgid "Я учусь"
+msgstr "I am studying"
+
+msgid "Пройден"
+msgstr "Completed"
+
+msgid "Вы пока не записаны на курсы."
+msgstr "You are not enrolled in any course yet."
+
+msgid "Выбрать курс"
+msgstr "Choose a course"
+
+msgid "Я преподаю"
+msgstr "I teach"
+
+msgid "На проверке"
+msgstr "To review"
+
+msgid "Править"
+msgstr "Edit"
+
+msgid "У вас пока нет своих курсов."
+msgstr "You have no courses of your own yet."
+
+msgid "Новый курс"
+msgstr "New course"
+
+msgid "Создать"
+msgstr "Create"
+
+msgid "Всего"
+msgstr "Total"
+
+msgid "Прошли курс"
+msgstr "Completed the course"
+
+msgid "Логин"
+msgstr "Login"
+
+msgid "Записан"
+msgstr "Enrolled"
+
+msgid "Прогресс"
+msgstr "Progress"
+
+msgid "Итог"
+msgstr "Result"
+
+msgid "Слушателей пока нет."
+msgstr "No learners yet."
+
+msgid "Курс ещё не опубликован."
+msgstr "The course is not published yet."
+
+msgid "Урок откроется %s."
+msgstr "The lesson opens at %s."
+
+msgid "Сначала пройдите предыдущие уроки."
+msgstr "Complete the previous lessons first."
+
+msgid "Этот тип файла не принимается."
+msgstr "This file type is not accepted."
+
+msgid "Файл больше 10 МБ."
+msgstr "The file is larger than 10 MB."
+
+msgid "Работа уже оценена."
+msgstr "The work has already been graded."
+
+msgid "Напишите ответ или приложите файл."
+msgstr "Write an answer or attach a file."
+
+msgid "Неверная дата."
+msgstr "Invalid date."
+
+msgid "Файл больше 25 МБ."
+msgstr "The file is larger than 25 MB."
+
+msgid "Создавать курсы могут преподаватели. Статус даёт администратор сайта."
+msgstr "Teachers can create courses. The status is given by a site administrator."
+
+msgid "Назовите курс."
+msgstr "Give the course a title."
+
+msgid "Выберите организацию."
+msgstr "Choose an organization."
+
+msgid "Нет пользователя: %s"
+msgstr "No such user: %s"
+
+msgid "Назовите модуль."
+msgstr "Give the module a title."
+
+msgid "Новый урок"
+msgstr "New lesson"
+
+msgid "Назовите урок."
+msgstr "Give the lesson a title."
+
+msgid "Это не ссылка на YouTube."
+msgstr "This is not a YouTube link."
+
+msgid "Нужен хотя бы один способ ответа: текст или файл."
+msgstr "At least one way to answer is needed: text or file."
+
+msgid "Задача не найдена: %s"
+msgstr "Problem not found: %s"
+
+msgid "Слишком много вопросов."
+msgstr "Too many questions."
+
+msgid "Напишите вопрос."
+msgstr "Write the question."
+
+msgid "Укажите верный ответ."
+msgstr "Give the correct answer."
+
+msgid "Ответ должен быть числом."
+msgstr "The answer must be a number."
+
+msgid "Нужно минимум два варианта."
+msgstr "At least two options are needed."
+
+msgid "Отметьте хотя бы один верный вариант."
+msgstr "Mark at least one correct option."
+
+msgid "Слушатели: %s"
+msgstr "Learners: %s"
+
+msgid "Прогресс, %"
+msgstr "Progress, %"
+
+msgid "Балл, %"
+msgstr "Score, %"
+
+msgid "Завершён"
+msgstr "Completed"
+
+msgid "Задания"
+msgstr "Assignments"
+
+msgid "Урок"
+msgstr "Lesson"
+
+msgid "Сдано"
+msgstr "Submitted"
+
+msgid "Комментарий"
+msgstr "Comment"
+
+msgid "Проверка работ: %s"
+msgstr "Review of work: %s"
+
+msgid "Слушатель уже прислал новую версию."
+msgstr "The learner has already sent a new version."
+
+msgid "Укажите оценку числом."
+msgstr "Give the grade as a number."
+
+msgid "Открытый"
+msgstr "Open"
+
+msgid "Для организации"
+msgstr "For an organization"
+
+msgid "Видео"
+msgstr "Video"
+
+msgid "Задача сайта"
+msgstr "Site problem"
+
+msgid "Число"
+msgstr "Number"
+
+msgid "Короткий ответ"
+msgstr "Short answer"

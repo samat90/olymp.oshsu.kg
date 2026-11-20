@@ -7564,3 +7564,135 @@ msgstr "Поиск олимпиад..."
 
 msgid "No organizations yet"
 msgstr "Организаций пока нет"
+
+msgid "Tickets"
+msgstr "Заявки"
+
+msgid "Courses"
+msgstr "Курсы"
+
+msgid "Lessons, tests and certificates"
+msgstr "Уроки, тесты и сертификаты"
+
+msgid "teacher"
+msgstr "преподаватель"
+
+msgid "May create courses."
+msgstr "Может создавать курсы."
+
+msgid "coauthors"
+msgstr "соавторы"
+
+msgid "lessons open one after another"
+msgstr "уроки открываются по порядку"
+
+msgid "pass mark, %"
+msgstr "порог зачёта, %"
+
+msgid "certificate"
+msgstr "сертификат"
+
+msgid "reviews"
+msgstr "отзывы"
+
+msgid "learners"
+msgstr "слушатели"
+
+msgid "course"
+msgstr "курс"
+
+msgid "courses"
+msgstr "курсы"
+
+msgid "module"
+msgstr "модуль"
+
+msgid "modules"
+msgstr "модули"
+
+msgid "draft"
+msgstr "черновик"
+
+msgid "required"
+msgstr "обязательный"
+
+msgid "needs the \"Learned\" mark"
+msgstr "нужна отметка «Изучено»"
+
+msgid "opens at"
+msgstr "открывается"
+
+msgid "lesson block"
+msgstr "блок урока"
+
+msgid "lesson blocks"
+msgstr "блоки урока"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+msgid "test question"
+msgstr "вопрос теста"
+
+msgid "test questions"
+msgstr "вопросы теста"
+
+msgid "answer option"
+msgstr "вариант ответа"
+
+msgid "answer options"
+msgstr "варианты ответа"
+
+msgid "course enrollment"
+msgstr "запись на курс"
+
+msgid "course enrollments"
+msgstr "записи на курсы"
+
+msgid "marked as learned"
+msgstr "отмечено как изученное"
+
+msgid "lesson progress"
+msgstr "прогресс по уроку"
+
+msgid "test attempt"
+msgstr "попытка теста"
+
+msgid "test attempts"
+msgstr "попытки теста"
+
+msgid "assignment submission"
+msgstr "сданное задание"
+
+msgid "assignment submissions"
+msgstr "сданные задания"
+
+msgid "lesson comment"
+msgstr "комментарий к уроку"
+
+msgid "lesson comments"
+msgstr "комментарии к урокам"
+
+msgid "course review"
+msgstr "отзыв о курсе"
+
+msgid "course reviews"
+msgstr "отзывы о курсах"
+
+msgid "graded by"
+msgstr "кто оценил"
+
+msgid "graded at"
+msgstr "когда оценено"
+
+msgid "file name"
+msgstr "имя файла"
+
+msgid "last lesson"
+msgstr "последний урок"
+
+msgid "reply to"
+msgstr "ответ на"
+
+msgid "opened"
+msgstr "открыт"

@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+
+{% block title_row %}{% endblock %}
+{% block title_ruler %}{% endblock %}
+
+{% block media %}
+    <link rel="stylesheet" href="{{ static('courses/courses.css') }}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
+{% macro hidden(action, extra_name, extra_value) %}
+    {% csrf_token %}
+    <input type="hidden" name="action" value="{{ action }}">
+    <input type="hidden" name="back" value="{{ request.path }}">
+    {% if extra_name %}<input type="hidden" name="{{ extra_name }}" value="{{ extra_value }}">{% endif %}
+{% endmacro %}
+
+{% block body %}
+{% set post_url = url('course_edit_do', course.key) %}
+<div class="co">
+    <a class="co-back" href="{{ url('course_edit', course.key) }}"><i class="fa fa-arrow-left"></i> {{ course.title }}</a>
+    {% if disabled %}<div class="co-banner"><i class="fa fa-pause"></i> {{ disabled }}</div>{% endif %}
+    <div class="co-row" style="margin-bottom:10px">
+        <h1 class="co-h1">{{ lesson.title }}</h1>
+        {% if lesson.is_draft %}<span class="co-tag co-tag-warn">{{ _('Черновик') }}</span>{% else %}<span class="co-tag co-tag-ok">{{ _('Открыт') }}</span>{% endif %}
+        <span class="co-spacer"></span>
+        <a class="co-btn" href="{{ url('course_lesson', course.key, lesson.id) }}" target="_blank" rel="noopener"><i class="fa fa-eye"></i> {{ _('Как у слушателя') }}</a>
+    </div>
+
+    <form class="co-panel co-form" method="post" action="{{ post_url }}">
+        {{ hidden('lesson_save', 'lesson', lesson.id) }}
+        <div class="co-field"><label for="l-title">{{ _('Название урока') }}</label><input id="l-title" class="co-input" name="title" value="{{ lesson.title }}" maxlength="160" required></div>
+        <div class="co-grid2">
+            <div class="co-field"><label for="l-module">{{ _('Модуль') }}</label>
+                <select id="l-module" class="co-select" name="module"><option value="">{{ _('Без модуля') }}</option>
+                    {% for m in modules %}<option value="{{ m.id }}" {% if lesson.module_id == m.id %}selected{% endif %}>{{ m.title }}</option>{% endfor %}
+                </select></div>
+            <div class="co-field"><label for="l-open">{{ _('Открыть в') }}</label><input id="l-open" class="co-input" type="datetime-local" name="open_at" value="{{ open_at }}"></div>
+            <div class="co-field"><label for="l-dead">{{ _('Срок сдачи тестов и заданий') }}</label><input id="l-dead" class="co-input" type="datetime-local" name="deadline" value="{{ deadline }}"></div>
+        </div>
+        <div class="co-row">
+            <label class="co-check"><input type="checkbox" name="is_draft" value="1" {% if lesson.is_draft %}checked{% endif %}> {{ _('Черновик (слушатели не видят)') }}</label>
+            <label class="co-check"><input type="checkbox" name="is_required" value="1" {% if lesson.is_required %}checked{% endif %}> {{ _('Обязательный') }}</label>
+            <label class="co-check"><input type="checkbox" name="mark_required" value="1" {% if lesson.mark_required %}checked{% endif %}> {{ _('Нужна отметка «Изучено»') }}</label>
+        </div>
+        <div class="co-actions"><button class="co-btn co-btn-primary" type="submit">{{ _('Сохранить урок') }}</button></div>
+    </form>
+
+    <h2 class="co-h2">{{ _('Блоки урока') }}</h2>
+    {% for block in blocks %}
+        {% set cfg = cfgs[block.id] %}
+        <section class="co-panel co-ed-block" id="block-{{ block.id }}">
+            <div class="co-ed-head">
+                <b>{{ loop.index }}. {{ block.get_type_display() }}</b>
+                <span class="co-spacer"></span>
+                <form class="co-inline" method="post" action="{{ post_url }}">{{ hidden('block_move', 'block', block.id) }}
+                    <button class="co-btn co-btn-sm co-iconbtn" name="dir" value="up" type="submit" title="{{ _('Выше') }}"><i class="fa fa-arrow-up"></i></button>
+                    <button class="co-btn co-btn-sm co-iconbtn" name="dir" value="down" type="submit" title="{{ _('Ниже') }}"><i class="fa fa-arrow-down"></i></button>
+                </form>
+                <form class="co-inline" method="post" action="{{ post_url }}" data-confirm="{{ _('Удалить блок?') }}">{{ hidden('block_delete', 'block', block.id) }}
+                    <button class="co-btn co-btn-sm co-iconbtn co-btn-danger" type="submit" title="{{ _('Удалить') }}"><i class="fa fa-trash"></i></button>
+                </form>
+            </div>
+            <form class="co-form" method="post" enctype="multipart/form-data" action="{{ post_url }}">
+                {{ hidden('block_save', 'block', block.id) }}
+                <div class="co-field"><label>{{ _('Заголовок') }}</label><input class="co-input" name="title" value="{{ block.title }}" maxlength="200"></div>
+                {% if block.type == 'text' %}
+                    <div class="co-field"><label>{{ _('Текст') }} (Markdown, $формулы$, ```код```)</label><textarea class="co-area" name="text" rows="9" maxlength="30000">{{ block.text }}</textarea></div>
+                {% elif block.type == 'video' %}
+                    <div class="co-field"><label>{{ _('Ссылка на YouTube') }}</label><input class="co-input" name="video" value="{% if block.youtube_id %}https://youtu.be/{{ block.youtube_id }}{% endif %}" placeholder="https://www.youtube.com/watch?v=…"></div>
+                    <div class="co-field"><label>{{ _('Текст под видео') }} (Markdown)</label><textarea class="co-area" name="text" rows="4" maxlength="30000">{{ block.text }}</textarea></div>
+                {% elif block.type == 'image' %}
+                    {% if block.image %}<img src="{{ block.image.url }}" alt="" style="max-width:260px;border-radius:8px">{% endif %}
+                    <div class="co-field"><label>{{ _('Картинка') }} (JPEG, PNG, GIF, WebP, до 5 МБ)</label><input class="co-input" type="file" name="image" accept="image/*"></div>
+                    {% if block.image %}<label class="co-check"><input type="checkbox" name="remove_image" value="1"> {{ _('Убрать картинку') }}</label>{% endif %}
+                    <div class="co-field"><label>{{ _('Подпись') }}</label><textarea class="co-area" name="text" rows="2" maxlength="30000">{{ block.text }}</textarea></div>
+                {% elif block.type == 'file' %}
+                    {% if block.file %}<div class="co-small"><i class="fa fa-file-o"></i> {{ block.file.name.split('/')[-1] }}</div>{% endif %}
+                    <div class="co-field"><label>{{ _('Файл') }} (до 25 МБ)</label><input class="co-input" type="file" name="file"></div>
+                    <div class="co-field"><label>{{ _('Описание') }}</label><textarea class="co-area" name="text" rows="2" maxlength="30000">{{ block.text }}</textarea></div>
+                {% elif block.type == 'test' %}
+                    <div class="co-field"><label>{{ _('Вступление к тесту') }} (Markdown)</label><textarea class="co-area" name="text" rows="2" maxlength="30000">{{ block.text }}</textarea></div>
+                    <div class="co-grid2">
+                        <div class="co-field"><label>{{ _('Попыток (0 — без ограничений)') }}</label><input class="co-input" type="number" min="0" max="100" name="attempts" value="{{ cfg.attempts }}"></div>
+                        <div class="co-field"><label>{{ _('Зачёт от (процентов; 0 — любой результат)') }}</label><input class="co-input" type="number" min="0" max="100" name="pass_percent" value="{{ cfg.pass_percent }}"></div>
+                    </div>
+                    <div class="co-row">
+                        <label class="co-check"><input type="checkbox" name="shuffle" value="1" {% if cfg.shuffle %}checked{% endif %}> {{ _('Перемешивать вопросы') }}</label>
+                        <label class="co-check"><input type="checkbox" name="show_answers" value="1" {% if cfg.show_answers %}checked{% endif %}> {{ _('Показывать верные ответы после попытки') }}</label>
+                    </div>
+                {% elif block.type == 'assignment' %}
+                    <div class="co-field"><label>{{ _('Условие задания') }} (Markdown)</label><textarea class="co-area" name="text" rows="6" maxlength="30000">{{ block.text }}</textarea></div>
+                    <div class="co-grid2">
+                        <div class="co-field"><label>{{ _('Максимум баллов') }}</label><input class="co-input" type="number" min="1" max="1000" name="points" value="{{ block.points }}"></div>
+                        <div class="co-field"><label>{{ _('Зачёт от (процентов баллов; 0 — любая оценка)') }}</label><input class="co-input" type="number" min="0" max="100" name="pass_percent" value="{{ cfg.pass_percent }}"></div>
+                    </div>
+                    <div class="co-row">
+                        <label class="co-check"><input type="checkbox" name="allow_text" value="1" {% if cfg.allow_text %}checked{% endif %}> {{ _('Ответ текстом') }}</label>
+                        <label class="co-check"><input type="checkbox" name="allow_file" value="1" {% if cfg.allow_file %}checked{% endif %}> {{ _('Ответ файлом') }}</label>
+                    </div>
+                {% elif block.type == 'problem' %}
+                    <div class="co-grid2">
+                        <div class="co-field"><label>{{ _('Код задачи на сайте') }}</label><input class="co-input" name="problem_code" value="{% if block.problem %}{{ block.problem.code }}{% endif %}" maxlength="32">
+                            {% if block.problem %}<span class="co-small co-muted">{{ block.problem.name }}</span>{% endif %}</div>
+                        <div class="co-field"><label>{{ _('Баллов за задачу') }}</label><input class="co-input" type="number" min="1" max="1000" name="points" value="{{ block.points }}"></div>
+                        <div class="co-field"><label>{{ _('Зачёт от (процентов тестов)') }}</label><input class="co-input" type="number" min="1" max="100" name="pass_percent" value="{{ cfg.pass_percent }}"></div>
+                    </div>
+                    <div class="co-field"><label>{{ _('Пояснение') }} (Markdown)</label><textarea class="co-area" name="text" rows="3" maxlength="30000">{{ block.text }}</textarea></div>
+                {% endif %}
+                {% if block.graded %}<label class="co-check"><input type="checkbox" name="is_required" value="1" {% if block.is_required %}checked{% endif %}> {{ _('Обязательно для зачёта урока') }}</label>{% endif %}
+                <div class="co-actions" style="margin:0"><button class="co-btn co-btn-primary" type="submit">{{ _('Сохранить блок') }}</button></div>
+            </form>
+
+            {% if block.type == 'test' %}
+                <h3 class="co-h3">{{ _('Вопросы') }}</h3>
+                {% for q in block.questions.all() %}
+                    <div class="co-qbox" id="question-{{ q.id }}">
+                        <form class="co-form" method="post" action="{{ post_url }}">
+                            {{ hidden('question_save', 'question', q.id) }}
+                            <div class="co-row"><b>{{ loop.index }}.</b>
+                                <select class="co-select" name="qtype" aria-label="{{ _('Тип') }}">{% for code, name in qtypes %}<option value="{{ code }}" {% if q.type == code %}selected{% endif %}>{{ name }}</option>{% endfor %}</select>
+                                <label class="co-check">{{ _('Баллов') }} <input class="co-input" style="width:80px" type="number" min="1" max="100" name="points" value="{{ q.points }}"></label>
+                            </div>
+                            <textarea class="co-area" name="text" rows="2" maxlength="3000" required>{{ q.text }}</textarea>
+                            <div class="co-small co-muted">{{ _('Варианты: отметьте верные. Для числа и короткого ответа каждая строка — допустимый ответ.') }}</div>
+                            {% set options = q.options.all()|list %}
+                            {% for i in range(8) %}
+                                {% set o = options[i] if i < options|length else none %}
+                                <div class="co-optrow">
+                                    <input type="checkbox" name="opt_{{ i }}_ok" value="1" {% if o and o.is_correct %}checked{% endif %} aria-label="{{ _('Верный') }}">
+                                    <input class="co-input" name="opt_{{ i }}_text" value="{% if o %}{{ o.text }}{% endif %}" maxlength="300" placeholder="{{ _('Вариант') }} {{ i + 1 }}">
+                                </div>
+                            {% endfor %}
+                            <textarea class="co-area" name="explanation" rows="1" maxlength="2000" placeholder="{{ _('Пояснение к ответу (необязательно)') }}">{{ q.explanation }}</textarea>
+                            <div class="co-actions" style="margin:0"><button class="co-btn co-btn-primary co-btn-sm" type="submit">{{ _('Сохранить вопрос') }}</button></div>
+                        </form>
+                        <div class="co-actions">
+                            <form class="co-inline" method="post" action="{{ post_url }}">{{ hidden('question_move', 'question', q.id) }}
+                                <button class="co-btn co-btn-sm co-iconbtn" name="dir" value="up" type="submit"><i class="fa fa-arrow-up"></i></button>
+                                <button class="co-btn co-btn-sm co-iconbtn" name="dir" value="down" type="submit"><i class="fa fa-arrow-down"></i></button>
+                            </form>
+                            <form class="co-inline" method="post" action="{{ post_url }}" data-confirm="{{ _('Удалить вопрос?') }}">{{ hidden('question_delete', 'question', q.id) }}
+                                <button class="co-btn co-btn-sm co-btn-danger" type="submit"><i class="fa fa-trash"></i> {{ _('Удалить') }}</button>
+                            </form>
+                        </div>
+                    </div>
+                {% endfor %}
+                <form class="co-inline" method="post" action="{{ post_url }}">{{ hidden('question_add', 'block', block.id) }}
+                    <button class="co-btn" type="submit"><i class="fa fa-plus"></i> {{ _('Добавить вопрос') }}</button></form>
+            {% endif %}
+        </section>
+    {% else %}
+        <div class="co-empty">{{ _('Блоков пока нет. Добавьте любые, в любом порядке.') }}</div>
+    {% endfor %}
+
+    <div class="co-panel">
+        <h2 class="co-h2" style="margin-top:0">{{ _('Добавить блок') }}</h2>
+        <form class="co-addbar" method="post" action="{{ post_url }}">
+            {{ hidden('block_add', 'lesson', lesson.id) }}
+            {% for code, name in types %}
+                <button class="co-btn" name="type" value="{{ code }}" type="submit"><i class="fa {{ {'text': 'fa-align-left', 'video': 'fa-youtube-play', 'image': 'fa-picture-o', 'file': 'fa-file-o', 'test': 'fa-check-square-o', 'assignment': 'fa-pencil-square-o', 'problem': 'fa-puzzle-piece'}[code] }}"></i> {{ name }}</button>
+            {% endfor %}
+        </form>
+    </div>
+</div>
+<script src="{{ static('courses/courses.js') }}?v={{ STATIC_VERSION }}"></script>
+{% endblock %}

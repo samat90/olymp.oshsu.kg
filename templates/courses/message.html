@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title_row %}{% endblock %}
+{% block title_ruler %}{% endblock %}
+
+{% block media %}
+    <link rel="stylesheet" href="{{ static('courses/courses.css') }}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
+{% block body %}
+<div class="co">
+    <div class="co-panel" style="max-width:560px;margin:30px auto;text-align:center">
+        <p style="font-size:18px;margin:6px 0 16px"><i class="fa fa-info-circle"></i> {{ message }}</p>
+        <div class="co-actions" style="justify-content:center">
+            {% if back %}<a class="co-btn co-btn-primary" href="{{ back }}">{{ _('Назад') }}</a>{% endif %}
+            <a class="co-btn" href="{{ url('course_catalog') }}">{{ _('Каталог курсов') }}</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

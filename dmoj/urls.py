@@ -14,7 +14,8 @@ from judge.sitemap import sitemaps
 from judge.views import TitledTemplateView, api, blog, comment, contests, language, license, mailgun, organization, \
     preview, problem, problem_manage, ranked_submission, register, stats, status, submission, tasks, ticket, \
     two_factor, user, widgets, workspace
-from judge.views import about, anticheat, contest_tools, quiz as quiz_views, quiz_editor, typing as typing_views
+from judge.views import about, anticheat, contest_tools, course as course_views, course_edit as course_editor, \
+    quiz as quiz_views, quiz_editor, typing as typing_views
 from judge.views.default_avatar import default_avatar
 from judge.views.deploy_status import deploy_status
 from judge.views.generate_users import GenerateUsersView
@@ -130,6 +131,39 @@ urlpatterns = [
         path('records/', typing_views.records, name='typing_records'),
         path('api/start/', typing_views.start_run, name='typing_start'),
         path('api/save/', typing_views.save_result, name='typing_save'),
+    ])),
+    path('courses/', include([
+        path('', course_views.catalog, name='course_catalog'),
+        path('my/', course_views.my_courses, name='course_my'),
+        path('new/', course_editor.new_course, name='course_new'),
+        path('certificate/<str:code>/', course_views.certificate_page, name='course_certificate'),
+        path('certificate/<str:code>/qr.svg', course_views.certificate_qr, name='course_certificate_qr'),
+        path('certificate/<str:code>/file.pdf', course_views.certificate_pdf, name='course_certificate_pdf'),
+        path('<str:key>/', course_views.course_detail, name='course_detail'),
+        path('<str:key>/enroll/', course_views.enroll, name='course_enroll'),
+        path('<str:key>/leave/', course_views.unenroll, name='course_leave'),
+        path('<str:key>/rate/', course_views.rate, name='course_rate'),
+        path('<str:key>/learn/', course_views.learn, name='course_learn'),
+        path('<str:key>/learn/<int:lesson_id>/', course_views.lesson, name='course_lesson'),
+        path('<str:key>/learn/<int:lesson_id>/mark/', course_views.mark, name='course_mark'),
+        path('<str:key>/learn/<int:lesson_id>/test/<int:block_id>/', course_views.submit_test,
+             name='course_submit_test'),
+        path('<str:key>/learn/<int:lesson_id>/work/<int:block_id>/', course_views.submit_work,
+             name='course_submit_work'),
+        path('<str:key>/learn/<int:lesson_id>/comment/', course_views.add_comment, name='course_comment'),
+        path('<str:key>/comment/<int:comment_id>/delete/', course_views.delete_comment,
+             name='course_comment_delete'),
+        path('<str:key>/file/<int:block_id>/', course_views.block_file, name='course_block_file'),
+        path('<str:key>/work/<int:work_id>/file/', course_views.work_file, name='course_work_file'),
+        path('<str:key>/edit/', course_editor.edit, name='course_edit'),
+        path('<str:key>/edit/do/', course_editor.edit_do, name='course_edit_do'),
+        path('<str:key>/edit/lesson/<int:lesson_id>/', course_editor.edit_lesson, name='course_edit_lesson'),
+        path('<str:key>/students/', course_editor.students, name='course_students'),
+        path('<str:key>/students.xlsx', course_editor.students_xlsx, name='course_students_xlsx'),
+        path('<str:key>/grading/', course_editor.grading, name='course_grading'),
+        path('<str:key>/grading/<int:work_id>/', course_editor.grade, name='course_grade'),
+        path('<str:key>/copy/', course_editor.copy_course, name='course_copy'),
+        path('<str:key>/delete/', course_editor.delete_course, name='course_delete'),
     ])),
     path('quiz/', include([
         path('', quiz_views.catalog, name='quiz_catalog'),

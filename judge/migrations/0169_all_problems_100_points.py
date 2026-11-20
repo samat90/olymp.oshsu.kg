@@ -46,7 +46,7 @@ def to_100(apps, schema_editor):
         except Exception as e:  # e.g. the MySQL-only "ioi16" format; the table can be rebuilt from the admin later
             print('  contest %s: results not recomputed (%s)' % (participation.contest.key, e))
 
-    for profile in Profile.objects.filter(id__in=users):
+    for profile in Profile.objects.filter(id__in=users).defer('is_teacher'):
         profile._updating_stats_only = True
         profile.calculate_points()
         cache.delete('user_complete:%d' % profile.id)

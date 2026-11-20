@@ -24,6 +24,10 @@
                 <span class="tile-icon"><i class="fa fa-gamepad"></i></span>
                 <span class="tile-text"><b>{{ _('Quiz') }}</b><small>{{ _('Group games by PIN') }}</small></span>
             </a>
+            <a class="hero-tile tile-courses" href="{{ url('course_catalog') }}">
+                <span class="tile-icon"><i class="fa fa-graduation-cap"></i></span>
+                <span class="tile-text"><b>{{ _('Courses') }}</b><small>{{ _('Lessons, tests and certificates') }}</small></span>
+            </a>
         </div>
     </section>
     {% if request.user.is_authenticated and (request.user.is_superuser or request.user.is_staff) %}

@@ -2,7 +2,8 @@
 
     python scripts/dev/add_translations.py scripts/dev/translations.json
 
-The JSON maps an English msgid to {"ru": "...", "ky": "..."}. New entries are
+The JSON maps an English msgid to {"ru": "...", "ky": "..."} (a Russian msgid, as in the quiz
+and courses, maps to {"en": "...", "ky": "..."}; English is added only when given). New entries are
 appended to the end of each .po file; existing entries are left alone.
 """
 import json
@@ -22,13 +23,13 @@ def po_escape(text):
 def main(path):
     with open(path, encoding='utf-8') as f:
         table = json.load(f)
-    for lang in ('ru', 'ky'):
+    for lang in ('ru', 'ky', 'en'):
         po_path = os.path.join(ROOT, 'locale', lang, 'LC_MESSAGES', 'django.po')
         with open(po_path, 'rb') as f:
             catalog = read_po(f)
         entries = []
         for msgid, values in table.items():
-            text = values.get(lang) or values.get('ru')
+            text = values.get(lang) if lang == 'en' else (values.get(lang) or values.get('ru'))
             if not text or msgid in catalog:
                 continue
             entries.append('\nmsgid "%s"\nmsgstr "%s"\n' % (po_escape(msgid), po_escape(text)))

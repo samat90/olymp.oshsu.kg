@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title_row %}{% endblock %}
+{% block title_ruler %}{% endblock %}
+
+{% block media %}
+    <link rel="stylesheet" href="{{ static('courses/courses.css') }}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
+{% block body %}
+<div class="co">
+    <a class="co-back" href="{{ url('course_edit', course.key) }}"><i class="fa fa-arrow-left"></i> {{ course.title }}</a>
+    <div class="co-row" style="margin-bottom:12px">
+        <h1 class="co-h1">{{ _('Слушатели') }}</h1>
+        <span class="co-tag">{{ _('Всего') }}: {{ total }}</span>
+        <span class="co-tag co-tag-ok">{{ _('Прошли курс') }}: {{ finished }}</span>
+        <span class="co-spacer"></span>
+        <a class="co-btn" href="{{ url('course_grading', course.key) }}"><i class="fa fa-check-square-o"></i> {{ _('Проверка работ') }}{% if pending %} ({{ pending }}){% endif %}</a>
+        <a class="co-btn" href="{{ url('course_students_xlsx', course.key) }}"><i class="fa fa-file-excel-o"></i> Excel</a>
+    </div>
+    <form class="co-search" method="get" style="margin-bottom:12px">
+        <input class="co-input" type="search" name="q" value="{{ query }}" placeholder="{{ _('Логин') }}">
+        <button class="co-btn" type="submit" aria-label="{{ _('Найти') }}"><i class="fa fa-search"></i></button>
+    </form>
+    {% if rows %}
+        <div class="co-table-wrap">
+            <table class="co-table">
+                <thead><tr>
+                    <th>{{ _('Пользователь') }}</th><th>{{ _('Записан') }}</th><th class="co-num">{{ _('Прогресс') }}</th>
+                    <th class="co-num">{{ _('Балл') }}</th><th>{{ _('Итог') }}</th>
+                    {% for l in lessons %}<th title="{{ l.title }}">{{ loop.index }}</th>{% endfor %}
+                </tr></thead>
+                <tbody id="co-rows">
+                    {% for row in rows %}
+                        <tr>
+                            <td>{{ link_user(row.enrollment.profile) }}</td>
+                            <td class="co-nowrap">{{ row.enrollment.joined|date('d.m.Y') }}</td>
+                            <td class="co-num">{{ row.progress.percent }}%</td>
+                            <td class="co-num">{% if row.progress.score_percent is not none %}{{ row.progress.score_percent }}%{% else %}—{% endif %}</td>
+                            <td>{% if row.enrollment.completed_at %}<span class="co-tag co-tag-ok">{{ _('Пройден') }}</span>{% endif %}</td>
+                            {% for l in lessons %}<td>{% if row.progress.complete.get(l.id) %}<i class="fa fa-check" style="color:var(--co-ok)"></i>{% endif %}</td>{% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% if page.has_next() %}
+            <div class="co-more" data-infinite="#co-rows">
+                <a class="co-btn" rel="next" href="?{% if query %}q={{ query|urlencode }}&{% endif %}page={{ page.next_page_number() }}">{{ _('Показать ещё') }}</a>
+            </div>
+        {% endif %}
+    {% else %}
+        <div class="co-empty">{{ _('Слушателей пока нет.') }}</div>
+    {% endif %}
+</div>
+<script src="{{ static('courses/courses.js') }}?v={{ STATIC_VERSION }}"></script>
+{% endblock %}

@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block title_row %}{% endblock %}
+{% block title_ruler %}{% endblock %}
+
+{% block media %}
+    <link rel="stylesheet" href="{{ static('courses/courses.css') }}?v={{ STATIC_VERSION }}">
+    <meta property="og:title" content="{{ course.title }}">
+{% endblock %}
+
+{% block body %}
+<div class="co">
+    <a class="co-back" href="{{ url('course_catalog') }}"><i class="fa fa-arrow-left"></i> {{ _('Каталог курсов') }}</a>
+    {% if closed %}<div class="co-banner"><i class="fa fa-pause"></i> {{ closed }}</div>{% endif %}
+    {% if course.status == 'draft' %}<div class="co-banner">{{ _('Черновик: курс виден только преподавателям.') }}</div>{% endif %}
+    {% if course.is_hidden %}<div class="co-banner">{{ _('Курс скрыт администратором.') }}</div>{% endif %}
+    <div class="co-course-head">
+        <div class="co-course-main">
+            <h1 class="co-h1">{{ course.title }}</h1>
+            <p class="co-row" style="margin:8px 0">
+                {% if course.subject %}<span class="co-tag">{{ course.subject }}</span>{% endif %}
+                <span class="co-tag">{{ course.get_language_display() }}</span>
+                {% if course.access != 'public' %}<span class="co-tag">{{ course.get_access_display() }}</span>{% endif %}
+                {% if summary.n %}<span class="co-rating"><i class="fa fa-star"></i> {{ '%.1f'|format(summary.avg) }} <span class="co-muted">({{ summary.n }})</span></span>{% endif %}
+            </p>
+            <p class="co-muted" style="margin:4px 0 14px">
+                {{ _('Преподаватель') }}: {% for a in authors %}{{ link_user(a) }}{% if not loop.last %}, {% endif %}{% endfor %}
+            </p>
+            {% if course.description %}
+                <div class="co-description">{{ course.description|markdown('comment', MATH_ENGINE) }}</div>
+            {% endif %}
+        </div>
+        <aside class="co-side co-panel">
+            {% if course.cover %}<span class="co-cover"><img src="{{ course.cover.url }}" alt=""></span>{% endif %}
+            <p class="co-row co-muted" style="margin:0 0 10px">
+                <span><i class="fa fa-list"></i> {{ lesson_total }} {{ _('уроков') }}</span>
+                <span><i class="fa fa-users"></i> {{ course.enrollments_count }}</span>
+                {% if course.certificate %}<span><i class="fa fa-certificate"></i> {{ _('Сертификат') }}</span>{% endif %}
+            </p>
+            {% if enrollment %}
+                <div class="co-bar" style="margin-bottom:6px"><i style="width:{{ progress.percent }}%"></i></div>
+                <p class="co-small co-muted" style="margin:0 0 10px">{{ _('Пройдено') }}: {{ progress.percent }}%{% if progress.score_percent is not none %} · {{ _('Балл') }}: {{ progress.score_percent }}%{% endif %}</p>
+                {% if lesson_total %}<a class="co-btn co-btn-primary co-btn-lg" href="{{ url('course_learn', course.key) }}">{% if enrollment.completed_at %}{{ _('Открыть курс') }}{% elif progress.percent %}{{ _('Продолжить') }}{% else %}{{ _('Начать') }}{% endif %}</a>{% endif %}
+                {% if enrollment.certificate_code %}<a class="co-btn" href="{{ url('course_certificate', enrollment.certificate_code) }}"><i class="fa fa-certificate"></i> {{ _('Сертификат') }}</a>{% endif %}
+                {% if not enrollment.completed_at %}
+                    <form method="post" action="{{ url('course_leave', course.key) }}" data-confirm="{{ _('Отписаться от курса? Прогресс будет удалён.') }}">{% csrf_token %}<button class="co-btn co-btn-sm" type="submit">{{ _('Отписаться') }}</button></form>
+                {% endif %}
+            {% elif course.status == 'published' and not course.is_hidden %}
+                {% if request.user.is_authenticated %}
+                    <form method="post" action="{{ url('course_enroll', course.key) }}">{% csrf_token %}<button class="co-btn co-btn-primary co-btn-lg" type="submit" {% if closed and not can_edit %}disabled{% endif %}>{{ _('Записаться') }}</button></form>
+                {% else %}
+                    <a class="co-btn co-btn-primary co-btn-lg" href="{{ url('auth_login') }}?next={{ request.get_full_path()|urlencode }}">{{ _('Войти и записаться') }}</a>
+                {% endif %}
+            {% endif %}
+            {% if can_edit %}
+                <hr style="margin:14px 0">
+                {% if first %}<a class="co-btn" href="{{ url('course_lesson', course.key, first.id) }}"><i class="fa fa-eye"></i> {{ _('Посмотреть как слушатель') }}</a>{% endif %}
+                <a class="co-btn" href="{{ url('course_edit', course.key) }}"><i class="fa fa-pencil"></i> {{ _('Править курс') }}</a>
+                <a class="co-btn" href="{{ url('course_students', course.key) }}"><i class="fa fa-users"></i> {{ _('Слушатели') }}</a>
+                <form method="post" action="{{ url('course_copy', course.key) }}" data-confirm="{{ _('Создать копию курса?') }}">{% csrf_token %}<button class="co-btn" type="submit"><i class="fa fa-clone"></i> {{ _('Копировать') }}</button></form>
+            {% endif %}
+        </aside>
+    </div>
+
+    <h2 class="co-h2">{{ _('Программа') }}</h2>
+    {% if groups %}
+        <div class="co-panel">
+            {% for module, lessons in groups %}
+                {% if module %}<div class="co-module">{{ module.title }}</div>{% endif %}
+                <ul class="co-program">
+                    {% for lesson in lessons %}
+                        {% set done = progress and progress.complete.get(lesson.id) %}
+                        {% set locked = progress and not progress.available.get(lesson.id) %}
+                        <li>
+                            <a class="co-lesson-row{% if done %} co-done{% endif %}{% if locked %} co-locked{% endif %}" {% if enrollment or can_edit %}href="{{ url('course_lesson', course.key, lesson.id) }}"{% endif %}>
+                                <span class="co-tick"><i class="fa {% if done %}fa-check-circle{% elif locked %}fa-lock{% else %}fa-circle-o{% endif %}"></i></span>
+                                <span style="flex:1">{{ lesson.title }}</span>
+                                {% if lesson.is_draft %}<span class="co-tag co-tag-warn">{{ _('Черновик') }}</span>{% endif %}
+                                {% if not lesson.is_required %}<span class="co-tag">{{ _('По желанию') }}</span>{% endif %}
+                                {% if lesson.open_at and lesson.open_at > now() %}<span class="co-tag">{{ lesson.open_at|date('d.m.Y H:i') }}</span>{% endif %}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="co-empty">{{ _('В курсе пока нет уроков.') }}</div>
+    {% endif %}
+
+    {% if course.reviews_on %}
+    <h2 class="co-h2" id="reviews">{{ _('Отзывы') }}</h2>
+    <div class="co-panel">
+        {% if can_review %}
+            <form method="post" action="{{ url('course_rate', course.key) }}" class="co-form" style="margin-bottom:12px">
+                {% csrf_token %}
+                <div class="co-row">
+                    <label class="co-label" for="rate-v">{{ _('Оценка') }}</label>
+                    <select id="rate-v" class="co-select" name="rating">
+                        {% for n in [5, 4, 3, 2, 1] %}<option value="{{ n }}" {% if my_review and my_review.rating == n %}selected{% endif %}>{{ '★' * n }}</option>{% endfor %}
+                    </select>
+                </div>
+                <textarea class="co-area" name="text" maxlength="2000" rows="3" placeholder="{{ _('Ваш отзыв о курсе') }}">{% if my_review %}{{ my_review.text }}{% endif %}</textarea>
+                <div><button class="co-btn co-btn-primary" type="submit">{{ _('Сохранить отзыв') }}</button></div>
+            </form>
+        {% endif %}
+        {% for review in reviews %}
+            <div class="co-review">
+                <div class="co-row"><b>{{ link_user(review.profile) }}</b><span class="co-stars">{{ '★' * review.rating }}</span><span class="co-muted co-small">{{ review.created|date('d.m.Y') }}</span></div>
+                {% if review.text %}<div>{{ review.text }}</div>{% endif %}
+            </div>
+        {% else %}
+            <div class="co-muted">{{ _('Отзывов пока нет.') }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+<script src="{{ static('courses/courses.js') }}?v={{ STATIC_VERSION }}"></script>
+{% endblock %}

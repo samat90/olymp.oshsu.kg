@@ -219,6 +219,17 @@ else:
                 },
                 ('judge.Ticket', 'fa-bell'),
                 {
+                    'model': 'judge.Course',
+                    'icon': 'fa-graduation-cap',
+                    'children': [
+                        'judge.CourseEnrollment',
+                        'judge.CourseWork',
+                        'judge.CourseLesson',
+                        'judge.CourseReview',
+                        'judge.CourseComment',
+                    ],
+                },
+                {
                     'model': 'judge.Quiz',
                     'icon': 'fa-gamepad',
                     'children': [

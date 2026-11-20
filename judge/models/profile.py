@@ -174,6 +174,8 @@ class Profile(models.Model):
         help_text=_("User will not be able to vote on problems' point values."),
         default=False,
     )
+    is_teacher = models.BooleanField(verbose_name=_('teacher'), default=False, db_index=True,
+                                     help_text=_('May create courses.'))
     rating = models.IntegerField(null=True, default=None)
     user_script = models.TextField(verbose_name=_('user script'), default='', blank=True, max_length=65536,
                                    help_text=_('User-defined JavaScript for site customization.'))

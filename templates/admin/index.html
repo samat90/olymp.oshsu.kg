@@ -44,6 +44,14 @@
         <a class="oa-link" href="/quiz/">{% trans "Викторина на сайте" %}</a>
     </div>
     <div class="oa-card">
+        <h3>{% trans "Курсы" %}</h3>
+        <a class="oa-main" href="{% url 'course_new' %}">+ {% trans "Создать курс" %}</a>
+        <a class="oa-link" href="{% url 'admin:judge_course_changelist' %}">{% trans "Все курсы" %}</a>
+        <a class="oa-link" href="{% url 'admin:judge_profile_changelist' %}?is_teacher__exact=1">{% trans "Преподаватели" %}</a>
+        <a class="oa-link" href="{% url 'admin:judge_coursework_changelist' %}">{% trans "Сданные задания" %}</a>
+        <a class="oa-link" href="{% url 'course_catalog' %}">{% trans "Курсы на сайте" %}</a>
+    </div>
+    <div class="oa-card">
         <h3>{% trans "Проверка" %}</h3>
         <a class="oa-link" href="/submissions/">{% trans "Все посылки" %}</a>
         <a class="oa-link" href="{% url 'admin:judge_judge_changelist' %}">{% trans "Судьи (серверы проверки)" %}</a>
