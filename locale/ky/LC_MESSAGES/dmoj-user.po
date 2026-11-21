@@ -59,3 +59,6 @@ msgstr "Тренажёр"
 
 msgid "Quiz"
 msgstr "Викторина"
+
+msgid "Courses"
+msgstr "Курстар"

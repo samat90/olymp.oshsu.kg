@@ -47,3 +47,6 @@ msgstr "Change language"
 
 msgid "Toggle theme"
 msgstr "Toggle theme"
+
+msgid "Courses"
+msgstr "Courses"
