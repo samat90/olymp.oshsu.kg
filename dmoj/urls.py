@@ -137,6 +137,7 @@ urlpatterns = [
         path('my/', course_views.my_courses, name='course_my'),
         path('new/', course_editor.new_course, name='course_new'),
         path('certificate/<str:code>/', course_views.certificate_page, name='course_certificate'),
+        path('certificate/<str:code>/name/', course_views.certificate_name, name='course_certificate_name'),
         path('certificate/<str:code>/qr.svg', course_views.certificate_qr, name='course_certificate_qr'),
         path('certificate/<str:code>/file.pdf', course_views.certificate_pdf, name='course_certificate_pdf'),
         path('<str:key>/', course_views.course_detail, name='course_detail'),

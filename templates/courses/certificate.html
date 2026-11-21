@@ -9,20 +9,34 @@
 
 {% block body %}
 <div class="co">
+    {% if ask_name %}
+    <div class="co-cert">
+        <h2 style="margin:0 0 14px">{{ _('Для сертификата укажите ФИО') }}</h2>
+        {% if error %}<p style="color:#c0392b">{{ _('Фамилия и имя обязательны, не длиннее 60 знаков.') }}</p>{% endif %}
+        <form method="post" action="{{ url('course_certificate_name', code) }}" class="co-form" style="text-align:left">{% csrf_token %}
+            <div class="co-field"><label for="cert-surname">{{ _('Фамилия') }}</label><input class="co-input" id="cert-surname" name="surname" value="{{ form.surname }}" maxlength="60" required></div>
+            <div class="co-field"><label for="cert-name">{{ _('Имя') }}</label><input class="co-input" id="cert-name" name="name" value="{{ form.name }}" maxlength="60" required></div>
+            <div class="co-field"><label for="cert-patronymic">{{ _('Отчество (если есть)') }}</label><input class="co-input" id="cert-patronymic" name="patronymic" value="{{ form.patronymic }}" maxlength="60"></div>
+            <button class="co-btn co-btn-primary" type="submit">{{ _('Получить сертификат') }}</button>
+        </form>
+    </div>
+    {% else %}
     <div class="co-cert">
         <p class="co-muted" style="margin:0">OshSU Olymp</p>
         <h1>{{ _('СЕРТИФИКАТ') }}</h1>
         <p class="co-muted">{{ _('Подтверждается, что') }}</p>
-        <div class="co-cert-name">{{ enrollment.profile.user.get_full_name() or enrollment.profile.username }}</div>
+        <div class="co-cert-name">{{ name or '—' }}</div>
         <p class="co-muted">{{ _('успешно прошёл(а) курс') }}</p>
         <h2 style="margin:6px 0 16px">«{{ course.title }}»</h2>
         <p class="co-muted">{{ _('Дата') }}: {{ enrollment.completed_at|date('d.m.Y') }} · {{ _('Номер') }}: <b>{{ code }}</b><br>
             {{ _('Преподаватель') }}: {{ course.author.user.get_full_name() or course.author.username }}</p>
         <img src="{{ url('course_certificate_qr', code) }}" alt="QR">
         <div class="co-actions" style="justify-content:center">
-            <a class="co-btn co-btn-primary" href="{{ url('course_certificate_pdf', code) }}"><i class="fa fa-download"></i> PDF</a>
+            {% if name %}<a class="co-btn co-btn-primary" href="{{ url('course_certificate_pdf', code) }}"><i class="fa fa-download"></i> PDF</a>{% endif %}
+            {% if is_owner %}<a class="co-btn" href="{{ url('course_certificate', code) }}?edit=1">{{ _('Изменить ФИО') }}</a>{% endif %}
             <a class="co-btn" href="{{ url('course_detail', course.key) }}">{{ _('К курсу') }}</a>
         </div>
     </div>
+    {% endif %}
 </div>
 {% endblock %}

@@ -8869,3 +8869,25 @@ msgstr "Short answer"
 
 msgid "Нельзя отписаться: у вас есть сданные тесты или задания."
 msgstr "You cannot leave: you have submitted tests or assignments."
+
+
+msgid "Для сертификата укажите ФИО"
+msgstr "Enter your full name for the certificate"
+
+msgid "Фамилия и имя обязательны, не длиннее 60 знаков."
+msgstr "Surname and first name are required, up to 60 characters each."
+
+msgid "Фамилия"
+msgstr "Surname"
+
+msgid "Имя"
+msgstr "First name"
+
+msgid "Отчество (если есть)"
+msgstr "Patronymic (if any)"
+
+msgid "Получить сертификат"
+msgstr "Get the certificate"
+
+msgid "Изменить ФИО"
+msgstr "Change full name"

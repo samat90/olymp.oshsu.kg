@@ -733,8 +733,13 @@ class CertificateTests(CourseBase):
         enrollment.refresh_from_db()
         return enrollment
 
-    def test_pdf_page_and_qr(self):
+    def named(self, name=('Иванов', 'Пётр', 'Сергеевич')):
         enrollment = self.finished()
+        logic.save_name(self.student, *name)
+        return enrollment
+
+    def test_pdf_page_and_qr(self):
+        enrollment = self.named()
         code = enrollment.certificate_code
         client = Client()
         page = client.get(reverse('course_certificate', args=[code]))
@@ -748,11 +753,63 @@ class CertificateTests(CourseBase):
         self.assertEqual(client.get(reverse('course_certificate', args=['NOSUCHCODE1'])).status_code, 404)
 
     def test_pdf_for_each_language(self):
-        enrollment = self.finished()
+        enrollment = self.named()
         from judge.utils.course_certificate import render_certificate
         for lang in ('ru', 'ky', 'en'):
             enrollment.course.language = lang
             self.assertTrue(render_certificate(enrollment, 'https://example.org/c/1').startswith(b'%PDF'), lang)
+
+    def test_owner_without_name_gets_the_form_and_no_pdf(self):
+        enrollment = self.finished()
+        code = enrollment.certificate_code
+        owner = self.login(self.student)
+        page = owner.get(reverse('course_certificate', args=[code]))
+        self.assertContains(page, 'name="surname"')
+        self.assertNotContains(page, 'СЕРТИФИКАТ')
+        self.assertRedirects(owner.get(reverse('course_certificate_pdf', args=[code])),
+                             reverse('course_certificate', args=[code]))
+        # Nobody else gets a PDF with a login instead of a name, and nobody else sees the form.
+        self.assertEqual(Client().get(reverse('course_certificate_pdf', args=[code])).status_code, 404)
+        self.assertNotContains(Client().get(reverse('course_certificate', args=[code])), 'name="surname"')
+
+    def test_saving_the_name(self):
+        enrollment = self.finished()
+        code = enrollment.certificate_code
+        owner = self.login(self.student)
+        url = reverse('course_certificate_name', args=[code])
+        for bad in ({'surname': '', 'name': 'Пётр'}, {'surname': 'Иванов', 'name': ' '},
+                    {'surname': 'И' * 61, 'name': 'Пётр'}):
+            self.assertIn('error=1', owner.post(url, bad)['Location'])
+        self.student.refresh_from_db()
+        self.assertEqual(logic.full_name(self.student), '')
+        response = owner.post(url, {'surname': ' Иванов ', 'name': 'Пётр', 'patronymic': 'Сергеевич'})
+        self.assertRedirects(response, reverse('course_certificate', args=[code]))
+        self.student.refresh_from_db()
+        self.assertEqual(logic.full_name(self.student), 'Иванов Пётр Сергеевич')
+        self.assertEqual(logic.split_name(self.student), ('Иванов', 'Пётр', 'Сергеевич'))
+        page = owner.get(reverse('course_certificate', args=[code]))
+        self.assertContains(page, 'Иванов Пётр Сергеевич')
+        self.assertNotContains(page, 'name="surname"')
+        self.assertContains(owner.get(reverse('course_certificate', args=[code]) + '?edit=1'), 'value="Иванов"')
+        self.assertEqual(owner.get(reverse('course_certificate_pdf', args=[code]))['Content-Type'],
+                         'application/pdf')
+
+    def test_only_the_owner_changes_the_name(self):
+        enrollment = self.named()
+        url = reverse('course_certificate_name', args=[enrollment.certificate_code])
+        self.assertEqual(self.login(self.teacher).post(url, {'surname': 'Хакер', 'name': 'Х'}).status_code, 404)
+        self.assertEqual(Client().post(url, {'surname': 'Хакер', 'name': 'Х'}).status_code, 302)
+        self.student.refresh_from_db()
+        self.assertEqual(logic.full_name(self.student), 'Иванов Пётр Сергеевич')
+
+    def test_name_on_the_certificate(self):
+        from judge.utils.course_certificate import render_certificate
+        enrollment = self.named()
+        with patch('judge.utils.course_certificate.full_name', wraps=logic.full_name) as used:
+            render_certificate(enrollment, 'https://example.org/c/1')
+        used.assert_called_once_with(self.student)
+        self.assertEqual(logic.full_name(enrollment.profile.user), 'Иванов Пётр Сергеевич')
+        self.assertNotIn(self.student.username, logic.full_name(enrollment.profile.user))
 
     def test_unfinished_has_no_certificate(self):
         course = make_course(self.teacher)

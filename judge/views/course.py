@@ -532,11 +532,29 @@ def certificate_enrollment(code):
 
 def certificate_page(request, code):
     enrollment = certificate_enrollment(code)
+    is_owner = request.user.is_authenticated and request.profile.id == enrollment.profile_id
+    name = logic.full_name(enrollment.profile.user)
+    surname, first, patronymic = logic.split_name(enrollment.profile.user)
     return render(request, 'courses/certificate.html', {
         'title': _('Сертификат'), 'enrollment': enrollment, 'course': enrollment.course,
-        'code': enrollment.certificate_code,
-        'is_owner': request.user.is_authenticated and request.profile.id == enrollment.profile_id,
+        'code': enrollment.certificate_code, 'is_owner': is_owner, 'name': name,
+        'ask_name': is_owner and (not name or request.GET.get('edit') == '1'),
+        'form': {'surname': surname, 'name': first, 'patronymic': patronymic}, 'error': request.GET.get('error'),
     })
+
+
+@login_required
+@require_POST
+def certificate_name(request, code):
+    enrollment = certificate_enrollment(code)
+    if request.profile.id != enrollment.profile_id:
+        raise Http404()
+    surname, name, patronymic = (' '.join(request.POST.get(key, '').split())
+                                 for key in ('surname', 'name', 'patronymic'))
+    if not surname or not name or len(surname) > 60 or len(name) > 60 or len(patronymic) > 60:
+        return redirect(reverse('course_certificate', args=[enrollment.certificate_code]) + '?edit=1&error=1')
+    logic.save_name(request.user, surname, name, patronymic)
+    return redirect('course_certificate', code=enrollment.certificate_code)
 
 
 def certificate_qr(request, code):
@@ -555,6 +573,11 @@ def certificate_qr(request, code):
 def certificate_pdf(request, code):
     from judge.utils.course_certificate import render_certificate
     enrollment = certificate_enrollment(code)
+    if not logic.full_name(enrollment.profile.user):
+        # No name to print: the owner is asked for it on the certificate page, nobody else gets a PDF.
+        if request.user.is_authenticated and request.profile.id == enrollment.profile_id:
+            return redirect('course_certificate', code=enrollment.certificate_code)
+        raise Http404()
     url = request.build_absolute_uri(reverse('course_certificate', args=[enrollment.certificate_code]))
     data = render_certificate(enrollment, url)
     response = HttpResponse(data, content_type='application/pdf')

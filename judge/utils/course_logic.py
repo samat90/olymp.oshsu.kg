@@ -164,6 +164,23 @@ def build_progress(enrollment, lessons=None, blocks=None):
     return data
 
 
+def full_name(user):
+    """The name printed on certificates: surname, name, patronymic ('' when not filled in)."""
+    return ' '.join(part for part in (user.last_name.strip(), user.first_name.strip()) if part)
+
+
+def split_name(user):
+    """(surname, name, patronymic) for the form; the patronymic is kept after the name in first_name."""
+    name, _sep, patronymic = user.first_name.strip().partition(' ')
+    return user.last_name.strip(), name, patronymic.strip()
+
+
+def save_name(user, surname, name, patronymic):
+    user.last_name = surname
+    user.first_name = ' '.join(part for part in (name, patronymic) if part)
+    user.save(update_fields=['first_name', 'last_name'])
+
+
 def new_certificate_code():
     while True:
         code = ''.join(secrets.choice(CERT_ALPHABET) for _unused in range(10))

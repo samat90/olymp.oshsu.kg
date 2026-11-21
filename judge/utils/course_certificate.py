@@ -6,6 +6,8 @@ from django.conf import settings
 from django.utils import timezone
 from PIL import Image, ImageDraw, ImageFont
 
+from judge.utils.course_logic import full_name
+
 W, H = 2480, 1754  # A4 landscape at 300 dpi
 INK, MUTED, ACCENT, PAPER = (27, 36, 48), (102, 112, 133), (30, 58, 95), (253, 252, 248)
 GOLD = (176, 138, 54)
@@ -83,7 +85,7 @@ def render_certificate(enrollment, verify_url):
     center(draw, 190, 'OshSU Olymp', font(True, 46), MUTED)
     center(draw, 270, head, font(True, 130), ACCENT)
     center(draw, 460, certify, font(False, 56), MUTED)
-    name = enrollment.profile.user.get_full_name().strip() or enrollment.profile.username
+    name = full_name(enrollment.profile.user)
     center(draw, 560, name, fit(draw, name, True, 120, W - 400), INK)
     draw.line((W / 2 - 520, 720, W / 2 + 520, 720), fill=GOLD, width=3)
     center(draw, 770, completed, font(False, 56), MUTED)
