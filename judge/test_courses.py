@@ -965,6 +965,54 @@ class CertificateTests(CourseBase):
         self.assertEqual(Course.objects.get(title='Второй').instructor_name, 'Петров Иван Иванович')
 
 
+class TeacherAdminTests(CourseBase):
+    def user_post(self, user, **extra):
+        data = {'username': user.username, 'date_joined_0': '2026-01-01', 'date_joined_1': '10:00:00',
+                'is_active': 'on'}
+        return self.login(self.admin).post(reverse('admin:auth_user_change', args=[user.pk]), dict(data, **extra))
+
+    def test_user_page_has_the_teacher_checkbox(self):
+        client = self.login(self.admin)
+        page = client.get(reverse('admin:auth_user_change', args=[self.student.pk]))
+        self.assertContains(page, 'name="is_teacher"')
+        self.assertContains(page, 'Преподаватель')
+        self.assertNotRegex(page.content.decode(), r'<input[^>]*name="is_teacher"[^>]*checked')
+        page = client.get(reverse('admin:auth_user_change', args=[self.teacher.pk]))
+        self.assertRegex(page.content.decode(), r'<input[^>]*name="is_teacher"[^>]*checked')
+
+    def test_teacher_status_is_set_from_the_user_page(self):
+        response = self.user_post(self.student, is_teacher='on')
+        self.assertEqual(response.status_code, 302)
+        self.student.profile.refresh_from_db()
+        self.assertTrue(self.student.profile.is_teacher)
+        self.user_post(self.student)
+        self.student.profile.refresh_from_db()
+        self.assertFalse(self.student.profile.is_teacher)
+
+    def test_user_list_column_filter_and_actions(self):
+        client = self.login(self.admin)
+        url = reverse('admin:auth_user_changelist')
+        self.assertContains(client.get(url), 'Преподаватель')
+        page = client.get(url + '?profile__is_teacher__exact=1')
+        self.assertContains(page, 'teach2')
+        self.assertNotContains(page, 'stud2')
+        client.post(url, {'action': 'make_teachers', '_selected_action': [self.student2.pk]})
+        self.student2.profile.refresh_from_db()
+        self.assertTrue(self.student2.profile.is_teacher)
+        client.post(url, {'action': 'remove_teachers', '_selected_action': [self.student2.pk]})
+        self.student2.profile.refresh_from_db()
+        self.assertFalse(self.student2.profile.is_teacher)
+
+    def test_profile_page_and_list(self):
+        client = self.login(self.admin)
+        page = client.get(reverse('admin:judge_profile_change', args=[self.student.profile.pk]))
+        self.assertContains(page, 'Может создавать курсы')
+        self.assertLess(page.content.decode().index('name="is_teacher"'), page.content.decode().index('name="about"'))
+        listing = client.get(reverse('admin:judge_profile_changelist'))
+        self.assertContains(listing, 'Преподаватель')
+        self.assertContains(client.get(reverse('admin:judge_profile_changelist') + '?is_teacher__exact=1'), 'teach2')
+
+
 class CommentTests(CourseBase):
     def test_comments_and_reviews(self):
         course = make_course(self.teacher)

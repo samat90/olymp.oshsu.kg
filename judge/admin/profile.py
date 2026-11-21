@@ -1,6 +1,7 @@
 from django.contrib import admin, messages
 from django.contrib.auth.admin import UserAdmin as OldUserAdmin
-from django.forms import ModelForm
+from django.contrib.auth.forms import UserChangeForm
+from django.forms import BooleanField, ModelForm
 from django.urls import reverse_lazy
 from django.utils.html import format_html
 from django.utils.translation import gettext, gettext_lazy as _, ngettext
@@ -9,6 +10,10 @@ from reversion.admin import VersionAdmin
 from judge.models import Profile, WebAuthnCredential
 from judge.utils.views import NoBatchDeleteMixin
 from judge.widgets import AdminAceWidget, AdminMartorWidget, AdminSelect2Widget
+
+
+TEACHER_LABEL = 'Преподаватель'
+TEACHER_HELP = 'Может создавать курсы и проверять работы слушателей. Отметьте и сохраните.'
 
 
 class ProfileForm(ModelForm):
@@ -22,6 +27,8 @@ class ProfileForm(ModelForm):
                 lambda obj: '%s v%d' % (obj.contest.name, obj.virtual) if obj.virtual else obj.contest.name
 
     class Meta:
+        labels = {'is_teacher': TEACHER_LABEL}
+        help_texts = {'is_teacher': TEACHER_HELP}
         widgets = {
             'timezone': AdminSelect2Widget,
             'language': AdminSelect2Widget,
@@ -54,11 +61,11 @@ class WebAuthnInline(admin.TabularInline):
 
 
 class ProfileAdmin(NoBatchDeleteMixin, VersionAdmin):
-    fields = ('user', 'display_rank', 'is_teacher', 'about', 'organizations', 'timezone', 'language', 'ace_theme',
+    fields = ('user', 'is_teacher', 'display_rank', 'about', 'organizations', 'timezone', 'language', 'ace_theme',
               'math_engine', 'last_access', 'ip', 'mute', 'is_unlisted', 'is_banned_from_problem_voting',
               'username_display_override', 'notes', 'is_totp_enabled', 'user_script', 'current_contest')
     readonly_fields = ('user',)
-    list_display = ('admin_user_admin', 'email', 'is_teacher', 'is_totp_enabled', 'timezone_full',
+    list_display = ('admin_user_admin', 'email', 'teacher_flag', 'is_totp_enabled', 'timezone_full',
                     'date_joined', 'last_access', 'ip', 'show_public')
     ordering = ('user__username',)
     search_fields = ('user__username', 'ip', 'user__email')
@@ -110,6 +117,10 @@ class ProfileAdmin(NoBatchDeleteMixin, VersionAdmin):
             actions[name] = (func, name, desc)
 
         return actions
+
+    @admin.display(description=TEACHER_LABEL, ordering='is_teacher', boolean=True)
+    def teacher_flag(self, obj):
+        return obj.is_teacher
 
     @admin.display(description='')
     def show_public(self, obj):
@@ -182,8 +193,44 @@ class ProfileAdmin(NoBatchDeleteMixin, VersionAdmin):
         return form
 
 
+class UserForm(UserChangeForm):
+    """The user page also sets the teacher status, so nobody has to look for it in the profile."""
+    is_teacher = BooleanField(label=TEACHER_LABEL, required=False, help_text=TEACHER_HELP)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        profile = None
+        if self.instance.pk:
+            profile = Profile.objects.filter(user_id=self.instance.pk).only('is_teacher').first()
+        self.fields['is_teacher'].initial = bool(profile and profile.is_teacher)
+
+
 class UserAdmin(OldUserAdmin):
+    form = UserForm
+    fieldsets = (('Роль на сайте', {'fields': ('is_teacher',)}),) + tuple(OldUserAdmin.fieldsets)
+    list_display = OldUserAdmin.list_display + ('teacher_flag',)
+    list_filter = ('profile__is_teacher',) + tuple(OldUserAdmin.list_filter)
+    list_select_related = ('profile',)
+    actions = ['make_teachers', 'remove_teachers']
+
+    @admin.display(description=TEACHER_LABEL, ordering='profile__is_teacher', boolean=True)
+    def teacher_flag(self, obj):
+        profile = getattr(obj, 'profile', None)
+        return bool(profile and profile.is_teacher)
+
     def save_model(self, request, obj, form, change):
         super().save_model(request, obj, form, change)
         if not change:
             Profile.objects.create(user=obj)
+        elif 'is_teacher' in form.cleaned_data:
+            Profile.objects.filter(user=obj).update(is_teacher=form.cleaned_data['is_teacher'])
+
+    @admin.display(description='Сделать преподавателями')
+    def make_teachers(self, request, queryset):
+        self.message_user(request, 'Преподавателей назначено: %d' % Profile.objects.filter(user__in=queryset)
+                          .update(is_teacher=True))
+
+    @admin.display(description='Снять статус преподавателя')
+    def remove_teachers(self, request, queryset):
+        self.message_user(request, 'Статус снят у: %d' % Profile.objects.filter(user__in=queryset)
+                          .update(is_teacher=False))
