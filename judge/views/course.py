@@ -529,22 +529,26 @@ def work_file(request, key, work_id):
 
 # ---------------------------------------------------------------- certificate
 
-CERT_MISS_LIMIT = 30  # wrong numbers one address may try per hour: the number is short, the check part is a secret
+CERT_MISS_LIMIT = 100  # wrong numbers one address may try per hour: the number is short, the check part is a secret
 
 
 def certificate_enrollment(request, code):
+    """The finished enrollment with this number. Past the limit of wrong guesses an address is refused, except for
+    the owner of the certificate (a shared university address must not lock students out of their own certificate)."""
     key = 'cert-miss:%s' % (request.META.get('HTTP_X_REAL_IP') or request.META.get('REMOTE_ADDR') or '?')
-    if cache.get(key, 0) >= CERT_MISS_LIMIT:
-        raise PermissionDenied()
     found = CourseEnrollment.objects.select_related('course__author__user', 'profile__user').filter(
         certificate_code=code.upper(), course__is_deleted=False, completed_at__isnull=False).first()
+    blocked = cache.get(key, 0) >= CERT_MISS_LIMIT
     if found is None:
-        cache.add(key, 0, 3600)
-        try:
-            cache.incr(key)
-        except ValueError:
-            cache.set(key, 1, 3600)
-        raise Http404()
+        if not blocked:
+            cache.add(key, 0, 3600)
+            try:
+                cache.incr(key)
+            except ValueError:
+                cache.set(key, 1, 3600)
+        raise PermissionDenied() if blocked else Http404()
+    if blocked and not (request.user.is_authenticated and request.profile.id == found.profile_id):
+        raise PermissionDenied()
     return found
 
 

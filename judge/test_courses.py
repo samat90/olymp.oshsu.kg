@@ -826,12 +826,16 @@ class CertificateTests(CourseBase):
     def test_guessing_numbers_is_limited(self):
         enrollment = self.named()
         client = Client()
-        for number in range(30):
+        for number in range(100):
             self.assertEqual(client.get(reverse('course_certificate', args=['OL26-%06d-AA' % (900 + number)]))
                              .status_code, 404)
-        self.assertEqual(client.get(reverse('course_certificate', args=[enrollment.certificate_code])).status_code, 403)
+        url = reverse('course_certificate', args=[enrollment.certificate_code])
+        self.assertEqual(client.get(url).status_code, 403)  # even a real number: the address is guessing
+        self.assertEqual(client.get(reverse('course_certificate', args=['OL26-000999-AA'])).status_code, 403)
+        self.assertEqual(self.login(self.student).get(url).status_code, 200)  # but the owner is let in
+        self.assertEqual(self.login(self.student2).get(url).status_code, 403)
         cache.clear()
-        self.assertEqual(client.get(reverse('course_certificate', args=[enrollment.certificate_code])).status_code, 200)
+        self.assertEqual(client.get(url).status_code, 200)
 
     def test_pdf_for_each_language(self):
         enrollment = self.named()
