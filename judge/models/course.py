@@ -83,7 +83,7 @@ class Course(models.Model):
                                                     validators=[MaxValueValidator(100)])
     certificate = models.BooleanField(verbose_name=_('certificate'), default=True)
     reviews_on = models.BooleanField(verbose_name=_('reviews'), default=True)
-    auto_mode = models.BooleanField(verbose_name=_('automatic mode'), default=False)
+    auto_mode = models.BooleanField(verbose_name=_('automatic mode'), default=True)
     enrollments_count = models.PositiveIntegerField(verbose_name=_('learners'), default=0)
     created = models.DateTimeField(verbose_name=_('created'), auto_now_add=True)
     updated = models.DateTimeField(verbose_name=_('updated'), auto_now=True, db_index=True)

@@ -8892,8 +8892,8 @@ msgstr "Get the certificate"
 msgid "Изменить ФИО"
 msgstr "Change full name"
 
-msgid "Автоматический режим"
-msgstr "Automatic mode"
+msgid "Автоматическая проверка"
+msgstr "Automatic checking"
 
-msgid "Задания засчитываются сразу, сертификат выдаётся без проверки преподавателем"
-msgstr "Assignments count at once, the certificate is issued without a teacher's check"
+msgid "Автоматическая проверка: задания засчитываются сразу, сертификат выдаётся сам; снимите флажок, чтобы проверять работы вручную"
+msgstr "Automatic checking: assignments count at once and the certificate is issued by itself; clear the box to check works by hand"

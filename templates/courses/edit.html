@@ -126,7 +126,7 @@
             <label class="co-check"><input type="checkbox" name="sequential" value="1" {% if course.sequential %}checked{% endif %}> {{ _('Уроки открываются по порядку') }}</label>
             <label class="co-check"><input type="checkbox" name="certificate" value="1" {% if course.certificate %}checked{% endif %}> {{ _('Выдавать сертификат') }}</label>
             <label class="co-check"><input type="checkbox" name="reviews_on" value="1" {% if course.reviews_on %}checked{% endif %}> {{ _('Отзывы') }}</label>
-            <label class="co-check" title="{{ _('Задания засчитываются сразу, сертификат выдаётся без проверки преподавателем') }}"><input type="checkbox" name="auto_mode" value="1" {% if course.auto_mode %}checked{% endif %}> {{ _('Автоматический режим') }}</label>
+            <label class="co-check" title="{{ _('Автоматическая проверка: задания засчитываются сразу, сертификат выдаётся сам; снимите флажок, чтобы проверять работы вручную') }}"><input type="checkbox" name="auto_mode" value="1" {% if course.auto_mode %}checked{% endif %}> {{ _('Автоматическая проверка') }}</label>
         </div>
         <div class="co-grid2">
             <div class="co-field"><label for="s-cover">{{ _('Обложка') }}</label><input id="s-cover" class="co-input" type="file" name="cover" accept="image/*">

@@ -19,6 +19,7 @@ KEYS = itertools.count(1)
 
 def make_course(author, **kwargs):
     kwargs.setdefault('status', Course.PUBLISHED)
+    kwargs.setdefault('auto_mode', False)  # the tests of the manual flow; AutoModeTests turn it on
     kwargs.setdefault('title', 'Алгебра')
     return Course.objects.create(author=author.profile, key='c%07d' % next(KEYS), **kwargs)
 
@@ -753,6 +754,20 @@ class AutoModeTests(CourseBase):
                                       {'result': 'grade', 'grade': '4', 'comment': 'Слабо'})
         work.refresh_from_db()
         self.assertEqual((work.status, work.grade, work.comment), (CourseWork.GRADED, 4, 'Слабо'))
+
+    def test_new_courses_are_automatic_by_default(self):
+        self.assertTrue(Course.objects.create(author=self.teacher.profile, key='fresh0000001', title='Новый').auto_mode)
+        self.login(self.teacher).post(reverse('course_new'), {'title': 'Через форму'})
+        self.assertTrue(Course.objects.get(title='Через форму').auto_mode)
+
+    def test_teacher_can_switch_to_manual_checking(self):
+        self.assertTrue(self.course.auto_mode)
+        client = self.login(self.teacher)
+        response = client.post(reverse('course_edit_do', args=[self.course.key]),
+                               {'action': 'course_save', 'title': 'Алгебра'})
+        self.assertEqual(response.status_code, 302)
+        self.course.refresh_from_db()
+        self.assertFalse(self.course.auto_mode)
 
     def test_manual_course_is_unchanged(self):
         manual = make_course(self.teacher)

@@ -21,7 +21,6 @@ from django.db import transaction
 from judge.models import Course, CourseBlock, CourseLesson, CourseModule, CourseOption, CourseQuestion, MiscConfig, \
     Problem, Profile
 from judge.models.course import youtube_id
-from judge.utils import course_logic as logic
 
 DEFAULT_DIR = os.path.join(settings.BASE_DIR, 'scripts', 'content', 'courses')
 MODULE_FILE = re.compile(r'm[0-9]+\.py')
@@ -141,16 +140,6 @@ class Command(BaseCommand):
                 self.stdout.write('Courses: %s refreshed to version %d (%d items)' % (meta['key'], version, changed))
             else:
                 self.stdout.write('Courses: %s is already on the site' % meta['key'])
-            self.make_automatic(Course.objects.get(key=meta['key']))
-
-    def make_automatic(self, course):
-        """Ready-made courses run without a teacher: works count at once, certificates come by themselves."""
-        if not course.auto_mode:
-            Course.objects.filter(id=course.id).update(auto_mode=True)
-            course.auto_mode = True
-        counted = logic.autograde_pending(course)
-        if counted:
-            self.stdout.write('Courses: %s, %d waiting works counted' % (course.key, counted))
 
     # ------------------------------------------------------------ create
 
