@@ -16,6 +16,18 @@ html[data-theme="dark"] {
     }
 }
 
+/* Django's own variables follow the theme, so every stock widget (selectors, calendars, inlines) picks it up. */
+html[data-theme="dark"] {
+    --body-bg: var(--oa-bg); --body-fg: var(--oa-text); --body-quiet-color: var(--oa-muted); --body-loud-color: #fff;
+    --darkened-bg: var(--oa-surface-2); --selected-bg: #2b3a52; --selected-row: #2b3a52;
+    --border-color: var(--oa-border); --hairline-color: var(--oa-border); --link-fg: #8db6f0; --link-hover-color: #b5d1f7;
+    --link-selected-fg: #b5d1f7; --header-color: #fff; --breadcrumbs-fg: var(--oa-muted); --breadcrumbs-bg: transparent;
+    --button-bg: var(--oa-primary); --button-hover-bg: var(--oa-primary-2); --object-tools-bg: var(--oa-primary);
+    --message-success-bg: #1d3a2b; --message-warning-bg: #3d3420; --message-error-bg: #44201f;
+    --error-fg: #ff8d84; --form-bg: var(--oa-surface); --primary: var(--oa-primary); --secondary: var(--oa-primary-2);
+    color-scheme: dark;
+}
+
 html, body { background: var(--oa-bg) !important; color: var(--oa-text); font-family: Inter, "Segoe UI", system-ui, -apple-system, Roboto, sans-serif; }
 body, #container, #content, #wrapper { color: var(--oa-text); }
 a:link, a:visited { color: var(--oa-primary-2); }
@@ -120,3 +132,93 @@ ul.messagelist li.error { background: color-mix(in srgb, var(--oa-danger) 14%, v
     #result_list { display: block; overflow-x: auto; }
     .form-row { padding: 10px 12px; }
 }
+
+/* ---- dark theme: stock rules that stay light on their own ---- */
+html[data-theme="dark"] h1, html[data-theme="dark"] #content h1, html[data-theme="dark"] #content-main h1,
+html[data-theme="dark"] #content h2, html[data-theme="dark"] .object-tools + h1 { color: var(--oa-text) !important; }
+html[data-theme="dark"] fieldset.module, html[data-theme="dark"] .module, html[data-theme="dark"] .inline-group,
+html[data-theme="dark"] .inline-related, html[data-theme="dark"] .selector-available, html[data-theme="dark"] .selector-chosen,
+html[data-theme="dark"] .selector h2, html[data-theme="dark"] .calendarbox, html[data-theme="dark"] .clockbox,
+html[data-theme="dark"] .calendar caption, html[data-theme="dark"] .related-widget-wrapper,
+html[data-theme="dark"] .dashboard .module table th, html[data-theme="dark"] #changelist-filter,
+html[data-theme="dark"] .app-list .module { background: var(--oa-surface) !important; color: var(--oa-text) !important; border-color: var(--oa-border) !important; }
+html[data-theme="dark"] .selector h2, html[data-theme="dark"] .selector-chosen h2, html[data-theme="dark"] .selector-available h2 { background: var(--oa-surface-2) !important; }
+html[data-theme="dark"] .form-row, html[data-theme="dark"] .aligned .form-row, html[data-theme="dark"] .form-row .flex-container,
+html[data-theme="dark"] .selector-filter, html[data-theme="dark"] .datetime, html[data-theme="dark"] .timezonewarning,
+html[data-theme="dark"] p.datetime, html[data-theme="dark"] .toggle-all-checkbox, html[data-theme="dark"] .help-tooltip { background: transparent !important; color: var(--oa-text); }
+html[data-theme="dark"] .form-row label, html[data-theme="dark"] .aligned label, html[data-theme="dark"] label.vCheckboxLabel,
+html[data-theme="dark"] .field-box label, html[data-theme="dark"] .form-row .readonly, html[data-theme="dark"] .form-row div.readonly,
+html[data-theme="dark"] .form-row p, html[data-theme="dark"] .form-row b { color: var(--oa-text) !important; }
+html[data-theme="dark"] .help, html[data-theme="dark"] .form-row .help, html[data-theme="dark"] .help-tooltip,
+html[data-theme="dark"] #toolbar, html[data-theme="dark"] #toolbar form, html[data-theme="dark"] .actions, html[data-theme="dark"] .actions span.action-counter,
+html[data-theme="dark"] .actions .question, html[data-theme="dark"] .paginator, html[data-theme="dark"] .selector-filter label { color: var(--oa-muted) !important; }
+html[data-theme="dark"] .help *, html[data-theme="dark"] .selector-filter, html[data-theme="dark"] .datetime { color: var(--oa-muted); }
+/* tables */
+html[data-theme="dark"] tr.row1, html[data-theme="dark"] tr.row2, html[data-theme="dark"] tr.row1 td, html[data-theme="dark"] tr.row2 td,
+html[data-theme="dark"] tr.row1 th, html[data-theme="dark"] tr.row2 th, html[data-theme="dark"] #result_list tbody tr,
+html[data-theme="dark"] .tabular tr.form-row, html[data-theme="dark"] .tabular td, html[data-theme="dark"] .tabular th,
+html[data-theme="dark"] table.module tr, html[data-theme="dark"] .tabular tr.add-row td { background: transparent !important; }
+html[data-theme="dark"] #result_list tbody tr:nth-child(even) { background: color-mix(in srgb, var(--oa-surface-2) 55%, var(--oa-surface)) !important; }
+html[data-theme="dark"] #result_list tbody tr:nth-child(even) td, html[data-theme="dark"] #result_list tbody tr:nth-child(even) th { background: transparent !important; }
+html[data-theme="dark"] #result_list tbody tr:hover { background: color-mix(in srgb, var(--oa-accent) 14%, var(--oa-surface)) !important; }
+html[data-theme="dark"] #result_list tbody tr:hover td, html[data-theme="dark"] #result_list tbody tr:hover th { background: transparent !important; }
+html[data-theme="dark"] #result_list tbody th a, html[data-theme="dark"] #result_list tbody td a, html[data-theme="dark"] .module a:link,
+html[data-theme="dark"] .module a:visited, html[data-theme="dark"] .inline-group a:link { color: #8db6f0; }
+html[data-theme="dark"] #result_list tbody td, html[data-theme="dark"] #result_list tbody th { color: var(--oa-text) !important; }
+html[data-theme="dark"] .tabular thead th, html[data-theme="dark"] .inline-group thead th, html[data-theme="dark"] .tabular th { background: var(--oa-surface-2) !important; color: var(--oa-muted) !important; border-color: var(--oa-border) !important; }
+html[data-theme="dark"] .tabular td, html[data-theme="dark"] .tabular th, html[data-theme="dark"] .inline-related h3, html[data-theme="dark"] .inline-related.last-related { border-color: var(--oa-border) !important; }
+html[data-theme="dark"] .inline-related h3 { background: var(--oa-surface-2) !important; color: var(--oa-text) !important; }
+/* inputs, selects, multiselects, readonly values */
+html[data-theme="dark"] input, html[data-theme="dark"] textarea, html[data-theme="dark"] select,
+html[data-theme="dark"] .selector select, html[data-theme="dark"] .vDateField, html[data-theme="dark"] .vTimeField { background: var(--oa-surface) !important; color: var(--oa-text) !important; border-color: var(--oa-border) !important; }
+html[data-theme="dark"] input[type=checkbox], html[data-theme="dark"] input[type=radio] { accent-color: var(--oa-accent); }
+html[data-theme="dark"] ::placeholder { color: var(--oa-muted) !important; opacity: 1; }
+html[data-theme="dark"] option, html[data-theme="dark"] optgroup { background: var(--oa-surface); color: var(--oa-text); }
+html[data-theme="dark"] .selector select option:checked, html[data-theme="dark"] .selector select option:hover { background: #2b3a52; color: #fff; }
+html[data-theme="dark"] .select2-dropdown, html[data-theme="dark"] .select2-search--dropdown .select2-search__field,
+html[data-theme="dark"] .select2-results__option, html[data-theme="dark"] .select2-container--default .select2-selection--single,
+html[data-theme="dark"] .select2-container--default .select2-selection--multiple { background: var(--oa-surface) !important; color: var(--oa-text) !important; border-color: var(--oa-border) !important; }
+html[data-theme="dark"] .select2-container--default .select2-results__option--highlighted[aria-selected], html[data-theme="dark"] .select2-container--default .select2-results__option--highlighted { background: var(--oa-primary) !important; color: #fff !important; }
+html[data-theme="dark"] .select2-selection__choice { background: var(--oa-surface-2) !important; color: var(--oa-text) !important; border-color: var(--oa-border) !important; }
+html[data-theme="dark"] .select2-selection__rendered, html[data-theme="dark"] .select2-selection__arrow b { color: var(--oa-text) !important; border-top-color: var(--oa-muted) !important; }
+/* filter, search, action bars, paginator, calendar */
+html[data-theme="dark"] #changelist-filter h2, html[data-theme="dark"] #changelist-filter h3, html[data-theme="dark"] #changelist-filter summary { background: var(--oa-surface-2) !important; color: var(--oa-text) !important; }
+html[data-theme="dark"] #changelist-filter a, html[data-theme="dark"] #changelist-filter li a { color: #8db6f0 !important; }
+html[data-theme="dark"] #changelist-filter li.selected a { color: #fff !important; }
+html[data-theme="dark"] .calendar td, html[data-theme="dark"] .calendar th, html[data-theme="dark"] .calendar-shortcuts, html[data-theme="dark"] .calendarnav,
+html[data-theme="dark"] .clockbox h2, html[data-theme="dark"] ul.timelist li { background: var(--oa-surface) !important; color: var(--oa-text) !important; }
+html[data-theme="dark"] .calendar td a, html[data-theme="dark"] .timelist a { color: #8db6f0 !important; }
+html[data-theme="dark"] .calendar td.selected a, html[data-theme="dark"] .calendar td a:hover { background: var(--oa-primary) !important; color: #fff !important; }
+html[data-theme="dark"] .paginator a:link, html[data-theme="dark"] .paginator a:visited { color: #fff !important; }
+html[data-theme="dark"] .paginator .this-page { color: #fff !important; }
+html[data-theme="dark"] .submit-row, html[data-theme="dark"] .submit-row p { background: var(--oa-surface) !important; color: var(--oa-text); }
+html[data-theme="dark"] .submit-row a.closelink, html[data-theme="dark"] .submit-row a.button { background: var(--oa-primary) !important; color: #fff !important; }
+html[data-theme="dark"] .dashboard .module caption, html[data-theme="dark"] .module h2 a, html[data-theme="dark"] caption a { color: var(--oa-text) !important; }
+html[data-theme="dark"] code, html[data-theme="dark"] pre { background: var(--oa-surface-2); color: var(--oa-text); }
+html[data-theme="dark"] hr { border-color: var(--oa-border); }
+html[data-theme="dark"] .errors, html[data-theme="dark"] .form-row.errors { background: color-mix(in srgb, var(--oa-danger) 12%, var(--oa-surface)) !important; }
+html[data-theme="dark"] .object-tools a:link, html[data-theme="dark"] .object-tools a:visited { color: #fff !important; }
+html[data-theme="dark"] .help-tooltip, html[data-theme="dark"] .quiet { color: var(--oa-muted) !important; }
+html[data-theme="dark"] img.icon, html[data-theme="dark"] .related-widget-wrapper-link img { filter: brightness(.9); }
+html[data-theme="dark"] .app-list a, html[data-theme="dark"] .app-list th a { color: #8db6f0 !important; }
+html[data-theme="dark"] ul.messagelist li { color: var(--oa-text) !important; }
+
+/* the «Teacher» checkbox stands out on the profile and user pages */
+.field-is_teacher { background: color-mix(in srgb, var(--oa-accent) 8%, transparent) !important; border-left: 4px solid var(--oa-accent); }
+.field-is_teacher label { font-size: 15px; }
+html[data-theme="dark"] .form-row.field-is_teacher { background: color-mix(in srgb, var(--oa-accent) 10%, transparent) !important; }
+html[data-theme="dark"] a.selector-chooseall, html[data-theme="dark"] a.selector-clearall, html[data-theme="dark"] .datetime a,
+html[data-theme="dark"] .form-row a, html[data-theme="dark"] .help a, html[data-theme="dark"] .selector a { color: #8db6f0 !important; }
+html[data-theme="dark"] .selector .selector-chooseall, html[data-theme="dark"] .selector .selector-clearall { opacity: 1; }
+html[data-theme="dark"] .selector-chooser a, html[data-theme="dark"] .selector-filter { color: #8db6f0; }
+html[data-theme="dark"] table, html[data-theme="dark"] #result_list, html[data-theme="dark"] table.module, html[data-theme="dark"] #content table, html[data-theme="dark"] .results { background-color: var(--oa-surface) !important; color: var(--oa-text); }
+html[data-theme="dark"] .results { background-color: transparent !important; }
+/* markdown / code editors */
+html[data-theme="dark"] .martor-preview, html[data-theme="dark"] .martor-toolbar, html[data-theme="dark"] .martor-container,
+html[data-theme="dark"] .ace_editor, html[data-theme="dark"] .ace_gutter { background: var(--oa-surface) !important; color: var(--oa-text) !important; }
+html[data-theme="dark"] .ace_editor .ace_cursor, html[data-theme="dark"] .ace_editor .ace_text-layer { color: var(--oa-text); }
+html[data-theme="dark"] .ace_gutter { background: var(--oa-surface-2) !important; color: var(--oa-muted) !important; }
+html[data-theme="dark"] .ace_gutter-active-line, html[data-theme="dark"] .ace_marker-layer .ace_active-line { background: var(--oa-surface-2) !important; }
+html[data-theme="dark"] .martor-toolbar a, html[data-theme="dark"] .martor-toolbar .markdown-selector { color: #8db6f0 !important; }
+html[data-theme="dark"] #content a:link:not(.button):not(.addlink):not(.deletelink):not(.closelink), html[data-theme="dark"] #content a:visited:not(.button):not(.addlink):not(.deletelink):not(.closelink) { color: #8db6f0; }
+html[data-theme="dark"] .object-tools a:link, html[data-theme="dark"] .paginator a:link, html[data-theme="dark"] .submit-row a { color: #fff !important; }

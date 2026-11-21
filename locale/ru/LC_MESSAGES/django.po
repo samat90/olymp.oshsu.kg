@@ -7696,3 +7696,6 @@ msgstr "ответ на"
 
 msgid "opened"
 msgstr "открыт"
+
+msgid "instructor (printed on the certificate)"
+msgstr "ФИО преподавателя (печатается в сертификате)"

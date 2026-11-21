@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extrahead %}{{ block.super }}
-    <link rel="stylesheet" href="{% static 'admin/oshsu-admin.css' %}?v=1">
+    <link rel="stylesheet" href="{% static 'admin/oshsu-admin.css' %}?v=3">
     <script src="{% static 'infinite-scroll.js' %}?v={{ STATIC_VERSION }}" defer></script>
     <script>
         // Sync admin dark mode with main site preference (oshsu-theme localStorage).
@@ -12,7 +12,7 @@
                 var html = document.documentElement;
                 if (t === 'dark') html.dataset.theme = 'dark';
                 else if (t === 'light') html.dataset.theme = 'light';
-                // 'auto' uses prefers-color-scheme via Django's dark_mode.css media query
+                else if (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) html.dataset.theme = 'dark';
             } catch (e) {}
         })();
     </script>
