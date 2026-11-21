@@ -124,12 +124,18 @@ def new_course(request):
         title = request.POST.get('title', '').strip()[:120]
         if not title:
             return message(request, _('Назовите курс.'), reverse('course_new'))
+        # The field is required in the form; a request without it gets the author's name, never an empty teacher.
+        instructor = ' '.join(request.POST.get('instructor_name', '').split())[:200] or \
+            logic.full_name(request.user) or request.user.get_username()
         language = request.POST.get('language')
         course = Course.objects.create(
             author=request.profile, title=title, subject=request.POST.get('subject', '').strip()[:60],
+            instructor_name=instructor,
             language=language if language in dict(Course.LANGUAGES) else 'ru', key=new_key())
         return redirect('course_edit', key=course.key)
-    return render(request, 'courses/new.html', {'title': _('Новый курс'), 'languages': Course.LANGUAGES})
+    return render(request, 'courses/new.html', {
+        'title': _('Новый курс'), 'languages': Course.LANGUAGES,
+        'instructor_default': logic.full_name(request.user) or request.user.get_username()})
 
 
 @login_required
@@ -149,6 +155,7 @@ def edit(request, key):
     return render(request, 'courses/edit.html', {
         'title': course.title, 'course': course, 'flat': flat, 'modules': list(index.values()), 'groups': groups,
         'organizations': orgs, 'coauthors': coauthors, 'languages': Course.LANGUAGES,
+        'instructor': logic.instructor_name(course),
         'is_owner': course.is_owner(request.user) or Course.is_admin(request.user),
         'pending': CourseWork.objects.filter(block__lesson__course=course, status=CourseWork.PENDING).count(),
         'disabled': section_closed(), 'lesson_count': len(lessons),
@@ -188,6 +195,8 @@ def act_course_save(request, course):
     if not title:
         raise EditError(_('Назовите курс.'))
     course.title = title
+    # Required in the form; a request without it keeps the stored name (or the author's name), never an empty one.
+    course.instructor_name = ' '.join(post.get('instructor_name', '').split())[:200] or logic.instructor_name(course)
     course.subject = post.get('subject', '').strip()[:60]
     course.description = post.get('description', '').strip()[:10000]
     if post.get('language') in dict(Course.LANGUAGES):

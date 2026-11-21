@@ -1,9 +1,11 @@
 """Course rules in one place: what is open, what counts as done, test grading, the course score, certificates."""
+import hmac
 import re
-import secrets
 from collections import defaultdict
 from dataclasses import dataclass, field
 
+from django.conf import settings
+from django.db import IntegrityError, transaction
 from django.db.models import F, Max
 from django.utils import timezone
 
@@ -199,11 +201,66 @@ def save_name(user, surname, name, patronymic):
     user.save(update_fields=['first_name', 'last_name'])
 
 
-def new_certificate_code():
-    while True:
-        code = ''.join(secrets.choice(CERT_ALPHABET) for _unused in range(10))
-        if not CourseEnrollment.objects.filter(certificate_code=code).exists():
-            return code
+CERT_RE = re.compile(r'^OL(\d{2})-(\d{6})-([A-Z0-9]{2})$')
+
+
+def cert_check(year, number):
+    """Two check characters (no look-alike symbols) from the year and the number, keyed with SECRET_KEY."""
+    digest = hmac.new(settings.SECRET_KEY.encode(), ('%02d%06d' % (year, number)).encode(), 'sha256').digest()
+    return CERT_ALPHABET[digest[0] % len(CERT_ALPHABET)] + CERT_ALPHABET[digest[1] % len(CERT_ALPHABET)]
+
+
+def certificate_code(year, number):
+    """OL26-000123-K7: OL, the year of issue, a running six-digit number, two check characters."""
+    return 'OL%02d-%06d-%s' % (year % 100, number, cert_check(year % 100, number))
+
+
+def is_valid_certificate_code(code):
+    """True for a well-formed code in the new format with a correct check part (old random codes are not checked)."""
+    match = CERT_RE.match(code.upper())
+    return bool(match) and cert_check(int(match.group(1)), int(match.group(2))) == match.group(3)
+
+
+def last_certificate_number():
+    top = 0
+    codes = CourseEnrollment.objects.filter(certificate_code__startswith='OL')
+    for code in codes.values_list('certificate_code', flat=True):
+        match = CERT_RE.match(code)
+        if match:
+            top = max(top, int(match.group(2)))
+    return top
+
+
+def new_certificate_code(date=None, skip=0):
+    """The next number in the running sequence; `skip` moves past numbers taken by a concurrent issue."""
+    date = date or timezone.localdate()
+    return certificate_code(date.year, last_certificate_number() + 1 + skip)
+
+
+def short_name(name):
+    """'Карабаев Самат Эшполотович' -> 'Карабаев С. Э.' (a name that is already short stays as it is)."""
+    parts = name.split()
+    if len(parts) < 2:
+        return name.strip()
+    return ' '.join([parts[0]] + ['%s.' % part[0].upper() for part in parts[1:]])
+
+
+def instructor_name(course):
+    """Who is named as the teacher on the certificate: the course field, else the author's name, else the login."""
+    return course.instructor_name.strip() or full_name(course.author.user) or course.author.user.username
+
+
+def issue_certificate(enrollment, date=None):
+    """Stores the number; the unique column makes a clash with a parallel issue retry with a later number."""
+    for attempt in range(20):
+        enrollment.certificate_code = new_certificate_code(date, attempt)
+        try:
+            with transaction.atomic():
+                enrollment.save(update_fields=['completed_at', 'certificate_code'])
+            return
+        except IntegrityError:
+            continue
+    raise IntegrityError('no free certificate number')
 
 
 def refresh(enrollment, progress=None):
@@ -222,8 +279,9 @@ def refresh(enrollment, progress=None):
     if progress.finished and enrollment.completed_at is None:
         enrollment.completed_at = now
         if enrollment.course.certificate and not enrollment.certificate_code:
-            enrollment.certificate_code = new_certificate_code()
-        enrollment.save(update_fields=['completed_at', 'certificate_code'])
+            issue_certificate(enrollment, timezone.localtime(now).date())
+        else:
+            enrollment.save(update_fields=['completed_at', 'certificate_code'])
     return progress
 
 

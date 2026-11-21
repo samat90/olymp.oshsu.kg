@@ -21,6 +21,7 @@ from django.db import transaction
 from judge.models import Course, CourseBlock, CourseLesson, CourseModule, CourseOption, CourseQuestion, MiscConfig, \
     Problem, Profile
 from judge.models.course import youtube_id
+from judge.utils.course_logic import full_name
 
 DEFAULT_DIR = os.path.join(settings.BASE_DIR, 'scripts', 'content', 'courses')
 MODULE_FILE = re.compile(r'm[0-9]+\.py')
@@ -147,7 +148,8 @@ class Command(BaseCommand):
         if not author.is_teacher:
             Profile.objects.filter(id=author.id).update(is_teacher=True)
         course = Course.objects.create(
-            author=author, key=meta['key'], title=meta['title'], subject=meta.get('subject', ''),
+            author=author, key=meta['key'], title=meta['title'], instructor_name=full_name(author.user),
+            subject=meta.get('subject', ''),
             language=meta.get('language', 'ru'), description=meta.get('description', ''), access=Course.PUBLIC,
             status=Course.PUBLISHED, sequential=meta.get('sequential', False),
             pass_percent=meta.get('pass_percent', 0), certificate=True, reviews_on=True, auto_mode=True)

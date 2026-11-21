@@ -540,6 +540,7 @@ def certificate_page(request, code):
     surname, first, patronymic = logic.split_name(enrollment.profile.user)
     return render(request, 'courses/certificate.html', {
         'title': _('Сертификат'), 'enrollment': enrollment, 'course': enrollment.course,
+        'instructor': logic.short_name(logic.instructor_name(enrollment.course)),
         'code': enrollment.certificate_code, 'is_owner': is_owner, 'name': name,
         'ask_name': is_owner and (not name or request.GET.get('edit') == '1'),
         'form': {'surname': surname, 'name': first, 'patronymic': patronymic}, 'error': request.GET.get('error'),

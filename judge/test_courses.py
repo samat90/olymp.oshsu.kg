@@ -211,7 +211,7 @@ class ProgressTests(CourseBase):
         self.assertEqual(data.percent, 100)
         self.assertTrue(data.finished)
         self.assertIsNotNone(enrollment.completed_at)
-        self.assertEqual(len(enrollment.certificate_code), 10)
+        self.assertRegex(enrollment.certificate_code, r'^OL\d{2}-\d{6}-[A-Z2-9]{2}$')
 
     def test_optional_lessons_and_no_mark(self):
         course = make_course(self.teacher)
@@ -743,7 +743,7 @@ class AutoModeTests(CourseBase):
         self.assertIsNone(work.graded_by)
         self.enrollment.refresh_from_db()
         self.assertIsNotNone(self.enrollment.completed_at)
-        self.assertEqual(len(self.enrollment.certificate_code), 10)
+        self.assertTrue(logic.is_valid_certificate_code(self.enrollment.certificate_code))
         queue = self.login(self.teacher).get(reverse('course_grading', args=[self.course.key]))
         self.assertNotContains(queue, 'Моё решение')
 
@@ -821,6 +821,7 @@ class CertificateTests(CourseBase):
         self.assertGreater(len(pdf.content), 5000)
         self.assertEqual(client.get(reverse('course_certificate_qr', args=[code]))['Content-Type'], 'image/svg+xml')
         self.assertEqual(client.get(reverse('course_certificate', args=['NOSUCHCODE1'])).status_code, 404)
+        self.assertEqual(client.get(reverse('course_certificate', args=['OL26-000999-ZZ'])).status_code, 404)
 
     def test_pdf_for_each_language(self):
         enrollment = self.named()
@@ -881,12 +882,87 @@ class CertificateTests(CourseBase):
         self.assertEqual(logic.full_name(enrollment.profile.user), 'Иванов Пётр Сергеевич')
         self.assertNotIn(self.student.username, logic.full_name(enrollment.profile.user))
 
+    def test_new_number_format_and_check_part(self):
+        code = logic.certificate_code(26, 123)
+        self.assertRegex(code, r'^OL26-000123-[A-Z2-9]{2}$')
+        self.assertTrue(logic.is_valid_certificate_code(code))
+        self.assertTrue(logic.is_valid_certificate_code(code.lower()))
+        wrong = 'AA' if code[-2:] != 'AA' else 'BB'
+        self.assertFalse(logic.is_valid_certificate_code(code[:-2] + wrong))
+        if logic.cert_check(26, 124) != code[-2:]:
+            self.assertFalse(logic.is_valid_certificate_code('OL26-000124-' + code[-2:]))
+        for ch in 'O0I1':
+            self.assertNotIn(ch, logic.CERT_ALPHABET)
+
+    def test_numbers_run_on_and_old_codes_still_work(self):
+        first = self.finished()
+        self.assertTrue(first.certificate_code.startswith('OL%02d-000001-' % (timezone.localdate().year % 100)))
+        self.assertEqual(logic.new_certificate_code(), logic.certificate_code(timezone.localdate().year, 2))
+        # a number taken by a parallel issue is skipped
+        self.assertEqual(logic.new_certificate_code(skip=3), logic.certificate_code(timezone.localdate().year, 5))
+        old = CourseEnrollment.objects.create(course=first.course, profile=self.teacher.profile,
+                                              certificate_code='ABCDEFGHJK', completed_at=timezone.now())
+        self.assertEqual(logic.last_certificate_number(), 1)  # random old codes do not move the counter
+        client = Client()
+        self.assertEqual(client.get(reverse('course_certificate', args=[old.certificate_code])).status_code, 200)
+        self.assertEqual(client.get(reverse('course_certificate', args=['abcdefghjk'])).status_code, 200)
+        self.assertEqual(client.get(reverse('course_certificate', args=[first.certificate_code.lower()])).status_code,
+                         200)
+
+    def test_issue_retries_when_the_number_is_taken(self):
+        taken = self.finished()
+        other = CourseEnrollment.objects.create(course=taken.course, profile=self.teacher.profile,
+                                                completed_at=timezone.now())
+        year = timezone.localdate().year
+        with patch.object(logic, 'last_certificate_number', side_effect=[0, 0]):
+            logic.issue_certificate(other, timezone.localdate())
+        self.assertEqual(other.certificate_code, logic.certificate_code(year, 2))
+        self.assertNotEqual(other.certificate_code, taken.certificate_code)
+
+    def test_short_name(self):
+        self.assertEqual(logic.short_name('Карабаев Самат Эшполотович'), 'Карабаев С. Э.')
+        self.assertEqual(logic.short_name('Иванов Пётр'), 'Иванов П.')
+        self.assertEqual(logic.short_name('  Иванов  '), 'Иванов')
+        self.assertEqual(logic.short_name(''), '')
+
+    def test_teacher_name_on_the_certificate(self):
+        enrollment = self.named()
+        course = enrollment.course
+        self.teacher.last_name, self.teacher.first_name = 'Петров', 'Иван Иванович'
+        self.teacher.save()
+        course.refresh_from_db()
+        self.assertEqual(logic.instructor_name(course), 'Петров Иван Иванович')  # no field: the author's name
+        course.instructor_name = 'Сидоров Алексей Петрович'
+        course.save()
+        self.assertEqual(logic.instructor_name(course), 'Сидоров Алексей Петрович')
+        page = Client().get(reverse('course_certificate', args=[enrollment.certificate_code]))
+        self.assertContains(page, 'Сидоров А. П.')
+        self.teacher.last_name = self.teacher.first_name = ''
+        self.teacher.save()
+        course = Course.objects.select_related('author__user').get(id=course.id)
+        course.instructor_name = ''
+        self.assertEqual(logic.instructor_name(course), self.teacher.username)
+
     def test_unfinished_has_no_certificate(self):
         course = make_course(self.teacher)
         add_lesson(course)
         enrollment = self.enroll(course)
         self.assertIsNone(enrollment.certificate_code)
         self.assertEqual(Client().get(reverse('course_certificate', args=['ABCDEFGHJK'])).status_code, 404)
+
+    def test_teacher_name_in_forms(self):
+        client = self.login(self.teacher)
+        self.teacher.last_name, self.teacher.first_name = 'Петров', 'Иван Иванович'
+        self.teacher.save()
+        self.assertContains(client.get(reverse('course_new')), 'value="Петров Иван Иванович"')
+        client.post(reverse('course_new'), {'title': 'Новый', 'instructor_name': ' Сидоров  Алексей  '})
+        course = Course.objects.get(title='Новый')
+        self.assertEqual(course.instructor_name, 'Сидоров Алексей')
+        client.post(reverse('course_edit_do', args=[course.key]), {'action': 'course_save', 'title': 'Новый'})
+        course.refresh_from_db()
+        self.assertEqual(course.instructor_name, 'Сидоров Алексей')  # a request without the field keeps it
+        client.post(reverse('course_new'), {'title': 'Второй'})
+        self.assertEqual(Course.objects.get(title='Второй').instructor_name, 'Петров Иван Иванович')
 
 
 class CommentTests(CourseBase):

@@ -95,6 +95,7 @@
         <input type="hidden" name="action" value="course_save">
         <h2 class="co-h2" style="margin:0">{{ _('Настройки курса') }}</h2>
         <div class="co-field"><label for="s-title">{{ _('Название') }}</label><input id="s-title" class="co-input" name="title" value="{{ course.title }}" maxlength="120" required></div>
+        <div class="co-field"><label for="s-instr">{{ _('ФИО преподавателя (печатается в сертификате)') }}</label><input id="s-instr" class="co-input" name="instructor_name" value="{{ instructor }}" maxlength="200" required></div>
         <div class="co-grid2">
             <div class="co-field"><label for="s-subject">{{ _('Дисциплина') }}</label><input id="s-subject" class="co-input" name="subject" value="{{ course.subject }}" maxlength="60"></div>
             <div class="co-field"><label for="s-lang">{{ _('Язык курса') }}</label>

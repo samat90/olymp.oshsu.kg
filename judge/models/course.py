@@ -67,6 +67,8 @@ class Course(models.Model):
     coauthors = models.ManyToManyField(Profile, verbose_name=_('coauthors'), related_name='coauthored_courses',
                                        blank=True)
     title = models.CharField(verbose_name=_('title'), max_length=120)
+    instructor_name = models.CharField(verbose_name=_('instructor (printed on the certificate)'), max_length=200,
+                                       blank=True)
     description = models.TextField(verbose_name=_('description'), blank=True, max_length=10000)
     cover = models.ImageField(verbose_name=_('cover'), upload_to=cover_path, blank=True)
     subject = models.CharField(verbose_name=_('subject'), max_length=60, blank=True, db_index=True)

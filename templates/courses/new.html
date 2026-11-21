@@ -16,6 +16,8 @@
             {% csrf_token %}
             <div class="co-field"><label for="c-title">{{ _('Название') }}</label>
                 <input id="c-title" class="co-input" name="title" maxlength="120" required autofocus></div>
+            <div class="co-field"><label for="c-instr">{{ _('ФИО преподавателя (печатается в сертификате)') }}</label>
+                <input id="c-instr" class="co-input" name="instructor_name" maxlength="200" value="{{ instructor_default }}" required></div>
             <div class="co-grid2">
                 <div class="co-field"><label for="c-subject">{{ _('Дисциплина') }}</label>
                     <input id="c-subject" class="co-input" name="subject" maxlength="60"></div>
