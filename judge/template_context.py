@@ -105,7 +105,7 @@ def _compute_static_version():
         if not root or not os.path.isdir(root):
             continue
         paths = [os.path.join(root, name) for name in ('style.css', 'modern.css', 'common.js', 'infinite-scroll.js')]
-        for folder in ('editor', 'quiz', 'typing', 'courses'):
+        for folder in ('editor', 'quiz', 'typing', 'courses', 'legal', 'guide'):
             folder = os.path.join(root, folder)
             if os.path.isdir(folder):
                 paths += [os.path.join(folder, name) for name in os.listdir(folder)]

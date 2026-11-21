@@ -62,3 +62,12 @@ msgstr "Викторина"
 
 msgid "Courses"
 msgstr "Курсы"
+
+msgid "Terms of use"
+msgstr "Условия использования"
+
+msgid "Privacy"
+msgstr "Конфиденциальность"
+
+msgid "User guide"
+msgstr "Руководство пользователя"

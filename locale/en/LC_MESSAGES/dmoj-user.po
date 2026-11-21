@@ -50,3 +50,12 @@ msgstr "Toggle theme"
 
 msgid "Courses"
 msgstr "Courses"
+
+msgid "Terms of use"
+msgstr "Terms of use"
+
+msgid "Privacy"
+msgstr "Privacy"
+
+msgid "User guide"
+msgstr "User guide"

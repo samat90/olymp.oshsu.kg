@@ -1,0 +1,80 @@
+{% extends "legal/base.html" %}
+{% block legal %}
+<p class="lg-date">Last updated: 21 November 2026</p>
+<p class="lg-lead">We collect only what the platform needs to work: checking solutions, contests, courses and protecting the site. Your data is not sold, and there is no advertising or visitor-tracking script on the site.</p>
+
+<div class="lg-toc"><ol>
+    <li><a href="#p1">Who is responsible for the data</a></li>
+    <li><a href="#p2">What data and why</a></li>
+    <li><a href="#p3">What other users can see</a></li>
+    <li><a href="#p4">Cookies and browser storage</a></li>
+    <li><a href="#p5">Third-party services</a></li>
+    <li><a href="#p6">Where data is kept and for how long</a></li>
+    <li><a href="#p7">Your rights</a></li>
+    <li><a href="#p8">Data protection</a></li>
+    <li><a href="#p9">Changes and contact</a></li>
+</ol></div>
+
+<h2 id="p1">1. Who is responsible for the data</h2>
+<p>The platform is run by the Department of Information Systems and Programming (MFTIT) of Osh State University. The author and person in charge is S. E. Karabaev. Data is processed in line with the personal data legislation of the Kyrgyz Republic. The site runs on the university's own servers.</p>
+
+<h2 id="p2">2. What data and why</h2>
+<table class="lg-table">
+    <tr><th>Account</th><td>Username, password (stored only as a hash, we cannot see it), email (optional), language, time zone, theme, avatar, "about me" text and the organisations you joined. Needed so you can sign in and use the site.</td></tr>
+    <tr><th>Problems and contests</th><td>Submissions (code, language, verdict, time, points), contest participation and results, points and rating. Needed to judge solutions, show result tables and sum up contests.</td></tr>
+    <tr><th>Anti-cheating</th><td>In contests with protection enabled we record switches to another tab or window and text pasted into the editor: the time and a short note (for example, the number of pasted characters). We do not read other tabs or your clipboard.</td></tr>
+    <tr><th>Compiler</th><td>The code, files and projects you run. They are saved in an account; for a guest they live in the browser and for the length of the session.</td></tr>
+    <tr><th>Quiz</th><td>A player's nickname and avatar, answers, score and place on the leaderboard. A guest only types a nickname; we do not ask for a name or email. A small service cookie lets you return to the game.</td></tr>
+    <tr><th>"Create with AI"</th><td>What the author typed into the generator window: topic, description, difficulty, number and types of questions. Your username, email and other account data are not sent.</td></tr>
+    <tr><th>Courses</th><td>Course enrolment, progress, test answers, assignment work and instructor replies, reviews. For a certificate: the full name you enter yourself, the course title, the date and a number.</td></tr>
+    <tr><th>Technical data</th><td>IP address and browser details in server logs, your last IP in the profile, last sign-in time. Needed for security, protection against password and certificate-number guessing, rate limiting and troubleshooting.</td></tr>
+</table>
+<p>Email and full name are not required for most features. The full name is needed only for a certificate.</p>
+
+<h2 id="p3">3. What other users can see</h2>
+<ul>
+    <li>Other users can see your username, avatar, points, rating, list of solved problems, place in contest tables and your "about me" text.</li>
+    <li>Your comments and discussion posts are open to anyone who can open the page.</li>
+    <li>In a Quiz, the host and the other players of that game see your nickname and score.</li>
+    <li>A certificate opens by its number or QR code: anyone who has the number sees the name, course title, date and instructor. Do not publish the number if you do not want that. Guessing numbers is limited by an attempt limit.</li>
+    <li>Other users cannot see your email. The source code of a submission is visible to you, administrators, problem authors and contest organisers; for some problems it is also visible to users who have solved that problem themselves. Your work and answers in a course are visible to that course's instructor.</li>
+</ul>
+
+<h2 id="p4">4. Cookies and browser storage</h2>
+<p>We use only what the site needs to work:</p>
+<ul>
+    <li>service cookies for the session and form protection: without them you cannot sign in or submit a form;</li>
+    <li>a cookie for the interface language;</li>
+    <li>a guest cookie in the Quiz so that you can return to a game (up to 30 days);</li>
+    <li>local browser storage: theme, Quiz volume, solution drafts and unsaved compiler code.</li>
+</ul>
+<p>There are no advertising or analytics cookies on the site.</p>
+
+<h2 id="p5">5. Third-party services</h2>
+<ul>
+    <li><b>YouTube.</b> Videos in course lessons are embedded from youtube-nocookie.com. When you open such a lesson, your browser contacts YouTube (Google) servers, which see your IP address and browser details under their own rules.</li>
+    <li><b>Google Gemini and Groq.</b> Only the text a quiz author typed into the "Create with AI" window is sent to them. Do not enter personal data there. These services then work under their own rules.</li>
+</ul>
+<p>We do not pass your data to anyone else and do not sell it, except where the law or an authorised body requires it.</p>
+
+<h2 id="p6">6. Where data is kept and for how long</h2>
+<p>Data is kept on the university's servers. A backup is made every day; backups are kept for a limited time and then replaced by newer ones. Account data is kept while the account exists. Server logs are kept for a limited time for security and debugging.</p>
+
+<h2 id="p7">7. Your rights</h2>
+<ul>
+    <li><b>See and download.</b> You can download your profile data from the profile settings, section "Download data".</li>
+    <li><b>Correct.</b> You can change your username, email, certificate name, avatar and "about me" in your profile, and the name also on the certificate page.</li>
+    <li><b>Delete.</b> Write to us from the address on your account, or another way that shows the account is yours. We will delete the account and the records tied to it: submissions, results, course enrolments and certificates. Data disappears from backups as they are replaced.</li>
+    <li><b>Object.</b> If you think your data has been handled wrongly, write to us.</li>
+</ul>
+
+<h2 id="p8">8. Data protection</h2>
+<p>Passwords are stored only as hashes. The site works over HTTPS and users' programs run in an isolated sandbox. Access to the servers is limited to a small number of administrators. Nobody can rule out a leak completely, but if a serious incident happens we will tell users.</p>
+<p>School students use the platform too. We advise them to provide only what is needed: email and full name are optional.</p>
+
+<h2 id="p9">9. Changes and contact</h2>
+<p>If we start collecting new data or change how it is used, we will update this page and the date at the top. The rules for using the site are in the <a href="{{ url('tos') }}">terms of use</a>.</p>
+<div class="lg-contact">
+    Questions about data: <a href="mailto:skarabaev@oshsu.kg">skarabaev@oshsu.kg</a> · <a href="https://wa.me/996771234708" target="_blank" rel="noopener">WhatsApp +996 771 234 708</a>
+</div>
+{% endblock %}

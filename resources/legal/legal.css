@@ -1,0 +1,35 @@
+/* «Условия использования» и «Конфиденциальность». Цвета берутся из переменных сайта, тема следует за сайтом. */
+.lg { --lg-line: var(--ui-border, #e1e6ed); --lg-soft: var(--ui-surface-2, #f0f3f7); --lg-muted: var(--ui-muted, #667085); --lg-accent: #f97316;
+    max-width: 860px; margin: 0 auto; padding: 0 0 3em; color: var(--ui-text, #1b2430); line-height: 1.65; font-size: 1.02em; }
+.lg-tabs { display: flex; flex-wrap: wrap; gap: .4em; margin: .3em 0 1.4em; }
+.lg-tabs a { padding: .4em .95em; border: 1px solid var(--lg-line); border-radius: 999px; color: inherit; text-decoration: none; font-size: .93em; }
+.lg-tabs a:hover { border-color: var(--lg-accent); }
+.lg-tabs a.on { background: var(--lg-accent); border-color: var(--lg-accent); color: #fff; font-weight: 600; }
+.lg h1 { font-size: 1.9em; line-height: 1.25; margin: 0 0 .25em; }
+.lg-date { margin: 0 0 1.4em; color: var(--lg-muted); font-size: .92em; }
+.lg-lead { margin: 0 0 1.6em; padding: .9em 1.1em; border-left: 4px solid var(--lg-accent); background: var(--lg-soft); border-radius: 0 10px 10px 0; }
+.lg h2 { font-size: 1.28em; line-height: 1.3; margin: 1.9em 0 .55em; padding-top: .2em; scroll-margin-top: 70px; }
+.lg p { margin: 0 0 .8em; }
+.lg ul { margin: 0 0 1em; padding-left: 1.4em; }
+.lg li { margin: 0 0 .4em; }
+.lg a { color: var(--ui-accent, #4c8dff); }
+.lg-toc { margin: 0 0 1.4em; padding: .8em 1.1em .5em; border: 1px solid var(--lg-line); border-radius: 12px; }
+.lg-toc ol { margin: 0; padding-left: 1.4em; columns: 2; column-gap: 2em; }
+.lg-toc li { break-inside: avoid; margin: 0 0 .35em; }
+.lg-table { width: 100%; border-collapse: collapse; margin: 0 0 1.2em; font-size: .96em; }
+.lg-table th, .lg-table td { text-align: left; vertical-align: top; padding: .55em .7em; border: 1px solid var(--lg-line); }
+.lg-table th { background: var(--lg-soft); width: 30%; font-weight: 600; }
+.lg-note { margin: 1em 0; padding: .75em 1em; border: 1px solid var(--lg-line); border-radius: 10px; background: var(--lg-soft); font-size: .96em; }
+.lg-contact { margin-top: 2em; padding-top: 1.1em; border-top: 1px solid var(--lg-line); }
+
+@media (max-width: 640px) {
+    .lg { font-size: 1em; }
+    .lg h1 { font-size: 1.5em; }
+    .lg h2 { font-size: 1.15em; }
+    .lg-toc ol { columns: 1; }
+    .lg-table, .lg-table tbody, .lg-table tr, .lg-table th, .lg-table td { display: block; width: 100%; box-sizing: border-box; }
+    .lg-table tr { margin: 0 0 .7em; border: 1px solid var(--lg-line); border-radius: 10px; overflow: hidden; }
+    .lg-table th, .lg-table td { border: 0; }
+    .lg-table th { width: 100%; padding-bottom: .2em; }
+    .lg-table td { padding-top: .2em; }
+}

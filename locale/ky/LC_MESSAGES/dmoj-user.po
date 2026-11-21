@@ -62,3 +62,12 @@ msgstr "Викторина"
 
 msgid "Courses"
 msgstr "Курстар"
+
+msgid "Terms of use"
+msgstr "Колдонуу шарттары"
+
+msgid "Privacy"
+msgstr "Купуялуулук"
+
+msgid "User guide"
+msgstr "Колдонуучунун колдонмосу"

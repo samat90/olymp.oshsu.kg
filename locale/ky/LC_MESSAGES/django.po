@@ -4727,3 +4727,10 @@ msgstr "Окутуучунун ФАТ (сертификатка басылат)"
 
 msgid "instructor (printed on the certificate)"
 msgstr "Окутуучунун ФАТ (сертификатка басылат)"
+
+
+msgid "Terms"
+msgstr "Шарттар"
+
+msgid "Privacy"
+msgstr "Купуялуулук"

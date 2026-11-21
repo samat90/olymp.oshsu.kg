@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ title }} - {{ SITE_LONG_NAME }}{% endblock %}
+{% block title_row %}{% endblock %}
+{% block title_ruler %}{% endblock %}
+{% block media %}<link rel="stylesheet" href="{{ static('legal/legal.css') }}?v={{ STATIC_VERSION }}">{% endblock %}
+
+{% block body %}
+<div class="lg">
+    <div class="lg-tabs">
+        <a href="{{ url('about') }}">{{ user_trans('About') }}</a>
+        <a href="{{ url('tos') }}"{% if page == 'tos' %} class="on" aria-current="page"{% endif %}>{{ user_trans('Terms of use') }}</a>
+        <a href="{{ url('privacy') }}"{% if page == 'privacy' %} class="on" aria-current="page"{% endif %}>{{ user_trans('Privacy') }}</a>
+    </div>
+    <h1>{{ title }}</h1>
+    {% block legal %}{% endblock %}
+</div>
+{% endblock %}

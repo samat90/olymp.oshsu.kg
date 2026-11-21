@@ -15,7 +15,7 @@ from judge.views import TitledTemplateView, api, blog, comment, contests, langua
     preview, problem, problem_manage, ranked_submission, register, stats, status, submission, tasks, ticket, \
     two_factor, user, widgets, workspace
 from judge.views import about, anticheat, contest_tools, course as course_views, course_edit as course_editor, \
-    quiz as quiz_views, quiz_editor, typing as typing_views
+    guide, legal, quiz as quiz_views, quiz_editor, typing as typing_views
 from judge.views.default_avatar import default_avatar
 from judge.views.deploy_status import deploy_status
 from judge.views.generate_users import GenerateUsersView
@@ -101,6 +101,9 @@ def paged_list_view(view, name):
 urlpatterns = [
     path('', blog.PostList.as_view(template_name='home.html', title=_('Home')), kwargs={'page': 1}, name='home'),
     path('about/', about.about, name='about'),
+    path('guide/', guide.guide, name='guide'),
+    path('tos/', legal.tos, name='tos'),
+    path('privacy/', legal.privacy, name='privacy'),
     path('online/now.json', online_now, name='online_now'),
     path('500/', exception),
     path(f'{settings.ADMIN_URL_PREFIX}/generate-users/', GenerateUsersView.as_view(), name='admin_generate_users'),
