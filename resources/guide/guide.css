@@ -1,0 +1,26 @@
+/* «Руководство пользователя». Цвета берутся из переменных сайта, тема следует за сайтом. */
+.gd { --gd-line: var(--ui-border, #e1e6ed); --gd-soft: var(--ui-surface-2, #f0f3f7); --gd-muted: var(--ui-muted, #667085); --gd-accent: #f97316;
+    max-width: 880px; margin: 0 auto; padding: 0 0 3em; color: var(--ui-text, #1b2430); line-height: 1.65; font-size: 1.02em; }
+.gd h1 { font-size: 1.9em; line-height: 1.25; margin: .3em 0 .3em; }
+.gd-lead { margin: 0 0 1.2em; color: var(--gd-muted); font-size: 1.05em; }
+.gd-toc { display: flex; flex-wrap: wrap; gap: .4em; margin: 0 0 1.6em; }
+.gd-toc a { padding: .35em .85em; border: 1px solid var(--gd-line); border-radius: 999px; color: inherit; text-decoration: none; font-size: .92em; }
+.gd-toc a:hover { border-color: var(--gd-accent); }
+.gd h2, .gd h3 { font-weight: 700; }
+.gd h2 { font-size: 1.4em; line-height: 1.3; margin: 2.2em 0 .6em; padding-top: .2em; scroll-margin-top: 70px; border-top: 1px solid var(--gd-line); padding-top: 1em; }
+.gd h3 { font-size: 1.1em; margin: 1.5em 0 .4em; }
+.gd p { margin: 0 0 .8em; }
+.gd ol, .gd ul { margin: 0 0 1em; padding-left: 1.5em; }
+.gd li { margin: 0 0 .4em; }
+.gd a { color: var(--ui-accent, #4c8dff); }
+.gd kbd { padding: .05em .4em; border: 1px solid var(--gd-line); border-bottom-width: 2px; border-radius: 5px; background: var(--gd-soft); font-size: .9em; }
+.gd-shot { margin: 1em 0 1.4em; }
+.gd-shot img { display: block; width: 100%; height: auto; border: 1px solid var(--gd-line); border-radius: 10px; }
+.gd-shot figcaption { margin-top: .4em; color: var(--gd-muted); font-size: .9em; }
+.gd-shot.gd-phone { max-width: 260px; }
+.gd-pair { display: flex; flex-wrap: wrap; gap: 1em; align-items: flex-start; }
+.gd-pair .gd-shot { flex: 1 1 240px; }
+.gd-pair .gd-phone { flex: 0 1 220px; }
+.gd-tip { margin: 1em 0; padding: .75em 1em; border-left: 4px solid var(--gd-accent); border-radius: 0 10px 10px 0; background: var(--gd-soft); font-size: .96em; }
+.gd-note { margin-top: 2.2em; color: var(--gd-muted); font-size: .9em; }
+@media (max-width: 640px) { .gd { font-size: 1em; } .gd h1 { font-size: 1.5em; } .gd h2 { font-size: 1.2em; } .gd-shot.gd-phone { max-width: 200px; } }

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}{{ title }} - {{ SITE_LONG_NAME }}{% endblock %}
+{% block title_row %}{% endblock %}
+{% block title_ruler %}{% endblock %}
+{% block media %}<link rel="stylesheet" href="{{ static('guide/guide.css') }}?v={{ STATIC_VERSION }}">{% endblock %}
+
+{% macro shot(name, caption, phone=False) -%}
+<figure class="gd-shot{% if phone %} gd-phone{% endif %}">
+    <a href="{{ static('guide/shots/' ~ name ~ '.jpg') }}" target="_blank" rel="noopener">
+        <img src="{{ static('guide/shots/' ~ name ~ '.jpg') }}" alt="{{ caption }}" loading="lazy">
+    </a>
+    <figcaption>{{ caption }}</figcaption>
+</figure>
+{%- endmacro %}
+
+{% block body %}
+<div class="gd">
+    <h1>{{ title }}</h1>
+    <p class="gd-lead">{% block lead %}{% endblock %}</p>
+    <div class="gd-toc" role="navigation" aria-label="{{ title }}">{% block toc %}{% endblock %}</div>
+    {% block guide %}{% endblock %}
+    <p class="gd-note">{% block shots_note %}{% endblock %}</p>
+</div>
+{% endblock %}

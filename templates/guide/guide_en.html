@@ -1,0 +1,140 @@
+{% extends "guide/base.html" %}
+{% block lead %}Short instructions for the main sections of the platform. Every section can be read on its own.{% endblock %}
+{% block toc %}
+<a href="#start">Sign up</a>
+<a href="#problems">Problems and submissions</a>
+<a href="#compiler">Compiler</a>
+<a href="#contests">Olympiads</a>
+<a href="#quiz-play">Play a quiz</a>
+<a href="#quiz-make">Create a quiz</a>
+<a href="#course-learn">Take a course</a>
+<a href="#certificate">Certificate</a>
+<a href="#course-make">Create a course</a>
+{% endblock %}
+
+{% block guide %}
+<h2 id="start">Sign up and log in</h2>
+<ol>
+    <li>Click “Log in” in the top right corner, then “Sign up”.</li>
+    <li>Choose a username and a password. An email address is optional, but it makes it easier to recover access.</li>
+    <li>Pick a time zone (Bishkek by default) and the programming language you like best. You can change both later in your profile.</li>
+    <li>Click “Sign up!”. You are signed in right away.</li>
+</ol>
+{{ shot('register', 'Sign-up form') }}
+<p>The interface language (Russian, Kyrgyz, English) and the dark theme are switched in the top bar. As a guest you can use the compiler, browse problems and play quizzes; submissions, courses and certificates need an account.</p>
+
+<h2 id="problems">Problems and submissions</h2>
+<ol>
+    <li>Open “Problems”. The list can be filtered by topic and difficulty and searched by name.</li>
+    <li>Open a problem and read the statement: input, output, an example, and the time and memory limits.</li>
+    <li>Click “Solve in the editor” (you write code right on the site) or “Submit solution” (paste ready code).</li>
+    <li>Choose a language, write the solution and click “Run” to try it on the example or on your own input.</li>
+    <li>Click “Submit”. The judge checks the solution against hidden tests.</li>
+</ol>
+{{ shot('problem-page', 'Problem page: statement on the left, points and limits on the right') }}
+{{ shot('submit-editor', 'Solution editor: statement, code and a test run') }}
+<h3>Result and points</h3>
+<p>Each problem gives up to 100 points. Points follow the share of tests passed, so even a partial solution earns something, while a full one gets all 100 and the verdict “Accepted”. Your submissions are listed under “Submissions”, tab “Mine”.</p>
+{{ shot('submissions-mine', 'My submissions: verdict, points, time and memory') }}
+<div class="gd-tip">If a solution fails, open the submission: it shows which test went wrong (wrong answer, time limit exceeded, runtime error).</div>
+
+<h2 id="compiler">Compiler</h2>
+<p>The “Compiler” section is an online development environment. It works without an account; sign in to keep your projects and files.</p>
+<ol>
+    <li>Choose a language at the top right: C, C++, C#, F#, Java, Python, JavaScript, Go, Kotlin, Pascal or Scratch.</li>
+    <li>Write code. The editor suggests names and keywords as you type. To open the list by hand, press <kbd>Ctrl</kbd>+<kbd>Space</kbd>.</li>
+    <li>Click “Run”. The program output appears in the console below.</li>
+    <li>If the program waits for input, type it right in the console (“Interactive console” mode), or switch to “Text” and paste all the input at once.</li>
+</ol>
+{{ shot('compiler-autocomplete', 'Suggestions while typing') }}
+{{ shot('compiler-run', 'Running a program: output, time and memory') }}
+<p>“Share” makes a link to your file, “Format” tidies the code, “Save” stores the project in your account. The left panel lets you add files and folders.</p>
+
+<h2 id="contests">Olympiads</h2>
+<ol>
+    <li>Open “Contests”: running and upcoming olympiads are on top, past ones below.</li>
+    <li>Open an olympiad and click the join button. For closed olympiads the teacher gives you a login and password or a link.</li>
+    <li>Once it starts, the problems appear on its page. Solve them as usual: in the editor or by submitting code.</li>
+    <li>The scoreboard updates during the olympiad; the final results open when it ends.</li>
+</ol>
+{{ shot('contests', 'List of olympiads') }}
+<div class="gd-tip">Anti-cheating is on during olympiads: switching to other tabs and pasting foreign code are recorded. Solve the problems on your own.</div>
+
+<h2 id="quiz-play">Play a quiz</h2>
+<p>A quiz runs during a class: the host shows questions on the screen and you answer on your phone.</p>
+<ol>
+    <li>On your phone open <b>olymp.oshsu.kg/quiz/join</b>, or point the camera at the QR code on the host’s screen.</li>
+    <li>Enter the game PIN (six digits).</li>
+    <li>Type a nickname and pick an avatar. Click “Play”.</li>
+    <li>When the host starts the game, choose your answer on the phone. The faster you answer correctly, the more points you get.</li>
+</ol>
+<div class="gd-pair">
+    {{ shot('q-join-phone', 'Nickname and avatar', True) }}
+    {{ shot('q-answer-phone', 'Choosing an answer', True) }}
+    {{ shot('q-result-phone', 'Result', True) }}
+</div>
+<p>The quiz catalog also holds ready-made quizzes you can play alone: open any of them and click “Play solo”.</p>
+{{ shot('quiz-catalog', 'Quiz catalog') }}
+
+<h2 id="quiz-make">Create and host a quiz</h2>
+<ol>
+    <li>In “Quiz” open “My quizzes” and create a new one. You need to be signed in.</li>
+    <li>Give the quiz a title. In “Settings” you choose the access (“Public” or “By link”), the look and the cover.</li>
+    <li>Click “+ Question” and choose a type.</li>
+    <li>Enter the question text and the answers, and mark the correct one. Set the time to answer and the scoring (normal, double, no points).</li>
+    <li>Add more questions. They can be reordered and copied, and a long list can be loaded from Excel (“Import from Excel”).</li>
+</ol>
+{{ shot('q-types', 'Question types, from a single choice to a word cloud') }}
+{{ shot('q-editor', 'Quiz editor') }}
+<p>Questions can also be drafted with AI: use the “Create with AI” button in the catalog. Describe the topic and the number of questions, then check and edit the result.</p>
+<h3>Host a game</h3>
+<ol>
+    <li>Open the quiz and click “Start the game”.</li>
+    <li>Show the host screen on a projector. It has the PIN and a QR code, and players’ names appear as they join.</li>
+    <li>When everyone is in, click “Start”. After each question the correct answer and the votes are shown, then the leaderboard.</li>
+    <li>When the game ends a report opens; you can download it as Excel.</li>
+</ol>
+{{ shot('q-host-lobby', 'Host screen: PIN, QR code and players') }}
+{{ shot('q-host-answer', 'Correct answer and players’ votes') }}
+
+<h2 id="course-learn">Take a course</h2>
+<ol>
+    <li>Open “Courses” and find a course with the search or by subject.</li>
+    <li>On the course page read the programme and click “Enroll”.</li>
+    <li>Go through the lessons in order. A lesson can contain text, video, images, tests, assignments and problems from the archive.</li>
+    <li>Tests are checked at once and can be retaken. Assignments are checked automatically too, or by the teacher if automatic checking is switched off.</li>
+    <li>At the end of a lesson click “Learned”. When all required lessons are done, the course is complete.</li>
+</ol>
+{{ shot('s-catalog', 'Course catalog') }}
+{{ shot('s-lesson', 'A lesson: text, a test and the progress sidebar') }}
+{{ shot('s-test-result', 'Test result and the course-complete mark') }}
+<p>Your courses are collected on the “My courses” page (a button in the catalog once you are signed in).</p>
+{{ shot('s-my', 'My courses') }}
+
+<h2 id="certificate">Certificate</h2>
+<p>When you finish a course, a “Certificate” button appears on the lesson page. The certificate carries your name, the course title, the date, the teacher and a unique number such as OL26-000123-K7. The QR code leads to a verification page, so anyone can check that the certificate is genuine.</p>
+<ul>
+    <li>If your name is wrong, click “Change full name” and correct it.</li>
+    <li>The “PDF” button saves the certificate as a file for printing.</li>
+</ul>
+{{ shot('s-certificate', 'Course completion certificate') }}
+
+<h2 id="course-make">Create a course (for teachers)</h2>
+<p>Courses can be created by users with the “teacher” status. The platform administrator grants it: write to <a href="mailto:skarabaev@oshsu.kg">skarabaev@oshsu.kg</a> and give your username.</p>
+<ol>
+    <li>Open “Courses” → “My courses” → “New course”.</li>
+    <li>Enter the title, the teacher’s full name (printed on the certificate), the subject and the course language. Click “Create”.</li>
+    <li>In the “Programme” block add lessons. Modules are optional and only useful for big courses.</li>
+    <li>Open a lesson and add blocks: text (Markdown and formulas are supported), video, image, file, test, assignment or a site problem.</li>
+    <li>In “Course settings” write a description, check access and switch the certificate on.</li>
+    <li>While the course is a “Draft”, learners do not see it. When it is ready, change the status to “Published” and save.</li>
+</ol>
+{{ shot('t-course-new', 'New course') }}
+{{ shot('t-lesson-edit', 'Lesson editor: text and test blocks') }}
+{{ shot('t-course-settings', 'Course settings: status, access and certificate') }}
+<h3>Learners and checking</h3>
+<p>The “Learners” page shows everyone’s progress and result and exports the table to Excel. If automatic checking of assignments is off, submitted work waits in “Review of work”: open a work, give a score and leave a comment.</p>
+{{ shot('t-students', 'Course learners') }}
+{% endblock %}
+
+{% block shots_note %}Questions? Write to <a href="mailto:skarabaev@oshsu.kg">skarabaev@oshsu.kg</a>. The screenshots show the Russian interface; in Kyrgyz and English the screens are laid out the same way. Names on the screenshots are made up.{% endblock %}
