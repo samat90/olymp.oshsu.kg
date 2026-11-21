@@ -107,7 +107,10 @@ class ProfileAdmin(NoBatchDeleteMixin, VersionAdmin):
     def get_actions(self, request):
         actions = super(ProfileAdmin, self).get_actions(request)
 
-        for action in ('recalculate_points', 'mute_users', 'make_teachers', 'remove_teachers'):
+        names = ['recalculate_points', 'mute_users']
+        if self.has_change_permission(request):
+            names += ['make_teachers', 'remove_teachers']  # teacher status lets a user create courses
+        for action in names:
             func, name, desc = self.get_action(action)
             actions[name] = (func, name, desc)
 
@@ -225,12 +228,12 @@ class UserAdmin(OldUserAdmin):
         elif 'is_teacher' in form.cleaned_data:
             Profile.objects.filter(user=obj).update(is_teacher=form.cleaned_data['is_teacher'])
 
-    @admin.display(description='Сделать преподавателями')
+    @admin.action(description='Сделать преподавателями', permissions=['change'])
     def make_teachers(self, request, queryset):
         self.message_user(request, 'Преподавателей назначено: %d' % Profile.objects.filter(user__in=queryset)
                           .update(is_teacher=True))
 
-    @admin.display(description='Снять статус преподавателя')
+    @admin.action(description='Снять статус преподавателя', permissions=['change'])
     def remove_teachers(self, request, queryset):
         self.message_user(request, 'Статус снят у: %d' % Profile.objects.filter(user__in=queryset)
                           .update(is_teacher=False))

@@ -823,6 +823,16 @@ class CertificateTests(CourseBase):
         self.assertEqual(client.get(reverse('course_certificate', args=['NOSUCHCODE1'])).status_code, 404)
         self.assertEqual(client.get(reverse('course_certificate', args=['OL26-000999-ZZ'])).status_code, 404)
 
+    def test_guessing_numbers_is_limited(self):
+        enrollment = self.named()
+        client = Client()
+        for number in range(30):
+            self.assertEqual(client.get(reverse('course_certificate', args=['OL26-%06d-AA' % (900 + number)]))
+                             .status_code, 404)
+        self.assertEqual(client.get(reverse('course_certificate', args=[enrollment.certificate_code])).status_code, 403)
+        cache.clear()
+        self.assertEqual(client.get(reverse('course_certificate', args=[enrollment.certificate_code])).status_code, 200)
+
     def test_pdf_for_each_language(self):
         enrollment = self.named()
         from judge.utils.course_certificate import render_certificate
@@ -1002,6 +1012,19 @@ class TeacherAdminTests(CourseBase):
         client.post(url, {'action': 'remove_teachers', '_selected_action': [self.student2.pk]})
         self.student2.profile.refresh_from_db()
         self.assertFalse(self.student2.profile.is_teacher)
+
+    def test_teacher_actions_need_the_change_permission(self):
+        from django.contrib.auth.models import Permission
+        viewer = create_user(username='viewer', is_staff=True)
+        viewer.user_permissions.add(Permission.objects.get(codename='view_profile'),
+                                    Permission.objects.get(codename='view_user'))
+        client = self.login(viewer)
+        for name in ('admin:judge_profile_changelist', 'admin:auth_user_changelist'):
+            self.assertNotContains(client.get(reverse(name)), 'make_teachers')
+            client.post(reverse(name), {'action': 'make_teachers', '_selected_action': [self.student.profile.pk]})
+        self.student.profile.refresh_from_db()
+        self.assertFalse(self.student.profile.is_teacher)
+        self.assertContains(self.login(self.admin).get(reverse('admin:judge_profile_changelist')), 'make_teachers')
 
     def test_profile_page_and_list(self):
         client = self.login(self.admin)

@@ -4,6 +4,7 @@ from io import BytesIO
 
 from django.contrib.auth.decorators import login_required
 from django.core.cache import cache
+from django.core.exceptions import PermissionDenied
 from django.core.paginator import Paginator
 from django.db import transaction
 from django.db.models import Avg, Count, F, Q
@@ -528,13 +529,27 @@ def work_file(request, key, work_id):
 
 # ---------------------------------------------------------------- certificate
 
-def certificate_enrollment(code):
-    return get_object_or_404(CourseEnrollment.objects.select_related('course__author__user', 'profile__user'),
-                             certificate_code=code.upper(), course__is_deleted=False, completed_at__isnull=False)
+CERT_MISS_LIMIT = 30  # wrong numbers one address may try per hour: the number is short, the check part is a secret
+
+
+def certificate_enrollment(request, code):
+    key = 'cert-miss:%s' % (request.META.get('HTTP_X_REAL_IP') or request.META.get('REMOTE_ADDR') or '?')
+    if cache.get(key, 0) >= CERT_MISS_LIMIT:
+        raise PermissionDenied()
+    found = CourseEnrollment.objects.select_related('course__author__user', 'profile__user').filter(
+        certificate_code=code.upper(), course__is_deleted=False, completed_at__isnull=False).first()
+    if found is None:
+        cache.add(key, 0, 3600)
+        try:
+            cache.incr(key)
+        except ValueError:
+            cache.set(key, 1, 3600)
+        raise Http404()
+    return found
 
 
 def certificate_page(request, code):
-    enrollment = certificate_enrollment(code)
+    enrollment = certificate_enrollment(request, code)
     is_owner = request.user.is_authenticated and request.profile.id == enrollment.profile_id
     name = logic.full_name(enrollment.profile.user)
     surname, first, patronymic = logic.split_name(enrollment.profile.user)
@@ -550,7 +565,7 @@ def certificate_page(request, code):
 @login_required
 @require_POST
 def certificate_name(request, code):
-    enrollment = certificate_enrollment(code)
+    enrollment = certificate_enrollment(request, code)
     if request.profile.id != enrollment.profile_id:
         raise Http404()
     surname, name, patronymic = (' '.join(request.POST.get(key, '').split())
@@ -564,7 +579,7 @@ def certificate_name(request, code):
 def certificate_qr(request, code):
     import qrcode
     import qrcode.image.svg
-    enrollment = certificate_enrollment(code)
+    enrollment = certificate_enrollment(request, code)
     url = request.build_absolute_uri(reverse('course_certificate', args=[enrollment.certificate_code]))
     image = qrcode.make(url, image_factory=qrcode.image.svg.SvgPathImage, box_size=10, border=1)
     buf = BytesIO()
@@ -576,7 +591,7 @@ def certificate_qr(request, code):
 
 def certificate_pdf(request, code):
     from judge.utils.course_certificate import render_certificate
-    enrollment = certificate_enrollment(code)
+    enrollment = certificate_enrollment(request, code)
     if not logic.full_name(enrollment.profile.user):
         # No name to print: the owner is asked for it on the certificate page, nobody else gets a PDF.
         if request.user.is_authenticated and request.profile.id == enrollment.profile_id:
