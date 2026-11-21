@@ -75,7 +75,7 @@ class BlogFeed(Feed):
     description = 'The latest blog posts from the %s' % settings.SITE_LONG_NAME
 
     def items(self):
-        return BlogPost.objects.filter(visible=True, publish_on__lte=timezone.now()).order_by('-sticky', '-publish_on')
+        return BlogPost.objects.filter(visible=True, publish_on__lte=timezone.now()).order_by('-publish_on', '-id')
 
     def item_title(self, post):
         return post.title
