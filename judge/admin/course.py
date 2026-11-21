@@ -37,7 +37,7 @@ class CourseAdmin(admin.ModelAdmin):
         (None, {'fields': ('title', 'author', 'coauthors', 'key', 'site_links', 'subject', 'language', 'description',
                            'cover')}),
         ('Доступ', {'fields': ('status', 'access', 'organization', 'is_hidden', 'is_deleted')}),
-        ('Правила', {'fields': ('sequential', 'pass_percent', 'certificate', 'reviews_on')}),
+        ('Правила', {'fields': ('sequential', 'pass_percent', 'certificate', 'reviews_on', 'auto_mode')}),
         ('Служебное', {'fields': ('enrollments_count', 'created', 'updated')}),
         ('Остановить запись и работы', {'fields': (), 'description': DISABLE_NOTE}),
     )

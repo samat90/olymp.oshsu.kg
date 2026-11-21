@@ -164,6 +164,24 @@ def build_progress(enrollment, lessons=None, blocks=None):
     return data
 
 
+def autograde(work, block=None):
+    """Automatic mode: an assignment counts as soon as it is handed in (full points, no teacher in the loop)."""
+    block = block or work.block
+    work.status, work.grade, work.graded_at = work.GRADED, block_max(block), timezone.now()
+    work.save(update_fields=['status', 'grade', 'graded_at'])
+
+
+def autograde_pending(course):
+    """Counts the works that were waiting for a teacher when a course went automatic; returns how many."""
+    works = list(CourseWork.objects.filter(block__lesson__course=course, status=CourseWork.PENDING)
+                 .select_related('block', 'enrollment'))
+    for work in works:
+        autograde(work)
+    for enrollment in {w.enrollment_id: w.enrollment for w in works}.values():
+        refresh(enrollment)
+    return len(works)
+
+
 def full_name(user):
     """The name printed on certificates: surname, name, patronymic ('' when not filled in)."""
     return ' '.join(part for part in (user.last_name.strip(), user.first_name.strip()) if part)

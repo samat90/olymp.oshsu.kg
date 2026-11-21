@@ -446,6 +446,9 @@ def submit_work(request, key, lesson_id, block_id):
         work.file = upload
     work.save()
     logic.touch_lesson(enrollment, current)
+    if course.auto_mode:
+        logic.autograde(work, block)
+        logic.refresh(enrollment)
     return redirect(back)
 
 

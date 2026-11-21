@@ -207,6 +207,8 @@ def act_course_save(request, course):
     course.sequential = checked(request, 'sequential')
     course.certificate = checked(request, 'certificate')
     course.reviews_on = checked(request, 'reviews_on')
+    was_auto = course.auto_mode
+    course.auto_mode = checked(request, 'auto_mode')
     course.pass_percent = number(post.get('pass_percent'), 0, 100, 0)
     status = post.get('status')
     if status in (Course.DRAFT, Course.PUBLISHED):
@@ -224,6 +226,8 @@ def act_course_save(request, course):
             raise EditError(_('Нет пользователя: %s') % ', '.join(sorted(missing)))
         course.coauthors.set(profiles)
     course.save()
+    if course.auto_mode and not was_auto:
+        logic.autograde_pending(course)
 
 
 def act_module_add(request, course):

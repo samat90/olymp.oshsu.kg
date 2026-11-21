@@ -724,6 +724,61 @@ class GradebookTests(CourseBase):
         self.assertEqual(Client().get(reverse('course_my')).status_code, 302)
 
 
+class AutoModeTests(CourseBase):
+    def setUp(self):
+        super().setUp()
+        self.course = make_course(self.teacher, auto_mode=True)
+        self.lesson = add_lesson(self.course, mark_required=False)
+        self.block = add_block(self.lesson, CourseBlock.ASSIGNMENT, points=10,
+                               data={'allow_text': True, 'allow_file': True, 'pass_percent': 100})
+        self.enrollment = self.enroll(self.course)
+        self.client = self.login(self.student)
+        self.url = reverse('course_submit_work', args=[self.course.key, self.lesson.id, self.block.id])
+
+    def test_work_counts_at_once_and_certificate_comes_by_itself(self):
+        self.client.post(self.url, {'text': 'Моё решение'})
+        work = CourseWork.objects.get()
+        self.assertEqual((work.status, work.grade), (CourseWork.GRADED, 10))
+        self.assertIsNone(work.graded_by)
+        self.enrollment.refresh_from_db()
+        self.assertIsNotNone(self.enrollment.completed_at)
+        self.assertEqual(len(self.enrollment.certificate_code), 10)
+        queue = self.login(self.teacher).get(reverse('course_grading', args=[self.course.key]))
+        self.assertNotContains(queue, 'Моё решение')
+
+    def test_teacher_can_still_change_the_grade(self):
+        self.client.post(self.url, {'text': 'Решение'})
+        work = CourseWork.objects.get()
+        self.login(self.teacher).post(reverse('course_grade', args=[self.course.key, work.id]),
+                                      {'result': 'grade', 'grade': '4', 'comment': 'Слабо'})
+        work.refresh_from_db()
+        self.assertEqual((work.status, work.grade, work.comment), (CourseWork.GRADED, 4, 'Слабо'))
+
+    def test_manual_course_is_unchanged(self):
+        manual = make_course(self.teacher)
+        lesson = add_lesson(manual, mark_required=False)
+        block = add_block(lesson, CourseBlock.ASSIGNMENT, points=10, data={'allow_text': True})
+        enrollment = self.enroll(manual)
+        self.client.post(reverse('course_submit_work', args=[manual.key, lesson.id, block.id]), {'text': 'Ждёт'})
+        work = CourseWork.objects.get(block=block)
+        self.assertEqual((work.status, work.grade), (CourseWork.PENDING, None))
+        enrollment.refresh_from_db()
+        self.assertIsNone(enrollment.completed_at)
+
+    def test_switching_on_counts_waiting_works(self):
+        manual = make_course(self.teacher)
+        lesson = add_lesson(manual, mark_required=False)
+        block = add_block(lesson, CourseBlock.ASSIGNMENT, points=10, data={'allow_text': True, 'pass_percent': 50})
+        enrollment = self.enroll(manual)
+        self.client.post(reverse('course_submit_work', args=[manual.key, lesson.id, block.id]), {'text': 'Ждёт'})
+        self.assertEqual(logic.autograde_pending(manual), 1)
+        work = CourseWork.objects.get(block=block)
+        self.assertEqual((work.status, work.grade), (CourseWork.GRADED, 10))
+        enrollment.refresh_from_db()
+        self.assertIsNotNone(enrollment.certificate_code)
+        self.assertEqual(logic.autograde_pending(manual), 0)
+
+
 class CertificateTests(CourseBase):
     def finished(self):
         course = make_course(self.teacher, title='Сертифицируемый курс')
