@@ -32,9 +32,9 @@ from judge.utils.views import DiggPaginatorMixin, TitleMixin, generic_message
 
 def submission_related(queryset):
     return queryset.select_related('user__user', 'problem', 'language') \
-        .only('id', 'user__user__username', 'user__display_rank', 'user__rating', 'problem__name',
+        .only('id', 'user__user__username', 'user__display_rank', 'user__is_teacher', 'user__rating', 'problem__name',
               'problem__code', 'problem__is_public', 'problem__points', 'language__short_name', 'language__key',
-              'date', 'time', 'memory', 'points', 'result', 'status', 'case_points', 'case_total', 'current_testcase', 'contest_object',
+              'date', 'is_archived', 'time', 'memory', 'points', 'result', 'status', 'case_points', 'case_total', 'current_testcase', 'contest_object',
               'locked_after', 'problem__submission_source_visibility_mode', 'user__username_display_override') \
         .prefetch_related('contest_object__authors', 'contest_object__curators')
 

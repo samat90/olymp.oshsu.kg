@@ -458,7 +458,7 @@ class UserList(QueryStringSortMixin, InfinitePaginationMixin, DiggPaginatorMixin
 
     def get_queryset(self):
         return (Profile.objects.filter(is_unlisted=False).order_by(self.order, 'id').select_related('user')
-                .only('display_rank', 'user__username', 'username_display_override', 'points', 'rating',
+                .only('display_rank', 'is_teacher', 'user__username', 'username_display_override', 'points', 'rating',
                       'performance_points', 'problem_count'))
 
     def get_context_data(self, **kwargs):
