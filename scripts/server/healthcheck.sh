@@ -44,6 +44,8 @@ echo "$now" > "$STATE"
 
 if [ -n "$now" ]; then text="olymp.oshsu.kg: $now"; else text="olymp.oshsu.kg: всё снова работает"; fi
 echo "[$(date '+%F %T')] $text" >> "$LOG"
+# logrotate works on /var/log/olymp as admin; a log owned by root stops the whole rotation.
+if [ "$(id -u)" = 0 ]; then chown admin: "$LOG" 2>/dev/null || true; fi
 if [ -n "${TELEGRAM_TOKEN:-}" ] && [ -n "${TELEGRAM_CHAT:-}" ]; then
     curl -s -m 15 "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMessage" \
         --data-urlencode "chat_id=$TELEGRAM_CHAT" --data-urlencode "text=$text" > /dev/null || true
