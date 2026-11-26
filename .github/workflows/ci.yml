@@ -67,6 +67,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: bash -n and shellcheck (errors only; old scripts have warnings)
         run: |
-          files=$(git ls-files 'scripts/*.sh' 'scripts/**/*.sh' scripts/server/post-receive | sort -u)
+          files=$(git ls-files 'scripts/*.sh' 'scripts/**/*.sh' 'server-config/**/*.sh' scripts/server/post-receive | sort -u)
           for f in $files; do bash -n "$f"; done
           shellcheck --shell=bash --severity=error $files
+      - name: Backup rotation tests
+        run: bash scripts/dev/test_backups.sh

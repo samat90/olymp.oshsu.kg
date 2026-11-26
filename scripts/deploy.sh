@@ -4,7 +4,8 @@
 #   scripts/deploy.sh [ref]          # default ref: main
 #
 # Called by the git hook in /home/admin/olymp.git (see docs/DEPLOY-2026-10.md),
-# or by hand. Every run first makes a backup; scripts/rollback.sh restores it.
+# or by hand. Every run first makes a backup; scripts/rollback.sh restores it. After a successful deploy
+# only the newest backup is kept.
 set -euo pipefail
 
 APP=${OLYMP_APP:-/var/www/olymp.oshsu.kg}
@@ -29,7 +30,8 @@ sudo -u postgres pg_dump -Fc olymp_oshsu > "$BACKUP/database.dump"
 log "Backup: code"
 tar czf "$BACKUP/code.tgz" -C "$APP" \
     --exclude=./venv --exclude=./problems --exclude=./media --exclude=./static \
-    --exclude=./resources/vendor --exclude=./.deploy-history.jsonl --exclude='*.pyc' .
+    --exclude=./resources/vendor --exclude=./.deploy-history.jsonl --exclude='*.pyc' \
+    --exclude=__pycache__ --exclude=./node_modules --exclude=./.git .
 git --git-dir="$REPO" rev-parse "$REF" > "$BACKUP/revision"
 if [ -f "$APP/.deployed-revision" ]; then
     cp "$APP/.deployed-revision" "$BACKUP/previous-revision"
@@ -98,6 +100,8 @@ for i in $(seq 1 30); do
     if [ "$code" = "200" ]; then
         log "OK: site answers 200. Backup: $BACKUP"
         git --git-dir="$REPO" rev-parse "$REF" > "$APP/.deployed-revision"
+        # Older deploy backups go only now, when the site works and the new backup passes its check.
+        bash scripts/server/prune_deploy_backups.sh "$BACKUP_ROOT" "$BACKUP" || log "The older deploy backups were kept (see above)."
         # Server settings kept in git (systemd units, cron, logrotate, nginx): installed when they changed.
         bash scripts/server/sync_system.sh || log "Some server settings were not updated (see above); the site is not affected."
         bash scripts/server/sync_runner.sh || log "The code runner on the judge was not updated (see above)."

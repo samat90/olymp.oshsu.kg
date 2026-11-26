@@ -12,7 +12,7 @@ KEY=${OLYMP_BACKUP_KEY:-/root/.ssh/olymp_backup}
 echo "[$(date '+%F %T')] copying $SRC to $DEST"
 SSH="ssh -i $KEY -o BatchMode=yes -o StrictHostKeyChecking=accept-new"
 # No --delete: if the web machine loses its backups, the copies on the judge must survive.
-rsync -a -e "$SSH" "$SRC/" "$DEST/"
+rsync -a --exclude='*.part' -e "$SSH" "$SRC/" "$DEST/"
 # Copies older than 30 days are removed on the judge side.
 $SSH "${DEST%%:*}" "find '${DEST#*:}' -mindepth 1 -maxdepth 1 -mtime +30 -exec rm -rf {} +"
 echo "[$(date '+%F %T')] done: $(ls -1 "$SRC" | wc -l) item(s)"

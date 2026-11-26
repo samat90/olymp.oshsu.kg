@@ -6,10 +6,10 @@
 #   sudo bash /tmp/olymp/cleanup.sh judge --apply      # judge.oshsu.kg
 #
 # NEVER touched: the database (/var/lib/postgresql), media/ and problems/ (uploads, tests), the daily
-# backups (they keep 14 days on their own), the 2026-10-21 pre-olympiad backup, the newest deploy
-# backups, the git repository's history, any configuration.
+# backup (olymp-backup.sh rotates it), copies made by hand (20261021-preolymp, 20261126-premaint), the
+# newest deploy backup, the git repository's history, any configuration.
 # Removed: old system journal, old rotated logs, package caches, pip caches, stale temporary files,
-# deploy backups beyond the policy, leftovers of interrupted git downloads and of problem-set builds.
+# deploy backups except the newest, leftovers of interrupted git downloads and of problem-set builds.
 set -uo pipefail
 
 ROLE=${1:-}
@@ -19,8 +19,6 @@ case "$ROLE" in web|judge) ;; *) echo "usage: cleanup.sh web|judge [--apply]"; e
 [ "$(id -u)" = 0 ] || { echo "run with sudo"; exit 2; }
 
 APP=${OLYMP_APP:-/var/www/olymp.oshsu.kg}
-KEEP_DEPLOY_BACKUPS=${OLYMP_KEEP_DEPLOY_BACKUPS:-10}   # newest deploy backups always kept
-KEEP_DEPLOY_DAYS=${OLYMP_KEEP_DEPLOY_DAYS:-14}         # and every deploy backup younger than this
 total=0
 
 say() { echo "$*"; }
@@ -79,19 +77,14 @@ if command -v docker >/dev/null 2>&1; then
 fi
 
 if [ "$ROLE" = web ]; then
-    say "== Deploy backups (keeps the newest $KEEP_DEPLOY_BACKUPS and all younger than $KEEP_DEPLOY_DAYS days)"
-    if [ -d /var/backups/olymp/deploy ]; then
-        mapfile -t all < <(ls -1d /var/backups/olymp/deploy/*/ 2>/dev/null | sort)
-        old=()
-        n=${#all[@]}
-        for ((i = 0; i < n - KEEP_DEPLOY_BACKUPS; i++)); do
-            d=${all[$i]%/}
-            [ -n "$(find "$d" -maxdepth 0 -mtime +"$KEEP_DEPLOY_DAYS")" ] && old+=("$d")
-        done
-        say "  $n deploy backup(s), $(human "$(size_kb /var/backups/olymp/deploy)") in all"
-        remove "old deploy backups" "${old[@]}"
+    say "== Deploy backups (only the newest is kept)"
+    newest=$(ls -1d /var/backups/olymp/deploy/[0-9]*/ 2>/dev/null | grep -E '/[0-9]{8}-[0-9]{6}/$' | sort | tail -n 1)
+    if [ -n "$newest" ]; then
+        say "  $(human "$(size_kb /var/backups/olymp/deploy)") in /var/backups/olymp/deploy"
+        OLYMP_PRUNE_DRY_RUN=$((1 - APPLY)) bash "$(dirname "$0")/prune_deploy_backups.sh" \
+            /var/backups/olymp/deploy "$newest" 2>&1 | sed 's/^/  /'
     fi
-    say "  kept as is: /var/backups/olymp/daily ($(human "$(size_kb /var/backups/olymp/daily)")), /var/backups/olymp/20261021-preolymp, /var/backups/olymp/system"
+    say "  kept as is: /var/backups/olymp/daily ($(human "$(size_kb /var/backups/olymp/daily)")), /var/backups/olymp/20261021-preolymp, /var/backups/olymp/20261126-premaint, /var/backups/olymp/system"
 
     say "== Git repository of the deploy"
     mapfile -t tmp_packs < <(collect /home/admin/olymp.git/objects -name 'tmp_*' -mmin +120)
