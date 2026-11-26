@@ -22,7 +22,7 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from django.views.decorators.http import require_POST
 
 from judge.models import Quiz, QuizOption, QuizQuestion
-from judge.utils import quiz_ai, quiz_images as images
+from judge.utils import quiz_ai, quiz_images as images, youtube
 from judge.utils.quiz_images import ImageError
 from judge.utils.quiz_import import LANGUAGES, MAX_QUESTIONS, QuestionError, clean_question, problems, read_rows, \
     template_bytes
@@ -94,7 +94,8 @@ def image_url(field):
 
 
 def question_fields(question):
-    return {'type': question.type, 'text': question.text, 'code': question.code, 'data': question.data or {}}
+    return {'type': question.type, 'text': question.text, 'code': question.code, 'data': question.data or {},
+            'youtube_id': question.youtube_id}
 
 
 def option_dict(option):
@@ -109,6 +110,7 @@ def question_dict(question):
         'code': question.code, 'code_language': question.code_language, 'image': image_url(question.image),
         'time_limit': question.time_limit, 'weight': question.weight, 'explanation': question.explanation,
         'data': question.data or {}, 'options': [option_dict(o) for o in options],
+        'video': youtube.link(question.youtube_id, question.youtube_start),
         'problems': problems(question_fields(question), plain, bool(question.image)),
     }
 
@@ -280,7 +282,8 @@ def api_settings(request, quiz):
     if access not in dict(Quiz.ACCESS):
         raise QuestionError(_('Неверный доступ'), 'access')
     quiz.title, quiz.description, quiz.subject, quiz.theme, quiz.access = title, description, subject, theme, access
-    quiz.save()
+    # Only these columns: a game finishing meanwhile keeps its fresh statistics.
+    quiz.save(update_fields=['title', 'description', 'subject', 'theme', 'access', 'updated'])
     return JsonResponse({'quiz': quiz_dict(quiz)})
 
 
@@ -378,7 +381,8 @@ def copy_question(source, quiz, order):
     question = QuizQuestion.objects.create(
         quiz=quiz, order=order, type=source.type, text=source.text, code=source.code,
         code_language=source.code_language, time_limit=source.time_limit, weight=source.weight,
-        explanation=source.explanation, data=copy.deepcopy(source.data), image=images.copy_file(source.image))
+        explanation=source.explanation, data=copy.deepcopy(source.data), image=images.copy_file(source.image),
+        youtube_id=source.youtube_id, youtube_start=source.youtube_start)
     QuizOption.objects.bulk_create([
         QuizOption(question=question, order=o.order, text=o.text, is_correct=o.is_correct,
                    image=images.copy_file(o.image)) for o in source.options.all()])

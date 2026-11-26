@@ -444,6 +444,83 @@
         }, function () {});
     }
 
+    // ------------------------------------------------------------ YouTube video of a question
+    // The player comes straight from YouTube into the viewer's browser. The frame is created once, when
+    // the answers open, and lives as long as the question view: polling never redraws it. We talk to it
+    // with the messages of YouTube's own embed API, so no YouTube script runs on this page.
+
+    var YT_ORIGIN = 'https://www.youtube-nocookie.com';
+    var YT_WAIT = 10000;        // no answer from the player after this long: show the note with the link
+    var video = null;           // {frame, note, timer, ready} of the question on the screen
+
+    function videoWatchUrl(v) {
+        return 'https://youtu.be/' + encodeURIComponent(v.id) + (v.start ? '?t=' + Number(v.start) : '');
+    }
+
+    function videoBox(q) {
+        if (!q.video) return null;
+        return h('div', {cls: 'qz-video-box'},
+            h('div', {cls: 'qz-video'}, h('i', {cls: 'fa fa-youtube-play qz-video-wait', 'aria-hidden': 'true'})),
+            h('div', {cls: 'qz-video-note', role: 'status', hidden: true},
+                h('span'),
+                h('a', {cls: 'qz-btn', href: videoWatchUrl(q.video), target: '_blank', rel: 'noopener noreferrer'},
+                    h('i', {cls: 'fa fa-external-link'}), ' ', L('Открыть на YouTube'))));
+    }
+
+    function videoPost(message) {
+        if (video && video.frame.contentWindow) video.frame.contentWindow.postMessage(JSON.stringify(message), YT_ORIGIN);
+    }
+
+    function videoCommand(name, args) { videoPost({event: 'command', func: name, args: args || []}); }
+
+    function videoNote(text) {
+        if (!video) return;
+        video.note.hidden = !text;
+        if (text) video.note.firstChild.textContent = text;
+    }
+
+    function mountVideo(view, q, autoplay) {
+        var slot = view && q && q.video ? view.querySelector('.qz-video') : null;
+        if (!slot || slot.querySelector('iframe')) return;
+        var src = YT_ORIGIN + '/embed/' + encodeURIComponent(q.video.id) + '?enablejsapi=1&playsinline=1&rel=0' +
+            '&start=' + (Number(q.video.start) || 0) + '&origin=' + encodeURIComponent(location.origin) +
+            (autoplay ? '&autoplay=1' : '');
+        // YouTube refuses embeds without a referrer (error 153); the origin alone is enough for it.
+        var frame = h('iframe', {src: src, title: L('Видео к вопросу'), referrerpolicy: 'strict-origin-when-cross-origin',
+            allow: 'autoplay; encrypted-media; picture-in-picture; fullscreen', allowfullscreen: true});
+        slot.innerHTML = '';
+        slot.appendChild(frame);
+        var own = {frame: frame, note: view.querySelector('.qz-video-note'), ready: false, waited: 0, timer: null};
+        video = own;
+        own.timer = setInterval(function () {
+            if (video !== own || !document.body.contains(frame) || own.ready) {
+                clearInterval(own.timer);
+                return;
+            }
+            videoPost({event: 'listening', id: 'qz-video', channel: 'widget'});
+            own.waited += 250;
+            if (own.waited === YT_WAIT) videoNote(L('Видео не загружается с YouTube.'));
+            if (own.waited >= 4 * YT_WAIT) clearInterval(own.timer);
+        }, 250);
+    }
+
+    window.addEventListener('message', function (e) {
+        if (!video || e.origin !== YT_ORIGIN || e.source !== video.frame.contentWindow) return;
+        var data;
+        try { data = JSON.parse(e.data); } catch (err) { return; }
+        if (!data) return;
+        if (data.event === 'onError') {
+            video.ready = true;
+            videoNote(L('Это видео нельзя показать здесь.'));
+        } else if (!video.ready && (data.event === 'onReady' || data.event === 'initialDelivery' ||
+                data.event === 'infoDelivery')) {
+            video.ready = true;
+            videoNote('');
+            videoCommand('addEventListener', ['onError']);
+            if (game.st && game.st.paused) videoCommand('pauseVideo');
+        }
+    });
+
     // ------------------------------------------------------------ question parts shared by every role
 
     function isChoice(q) {
@@ -477,6 +554,7 @@
             h('div', {cls: 'qz-q-badges'}, badges),
             text,
             q.code ? h('pre', {cls: 'qz-code', 'data-lang': q.lang || ''}, h('code', {text: q.code})) : null,
+            videoBox(q),
             q.image && q.type !== 'pin' ? h('div', {cls: 'qz-q-img'}, h('img', {src: q.image, alt: ''})) : null);
         if (text) setTimeout(function () { typeset(text); }, 0);
         return box;
@@ -737,6 +815,7 @@
         }
         el.hidden = !on;
         stage.classList.toggle('qz-paused', !!on);
+        if (on) videoCommand('pauseVideo');
     }
 
     function countdownEl() {
@@ -998,11 +1077,14 @@
             if (!counting && !P.ui.opened) {
                 P.ui.opened = true;
                 P.ui.answer.classList.remove('qz-locked');
-                if (st.ph === 'question') sound.music('question', st.i);
+                // A question with a video has its own sound: our music stays silent.
+                if (st.ph === 'question') sound.music(P.q.video ? null : 'question', st.i);
+                // Playing alone it starts by itself; in a class each player taps play.
+                mountVideo(P.ui.view, P.q, MODE === 'solo' && !st.paused);
                 var first = P.ui.answer.querySelector('input:not([type=range]), textarea');
                 if (first && !('ontouchstart' in window)) first.focus();
             }
-            if (P.ui.opened && st.ph === 'question') {
+            if (P.ui.opened && st.ph === 'question' && !P.q.video) {
                 sound.urgent(t.left <= 5 && t.left > 0);
                 if (sound.musicAllowed() && !P.answered && !st.paused) clockSound(P.ui, t);
             }
@@ -1467,7 +1549,8 @@
         }
 
         function updateCounters() {
-            if (ROLE === 'screen' && game.st && game.st.ph === 'question' && H.answered > (H.shownAnswered || 0)) {
+            if (ROLE === 'screen' && game.st && game.st.ph === 'question' && !(H.q && H.q.video) &&
+                    H.answered > (H.shownAnswered || 0)) {
                 var more = Math.min(4, H.answered - (H.shownAnswered || 0));
                 for (var k = 0; k < more; k++) setTimeout(function () { sound.sfx('answered'); }, k * 90);
             }
@@ -1730,6 +1813,7 @@
                 h('div', {cls: 'qz-remote-head'}, h('span', {cls: 'qz-q-type', text: q.type_name}), timer),
                 q.text ? h('div', {cls: 'qz-q-text', html: q.text}) : null,
                 q.code ? h('pre', {cls: 'qz-code'}, h('code', {text: q.code})) : null,
+                videoBox(q),
                 h('div', {cls: 'qz-remote-key'}, h('span', {cls: 'qz-muted', text: L('Ответ: ')}), h('b', {text: keyText(q, H.key)})),
                 h('div', {cls: 'qz-answered-box qz-answered-inline'}, L('Ответили '), h('b', {cls: 'qz-answered-n', text: String(H.answered)}),
                     L(' из '), h('b', {cls: 'qz-players-n', text: String(H.players)})),
@@ -1748,11 +1832,16 @@
             if (!t) return;
             if (!counting && !H.ui.opened) {
                 H.ui.opened = true;
-                sound.music('question', game.st.i);
+                var hasVideo = !!(H.q && H.q.video);
+                sound.music(hasVideo ? null : 'question', game.st.i);
+                // The big screen starts the video itself (the host has already clicked on this page);
+                // the phone remote waits for a tap, so two devices do not sound at once.
+                mountVideo(H.ui.view, H.q, ROLE === 'screen' && !game.st.paused);
             }
             if (H.ui.opened && !game.st.paused) {
-                sound.urgent(t.left <= 5 && t.left > 0);
-                if (ROLE === 'screen') clockSound(H.ui, t);
+                var silent = !!(H.q && H.q.video);
+                sound.urgent(!silent && t.left <= 5 && t.left > 0);
+                if (ROLE === 'screen' && !silent) clockSound(H.ui, t);
                 if (t.left <= 0 && !H.ui.timeOver) {
                     H.ui.timeOver = true;
                     sound.urgent(false);

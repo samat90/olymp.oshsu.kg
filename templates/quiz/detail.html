@@ -28,7 +28,7 @@
             <div class="qz-card-meta">
                 {% if quiz.subject %}<a class="qz-tag" href="{{ url('quiz_catalog') }}?subject={{ quiz.subject|urlencode }}">{{ quiz.subject }}</a>{% endif %}
                 <span><i class="fa fa-question-circle"></i> {{ _('%(n)s вопр.', n=questions|length) }}</span>
-                <span><i class="fa fa-play"></i> {{ _('%(n)s игр', n=quiz.plays) }}</span>
+                {% if quiz.plays %}<span class="qz-played"><i class="fa fa-play"></i> {{ quiz.plays_label }}</span>{% endif %}
                 <span><i class="fa fa-user"></i> {{ quiz.author.user.username }}</span>
                 {% if quiz.access == 'link' %}<span class="qz-tag qz-tag-muted">{{ _('по ссылке') }}</span>{% endif %}
                 {% if quiz.is_hidden %}<span class="qz-tag qz-tag-bad">{{ _('скрыта администратором') }}</span>{% endif %}
@@ -120,6 +120,23 @@
         </section>
     </div>
 
+    {% if stats %}
+    <section class="qz-panel qz-statbox">
+        <h2 class="qz-h2">{{ _('Статистика') }}</h2>
+        <dl class="qz-statlist">
+            <div><dt>{{ _('С ведущим') }}</dt><dd>{{ quiz.hosted_plays }}</dd></div>
+            <div><dt>{{ _('В одиночку') }}</dt><dd>{{ quiz.solo_plays }}</dd></div>
+            <div><dt>{{ _('Разных игроков') }}</dt><dd>{{ quiz.unique_players }}</dd></div>
+            <div><dt>{{ _('Всего участий') }}</dt><dd>{{ quiz.participations }}</dd></div>
+            {% if quiz.average_group is not none %}<div><dt>{{ _('Средняя группа') }}</dt><dd>{{ '%g'|format(quiz.average_group) }}</dd></div>{% endif %}
+            {% if quiz.correct_percent is not none %}<div><dt>{{ _('Верных ответов') }}</dt><dd>{{ quiz.correct_percent }}%</dd></div>{% endif %}
+            {% if quiz.last_played %}<div><dt>{{ _('Последняя игра') }}</dt><dd>{{ quiz.last_played|date('d.m.Y') }}</dd></div>{% endif %}
+            {% if stats.best %}<div><dt>{{ _('Лучший результат') }}</dt><dd>{{ stats.best.score }} <small>{{ stats.best.nickname }}</small></dd></div>{% endif %}
+        </dl>
+        {% if stats.questions %}<p class="qz-muted qz-small">{{ _('Сложность вопросов — в списке ниже: доля верных ответов за все игры.') }}</p>{% endif %}
+    </section>
+    {% endif %}
+
     <section class="qz-panel">
         <h2 class="qz-h2">{{ _('Вопросы') }}</h2>
         <ol class="qz-qlist">
@@ -127,7 +144,15 @@
                 <li>
                     <span class="qz-qtype">{{ type_names[q.type] }}</span>
                     <span class="qz-qtext">{{ q.text|replace('**', '')|replace('`', '')|striptags|truncate(110, True, '…') if q.text else '—' }}</span>
-                    <span class="qz-qmeta">{{ _('%(n)s с', n=q.time_limit) }}{% if q.weight == 2 %} · x2{% elif q.weight == 0 or not q.scored %} · {{ _('без очков') }}{% endif %}</span>
+                    <span class="qz-qmeta">{% if q.youtube_id %}<i class="fa fa-youtube-play" title="{{ _('Вопрос с видео') }}" aria-label="{{ _('Вопрос с видео') }}"></i> {% endif %}{{ _('%(n)s с', n=q.time_limit) }}{% if q.weight == 2 %} · x2{% elif q.weight == 0 or not q.scored %} · {{ _('без очков') }}{% endif %}</span>
+                    {% if q.stats %}
+                        {% set pct = q.stats.percent %}
+                        <span class="qz-qstat">
+                            <span class="qz-meter" aria-hidden="true"><span style="width: {{ pct }}%" class="{{ 'qz-ok' if pct >= 60 else 'qz-mid' if pct >= 30 else 'qz-bad' }}"></span></span>
+                            {{ _('верно {n}%%')|replace('{n}', pct|string) }}
+                            <span class="qz-muted">· {{ _('ответов: {n}')|replace('{n}', q.stats.answered|string) }}</span>
+                        </span>
+                    {% endif %}
                     {% if q.image %}
                         <figure class="qz-qimg">
                             <a href="{{ q.image.url }}" target="_blank" rel="noopener" title="{{ _('Открыть картинку') }}">

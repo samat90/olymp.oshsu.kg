@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models import CASCADE, SET_NULL
+from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
 
 from judge.models.profile import Profile
@@ -26,7 +27,18 @@ class Quiz(models.Model):
     is_deleted = models.BooleanField(verbose_name=_('deleted by the author'), default=False)
     copied_from = models.ForeignKey('self', verbose_name=_('copied from'), null=True, blank=True, on_delete=SET_NULL,
                                     related_name='copies')
+    # Statistics of finished games, recounted from the games by judge.utils.quiz_stats.
     plays = models.PositiveIntegerField(verbose_name=_('games played'), default=0)
+    hosted_plays = models.PositiveIntegerField(verbose_name=_('games with a host'), default=0)
+    solo_plays = models.PositiveIntegerField(verbose_name=_('solo games'), default=0)
+    participations = models.PositiveIntegerField(verbose_name=_('participations'), default=0)
+    hosted_participations = models.PositiveIntegerField(verbose_name=_('participations in games with a host'),
+                                                        default=0)
+    unique_players = models.PositiveIntegerField(verbose_name=_('different players'), default=0)
+    answers_counted = models.PositiveIntegerField(verbose_name=_('answers to questions with a right answer'),
+                                                  default=0)
+    answers_correct = models.PositiveIntegerField(verbose_name=_('correct answers'), default=0)
+    last_played = models.DateTimeField(verbose_name=_('last played'), null=True, blank=True)
     created = models.DateTimeField(verbose_name=_('created'), auto_now_add=True)
     updated = models.DateTimeField(verbose_name=_('updated'), auto_now=True, db_index=True)
 
@@ -37,6 +49,26 @@ class Quiz(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def plays_label(self):
+        """'Played N times' with the Russian ending that agrees with the number."""
+        few = self.plays % 10 in (2, 3, 4) and self.plays % 100 not in (12, 13, 14)
+        text = gettext('Сыграна {n} раза') if few else gettext('Сыграна {n} раз')
+        return text.replace('{n}', str(self.plays))
+
+    @property
+    def average_group(self):
+        """Players in one game with a host, or None without such games."""
+        if not self.hosted_plays:
+            return None
+        return round(self.hosted_participations / self.hosted_plays, 1)
+
+    @property
+    def correct_percent(self):
+        if not self.answers_counted:
+            return None
+        return int(100 * self.answers_correct / self.answers_counted + 0.5)
 
     @staticmethod
     def is_admin(user):
@@ -95,6 +127,9 @@ class Question(models.Model):
     code = models.TextField(verbose_name=_('code'), max_length=4000, blank=True)
     code_language = models.CharField(verbose_name=_('code language'), max_length=20, blank=True)
     image = models.ImageField(verbose_name=_('image'), upload_to='quiz/', blank=True)
+    # A video from YouTube: only its id and start second; players load it from YouTube themselves.
+    youtube_id = models.CharField(verbose_name=_('YouTube video'), max_length=11, blank=True)
+    youtube_start = models.PositiveIntegerField(verbose_name=_('video start, s'), default=0)
     time_limit = models.PositiveSmallIntegerField(verbose_name=_('time, s'), default=20)
     weight = models.PositiveSmallIntegerField(verbose_name=_('points'), choices=WEIGHTS, default=1)
     explanation = models.TextField(verbose_name=_('explanation'), max_length=2000, blank=True)

@@ -26,14 +26,14 @@ from datetime import timedelta
 from django.conf import settings
 from django.core.cache import cache
 from django.db import IntegrityError, connection, transaction
-from django.db.models import F
 from django.utils import timezone
 from django.utils.translation import gettext as _
 
 from judge.jinja2.markdown import markdown
 from judge.models.interface import MiscConfig
-from judge.models.quiz import Answer, GameSession, Player, Question, Quiz
+from judge.models.quiz import Answer, GameSession, Player, Question
 from judge.utils import quiz_scoring as scoring
+from judge.utils import quiz_stats
 
 TTL = 6 * 3600
 COUNTDOWN = 3            # seconds of "get ready" before answers open
@@ -131,7 +131,7 @@ def unfinished_questions(quiz):
     broken = []
     for number, q in enumerate(quiz.questions.prefetch_related('options'), 1):
         options = [{'text': o.text, 'is_correct': o.is_correct, 'has_image': bool(o.image)} for o in q.options.all()]
-        fields = {'type': q.type, 'text': q.text, 'code': q.code, 'data': q.data or {}}
+        fields = {'type': q.type, 'text': q.text, 'code': q.code, 'data': q.data or {}, 'youtube_id': q.youtube_id}
         if problems(fields, options, bool(q.image)):
             broken.append(number)
     return broken
@@ -268,6 +268,8 @@ def question_payload(game, question, index):
         'time': question.time_limit, 'weight': question.weight, 'scored': question.scored,
         'options': [{'id': o.id, 'text': o.text, 'image': image_url(o.image)} for o in options],
     }
+    if question.youtube_id:
+        payload['video'] = {'id': question.youtube_id, 'start': question.youtube_start}
     if t == Question.WORD:
         letters = list(scoring.normalize_text(data.get('word', '')).replace(' ', '').upper())
         mixed = shuffled(letters, seed)
@@ -478,11 +480,12 @@ def finish(state):
         Player.objects.bulk_update(players, ['rank'], batch_size=500)
         GameSession.objects.filter(id=game.id).update(status=GameSession.FINISHED, finished=timezone.now(),
                                                       phase_started=timezone.now())
-        Quiz.objects.filter(id=game.quiz_id).update(plays=F('plays') + 1)
     cache.set(k('lb', game.id), leaderboard(players, {}, {}), TTL)
     prepare_finals(game, players)
     state.update({'ph': GameSession.FINISHED, 'paused': None})
-    return save_state(state)
+    state = save_state(state)
+    quiz_stats.recount_safely(game.quiz_id)
+    return state
 
 
 def prepare_finals(game, players):
@@ -713,6 +716,8 @@ def join(state, profile, nickname, token, ip, avatar=None):
 def remove_player(state, player_id):
     updated = Player.objects.filter(game_id=state['id'], id=player_id, is_removed=False).update(is_removed=True)
     if updated:
+        if state['ph'] == GameSession.FINISHED:
+            quiz_stats.recount_safely(GameSession.objects.values_list('quiz_id', flat=True).get(id=state['id']))
         cache.set(k('x', state['id'], player_id), 1, TTL)
         try:
             cache.decr(k('np', state['id']))

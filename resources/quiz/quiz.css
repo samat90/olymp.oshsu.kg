@@ -830,3 +830,28 @@ button.qz-btn-accent:hover, button.qz-btn-accent:focus { background: #0a6b64; }
     .qz-myrow { flex-wrap: wrap; }
     .qz-myrow-main { flex: 1 1 calc(100% - 90px); }
 }
+
+/* ---------- statistics ---------- */
+.qz-played { white-space: nowrap; }
+.qz-mystats { font-size: 13px; }
+.qz-statbox { margin-bottom: 16px; }
+.qz-statlist { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; margin: 0; }
+.qz-statlist div { padding: 10px 12px; border-radius: 12px; background: var(--qz-soft); min-width: 0; }
+.qz-statlist dt { color: var(--ui-muted); font-size: 12px; font-weight: 600; }
+.qz-statlist dd { margin: 2px 0 0; font-size: 22px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.qz-statlist dd small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px;
+    font-weight: 600; color: var(--ui-muted); }
+.qz-statbox > p { margin: 10px 0 0; }
+.qz-qstat { display: flex; flex-wrap: wrap; align-items: center; gap: 0 6px; clear: both; margin-top: 4px; font-size: 13px; }
+
+/* ---------- YouTube video of a question ---------- */
+.qz-video-box { display: flex; flex-direction: column; gap: 8px; align-items: center; width: 100%; }
+.qz-video { position: relative; display: flex; align-items: center; justify-content: center; width: 100%;
+    max-width: calc(36vh * 16 / 9); min-width: min(100%, 280px); aspect-ratio: 16 / 9; border-radius: 12px;
+    overflow: hidden; background: #000; }
+.qz-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+.qz-video-wait { color: rgba(255, 255, 255, .5); font-size: 48px; }
+.qz-q-head.qz-big .qz-video { max-width: calc(29vh * 16 / 9); }
+.qz-video-note { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: center; font-weight: 600;
+    text-align: center; }
+.qz-video-note[hidden] { display: none; }

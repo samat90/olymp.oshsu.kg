@@ -4743,3 +4743,114 @@ msgstr "Рекорддорго кайтаруу"
 
 msgid "Results changed: %d"
 msgstr "Өзгөртүлгөн жыйынтыктар: %d"
+
+msgid "Видео к вопросу"
+msgstr "Суроонун видеосу"
+
+msgid "Видео не загружается с YouTube."
+msgstr "Видео YouTube’дан жүктөлбөй жатат."
+
+msgid "Это видео нельзя показать здесь."
+msgstr "Бул видеону бул жерде көрсөтүүгө болбойт."
+
+msgid "(видео)"
+msgstr "(видео)"
+
+msgid "Это не ссылка на видео YouTube. Вставьте ссылку на ролик или Shorts."
+msgstr "Бул YouTube видеосунун шилтемеси эмес. Роликтин же Shorts’тун шилтемесин коюңуз."
+
+msgid "Предпросмотр видео"
+msgstr "Видеону алдын ала көрүү"
+
+msgid "Видео с YouTube"
+msgstr "YouTube видеосу"
+
+msgid "Ссылка: youtube.com/watch?v=…, youtu.be/… или Shorts"
+msgstr "Шилтеме: youtube.com/watch?v=…, youtu.be/… же Shorts"
+
+msgid "Видео каждый смотрит прямо с YouTube. Начало задаёт параметр t= в ссылке. Время на ответ должно включать просмотр; название ролика видно игрокам."
+msgstr "Видеону ар ким түздөн-түз YouTube’дан көрөт. Башталышын шилтемедеги t= параметри берет. Жооп берүү убактысына көрүү убактысы да кирет; роликтин аталышы оюнчуларга көрүнөт."
+
+msgid "Нужна ссылка на видео YouTube"
+msgstr "YouTube видеосунун шилтемеси керек"
+
+msgid "Сыграна {n} раз"
+msgstr "{n} жолу ойнолду"
+
+msgid "Сыграна {n} раза"
+msgstr "{n} жолу ойнолду"
+
+msgid "с ведущим: {n}"
+msgstr "алып баруучу менен: {n}"
+
+msgid "в одиночку: {n}"
+msgstr "жалгыз: {n}"
+
+msgid "игроков: {n}"
+msgstr "оюнчулар: {n}"
+
+msgid "верно {n}%%"
+msgstr "туура {n}%%"
+
+msgid "играли {date}"
+msgstr "акыркы оюн {date}"
+
+msgid "ещё не играли"
+msgstr "азырынча ойнотулган эмес"
+
+msgid "ответов: {n}"
+msgstr "жооптор: {n}"
+
+msgid "Статистика"
+msgstr "Статистика"
+
+msgid "Разных игроков"
+msgstr "Ар башка оюнчулар"
+
+msgid "Всего участий"
+msgstr "Бардык катышуулар"
+
+msgid "Средняя группа"
+msgstr "Топтун орточо саны"
+
+msgid "Верных ответов"
+msgstr "Туура жооптор"
+
+msgid "Последняя игра"
+msgstr "Акыркы оюн"
+
+msgid "Лучший результат"
+msgstr "Эң мыкты жыйынтык"
+
+msgid "Сложность вопросов — в списке ниже: доля верных ответов за все игры."
+msgstr "Суроолордун татаалдыгы төмөнкү тизмеде: бардык оюндардагы туура жооптордун үлүшү."
+
+msgid "Вопрос с видео"
+msgstr "Видеосу бар суроо"
+
+msgid "games with a host"
+msgstr "алып баруучу менен оюндар"
+
+msgid "solo games"
+msgstr "жеке оюндар"
+
+msgid "participations"
+msgstr "катышуулар"
+
+msgid "participations in games with a host"
+msgstr "алып баруучу менен оюндардагы катышуулар"
+
+msgid "different players"
+msgstr "ар башка оюнчулар"
+
+msgid "answers to questions with a right answer"
+msgstr "туура жообу бар суроолорго жооптор"
+
+msgid "last played"
+msgstr "акыркы оюн"
+
+msgid "YouTube video"
+msgstr "YouTube видеосу"
+
+msgid "video start, s"
+msgstr "видеонун башталышы, с"

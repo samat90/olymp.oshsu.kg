@@ -6,6 +6,7 @@ from io import BytesIO
 from django.utils.translation import gettext as _
 
 from judge.models.quiz import Question
+from judge.utils import youtube
 
 TYPE_CODES = [code for code, _name in Question.TYPES]
 LANGUAGES = (('python', 'Python'), ('cpp', 'C++'), ('c', 'C'), ('java', 'Java'), ('pascal', 'Pascal'),
@@ -147,6 +148,17 @@ def clean_options(type, data, options):
     return result
 
 
+def clean_video(value):
+    """(youtube id, start second) from the link typed in the editor; ('', 0) without one."""
+    link = str(value or '').strip()
+    if not link:
+        return '', 0
+    video = youtube.parse(link)
+    if video is None:
+        raise QuestionError(_('Нужна ссылка на видео YouTube'), 'video')
+    return video
+
+
 def clean_question(payload):
     """Check and normalise a question from the editor or the import: (fields, options). Raises QuestionError."""
     if not isinstance(payload, dict):
@@ -171,10 +183,12 @@ def clean_question(payload):
     if language not in LANGUAGE_CODES:
         language = 'python' if type == Question.CODE else ''
     data = clean_data(type, payload.get('data'))
+    youtube_id, youtube_start = clean_video(payload.get('video'))
     fields = {
         'type': type, 'text': text_value(payload.get('text'), 2000, 'text', _('Текст вопроса')),
         'code': code, 'code_language': language if code or type == Question.CODE else '',
         'time_limit': time_limit, 'weight': weight, 'data': data,
+        'youtube_id': youtube_id, 'youtube_start': youtube_start,
         'explanation': text_value(payload.get('explanation'), 2000, 'explanation', _('Пояснение')),
     }
     return fields, clean_options(type, data, payload.get('options'))
@@ -184,7 +198,7 @@ def problems(fields, options, has_image):
     """What still prevents the question from being played properly (shown in the editor, not blocking saves)."""
     type, data = fields['type'], fields['data']
     found = []
-    if not fields['text'] and not has_image and not fields['code']:
+    if not fields['text'] and not has_image and not fields['code'] and not fields.get('youtube_id'):
         found.append(_('Нет текста вопроса'))
     if type == Question.CODE and not fields['code']:
         found.append(_('Добавьте код'))

@@ -39,10 +39,21 @@
                         <a class="qz-card-title" href="{{ url('quiz_detail', quiz.key) }}">{{ quiz.title }}</a>
                         <span class="qz-card-meta">
                             <span>{{ _('%(n)s вопр.', n=quiz.question_count) }}</span>
-                            <span>{{ _('%(n)s игр', n=quiz.plays) }}</span>
                             <span>{{ _('открытая') if quiz.access == 'public' else _('по ссылке') }}</span>
                             {% if quiz.is_hidden %}<span class="qz-tag qz-tag-bad">{{ _('скрыта администратором') }}</span>{% endif %}
                             <span>{{ _('изменена %(date)s', date=quiz.updated|date('d.m.Y')) }}</span>
+                        </span>
+                        <span class="qz-card-meta qz-mystats">
+                            {% if quiz.plays %}
+                                <span class="qz-played"><i class="fa fa-play"></i> {{ quiz.plays_label }}</span>
+                                <span>{{ _('с ведущим: {n}')|replace('{n}', quiz.hosted_plays|string) }}</span>
+                                <span>{{ _('в одиночку: {n}')|replace('{n}', quiz.solo_plays|string) }}</span>
+                                <span><i class="fa fa-users"></i> {{ _('игроков: {n}')|replace('{n}', quiz.unique_players|string) }}</span>
+                                {% if quiz.correct_percent is not none %}<span>{{ _('верно {n}%%')|replace('{n}', quiz.correct_percent|string) }}</span>{% endif %}
+                                {% if quiz.last_played %}<span>{{ _('играли {date}')|replace('{date}', quiz.last_played|date('d.m.Y')) }}</span>{% endif %}
+                            {% else %}
+                                <span>{{ _('ещё не играли') }}</span>
+                            {% endif %}
                         </span>
                     </span>
                     <a class="qz-btn" href="{{ url('quiz_edit', quiz.key) }}"><i class="fa fa-pencil"></i><span class="qz-hide-sm"> {{ _('Изменить') }}</span></a>

@@ -8900,3 +8900,87 @@ msgstr "Automatic checking: assignments count at once and the certificate is iss
 
 msgid "ФИО преподавателя (печатается в сертификате)"
 msgstr "Instructor full name (printed on the certificate)"
+
+msgid "Видео к вопросу"
+msgstr "Question video"
+
+msgid "Видео не загружается с YouTube."
+msgstr "The video does not load from YouTube."
+
+msgid "Это видео нельзя показать здесь."
+msgstr "This video cannot be shown here."
+
+msgid "(видео)"
+msgstr "(video)"
+
+msgid "Это не ссылка на видео YouTube. Вставьте ссылку на ролик или Shorts."
+msgstr "This is not a YouTube video link. Paste a link to a video or a Short."
+
+msgid "Предпросмотр видео"
+msgstr "Video preview"
+
+msgid "Видео с YouTube"
+msgstr "YouTube video"
+
+msgid "Ссылка: youtube.com/watch?v=…, youtu.be/… или Shorts"
+msgstr "Link: youtube.com/watch?v=…, youtu.be/… or Shorts"
+
+msgid "Видео каждый смотрит прямо с YouTube. Начало задаёт параметр t= в ссылке. Время на ответ должно включать просмотр; название ролика видно игрокам."
+msgstr "Everyone watches the video straight from YouTube. The t= part of the link sets where it starts. The answer time must include watching; players can see the title of the video."
+
+msgid "Нужна ссылка на видео YouTube"
+msgstr "A YouTube video link is needed"
+
+msgid "Сыграна {n} раз"
+msgstr "Games played: {n}"
+
+msgid "Сыграна {n} раза"
+msgstr "Games played: {n}"
+
+msgid "с ведущим: {n}"
+msgstr "with a host: {n}"
+
+msgid "в одиночку: {n}"
+msgstr "solo: {n}"
+
+msgid "игроков: {n}"
+msgstr "players: {n}"
+
+msgid "верно {n}%%"
+msgstr "{n}%% correct"
+
+msgid "играли {date}"
+msgstr "last played {date}"
+
+msgid "ещё не играли"
+msgstr "not played yet"
+
+msgid "ответов: {n}"
+msgstr "answers: {n}"
+
+msgid "Статистика"
+msgstr "Statistics"
+
+msgid "Разных игроков"
+msgstr "Different players"
+
+msgid "Всего участий"
+msgstr "Participations"
+
+msgid "Средняя группа"
+msgstr "Average group"
+
+msgid "Верных ответов"
+msgstr "Correct answers"
+
+msgid "Последняя игра"
+msgstr "Last game"
+
+msgid "Лучший результат"
+msgstr "Best result"
+
+msgid "Сложность вопросов — в списке ниже: доля верных ответов за все игры."
+msgstr "How hard each question is — in the list below: the share of correct answers over all games."
+
+msgid "Вопрос с видео"
+msgstr "Question with a video"

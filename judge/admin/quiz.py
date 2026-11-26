@@ -6,6 +6,7 @@ from django.utils.translation import gettext_lazy as _
 
 from judge.models import Quiz
 from judge.utils import quiz_images  # noqa: F401  (deletes picture files together with quizzes)
+from judge.utils import quiz_stats  # noqa: F401  (recounts statistics when a game is deleted)
 
 DISABLE_NOTE = ('Чтобы временно запретить новые игры (например, на время олимпиады), добавьте в «Misc configs» '
                 'ключ quiz_disabled со значением — текстом, который увидят пользователи. Удалите ключ, '
@@ -13,7 +14,8 @@ DISABLE_NOTE = ('Чтобы временно запретить новые иг�
 
 
 class QuizAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author_link', 'access', 'is_hidden', 'is_deleted', 'question_count', 'plays', 'updated')
+    list_display = ('title', 'author_link', 'access', 'is_hidden', 'is_deleted', 'question_count', 'plays',
+                    'unique_players', 'last_played', 'updated')
     list_filter = ('access', 'is_hidden', 'is_deleted', 'theme')
     search_fields = ('title', 'description', 'subject', 'key', 'author__user__username')
     list_select_related = ('author__user',)

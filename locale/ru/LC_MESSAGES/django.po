@@ -7708,3 +7708,30 @@ msgstr "Вернуть в рекорды"
 
 msgid "Results changed: %d"
 msgstr "Изменено результатов: %d"
+
+msgid "games with a host"
+msgstr "игр с ведущим"
+
+msgid "solo games"
+msgstr "одиночных игр"
+
+msgid "participations"
+msgstr "участий"
+
+msgid "participations in games with a host"
+msgstr "участий в играх с ведущим"
+
+msgid "different players"
+msgstr "разных игроков"
+
+msgid "answers to questions with a right answer"
+msgstr "ответов на вопросы с верным ответом"
+
+msgid "last played"
+msgstr "последняя игра"
+
+msgid "YouTube video"
+msgstr "видео YouTube"
+
+msgid "video start, s"
+msgstr "начало видео, с"

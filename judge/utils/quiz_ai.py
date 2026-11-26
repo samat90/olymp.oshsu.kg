@@ -280,7 +280,8 @@ def clean(raw):
     if question is None:
         return None
     try:
-        fields, options = clean_question(question)
+        # A model cannot check that a video exists: it never adds one.
+        fields, options = clean_question(dict(question, video=''))
     except QuestionError:
         return None
     if problems(fields, options, False):

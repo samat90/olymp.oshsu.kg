@@ -24,7 +24,7 @@ from django.utils import timezone
 from django.utils.translation import gettext as _
 
 from judge.models import GameSession, Quiz, QuizAnswer, QuizPlayer, QuizQuestion, QuizReport
-from judge.utils import quiz_game as engine
+from judge.utils import quiz_game as engine, quiz_stats
 from judge.utils.quiz_game import GameError
 
 logger = logging.getLogger('judge.quiz')
@@ -80,6 +80,17 @@ def set_player_cookie(response, game, player):
                                secure=getattr(settings, 'SESSION_COOKIE_SECURE', False))
 
 
+def guest_token(request):
+    """The random id of this browser: it reconnects a guest and counts them as one player."""
+    token = request.COOKIES.get(GUEST_COOKIE, '')
+    return token if len(token) == 32 and token.isalnum() else secrets.token_hex(16)
+
+
+def set_guest_cookie(response, token):
+    response.set_cookie(GUEST_COOKIE, token, max_age=30 * 86400, httponly=True, samesite='Lax',
+                        secure=getattr(settings, 'SESSION_COOKIE_SECURE', False))
+
+
 def is_host(request, state):
     if not request.user.is_authenticated:
         return False
@@ -111,7 +122,7 @@ def catalog(request):
     order = request.GET.get('order')
     # The id breaks ties: quizzes loaded together share one "updated" time, and without a strict order
     # PostgreSQL may return them on different pages in a different order, so some never show up.
-    quizzes = quizzes.order_by('-plays', '-updated', '-id') if order == 'popular' else \
+    quizzes = quizzes.order_by('-plays', '-participations', '-updated', '-id') if order == 'popular' else \
         quizzes.order_by('-updated', '-id')
     page = Paginator(quizzes, CATALOG_PAGE).get_page(request.GET.get('page'))
     subjects = cache.get('qz:subjects')
@@ -184,8 +195,11 @@ def quiz_detail(request, key):
     if records is None:
         records = quiz_records(quiz)
         cache.set('qz:records:%d' % quiz.id, records, 60)
+    stats = quiz_stats.detail(quiz) if quiz.plays else None
+    for q in questions:
+        q.stats = stats['questions'].get(q.id) if stats else None
     return render(request, 'quiz/detail.html', {
-        'title': quiz.title, 'quiz': quiz, 'questions': questions, 'records': records,
+        'title': quiz.title, 'quiz': quiz, 'questions': questions, 'records': records, 'stats': stats,
         'can_edit': quiz.can_edit(request.user), 'modes': GameSession.MODES,
         'type_names': dict(QuizQuestion.TYPES), 'disabled': engine.games_disabled(),
         'max_players': GameSession.MAX_PLAYERS,
@@ -229,14 +243,17 @@ def solo(request, key):
     if profile is None and not engine.nickname_ok(' '.join(nickname.split())[:24]):
         return render(request, 'quiz/message.html', {'title': quiz.title, 'message': _('Выберите другой ник')},
                       status=400)
+    token = guest_token(request)
     try:
         game = engine.create_game(quiz, None, GameSession.SOLO)
         state = engine.get_state(game.pin)
-        player, _new = engine.join(state, profile, nickname, secrets.token_hex(16), client_ip(request))
+        player, _new = engine.join(state, profile, nickname, token, client_ip(request))
     except GameError as e:
         return render(request, 'quiz/message.html', {'title': quiz.title, 'message': str(e)}, status=400)
     response = redirect('quiz_play', pin=game.pin)
     set_player_cookie(response, game, player)
+    if profile is None:
+        set_guest_cookie(response, token)
     return response
 
 
@@ -279,9 +296,7 @@ def join(request):
         if not nickname:
             context['step'] = 'nick'
             return render(request, 'quiz/join.html', context)
-    token = request.COOKIES.get(GUEST_COOKIE, '')
-    if len(token) != 32 or not token.isalnum():
-        token = secrets.token_hex(16)
+    token = guest_token(request)
     try:
         player, _new = engine.join(state, request.profile if request.user.is_authenticated else None, nickname,
                                    token, client_ip(request), request.POST.get('avatar'))
@@ -292,8 +307,7 @@ def join(request):
     response = redirect('quiz_play', pin=pin)
     set_player_cookie(response, game, player)
     if not request.user.is_authenticated:
-        response.set_cookie(GUEST_COOKIE, token, max_age=30 * 86400, httponly=True, samesite='Lax',
-                            secure=getattr(settings, 'SESSION_COOKIE_SECURE', False))
+        set_guest_cookie(response, token)
     return response
 
 

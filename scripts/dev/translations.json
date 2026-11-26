@@ -2726,5 +2726,153 @@
   "Results changed: %d": {
     "ru": "Изменено результатов: %d",
     "ky": "Өзгөртүлгөн жыйынтыктар: %d"
+  },
+  "Видео к вопросу": {
+    "ky": "Суроонун видеосу",
+    "en": "Question video"
+  },
+  "Видео не загружается с YouTube.": {
+    "ky": "Видео YouTube’дан жүктөлбөй жатат.",
+    "en": "The video does not load from YouTube."
+  },
+  "Это видео нельзя показать здесь.": {
+    "ky": "Бул видеону бул жерде көрсөтүүгө болбойт.",
+    "en": "This video cannot be shown here."
+  },
+  "(видео)": {
+    "ky": "(видео)",
+    "en": "(video)"
+  },
+  "Это не ссылка на видео YouTube. Вставьте ссылку на ролик или Shorts.": {
+    "ky": "Бул YouTube видеосунун шилтемеси эмес. Роликтин же Shorts’тун шилтемесин коюңуз.",
+    "en": "This is not a YouTube video link. Paste a link to a video or a Short."
+  },
+  "Предпросмотр видео": {
+    "ky": "Видеону алдын ала көрүү",
+    "en": "Video preview"
+  },
+  "Видео с YouTube": {
+    "ky": "YouTube видеосу",
+    "en": "YouTube video"
+  },
+  "Ссылка: youtube.com/watch?v=…, youtu.be/… или Shorts": {
+    "ky": "Шилтеме: youtube.com/watch?v=…, youtu.be/… же Shorts",
+    "en": "Link: youtube.com/watch?v=…, youtu.be/… or Shorts"
+  },
+  "Видео каждый смотрит прямо с YouTube. Начало задаёт параметр t= в ссылке. Время на ответ должно включать просмотр; название ролика видно игрокам.": {
+    "ky": "Видеону ар ким түздөн-түз YouTube’дан көрөт. Башталышын шилтемедеги t= параметри берет. Жооп берүү убактысына көрүү убактысы да кирет; роликтин аталышы оюнчуларга көрүнөт.",
+    "en": "Everyone watches the video straight from YouTube. The t= part of the link sets where it starts. The answer time must include watching; players can see the title of the video."
+  },
+  "Нужна ссылка на видео YouTube": {
+    "ky": "YouTube видеосунун шилтемеси керек",
+    "en": "A YouTube video link is needed"
+  },
+  "Сыграна {n} раз": {
+    "ky": "{n} жолу ойнолду",
+    "en": "Games played: {n}"
+  },
+  "Сыграна {n} раза": {
+    "ky": "{n} жолу ойнолду",
+    "en": "Games played: {n}"
+  },
+  "с ведущим: {n}": {
+    "ky": "алып баруучу менен: {n}",
+    "en": "with a host: {n}"
+  },
+  "в одиночку: {n}": {
+    "ky": "жалгыз: {n}",
+    "en": "solo: {n}"
+  },
+  "игроков: {n}": {
+    "ky": "оюнчулар: {n}",
+    "en": "players: {n}"
+  },
+  "верно {n}%%": {
+    "ky": "туура {n}%%",
+    "en": "{n}%% correct"
+  },
+  "играли {date}": {
+    "ky": "акыркы оюн {date}",
+    "en": "last played {date}"
+  },
+  "ещё не играли": {
+    "ky": "азырынча ойнотулган эмес",
+    "en": "not played yet"
+  },
+  "ответов: {n}": {
+    "ky": "жооптор: {n}",
+    "en": "answers: {n}"
+  },
+  "Статистика": {
+    "ky": "Статистика",
+    "en": "Statistics"
+  },
+  "Разных игроков": {
+    "ky": "Ар башка оюнчулар",
+    "en": "Different players"
+  },
+  "Всего участий": {
+    "ky": "Бардык катышуулар",
+    "en": "Participations"
+  },
+  "Средняя группа": {
+    "ky": "Топтун орточо саны",
+    "en": "Average group"
+  },
+  "Верных ответов": {
+    "ky": "Туура жооптор",
+    "en": "Correct answers"
+  },
+  "Последняя игра": {
+    "ky": "Акыркы оюн",
+    "en": "Last game"
+  },
+  "Лучший результат": {
+    "ky": "Эң мыкты жыйынтык",
+    "en": "Best result"
+  },
+  "Сложность вопросов — в списке ниже: доля верных ответов за все игры.": {
+    "ky": "Суроолордун татаалдыгы төмөнкү тизмеде: бардык оюндардагы туура жооптордун үлүшү.",
+    "en": "How hard each question is — in the list below: the share of correct answers over all games."
+  },
+  "Вопрос с видео": {
+    "ky": "Видеосу бар суроо",
+    "en": "Question with a video"
+  },
+  "games with a host": {
+    "ru": "игр с ведущим",
+    "ky": "алып баруучу менен оюндар"
+  },
+  "solo games": {
+    "ru": "одиночных игр",
+    "ky": "жеке оюндар"
+  },
+  "participations": {
+    "ru": "участий",
+    "ky": "катышуулар"
+  },
+  "participations in games with a host": {
+    "ru": "участий в играх с ведущим",
+    "ky": "алып баруучу менен оюндардагы катышуулар"
+  },
+  "different players": {
+    "ru": "разных игроков",
+    "ky": "ар башка оюнчулар"
+  },
+  "answers to questions with a right answer": {
+    "ru": "ответов на вопросы с верным ответом",
+    "ky": "туура жообу бар суроолорго жооптор"
+  },
+  "last played": {
+    "ru": "последняя игра",
+    "ky": "акыркы оюн"
+  },
+  "YouTube video": {
+    "ru": "видео YouTube",
+    "ky": "YouTube видеосу"
+  },
+  "video start, s": {
+    "ru": "начало видео, с",
+    "ky": "видеонун башталышы, с"
   }
 }

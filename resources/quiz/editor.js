@@ -143,7 +143,7 @@
     function payload(q) {
         return {
             type: q.type, text: q.text, code: q.code, code_language: q.code_language, time_limit: q.time_limit,
-            weight: q.weight, explanation: q.explanation, data: q.data,
+            weight: q.weight, explanation: q.explanation, data: q.data, video: q.video || '',
             options: q.options.map(function (o) { return {id: o.id || null, text: o.text, is_correct: o.is_correct, image: o.image}; })
         };
     }
@@ -221,7 +221,7 @@
             .replace(/`+/g, '')
             .replace(/\*\*(?=\S)([\s\S]*?\S)\*\*/g, '$1')
             .replace(/\s+/g, ' ').trim();
-        return text || (q.image ? L('(картинка)') : q.code ? L('(код)') : '');
+        return text || (q.image ? L('(картинка)') : q.video ? L('(видео)') : q.code ? L('(код)') : '');
     }
 
     function renderList() {
@@ -492,6 +492,7 @@
             L('Можно **жирный**, *курсив*, `код` и формулы в $...$')));
         main.appendChild(codeBlock(q));
         main.appendChild(imageBlock(q));
+        main.appendChild(videoBlock(q));
         form.appendChild(main);
 
         var answer = answerBlock(q);
@@ -611,6 +612,94 @@
         box.appendChild(row);
         box.appendChild(el('div', {'class': 'qe-hint', text: L('JPEG, PNG, GIF или WebP до 5 МБ. Картинка уменьшится до 1280 пикселей.')}));
         return box;
+    }
+
+    /* ---------------- YouTube video ---------------- */
+
+    // The same rules as judge/utils/youtube.py (the server checks the link again).
+    var YT_HOSTS = ['youtube.com', 'www.youtube.com', 'm.youtube.com', 'music.youtube.com',
+        'youtube-nocookie.com', 'www.youtube-nocookie.com'];
+
+    function videoSeconds(value) {
+        var m = /^(?:(\d{1,6})h)?(?:(\d{1,6})m)?(?:(\d{1,6})s?)?$/.exec(value || '');
+        if (!m) return 0;
+        var total = Number(m[1] || 0) * 3600 + Number(m[2] || 0) * 60 + Number(m[3] || 0);
+        return total <= 86400 ? total : 0;
+    }
+
+    function parseVideo(link) {
+        link = String(link || '').trim();
+        if (!link || link.length > 500 || /\s/.test(link)) return null;
+        var url;
+        try { url = new URL(link.indexOf('://') < 0 ? 'https://' + link : link); } catch (e) { return null; }
+        if (url.protocol !== 'http:' && url.protocol !== 'https:') return null;
+        var path = url.pathname.split('/').filter(Boolean), id = '';
+        if (url.hostname === 'youtu.be' || url.hostname === 'www.youtu.be') {
+            id = path[0] || '';
+        } else if (YT_HOSTS.indexOf(url.hostname) >= 0) {
+            if (path.length === 1 && path[0] === 'watch') id = url.searchParams.get('v') || '';
+            else if (path.length >= 2 && ['shorts', 'embed', 'live', 'v'].indexOf(path[0]) >= 0) id = path[1];
+        }
+        if (!/^[A-Za-z0-9_-]{11}$/.test(id)) return null;
+        var start = url.searchParams.get('t') || url.searchParams.get('start') ||
+            new URLSearchParams(url.hash.slice(1)).get('t');
+        return {id: id, start: videoSeconds(start)};
+    }
+
+    function videoBlock(q) {
+        var frameBox = el('div', {'class': 'qe-video'});
+        var error = el('div', {'class': 'qe-video-error', role: 'alert', hidden: true,
+            text: L('Это не ссылка на видео YouTube. Вставьте ссылку на ролик или Shorts.')});
+        var shown = null;
+        function draw() {
+            var v = parseVideo(q.video);
+            var key = v ? v.id + ':' + v.start : '';
+            if (key === shown) return;
+            shown = key;
+            frameBox.innerHTML = '';
+            frameBox.hidden = !v;
+            remove.hidden = !q.video;
+            if (!v) return;
+            frameBox.appendChild(el('iframe', {
+                src: 'https://www.youtube-nocookie.com/embed/' + v.id + '?playsinline=1&rel=0&start=' + v.start,
+                title: L('Предпросмотр видео'), referrerpolicy: 'strict-origin-when-cross-origin',
+                allow: 'encrypted-media; picture-in-picture; fullscreen', allowfullscreen: 'true'}));
+        }
+        var entry = el('input', {type: 'text', inputMode: 'url', value: q.video || '', maxLength: 500, 'data-field': 'video',
+            'aria-label': L('Видео с YouTube'), placeholder: L('Ссылка: youtube.com/watch?v=…, youtu.be/… или Shorts'),
+            oninput: function (e) {
+                var value = e.target.value.trim();
+                var ok = !value || !!parseVideo(value);
+                // A link still being typed is not saved: the question keeps what it had.
+                if (ok) {
+                    error.hidden = true;
+                    if (value !== (q.video || '')) {
+                        q.video = value;
+                        changed(q);
+                        renderList();
+                    }
+                    draw();
+                }
+            },
+            onchange: function (e) {
+                var value = e.target.value.trim();
+                error.hidden = !value || !!parseVideo(value);
+            }});
+        var remove = el('button', {type: 'button', 'class': 'qe-btn qe-small qe-danger', onclick: function () {
+            q.video = '';
+            entry.value = '';
+            error.hidden = true;
+            changed(q);
+            renderList();
+            draw();
+        }}, [icon('fa-times'), L(' Убрать')]);
+        draw();
+        return el('div', {'class': 'qe-field'}, [
+            el('span', {'class': 'qe-label', text: L('Видео с YouTube')}),
+            el('div', {'class': 'qe-row'}, [el('div', {'class': 'qe-video-input'}, [entry]), remove]),
+            error, frameBox,
+            el('div', {'class': 'qe-hint', text: L('Видео каждый смотрит прямо с YouTube. Начало задаёт параметр t= в ссылке. Время на ответ должно включать просмотр; название ролика видно игрокам.')})
+        ]);
     }
 
     /* ---------------- answers by type ---------------- */
@@ -885,6 +974,11 @@
             '</span><span><i class="fa fa-clock-o"></i> ' + p.time + L(' с') + (p.weight === 2 ? ' · x2' : '') + '</span></div>';
         if (p.text) h += '<div class="qe-ph-card">' + p.text + '</div>';
         if (p.code) h += '<pre class="qe-ph-code">' + esc(p.code) + '</pre>';
+        // A still picture instead of the player: the preview is redrawn after every save.
+        if (p.video) {
+            h += '<div class="qe-ph-video"><img src="https://i.ytimg.com/vi/' + esc(p.video.id) +
+                '/hqdefault.jpg" alt="" referrerpolicy="no-referrer"><i class="fa fa-youtube-play"></i></div>';
+        }
         if (p.image && p.type !== 'pin') h += '<img class="qe-ph-img" src="' + esc(p.image) + '" alt="">';
         var t = p.type;
         if (p.letters) {
