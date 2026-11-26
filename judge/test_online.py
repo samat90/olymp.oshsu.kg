@@ -3,6 +3,7 @@ import time
 from django.core.cache import cache
 from django.test import TestCase
 from django.urls import reverse
+from django.utils import translation
 
 from judge.models.tests.util import create_problem, create_user
 from judge.utils import online
@@ -138,10 +139,11 @@ class OnlineRecordingTest(TestCase):
         backend.touch('u%d' % self.admin.pk, '%d|problem|aplusb' % now)
         backend.touch('g1', '%d|problem|aplusb' % now)
         backend.touch('g2', '%d|compiler|' % now)
-        data = online.build_payload()
+        with translation.override('en'):
+            data = online.build_payload()
         self.assertEqual((data['total'], data['users'], data['guests']), (4, 2, 2))
         problem, compiler = data['groups']
-        self.assertEqual(problem['title'], 'Задача A plus B')
+        self.assertEqual(problem['title'], 'Problem A plus B')
         self.assertEqual(problem['url'], reverse('problem_detail', args=['aplusb']))
         self.assertEqual(problem['users'], ['boss', 'ivan'])
         self.assertEqual((problem['guests'], problem['count']), (1, 3))

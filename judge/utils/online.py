@@ -8,6 +8,10 @@ import time
 import zlib
 
 from django.core.cache import cache
+from django.utils import translation
+from django.utils.translation import gettext as _, gettext_noop
+
+from judge.utils import visit_stats
 
 HASH_KEY = 'olymp:online'
 WINDOW = 120          # seconds a user counts as online after the last recorded request
@@ -15,35 +19,43 @@ THROTTLE = 20         # seconds between writes for the same user on the same pag
 PAYLOAD_TTL = 5       # seconds the built payload is shared between admins
 NAMES_PER_GROUP = 40
 
-BOT_MARKERS = ('bot', 'crawl', 'spider', 'slurp', 'monitor', 'uptime')
+BOT_MARKERS = ('bot', 'crawl', 'spider', 'slurp', 'monitor', 'uptime', 'curl/', 'wget/', 'python-requests',
+               'python-urllib')
 
 # kind -> sort order in the widget
 KIND_ORDER = {'contest': 0, 'problem': 1, 'quiz': 2, 'compiler': 3, 'trainer': 4, 'browse': 5}
 
 PAGE_LABELS = {
-    'home': 'Главная',
-    'problem_list': 'Задачи',
-    'problem_random': 'Задачи',
-    'contest_list': 'Олимпиады',
-    'contest_calendar': 'Олимпиады',
-    'user_list': 'Рейтинг',
-    'user_ranking_redirect': 'Рейтинг',
-    'user_page': 'Профили',
-    'user_problems': 'Профили',
-    'user_edit_profile': 'Профили',
-    'organization_list': 'Организации',
-    'organization_home': 'Организации',
-    'about': 'О сайте',
-    'blog_post': 'Новости',
-    'ticket_list': 'Обращения',
-    'ticket': 'Обращения',
-    'typing_records': 'Рекорды тренажёра',
-    'quiz_catalog': 'Каталог викторин',
-    'quiz_my': 'Мои викторины',
-    'quiz_join': 'Вход в викторину',
-    'auth_login': 'Вход',
+    'home': gettext_noop('Home'),
+    'problem_list': gettext_noop('Problems'),
+    'problem_random': gettext_noop('Problems'),
+    'contest_list': gettext_noop('Contests'),
+    'contest_calendar': gettext_noop('Contests'),
+    'user_list': gettext_noop('Leaderboard'),
+    'user_ranking_redirect': gettext_noop('Leaderboard'),
+    'user_page': gettext_noop('Profiles'),
+    'user_problems': gettext_noop('Profiles'),
+    'user_edit_profile': gettext_noop('Profiles'),
+    'organization_list': gettext_noop('Organizations'),
+    'organization_home': gettext_noop('Organizations'),
+    'about': gettext_noop('About'),
+    'guide': gettext_noop('User guide'),
+    'blog_post': gettext_noop('News'),
+    'ticket_list': gettext_noop('Tickets'),
+    'ticket': gettext_noop('Tickets'),
+    'typing_records': gettext_noop('Typing records'),
+    'quiz_catalog': gettext_noop('Quiz catalog'),
+    'quiz_my': gettext_noop('My quizzes'),
+    'quiz_join': gettext_noop('Join a quiz'),
+    'auth_login': gettext_noop('Sign-in page'),
+    'course_catalog': gettext_noop('Courses'),
+    'course_my': gettext_noop('Courses'),
+    'all_submissions': gettext_noop('Submissions'),
+    'all_user_submissions': gettext_noop('Submissions'),
+    'chronological_submissions': gettext_noop('Submissions'),
+    'submission_status': gettext_noop('Submissions'),
 }
-OTHER_LABEL = 'Другие страницы'
+OTHER_LABEL = gettext_noop('Other pages')
 
 
 def classify(url_name, kwargs, in_contest=False, contest_id=None):
@@ -129,6 +141,12 @@ def get_backend():
     return CacheBackend()
 
 
+def client_ip(request):
+    """The visitor's own address behind the university proxy. Spoofable, so it only tells guests apart here."""
+    forwarded = request.META.get('HTTP_X_FORWARDED_FOR', '').split(',')[0].strip()
+    return forwarded or request.META.get('HTTP_X_REAL_IP') or request.META.get('REMOTE_ADDR', '')
+
+
 def member_for(request):
     user = getattr(request, 'user', None)
     if user is not None and user.is_authenticated:
@@ -136,7 +154,7 @@ def member_for(request):
     ua = request.META.get('HTTP_USER_AGENT', '')
     if any(marker in ua.lower() for marker in BOT_MARKERS):
         return None
-    ident = '%s|%s' % (request.META.get('REMOTE_ADDR', ''), ua)
+    ident = '%s|%s' % (client_ip(request), ua)
     return 'g%08x' % zlib.crc32(ident.encode('utf-8', 'replace'))
 
 
@@ -147,10 +165,10 @@ def record(request, response):
         if match is None or request.method not in ('GET', 'HEAD', 'POST') or response.status_code >= 400:
             return
         name = match.url_name
-        if name and name.startswith(('quiz_', 'workspace_', 'typing_')) and name != 'typing_records':
-            pass  # polling/API calls of these tools are exactly the activity we want
-        elif (request.method != 'GET' or request.headers.get('x-requested-with') == 'XMLHttpRequest' or
-              not response.get('Content-Type', '').startswith('text/html')):
+        is_page = (request.method == 'GET' and request.headers.get('x-requested-with') != 'XMLHttpRequest' and
+                   response.get('Content-Type', '').startswith('text/html'))
+        tool_call = name and name.startswith(('quiz_', 'workspace_', 'typing_')) and name != 'typing_records'
+        if not (is_page or tool_call):  # polling/API calls of these tools are exactly the activity we want
             return  # AJAX polls of ordinary pages and files say nothing about what the user is looking at
         participation = getattr(request, 'participation', None)
         kind = classify(name, match.kwargs, getattr(request, 'in_contest', False),
@@ -161,9 +179,12 @@ def record(request, response):
         if member is None:
             return
         value = '%d|%s|%s' % (time.time(), kind[0], kind[1])
-        if not cache.add('olonl:%s:%08x' % (member, zlib.crc32(value.split('|', 1)[1].encode())), 1, THROTTLE):
+        # A page view and a tool's background call are throttled apart, so polling cannot swallow the view.
+        mark = '%s|%d' % (value.split('|', 1)[1], is_page)
+        if not cache.add('olonl:%s:%08x' % (member, zlib.crc32(mark.encode())), 1, THROTTLE):
             return
         get_backend().touch(member, value)
+        visit_stats.track(request, member, kind[0], kind[1], is_page)
     except Exception:
         pass
 
@@ -185,61 +206,70 @@ def snapshot(now=None):
     return alive
 
 
-def build_payload():
-    """Aggregate the snapshot into the groups the widget shows. Needs the database for names."""
-    from django.contrib.auth.models import User
+def describer(pairs):
+    """For [(kind, ref)] returns describe(kind, ref) -> (group id, title, url); names are fetched in bulk."""
     from django.urls import reverse
 
     from judge.models import Contest, GameSession, Problem, Quiz
 
-    rows = snapshot()
-    user_ids = [int(m[1:]) for m, _, _ in rows if m[0] == 'u']
-    names = dict(User.objects.filter(id__in=user_ids).values_list('id', 'username'))
+    def refs(kind, prefix=''):
+        return {ref[len(prefix):] for k, ref in pairs if k == kind and ref.startswith(prefix) and ref}
 
-    problem_codes = {ref for _, kind, ref in rows if kind == 'problem'}
-    problem_names = dict(Problem.objects.filter(code__in=problem_codes).values_list('code', 'name'))
-
-    contest_keys = {ref[2:] for _, kind, ref in rows if kind == 'contest' and ref.startswith('k:')}
-    contest_ids = {int(ref[2:]) for _, kind, ref in rows if kind == 'contest' and ref.startswith('i:')}
+    problem_names = dict(Problem.objects.filter(code__in=refs('problem')).values_list('code', 'name')) \
+        if refs('problem') else {}
     contests = {}
-    for key, name in Contest.objects.filter(key__in=contest_keys).values_list('key', 'name'):
-        contests['k:' + key] = (key, name)
-    for cid, key, name in Contest.objects.filter(id__in=contest_ids).values_list('id', 'key', 'name'):
-        contests['i:%d' % cid] = (key, name)
-
-    quiz_keys = {ref[2:] for _, kind, ref in rows if kind == 'quiz' and ref.startswith('k:')}
-    pins = {ref[2:] for _, kind, ref in rows if kind == 'quiz' and ref.startswith('p:')}
+    if refs('contest', 'k:'):
+        for key, name in Contest.objects.filter(key__in=refs('contest', 'k:')).values_list('key', 'name'):
+            contests['k:' + key] = (key, name)
+    if refs('contest', 'i:'):
+        ids = {int(i) for i in refs('contest', 'i:')}
+        for cid, key, name in Contest.objects.filter(id__in=ids).values_list('id', 'key', 'name'):
+            contests['i:%d' % cid] = (key, name)
     quizzes = {}
-    for key, title in Quiz.objects.filter(key__in=quiz_keys).values_list('key', 'title'):
-        quizzes['k:' + key] = (key, title)
-    for pin, key, title in (GameSession.objects.filter(pin__in=pins).order_by('id')
-                            .values_list('pin', 'quiz__key', 'quiz__title')):
-        quizzes['p:' + pin] = (key, title)
+    if refs('quiz', 'k:'):
+        for key, title in Quiz.objects.filter(key__in=refs('quiz', 'k:')).values_list('key', 'title'):
+            quizzes['k:' + key] = (key, title)
+    if refs('quiz', 'p:'):
+        for pin, key, title in (GameSession.objects.filter(pin__in=refs('quiz', 'p:')).order_by('id')
+                                .values_list('pin', 'quiz__key', 'quiz__title')):
+            quizzes['p:' + pin] = (key, title)
+
+    def describe(kind, ref, browse_prefix=True):
+        if kind == 'problem':
+            return (kind, ref), '%s %s' % (_('Problem'), problem_names.get(ref) or ref), \
+                reverse('problem_detail', args=[ref])
+        if kind == 'contest':
+            key, name = contests.get(ref, (None, None))
+            title = '%s: %s' % (_('Contest'), name) if name else _('Contest')
+            return (kind, ref), title, reverse('contest_view', args=[key]) if key else None
+        if kind == 'quiz':
+            key, name = quizzes.get(ref, (None, None))
+            title = '%s: %s' % (_('Quiz'), name) if name else _('Quiz')
+            return (kind, ref), title, reverse('quiz_detail', args=[key]) if key else None
+        if kind == 'compiler':
+            return (kind, ''), _('Compiler'), reverse('workspace')
+        if kind == 'trainer':
+            return (kind, ''), _('Trainer'), reverse('typing')
+        label = _(PAGE_LABELS.get(ref, OTHER_LABEL))
+        title = '%s: %s' % (_('Browsing'), label) if browse_prefix else label
+        return ('browse', label), title, None
+
+    return describe
+
+
+def build_payload():
+    """Aggregate the snapshot into the groups the widget shows. Needs the database for names."""
+    from django.contrib.auth.models import User
+
+    rows = snapshot()
+    user_ids = [int(m[1:]) for m, _kind, _ref in rows if m[0] == 'u']
+    names = dict(User.objects.filter(id__in=user_ids).values_list('id', 'username'))
+    describe = describer([(kind, ref) for _member, kind, ref in rows])
 
     groups = {}
-
-    def group(gid, kind, title, url):
-        return groups.setdefault(gid, {'kind': kind, 'title': title, 'url': url, 'users': [], 'guests': 0})
-
     for member, kind, ref in rows:
-        if kind == 'problem':
-            g = group(('problem', ref), kind, 'Задача %s' % (problem_names.get(ref) or ref),
-                      reverse('problem_detail', args=[ref]))
-        elif kind == 'contest':
-            key, name = contests.get(ref, (None, 'олимпиада'))
-            g = group(('contest', ref), kind, 'Олимпиада: %s' % name,
-                      reverse('contest_view', args=[key]) if key else None)
-        elif kind == 'quiz':
-            key, title = quizzes.get(ref, (None, None))
-            g = group(('quiz', ref), kind, 'Викторина: %s' % title if title else 'Викторина',
-                      reverse('quiz_detail', args=[key]) if key else None)
-        elif kind == 'compiler':
-            g = group(('compiler', ''), kind, 'Компилятор', reverse('workspace'))
-        elif kind == 'trainer':
-            g = group(('trainer', ''), kind, 'Тренажёр', reverse('typing'))
-        else:
-            label = PAGE_LABELS.get(ref, OTHER_LABEL)
-            g = group(('browse', label), kind, 'Просматривают: %s' % label, None)
+        gid, title, url = describe(kind, ref)
+        g = groups.setdefault(gid, {'kind': kind, 'title': title, 'url': url, 'users': [], 'guests': 0})
         if member[0] == 'u':
             g['users'].append(names.get(int(member[1:])) or '?')
         else:
@@ -253,13 +283,14 @@ def build_payload():
         g['users'] = g['users'][:NAMES_PER_GROUP]
         out.append(g)
     out.sort(key=lambda g: (KIND_ORDER[g['kind']], -g['count'], g['title']))
-    total_users = sum(1 for m, _, _ in rows if m[0] == 'u')
+    total_users = sum(1 for m, _kind, _ref in rows if m[0] == 'u')
     return {'total': len(rows), 'users': total_users, 'guests': len(rows) - total_users, 'groups': out}
 
 
 def get_payload():
-    data = cache.get('olonl:payload')
+    key = 'olonl:payload:%s' % translation.get_language()
+    data = cache.get(key)
     if data is None:
         data = build_payload()
-        cache.set('olonl:payload', data, PAYLOAD_TTL)
+        cache.set(key, data, PAYLOAD_TTL)
     return data

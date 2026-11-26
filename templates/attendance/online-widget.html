@@ -1,0 +1,8 @@
+<section id="online-live" class="online-live" data-url="{{ url('online_now') }}" hidden>
+    <div class="online-head">
+        <span class="online-dot"></span><b id="online-total">0</b><span id="online-sub"></span>
+        {% if show_dashboard_link %}<a class="online-stats" href="{{ url('online_dashboard') }}"><i class="fa fa-bar-chart"></i> {{ _('Statistics') }}</a>{% endif %}
+    </div>
+    <div id="online-groups" class="online-groups"></div>
+</section>
+<script src="{{ static('attendance/online-widget.js') }}?v={{ STATIC_VERSION }}" defer></script>

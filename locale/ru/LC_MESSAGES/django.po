@@ -7735,3 +7735,120 @@ msgstr "видео YouTube"
 
 msgid "video start, s"
 msgstr "начало видео, с"
+
+msgid "Attendance"
+msgstr "Посещаемость"
+
+msgid "Visitors"
+msgstr "Посетители"
+
+msgid "Signed in"
+msgstr "С входом"
+
+msgid "Guests"
+msgstr "Гости"
+
+msgid "Page views"
+msgstr "Просмотры страниц"
+
+msgid "Yesterday"
+msgstr "Вчера"
+
+msgid "Peak (5 min)"
+msgstr "Пик (за 5 минут)"
+
+msgid "7 days"
+msgstr "7 дней"
+
+msgid "30 days"
+msgstr "30 дней"
+
+msgid "Registrations"
+msgstr "Регистрации"
+
+msgid "Authors"
+msgstr "Авторы"
+
+msgid "Quiz games"
+msgstr "Игры викторины"
+
+msgid "Typing runs"
+msgstr "Тренажёр: попытки"
+
+msgid "Computer"
+msgstr "Компьютер"
+
+msgid "Phone"
+msgstr "Телефон"
+
+msgid "Tablet"
+msgstr "Планшет"
+
+msgid "Counted since"
+msgstr "Считаем с"
+
+msgid "Updated"
+msgstr "Обновлено"
+
+msgid "No data yet"
+msgstr "Пока нет данных"
+
+msgid "Statistics are unavailable"
+msgstr "Статистика недоступна"
+
+msgid "Tue"
+msgstr "Вт"
+
+msgid "Thu"
+msgstr "Чт"
+
+msgid "Today by hour"
+msgstr "Сегодня по часам"
+
+msgid "Visitors in 30 days"
+msgstr "Посетители за 30 дней"
+
+msgid "Table"
+msgstr "Таблица"
+
+msgid "Busiest hours"
+msgstr "Часы пик"
+
+msgid "average visitors, 4 weeks"
+msgstr "посетителей в среднем за 4 недели"
+
+msgid "Top pages"
+msgstr "Популярные страницы"
+
+msgid "Came from"
+msgstr "Откуда пришли"
+
+msgid "Devices"
+msgstr "Устройства"
+
+msgid "Browsers"
+msgstr "Браузеры"
+
+msgid "Browsing"
+msgstr "Просматривают"
+
+msgid "Other pages"
+msgstr "Другие страницы"
+
+msgid "Profiles"
+msgstr "Профили"
+
+msgid "User guide"
+msgstr "Инструкция"
+
+msgid "Quiz catalog"
+msgstr "Каталог викторин"
+
+msgid "My quizzes"
+msgstr "Мои викторины"
+
+msgid "Join a quiz"
+msgstr "Вход в викторину"
+
+msgid "Sign-in page"
+msgstr "Вход"

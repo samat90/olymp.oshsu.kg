@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block media %}
+    <link rel="stylesheet" href="{{ static('attendance/attendance.css') }}?v={{ STATIC_VERSION }}">
+{% endblock %}
+
+{% block title_ruler %}{% endblock %}
+
+{% block body %}
+<div id="attendance" class="at" data-url="{{ url('online_dashboard_data') }}" data-labels="{{ chart_labels }}">
+    <p class="at-note" id="at-note" aria-live="polite"></p>
+    <div class="at-tiles" id="at-tiles"></div>
+
+    {% include "attendance/online-widget.html" %}
+
+    <section class="at-card">
+        <header><h3>{{ _('Today by hour') }}</h3><div class="at-legend" id="at-hours-legend"></div></header>
+        <div class="at-chart" id="at-hours"></div>
+    </section>
+
+    <section class="at-card">
+        <header><h3>{{ _('Visitors in 30 days') }}</h3><div class="at-legend" id="at-days-legend"></div></header>
+        <div class="at-chart" id="at-days"></div>
+        <details class="at-table">
+            <summary>{{ _('Table') }}</summary>
+            <div class="at-scroll"><table id="at-days-table"></table></div>
+        </details>
+    </section>
+
+    <section class="at-card">
+        <header><h3>{{ _('Busiest hours') }}</h3><span class="at-hint">{{ _('average visitors, 4 weeks') }}</span></header>
+        <div class="at-scroll"><div class="at-heat" id="at-heat"></div></div>
+    </section>
+
+    <div class="at-grid">
+        {% for key, name in [('submissions', _('Submissions')), ('registrations', _('Registrations')), ('quiz_games', _('Quiz games')), ('typing', _('Typing runs'))] %}
+            <section class="at-card">
+                <header><h3>{{ name }}</h3><b class="at-total" id="at-total-{{ key }}"></b></header>
+                <div class="at-chart at-small" id="at-act-{{ key }}"></div>
+            </section>
+        {% endfor %}
+    </div>
+
+    <div class="at-grid">
+        <section class="at-card">
+            <header>
+                <h3>{{ _('Top pages') }}</h3>
+                <div class="at-switch" data-list="pages">
+                    <button type="button" data-period="today" class="active">{{ _('Today') }}</button>
+                    <button type="button" data-period="week">{{ _('7 days') }}</button>
+                </div>
+            </header>
+            <ol class="at-list" id="at-pages"></ol>
+        </section>
+        <section class="at-card">
+            <header>
+                <h3>{{ _('Came from') }}</h3>
+                <div class="at-switch" data-list="sources">
+                    <button type="button" data-period="today" class="active">{{ _('Today') }}</button>
+                    <button type="button" data-period="week">{{ _('7 days') }}</button>
+                </div>
+            </header>
+            <ol class="at-list" id="at-sources"></ol>
+        </section>
+        <section class="at-card">
+            <header><h3>{{ _('Devices') }}</h3><span class="at-hint">{{ _('7 days') }}</span></header>
+            <ol class="at-list" id="at-devices"></ol>
+        </section>
+        <section class="at-card">
+            <header><h3>{{ _('Browsers') }}</h3><span class="at-hint">{{ _('7 days') }}</span></header>
+            <ol class="at-list" id="at-browsers"></ol>
+        </section>
+    </div>
+    <div class="at-tip" id="at-tip" role="status" hidden></div>
+</div>
+<script src="{{ static('attendance/attendance.js') }}?v={{ STATIC_VERSION }}" defer></script>
+{% endblock %}

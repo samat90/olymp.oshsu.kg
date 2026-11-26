@@ -1,0 +1,73 @@
+/* Admins' attendance dashboard. Surfaces and text use the site's --ui-* tokens; two series colours only. */
+.at { position: relative; color: var(--ui-text); --at-users: #2a78d6; --at-guests: #1baf7a; }
+html[data-theme="dark"] .at { --at-users: #3987e5; --at-guests: #199e70; }
+@media (prefers-color-scheme: dark) {
+    html[data-theme="auto"] .at, html:not([data-theme]) .at { --at-users: #3987e5; --at-guests: #199e70; }
+}
+
+.at-note { margin: 0 0 12px; color: var(--ui-muted); font-size: 13px; min-height: 1.2em; }
+.at-tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin-bottom: 14px; }
+.at-tile, .at-card { background: var(--ui-surface); border: 1px solid var(--ui-border); border-radius: var(--ui-radius); box-shadow: var(--ui-shadow); }
+.at-tile { display: flex; flex-direction: column; gap: 2px; padding: 12px 14px; }
+.at-tile:first-child { border-top: 3px solid var(--at-users); }
+.at-tile-title { font-size: 12px; color: var(--ui-muted); }
+.at-tile b { font-size: 28px; line-height: 1.15; }
+.at-tile small { font-size: 12px; color: var(--ui-muted); }
+
+.at-card { padding: 12px 14px; margin-bottom: 14px; min-width: 0; }
+.at-card > header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 12px; margin-bottom: 10px; }
+.at-card h3 { margin: 0; font-size: 15px; }
+.at-hint { font-size: 12px; color: var(--ui-muted); }
+.at-total { font-size: 18px; }
+.at-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 14px; }
+@media (max-width: 1000px) { .at-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 620px) { .at-grid { grid-template-columns: minmax(0, 1fr); } .at-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.at-legend { display: flex; gap: 14px; font-size: 12px; color: var(--ui-muted); }
+.at-legend span { display: inline-flex; align-items: center; gap: 5px; }
+.at-legend i { width: 10px; height: 10px; border-radius: 3px; }
+.at-legend .at-key-mark { height: 2px; border-radius: 0; background: var(--ui-text); }
+.at-users { background: var(--at-users); }
+.at-guests { background: var(--at-guests); }
+
+.at-max { display: block; font-size: 11px; color: var(--ui-muted); margin-bottom: 2px; }
+.at-plot { display: flex; align-items: stretch; gap: 2px; height: 160px; border-top: 1px dashed var(--ui-border); border-bottom: 1px solid var(--ui-border); }
+.at-small .at-plot { height: 80px; }
+.at-col { position: relative; flex: 1 1 0; min-width: 0; }
+.at-col:hover, .at-col:focus-visible { background: var(--ui-surface-2); outline: none; }
+.at-col:focus-visible { box-shadow: 0 0 0 2px var(--ui-accent); }
+.at-stack { position: absolute; inset: 0; display: flex; flex-direction: column-reverse; align-items: center; }
+.at-bar { display: block; flex: none; width: 100%; max-width: 24px; min-height: 2px; }
+.at-bar + .at-bar { margin-bottom: 2px; }
+.at-bar:last-child { border-radius: 4px 4px 0 0; }
+.at-mark { position: absolute; left: 0; right: 0; height: 2px; background: var(--ui-text); opacity: .55; }
+.at-axis { display: flex; gap: 2px; font-size: 11px; color: var(--ui-muted); height: 18px; }
+.at-axis span { flex: 1 1 0; min-width: 0; display: flex; justify-content: center; white-space: nowrap; }
+.at-axis span:last-child { justify-content: flex-end; }
+
+.at-tip { position: absolute; z-index: 5; pointer-events: none; display: flex; flex-direction: column; padding: 6px 10px; border-radius: 8px; background: var(--ui-surface); border: 1px solid var(--ui-border); box-shadow: 0 6px 18px rgba(0, 0, 0, .18); font-size: 12px; white-space: nowrap; }
+.at-tip[hidden] { display: none; }
+
+.at-table { margin-top: 8px; font-size: 13px; }
+.at-table summary { cursor: pointer; color: var(--ui-muted); }
+.at-scroll { overflow-x: auto; }
+.at-table table { width: 100%; border-collapse: collapse; margin-top: 6px; }
+.at-table th, .at-table td { padding: 4px 8px; text-align: right; border-bottom: 1px solid var(--ui-border); font-variant-numeric: tabular-nums; }
+.at-table th:first-child, .at-table td:first-child { text-align: left; }
+
+.at-heat { display: grid; grid-template-columns: 34px repeat(24, minmax(12px, 1fr)); gap: 2px; align-items: center; min-width: 420px; }
+.at-heat-hour, .at-heat-day { font-size: 11px; color: var(--ui-muted); }
+.at-cell { display: block; height: 18px; border-radius: 3px; background: color-mix(in srgb, var(--at-users) var(--level, 0%), var(--ui-surface-2)); }
+.at-cell:hover, .at-cell:focus-visible { outline: 2px solid var(--ui-text); outline-offset: -1px; }
+
+.at-switch { display: inline-flex; border: 1px solid var(--ui-border); border-radius: 8px; overflow: hidden; }
+/* The site styles every button as a filled blue one (white text is !important); these are quiet switches. */
+.at .at-switch button { margin: 0; border: 0; border-radius: 0; box-shadow: none; text-shadow: none; background: transparent; color: var(--ui-muted) !important; padding: 4px 10px; font-size: 12px; font-weight: 400; cursor: pointer; min-height: 28px; }
+.at .at-switch button.active { background: var(--at-users); color: #fff !important; font-weight: 600; }
+.at-list { list-style: none; margin: 0; padding: 0; }
+.at-list li { display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; padding: 5px 0; font-size: 13px; }
+.at-name { min-width: 0; overflow-wrap: anywhere; }
+.at-value { font-variant-numeric: tabular-nums; color: var(--ui-muted); }
+.at-meter { grid-column: 1 / -1; height: 4px; border-radius: 2px; background: var(--at-users); }
+.at-list .at-empty { display: block; color: var(--ui-muted); }
+.at .online-live { margin-bottom: 14px; }

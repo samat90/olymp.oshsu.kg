@@ -350,6 +350,7 @@ footer #footer-content .footer-credit, footer #footer-content .footer-year { fon
 .online-head { display: flex; align-items: baseline; gap: 8px; font-size: 15px; }
 .online-head b { font-size: 20px; }
 .online-head #online-sub { color: var(--ui-muted); font-size: 13px; }
+.online-stats { margin-left: auto; font-size: 13px; white-space: nowrap; }
 .online-dot { width: 9px; height: 9px; border-radius: 50%; background: #22c55e; align-self: center; box-shadow: 0 0 0 3px rgba(34, 197, 94, .2); }
 .online-groups { margin-top: 8px; max-height: 320px; overflow-y: auto; display: grid; gap: 6px; }
 .online-group { padding: 8px 10px; background: var(--ui-surface-2); border-radius: 8px; border-left: 3px solid var(--ui-accent); }
@@ -363,4 +364,4 @@ footer #footer-content .footer-credit, footer #footer-content .footer-year { fon
 .online-names { display: flex; flex-wrap: wrap; gap: 4px 6px; margin-top: 4px; font-size: 13px; }
 .online-name { padding: 1px 7px; border-radius: 10px; background: var(--ui-surface); border: 1px solid var(--ui-border); }
 .online-guest { color: var(--ui-muted); }
-.online-more { padding: 1px 8px; border-radius: 10px; border: 1px solid var(--ui-border); background: transparent; color: var(--ui-accent); cursor: pointer; font-size: 13px; min-height: 24px; }
+.online-more { padding: 1px 8px; border-radius: 10px; border: 1px solid var(--ui-border); background: transparent; color: var(--ui-accent) !important; cursor: pointer; font-size: 13px; min-height: 24px; }

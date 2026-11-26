@@ -19,7 +19,7 @@ from judge.views import about, anticheat, contest_tools, course as course_views,
 from judge.views.default_avatar import default_avatar
 from judge.views.deploy_status import deploy_status
 from judge.views.generate_users import GenerateUsersView
-from judge.views.online import online_now
+from judge.views.online import online_dashboard, online_dashboard_data, online_now
 from judge.views.problem_import import import_problem
 from judge.views.problem_data import ProblemDataView, ProblemSubmissionDiff, \
     problem_data_file, problem_init_view
@@ -109,6 +109,8 @@ urlpatterns = [
     path(f'{settings.ADMIN_URL_PREFIX}/generate-users/', GenerateUsersView.as_view(), name='admin_generate_users'),
     path(f'{settings.ADMIN_URL_PREFIX}/import-problem/', import_problem, name='admin_import_problem'),
     path(f'{settings.ADMIN_URL_PREFIX}/deploy-status/', deploy_status, name='admin_deploy_status'),
+    path(f'{settings.ADMIN_URL_PREFIX}/attendance/', online_dashboard, name='online_dashboard'),
+    path(f'{settings.ADMIN_URL_PREFIX}/attendance/data.json', online_dashboard_data, name='online_dashboard_data'),
     path(f'{settings.ADMIN_URL_PREFIX}/', admin.site.urls),
     path('i18n/', include('django.conf.urls.i18n')),
     path('accounts/', include(register_patterns)),

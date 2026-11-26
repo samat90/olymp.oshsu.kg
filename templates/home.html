@@ -31,62 +31,9 @@
         </div>
     </section>
     {% if request.user.is_authenticated and (request.user.is_superuser or request.user.is_staff) %}
-        <section id="online-live" class="online-live" data-url="{{ url('online_now') }}" hidden>
-            <div class="online-head"><span class="online-dot"></span><b id="online-total">0</b><span id="online-sub"></span></div>
-            <div id="online-groups" class="online-groups"></div>
-        </section>
-        <script>
-        (function () {
-            var box = document.getElementById('online-live'), groups = document.getElementById('online-groups');
-            var total = document.getElementById('online-total'), sub = document.getElementById('online-sub');
-            var open = {}, busy = false, SHOW = 6;
-            function el(tag, cls, text) {
-                var e = document.createElement(tag);
-                if (cls) e.className = cls;
-                if (text !== undefined) e.textContent = text;
-                return e;
-            }
-            function render(d) {
-                total.textContent = d.total;
-                sub.textContent = d.users + ' + ' + d.guests;
-                groups.textContent = '';
-                d.groups.forEach(function (g) {
-                    var row = el('div', 'online-group online-' + g.kind), head = el('div', 'online-ghead');
-                    var title = g.url ? el('a', 'online-title', g.title) : el('span', 'online-title', g.title);
-                    if (g.url) title.href = g.url;
-                    head.appendChild(title);
-                    head.appendChild(el('span', 'online-count', g.count));
-                    row.appendChild(head);
-                    var names = g.users, list = el('div', 'online-names'), key = g.title;
-                    var shown = open[key] ? names : names.slice(0, SHOW);
-                    shown.forEach(function (n) { list.appendChild(el('span', 'online-name', n)); });
-                    if (g.guests) list.appendChild(el('span', 'online-name online-guest', '+' + g.guests));
-                    var hidden = names.length - shown.length + (open[key] ? g.more : 0);
-                    if (hidden > 0) {
-                        var more = el('button', 'online-more', '+' + hidden);
-                        more.type = 'button';
-                        more.onclick = function () { open[key] = !open[key]; render(d); };
-                        list.appendChild(more);
-                    }
-                    row.appendChild(list);
-                    groups.appendChild(row);
-                });
-                box.hidden = false;
-            }
-            function poll() {
-                if (busy || document.visibilityState !== 'visible') return;
-                busy = true;
-                fetch(box.dataset.url, {credentials: 'same-origin', headers: {'X-Requested-With': 'XMLHttpRequest'}})
-                    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-                    .then(render)
-                    .catch(function () {})
-                    .then(function () { busy = false; });
-            }
-            document.addEventListener('visibilitychange', poll);
-            setInterval(poll, 10000);
-            poll();
-        })();
-        </script>
+        {% with show_dashboard_link = true %}
+            {% include "attendance/online-widget.html" %}
+        {% endwith %}
     {% endif %}
     {% if misc_config.home_page_top %}
         {{ render_django(misc_config.home_page_top, request=request, user_count=user_count, problem_count=problem_count, submission_count=submission_count, language_count=language_count, perms=perms) }}

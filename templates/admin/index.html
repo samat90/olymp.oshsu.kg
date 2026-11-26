@@ -17,6 +17,10 @@
 
 <div class="oa-grid">
     <div class="oa-card">
+        <h3>{% trans "Посещаемость" %}</h3>
+        <a class="oa-main" href="{% url 'online_dashboard' %}">📈 {% trans "Статистика посещений" %}</a>
+    </div>
+    <div class="oa-card">
         <h3>{% trans "Олимпиады" %}</h3>
         <a class="oa-main" href="{% url 'admin:judge_contest_add' %}">+ {% trans "Создать олимпиаду" %}</a>
         <a class="oa-link" href="{% url 'admin:judge_contest_changelist' %}">{% trans "Все олимпиады" %}</a>

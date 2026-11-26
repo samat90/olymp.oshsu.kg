@@ -4854,3 +4854,132 @@ msgstr "YouTube видеосу"
 
 msgid "video start, s"
 msgstr "видеонун башталышы, с"
+
+msgid "Attendance"
+msgstr "Катышуу"
+
+msgid "Visitors"
+msgstr "Келүүчүлөр"
+
+msgid "Signed in"
+msgstr "Кирген"
+
+msgid "Guests"
+msgstr "Коноктор"
+
+msgid "Page views"
+msgstr "Баракча көрүүлөр"
+
+msgid "Peak (5 min)"
+msgstr "Эң жогорку чек (5 мүнөттө)"
+
+msgid "7 days"
+msgstr "7 күн"
+
+msgid "30 days"
+msgstr "30 күн"
+
+msgid "Registrations"
+msgstr "Катталуулар"
+
+msgid "Quiz games"
+msgstr "Викторина оюндары"
+
+msgid "Typing runs"
+msgstr "Тренажёр: аракеттер"
+
+msgid "Computer"
+msgstr "Компьютер"
+
+msgid "Phone"
+msgstr "Телефон"
+
+msgid "Tablet"
+msgstr "Планшет"
+
+msgid "Other"
+msgstr "Башка"
+
+msgid "Counted since"
+msgstr "Эсептөө башталган күн"
+
+msgid "No data yet"
+msgstr "Азырынча маалымат жок"
+
+msgid "Statistics are unavailable"
+msgstr "Статистика жеткиликсиз"
+
+msgid "Mon"
+msgstr "Дш"
+
+msgid "Tue"
+msgstr "Шш"
+
+msgid "Wed"
+msgstr "Шр"
+
+msgid "Thu"
+msgstr "Бш"
+
+msgid "Fri"
+msgstr "Жм"
+
+msgid "Sat"
+msgstr "Иш"
+
+msgid "Sun"
+msgstr "Жк"
+
+msgid "Today by hour"
+msgstr "Бүгүн саат боюнча"
+
+msgid "Visitors in 30 days"
+msgstr "30 күндөгү келүүчүлөр"
+
+msgid "Table"
+msgstr "Таблица"
+
+msgid "Busiest hours"
+msgstr "Эң жүктөлгөн сааттар"
+
+msgid "average visitors, 4 weeks"
+msgstr "4 жумадагы орточо келүүчүлөр"
+
+msgid "Top pages"
+msgstr "Көп ачылган баракчалар"
+
+msgid "Came from"
+msgstr "Кайдан келишти"
+
+msgid "Devices"
+msgstr "Түзмөктөр"
+
+msgid "Browsers"
+msgstr "Браузерлер"
+
+msgid "Browsing"
+msgstr "Карап жатышат"
+
+msgid "Other pages"
+msgstr "Башка баракчалар"
+
+msgid "Leaderboard"
+msgstr "Рейтинг"
+
+msgid "Profiles"
+msgstr "Профилдер"
+
+msgid "User guide"
+msgstr "Колдонмо"
+
+msgid "Quiz catalog"
+msgstr "Викториналар каталогу"
+
+msgid "My quizzes"
+msgstr "Менин викториналарым"
+
+msgid "Join a quiz"
+msgstr "Викторинага кирүү"
+
+msgid "Sign-in page"
+msgstr "Кирүү"
