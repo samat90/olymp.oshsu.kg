@@ -3,6 +3,9 @@ from django.urls import reverse
 from django.utils.html import format_html
 from django.utils.translation import gettext_lazy as _
 
+from judge.models import TypingResult
+from judge.views.typing import clear_records_cache
+
 
 class WorkspaceFileAdmin(admin.ModelAdmin):
     """Compiler projects and files of every user, read-only: for checking a student's work."""
@@ -62,14 +65,34 @@ class WorkspaceFileAdmin(admin.ModelAdmin):
 
 
 class TypingResultAdmin(admin.ModelAdmin):
-    list_display = ('user', 'mode', 'layout', 'lesson', 'cpm', 'accuracy', 'seconds', 'created')
-    list_filter = ('mode', 'layout')
+    list_display = ('user', 'mode', 'layout', 'lesson', 'cpm', 'accuracy', 'seconds', 'checked', 'created')
+    list_filter = ('checked', 'mode', 'layout')
     search_fields = ('user__user__username',)
     list_select_related = ('user__user',)
     date_hierarchy = 'created'
+    actions = ('exclude_from_records', 'return_to_records')
 
     def has_add_permission(self, request):
         return False
 
     def has_change_permission(self, request, obj=None):
         return False
+
+    # A dishonest result is not deleted: without `checked` it leaves the records and levels and can come back.
+    @admin.action(description=_('Remove from records (the result is kept)'), permissions=['delete'])
+    def exclude_from_records(self, request, queryset):
+        self._set_checked(request, queryset, False)
+
+    @admin.action(description=_('Return to records'), permissions=['delete'])
+    def return_to_records(self, request, queryset):
+        self._set_checked(request, queryset, True)
+
+    def _set_checked(self, request, queryset, checked):
+        results = list(queryset.exclude(checked=checked).select_related('user__user'))
+        TypingResult.objects.filter(pk__in=[r.pk for r in results]).update(checked=checked)
+        for result in results:
+            self.log_change(request, result, '%s: %s, %s %s, %s cpm, %s%%, checked=%s' % (
+                'returned to records' if checked else 'removed from records', result.user.user.username,
+                result.mode, result.layout, result.cpm, result.accuracy, checked))
+        clear_records_cache()
+        self.message_user(request, _('Results changed: %d') % len(results))

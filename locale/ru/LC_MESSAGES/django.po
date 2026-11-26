@@ -7699,3 +7699,12 @@ msgstr "открыт"
 
 msgid "instructor (printed on the certificate)"
 msgstr "ФИО преподавателя (печатается в сертификате)"
+
+msgid "Remove from records (the result is kept)"
+msgstr "Убрать из рекордов (результат сохраняется)"
+
+msgid "Return to records"
+msgstr "Вернуть в рекорды"
+
+msgid "Results changed: %d"
+msgstr "Изменено результатов: %d"

@@ -90,12 +90,21 @@ def trainer(request):
     })
 
 
+def records_cache_key(mode, layout, period):
+    return 'typing-records2:%s:%s:%s' % (mode, layout, period)
+
+
+def clear_records_cache():
+    cache.delete_many([records_cache_key(mode, layout, period)
+                       for mode in MODES for layout in LAYOUTS for period in PERIODS])
+
+
 def records(request):
     mode = request.GET.get('mode') if request.GET.get('mode') in (TypingResult.TEST, TypingResult.CODE) \
         else TypingResult.TEST
     layout = request.GET.get('layout') if request.GET.get('layout') in LAYOUTS else 'ru'
     period = request.GET.get('period') if request.GET.get('period') in PERIODS else 'week'
-    key = 'typing-records2:%s:%s:%s' % (mode, layout, period)
+    key = records_cache_key(mode, layout, period)
     rows = cache.get(key)
     if rows is None:
         rows = best_results(mode, layout, period)

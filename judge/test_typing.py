@@ -1,6 +1,7 @@
 import json
 import random
 
+from django.contrib.admin.models import LogEntry
 from django.core.cache import cache
 from django.test import TestCase
 from django.urls import reverse
@@ -100,6 +101,44 @@ class TypingTrainerTest(TestCase):
         self.assertContains(page, '<b>400</b>')
         self.assertNotContains(page, '<b>250</b>')
         self.assertNotContains(page, '<b>900</b>')
+
+    def admin_action(self, action, *results):
+        url = reverse('admin:judge_typingresult_changelist')
+        return self.client.post(url, {'action': action, '_selected_action': [r.pk for r in results]})
+
+    def test_admin_removes_a_result_from_records_without_deleting_it(self):
+        self.client.login(username='typist', password='typing-pass-1')
+        self.save(chars=250)
+        self.save(chars=900)
+        cheat = TypingResult.objects.get(cpm=900)
+        records = reverse('typing_records') + '?mode=test&layout=ru&period=all'
+        self.assertContains(self.client.get(records), '<b>900</b>')          # now in the cached table
+
+        self.client.force_login(create_user(username='boss', is_staff=True, is_superuser=True))
+        self.assertEqual(self.admin_action('exclude_from_records', cheat).status_code, 302)
+
+        cheat.refresh_from_db()
+        self.assertFalse(cheat.checked)
+        self.assertEqual(TypingResult.objects.count(), 2)
+        page = self.client.get(records)                                      # the cache was dropped
+        self.assertContains(page, '<b>250</b>')
+        self.assertNotContains(page, '<b>900</b>')
+        entry = LogEntry.objects.get(object_id=str(cheat.pk))
+        self.assertIn('900', entry.get_change_message())
+
+        self.assertEqual(self.admin_action('return_to_records', cheat).status_code, 302)
+        cheat.refresh_from_db()
+        self.assertTrue(cheat.checked)
+        self.assertContains(self.client.get(records), '<b>900</b>')
+
+    def test_view_only_staff_cannot_change_records(self):
+        result = TypingResult.objects.create(user=self.user.profile, mode='test', layout='ru', seconds=60,
+                                             chars=300, errors=0, cpm=300, accuracy=100, checked=True)
+        viewer = create_user(username='viewer', is_staff=True, user_permissions=('view_typingresult',))
+        self.client.force_login(viewer)
+        self.admin_action('exclude_from_records', result)
+        result.refresh_from_db()
+        self.assertTrue(result.checked)
 
     def test_levels(self):
         self.assertEqual(level_info(0)['level'], 1)

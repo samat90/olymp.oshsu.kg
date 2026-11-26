@@ -4734,3 +4734,12 @@ msgstr "Шарттар"
 
 msgid "Privacy"
 msgstr "Купуялуулук"
+
+msgid "Remove from records (the result is kept)"
+msgstr "Рекорддордон алып салуу (жыйынтык сакталат)"
+
+msgid "Return to records"
+msgstr "Рекорддорго кайтаруу"
+
+msgid "Results changed: %d"
+msgstr "Өзгөртүлгөн жыйынтыктар: %d"
