@@ -86,8 +86,9 @@ run_daily() { # run_daily <stamp> ; extra settings come from the environment
 fresh() { # a daily folder with three old good copies and a few files that must never be touched
     rm -rf "$W/app" "$W/olymp"
     D=$W/olymp/daily
-    mkdir -p "$D" "$W/app/problems/aplusb" "$W/olymp/20261021-preolymp" "$W/olymp/20261126-premaint"
+    mkdir -p "$D" "$W/app/problems/aplusb" "$W/app/media/avatars" "$W/olymp/20261021-preolymp" "$W/olymp/20261126-premaint"
     echo tests > "$W/app/problems/aplusb/tests.zip"
+    echo picture > "$W/app/media/avatars/1.jpg"
     printf 'REDIS0011data' > "$W/dump.rdb"
     echo keep > "$W/olymp/20261021-preolymp/database.dump"
     echo keep > "$W/olymp/20261126-premaint/db-20261126-0519.dump"
@@ -95,6 +96,7 @@ fresh() { # a daily folder with three old good copies and a few files that must 
     for day in 20261101 20261102 20261103; do
         { printf 'PGDMP'; head -c 5000 /dev/zero; } > "$D/db-$day-0330.dump"
         echo old > "$D/problems-$day-0330.tgz"
+        echo old > "$D/media-$day-0330.tgz"
         echo old > "$D/redis-$day-0330.rdb"
     done
     echo mine > "$D/db-before-import.dump"
@@ -111,7 +113,7 @@ no_parts() { [ -z "$(find "$D" -name '*.part')" ]; }
 echo "daily: success keeps only the new copy"
 fresh
 check "exit status 0" run_daily 20261104-0330
-check_is "files" "$(files)" "$KEPT db-20261104-0330.dump db-before-import.dump problems-20261104-0330.tgz redis-20261104-0330.rdb redis-visit-keys "
+check_is "files" "$(files)" "$KEPT db-20261104-0330.dump db-before-import.dump media-20261104-0330.tgz problems-20261104-0330.tgz redis-20261104-0330.rdb redis-visit-keys "
 check "manual copies untouched" manual_untouched
 check "problem archive is readable" tar -tzf "$D/problems-20261104-0330.tgz"
 
@@ -127,7 +129,7 @@ for mode in fail empty broken notables; do
     export FAKE_DUMP=$mode
     run_daily 20261104-0330; check_is "exit status" "$?" 1
     unset FAKE_DUMP
-    check_is "files" "$(files)" "$OLD_DB $KEPT db-20261103-0330.dump db-before-import.dump problems-20261104-0330.tgz redis-20261104-0330.rdb redis-visit-keys "
+    check_is "files" "$(files)" "$OLD_DB $KEPT db-20261103-0330.dump db-before-import.dump media-20261104-0330.tgz problems-20261104-0330.tgz redis-20261104-0330.rdb redis-visit-keys "
     check "error in the log" grep -q 'ERROR: database' "$W/log"
     check "no .part left" no_parts
 done
@@ -203,6 +205,7 @@ run_daily 20261104-0330; check_is "exit status" "$?" 1
 unset FAKE_SYNC
 check_is "database copies" "$(find "$D" -name 'db-2026????-????.dump' | wc -l)" 4
 check_is "problem archives" "$(find "$D" -name 'problems-*' | wc -l)" 4
+check_is "media archives" "$(find "$D" -name 'media-*' | wc -l)" 4
 check_is "Redis copies" "$(find "$D" -name 'redis-2*.rdb' | wc -l)" 4
 
 echo "daily: with a shrunken dump the latest good copy is kept, not only the biggest"
@@ -212,6 +215,43 @@ export FAKE_DUMP=small
 run_daily 20261104-0330
 unset FAKE_DUMP
 check_is "database copies" "$(names 'db-2026????-????.dump')" "db-20261103-0330.dump db-20261104-0330.dump "
+
+echo "daily: uploaded files are in the copy, unchanged ones are stored once"
+fresh
+check "exit status 0" run_daily 20261104-0330
+check "the picture is in the archive" bash -c "tar -tzf '$D/media-20261104-0330.tgz' | grep -qx media/avatars/1.jpg"
+inode=$(stat -c %i "$D/media-20261104-0330.tgz")
+run_daily 20261105-0330; check_is "exit status" "$?" 0
+check_is "same inode" "$(stat -c %i "$D/media-20261105-0330.tgz")" "$inode"
+check_is "one media archive" "$(names 'media-*')" "media-20261105-0330.tgz "
+
+echo "daily: media that lost most of its content does not replace the full archive"
+fresh
+head -c 200000 /dev/urandom > "$W/app/media/big.bin"
+run_daily 20261104-0330
+rm "$W/app/media/big.bin"
+run_daily 20261105-0330; check_is "exit status" "$?" 1
+run_daily 20261106-0330; check_is "exit status next day" "$?" 1
+check_is "full and newest" "$(names 'media-*')" "media-20261104-0330.tgz media-20261106-0330.tgz "
+OLYMP_ACCEPT_SHRINK=1 run_daily 20261107-0330; check_is "accepted by hand" "$?" 0
+check_is "only the newest" "$(names 'media-*')" "media-20261107-0330.tgz "
+
+echo "daily: an emptied or missing media folder keeps the old archives"
+for gone in "$W/app/media/avatars" "$W/app/media"; do
+    fresh
+    rm -rf "$gone"
+    run_daily 20261104-0330; check_is "exit status" "$?" 1
+    check_is "old media archives kept" "$(find "$D" -name 'media-*' | wc -l)" 3
+    check "error in the log" grep -q 'ERROR: media' "$W/log"
+    check_is "database still rotated" "$(names 'db-2026????-????.dump')" "db-20261104-0330.dump "
+done
+
+echo "daily: a site without uploaded files is not an error"
+fresh
+rm -rf "$W/app/media/avatars" "$D"/media-*
+run_daily 20261104-0330; check_is "exit status" "$?" 0
+check_is "no media archive" "$(names 'media-*')" ""
+check "no .part left" no_parts
 
 # --- deploy backups ----------------------------------------------------------------------------
 deploy_fresh() {

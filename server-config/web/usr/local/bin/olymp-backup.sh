@@ -1,16 +1,18 @@
 #!/bin/bash
-# Daily backup of olymp.oshsu.kg: the database, the problem data and Redis (visit statistics live only there).
+# Daily backup of olymp.oshsu.kg: the database, the problem data, the files uploaded through the site (media/)
+# and Redis (visit statistics live only there).
 # Only the latest good copy of each stays on the server.
 #
 # A new copy is written to a *.part file and checked. It gets its final name only when the check passes, and
 # only when it is on the disk are the older copies of that kind removed. When a new copy has lost much of
 # its content (see "shrunk" below), the last good one stays beside it. When making or checking a copy
 # fails, the older one stays, the log gets an "ERROR:" line and the script exits with 1. Only files named exactly
-# db-YYYYMMDD-HHMM.dump, problems-YYYYMMDD-HHMM.tgz and redis-YYYYMMDD-HHMM.rdb are ever removed; copies
+# db-YYYYMMDD-HHMM.dump, problems-YYYYMMDD-HHMM.tgz, media-YYYYMMDD-HHMM.tgz and redis-YYYYMMDD-HHMM.rdb
+# are ever removed; copies
 # made by hand live in other folders or under other names.
 #
 # Nothing here repeats what is in git or can be rebuilt (code, static files, packages, caches): the copy is
-# the database dump, problems/ and the Redis file. Restore: docs/OBSLUZHIVANIE-2026-11.md.
+# the database dump, problems/, media/ and the Redis file. Restore: docs/OBSLUZHIVANIE-2026-11.md.
 set -uo pipefail
 shopt -s nullglob
 umask 077
@@ -107,39 +109,47 @@ backup_database() {
     save_sized database db dump "$part" "$new"
 }
 
-backup_problems() {
-    local new=$D/problems-$T.tgz part=$D/problems-$T.tgz.part expected list found previous
-    if [ -L "$APP/problems" ]; then
-        error "problems: $APP/problems is a link, only the link would be saved; the older copy is kept"; return
+# backup_folder NAME [may-be-empty]: archives $APP/NAME as NAME-<stamp>.tgz. With "may-be-empty" a folder
+# without files is fine as long as there is no older archive that it would replace.
+backup_folder() {
+    local name=$1 empty=${2:-} new=$D/$1-$T.tgz part=$D/$1-$T.tgz.part expected list found previous
+    if [ -L "$APP/$name" ]; then
+        error "$name: $APP/$name is a link, only the link would be saved; the older copy is kept"; return
     fi
-    expected=$(find "$APP/problems" ! -type d 2>/dev/null | wc -l)
+    expected=$(find "$APP/$name" ! -type d 2>/dev/null | wc -l)
     if [ "$expected" -eq 0 ]; then
-        error "problems: no files in $APP/problems, the older copy is kept"; return
+        copies "$name" tgz
+        if [ "$empty" = may-be-empty ] && [ ${#COPIES[@]} -eq 0 ]; then
+            log "$name: no files in $APP/$name, nothing to copy"
+        else
+            error "$name: no files in $APP/$name, the older copy is kept"
+        fi
+        return
     fi
-    if ! tar --sort=name -czf "$part" -C "$APP" problems; then
-        rm -f "$part"; error "problems: tar failed, the older copy is kept"; return
+    if ! tar --sort=name -czf "$part" -C "$APP" "$name"; then
+        rm -f "$part"; error "$name: tar failed, the older copy is kept"; return
     fi
     # Listing the whole archive unpacks all of it, so a damaged file does not pass.
     if ! list=$(tar -tzf "$part"); then
-        rm -f "$part"; error "problems: the new archive cannot be read, the older copy is kept"; return
+        rm -f "$part"; error "$name: the new archive cannot be read, the older copy is kept"; return
     fi
     found=$(grep -vc '/$' <<< "$list")
     if [ "$found" -lt "$expected" ]; then
-        rm -f "$part"; error "problems: the archive has $found files of $expected, the older copy is kept"; return
+        rm -f "$part"; error "$name: the archive has $found files of $expected, the older copy is kept"; return
     fi
 
-    # Problem data rarely changes: an archive equal to the previous one becomes a second name of the same
-    # file, so the 1.6 GB are never stored twice. The older name is removed right after.
-    copies problems tgz
+    # These files rarely change: an archive equal to the previous one becomes a second name of the same
+    # file, so the 1.6 GB of tests are never stored twice. The older name is removed right after.
+    copies "$name" tgz
     previous=
     [ ${#COPIES[@]} -gt 0 ] && previous=${COPIES[${#COPIES[@]} - 1]}
     if [ -n "$previous" ] && [ "$previous" != "$new" ] && cmp -s "$previous" "$part" &&
             ln "$previous" "$part.link" 2>/dev/null; then
         mv -f "$part.link" "$part"
     fi
-    log "problems: $found files in the new archive"
+    log "$name: $found files in the new archive"
     # The file time is the time of this backup: the copy on the judge is removed by age.
-    save_sized problems problems tgz "$part" "$new" && touch "$new"
+    save_sized "$name" "$name" tgz "$part" "$new" && touch "$new"
 }
 
 # visit_keys: how many visit statistics keys (judge/utils/visit_stats.py) Redis holds, in any database.
@@ -192,11 +202,12 @@ if command -v flock > /dev/null; then
     exec 9< "$D"
     flock -n 9 || { log "another backup is running"; exit 1; }
 fi
-rm -f -- "$D"/db-*.dump.part "$D"/problems-*.tgz.part "$D"/problems-*.tgz.part.link "$D"/redis-*.rdb.part   # interrupted runs
+rm -f -- "$D"/db-*.dump.part "$D"/{problems,media}-*.tgz.part{,.link} "$D"/redis-*.rdb.part   # interrupted runs
 
 # Independent of each other: a problem with one kind does not stop the others.
 backup_database
-backup_problems
+backup_folder problems
+backup_folder media may-be-empty
 backup_redis
 
 if [ "$status" = 0 ]; then log "done"; else log "finished with errors"; fi
